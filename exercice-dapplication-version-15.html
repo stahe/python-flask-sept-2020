@@ -1,0 +1,2882 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction au langage Python 3 et au framework web Flask par l'exemple">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/exercice-dapplication-version-15.html">
+      
+      
+        <link rel="prev" href="exercice-dapplication-version-14.html">
+      
+      
+        <link rel="next" href="exercice-dapplication-version-16.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>35. Exercice d’application : version 15 - Introduction au langage Python 3 et au framework web Flask par l'exemple</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#35-exercice-dapplication-version-15" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction au langage Python 3 et au framework web Flask par l'exemple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              35. Exercice d’application : version 15
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction au langage Python 3 et au framework web Flask par l'exemple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="avant-propos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Avant-propos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation d&#x27;un environnement de travail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-bases-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Les bases de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-chaines-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les chaînes de caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-exceptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Les exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fonctions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fichiers-texte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les fichiers texte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercice d&#x27;application – version 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-imports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Les imports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercice d’application : version 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercice d’application : version 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-et-objets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Les classes et objets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-generiques-baseentity-et-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les classes génériques [BaseEntity] et [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-programmation-par-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Architecture en couches et programmation par interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercice d&#x27;application - version 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilisation du SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilisation du SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ecrire-du-code-independant-du-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Ecrire du code indépendant du SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-de-lorm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilisation de l’ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercice d&#x27;application : version 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fonctions-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Fonctions internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="services-web-avec-le-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Services web avec le framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercice d’application : version 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercice d’application : version 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Exercice d’application : version 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="du-dictionnaire-a-xml-et-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Du dictionnaire à XML et vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercice d’application : version 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercice d’application : version 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercice d’application : version 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercice d’application : version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clients-web-pour-les-services-json-et-xml-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clients web pour les services jSON et XML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-mode-html-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Le mode HTML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercice d’application : version 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercice d’application : version 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercice d’application : version 15
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="exercice-dapplication-version-15.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercice d’application : version 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#351-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.1. Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#352-implementation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2. Implémentation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="35.2. Implémentation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#3521-les-nouvelles-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2.1. Les nouvelles routes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3522-les-nouveaux-controleurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2.2. Les nouveaux contrôleurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3523-la-nouvelle-configuration-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2.3. La nouvelle configuration MVC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3524-les-nouveaux-modeles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2.4. Les nouveaux modèles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3525-le-nouveau-controleur-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2.5. Le nouveau contrôleur principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3526-la-nouvelle-reponse-html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.2.6. La nouvelle réponse HTML
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#353-tests" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        35.3. Tests
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercice d’application : version 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercice d’application : version 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-18.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercice d’application : version 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="35-exercice-dapplication-version-15">35. Exercice d’application : version 15</h1>
+<h2 id="351-introduction">35.1. Introduction</h2>
+<p>Cette version vise à résoudre des problèmes liés au rafraîchissement des pages de l’application dans le navigateur (F5). Prenons un exemple. L’utilisateur vient de suprimer la simulation d’id=3 :</p>
+<p><img src="images/10000000000005BF0000026D6053DA9E.png" style="width:16.971cm;height:7.171cm;" alt="Image" /></p>
+<p>Après la suppression l’URL dans le navigateur est <strong>[/supprimer-simulation/3/…]</strong>. Si l’utilisateur rafraîchit la page (F5), l’URL <strong>[1]</strong> est rejouée. On demande donc de nouveau la suppression de la simulation d’id=3. Le résultat est alors le suivant :</p>
+<p><img src="images/10000000000004710000022510AE0224.png" style="width:13.14cm;height:6.34cm;" alt="Image" /></p>
+<p>Voici un autre exemple. L’utilisateur vient de calculer un impôt :</p>
+<ul>
+<li>en <strong>[1]</strong>, l’URL <strong>[/calculer-impot]</strong> qui vient d’être interrogée avec un POST ;</li>
+</ul>
+<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" /></p>
+<p>Si l’utilisateur rafraîchit la page (F5), il obtient un message d’avertissement :</p>
+<p><img src="images/10000000000002D40000011C5B0E676C.png" style="width:8.351cm;height:3.282cm;" alt="Image" /></p>
+<p>L’opération de rafraîchissement de page rejoue la dernière requête exécutée par le navigateur, ici un <strong>[POST /calculer-impot]</strong>. Lorsqu’on demande à rejouer un POST, les navigateurs émettent un avertissement analogue à celui ci-dessus. Celui-ci avertit qu’il est en train de rejouer une action déjà faite. Supposons que ce POST ait effectué un achat, il serait malheureux de refaire celui-ci.</p>
+<p>Par ailleurs, nous allons limiter la possibilité de l’utilisateur de taper des URL dans son navigateur. Prenons par exemple l’une des vues précédentes :</p>
+<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" /></p>
+<p>Les liens offerts par cette page sont :</p>
+<ul>
+<li><strong>[Liste des simulations]</strong> associé à l’URL <strong>[/lister-simulations]</strong> ;</li>
+<li><strong>[Fin de session]</strong> associé à l’URL <strong>[/fin-session]</strong> ;</li>
+<li><strong>[Valider]</strong> associé à l’URL (on ne la voit pas ci-dessus) <strong>[/calculer-impot]</strong> ;
+Lorsque la vue du calcul de l’impôt sera affichée, nous n’accepterons que les actions <strong>[/lister-simulations, /fin-session, /calculer-impot]</strong>. Si l’utilisateur tape une autre action dans son navigateur, une erreur sera déclarée. On fera ce type de vérification pour les quatre vues de l’application.</li>
+</ul>
+<p>Nous nous proposons de résoudre le problème du rafraîchissement des pages de la façon suivante :</p>
+<ul>
+<li>nous allons distinguer deux types d’actions :</li>
+<li>les actions ADS (Action Do Something) modifiant l’état de l’application. Les actions ADS ont en général des paramètres dans l’URL ou le corps de la requête ;</li>
+<li>les actions ASV (Action Show View) affichant une vue sans modifier l’état de l’application. Il y aura autant d’actions ASV que de vues V. Les actions ASV n’ont aucun paramètre ;</li>
+<li>les actions ADS jusqu’à maintenant s’exécutaient puis se terminaient par l’affichage d’une vue V après avoir préparé le modèle M de celle-ci. Désormais, elles mettront le modèle M de la vue en session et demanderont au navigateur de se rediriger vers l’action ASV chargée d’afficher la vue V ;</li>
+<li>les vues V ne seront affichées qu’à l’issue d’une action ASV. Elles prendront leur modèle dans la session ;
+L’intérêt de cette méthode est que le navigateur affichera l’URL ASV dans son champ d’adresse. Le rafraîchissement de la page rejouera alors l’action ASV. Celle-ci ne modifie pas l’état de l’application et utilise un modèle en session. Donc la même page sera réaffichée sans effets de bord. Finalement, à cause des redirections, l’utilisateur ne verra que des URL d’actions ASV dans son navigateur et aura l’impression de naviguer de page en page ;</li>
+</ul>
+<h2 id="352-implementation">35.2. Implémentation</h2>
+<p>Le dossier <strong>[impots/http-servers/10]</strong> est obtenu initialement par recopie du dossier <strong>[impots/http-servers/09]</strong>. Il est ensuite modifié.</p>
+<h3 id="3521-les-nouvelles-routes">35.2.1. Les nouvelles routes</h3>
+<p><img src="images/100000000000019B000001C6F398E1E6.png" style="width:4.751cm;height:5.25cm;" alt="Image" /></p>
+<p>Dans les deux fichiers <strong>[routes_with_csrftoken]</strong> et <strong>[routes_without_csrftoken]</strong>, il nous faut créer les quatre routes des quatre actions ASV qui affichent les quatre vues. Les autres routes restent à l’identique.</p>
+<p>Dans <strong>[routes_with_csrftoken]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># afficher-vue-calcul-impot</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-calcul-impot/&lt;string:csrf_token&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_calcul_impot</span><span class="p">(</span><span class="n">csrf_token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># afficher-vue-authentification</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-authentification/&lt;string:csrf_token&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_authentification</span><span class="p">(</span><span class="n">csrf_token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1"># afficher-vue-liste-simulations</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-liste-simulations/&lt;string:csrf_token&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_liste_simulations</span><span class="p">(</span><span class="n">csrf_token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="c1"># afficher-vue-liste_erreurs</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-liste-erreurs/&lt;string:csrf_token&gt;&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_liste_erreurs</span><span class="p">(</span><span class="n">csrf_token</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Lignes 1-23, nous avons créé quatre routes pour quatre actions ASV :</p>
+<ul>
+<li><strong>[/afficher-vue-authentification]</strong>, ligne 8, affiche la vue d’authentification ;</li>
+<li><strong>[/afficher-vue-calcul-impot]</strong>, ligne 2, affiche la vue du calcul de l’impôt ;</li>
+<li><strong>[/afficher-vue-liste-simulations]</strong>, ligne 14, affiche la vue des simulations ;</li>
+<li><strong>[/afficher-vue-liste-erreurs]</strong>, ligne 20, affiche la vue des erreurs inattendues ;
+On fait de même dans le fichier <strong>[routes_with_csrftoken]</strong> des routes sans jeton :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># routes ASV -------------------------</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="c1"># afficher-vue-calcul-impot</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-calcul-impot&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_calcul_impot</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># afficher-vue-authentification</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-authentification&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_authentification</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="c1"># afficher-vue-liste-simulations</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-liste-simulations&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_liste_simulations</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="c1"># afficher-vue-liste_erreurs</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/afficher-vue-liste-erreurs&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_vue_liste_erreurs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="3522-les-nouveaux-controleurs">35.2.2. Les nouveaux contrôleurs</h3>
+<p><img src="images/100000000000021300000153E76C55DB.png" style="width:6.13cm;height:3.911cm;" alt="Image" /></p>
+<p>Le contrôleur <strong>[</strong><strong>AfficherVueAuthentificationController</strong><strong>]</strong> exécute l’action ASV <strong>[/afficher-vue-authentification]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceController</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceController</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">AfficherVueAuthentificationController</span><span class="p">(</span><span class="n">InterfaceController</span><span class="p">):</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>        <span class="c1"># on récupère les éléments du path</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>        <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>        <span class="c1"># changement de vue - juste un code d&#39;état à positionner</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">1100</span><span class="p">,</span> <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+</code></pre></div></td></tr></table></div>
+<p>On a dit que les actions ASV n’avaient aucun paramètre et ne modifiaient pas l’état de l’application. On se contente d’afficher la vue souhaitée en positionnant, ligne 14, un code d’état.</p>
+<p>Le contrôleur <strong>[</strong><strong>AfficherVueCalculImpotController</strong><strong>]</strong> exécute l’action ASV <strong>[/afficher-vue-calcul-impot]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceController</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceController</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">AfficherVueCalculImpotController</span><span class="p">(</span><span class="n">InterfaceController</span><span class="p">):</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>        <span class="c1"># on récupère les éléments du path</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>        <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>        <span class="c1"># changement de vue - juste un code d&#39;état à positionner</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">1400</span><span class="p">,</span> <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+</code></pre></div></td></tr></table></div>
+<p>Le contrôleur <strong>[</strong><strong>AfficherVueListeSimulationsController</strong><strong>]</strong> exécute l’action ASV <strong>[/afficher-vue-liste-simulations]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceController</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceController</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">AfficherVueListeSimulationsController</span><span class="p">(</span><span class="n">InterfaceController</span><span class="p">):</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>        <span class="c1"># on récupère les éléments du path</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>        <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        <span class="c1"># changement de vue - juste un code d&#39;état à positionner</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">1200</span><span class="p">,</span> <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+</code></pre></div></td></tr></table></div>
+<p>Le contrôleur <strong>[</strong><strong>AfficherVueListeErreursController</strong><strong>]</strong> exécute l’action ASV <strong>[/afficher-vue-liste-erreurs]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceController</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceController</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">AfficherVueListeErreursController</span><span class="p">(</span><span class="n">InterfaceController</span><span class="p">):</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>        <span class="c1"># on récupère les éléments du path</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>        <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>        <span class="c1"># changement de vue - juste un code d&#39;état à positionner</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>        <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">1300</span><span class="p">,</span> <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">},</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span>
+</code></pre></div></td></tr></table></div>
+<p>Résumons les codes d’état :</p>
+<ul>
+<li>le code 1100 doit afficher la vue d’authentification ;</li>
+<li>le code 1400 doit afficher la vue du calcul de l’impôt ;</li>
+<li>le code 1200 doit afficher la vue des simulations ;</li>
+<li>le code 1300 doit afficher la vue des erreurs inattendues ;</li>
+</ul>
+<h3 id="3523-la-nouvelle-configuration-mvc">35.2.3. La nouvelle configuration MVC</h3>
+<p>Parce qu’elle devenait trop importante, la configuration MVC a été éclatée sur quatre fichiers :</p>
+<ul>
+<li><strong>[controllers]</strong> : la liste des contrôleurs C de l’application MVC ;</li>
+<li><strong>[ads_actions]</strong> : liste les actions ADS (Action Do Something) ;</li>
+<li><strong>[asv_actions]</strong> : liste les actions ASV (Action Show View) ;</li>
+<li><strong>[responses]</strong> : liste les classes des réponses HTTP de l’application ;
+Commençons par le plus simple, le fichier des réponses HTTP <strong>[responses]</strong> :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>    <span class="c1"># configuration de l&#39;application MVC</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="c1"># les réponses HTTP</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">HtmlResponse</span><span class="w"> </span><span class="kn">import</span> <span class="n">HtmlResponse</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">JsonResponse</span><span class="w"> </span><span class="kn">import</span> <span class="n">JsonResponse</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">XmlResponse</span><span class="w"> </span><span class="kn">import</span> <span class="n">XmlResponse</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="c1"># les différents types de réponse (json, xml, html)</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="n">responses</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        <span class="s2">&quot;json&quot;</span><span class="p">:</span> <span class="n">JsonResponse</span><span class="p">(),</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>        <span class="s2">&quot;html&quot;</span><span class="p">:</span> <span class="n">HtmlResponse</span><span class="p">(),</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>        <span class="s2">&quot;xml&quot;</span><span class="p">:</span> <span class="n">XmlResponse</span><span class="p">()</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>    <span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>    <span class="c1"># on rend le dictionnaire des réponses HTTP</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>        <span class="c1"># réponses HTTP</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>        <span class="s2">&quot;responses&quot;</span><span class="p">:</span> <span class="n">responses</span><span class="p">,</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Pas de surprise.</p>
+<p>Le fichier <strong>[controllers]</strong> des contrôleurs est également sans surprise. On y a simplement ajouté les nouveaux contrôleurs des actions ASV.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span>
+<span class="normal"><a href="#__codelineno-7-42">42</a></span>
+<span class="normal"><a href="#__codelineno-7-43">43</a></span>
+<span class="normal"><a href="#__codelineno-7-44">44</a></span>
+<span class="normal"><a href="#__codelineno-7-45">45</a></span>
+<span class="normal"><a href="#__codelineno-7-46">46</a></span>
+<span class="normal"><a href="#__codelineno-7-47">47</a></span>
+<span class="normal"><a href="#__codelineno-7-48">48</a></span>
+<span class="normal"><a href="#__codelineno-7-49">49</a></span>
+<span class="normal"><a href="#__codelineno-7-50">50</a></span>
+<span class="normal"><a href="#__codelineno-7-51">51</a></span>
+<span class="normal"><a href="#__codelineno-7-52">52</a></span>
+<span class="normal"><a href="#__codelineno-7-53">53</a></span>
+<span class="normal"><a href="#__codelineno-7-54">54</a></span>
+<span class="normal"><a href="#__codelineno-7-55">55</a></span>
+<span class="normal"><a href="#__codelineno-7-56">56</a></span>
+<span class="normal"><a href="#__codelineno-7-57">57</a></span>
+<span class="normal"><a href="#__codelineno-7-58">58</a></span>
+<span class="normal"><a href="#__codelineno-7-59">59</a></span>
+<span class="normal"><a href="#__codelineno-7-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>    <span class="c1"># configuration de l&#39;application MVC</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="c1"># le contrôleur principal</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">MainController</span><span class="w"> </span><span class="kn">import</span> <span class="n">MainController</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="c1"># les contrôleurs d&#39;actions ADS</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">AuthentifierUtilisateurController</span><span class="w"> </span><span class="kn">import</span> <span class="n">AuthentifierUtilisateurController</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">CalculerImpotController</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalculerImpotController</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">CalculerImpotsController</span><span class="w"> </span><span class="kn">import</span> <span class="n">CalculerImpotsController</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">FinSessionController</span><span class="w"> </span><span class="kn">import</span> <span class="n">FinSessionController</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">GetAdminDataController</span><span class="w"> </span><span class="kn">import</span> <span class="n">GetAdminDataController</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">InitSessionController</span><span class="w"> </span><span class="kn">import</span> <span class="n">InitSessionController</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ListerSimulationsController</span><span class="w"> </span><span class="kn">import</span> <span class="n">ListerSimulationsController</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">SupprimerSimulationController</span><span class="w"> </span><span class="kn">import</span> <span class="n">SupprimerSimulationController</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">AfficherCalculImpotController</span><span class="w"> </span><span class="kn">import</span> <span class="n">AfficherCalculImpotController</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="c1"># les contrôleurs d&#39;actions ASV</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">AfficherVueCalculImpotController</span><span class="w"> </span><span class="kn">import</span> <span class="n">AfficherVueCalculImpotController</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">AfficherVueAuthentificationController</span><span class="w"> </span><span class="kn">import</span> <span class="n">AfficherVueAuthentificationController</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">AfficherVueListeErreursController</span><span class="w"> </span><span class="kn">import</span> <span class="n">AfficherVueListeErreursController</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">AfficherVueListeSimulationsController</span><span class="w"> </span><span class="kn">import</span> <span class="n">AfficherVueListeSimulationsController</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>    <span class="c1"># actions autorisées et leurs contrôleurs</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>    <span class="n">controllers</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>        <span class="c1"># initialisation d&#39;une session de calcul</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>        <span class="s2">&quot;init-session&quot;</span><span class="p">:</span> <span class="n">InitSessionController</span><span class="p">(),</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>        <span class="c1"># authentification d&#39;un utilisateur</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>        <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">:</span> <span class="n">AuthentifierUtilisateurController</span><span class="p">(),</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>        <span class="c1"># lien vers vue calcul impot</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>        <span class="s2">&quot;afficher-calcul-impot&quot;</span><span class="p">:</span> <span class="n">AfficherCalculImpotController</span><span class="p">(),</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>        <span class="c1"># calcul de l&#39;impôt en mode individuel</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>        <span class="s2">&quot;calculer-impot&quot;</span><span class="p">:</span> <span class="n">CalculerImpotController</span><span class="p">(),</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a>        <span class="c1"># calcul de l&#39;impôt en mode lots</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a>        <span class="s2">&quot;calculer-impots&quot;</span><span class="p">:</span> <span class="n">CalculerImpotsController</span><span class="p">(),</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a>        <span class="c1"># liste des simulations</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a>        <span class="s2">&quot;lister-simulations&quot;</span><span class="p">:</span> <span class="n">ListerSimulationsController</span><span class="p">(),</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a>        <span class="c1"># suppression d&#39;une simulation</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a>        <span class="s2">&quot;supprimer-simulation&quot;</span><span class="p">:</span> <span class="n">SupprimerSimulationController</span><span class="p">(),</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a>        <span class="c1"># fin de la session de calcul</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a>        <span class="s2">&quot;fin-session&quot;</span><span class="p">:</span> <span class="n">FinSessionController</span><span class="p">(),</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a>        <span class="c1"># obtention des données de l&#39;administration fiscale</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a>        <span class="s2">&quot;get-admindata&quot;</span><span class="p">:</span> <span class="n">GetAdminDataController</span><span class="p">(),</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a>        <span class="c1"># main controller</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45"></a>        <span class="s2">&quot;main-controller&quot;</span><span class="p">:</span> <span class="n">MainController</span><span class="p">(),</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46"></a>        <span class="c1"># affichage de la vue d&#39;authentification</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47"></a>        <span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">:</span> <span class="n">AfficherVueAuthentificationController</span><span class="p">(),</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48"></a>        <span class="c1"># affichage de la vue de calcul de l&#39;impôt</span>
+<a id="__codelineno-7-49" name="__codelineno-7-49"></a>        <span class="s2">&quot;afficher-vue-calcul-impot&quot;</span><span class="p">:</span> <span class="n">AfficherVueCalculImpotController</span><span class="p">(),</span>
+<a id="__codelineno-7-50" name="__codelineno-7-50"></a>        <span class="c1"># affichage de la vue des simulations</span>
+<a id="__codelineno-7-51" name="__codelineno-7-51"></a>        <span class="s2">&quot;afficher-vue-liste-simulations&quot;</span><span class="p">:</span> <span class="n">AfficherVueListeSimulationsController</span><span class="p">(),</span>
+<a id="__codelineno-7-52" name="__codelineno-7-52"></a>        <span class="c1"># affichage de la vue des erreurs</span>
+<a id="__codelineno-7-53" name="__codelineno-7-53"></a>        <span class="s2">&quot;afficher-vue-liste-erreurs&quot;</span><span class="p">:</span> <span class="n">AfficherVueListeErreursController</span><span class="p">()</span>
+<a id="__codelineno-7-54" name="__codelineno-7-54"></a>    <span class="p">}</span>
+<a id="__codelineno-7-55" name="__codelineno-7-55"></a>
+<a id="__codelineno-7-56" name="__codelineno-7-56"></a>    <span class="c1"># on rend la configuration des contrôeleurs</span>
+<a id="__codelineno-7-57" name="__codelineno-7-57"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-7-58" name="__codelineno-7-58"></a>        <span class="c1"># contrôleurs</span>
+<a id="__codelineno-7-59" name="__codelineno-7-59"></a>        <span class="s2">&quot;controllers&quot;</span><span class="p">:</span> <span class="n">controllers</span><span class="p">,</span>
+<a id="__codelineno-7-60" name="__codelineno-7-60"></a>    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>La configuration <strong>[asv_actions]</strong> des actions ASV est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span>
+<span class="normal"><a href="#__codelineno-8-30">30</a></span>
+<span class="normal"><a href="#__codelineno-8-31">31</a></span>
+<span class="normal"><a href="#__codelineno-8-32">32</a></span>
+<span class="normal"><a href="#__codelineno-8-33">33</a></span>
+<span class="normal"><a href="#__codelineno-8-34">34</a></span>
+<span class="normal"><a href="#__codelineno-8-35">35</a></span>
+<span class="normal"><a href="#__codelineno-8-36">36</a></span>
+<span class="normal"><a href="#__codelineno-8-37">37</a></span>
+<span class="normal"><a href="#__codelineno-8-38">38</a></span>
+<span class="normal"><a href="#__codelineno-8-39">39</a></span>
+<span class="normal"><a href="#__codelineno-8-40">40</a></span>
+<span class="normal"><a href="#__codelineno-8-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="c1"># configuration de l&#39;application MVC</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="c1"># les vues HTML et leurs modèles dépendent de l&#39;état rendu par le contrôleur</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="c1"># actions ASV (Action Show view)</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="n">asv</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>        <span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>            <span class="c1"># vue d&#39;authentification</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>                <span class="mi">1100</span><span class="p">,</span>  <span class="c1"># /afficher-vue-authentification</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>            <span class="p">],</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>            <span class="s2">&quot;view_name&quot;</span><span class="p">:</span> <span class="s2">&quot;views/vue-authentification.html&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>        <span class="p">},</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>        <span class="p">{</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>            <span class="c1"># vue du calcul de l&#39;impôt</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>                <span class="mi">1400</span><span class="p">,</span>  <span class="c1"># /afficher-vue-calcul-impot</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>            <span class="p">],</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>            <span class="s2">&quot;view_name&quot;</span><span class="p">:</span> <span class="s2">&quot;views/vue-calcul-impot.html&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>        <span class="p">},</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>        <span class="p">{</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>            <span class="c1"># vue de la liste des simulations</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>                <span class="mi">1200</span><span class="p">,</span>  <span class="c1"># /afficher-vue-liste-simulations</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>            <span class="p">],</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>            <span class="s2">&quot;view_name&quot;</span><span class="p">:</span> <span class="s2">&quot;views/vue-liste-simulations.html&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>        <span class="p">},</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>        <span class="p">{</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>            <span class="c1"># vue de la liste des erreurs</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a>                <span class="mi">1300</span><span class="p">,</span>  <span class="c1"># /afficher-vue-liste-erreurs</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a>            <span class="p">],</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a>            <span class="s2">&quot;view_name&quot;</span><span class="p">:</span> <span class="s2">&quot;views/vue-erreurs.html&quot;</span><span class="p">,</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a>        <span class="p">},</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a>    <span class="p">]</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a>    <span class="c1"># on rend la configuration ASV</span>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a>        <span class="c1"># vues et modèles</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a>        <span class="s2">&quot;asv&quot;</span><span class="p">:</span> <span class="n">asv</span><span class="p">,</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a>    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>le fichier <strong>[asv_actions]</strong> rassemble les quatre nouvelles actions dont on rappelle le fonctionnement :</li>
+<li>elles n’ont aucun paramètre ;</li>
+<li>elles affichent une vue précise dont le modèle est en session ;</li>
+<li>la liste <strong>[asv]</strong> des lignes 6-35, associent une vue à chaque action ASV ;
+Le fichier <strong>[ads_actions]</strong> rassemble les actions ADS :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span>
+<span class="normal"><a href="#__codelineno-9-24">24</a></span>
+<span class="normal"><a href="#__codelineno-9-25">25</a></span>
+<span class="normal"><a href="#__codelineno-9-26">26</a></span>
+<span class="normal"><a href="#__codelineno-9-27">27</a></span>
+<span class="normal"><a href="#__codelineno-9-28">28</a></span>
+<span class="normal"><a href="#__codelineno-9-29">29</a></span>
+<span class="normal"><a href="#__codelineno-9-30">30</a></span>
+<span class="normal"><a href="#__codelineno-9-31">31</a></span>
+<span class="normal"><a href="#__codelineno-9-32">32</a></span>
+<span class="normal"><a href="#__codelineno-9-33">33</a></span>
+<span class="normal"><a href="#__codelineno-9-34">34</a></span>
+<span class="normal"><a href="#__codelineno-9-35">35</a></span>
+<span class="normal"><a href="#__codelineno-9-36">36</a></span>
+<span class="normal"><a href="#__codelineno-9-37">37</a></span>
+<span class="normal"><a href="#__codelineno-9-38">38</a></span>
+<span class="normal"><a href="#__codelineno-9-39">39</a></span>
+<span class="normal"><a href="#__codelineno-9-40">40</a></span>
+<span class="normal"><a href="#__codelineno-9-41">41</a></span>
+<span class="normal"><a href="#__codelineno-9-42">42</a></span>
+<span class="normal"><a href="#__codelineno-9-43">43</a></span>
+<span class="normal"><a href="#__codelineno-9-44">44</a></span>
+<span class="normal"><a href="#__codelineno-9-45">45</a></span>
+<span class="normal"><a href="#__codelineno-9-46">46</a></span>
+<span class="normal"><a href="#__codelineno-9-47">47</a></span>
+<span class="normal"><a href="#__codelineno-9-48">48</a></span>
+<span class="normal"><a href="#__codelineno-9-49">49</a></span>
+<span class="normal"><a href="#__codelineno-9-50">50</a></span>
+<span class="normal"><a href="#__codelineno-9-51">51</a></span>
+<span class="normal"><a href="#__codelineno-9-52">52</a></span>
+<span class="normal"><a href="#__codelineno-9-53">53</a></span>
+<span class="normal"><a href="#__codelineno-9-54">54</a></span>
+<span class="normal"><a href="#__codelineno-9-55">55</a></span>
+<span class="normal"><a href="#__codelineno-9-56">56</a></span>
+<span class="normal"><a href="#__codelineno-9-57">57</a></span>
+<span class="normal"><a href="#__codelineno-9-58">58</a></span>
+<span class="normal"><a href="#__codelineno-9-59">59</a></span>
+<span class="normal"><a href="#__codelineno-9-60">60</a></span>
+<span class="normal"><a href="#__codelineno-9-61">61</a></span>
+<span class="normal"><a href="#__codelineno-9-62">62</a></span>
+<span class="normal"><a href="#__codelineno-9-63">63</a></span>
+<span class="normal"><a href="#__codelineno-9-64">64</a></span>
+<span class="normal"><a href="#__codelineno-9-65">65</a></span>
+<span class="normal"><a href="#__codelineno-9-66">66</a></span>
+<span class="normal"><a href="#__codelineno-9-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>    <span class="c1"># configuration de l&#39;application MVC</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="c1"># les modèles des vues</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ModelForAuthentificationView</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForAuthentificationView</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ModelForCalculImpotView</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForCalculImpotView</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ModelForErreursView</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForErreursView</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ModelForListeSimulationsView</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModelForListeSimulationsView</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>    <span class="c1"># actions ADS (Action Do Something)</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>    <span class="n">ads</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>        <span class="p">{</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>                <span class="mi">400</span><span class="p">,</span>  <span class="c1"># /fin-session réussite</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>            <span class="p">],</span>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>            <span class="c1"># redirection vers action ADS</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;/init-session/html&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>        <span class="p">},</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>        <span class="p">{</span>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>                <span class="mi">700</span><span class="p">,</span>  <span class="c1"># /init-session - succès</span>
+<a id="__codelineno-9-22" name="__codelineno-9-22"></a>                <span class="mi">201</span><span class="p">,</span>  <span class="c1"># /authentifier-utilisateur échec</span>
+<a id="__codelineno-9-23" name="__codelineno-9-23"></a>            <span class="p">],</span>
+<a id="__codelineno-9-24" name="__codelineno-9-24"></a>            <span class="c1"># redirection vers action ASV</span>
+<a id="__codelineno-9-25" name="__codelineno-9-25"></a>            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;/afficher-vue-authentification&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-26" name="__codelineno-9-26"></a>            <span class="c1"># modèle de la vue suivante</span>
+<a id="__codelineno-9-27" name="__codelineno-9-27"></a>            <span class="s2">&quot;model_for_view&quot;</span><span class="p">:</span> <span class="n">ModelForAuthentificationView</span><span class="p">()</span>
+<a id="__codelineno-9-28" name="__codelineno-9-28"></a>        <span class="p">},</span>
+<a id="__codelineno-9-29" name="__codelineno-9-29"></a>        <span class="p">{</span>
+<a id="__codelineno-9-30" name="__codelineno-9-30"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-9-31" name="__codelineno-9-31"></a>                <span class="mi">200</span><span class="p">,</span>  <span class="c1"># /authentifier-utilisateur réussite</span>
+<a id="__codelineno-9-32" name="__codelineno-9-32"></a>                <span class="mi">300</span><span class="p">,</span>  <span class="c1"># /calculer-impot réussite</span>
+<a id="__codelineno-9-33" name="__codelineno-9-33"></a>                <span class="mi">301</span><span class="p">,</span>  <span class="c1"># /calculer-impot échec</span>
+<a id="__codelineno-9-34" name="__codelineno-9-34"></a>                <span class="mi">800</span><span class="p">,</span>  <span class="c1"># /afficher-calcul-impot lien</span>
+<a id="__codelineno-9-35" name="__codelineno-9-35"></a>            <span class="p">],</span>
+<a id="__codelineno-9-36" name="__codelineno-9-36"></a>            <span class="c1"># redirection vers action ASV</span>
+<a id="__codelineno-9-37" name="__codelineno-9-37"></a>            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;/afficher-vue-calcul-impot&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-38" name="__codelineno-9-38"></a>            <span class="c1"># modèle de la vue suivante</span>
+<a id="__codelineno-9-39" name="__codelineno-9-39"></a>            <span class="s2">&quot;model_for_view&quot;</span><span class="p">:</span> <span class="n">ModelForCalculImpotView</span><span class="p">()</span>
+<a id="__codelineno-9-40" name="__codelineno-9-40"></a>        <span class="p">},</span>
+<a id="__codelineno-9-41" name="__codelineno-9-41"></a>        <span class="p">{</span>
+<a id="__codelineno-9-42" name="__codelineno-9-42"></a>            <span class="s2">&quot;états&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-9-43" name="__codelineno-9-43"></a>                <span class="mi">500</span><span class="p">,</span>  <span class="c1"># /lister-simulations réussite</span>
+<a id="__codelineno-9-44" name="__codelineno-9-44"></a>                <span class="mi">600</span><span class="p">,</span>  <span class="c1"># /supprimer-simulation réussite</span>
+<a id="__codelineno-9-45" name="__codelineno-9-45"></a>            <span class="p">],</span>
+<a id="__codelineno-9-46" name="__codelineno-9-46"></a>            <span class="c1"># redirection vers action ASV</span>
+<a id="__codelineno-9-47" name="__codelineno-9-47"></a>            <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;/afficher-vue-liste-simulations&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-48" name="__codelineno-9-48"></a>            <span class="c1"># modèle de la vue suivante</span>
+<a id="__codelineno-9-49" name="__codelineno-9-49"></a>            <span class="s2">&quot;model_for_view&quot;</span><span class="p">:</span> <span class="n">ModelForListeSimulationsView</span><span class="p">()</span>
+<a id="__codelineno-9-50" name="__codelineno-9-50"></a>        <span class="p">},</span>
+<a id="__codelineno-9-51" name="__codelineno-9-51"></a>    <span class="p">]</span>
+<a id="__codelineno-9-52" name="__codelineno-9-52"></a>
+<a id="__codelineno-9-53" name="__codelineno-9-53"></a>    <span class="c1"># vue des erreurs inattendues</span>
+<a id="__codelineno-9-54" name="__codelineno-9-54"></a>    <span class="n">view_erreurs</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-9-55" name="__codelineno-9-55"></a>        <span class="c1"># redirection vers action ASV</span>
+<a id="__codelineno-9-56" name="__codelineno-9-56"></a>        <span class="s2">&quot;to&quot;</span><span class="p">:</span> <span class="s2">&quot;/afficher-vue-liste-erreurs&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-57" name="__codelineno-9-57"></a>        <span class="c1"># modèle de la vue suivante</span>
+<a id="__codelineno-9-58" name="__codelineno-9-58"></a>        <span class="s2">&quot;model_for_view&quot;</span><span class="p">:</span> <span class="n">ModelForErreursView</span><span class="p">()</span>
+<a id="__codelineno-9-59" name="__codelineno-9-59"></a>    <span class="p">}</span>
+<a id="__codelineno-9-60" name="__codelineno-9-60"></a>
+<a id="__codelineno-9-61" name="__codelineno-9-61"></a>    <span class="c1"># on rend la configuration MVC</span>
+<a id="__codelineno-9-62" name="__codelineno-9-62"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-9-63" name="__codelineno-9-63"></a>        <span class="c1"># actions ADS</span>
+<a id="__codelineno-9-64" name="__codelineno-9-64"></a>        <span class="s2">&quot;ads&quot;</span><span class="p">:</span> <span class="n">ads</span><span class="p">,</span>
+<a id="__codelineno-9-65" name="__codelineno-9-65"></a>        <span class="c1"># la vue des erreurs inattendues</span>
+<a id="__codelineno-9-66" name="__codelineno-9-66"></a>        <span class="s2">&quot;view_erreurs&quot;</span><span class="p">:</span> <span class="n">view_erreurs</span><span class="p">,</span>
+<a id="__codelineno-9-67" name="__codelineno-9-67"></a>    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 11-51 : la liste des actions ADS (Action Do Something). On retrouve toutes les actions des versions précédentes. Leur fonctionnement a cependant changé :</li>
+<li>elles n’affichent pas une vue V. Elles préparent seulement le modèle M de cette vue V ;</li>
+<li>elles demandent l’affichage de la vue V via une redirection vers l’action ASV associée à la vue V ;</li>
+<li>les actions ADS ne mènent pas toutes à une redirection vers une action ASV : lignes 12-18, l’action ADS <strong>[/fin-session]</strong> mène à une redirection vers l’action ADS <strong>[/init-session/html]</strong>. Pour distinguer les redirections ADS -&gt; ADS et ADS -&gt; ASV, on peut s’aider du modèle <strong>[model_for_view]</strong>. Celui-ci n’existe pas pour les redirections ADS -&gt; ADS ;
+Le fichier <strong>[main/config]</strong> qui rassemble toutes les configurations évolue comme suit :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span>
+<span class="normal"><a href="#__codelineno-10-30">30</a></span>
+<span class="normal"><a href="#__codelineno-10-31">31</a></span>
+<span class="normal"><a href="#__codelineno-10-32">32</a></span>
+<span class="normal"><a href="#__codelineno-10-33">33</a></span>
+<span class="normal"><a href="#__codelineno-10-34">34</a></span>
+<span class="normal"><a href="#__codelineno-10-35">35</a></span>
+<span class="normal"><a href="#__codelineno-10-36">36</a></span>
+<span class="normal"><a href="#__codelineno-10-37">37</a></span>
+<span class="normal"><a href="#__codelineno-10-38">38</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="c1"># configuration du syspath</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">syspath</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;syspath&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">syspath</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>    <span class="c1"># paramétrage de l&#39;application</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">parameters</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">parameters</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    <span class="c1"># configuration de la base de données</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">database</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="n">config</span><span class="p">[</span><span class="s2">&quot;database&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">database</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="c1"># instanciation des couches de l&#39;application</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">layers</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;layers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">layers</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>    <span class="c1"># configuration MVC de la couche [web]</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a>    <span class="c1"># configuration des contrôleurs de la couche [web]</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">controllers</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">controllers</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a>    <span class="c1"># actions ASV (Action Show View)</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">asv_actions</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">asv_actions</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a>
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a>    <span class="c1"># actions ADS (Action Do Something)</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">ads_actions</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ads_actions</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32"></a>
+<a id="__codelineno-10-33" name="__codelineno-10-33"></a>    <span class="c1"># configuration des réponses HTTP</span>
+<a id="__codelineno-10-34" name="__codelineno-10-34"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">responses</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">responses</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">))</span>
+<a id="__codelineno-10-36" name="__codelineno-10-36"></a>
+<a id="__codelineno-10-37" name="__codelineno-10-37"></a>    <span class="c1"># on rend la configuration</span>
+<a id="__codelineno-10-38" name="__codelineno-10-38"></a>    <span class="k">return</span> <span class="n">config</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="3524-les-nouveaux-modeles">35.2.4. Les nouveaux modèles</h3>
+<p><img src="images/10000000000001AC000001E163AC4D3B.png" style="width:4.95cm;height:5.541cm;" alt="Image" /></p>
+<p>Les modèles vont générer une nouvelle information. Prenons par exemple, le modèle de la vue d’authentification :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Request</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">AbstractBaseModelForView</span><span class="w"> </span><span class="kn">import</span> <span class="n">AbstractBaseModelForView</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">ModelForAuthentificationView</span><span class="p">(</span><span class="n">AbstractBaseModelForView</span><span class="p">):</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model_for_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">résultat</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>        <span class="c1"># on encapsule les données de la pagé dans modèle</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>        <span class="n">modèle</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>        <span class="err">…</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>        <span class="c1"># jeton csrf</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>        <span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;csrf_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">get_csrftoken</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>        <span class="c1"># actions possibles à partir de la vue</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>        <span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">,</span> <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">]</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a>        <span class="c1"># on rend le modèle</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a>        <span class="k">return</span> <span class="n">modèle</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>la nouveauté est ligne 17 : chaque modèle va générer une liste d’actions possibles lorsque la vue V dont il est le modèle M va s’afficher. Pour connaître ces actions, il faut revenir à la vue V. Dans le cas de la vue d’authentification :</li>
+</ul>
+<p><img src="images/1000000000000434000002F135E4756E.png" style="width:12.431cm;height:8.691cm;" alt="Image" /></p>
+<ul>
+<li>on voit que la vue d’authentification n’offre qu’une action, celle du bouton <strong>[Valider]</strong>. Cette action est <strong>[/authentifier-utilisateur]</strong> ;
+On a écrit :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>        <span class="c1"># actions possibles à partir de la vue</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>        <span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">,</span> <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p>Sur la vue ci-dessus, on voit que si l’utilisateur rafraîchit la vue, l’action <strong>[1]</strong> <strong>[/afficher-vue-authentification]</strong> va être rejouée. Il faut donc qu’elle soit autorisée. On n’aurait pu ne pas l’autoriser auquel cas l’utilisateur aurait une erreur à chaque fois qu’il rechargerait la page. On a estimé que ce n’était pas souhaitable.</p>
+<p>Les actions possibles sont mis dans le modèle de la vue. On sait que ce modèle va être mis en session.</p>
+<p>On fait cela pour chacune des quatre vues. Les actions possibles sont alors les suivantes :</p>
+<p><u><strong>Vue d’authentification</strong></u></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">,</span> <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p><u><strong>Vue du calcul de l’impôt</strong></u></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1"># actions possibles à partir de la vue</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-calcul-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;calculer-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;lister-simulations&quot;</span><span class="p">,</span><span class="s2">&quot;fin-session&quot;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<p><u><strong>Vue de la liste des simulations</strong></u></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># actions possibles à partir de la vue</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">actions_possibles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-liste-simulations&quot;</span><span class="p">,</span> <span class="s2">&quot;afficher-calcul-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;fin-session&quot;</span><span class="p">]</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;simulations&#39;</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>  <span class="n">actions_possibles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;supprimer-simulation&quot;</span><span class="p">)</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">actions_possibles</span>
+</code></pre></div></td></tr></table></div>
+<p><u><strong>Vue de la liste des erreurs</strong></u></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># actions possibles à partir de la vue</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-liste-erreurs&quot;</span><span class="p">,</span> <span class="s2">&quot;afficher-calcul-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;lister-simulations&quot;</span><span class="p">,</span> <span class="s2">&quot;fin-session&quot;</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="3525-le-nouveau-controleur-principal">35.2.5. Le nouveau contrôleur principal</h3>
+<p><img src="images/100000000000020B00000246374424F9.png" style="width:6.04cm;height:6.73cm;" alt="Image" /></p>
+<p>Le contrôleur <strong>[MainController]</strong> subit quelques modifications :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span>
+<span class="normal"><a href="#__codelineno-17-27">27</a></span>
+<span class="normal"><a href="#__codelineno-17-28">28</a></span>
+<span class="normal"><a href="#__codelineno-17-29">29</a></span>
+<span class="normal"><a href="#__codelineno-17-30">30</a></span>
+<span class="normal"><a href="#__codelineno-17-31">31</a></span>
+<span class="normal"><a href="#__codelineno-17-32">32</a></span>
+<span class="normal"><a href="#__codelineno-17-33">33</a></span>
+<span class="normal"><a href="#__codelineno-17-34">34</a></span>
+<span class="normal"><a href="#__codelineno-17-35">35</a></span>
+<span class="normal"><a href="#__codelineno-17-36">36</a></span>
+<span class="normal"><a href="#__codelineno-17-37">37</a></span>
+<span class="normal"><a href="#__codelineno-17-38">38</a></span>
+<span class="normal"><a href="#__codelineno-17-39">39</a></span>
+<span class="normal"><a href="#__codelineno-17-40">40</a></span>
+<span class="normal"><a href="#__codelineno-17-41">41</a></span>
+<span class="normal"><a href="#__codelineno-17-42">42</a></span>
+<span class="normal"><a href="#__codelineno-17-43">43</a></span>
+<span class="normal"><a href="#__codelineno-17-44">44</a></span>
+<span class="normal"><a href="#__codelineno-17-45">45</a></span>
+<span class="normal"><a href="#__codelineno-17-46">46</a></span>
+<span class="normal"><a href="#__codelineno-17-47">47</a></span>
+<span class="normal"><a href="#__codelineno-17-48">48</a></span>
+<span class="normal"><a href="#__codelineno-17-49">49</a></span>
+<span class="normal"><a href="#__codelineno-17-50">50</a></span>
+<span class="normal"><a href="#__codelineno-17-51">51</a></span>
+<span class="normal"><a href="#__codelineno-17-52">52</a></span>
+<span class="normal"><a href="#__codelineno-17-53">53</a></span>
+<span class="normal"><a href="#__codelineno-17-54">54</a></span>
+<span class="normal"><a href="#__codelineno-17-55">55</a></span>
+<span class="normal"><a href="#__codelineno-17-56">56</a></span>
+<span class="normal"><a href="#__codelineno-17-57">57</a></span>
+<span class="normal"><a href="#__codelineno-17-58">58</a></span>
+<span class="normal"><a href="#__codelineno-17-59">59</a></span>
+<span class="normal"><a href="#__codelineno-17-60">60</a></span>
+<span class="normal"><a href="#__codelineno-17-61">61</a></span>
+<span class="normal"><a href="#__codelineno-17-62">62</a></span>
+<span class="normal"><a href="#__codelineno-17-63">63</a></span>
+<span class="normal"><a href="#__codelineno-17-64">64</a></span>
+<span class="normal"><a href="#__codelineno-17-65">65</a></span>
+<span class="normal"><a href="#__codelineno-17-66">66</a></span>
+<span class="normal"><a href="#__codelineno-17-67">67</a></span>
+<span class="normal"><a href="#__codelineno-17-68">68</a></span>
+<span class="normal"><a href="#__codelineno-17-69">69</a></span>
+<span class="normal"><a href="#__codelineno-17-70">70</a></span>
+<span class="normal"><a href="#__codelineno-17-71">71</a></span>
+<span class="normal"><a href="#__codelineno-17-72">72</a></span>
+<span class="normal"><a href="#__codelineno-17-73">73</a></span>
+<span class="normal"><a href="#__codelineno-17-74">74</a></span>
+<span class="normal"><a href="#__codelineno-17-75">75</a></span>
+<span class="normal"><a href="#__codelineno-17-76">76</a></span>
+<span class="normal"><a href="#__codelineno-17-77">77</a></span>
+<span class="normal"><a href="#__codelineno-17-78">78</a></span>
+<span class="normal"><a href="#__codelineno-17-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># import des dépendances</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_wtf.csrf</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_csrf</span><span class="p">,</span> <span class="n">validate_csrf</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">wtforms</span><span class="w"> </span><span class="kn">import</span> <span class="n">ValidationError</span>
+<a id="__codelineno-17-10" name="__codelineno-17-10"></a>
+<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceController</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceController</span>
+<a id="__codelineno-17-12" name="__codelineno-17-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">Logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
+<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="kn">from</span><span class="w"> </span><span class="nn">SendAdminMail</span><span class="w"> </span><span class="kn">import</span> <span class="n">SendAdminMail</span>
+<a id="__codelineno-17-14" name="__codelineno-17-14"></a>
+<a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">send_adminmail</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-17-16" name="__codelineno-17-16"></a>    <span class="c1"># on envoie un mail à l&#39;administrateur de l&#39;application</span>
+<a id="__codelineno-17-17" name="__codelineno-17-17"></a>    <span class="n">config_mail</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">][</span><span class="s1">&#39;adminMail&#39;</span><span class="p">]</span>
+<a id="__codelineno-17-18" name="__codelineno-17-18"></a>    <span class="n">config_mail</span><span class="p">[</span><span class="s2">&quot;logger&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;logger&#39;</span><span class="p">]</span>
+<a id="__codelineno-17-19" name="__codelineno-17-19"></a>    <span class="n">SendAdminMail</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">config_mail</span><span class="p">,</span> <span class="n">message</span><span class="p">)</span>
+<a id="__codelineno-17-20" name="__codelineno-17-20"></a>
+<a id="__codelineno-17-21" name="__codelineno-17-21"></a><span class="c1"># contrôleur principal de l&#39;application</span>
+<a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="k">class</span><span class="w"> </span><span class="nc">MainController</span><span class="p">(</span><span class="n">InterfaceController</span><span class="p">):</span>
+<a id="__codelineno-17-23" name="__codelineno-17-23"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">execute</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-17-24" name="__codelineno-17-24"></a>        <span class="c1"># on traite la requête</span>
+<a id="__codelineno-17-25" name="__codelineno-17-25"></a>        <span class="n">type_response1</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-17-26" name="__codelineno-17-26"></a>        <span class="n">logger</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-17-27" name="__codelineno-17-27"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-17-28" name="__codelineno-17-28"></a>            <span class="c1"># on récupère les éléments du path</span>
+<a id="__codelineno-17-29" name="__codelineno-17-29"></a>            <span class="n">params</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<a id="__codelineno-17-30" name="__codelineno-17-30"></a>
+<a id="__codelineno-17-31" name="__codelineno-17-31"></a>            <span class="c1"># l&#39;action est le 1er élément</span>
+<a id="__codelineno-17-32" name="__codelineno-17-32"></a>            <span class="n">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-17-33" name="__codelineno-17-33"></a>
+<a id="__codelineno-17-34" name="__codelineno-17-34"></a>            <span class="c1"># logger</span>
+<a id="__codelineno-17-35" name="__codelineno-17-35"></a>            <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">][</span><span class="s1">&#39;logsFilename&#39;</span><span class="p">])</span>
+<a id="__codelineno-17-36" name="__codelineno-17-36"></a>
+<a id="__codelineno-17-37" name="__codelineno-17-37"></a>            <span class="err">…</span>
+<a id="__codelineno-17-38" name="__codelineno-17-38"></a>
+<a id="__codelineno-17-39" name="__codelineno-17-39"></a>            <span class="c1"># l&#39;action /afficher-vue-liste-erreurs est particulière</span>
+<a id="__codelineno-17-40" name="__codelineno-17-40"></a>            <span class="c1"># on ne fait aucune vérification, sinon on risque d&#39;entrer dans une boucle infinie de redirections</span>
+<a id="__codelineno-17-41" name="__codelineno-17-41"></a>            <span class="n">erreur</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-17-42" name="__codelineno-17-42"></a>            <span class="k">if</span> <span class="n">action</span> <span class="o">!=</span> <span class="s2">&quot;afficher-vue-liste-erreurs&quot;</span><span class="p">:</span>
+<a id="__codelineno-17-43" name="__codelineno-17-43"></a>                <span class="c1"># si erreur, (résultat] est le résultat à envoyer au client</span>
+<a id="__codelineno-17-44" name="__codelineno-17-44"></a>                <span class="p">(</span><span class="n">erreur</span><span class="p">,</span> <span class="n">résultat</span><span class="p">,</span> <span class="n">type_response1</span><span class="p">)</span> <span class="o">=</span> <span class="n">MainController</span><span class="o">.</span><span class="n">check_action</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-17-45" name="__codelineno-17-45"></a>
+<a id="__codelineno-17-46" name="__codelineno-17-46"></a>            <span class="c1"># si pas d&#39;erreur - l&#39;action est exécutée</span>
+<a id="__codelineno-17-47" name="__codelineno-17-47"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-17-48" name="__codelineno-17-48"></a>                <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
+<a id="__codelineno-17-49" name="__codelineno-17-49"></a>                <span class="n">controller</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">][</span><span class="s1">&#39;controllers&#39;</span><span class="p">][</span><span class="n">action</span><span class="p">]</span>
+<a id="__codelineno-17-50" name="__codelineno-17-50"></a>                <span class="n">résultat</span><span class="p">,</span> <span class="n">status_code</span> <span class="o">=</span> <span class="n">controller</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<a id="__codelineno-17-51" name="__codelineno-17-51"></a>
+<a id="__codelineno-17-52" name="__codelineno-17-52"></a>        <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+<a id="__codelineno-17-53" name="__codelineno-17-53"></a>            <span class="c1"># exceptions (inattendues)</span>
+<a id="__codelineno-17-54" name="__codelineno-17-54"></a>            <span class="n">résultat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">131</span><span class="p">,</span> <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exception</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]}</span>
+<a id="__codelineno-17-55" name="__codelineno-17-55"></a>            <span class="n">erreur</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-17-56" name="__codelineno-17-56"></a>
+<a id="__codelineno-17-57" name="__codelineno-17-57"></a>        <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-17-58" name="__codelineno-17-58"></a>            <span class="k">pass</span>
+<a id="__codelineno-17-59" name="__codelineno-17-59"></a>
+<a id="__codelineno-17-60" name="__codelineno-17-60"></a>        <span class="c1"># erreur d&#39;exécution</span>
+<a id="__codelineno-17-61" name="__codelineno-17-61"></a>        <span class="k">if</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-17-62" name="__codelineno-17-62"></a>            <span class="c1"># requête erronée</span>
+<a id="__codelineno-17-63" name="__codelineno-17-63"></a>            <span class="n">status_code</span> <span class="o">=</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_400_BAD_REQUEST</span>
+<a id="__codelineno-17-64" name="__codelineno-17-64"></a>
+<a id="__codelineno-17-65" name="__codelineno-17-65"></a>        <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">][</span><span class="s1">&#39;with_csrftoken&#39;</span><span class="p">]:</span>
+<a id="__codelineno-17-66" name="__codelineno-17-66"></a>            <span class="c1"># on ajoute le csrf_token au résultat</span>
+<a id="__codelineno-17-67" name="__codelineno-17-67"></a>            <span class="n">résultat</span><span class="p">[</span><span class="s1">&#39;csrf_token&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">generate_csrf</span><span class="p">()</span>
+<a id="__codelineno-17-68" name="__codelineno-17-68"></a>
+<a id="__codelineno-17-69" name="__codelineno-17-69"></a>        <span class="err">…</span><span class="o">.</span>
+<a id="__codelineno-17-70" name="__codelineno-17-70"></a>
+<a id="__codelineno-17-71" name="__codelineno-17-71"></a>        <span class="c1"># on envoie la réponse HTTP</span>
+<a id="__codelineno-17-72" name="__codelineno-17-72"></a>        <span class="k">return</span> <span class="n">response</span><span class="p">,</span> <span class="n">status_code</span>
+<a id="__codelineno-17-73" name="__codelineno-17-73"></a>
+<a id="__codelineno-17-74" name="__codelineno-17-74"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-17-75" name="__codelineno-17-75"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">check_action</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-17-76" name="__codelineno-17-76"></a>        <span class="err">…</span>
+<a id="__codelineno-17-77" name="__codelineno-17-77"></a>
+<a id="__codelineno-17-78" name="__codelineno-17-78"></a>        <span class="c1"># résultat de la méthode</span>
+<a id="__codelineno-17-79" name="__codelineno-17-79"></a>        <span class="k">return</span> <span class="n">erreur</span><span class="p">,</span> <span class="n">résultat</span><span class="p">,</span> <span class="n">type_response1</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <strong>[</strong><strong>MainController.check_action</strong><strong>]</strong>  rend un tuple de trois éléments :</li>
+<li><strong>[erreur]</strong> : True si une erreur a été détectée, False sinon ;</li>
+<li><strong>[résultat]</strong> : un résultat d’erreur si (erreur==True), None sinon ;</li>
+<li><strong>[type_response1]</strong> : le type (json, xml, html, None) de la session, type trouvé en session ;</li>
+<li>ligne 39 : aucune vérification n’est faite si l’action est l’action ASV <strong>[afficher-vue-liste-erreurs]</strong> qui va afficher la liste des erreurs. En effet, si une erreur était trouvée lors de cette action, on serait dirigé de nouveau vers l’action <strong>[/afficher-vue-liste-erreurs]</strong> et on entrerait dans une boucle infinie de redirections ;</li>
+<li>
+<p>la méthode statique <strong>[check_action]</strong> est la suivante :
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-18-10">10</a></span>
+<span class="normal"><a href="#__codelineno-18-11">11</a></span>
+<span class="normal"><a href="#__codelineno-18-12">12</a></span>
+<span class="normal"><a href="#__codelineno-18-13">13</a></span>
+<span class="normal"><a href="#__codelineno-18-14">14</a></span>
+<span class="normal"><a href="#__codelineno-18-15">15</a></span>
+<span class="normal"><a href="#__codelineno-18-16">16</a></span>
+<span class="normal"><a href="#__codelineno-18-17">17</a></span>
+<span class="normal"><a href="#__codelineno-18-18">18</a></span>
+<span class="normal"><a href="#__codelineno-18-19">19</a></span>
+<span class="normal"><a href="#__codelineno-18-20">20</a></span>
+<span class="normal"><a href="#__codelineno-18-21">21</a></span>
+<span class="normal"><a href="#__codelineno-18-22">22</a></span>
+<span class="normal"><a href="#__codelineno-18-23">23</a></span>
+<span class="normal"><a href="#__codelineno-18-24">24</a></span>
+<span class="normal"><a href="#__codelineno-18-25">25</a></span>
+<span class="normal"><a href="#__codelineno-18-26">26</a></span>
+<span class="normal"><a href="#__codelineno-18-27">27</a></span>
+<span class="normal"><a href="#__codelineno-18-28">28</a></span>
+<span class="normal"><a href="#__codelineno-18-29">29</a></span>
+<span class="normal"><a href="#__codelineno-18-30">30</a></span>
+<span class="normal"><a href="#__codelineno-18-31">31</a></span>
+<span class="normal"><a href="#__codelineno-18-32">32</a></span>
+<span class="normal"><a href="#__codelineno-18-33">33</a></span>
+<span class="normal"><a href="#__codelineno-18-34">34</a></span>
+<span class="normal"><a href="#__codelineno-18-35">35</a></span>
+<span class="normal"><a href="#__codelineno-18-36">36</a></span>
+<span class="normal"><a href="#__codelineno-18-37">37</a></span>
+<span class="normal"><a href="#__codelineno-18-38">38</a></span>
+<span class="normal"><a href="#__codelineno-18-39">39</a></span>
+<span class="normal"><a href="#__codelineno-18-40">40</a></span>
+<span class="normal"><a href="#__codelineno-18-41">41</a></span>
+<span class="normal"><a href="#__codelineno-18-42">42</a></span>
+<span class="normal"><a href="#__codelineno-18-43">43</a></span>
+<span class="normal"><a href="#__codelineno-18-44">44</a></span>
+<span class="normal"><a href="#__codelineno-18-45">45</a></span>
+<span class="normal"><a href="#__codelineno-18-46">46</a></span>
+<span class="normal"><a href="#__codelineno-18-47">47</a></span>
+<span class="normal"><a href="#__codelineno-18-48">48</a></span>
+<span class="normal"><a href="#__codelineno-18-49">49</a></span>
+<span class="normal"><a href="#__codelineno-18-50">50</a></span>
+<span class="normal"><a href="#__codelineno-18-51">51</a></span>
+<span class="normal"><a href="#__codelineno-18-52">52</a></span>
+<span class="normal"><a href="#__codelineno-18-53">53</a></span>
+<span class="normal"><a href="#__codelineno-18-54">54</a></span>
+<span class="normal"><a href="#__codelineno-18-55">55</a></span>
+<span class="normal"><a href="#__codelineno-18-56">56</a></span>
+<span class="normal"><a href="#__codelineno-18-57">57</a></span>
+<span class="normal"><a href="#__codelineno-18-58">58</a></span>
+<span class="normal"><a href="#__codelineno-18-59">59</a></span>
+<span class="normal"><a href="#__codelineno-18-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>    <span class="nd">@staticmethod</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">check_action</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="nb">bool</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>        <span class="c1"># on récupère l&#39;action en cours</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>        <span class="n">action</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>        <span class="c1"># pas d&#39;erreur et de résultat au départ</span>
+<a id="__codelineno-18-7" name="__codelineno-18-7"></a>        <span class="n">erreur</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-18-8" name="__codelineno-18-8"></a>        <span class="n">résultat</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-18-9" name="__codelineno-18-9"></a>
+<a id="__codelineno-18-10" name="__codelineno-18-10"></a>        <span class="c1"># le type de session doit être connu avant certaines actions ADS</span>
+<a id="__codelineno-18-11" name="__codelineno-18-11"></a>        <span class="n">type_response1</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;typeResponse&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-12" name="__codelineno-18-12"></a>        <span class="k">if</span> <span class="n">type_response1</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">action</span> <span class="o">!=</span> <span class="s2">&quot;init-session&quot;</span><span class="p">:</span>
+<a id="__codelineno-18-13" name="__codelineno-18-13"></a>            <span class="c1"># on note l&#39;erreur</span>
+<a id="__codelineno-18-14" name="__codelineno-18-14"></a>            <span class="n">résultat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+<a id="__codelineno-18-15" name="__codelineno-18-15"></a>                        <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pas de session en cours. Commencer par action [init-session]&quot;</span><span class="p">]}</span>
+<a id="__codelineno-18-16" name="__codelineno-18-16"></a>            <span class="n">erreur</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-18-17" name="__codelineno-18-17"></a>
+<a id="__codelineno-18-18" name="__codelineno-18-18"></a>        <span class="c1"># pour certaines actions ADS on doit être authentifié</span>
+<a id="__codelineno-18-19" name="__codelineno-18-19"></a>        <span class="n">user</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-20" name="__codelineno-18-20"></a>        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">action</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;init-session&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-21" name="__codelineno-18-21"></a>                                           <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">,</span>
+<a id="__codelineno-18-22" name="__codelineno-18-22"></a>                                           <span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">]:</span>
+<a id="__codelineno-18-23" name="__codelineno-18-23"></a>            <span class="c1"># on note l&#39;erreur</span>
+<a id="__codelineno-18-24" name="__codelineno-18-24"></a>            <span class="n">résultat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">101</span><span class="p">,</span>
+<a id="__codelineno-18-25" name="__codelineno-18-25"></a>                        <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;action [</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">] demandée par utilisateur non authentifié&quot;</span><span class="p">]}</span>
+<a id="__codelineno-18-26" name="__codelineno-18-26"></a>            <span class="n">erreur</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-18-27" name="__codelineno-18-27"></a>
+<a id="__codelineno-18-28" name="__codelineno-18-28"></a>        <span class="c1"># à partir d&#39;une vue seules certaines actions sont possibles</span>
+<a id="__codelineno-18-29" name="__codelineno-18-29"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">erreur</span> <span class="ow">and</span> <span class="n">action</span> <span class="o">!=</span> <span class="s2">&quot;init-session&quot;</span><span class="p">:</span>
+<a id="__codelineno-18-30" name="__codelineno-18-30"></a>            <span class="c1"># pour l&#39;instant pas d&#39;actions possibles</span>
+<a id="__codelineno-18-31" name="__codelineno-18-31"></a>            <span class="n">actions_possibles</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-18-32" name="__codelineno-18-32"></a>            <span class="c1"># on récupère le modèle de la future vue en session s&#39;il existe</span>
+<a id="__codelineno-18-33" name="__codelineno-18-33"></a>            <span class="n">modèle</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;modèle&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-34" name="__codelineno-18-34"></a>            <span class="c1"># si on a trouvé un modèle, on récupère ses actions possibles</span>
+<a id="__codelineno-18-35" name="__codelineno-18-35"></a>            <span class="k">if</span> <span class="n">modèle</span><span class="p">:</span>
+<a id="__codelineno-18-36" name="__codelineno-18-36"></a>                <span class="n">actions_possibles</span> <span class="o">=</span> <span class="n">modèle</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">)</span>
+<a id="__codelineno-18-37" name="__codelineno-18-37"></a>            <span class="c1"># si on a une liste d&#39;actions possibles, on vérifie que l&#39;action en cours en fait partie</span>
+<a id="__codelineno-18-38" name="__codelineno-18-38"></a>            <span class="k">if</span> <span class="n">actions_possibles</span> <span class="ow">and</span> <span class="n">action</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">actions_possibles</span><span class="p">:</span>
+<a id="__codelineno-18-39" name="__codelineno-18-39"></a>                <span class="c1"># on note l&#39;erreur</span>
+<a id="__codelineno-18-40" name="__codelineno-18-40"></a>                <span class="n">résultat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">151</span><span class="p">,</span>
+<a id="__codelineno-18-41" name="__codelineno-18-41"></a>                            <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;action [</span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">] incorrecte dans l&#39;environnement actuel&quot;</span><span class="p">]}</span>
+<a id="__codelineno-18-42" name="__codelineno-18-42"></a>                <span class="n">erreur</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-18-43" name="__codelineno-18-43"></a>
+<a id="__codelineno-18-44" name="__codelineno-18-44"></a>
+<a id="__codelineno-18-45" name="__codelineno-18-45"></a>        <span class="c1"># erreur ?</span>
+<a id="__codelineno-18-46" name="__codelineno-18-46"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">erreur</span> <span class="ow">and</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">][</span><span class="s1">&#39;with_csrftoken&#39;</span><span class="p">]:</span>
+<a id="__codelineno-18-47" name="__codelineno-18-47"></a>            <span class="c1"># on vérifie la validité du token csrf</span>
+<a id="__codelineno-18-48" name="__codelineno-18-48"></a>            <span class="c1"># le csrf_token est le dernier élément du path</span>
+<a id="__codelineno-18-49" name="__codelineno-18-49"></a>            <span class="n">csrf_token</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<a id="__codelineno-18-50" name="__codelineno-18-50"></a>            <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-18-51" name="__codelineno-18-51"></a>                <span class="c1"># une exception sera lancée si le csrf_token n&#39;est pas valide</span>
+<a id="__codelineno-18-52" name="__codelineno-18-52"></a>                <span class="n">validate_csrf</span><span class="p">(</span><span class="n">csrf_token</span><span class="p">)</span>
+<a id="__codelineno-18-53" name="__codelineno-18-53"></a>            <span class="k">except</span> <span class="n">ValidationError</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+<a id="__codelineno-18-54" name="__codelineno-18-54"></a>                <span class="c1"># csrf token invalide</span>
+<a id="__codelineno-18-55" name="__codelineno-18-55"></a>                <span class="n">résultat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;action&quot;</span><span class="p">:</span> <span class="n">action</span><span class="p">,</span> <span class="s2">&quot;état&quot;</span><span class="p">:</span> <span class="mi">121</span><span class="p">,</span> <span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">exception</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]}</span>
+<a id="__codelineno-18-56" name="__codelineno-18-56"></a>                <span class="c1"># on note l&#39;erreur</span>
+<a id="__codelineno-18-57" name="__codelineno-18-57"></a>                <span class="n">erreur</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-18-58" name="__codelineno-18-58"></a>
+<a id="__codelineno-18-59" name="__codelineno-18-59"></a>        <span class="c1"># résultat de la méthode</span>
+<a id="__codelineno-18-60" name="__codelineno-18-60"></a>        <span class="k">return</span> <span class="n">erreur</span><span class="p">,</span> <span class="n">résultat</span><span class="p">,</span> <span class="n">type_response1</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>ligne 2 : la méthode <strong>[check_action]</strong> fait plusieurs vérifications sur la validité de l’action en cours ;</p>
+</li>
+<li>lignes 6-26, 45-57 : les versions précédentes faisaient déjà ces vérifications ;</li>
+<li>lignes 28-42 : on ajoute une nouvelle vérification. On vérifie si l’action en cours est possible dans l’état actuel de l’application. Si l’action en cours n’est pas possible, on génère un état 151 (ligne 40) qui nous assure que l’action actuelle va être redirigée vers la vue des erreurs inattendues ;</li>
+</ul>
+<h3 id="3526-la-nouvelle-reponse-html">35.2.6. La nouvelle réponse HTML</h3>
+<p><img src="images/100000000000018F000000C50A5589CA.png" style="width:4.601cm;height:2.271cm;" alt="Image" /></p>
+<p>Les modifications en cours ne concernent que les sessions HTML. Les sessions jSON ou XML ne sont pas impactées. La classe <strong>[HtmlResponse]</strong> évolue de la façon suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span>
+<span class="normal"><a href="#__codelineno-19-13">13</a></span>
+<span class="normal"><a href="#__codelineno-19-14">14</a></span>
+<span class="normal"><a href="#__codelineno-19-15">15</a></span>
+<span class="normal"><a href="#__codelineno-19-16">16</a></span>
+<span class="normal"><a href="#__codelineno-19-17">17</a></span>
+<span class="normal"><a href="#__codelineno-19-18">18</a></span>
+<span class="normal"><a href="#__codelineno-19-19">19</a></span>
+<span class="normal"><a href="#__codelineno-19-20">20</a></span>
+<span class="normal"><a href="#__codelineno-19-21">21</a></span>
+<span class="normal"><a href="#__codelineno-19-22">22</a></span>
+<span class="normal"><a href="#__codelineno-19-23">23</a></span>
+<span class="normal"><a href="#__codelineno-19-24">24</a></span>
+<span class="normal"><a href="#__codelineno-19-25">25</a></span>
+<span class="normal"><a href="#__codelineno-19-26">26</a></span>
+<span class="normal"><a href="#__codelineno-19-27">27</a></span>
+<span class="normal"><a href="#__codelineno-19-28">28</a></span>
+<span class="normal"><a href="#__codelineno-19-29">29</a></span>
+<span class="normal"><a href="#__codelineno-19-30">30</a></span>
+<span class="normal"><a href="#__codelineno-19-31">31</a></span>
+<span class="normal"><a href="#__codelineno-19-32">32</a></span>
+<span class="normal"><a href="#__codelineno-19-33">33</a></span>
+<span class="normal"><a href="#__codelineno-19-34">34</a></span>
+<span class="normal"><a href="#__codelineno-19-35">35</a></span>
+<span class="normal"><a href="#__codelineno-19-36">36</a></span>
+<span class="normal"><a href="#__codelineno-19-37">37</a></span>
+<span class="normal"><a href="#__codelineno-19-38">38</a></span>
+<span class="normal"><a href="#__codelineno-19-39">39</a></span>
+<span class="normal"><a href="#__codelineno-19-40">40</a></span>
+<span class="normal"><a href="#__codelineno-19-41">41</a></span>
+<span class="normal"><a href="#__codelineno-19-42">42</a></span>
+<span class="normal"><a href="#__codelineno-19-43">43</a></span>
+<span class="normal"><a href="#__codelineno-19-44">44</a></span>
+<span class="normal"><a href="#__codelineno-19-45">45</a></span>
+<span class="normal"><a href="#__codelineno-19-46">46</a></span>
+<span class="normal"><a href="#__codelineno-19-47">47</a></span>
+<span class="normal"><a href="#__codelineno-19-48">48</a></span>
+<span class="normal"><a href="#__codelineno-19-49">49</a></span>
+<span class="normal"><a href="#__codelineno-19-50">50</a></span>
+<span class="normal"><a href="#__codelineno-19-51">51</a></span>
+<span class="normal"><a href="#__codelineno-19-52">52</a></span>
+<span class="normal"><a href="#__codelineno-19-53">53</a></span>
+<span class="normal"><a href="#__codelineno-19-54">54</a></span>
+<span class="normal"><a href="#__codelineno-19-55">55</a></span>
+<span class="normal"><a href="#__codelineno-19-56">56</a></span>
+<span class="normal"><a href="#__codelineno-19-57">57</a></span>
+<span class="normal"><a href="#__codelineno-19-58">58</a></span>
+<span class="normal"><a href="#__codelineno-19-59">59</a></span>
+<span class="normal"><a href="#__codelineno-19-60">60</a></span>
+<span class="normal"><a href="#__codelineno-19-61">61</a></span>
+<span class="normal"><a href="#__codelineno-19-62">62</a></span>
+<span class="normal"><a href="#__codelineno-19-63">63</a></span>
+<span class="normal"><a href="#__codelineno-19-64">64</a></span>
+<span class="normal"><a href="#__codelineno-19-65">65</a></span>
+<span class="normal"><a href="#__codelineno-19-66">66</a></span>
+<span class="normal"><a href="#__codelineno-19-67">67</a></span>
+<span class="normal"><a href="#__codelineno-19-68">68</a></span>
+<span class="normal"><a href="#__codelineno-19-69">69</a></span>
+<span class="normal"><a href="#__codelineno-19-70">70</a></span>
+<span class="normal"><a href="#__codelineno-19-71">71</a></span>
+<span class="normal"><a href="#__codelineno-19-72">72</a></span>
+<span class="normal"><a href="#__codelineno-19-73">73</a></span>
+<span class="normal"><a href="#__codelineno-19-74">74</a></span>
+<span class="normal"><a href="#__codelineno-19-75">75</a></span>
+<span class="normal"><a href="#__codelineno-19-76">76</a></span>
+<span class="normal"><a href="#__codelineno-19-77">77</a></span>
+<span class="normal"><a href="#__codelineno-19-78">78</a></span>
+<span class="normal"><a href="#__codelineno-19-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1"># dépendances</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_response</span><span class="p">,</span> <span class="n">redirect</span><span class="p">,</span> <span class="n">render_template</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask.wrappers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Response</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_wtf.csrf</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_csrf</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">werkzeug.local</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalProxy</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceResponse</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceResponse</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">HtmlResponse</span><span class="p">(</span><span class="n">InterfaceResponse</span><span class="p">):</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">build_http_response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">LocalProxy</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14"></a>                            <span class="n">résultat</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">Response</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15"></a>        <span class="c1"># la réponse HTML dépend du code d&#39;état rendu par le contrôleur</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16"></a>        <span class="n">état</span> <span class="o">=</span> <span class="n">résultat</span><span class="p">[</span><span class="s2">&quot;état&quot;</span><span class="p">]</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17"></a>
+<a id="__codelineno-19-18" name="__codelineno-19-18"></a>        <span class="c1"># on cherche si l&#39;état a été produit par une action ASV</span>
+<a id="__codelineno-19-19" name="__codelineno-19-19"></a>        <span class="c1"># auquel cas, il faut afficher une vue</span>
+<a id="__codelineno-19-20" name="__codelineno-19-20"></a>        <span class="n">asv_configs</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">][</span><span class="s2">&quot;asv&quot;</span><span class="p">]</span>
+<a id="__codelineno-19-21" name="__codelineno-19-21"></a>        <span class="n">trouvé</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-19-22" name="__codelineno-19-22"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-19-23" name="__codelineno-19-23"></a>        <span class="c1"># on parcourt la liste des vues</span>
+<a id="__codelineno-19-24" name="__codelineno-19-24"></a>        <span class="n">nb_views</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">asv_configs</span><span class="p">)</span>
+<a id="__codelineno-19-25" name="__codelineno-19-25"></a>        <span class="k">while</span> <span class="ow">not</span> <span class="n">trouvé</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nb_views</span><span class="p">:</span>
+<a id="__codelineno-19-26" name="__codelineno-19-26"></a>            <span class="c1"># vue n° i</span>
+<a id="__codelineno-19-27" name="__codelineno-19-27"></a>            <span class="n">asv_config</span> <span class="o">=</span> <span class="n">asv_configs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-19-28" name="__codelineno-19-28"></a>            <span class="c1"># états associés à la vue n° i</span>
+<a id="__codelineno-19-29" name="__codelineno-19-29"></a>            <span class="n">états</span> <span class="o">=</span> <span class="n">asv_config</span><span class="p">[</span><span class="s2">&quot;états&quot;</span><span class="p">]</span>
+<a id="__codelineno-19-30" name="__codelineno-19-30"></a>            <span class="c1"># est-ce que l&#39;état cherché se trouve dans les états associés à la vue n° i</span>
+<a id="__codelineno-19-31" name="__codelineno-19-31"></a>            <span class="k">if</span> <span class="n">état</span> <span class="ow">in</span> <span class="n">états</span><span class="p">:</span>
+<a id="__codelineno-19-32" name="__codelineno-19-32"></a>                <span class="n">trouvé</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-19-33" name="__codelineno-19-33"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-19-34" name="__codelineno-19-34"></a>                <span class="c1"># vue suivante</span>
+<a id="__codelineno-19-35" name="__codelineno-19-35"></a>                <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-19-36" name="__codelineno-19-36"></a>
+<a id="__codelineno-19-37" name="__codelineno-19-37"></a>        <span class="c1"># trouvé ?</span>
+<a id="__codelineno-19-38" name="__codelineno-19-38"></a>        <span class="k">if</span> <span class="n">trouvé</span><span class="p">:</span>
+<a id="__codelineno-19-39" name="__codelineno-19-39"></a>            <span class="c1"># il s&#39;agit d&#39;une action ASV - il faut afficher une vue dont le modèle est déjà en session</span>
+<a id="__codelineno-19-40" name="__codelineno-19-40"></a>            <span class="c1"># on génère le code HTML de la réponse</span>
+<a id="__codelineno-19-41" name="__codelineno-19-41"></a>            <span class="n">html</span> <span class="o">=</span> <span class="n">render_template</span><span class="p">(</span><span class="n">asv_config</span><span class="p">[</span><span class="s2">&quot;view_name&quot;</span><span class="p">],</span> <span class="n">modèle</span><span class="o">=</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;modèle&#39;</span><span class="p">])</span>
+<a id="__codelineno-19-42" name="__codelineno-19-42"></a>            <span class="c1"># on construit la réponse HTTP</span>
+<a id="__codelineno-19-43" name="__codelineno-19-43"></a>            <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<a id="__codelineno-19-44" name="__codelineno-19-44"></a>            <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;text/html; charset=utf-8&#39;</span>
+<a id="__codelineno-19-45" name="__codelineno-19-45"></a>            <span class="c1"># on rend le résultat</span>
+<a id="__codelineno-19-46" name="__codelineno-19-46"></a>            <span class="k">return</span> <span class="n">response</span><span class="p">,</span> <span class="n">status_code</span>
+<a id="__codelineno-19-47" name="__codelineno-19-47"></a>
+<a id="__codelineno-19-48" name="__codelineno-19-48"></a>        <span class="c1"># pas trouvé - il s&#39;agit d&#39;un code d&#39;état d&#39;une action ADS</span>
+<a id="__codelineno-19-49" name="__codelineno-19-49"></a>        <span class="c1"># celle-ci va être suivie d&#39;une redirection</span>
+<a id="__codelineno-19-50" name="__codelineno-19-50"></a>        <span class="n">redirected</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-19-51" name="__codelineno-19-51"></a>        <span class="k">for</span> <span class="n">ads</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">][</span><span class="s1">&#39;ads&#39;</span><span class="p">]:</span>
+<a id="__codelineno-19-52" name="__codelineno-19-52"></a>            <span class="c1"># états nécessitant une redirection</span>
+<a id="__codelineno-19-53" name="__codelineno-19-53"></a>            <span class="n">états</span> <span class="o">=</span> <span class="n">ads</span><span class="p">[</span><span class="s2">&quot;états&quot;</span><span class="p">]</span>
+<a id="__codelineno-19-54" name="__codelineno-19-54"></a>            <span class="k">if</span> <span class="n">état</span> <span class="ow">in</span> <span class="n">états</span><span class="p">:</span>
+<a id="__codelineno-19-55" name="__codelineno-19-55"></a>                <span class="c1"># il y a redirection</span>
+<a id="__codelineno-19-56" name="__codelineno-19-56"></a>                <span class="n">redirected</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-19-57" name="__codelineno-19-57"></a>                <span class="k">break</span>
+<a id="__codelineno-19-58" name="__codelineno-19-58"></a>        <span class="c1"># dictionnaire de redirection pour le cas des erreurs inattendues</span>
+<a id="__codelineno-19-59" name="__codelineno-19-59"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">redirected</span><span class="p">:</span>
+<a id="__codelineno-19-60" name="__codelineno-19-60"></a>            <span class="n">ads</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;mvc&#39;</span><span class="p">][</span><span class="s1">&#39;view_erreurs&#39;</span><span class="p">]</span>
+<a id="__codelineno-19-61" name="__codelineno-19-61"></a>
+<a id="__codelineno-19-62" name="__codelineno-19-62"></a>        <span class="c1"># est-ce une redirection vers une action ASD ou ASV ?</span>
+<a id="__codelineno-19-63" name="__codelineno-19-63"></a>        <span class="c1"># s&#39;il y a un modèle, alors il s&#39;agit d&#39;une redirection vers une action ASV</span>
+<a id="__codelineno-19-64" name="__codelineno-19-64"></a>        <span class="c1"># il faut alors calculer le modèle de la vue V qui sera affichée par l&#39;action ASV</span>
+<a id="__codelineno-19-65" name="__codelineno-19-65"></a>        <span class="n">model_for_view</span> <span class="o">=</span> <span class="n">ads</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;model_for_view&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-66" name="__codelineno-19-66"></a>        <span class="k">if</span> <span class="n">model_for_view</span><span class="p">:</span>
+<a id="__codelineno-19-67" name="__codelineno-19-67"></a>            <span class="c1"># calcul du modèle de la vue suivante</span>
+<a id="__codelineno-19-68" name="__codelineno-19-68"></a>            <span class="n">modèle</span> <span class="o">=</span> <span class="n">model_for_view</span><span class="o">.</span><span class="n">get_model_for_view</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">résultat</span><span class="p">)</span>
+<a id="__codelineno-19-69" name="__codelineno-19-69"></a>            <span class="c1"># le modèle est mis en session pour la vue suivante</span>
+<a id="__codelineno-19-70" name="__codelineno-19-70"></a>            <span class="n">session</span><span class="p">[</span><span class="s1">&#39;modèle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">modèle</span>
+<a id="__codelineno-19-71" name="__codelineno-19-71"></a>
+<a id="__codelineno-19-72" name="__codelineno-19-72"></a>            <span class="c1"># maintenant il faut générer l&#39;URL de redirection sans oublier le jeton CSRF s&#39;il est demandé</span>
+<a id="__codelineno-19-73" name="__codelineno-19-73"></a>        <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">][</span><span class="s1">&#39;with_csrftoken&#39;</span><span class="p">]:</span>
+<a id="__codelineno-19-74" name="__codelineno-19-74"></a>            <span class="n">csrf_token</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;/</span><span class="si">{</span><span class="n">generate_csrf</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-19-75" name="__codelineno-19-75"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-19-76" name="__codelineno-19-76"></a>            <span class="n">csrf_token</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<a id="__codelineno-19-77" name="__codelineno-19-77"></a>        
+<a id="__codelineno-19-78" name="__codelineno-19-78"></a>        <span class="c1"># réponse de redirection</span>
+<a id="__codelineno-19-79" name="__codelineno-19-79"></a>        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ads</span><span class="p">[</span><span class="s1">&#39;to&#39;</span><span class="p">]</span><span class="si">}{</span><span class="n">csrf_token</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_302_FOUND</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 18-35 : on cherche si l’état produit par la dernière action exécutée est celui d’une action ASV ;</li>
+<li>lignes 36-46 : si oui, la vue V associée à l’action ASV est affichée avec pour modèle le modèle <strong>trouvé en session</strong> associé à la clé <strong>[‘modèle’]</strong> ;</li>
+<li>lignes 48-60 : lorsqu’on arrive là, on sait que l’état produit par la dernière action exécutée est celui d’une action ADS. Il va alors provoquer une redirection. On cherche dans le fichier de configuration, la définition de celle-ci ;</li>
+<li>ligne 62 : lorsqu’on est là, on a la configuration de la redirection à faire. Il y a deux cas :</li>
+<li>il s’agit d’une redirection vers une autre action ADS. Il n’y a alors pas de modèle de vue à calculer ;</li>
+<li>il s’agit d’une redirection vers une action ASV. Il y a alors un modèle de vue à calculer (lignes 67-68). Ce modèle est ensuite mis en session (ligne 70) ;</li>
+<li>lignes 72-76 : on calcule l’URL de redirection ;</li>
+<li>lignes 78-79 : on envoie la réponse de redirection au client ;</li>
+</ul>
+<h2 id="353-tests">35.3. Tests</h2>
+<p>Faites les tests suivants avec un navigateur :</p>
+<ul>
+<li>utilisez normalement l’application. Vérifiez que les seules URL affichées par le navigateur sont des URL ASV <strong>[/afficher-vue-nom_de_la_vue]</strong> ;</li>
+<li>rafraîchissez les pages (F5) et constatez que la même page se réaffiche alors. Il n’y a aucun effet de bord ;
+Par ailleurs, utilisez le client <strong>[impots/http-clients/09]</strong>. Comme les modifications faites concernent uniquement les sessions HTML, les clients <strong>[main, main2, main3, Test1HttpClientDaoWithSession, Test2HttpClientDaoWithSession]</strong> doivent continuer à fonctionner.</li>
+</ul>
+<p>Maintenant voyons un cas d’action impossible. La vue suivante est affichée :</p>
+<p><img src="images/100000000000054800000309B0820BC0.png" style="width:15.62cm;height:8.97cm;" alt="Image" /></p>
+<p>A la place de <strong>[1]</strong>, on tape l’URL <strong>[/supprimer-simulation/1]</strong>. L’action <strong>[/supprimer-simulation]</strong> ne fait pas partie des actions proposées par la vue qui sont les actions 1-4. Elle va donc être refusée. La réponse du serveur est la suivante :</p>
+<p><img src="images/100000000000058D0000021D6D70A545.png" style="width:16.421cm;height:6.25cm;" alt="Image" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

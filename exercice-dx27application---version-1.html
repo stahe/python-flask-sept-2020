@@ -1,0 +1,2536 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction au langage Python 3 et au framework web Flask par l'exemple">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/exercice-dx27application---version-1.html">
+      
+      
+        <link rel="prev" href="les-fichiers-texte.html">
+      
+      
+        <link rel="next" href="les-imports.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>8. Exercice d'application – version 1 - Introduction au langage Python 3 et au framework web Flask par l'exemple</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-exercice-dapplication-version-1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction au langage Python 3 et au framework web Flask par l'exemple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. Exercice d&#x27;application – version 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction au langage Python 3 et au framework web Flask par l'exemple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="avant-propos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Avant-propos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation d&#x27;un environnement de travail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-bases-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Les bases de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-chaines-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les chaînes de caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-exceptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Les exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fonctions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fichiers-texte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les fichiers texte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercice d&#x27;application – version 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercice d&#x27;application – version 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#81-le-probleme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1. Le problème
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1. Le problème">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#811-calcul-de-limpot-brut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.1. Calcul de l’impôt brut
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#812-plafonnement-du-quotient-familial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.2. Plafonnement du quotient familial
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#813-calcul-de-la-decote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.3. Calcul de la décote
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#814-calcul-de-la-reduction-dimpots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.4. Calcul de la réduction d’impôts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#815-calcul-de-limpot-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.5. Calcul de l’impôt net
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#816-cas-des-hauts-revenus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.6. Cas des hauts revenus
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1.6. Cas des hauts revenus">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#8161-plafonnement-de-la-reduction-de-10-sur-les-revenus-annuels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.6.1. Plafonnement de la réduction de 10 % sur les revenus annuels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8162-plafonnement-du-quotient-familial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.6.2. Plafonnement du quotient familial
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#817-chiffres-officiels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1.7. Chiffres officiels
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#82-version-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2. Version 1
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2. Version 1">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821-le-script-principal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.1. Le script principal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822-le-module-impotsv01sharedimpots_module_01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.2. Le module [impots.v01.shared.impôts_module_01]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-la-fonction-get_taxpayers_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.3. La fonction [get_taxpayers_data]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#824-la-fonction-calcul_impot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.4. La fonction [calcul_impôt]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#825-la-fonction-calcul_impot_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.5. La fonction [calcul_impôt_2]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#826-la-fonction-get_decote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.6. La fonction [get_décôte]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#827-la-fonction-get_reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.7. La fonction [get_réduction]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#828-la-fonction-get_revenu_imposable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.8. La fonction [get_revenu_imposable]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#829-la-fonction-record_results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.9. La fonction [record_results]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#8210-les-resultats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2.10. Les résultats
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-imports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Les imports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercice d’application : version 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercice d’application : version 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-et-objets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Les classes et objets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-generiques-baseentity-et-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les classes génériques [BaseEntity] et [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-programmation-par-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Architecture en couches et programmation par interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercice d&#x27;application - version 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilisation du SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilisation du SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ecrire-du-code-independant-du-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Ecrire du code indépendant du SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-de-lorm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilisation de l’ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercice d&#x27;application : version 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fonctions-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Fonctions internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="services-web-avec-le-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Services web avec le framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercice d’application : version 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercice d’application : version 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Exercice d’application : version 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="du-dictionnaire-a-xml-et-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Du dictionnaire à XML et vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercice d’application : version 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercice d’application : version 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercice d’application : version 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercice d’application : version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clients-web-pour-les-services-json-et-xml-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clients web pour les services jSON et XML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-mode-html-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Le mode HTML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercice d’application : version 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercice d’application : version 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercice d’application : version 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercice d’application : version 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercice d’application : version 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-18.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercice d’application : version 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="8-exercice-dapplication-version-1">8. Exercice d&#x27;application – version 1</h1>
+<h2 id="81-le-probleme">8.1. Le problème</h2>
+<p>Le tableau ci-dessus permet de calculer l’impôt dans le cas simplifié d&#x27;un contribuable n&#x27;ayant que son seul salaire à déclarer. Comme l’indique la note (1), l’impôt ainsi calculé est l’impôt avant trois mécanismes :</p>
+<ul>
+<li>le plafonnement du quotient familial qui intervient pour les hauts revenus ;</li>
+<li>la décote et la réduction d’impôts qui interviennent pour les faibles revenus ;
+Ainsi le calcul de l’impôt comprend les étapes suivantes <strong>[http://impotsurlerevenu.org/comprendre-le-calcul-de-l-impot/1217-calcul-de-l-impot-2019.php]</strong> :</li>
+</ul>
+<p><img src="images/10000001000003180000010D0356A18F.png" style="width:13.14cm;height:4.462cm;" alt="Image" /></p>
+<p>On se propose d&#x27;écrire un programme permettant de calculer l&#x27;impôt d&#x27;un contribuable dans le cas simplifié d&#x27;un contribuable n&#x27;ayant que son seul salaire à déclarer :</p>
+<h3 id="811-calcul-de-limpot-brut">8.1.1. Calcul de l’impôt brut</h3>
+<p>L’impôt brut peut être calculé de la façon suivante :</p>
+<p>On calcule d’abord le nombre de parts du contribuable :</p>
+<ul>
+<li>chaque parent amène 1 part ;</li>
+<li>les deux premiers enfants amènent chacun 1/2 part ;</li>
+<li>
+<p>les enfants suivants amènent une part chacun :
+Le nombre de parts est donc :</p>
+</li>
+<li>
+<p>nbParts=1+nbEnfants*0,5+(nbEnfants-2)*0,5 si le salarié n’est pas marié ;</p>
+</li>
+<li>nbParts=2+nbEnfants*0,5+(nbEnfants-2)*0,5 s&#x27;il est marié ;</li>
+<li>où nbEnfants est son nombre d&#x27;enfants ;</li>
+<li>on calcule le revenu imposable <strong>R=0.9*S</strong> où S est le salaire annuel ;</li>
+<li>on calcule le quotient familial <strong>QF=R/nbParts ;</strong></li>
+<li>on calcule l’impôt brut <strong>I</strong> d&#x27;après les données suivantes (2019) :</li>
+</ul>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">9964</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">27519    </p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0.14</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">1394.96</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">73779    </p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0.3</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">5798</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">156244    </p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0.4</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">13913.69</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0    </p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">0.45</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">20163.45</p></td></tr></table>
+
+<p>Chaque ligne a 3 champs : champ1, champ2, champ3. Pour calculer l&#x27;impôt I, on recherche la première ligne où QF&lt;=champ1 et on prend les valeurs de cette ligne. Par exemple, pour un salarié marié avec deux enfants et un salaire annuel S de <strong>50000</strong> euros :</p>
+<p>Revenu imposable : <strong>R</strong>=0,9*S=45000</p>
+<p>Nombre de parts : <strong>nbParts</strong>=2+2*0,5=3</p>
+<p>Quotient familial : <strong>QF</strong>=45000/3=15000</p>
+<p>La 1re ligne où QF&lt;=champ1 est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>    <span class="mi">27519</span>    <span class="mf">0.14</span>    <span class="mf">1394.96</span>
+</code></pre></div></td></tr></table></div>
+<p>L&#x27;impôt I est alors égal à <strong>0.14*R – 1394,96*nbParts</strong>=<strong>[0,14*45000-1394,96*3]</strong>=<strong>2115</strong>. L’impôt est arrondi à l’euro inférieur.</p>
+<p>Si la relation QF&lt;=champ1 dès la 1re ligne, alors l’impôt est nul.</p>
+<p>Si QF est tel que la relation QF&lt;=champ1 n&#x27;est jamais vérifiée, alors ce sont les coefficients de la dernière ligne qui sont utilisés. Ici :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>    <span class="mi">0</span>    <span class="mf">0.45</span>    <span class="mf">20163.45</span>
+</code></pre></div></td></tr></table></div>
+<p>ce qui donne l&#x27;impôt brut I=<strong>0.45*R – 20163,45*nbParts</strong>.</p>
+<h3 id="812-plafonnement-du-quotient-familial">8.1.2. Plafonnement du quotient familial</h3>
+<p>Pour savoir si le plafonnement du quotient familial QF s’applique, on refait le calcul de l’impôt brut sans les enfants. Toujours pour le salarié marié avec deux enfants et un salaire annuel S de <strong>50000</strong> euros :</p>
+<p>Revenu imposable : <strong>R</strong>=0,9*S=45000</p>
+<p>Nombre de parts : <strong>nbParts</strong>=2 (on ne compte plus les enfants)</p>
+<p>Quotient familial : <strong>QF</strong>=45000/2=22500</p>
+<p>La 1re ligne où QF&lt;=champ1 est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>    <span class="mi">27519</span>    <span class="mf">0.14</span>    <span class="mf">1394.96</span>
+</code></pre></div></td></tr></table></div>
+<p>L&#x27;impôt I est alors égal à <strong>0.14*R – 1394,96*nbParts</strong>=<strong>[0,14*45000-1394,96*2]</strong>=<strong>3510</strong>.</p>
+<p>Gain maximal lié aux enfants : 1551 * 2  = 3102 euros</p>
+<p>Impôt minimal : 3510-3102 = 408 euros</p>
+<p>L’impôt brut avec 3 parts déjà calculé 2115 euros est supérieur à l’impôt minimal 408 euros, donc le plafonnement familial ne s’applique pas ici.</p>
+<p>De façon générale, l’impôt brut est <strong>sup(impôt1, impôt2)</strong> où :</p>
+<ul>
+<li><strong>[impôt1]</strong> : est l’impôt brut calculé avec les enfants ;</li>
+<li><strong>[impôt2]</strong> : est l’impôt brut calculé sans les enfants et diminué du gain maximal (ici 1551 euros par demi-part) lié aux enfants ;</li>
+</ul>
+<h3 id="813-calcul-de-la-decote">8.1.3. Calcul de la décote</h3>
+<p><img src="images/100000010000032A0000011264DC824C.png" style="width:13.851cm;height:4.68cm;" alt="Image" /></p>
+<p>Toujours pour le salarié marié avec deux enfants et un salaire annuel S de <strong>50000</strong> euros :</p>
+<p>L’impôt brut (2115) issu de l’étape précédente est inférieur à 2627 euros pour un couple (1595 euros pour un célibataire) : la décôte s’applique donc. Elle est obtenue avec le calcul suivant :</p>
+<p>décôte= seuil (couple=1970/célibataire=1196)-0,75* Impôt brut</p>
+<p><strong>décôte</strong>=1970-0,75*2115=383,75 arrondi à <strong>384</strong> euros.</p>
+<p><strong>Nouvel Impôt brut</strong>= 2115-384= <strong>1731</strong> euros</p>
+<h3 id="814-calcul-de-la-reduction-dimpots">8.1.4. Calcul de la réduction d’impôts</h3>
+<p><img src="images/100000010000032A0000011687901CDA.png" style="width:13.831cm;height:4.74cm;" alt="Image" /></p>
+<p>Au-dessous d’un certain seuil, une réduction de 20 % est faite sur l’impôt brut issu des calculs précédents. En 2019, les seuils sont les suivants :</p>
+<ul>
+<li>célibataire : 21037 euros ;</li>
+<li>couple : 42074 euros ; ( le chiffre 37968 utilisé dans l’exemple ci-dessus semble erroné) ;
+Ce seuil est augmenté de la valeur : 3797 * (nombre de demi-parts amenées par les enfants).</li>
+</ul>
+<p>Toujours pour le salarié marié avec deux enfants et un salaire annuel S de <strong>50000</strong> euros :</p>
+<ul>
+<li>son revenu imposable (45000 euros) est inférieur au seuil (42074+2*3797)=49668 euros ;</li>
+<li>il a donc droit à une réduction de 20 % de son impôt : 1731 * 0,2= 346,2 euros arrondi à 347 euros ;</li>
+<li>l’impôt brut du contribuable devient : 1731-347= <strong>1384</strong> euros ;</li>
+</ul>
+<h3 id="815-calcul-de-limpot-net">8.1.5. Calcul de l’impôt net</h3>
+<p>Notre calcul s’arrêtera là : l’impôt net à payer sera de <strong>1384</strong> euros. Dans la réalité, le contribuable peut bénéficier d’autres réductions notamment pour des dons à des organismes d’intérêt public ou général.</p>
+<h3 id="816-cas-des-hauts-revenus">8.1.6. Cas des hauts revenus</h3>
+<p>Notre exemple précédent correspond à la majorité des cas de salariés. Cependant le calcul de l’impôt est différent dans le cas des hauts revenus.</p>
+<h4 id="8161-plafonnement-de-la-reduction-de-10-sur-les-revenus-annuels">8.1.6.1. Plafonnement de la réduction de 10 % sur les revenus annuels</h4>
+<p>Dans la plupart des cas, le revenu imposable est obtenu par la formule : R=0,9*S où S est le salaire annuel. On appelle cela la réduction des 10 %. Cette réduction est plafonnée. En 2019 :</p>
+<ul>
+<li>elle ne peut être supérieure à 12502 euros ;</li>
+<li>
+<p>elle ne peut être inférieure à 437 euros ;
+Prenons le cas d’un salarié non marié sans enfants et un salaire annuel de 200000 euros :</p>
+</li>
+<li>
+<p>la réduction de 10 % est de 20000 euros &gt; 12502 euros. Elle est donc ramenée à 12502 euros ;</p>
+</li>
+</ul>
+<h4 id="8162-plafonnement-du-quotient-familial">8.1.6.2. Plafonnement du quotient familial</h4>
+<p>Prenon un cas où le plafonnement familial présenté au paragraphe |<a href="#_Plafonnement_du_quotient"><u><u>Plafonnement du quotient familial</u></u></a>|, intervient. Prenons le cas d’un couple avec trois enfants et des revenus annuels de 100000 euros. Reprenons les étapes du calcul :</p>
+<ul>
+<li>l’abattement de 10 % est de 10000 euros &lt; 12502 euros. Le revenu imposable <strong>R</strong> est donc 100000-10000=90000 euros ;</li>
+<li>le couple a <strong>nbParts</strong>=2+0,5*2+1=<strong>4</strong> parts ;</li>
+<li>son quotient familial est donc <strong>QF</strong>= R/nbParts=90000/4=<strong>22500</strong> euros ;</li>
+<li>son impôt brut <strong>I1</strong> <strong>avec</strong> enfants est I1=0,14*90000-1394,96*4= 7020 euros ;</li>
+<li>son impôt brut <strong>I2</strong> <strong>sans</strong> enfants :</li>
+<li><strong>QF</strong>=90000/2=45000 euros ;</li>
+<li><strong>I2</strong>=0,3*90000-5798*2=15404 euros ;</li>
+<li>la règle du plafonnement du quotient familial dit que le gain amené par les enfants ne peut dépasser (1551*4 demi-parts)=6204 euros. Or ici, il est I2-I1=15404-7020= 8384 euros, donc supérieur à 6204 euros ;</li>
+<li>l’impôt brut est donc recalculé comme <strong>I3</strong>=<strong>I2</strong>-6204=15404-6204= <strong>9200</strong> euros ;
+Ce couple n’aura ni décote, ni réduction et son impôt final sera de <strong>9200</strong> euros.</li>
+</ul>
+<h3 id="817-chiffres-officiels">8.1.7. Chiffres officiels</h3>
+<p>Le calcul de l’impôt est complexe. Tout au long du document, les tests seront faits avec les exemples suivants. Les résultats sont ceux du simulateur de l’administration fiscale |<a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/simplifie/index.htm"><u><u>https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/simplifie/index.htm</u></u></a>| :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Contribuable</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats officiels</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats de l’algorithme du document</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 2 enfants et des revenus annuels de 55555 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>2815</b> euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>2814</b> euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 2 enfants et des revenus annuels de 50000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>1385</b> euros</p><p style="margin:0;">Décote=720 euros</p><p style="margin:0;">Réduction=0 euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>1384</b> euros</p><p style="margin:0;">Décote=384 euros</p><p style="margin:0;">Réduction=347 euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 3 enfants et des revenus annuels de 50000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=384 euros</p><p style="margin:0;">Réduction=346 euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=720 euros</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire avec 2 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>19884</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>19884</b> euros</p><p style="margin:0;">Surcote=4480 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire avec 3 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>16782</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>16782</b> euros</p><p style="margin:0;">Surcote=7176 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 3 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>9200</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=30 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>9200</b> euros</p><p style="margin:0;">Surcote=2180 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=30 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 5 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>4230</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>4230</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire sans enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>22986</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b> 22986</b> euros</p><p style="margin:0;">Surcote=0 euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 2 enfants et des revenus annuels de 30000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=0 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=0 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire sans enfants et des revenus annuels de 200000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>64211</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=45 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b> 64210</b> euros</p><p style="margin:0;">Surcote=7498 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=45 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 3 enfants et des revenus annuels de 200000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>42843</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>42842</b> euros</p><p style="margin:0;">Surcote=17283 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr></table>
+
+<p>Ci-dessus, on appelle surcote, ce que paient en plus les hauts revenus à cause de deux phénomènes :</p>
+<ul>
+<li>le plafonnement de l’abattement de 10 % sur les revenus annuels ;</li>
+<li>le plafonnement du quotient familial ;
+Cet indicateur n’a pu être vérifié car le simulateur de l’administration fiscale ne le donne pas.</li>
+</ul>
+<p>On voit que l’algorithme du document donne un impôt juste à chaque fois, avec cependant une marge d’erreur de 1 euro. Cette marge d’erreur provient des arrondis. Toutes les sommes d’argent sont arrondies parfois à l’euro supérieur, parfois à l’euro inférieur. Comme je ne connaissais pas les règles officielles, les sommes d’argent de l’algorithme du document ont été arrondies :</p>
+<ul>
+<li>à l’euro supérieur pour les décotes et réductions ;</li>
+<li>à l’euro inférieur pour les surcotes et l’impôt final ;
+Nous allons développer plusieurs versions de l&#x27;application de calcul de l&#x27;impôt.</li>
+</ul>
+<h2 id="82-version-1">8.2. Version 1</h2>
+<p><img src="images/10000001000001E80000014EAC696D40.png" style="width:6.451cm;height:4.41cm;" alt="Image" /></p>
+<h3 id="821-le-script-principal">8.2.1. Le script principal</h3>
+<p>Nous présentons un premier programme où :</p>
+<ul>
+<li>les données nécessaires au calcul de l&#x27;impôt sont codées en dur dans le code sous forme de listes et de constantes ;</li>
+<li>les données des contribuables (marié, enfants, salaire) sont dans un premier fichier texte <strong>[taxpayersdata.txt]</strong> ;</li>
+<li>les résultats du calcul de l&#x27;impôt (marié, enfants, salaire, impôt) sont mémorisés dans un second fichier texte <strong>[résultats.txt]</strong> ;
+Le script <strong>[v-01/main.py]</strong> est le suivant :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># modules</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">impots.v01.shared.impôts_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># main -----------------------</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1"># constantes</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># fichier des contribuables</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">DATA</span> <span class="o">=</span> <span class="s2">&quot;./data/taxpayersdata.txt&quot;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1"># fichier des résultats</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">RESULTATS</span> <span class="o">=</span> <span class="s2">&quot;./data/résultats.txt&quot;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>    <span class="c1"># lecture des données contribuables</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="n">tax_payers</span> <span class="o">=</span> <span class="n">get_taxpayers_data</span><span class="p">(</span><span class="n">DATA</span><span class="p">)</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>    <span class="c1"># liste des résultats</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>    <span class="c1"># on calcule l&#39;impôt des contribuables</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a>    <span class="k">for</span> <span class="n">tax_payer</span> <span class="ow">in</span> <span class="n">tax_payers</span><span class="p">:</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="c1"># le calcul de l&#39;impôt renvoie un dictionnaire de clés</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>        <span class="c1"># [&#39;marié&#39;, &#39;enfants&#39;, &#39;salaire&#39;, &#39;impôt&#39;, &#39;surcôte&#39;, &#39;décôte&#39;, &#39;réduction&#39;, &#39;taux&#39;]</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a>        <span class="n">result</span> <span class="o">=</span> <span class="n">calcul_impôt</span><span class="p">(</span><span class="n">tax_payer</span><span class="p">[</span><span class="s1">&#39;marié&#39;</span><span class="p">],</span> <span class="n">tax_payer</span><span class="p">[</span><span class="s1">&#39;enfants&#39;</span><span class="p">],</span> <span class="n">tax_payer</span><span class="p">[</span><span class="s1">&#39;salaire&#39;</span><span class="p">])</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a>        <span class="c1"># le dictionnaire est ajouté à la liste des résultats</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a>        <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a>    <span class="c1"># on enregistre les résultats</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a>    <span class="n">record_results</span><span class="p">(</span><span class="n">RESULTATS</span><span class="p">,</span> <span class="n">results</span><span class="p">)</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a>    <span class="c1"># il peut y avoir différentes erreurs : absence de fichier, contenu de fichier incorrect</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>    <span class="c1"># on affiche l&#39;erreur et on quitte l&#39;application</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;l&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">]</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>ligne 4 : on utilise le module <strong>[</strong><strong>impots</strong><strong>.</strong><strong>v01</strong><strong>.</strong><strong>modules</strong><strong>.</strong><strong>impôts_module_01</strong><strong>]</strong>. On rappelle que ce chemin est mesuré à partir de la racine du projet PyCharm ;</li>
+<li>ligne 10 : le fichier <strong>[data/taxpayersdata.txt]</strong> est le suivant :
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">55555</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50000</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">50000</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">non</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">non</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">oui</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30000</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200000</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<p>Chaque ligne représente un tuple de trois éléments <strong>[marié / pacsé ou pas, nombre d&#x27;enfants, salaire annuel en euros]</strong>.</p>
+<ul>
+<li>
+<p>ligne 12 : le fichier où on placera les résultats du calcul de l&#x27;impôt pour chacun des contribuables du fichier <strong>[taxpayersdata.txt]</strong>. Il aura le contenu suivant :
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">55555</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">2814</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">347</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">720</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">19884</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">4480</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">16782</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">7176</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">9200</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">2180</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">4230</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">22986</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">64210</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">7498</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">42842</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">17283</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div></p>
+</li>
+<li>
+<p>ligne 16 : on récupère les données des contribuables contenues dans <strong>[taxpayersdata.txt]</strong>. On récupère une liste de dictionnaires de clés <strong>[marié, enfants, salaire]</strong> chaque dictionnaire représentant un contribuable ;</p>
+</li>
+<li>lignes 17-25 : on calcule l&#x27;impôt des contribuables de la liste <strong>[taxPayers]</strong>. On récupère une liste <strong>[results]</strong> dont chaque élément est de nouveau un dictionnaire de clés <strong>[</strong><strong>marié, enfants, salaire, impôt, surcôte, décôte, réduction, taux</strong><strong>]</strong> ;</li>
+<li>ligne 27 : la liste <strong>[results]</strong> des résultats est enregistrée dans le fichier <strong>[résultats.txt]</strong> sous la forme montrée ci-dessus ;</li>
+<li>
+<p>lignes 28-32 : on arrête toutes les exceptions qui peuvent sortir du module <strong>[</strong><strong>impots</strong><strong>.</strong><strong>v01</strong><strong>.</strong><strong>modules</strong><strong>.</strong><strong>impôts_module_01</strong><strong>]</strong> ;
+Nous allons détailler maintenant les trois fonctions utilisées par le script <strong>[main]</strong> :</p>
+</li>
+<li>
+<p><strong>[</strong><strong>get_taxpayers_data</strong><strong>]</strong> : pour lire les données des contribuables ;</p>
+</li>
+<li><strong>[</strong><strong>calcul_impôt</strong><strong>]</strong> : pour calculer l&#x27;impôt de ceux-ci ;</li>
+<li><strong>[</strong><strong>record_results</strong><strong>]</strong> : pour enregistrer les résultats dans un fichier texte ;
+Toutes ces fonctions se trouvent dans le module <strong>[</strong><strong>impots</strong><strong>.</strong><strong>modules</strong><strong>.</strong><strong>impôts_module_01</strong><strong>]</strong>.</li>
+</ul>
+<h3 id="822-le-module-impotsv01sharedimpots_module_01">8.2.2. Le module [impots.v01.shared.impôts_module_01]</h3>
+<p>Les fonctions nécessaires au calcul de l&#x27;impôt ont été rassemblées dans le module <strong>[</strong><strong>impots</strong><strong>.</strong><strong>v01</strong><strong>.</strong><strong>shared</strong><strong>.</strong><strong>impôts_module_01</strong><strong>]</strong> :</p>
+<p><img src="images/10000000000005A80000034C7B8390E7.png" style="width:16.74cm;height:9.76cm;" alt="Image" /></p>
+<ul>
+<li>en <strong>[1]</strong> : définition des constantes du calcul de l&#x27;impôt ;</li>
+<li>en <strong>[2]</strong> : la liste des fonctions du module ;</li>
+</ul>
+<h3 id="823-la-fonction-get_taxpayers_data">8.2.3. La fonction [get_taxpayers_data]</h3>
+<p>La fonction <strong>[</strong><strong>get_taxpayers_data</strong><strong>]</strong> est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span>
+<span class="normal"><a href="#__codelineno-6-27">27</a></span>
+<span class="normal"><a href="#__codelineno-6-28">28</a></span>
+<span class="normal"><a href="#__codelineno-6-29">29</a></span>
+<span class="normal"><a href="#__codelineno-6-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="err">…</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1"># lecture des données des contribuables</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_taxpayers_data</span><span class="p">(</span><span class="n">taxpayers_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="c1"># lecture des données contribuables</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="n">file</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>        <span class="c1"># la liste des contribuables</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>        <span class="n">taxpayers</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>        <span class="c1"># ouverture du fichier</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>        <span class="n">file</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">taxpayers_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>        <span class="c1"># on lit la première ligne du fichier des contribuables</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>        <span class="n">ligne</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>        <span class="c1"># tant qu&#39;il reste une ligne à exploiter</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>        <span class="k">while</span> <span class="n">ligne</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>            <span class="c1"># on récupère les 3 champs marié,enfants,salaire qui forment la ligne</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>            <span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">salaire</span><span class="p">)</span> <span class="o">=</span> <span class="n">ligne</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>            <span class="c1"># on les ajoute à la liste des contribuables</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>            <span class="n">taxpayers</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="n">marié</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">enfants</span><span class="p">),</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">salaire</span><span class="p">)})</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a>            <span class="c1"># on lit une nouvelle ligne du fichier des contribuables</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a>            <span class="n">ligne</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a>        <span class="c1"># on rend le résultat</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a>        <span class="k">return</span> <span class="n">taxpayers</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28"></a>        <span class="c1"># on ferme le fichier s&#39;il a été ouvert</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29"></a>        <span class="k">if</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30"></a>            <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>ligne 7 : <strong>[</strong><strong>taxpayers_filename</strong><strong>]</strong> est le nom du fichier à exploiter. La fonction rend une liste ;</li>
+<li>lignes 18-24 : la boucle d&#x27;exploitation des lignes <strong>[marié, enfants, salaire]</strong> du fichier texte ;</li>
+<li>ligne 20 : les trois éléments de la ligne sont récupérés. On suppose ici que la ligne est syntaxiquement correcte, ç-à-d qu&#x27;elle a bien les trois éléments attendus ;</li>
+<li>ligne 22 : on construit un dictionnaire avec les clés <strong>[marié, enfants, salaire]</strong> et ce dictionnaire est ajouté à la liste <strong>[taxPayers]</strong> ;</li>
+<li>ligne 26 : une fois le fichier exploité, on rend la liste <strong>[taxPayers]</strong> ;</li>
+<li>lignes 10-30 : on remarquera qu&#x27;on n&#x27;a pas mis de clause <strong>[catch]</strong> au <strong>[try]</strong> de la ligne 10. La clause <strong>[catch]</strong> n&#x27;est pas obligatoire. Ligne 27, on a mis une clause <strong>[finally]</strong> pour fermer le fichier texte dans tous les cas, erreur ou pas ;</li>
+<li>cette structure try / finally laisse échapper une éventuelle exception (il n&#x27;y a pas de catch). Cette exception va remonter au script principal <strong>[main]</strong> qui va arrêter et afficher l&#x27;exception (cf paragraphe |<u>Le script principal</u>|). Ce mécanisme a été utilisé pour la plupart des fonctions du module ;</li>
+</ul>
+<h3 id="824-la-fonction-calcul_impot">8.2.4. La fonction [calcul_impôt]</h3>
+<p>La fonction <strong>[</strong><strong>calcul_impôt</strong><strong>]</strong> est la suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span>
+<span class="normal"><a href="#__codelineno-7-30">30</a></span>
+<span class="normal"><a href="#__codelineno-7-31">31</a></span>
+<span class="normal"><a href="#__codelineno-7-32">32</a></span>
+<span class="normal"><a href="#__codelineno-7-33">33</a></span>
+<span class="normal"><a href="#__codelineno-7-34">34</a></span>
+<span class="normal"><a href="#__codelineno-7-35">35</a></span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span>
+<span class="normal"><a href="#__codelineno-7-37">37</a></span>
+<span class="normal"><a href="#__codelineno-7-38">38</a></span>
+<span class="normal"><a href="#__codelineno-7-39">39</a></span>
+<span class="normal"><a href="#__codelineno-7-40">40</a></span>
+<span class="normal"><a href="#__codelineno-7-41">41</a></span>
+<span class="normal"><a href="#__codelineno-7-42">42</a></span>
+<span class="normal"><a href="#__codelineno-7-43">43</a></span>
+<span class="normal"><a href="#__codelineno-7-44">44</a></span>
+<span class="normal"><a href="#__codelineno-7-45">45</a></span>
+<span class="normal"><a href="#__codelineno-7-46">46</a></span>
+<span class="normal"><a href="#__codelineno-7-47">47</a></span>
+<span class="normal"><a href="#__codelineno-7-48">48</a></span>
+<span class="normal"><a href="#__codelineno-7-49">49</a></span>
+<span class="normal"><a href="#__codelineno-7-50">50</a></span>
+<span class="normal"><a href="#__codelineno-7-51">51</a></span>
+<span class="normal"><a href="#__codelineno-7-52">52</a></span>
+<span class="normal"><a href="#__codelineno-7-53">53</a></span>
+<span class="normal"><a href="#__codelineno-7-54">54</a></span>
+<span class="normal"><a href="#__codelineno-7-55">55</a></span>
+<span class="normal"><a href="#__codelineno-7-56">56</a></span>
+<span class="normal"><a href="#__codelineno-7-57">57</a></span>
+<span class="normal"><a href="#__codelineno-7-58">58</a></span>
+<span class="normal"><a href="#__codelineno-7-59">59</a></span>
+<span class="normal"><a href="#__codelineno-7-60">60</a></span>
+<span class="normal"><a href="#__codelineno-7-61">61</a></span>
+<span class="normal"><a href="#__codelineno-7-62">62</a></span>
+<span class="normal"><a href="#__codelineno-7-63">63</a></span>
+<span class="normal"><a href="#__codelineno-7-64">64</a></span>
+<span class="normal"><a href="#__codelineno-7-65">65</a></span>
+<span class="normal"><a href="#__codelineno-7-66">66</a></span>
+<span class="normal"><a href="#__codelineno-7-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># tranches de l&#39;impôt 2019</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">limites</span> <span class="o">=</span> <span class="p">[</span><span class="mi">9964</span><span class="p">,</span> <span class="mi">27519</span><span class="p">,</span> <span class="mi">73779</span><span class="p">,</span> <span class="mi">156244</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">coeffr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">]</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">coeffn</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1394.96</span><span class="p">,</span> <span class="mi">5798</span><span class="p">,</span> <span class="mf">13913.69</span><span class="p">,</span> <span class="mf">20163.45</span><span class="p">]</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c1"># constantes pour le calcul de l&#39;impôt 2019</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">PLAFOND_QF_DEMI_PART</span> <span class="o">=</span> <span class="mi">1551</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="n">PLAFOND_REVENUS_CELIBATAIRE_POUR_REDUCTION</span> <span class="o">=</span> <span class="mi">21037</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="n">PLAFOND_REVENUS_COUPLE_POUR_REDUCTION</span> <span class="o">=</span> <span class="mi">42074</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="n">VALEUR_REDUC_DEMI_PART</span> <span class="o">=</span> <span class="mi">3797</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="n">PLAFOND_DECOTE_CELIBATAIRE</span> <span class="o">=</span> <span class="mi">1196</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="n">PLAFOND_DECOTE_COUPLE</span> <span class="o">=</span> <span class="mi">1970</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a><span class="n">PLAFOND_IMPOT_COUPLE_POUR_DECOTE</span> <span class="o">=</span> <span class="mi">2627</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a><span class="n">PLAFOND_IMPOT_CELIBATAIRE_POUR_DECOTE</span> <span class="o">=</span> <span class="mi">1595</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="n">ABATTEMENT_DIXPOURCENT_MAX</span> <span class="o">=</span> <span class="mi">12502</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a><span class="n">ABATTEMENT_DIXPOURCENT_MIN</span> <span class="o">=</span> <span class="mi">437</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a><span class="err">…</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="c1"># calcul de l&#39;impôt</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcul_impôt</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">enfants</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>    <span class="c1"># marié : oui, non</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>    <span class="c1"># enfants : nombre d&#39;enfants</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>    <span class="c1"># salaire : salaire annuel</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>    <span class="c1"># limites, coeffr, coeffn : les tableaux des données permettant le calcul de l&#39;impôt</span>
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>    <span class="c1">#</span>
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>    <span class="c1"># calcul de l&#39;impôt avec enfants</span>
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>    <span class="n">result1</span> <span class="o">=</span> <span class="n">calcul_impôt_2</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>    <span class="n">impot1</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="s2">&quot;impôt&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a>    <span class="c1"># calcul de l&#39;impôt sans les enfants</span>
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a>    <span class="k">if</span> <span class="n">enfants</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a>        <span class="n">result2</span> <span class="o">=</span> <span class="n">calcul_impôt_2</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-7-37" name="__codelineno-7-37"></a>        <span class="n">impot2</span> <span class="o">=</span> <span class="n">result2</span><span class="p">[</span><span class="s2">&quot;impôt&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-38" name="__codelineno-7-38"></a>        <span class="c1"># application du plafonnement du quotient familial</span>
+<a id="__codelineno-7-39" name="__codelineno-7-39"></a>        <span class="k">if</span> <span class="n">enfants</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-7-40" name="__codelineno-7-40"></a>            <span class="c1"># PLAFOND_QF_DEMI_PART euros pour les 2 premiers enfants</span>
+<a id="__codelineno-7-41" name="__codelineno-7-41"></a>            <span class="n">impot2</span> <span class="o">=</span> <span class="n">impot2</span> <span class="o">-</span> <span class="n">enfants</span> <span class="o">*</span> <span class="n">PLAFOND_QF_DEMI_PART</span>
+<a id="__codelineno-7-42" name="__codelineno-7-42"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-43" name="__codelineno-7-43"></a>            <span class="c1"># PLAFOND_QF_DEMI_PART euros pour les 2 premiers enfants, le double pour les suivants</span>
+<a id="__codelineno-7-44" name="__codelineno-7-44"></a>            <span class="n">impot2</span> <span class="o">=</span> <span class="n">impot2</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PLAFOND_QF_DEMI_PART</span> <span class="o">-</span> <span class="p">(</span><span class="n">enfants</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">PLAFOND_QF_DEMI_PART</span>
+<a id="__codelineno-7-45" name="__codelineno-7-45"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-46" name="__codelineno-7-46"></a>        <span class="n">impot2</span> <span class="o">=</span> <span class="n">impot1</span>
+<a id="__codelineno-7-47" name="__codelineno-7-47"></a>        <span class="n">result2</span> <span class="o">=</span> <span class="n">result1</span>
+<a id="__codelineno-7-48" name="__codelineno-7-48"></a>
+<a id="__codelineno-7-49" name="__codelineno-7-49"></a>    <span class="c1"># on prend l&#39;impôt le plus fort avec le taux et la surcôte qui vont avec</span>
+<a id="__codelineno-7-50" name="__codelineno-7-50"></a>    <span class="k">if</span> <span class="n">impot1</span> <span class="o">&gt;</span> <span class="n">impot2</span><span class="p">:</span>
+<a id="__codelineno-7-51" name="__codelineno-7-51"></a>        <span class="n">impot</span> <span class="o">=</span> <span class="n">impot1</span>
+<a id="__codelineno-7-52" name="__codelineno-7-52"></a>        <span class="n">taux</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="s2">&quot;taux&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-53" name="__codelineno-7-53"></a>        <span class="n">surcôte</span> <span class="o">=</span> <span class="n">result1</span><span class="p">[</span><span class="s2">&quot;surcôte&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-54" name="__codelineno-7-54"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-7-55" name="__codelineno-7-55"></a>        <span class="n">surcôte</span> <span class="o">=</span> <span class="n">impot2</span> <span class="o">-</span> <span class="n">impot1</span> <span class="o">+</span> <span class="n">result2</span><span class="p">[</span><span class="s2">&quot;surcôte&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-56" name="__codelineno-7-56"></a>        <span class="n">impot</span> <span class="o">=</span> <span class="n">impot2</span>
+<a id="__codelineno-7-57" name="__codelineno-7-57"></a>        <span class="n">taux</span> <span class="o">=</span> <span class="n">result2</span><span class="p">[</span><span class="s2">&quot;taux&quot;</span><span class="p">]</span>
+<a id="__codelineno-7-58" name="__codelineno-7-58"></a>
+<a id="__codelineno-7-59" name="__codelineno-7-59"></a>    <span class="c1"># calcul d&#39;une éventuelle décôte</span>
+<a id="__codelineno-7-60" name="__codelineno-7-60"></a>    <span class="n">décôte</span> <span class="o">=</span> <span class="n">get_décôte</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">salaire</span><span class="p">,</span> <span class="n">impot</span><span class="p">)</span>
+<a id="__codelineno-7-61" name="__codelineno-7-61"></a>    <span class="n">impot</span> <span class="o">-=</span> <span class="n">décôte</span>
+<a id="__codelineno-7-62" name="__codelineno-7-62"></a>    <span class="c1"># calcul d&#39;une éventuelle réduction d&#39;impôts</span>
+<a id="__codelineno-7-63" name="__codelineno-7-63"></a>    <span class="n">réduction</span> <span class="o">=</span> <span class="n">get_réduction</span><span class="p">(</span><span class="n">marié</span><span class="p">,</span> <span class="n">salaire</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">impot</span><span class="p">)</span>
+<a id="__codelineno-7-64" name="__codelineno-7-64"></a>    <span class="n">impot</span> <span class="o">-=</span> <span class="n">réduction</span>
+<a id="__codelineno-7-65" name="__codelineno-7-65"></a>    <span class="c1"># résultat</span>
+<a id="__codelineno-7-66" name="__codelineno-7-66"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="n">marié</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="n">enfants</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="n">salaire</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">impot</span><span class="p">),</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="n">surcôte</span><span class="p">,</span>
+<a id="__codelineno-7-67" name="__codelineno-7-67"></a>            <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="n">décôte</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="n">réduction</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="n">taux</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>lignes 6-8 : les tranches de l&#x27;impôt (cf. paragraphe |<u>Calcul de l’impôt brut</u>|) ;</li>
+<li>lignes 11-20 : les constantes du calcul de l&#x27;impôt ;</li>
+<li>on notera que les éléments initialisés aux lignes 5-20 seront globaux aux fonctions que nous allons décrire. Ils sont donc connus tant que la fonction qui les utilise ne déclare pas de variables de mêmes noms ;</li>
+<li>les chiffres des lignes 5-20 changent chaque année. Ici ce sont les chiffres 2019 ;</li>
+<li>ligne 25 : la fonction <strong>[calcul_impôt]</strong> reçoit trois paramètres :</li>
+<li><strong>[marié]</strong> : oui / non, indique si le contribuable est marié ou pacsé ;</li>
+<li><strong>[enfants]</strong> : son nombre d&#x27;enfants ;</li>
+<li><strong>[salaire]</strong> : son salaire annuel en euros ;</li>
+<li>lignes 31-33 : calcul de l’impôt en prenant en compte les enfants ; </li>
+<li>lignes 34-47 : ces lignes implémentent le plafonnement du quotient familial (cf. paragraphe |<u>Plafonnement du quotient familial</u>|) ;</li>
+<li>lignes 49-57 : ces lignes calculent le taux d&#x27;imposition du contribuable ainsi qu&#x27;une éventuelle surcote (cf paragraphe |<u>Cas des hauts revenus</u>|) ;</li>
+<li>lignes 59-61 : calcul d&#x27;une éventuelle décote (cf paragraphe |<u>Calcul de la décôte</u>|) ;</li>
+<li>lignes 62-64 : calcul d&#x27;une éventuelle réduction de l&#x27;impôt à payer (cf. paragraphe |<u>Calcul de la réduction d’impôts</u>|) ;
+L&#x27;algorithme est assez complexe et nous ne le détaillerons pas plus que ce que disent les commentaires. L&#x27;algorithme implémente le mode de calcul de l&#x27;impôt tel que décrit au paragraphe |<a href="#_Le_problème"><u><u>Le problème</u></u></a>|.</li>
+</ul>
+<h3 id="825-la-fonction-calcul_impot_2">8.2.5. La fonction [calcul_impôt_2]</h3>
+<p>La fonction <strong>[calcul_impôt]</strong> fait appel à la fonction <strong>[calcul_impôt_2]</strong> suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span>
+<span class="normal"><a href="#__codelineno-8-30">30</a></span>
+<span class="normal"><a href="#__codelineno-8-31">31</a></span>
+<span class="normal"><a href="#__codelineno-8-32">32</a></span>
+<span class="normal"><a href="#__codelineno-8-33">33</a></span>
+<span class="normal"><a href="#__codelineno-8-34">34</a></span>
+<span class="normal"><a href="#__codelineno-8-35">35</a></span>
+<span class="normal"><a href="#__codelineno-8-36">36</a></span>
+<span class="normal"><a href="#__codelineno-8-37">37</a></span>
+<span class="normal"><a href="#__codelineno-8-38">38</a></span>
+<span class="normal"><a href="#__codelineno-8-39">39</a></span>
+<span class="normal"><a href="#__codelineno-8-40">40</a></span>
+<span class="normal"><a href="#__codelineno-8-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calcul_impôt_2</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">enfants</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>    <span class="c1"># marié : oui, non</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="c1"># enfants : nombre d&#39;enfants</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="c1"># salaire : salaire annuel</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="c1"># limites, coeffr, coeffn : les tableaux des données permettant le calcul de l&#39;impôt</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="c1">#</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="c1"># nombre de parts</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>    <span class="n">marié</span> <span class="o">=</span> <span class="n">marié</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a>    <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span><span class="p">:</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>        <span class="n">nb_parts</span> <span class="o">=</span> <span class="n">enfants</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a>        <span class="n">nb_parts</span> <span class="o">=</span> <span class="n">enfants</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a>    <span class="c1"># 1 part par enfant à partir du 3ième</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>    <span class="k">if</span> <span class="n">enfants</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>        <span class="c1"># une demi-part de + pour chaque enfant à partir du 3ième</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>        <span class="n">nb_parts</span> <span class="o">+=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">enfants</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>    <span class="c1"># revenu imposable</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>    <span class="n">revenu_imposable</span> <span class="o">=</span> <span class="n">get_revenu_imposable</span><span class="p">(</span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>    <span class="c1"># surcôte</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>    <span class="n">surcôte</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">revenu_imposable</span> <span class="o">-</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>    <span class="c1"># pour des pbs d&#39;arrondi</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>    <span class="k">if</span> <span class="n">surcôte</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a>        <span class="n">surcôte</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>    <span class="c1"># quotient familial</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>    <span class="n">quotient</span> <span class="o">=</span> <span class="n">revenu_imposable</span> <span class="o">/</span> <span class="n">nb_parts</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a>    <span class="c1"># est mis à la fin du tableau limites pour arrêter la boucle qui suit</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a>    <span class="n">limites</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">quotient</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a>    <span class="c1"># calcul de l&#39;impôt</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a>    <span class="k">while</span> <span class="n">quotient</span> <span class="o">&gt;</span> <span class="n">limites</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-8-35" name="__codelineno-8-35"></a>        <span class="c1"># du fait qu&#39;on a placé quotient à la fin du tableau limites, la boucle précédente</span>
+<a id="__codelineno-8-36" name="__codelineno-8-36"></a>    <span class="c1"># ne peut déborder du tableau limites</span>
+<a id="__codelineno-8-37" name="__codelineno-8-37"></a>
+<a id="__codelineno-8-38" name="__codelineno-8-38"></a>    <span class="c1"># maintenant on peut calculer l&#39;impôt</span>
+<a id="__codelineno-8-39" name="__codelineno-8-39"></a>    <span class="n">impôt</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">revenu_imposable</span> <span class="o">*</span> <span class="n">coeffr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">nb_parts</span> <span class="o">*</span> <span class="n">coeffn</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-8-40" name="__codelineno-8-40"></a>    <span class="c1"># résultat</span>
+<a id="__codelineno-8-41" name="__codelineno-8-41"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="n">impôt</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="n">surcôte</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="n">coeffr</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span>
+</code></pre></div></td></tr></table></div>
+<p>Cet algorithme a été décrit au paragraphe 8.1.1.</p>
+<h3 id="826-la-fonction-get_decote">8.2.6. La fonction [get_décôte]</h3>
+<p>La fonction <strong>[</strong><strong>get_décôte</strong><strong>]</strong> implémente le calcul de l&#x27;éventuelle décote de l&#x27;impôt (paragraphe |<a href="#_Calcul_de_la"><u><u>Calcul de la décôte</u></u></a>|) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># calcule une décôte éventuelle</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_décôte</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">impots</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>    <span class="c1"># au départ, une décôte nulle</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="n">décôte</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a>    <span class="c1"># montant maximal d&#39;impôt pour avoir la décôte</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>    <span class="n">plafond_impôt_pour_décôte</span> <span class="o">=</span> <span class="n">PLAFOND_IMPOT_COUPLE_POUR_DECOTE</span> <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span> <span class="k">else</span> <span class="n">PLAFOND_IMPOT_CELIBATAIRE_POUR_DECOTE</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="k">if</span> <span class="n">impots</span> <span class="o">&lt;</span> <span class="n">plafond_impôt_pour_décôte</span><span class="p">:</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>        <span class="c1"># montant maximal de la décôte</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>        <span class="n">plafond_décôte</span> <span class="o">=</span> <span class="n">PLAFOND_DECOTE_COUPLE</span> <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span> <span class="k">else</span> <span class="n">PLAFOND_DECOTE_CELIBATAIRE</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a>        <span class="c1"># décôte théorique</span>
+<a id="__codelineno-9-11" name="__codelineno-9-11"></a>        <span class="n">décôte</span> <span class="o">=</span> <span class="n">plafond_décôte</span> <span class="o">-</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">impots</span>
+<a id="__codelineno-9-12" name="__codelineno-9-12"></a>        <span class="c1"># la décôte ne peut dépasser le montant de l&#39;ompôt</span>
+<a id="__codelineno-9-13" name="__codelineno-9-13"></a>        <span class="k">if</span> <span class="n">décôte</span> <span class="o">&gt;</span> <span class="n">impots</span><span class="p">:</span>
+<a id="__codelineno-9-14" name="__codelineno-9-14"></a>            <span class="n">décôte</span> <span class="o">=</span> <span class="n">impots</span>
+<a id="__codelineno-9-15" name="__codelineno-9-15"></a>
+<a id="__codelineno-9-16" name="__codelineno-9-16"></a>        <span class="c1"># pas de décôte &lt;0</span>
+<a id="__codelineno-9-17" name="__codelineno-9-17"></a>        <span class="k">if</span> <span class="n">décôte</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-9-18" name="__codelineno-9-18"></a>            <span class="n">décôte</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-9-19" name="__codelineno-9-19"></a>
+<a id="__codelineno-9-20" name="__codelineno-9-20"></a>    <span class="c1"># résultat</span>
+<a id="__codelineno-9-21" name="__codelineno-9-21"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">décôte</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="827-la-fonction-get_reduction">8.2.7. La fonction [get_réduction]</h3>
+<p>La fonction <strong>[get_réduction]</strong> implémente le calcul de l&#x27;éventuelle réduction de l&#x27;impôt à payer (paragraphe |<a href="#_Calcul_de_la_1"><u><u>Calcul de la réduction d’impôts</u></u></a>|) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># calcule une réduction éventuelle</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_réduction</span><span class="p">(</span><span class="n">marié</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">enfants</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">impots</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="c1"># le plafond des revenus pour avoir droit à la réduction de 20%</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="n">plafond_revenu_pour_réduction</span> <span class="o">=</span> <span class="n">PLAFOND_REVENUS_COUPLE_POUR_REDUCTION</span> <span class="k">if</span> <span class="n">marié</span> <span class="o">==</span> <span class="s2">&quot;oui&quot;</span> <span class="k">else</span> <span class="n">PLAFOND_REVENUS_CELIBATAIRE_POUR_REDUCTION</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    <span class="n">plafond_revenu_pour_réduction</span> <span class="o">+=</span> <span class="n">enfants</span> <span class="o">*</span> <span class="n">VALEUR_REDUC_DEMI_PART</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>    <span class="k">if</span> <span class="n">enfants</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>        <span class="n">plafond_revenu_pour_réduction</span> <span class="o">+=</span> <span class="p">(</span><span class="n">enfants</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">VALEUR_REDUC_DEMI_PART</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>    <span class="c1"># revenu imposable</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    <span class="n">revenu_imposable</span> <span class="o">=</span> <span class="n">get_revenu_imposable</span><span class="p">(</span><span class="n">salaire</span><span class="p">)</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="c1"># réduction</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="n">réduction</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="k">if</span> <span class="n">revenu_imposable</span> <span class="o">&lt;</span> <span class="n">plafond_revenu_pour_réduction</span><span class="p">:</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>        <span class="c1"># réduction de 20%</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>        <span class="n">réduction</span> <span class="o">=</span> <span class="mf">0.2</span> <span class="o">*</span> <span class="n">impots</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="c1"># résultat</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">réduction</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="828-la-fonction-get_revenu_imposable">8.2.8. La fonction [get_revenu_imposable]</h3>
+<p>La fonction <strong>[get_revenu_imposable]</strong> calcule le revenu imposable à partir du salaire annuel :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># revenu_imposable = salaireAnnuel - abattement</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="c1"># l&#39;abattement a un min et un max</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_revenu_imposable</span><span class="p">(</span><span class="n">salaire</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="c1"># abattement de 10% du salaire</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>    <span class="n">abattement</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">salaire</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="c1"># cet abattement ne peut dépasser ABATTEMENT_DIXPOURCENT_MAX</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="k">if</span> <span class="n">abattement</span> <span class="o">&gt;</span> <span class="n">ABATTEMENT_DIXPOURCENT_MAX</span><span class="p">:</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>        <span class="n">abattement</span> <span class="o">=</span> <span class="n">ABATTEMENT_DIXPOURCENT_MAX</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>    <span class="c1"># l&#39;abattement ne peut être inférieur à ABATTEMENT_DIXPOURCENT_MIN</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a>    <span class="k">if</span> <span class="n">abattement</span> <span class="o">&lt;</span> <span class="n">ABATTEMENT_DIXPOURCENT_MIN</span><span class="p">:</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>        <span class="n">abattement</span> <span class="o">=</span> <span class="n">ABATTEMENT_DIXPOURCENT_MIN</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>    <span class="c1"># revenu imposable</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>    <span class="n">revenu_imposable</span> <span class="o">=</span> <span class="n">salaire</span> <span class="o">-</span> <span class="n">abattement</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>    <span class="c1"># résultat</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">revenu_imposable</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="829-la-fonction-record_results">8.2.9. La fonction [record_results]</h3>
+<p>La fonction <strong>[record_results]</strong> enregistre les résultats de calcul de l&#x27;impôt dans un fichier texte :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># écriture des résultats dans un fichier texte</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1"># ----------------------------------------</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">record_results</span><span class="p">(</span><span class="n">results_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>    <span class="c1"># results_filename : le nom du fichier texte où placer les résultats</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="c1"># results : la liste des résultats sous la forme d&#39;une liste de dictionnaires</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="c1"># chaque dictionnaire est écrit sur une ligne de texte</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span class="n">résultats</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>        <span class="c1"># ouverture du fichier des résultats</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>        <span class="n">résultats</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">results_filename</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span class="c1"># exploitation des contribuables</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>            <span class="c1"># on inscrit le résultat dans le fichier des résultats</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>            <span class="n">résultats</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>            <span class="c1"># contribuable suivant</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>        <span class="c1"># on ferme le fichier s&#39;il a été ouvert</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>        <span class="k">if</span> <span class="n">résultats</span><span class="p">:</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>            <span class="n">résultats</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<h3 id="8210-les-resultats">8.2.10. Les résultats</h3>
+<p>Comme il a déjà été dit, avec le fichier des contribuables <strong>[taxpayersdata.txt]</strong> suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-13-10">10</a></span>
+<span class="normal"><a href="#__codelineno-13-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">55555</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50000</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">50000</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">non</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="n">non</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">oui</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30000</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200000</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span>
+</code></pre></div></td></tr></table></div>
+<p>le script <strong>[main.py]</strong> crée le fichier <strong>[résultats.txt]</strong> suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">55555</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">2814</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">347</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">720</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">19884</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">4480</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">16782</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">7176</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">9200</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">2180</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">}</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">4230</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">22986</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;non&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">64210</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">7498</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">}</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">42842</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">17283</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Ces résultats sont conformes aux chiffres officiels du paragraphe |<a href="#_Chiffres_officiels"><u><u>Chiffres officiels</u></u></a>|.</p>
+<p>Maintenant, exécutons cette version dans une fenêtre console :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">v01</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>  <span class="n">File</span> <span class="s2">&quot;main.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">impots.v01.shared.impôts_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;impots&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>On retrouve une erreur déjà rencontrée : celle où un module n’est pas trouvé, ici le module <strong>[impots]</strong>. On rappelle que cela veut dire que : </p>
+<ul>
+<li>l’interpréteur Python a exploré un à un les dossiers du Python Path ;</li>
+<li>dans aucun d’eux, il n’a trouvé de dossier dans lequel il y aurait un sript <strong>[impots.py]</strong> ;
+La version <strong>[v02]</strong> amènera une solution à ce problème.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

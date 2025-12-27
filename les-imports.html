@@ -1,0 +1,2536 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction au langage Python 3 et au framework web Flask par l'exemple">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/les-imports.html">
+      
+      
+        <link rel="prev" href="exercice-dx27application---version-1.html">
+      
+      
+        <link rel="next" href="exercice-dapplication-version-2.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>9. Les imports - Introduction au langage Python 3 et au framework web Flask par l'exemple</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-les-imports" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction au langage Python 3 et au framework web Flask par l'exemple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. Les imports
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction au langage Python 3 et au framework web Flask par l'exemple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="avant-propos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Avant-propos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation d&#x27;un environnement de travail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-bases-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Les bases de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-chaines-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les chaînes de caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-exceptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Les exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fonctions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fichiers-texte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les fichiers texte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercice d&#x27;application – version 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Les imports
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="les-imports.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Les imports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#91-scripts-import_01" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.1. Scripts [import_01]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#92-script-import_02" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.2. Script [import_02]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#93-scripts-import_03" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.3. Scripts [import_03]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#94-scripts-import_04" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.4. Scripts [import_04]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#95-scripts-import_05" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.5. Scripts [import_05]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#96-scripts-import_06" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.6. Scripts [import_06]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#97-scripts-import_07" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7. Scripts [import_07]
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9.7. Scripts [import_07]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#971-installation-dun-module-de-portee-machine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.1. Installation d’un module de portée machine
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#972-le-script-configpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.2. Le script [config.py]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#973-le-script-mainpy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9.7.3. Le script [main.py]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercice d’application : version 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercice d’application : version 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-et-objets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Les classes et objets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-generiques-baseentity-et-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les classes génériques [BaseEntity] et [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-programmation-par-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Architecture en couches et programmation par interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercice d&#x27;application - version 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilisation du SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilisation du SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ecrire-du-code-independant-du-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Ecrire du code indépendant du SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-de-lorm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilisation de l’ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercice d&#x27;application : version 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fonctions-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Fonctions internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="services-web-avec-le-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Services web avec le framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercice d’application : version 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercice d’application : version 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Exercice d’application : version 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="du-dictionnaire-a-xml-et-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Du dictionnaire à XML et vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercice d’application : version 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercice d’application : version 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercice d’application : version 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercice d’application : version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clients-web-pour-les-services-json-et-xml-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clients web pour les services jSON et XML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-mode-html-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Le mode HTML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercice d’application : version 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercice d’application : version 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercice d’application : version 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercice d’application : version 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercice d’application : version 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-18.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercice d’application : version 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="9-les-imports">9. Les imports</h1>
+<p>L’erreur rencontrée dans la version 1 de l’exercice d’application nous amène à approfondir le rôle de l’instruction <strong>[import]</strong>.</p>
+<p><img src="images/10000001000000D10000012D19F95820.png" style="width:1.922cm;height:2.77cm;" alt="Image" /></p>
+<h2 id="91-scripts-import_01">9.1. Scripts [import_01]</h2>
+<p>Le script <strong>[imported]</strong> va être importé par différents scripts (appelés aussi modules) :</p>
+<p><img src="images/1000000100000165000001092EA5961C.png" style="width:3.29cm;height:2.44cm;" alt="Image" /></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># module importé</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># cette instruction sera exécutée à chaque fois que le module sera importé</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># variable appartenant au module importé</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">x</span><span class="o">=</span><span class="mi">4</span>
+</code></pre></div></td></tr></table></div>
+<p>Un module est <strong>exécuté</strong> lorsqu’il est importé. Ainsi lorsque le module <strong>[imported]</strong> sera importé :</p>
+<ul>
+<li>l’affichage de la ligne 3 aura lieu ;</li>
+<li>la variable x de la ligne 5 recevra sa valeur ;
+Le script <strong>[main_01]</strong> est le suivant :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># un module importé est exécuté</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">imported</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># utilisation de la variable x du module importé</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">imported</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : le module <strong>[imported]</strong> est importé. Cela va provoquer son exécution :</li>
+<li>la valeur 2 va être affichée ;</li>
+<li>la variable x est crée avec la valeur 4 ;</li>
+<li>ligne 4 : on utilise la variable x du module importé ;
+Dans PyCharm, une erreur est signalée :</li>
+</ul>
+<p>En <strong>[1]</strong>, PyCharm indique qu’il ne connaît pas le module <strong>[imported]</strong>. En termes techniques, cela signifie que le dossier contenant le module <strong>[imported]</strong> n’est pas dans le Python Path de PyCharm. Le Python Path est l’ensemble des dossiers dans lesquels les modules importés sont cherchés. Pour résoudre ce problème, il suffit de déclarer <strong>[Sources root]</strong> le dossier dans lequel se trouve le module <strong>[imported]</strong>, ici le dossier <strong>[import/01]</strong> :</p>
+<p><img src="images/1000000000000383000000F22A24F5ED.png" style="width:8.37cm;height:2.251cm;" alt="Image" /></p>
+<p><img src="images/1000000000000216000002A7BAF59978.png" style="width:6.171cm;height:7.85cm;" alt="Image" /></p>
+<p>Après cette opération, le dossier <strong>[import/01]</strong> est mis dans le Python Path de Pycharm et l’erreur disparaît :</p>
+<p><img src="images/1000000000000375000000E9BB9A2FCE.png" style="width:10.21cm;height:2.691cm;" alt="Image" /></p>
+<ul>
+<li>en <strong>[1]</strong>, le dossier <strong>[01]</strong> a changé de couleur ;</li>
+<li>en <strong>[2-3]</strong>, il n’y a plus d’erreur ;
+Les résultats de l’exécution sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="mi">2</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="mi">4</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Commentaires</strong></p>
+<ul>
+<li>la ligne 2 est le résultat de l’exécution du module importé ;</li>
+<li>la ligne 3 affiche la valeur de la variable x du module importé ;
+On retiendra de cet exemple, le concept important qu’un module (ou un script) importé est <strong>exécuté</strong>.</li>
+</ul>
+<p>Le script <strong>[main_02]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># on importe la variable x du module importé</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imported</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># on l&#39;affiche</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2, on a une autre syntaxe de l’importation <strong>[from module import objet1, objet2, …]</strong>. Ici on importe la variable <strong>[imported.x]</strong>. Avec ectte syntaxe, la variable x devient une variable du script <strong>[main_02]</strong>. On n’a plus besoin de la préfixer par son module <strong>[imported]</strong> ;</li>
+<li>ligne 4 : on affiche la variable x de <strong>[main_02]</strong> ;
+Les résultats de l’exécution sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">main_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="mi">2</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="mi">4</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Le script <strong>[main_03]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># on importe tout ce qui est visible du module importé</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imported</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># on utilise la variable x du module importé</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>La notation <strong>[import *]</strong> de la ligne 2 signifie qu’on importe tous les objets visibles du module importé (variables, fonctions).</p>
+<p>Les résultats sont les suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">main_03</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="mi">2</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="mi">4</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Le script <strong>[main_04]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># on importe la variable x du module importé</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="c1"># et on la renomme y</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">imported</span><span class="w"> </span><span class="kn">import</span> <span class="n">x</span> <span class="k">as</span> <span class="n">y</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># on affiche la variable y</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> 
+</code></pre></div></td></tr></table></div>
+<p>La ligne 3 montre qu’on peut importer un objet du module importé et lui donner un alias. Ici la variable <strong>[imported.x]</strong> devient la variable <strong>[main_04.y]</strong>. Les résultats sont les mêmes qu’auparavant.</p>
+<h2 id="92-script-import_02">9.2. Script [import_02]</h2>
+<p><img src="images/10000001000001280000009E14A2DFDD.png" style="width:2.761cm;height:1.47cm;" alt="Image" /></p>
+<p>Le module importé <strong>[module1.py]</strong> est ici le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># une fonction</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">():</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f1&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Le module importé définit une fonction, un cas fréquent.</p>
+<p>Le script <strong>[main_01]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># import</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">module1</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># exécution f1</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">module1</span><span class="o">.</span><span class="n">f1</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2, le module est importé. Il va être exécuté. Ici, il n’affiche rien ;</li>
+<li>ligne 4 : la fonction <strong>[f1]</strong> du module importé est exécutée ;
+Les résultats de l’exécution sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span>
+<span class="normal"><a href="#__codelineno-10-3">3</a></span>
+<span class="normal"><a href="#__codelineno-10-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="n">f1</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Note</strong> : Pour éviter que PyCharm ne signale une erreur sur l’importation de la ligne 2, il mettre le dossier contenant <strong>[module1]</strong> dans les <strong>[Sources Root]</strong> de PyCharm :</p>
+<p><img src="images/1000000000000130000000FE1D0C40DC.png" style="width:2.791cm;height:2.331cm;" alt="Image" /></p>
+<p>En <strong>[1]</strong>, le dossier <strong>[02]</strong> mis dans les <strong>[Sources Root]</strong> est passé en bleu. On notera que l’erreur signalée n’empêche pas ici une exécution correcte des scripts. En effet, lors de l’exécution du script <strong>[main_0x]</strong>, le dossier du script est automatiquement mis dans le Python Path. Du coup <strong>[module1]</strong> est trouvé. Dorénavant, lorsque sur une copie d’écran un dossier est en bleu, c’est qu’il a été mis dans les <strong>[Sources Root]</strong> de PyCharm.</p>
+<p>Le script <strong>[main_02]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># import</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module1</span><span class="w"> </span><span class="kn">import</span> <span class="n">f1</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># exécution f1</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">f1</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>la ligne 2 importe la fonction <strong>[f1]</strong> du module <strong>[module1]</strong> ;</li>
+<li>ligne 4, on utilise la fonction f1 ;
+Les résultats sont identiques à ceux du script <strong>[main_01]</strong>.</li>
+</ul>
+<h2 id="93-scripts-import_03">9.3. Scripts [import_03]</h2>
+<p><img src="images/1000000000000127000001374B92EB8C.png" style="width:2.71cm;height:2.86cm;" alt="Image" /></p>
+<p><strong>Note</strong> : <strong>[03]</strong> est dans les <strong>[Sources Root]</strong> du projet.</p>
+<p>Les nouveaux scripts vont importer le module <strong>[module2]</strong> qui n’est pas dans le même dossier qu’eux.</p>
+<p>Le script <strong>[module2]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># une fonction</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">():</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f2&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Le script définit donc une fonction <strong>[f2]</strong>.</p>
+<p>Le script <strong>[main_01]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># import du module Class2</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dir1.module2</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># exécution f2</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">dir1</span><span class="o">.</span><span class="n">module2</span><span class="o">.</span><span class="n">f2</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : on utilise une notation spéciale pour indiquer comment trouver le module <strong>[module2]</strong>. Il faut lire <strong>[</strong><strong>dir1</strong><strong>.</strong><strong>module2</strong><strong>]</strong> comme le chemin <strong>[</strong><strong>dir1/module2</strong><strong>]</strong> : pour trouver <strong>[module2]</strong>, on part du dossier du script courant <strong>[main_01]</strong>, puis on passe dans <strong>[dir1]</strong> et là on trouve <strong>[module2]</strong>. Il ne faut pas oublier ici que le point de départ du chemin est le dossier du script qui importe ;</li>
+<li>ligne 4 : pour exécuter la fonction <strong>[f2]</strong> de <strong>[module2]</strong> ;
+Les résultats sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">03</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">f2</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Ligne 2, le résultat de la fonction <strong>[f2]</strong>.</p>
+<p>Le script <strong>[main_02]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># import du module dir1.module2 qu&#39;on renomme</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">dir1.module2</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">module2</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># exécution f2</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">module2</span><span class="o">.</span><span class="n">f2</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Ligne 2, on renomme le module <strong>[dir1.module]</strong> pour simplifier l’écriture de la ligne 4.</p>
+<p>Le script <strong>[main_03]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># importde la fonction f2 du module dir1.module2</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">dir1.module2</span><span class="w"> </span><span class="kn">import</span> <span class="n">f2</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="c1"># exécution f2</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">f2</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Cette fois-ci, ligne 2, on n’importe que la fonction <strong>[f2]</strong> qui devient alors une fonction du script <strong>[main_03]</strong> (ligne 4).</p>
+<p>Tous ces scripts fonctionnent aussi bien dans le contexte PyCharm que dans celui d’une console Python. La raison est que dans les deux cas, le dossier du script exécuté, ici le dossier <strong>[03]</strong> fait partie du Python Path. Du coup, le dossier <strong>[dir1/module2]</strong> est trouvé.</p>
+<h2 id="94-scripts-import_04">9.4. Scripts [import_04]</h2>
+<p><img src="images/100000000000016A000001A351983500.png" style="width:3.32cm;height:3.841cm;" alt="Image" /></p>
+<p>Ici, les dossiers <strong>[dir1]</strong> et <strong>[dir2]</strong> ont été mis dans les <strong>[Sources Root]</strong> du projet PyCharm.</p>
+<p>Le premier module importé est <strong>[module3]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># une fonction</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">():</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f3&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Le second module importé est <strong>[module4]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span>
+<span class="normal"><a href="#__codelineno-18-5">5</a></span>
+<span class="normal"><a href="#__codelineno-18-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module3</span><span class="w"> </span><span class="kn">import</span> <span class="n">f3</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># une fonction</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">f4</span><span class="p">():</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5"></a>    <span class="n">f3</span><span class="p">()</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;f4&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 1, on importe la fonction <strong>[f3]</strong> de <strong>[module3]</strong>. Ici, <strong>[module3]</strong> est visible parce qu’on a mis son dossier <strong>[dir1]</strong> dans les <strong>[Sources Root]</strong> ;</li>
+<li>lignes 4-6 : on définit une fonction <strong>[f4]</strong> qui fait appel à la fonction <strong>[f3]</strong> de <strong>[module3]</strong> ;
+Le script principal <strong>[main_01]</strong> est le suivant :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1"># on importe module4</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1"># exécution f4</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">f4</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2, on importe le module <strong>[module4]</strong>. Celui-ci est visible car on a mis son dossier <strong>[dir2]</strong> dans les <strong>[Sources Root]</strong> de PyCharm ;</li>
+<li>ligne 4 : exécution de la fonction <strong>[f4]</strong> de <strong>[module4]</strong> ;
+Les résultats de l’exécution de <strong>[main_01]</strong> dans PyCharm sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">04</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">f3</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="n">f4</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Maintenant, exécutons <strong>[main_01]</strong> dans un terminal (console) Python :</p>
+<p><img src="images/1000000000000147000002CCB9B7E723.png" style="width:3.77cm;height:8.272cm;" alt="Image" /></p>
+<p>Les résultats sont les suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">04</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>  <span class="n">File</span> <span class="s2">&quot;main_01.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;module4&#39;</span>
+</code></pre></div></td></tr></table></div>
+<p>Que s’est-il passé ? Le terminal Python n’a aucune connaissance du Python Path et des <strong>[Sources Root]</strong> de PyCharm. Il a son propre Python Path. Dans celui-ci, on a toujours le dossier du script qui s’exécute, ici le script <strong>[main_01]</strong>. Il connaît donc le dossier <strong>[import/04]</strong>. Dans le script exécuté, il trouve la ligne :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+</code></pre></div></td></tr></table></div>
+<p>L’interpréteur Python cherche <strong>[module4]</strong> dans les dossiers de son Python Path. Or <strong>[module4]</strong> ne se trouve pas dans <strong>[import/04]</strong> qui se trouve bien dans le Python Path mais dans <strong>[import/04/dir2]</strong> qui ne s’y trouve pas. D’où l’erreur.</p>
+<p>On a donc un problème déjà rencontré : un script s’exécutant correctement dans PyCharm peut planter dans le contexte d’un terminal Python. C’est un problème récurrent qu’il va nous falloir résoudre.</p>
+<h2 id="95-scripts-import_05">9.5. Scripts [import_05]</h2>
+<p><img src="images/100000000000018100000231B0B3CD88.png" style="width:3.59cm;height:5.231cm;" alt="Image" /></p>
+<p><strong>Note</strong> : les dossiers <strong>[dir1]</strong> et <strong>[dir2]</strong> sont mis dans le Python Path. Remarquons déjà qu’il y a là un conflit : <strong>[module3]</strong> et <strong>[module4]</strong> seront trouvés à deux endroits du Python Path de PyCharm :</p>
+<ul>
+<li>dans <strong>[import/04/dir1]</strong> et <strong>[import/05/dir1]</strong> pour <strong>[module3]</strong> ;</li>
+<li>dans <strong>[import/04/dir2]</strong> et <strong>[import/05/dir2]</strong> pour <strong>[module4]</strong> ;
+On peut alors sortir <strong>[import/04/dir1]</strong> et <strong>[import/04/dir2]</strong> des <strong>[Sources Root]</strong> du projet PyCharm. Il se trouve qu’ici, <strong>[import/05/dir1]</strong> est une copie de <strong>[import/04/dir1]</strong> (idem pour <strong>[dir2]</strong>) et qu’il n’y a donc pas de problème. Mais notons néanmoins qu’à l’intérieur même de PyCharm, on doit faire attention à la liste des dossiers des <strong>[Sources Root]</strong> afin d’éviter les conflits.</li>
+</ul>
+<p>Le script <strong>[main_01]</strong> devient le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="c1"># on modifie le sys.path pour y inclure les dossiers</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="c1"># contenant les classes à importer</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dir1&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dir2&quot;</span><span class="p">)</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="c1"># on importe module4</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="c1"># exécution f4</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="n">f4</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>On cherche à résoudre le problème du Python Path. On en veut un qui fonctionne aussi bien sous PyCharm que dans un terminal Python. Pour cela, on va le fixer nous-mêmes.</p>
+<ul>
+<li>lignes 4-6 : on ajoute les dossiers <strong>[., ./dir1, ./dir2]</strong> dans le Python Path. Pour que cela marche, il faut que le dossier courant au moment de l’exécution soit le dossier <strong>[import/05]</strong>. Ce sera vrai dans PyCharm mais pas forcément vrai dans un terminal Python comme nous le verrons ;</li>
+<li>ligne 8 : on importe <strong>[module4]</strong>. Suite à ce que nous venons de faire, il devrait être trouvé dans <strong>[./dir2]</strong> ;
+L’exécution dans PyCharm donne les résultats suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span>
+<span class="normal"><a href="#__codelineno-24-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">05</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">f3</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="n">f4</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Maintenant, dans un terminal Python :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
+<span class="normal"><a href="#__codelineno-25-2">2</a></span>
+<span class="normal"><a href="#__codelineno-25-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">05</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">f3</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">f4</span>
+</code></pre></div></td></tr></table></div>
+<p>Ligne 1, le dossier d’exécution est <strong>[import/05]</strong>.</p>
+<p>Maintenant remontons d’un niveau dans l’arborescence de <strong>[import/05]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
+<span class="normal"><a href="#__codelineno-26-2">2</a></span>
+<span class="normal"><a href="#__codelineno-26-3">3</a></span>
+<span class="normal"><a href="#__codelineno-26-4">4</a></span>
+<span class="normal"><a href="#__codelineno-26-5">5</a></span>
+<span class="normal"><a href="#__codelineno-26-6">6</a></span>
+<span class="normal"><a href="#__codelineno-26-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">05</span><span class="o">&gt;</span><span class="n">cd</span> <span class="o">..</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span><span class="o">&gt;</span><span class="n">python</span> <span class="mi">05</span><span class="o">/</span><span class="n">main_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a>  <span class="n">File</span> <span class="s2">&quot;05/main_01.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;module4&#39;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2, lorsque <strong>[main_01]</strong> est exécuté on n’est plus dans le dossier <strong>[import/05]</strong> mais dans <strong>[import]</strong>. Or nous avons écrit :
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1">1</a></span>
+<span class="normal"><a href="#__codelineno-27-2">2</a></span>
+<span class="normal"><a href="#__codelineno-27-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dir1&quot;</span><span class="p">)</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./dir2&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<p>Cela ajoute au Python Path les dossiers <strong>[import, import/dir1, import/dir2]</strong>, pas du tout ce qu’on veut. Notons qu’ajouter au Python Path des dossiers qui n’existent pas (import/dir1, import/dir2) ne provoque pas d’erreurs.</p>
+<p>On a progressé mais ce n’est pas suffisant. Il faut ajouter au Python Path, non pas des chemins relatifs, mais des chemins absolus.</p>
+<p>Le script <strong>[main_02]</strong> est une variante de <strong>[main_01]</strong> qui utilise un fichier de configuration <strong>[config.json]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
+<span class="normal"><a href="#__codelineno-28-2">2</a></span>
+<span class="normal"><a href="#__codelineno-28-3">3</a></span>
+<span class="normal"><a href="#__codelineno-28-4">4</a></span>
+<span class="normal"><a href="#__codelineno-28-5">5</a></span>
+<span class="normal"><a href="#__codelineno-28-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="p">{</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2"></a>  <span class="s2">&quot;dependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3"></a>    <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/import/05/dir1&quot;</span><span class="p">,</span>
+<a id="__codelineno-28-4" name="__codelineno-28-4"></a>    <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/import/05/dir2&quot;</span>
+<a id="__codelineno-28-5" name="__codelineno-28-5"></a>  <span class="p">]</span>
+<a id="__codelineno-28-6" name="__codelineno-28-6"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>La valeur de la clé <strong>[dependencies]</strong> est la liste des dossiers à ajouter au Python Path. A noter qu’ici on a mis des noms absolus et non des noms relatifs.</p>
+<p>Le script <strong>[main_02]</strong> utilise le fichier <strong>[config.json]</strong> de la façon suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-29-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-29-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-29-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-29-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-29-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-29-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-29-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-29-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-29-10">10</a></span>
+<span class="normal"><a href="#__codelineno-29-11">11</a></span>
+<span class="normal"><a href="#__codelineno-29-12">12</a></span>
+<span class="normal"><a href="#__codelineno-29-13">13</a></span>
+<span class="normal"><a href="#__codelineno-29-14">14</a></span>
+<span class="normal"><a href="#__codelineno-29-15">15</a></span>
+<span class="normal"><a href="#__codelineno-29-16">16</a></span>
+<span class="normal"><a href="#__codelineno-29-17">17</a></span>
+<span class="normal"><a href="#__codelineno-29-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-29-4" name="__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5"></a><span class="c1"># fichier de configuration</span>
+<a id="__codelineno-29-6" name="__codelineno-29-6"></a><span class="n">config_filename</span><span class="o">=</span><span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/import/05/config.json&quot;</span>
+<a id="__codelineno-29-7" name="__codelineno-29-7"></a><span class="c1"># lecture du fichier de configuration json</span>
+<a id="__codelineno-29-8" name="__codelineno-29-8"></a><span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-29-9" name="__codelineno-29-9"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<a id="__codelineno-29-10" name="__codelineno-29-10"></a>
+<a id="__codelineno-29-11" name="__codelineno-29-11"></a><span class="c1"># modification du sys.path</span>
+<a id="__codelineno-29-12" name="__codelineno-29-12"></a><span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;dependencies&#39;</span><span class="p">]:</span>
+<a id="__codelineno-29-13" name="__codelineno-29-13"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<a id="__codelineno-29-14" name="__codelineno-29-14"></a>
+<a id="__codelineno-29-15" name="__codelineno-29-15"></a><span class="c1"># on importe module4</span>
+<a id="__codelineno-29-16" name="__codelineno-29-16"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-29-17" name="__codelineno-29-17"></a><span class="c1"># exécution f4</span>
+<a id="__codelineno-29-18" name="__codelineno-29-18"></a><span class="n">f4</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 6 :  notez qu’on a utilisé le nom absolu du fichier de configuration ;</li>
+<li>lignes 8-9 : le fichier de configuration est lu. Un dictionnaire <strong>[config]</strong> (ligne 9) est construit avec son contenu ;</li>
+<li>lignes 11-13 : on ajoute les éléments du tableau <strong>[</strong><strong>config[</strong><strong>&#x27;dependencies&#x27;</strong><strong>]</strong>] au Python Path. Notons que puisqu’on a mis des noms absolus de dossiers dans <strong>[config.json]</strong>, on ajoute dans le Python Path des noms absolus ;</li>
+<li>ligne 16 : <strong>[module4]</strong> est importé. On devrait le trouver puisque maintenant <strong>[dir2]</strong> est dans le Python Path ;
+L’exécution donne les mêmes résultats que pour <strong>[main_02]</strong> sauf que le script continue à fonctionner lorsque le dossier d’exécution n’est plus <strong>[import/05]</strong> :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
+<span class="normal"><a href="#__codelineno-30-2">2</a></span>
+<span class="normal"><a href="#__codelineno-30-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span><span class="o">&gt;</span><span class="n">python</span> <span class="mi">05</span><span class="o">/</span><span class="n">main_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">f3</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="n">f4</span>
+</code></pre></div></td></tr></table></div>
+<p>Ligne 1, le dossier d’exécution est <strong>[import]</strong>.</p>
+<p>Nous avons progressé. Nous avons vu :</p>
+<ul>
+<li>qu’il nous fallait construire le Python Path nous-mêmes ;</li>
+<li>qu’il fallait y mettre les noms absolus de tous les dossiers contenant les modules importés par l’application ;
+Néanmoins, mettre des noms absolus dans des scripts n’est pas une solution. Dès que le projet est transporté sur un autre site, il ne marche plus. Il nous faut trouver autre chose.</li>
+</ul>
+<h2 id="96-scripts-import_06">9.6. Scripts [import_06]</h2>
+<p><img src="images/100000000000016F0000013E247ECD7F.png" style="width:3.432cm;height:2.971cm;" alt="Image" /></p>
+<p><strong>Note</strong> : les dossiers <strong>[06, dir1, dir2]</strong> ont été placés dans les <strong>[Sources Root]</strong> du projet PyCharm. Les dossiers <strong>[dir1, dir2]</strong> sont identiques à ceux des exemples précédents.</p>
+<p>Le fichier <strong>[config.json]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1">1</a></span>
+<span class="normal"><a href="#__codelineno-31-2">2</a></span>
+<span class="normal"><a href="#__codelineno-31-3">3</a></span>
+<span class="normal"><a href="#__codelineno-31-4">4</a></span>
+<span class="normal"><a href="#__codelineno-31-5">5</a></span>
+<span class="normal"><a href="#__codelineno-31-6">6</a></span>
+<span class="normal"><a href="#__codelineno-31-7">7</a></span>
+<span class="normal"><a href="#__codelineno-31-8">8</a></span>
+<span class="normal"><a href="#__codelineno-31-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1"></a><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2"></a>  <span class="s2">&quot;rootDir&quot;</span><span class="p">:</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/v-02/imports/06&quot;</span><span class="p">,</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3"></a>  <span class="s2">&quot;relativeDependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4"></a>    <span class="s2">&quot;dir1&quot;</span><span class="p">,</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5"></a>    <span class="s2">&quot;dir2&quot;</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6"></a>  <span class="p">],</span>
+<a id="__codelineno-31-7" name="__codelineno-31-7"></a>  <span class="s2">&quot;absoluteDependencies&quot;</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-31-8" name="__codelineno-31-8"></a>   <span class="p">]</span>
+<a id="__codelineno-31-9" name="__codelineno-31-9"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>Nous introduisons deux types de chemins :</p>
+<ul>
+<li>des chemins absolus, lignes 7-8 ;</li>
+<li>des chemins relatifs, lignes 3-6. Ils sont relatifs à la racine de la ligne 2. Ainsi lorsque le projet bouge d’emplacement, seule cette ligne doit être modifiée ;
+Le script <strong>[utils.py]</strong> exploite le fichier <strong>[config.json]</strong> et construit le Python Path :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-32-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-32-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-32-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-32-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-32-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-32-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-32-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-32-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-32-10">10</a></span>
+<span class="normal"><a href="#__codelineno-32-11">11</a></span>
+<span class="normal"><a href="#__codelineno-32-12">12</a></span>
+<span class="normal"><a href="#__codelineno-32-13">13</a></span>
+<span class="normal"><a href="#__codelineno-32-14">14</a></span>
+<span class="normal"><a href="#__codelineno-32-15">15</a></span>
+<span class="normal"><a href="#__codelineno-32-16">16</a></span>
+<span class="normal"><a href="#__codelineno-32-17">17</a></span>
+<span class="normal"><a href="#__codelineno-32-18">18</a></span>
+<span class="normal"><a href="#__codelineno-32-19">19</a></span>
+<span class="normal"><a href="#__codelineno-32-20">20</a></span>
+<span class="normal"><a href="#__codelineno-32-21">21</a></span>
+<span class="normal"><a href="#__codelineno-32-22">22</a></span>
+<span class="normal"><a href="#__codelineno-32-23">23</a></span>
+<span class="normal"><a href="#__codelineno-32-24">24</a></span>
+<span class="normal"><a href="#__codelineno-32-25">25</a></span>
+<span class="normal"><a href="#__codelineno-32-26">26</a></span>
+<span class="normal"><a href="#__codelineno-32-27">27</a></span>
+<span class="normal"><a href="#__codelineno-32-28">28</a></span>
+<span class="normal"><a href="#__codelineno-32-29">29</a></span>
+<span class="normal"><a href="#__codelineno-32-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="c1"># configuration de l&#39;application</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">config_app</span><span class="p">(</span><span class="n">config_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a>    <span class="c1"># config_filename : nom du fichier de configuration</span>
+<a id="__codelineno-32-10" name="__codelineno-32-10"></a>    <span class="c1"># on laisse remonter les exceptions</span>
+<a id="__codelineno-32-11" name="__codelineno-32-11"></a>
+<a id="__codelineno-32-12" name="__codelineno-32-12"></a>    <span class="c1"># exploitation du fichier de configuration</span>
+<a id="__codelineno-32-13" name="__codelineno-32-13"></a>    <span class="k">with</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">config_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<a id="__codelineno-32-14" name="__codelineno-32-14"></a>        <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<a id="__codelineno-32-15" name="__codelineno-32-15"></a>    <span class="c1"># ajout des dépendances au sys.path</span>
+<a id="__codelineno-32-16" name="__codelineno-32-16"></a>    <span class="n">rootDir</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;rootDir&#39;</span><span class="p">]</span>
+<a id="__codelineno-32-17" name="__codelineno-32-17"></a>    <span class="c1"># on ajoute les dépendances relatives du projet au syspath</span>
+<a id="__codelineno-32-18" name="__codelineno-32-18"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;relativeDependencies&#39;</span><span class="p">]:</span>
+<a id="__codelineno-32-19" name="__codelineno-32-19"></a>        <span class="c1"># on ajoute la dépendance au début du syspath</span>
+<a id="__codelineno-32-20" name="__codelineno-32-20"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rootDir</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-32-21" name="__codelineno-32-21"></a>    <span class="c1"># on lui ajoute les dépendances absolues du projet au syspath</span>
+<a id="__codelineno-32-22" name="__codelineno-32-22"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;absoluteDependencies&#39;</span><span class="p">]:</span>
+<a id="__codelineno-32-23" name="__codelineno-32-23"></a>        <span class="c1"># on ajoute la dépendance au début du syspath</span>
+<a id="__codelineno-32-24" name="__codelineno-32-24"></a>        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+<a id="__codelineno-32-25" name="__codelineno-32-25"></a>    <span class="c1"># on rend le dictionnaire de la configuration</span>
+<a id="__codelineno-32-26" name="__codelineno-32-26"></a>    <span class="k">return</span> <span class="n">config</span>
+<a id="__codelineno-32-27" name="__codelineno-32-27"></a>
+<a id="__codelineno-32-28" name="__codelineno-32-28"></a><span class="c1"># dossier du sript exécuté</span>
+<a id="__codelineno-32-29" name="__codelineno-32-29"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_scriptdir</span><span class="p">():</span>
+<a id="__codelineno-32-30" name="__codelineno-32-30"></a>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 8 : la fonction <strong>[config_app]</strong> reçoit en paramètre le nom du fichier de configuration ;</li>
+<li>lignes 12-14 : le fichier de configuration est exploité pour créer le dictionnaire <strong>[config]</strong> ;</li>
+<li>ligne 20 : <strong>[sys.path]</strong> est la liste des dossiers du Python Path ;</li>
+<li>lignes 17-20 : les dépendances relatives du fichier de configuration sont ajoutées au Python Path. Elles sont ajoutées au début du tableau <strong>[sys.path]</strong>, ligne 20. En effet, lorsque Python cherche un module il explore les dossiers du <strong>[sys.path]</strong> dans l’ordre. Or dans ce document, des modules de mêmes noms vont se trouver dans des dossiers différents du <strong>[sys.path]</strong>. En mettant les dépendances de l’application au début du tableau <strong>[sys.path]</strong>, on s’assure que celles-ci seront explorées avant d’autres dossiers du <strong>[sys.path]</strong> qui pourraient contenir des modules de mêmes noms ;</li>
+<li>lignes 21-24 : les dépendances absolues du fichier de configuration sont ajoutées au Python Path ;</li>
+<li>ligne 26 : on rend la configuration de l’application ;</li>
+<li>lignes 29-30 : la fonction <strong>[get_scriptdir]</strong> rend le nom absolu du dossier du script en cours d’exécution (celui où se trouve l’appel à la fonction) ;
+Le script principal <strong>[main]</strong> est le suivant :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-33-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-33-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-33-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-33-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-33-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-33-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-33-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-33-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-33-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-33-10">10</a></span>
+<span class="normal"><a href="#__codelineno-33-11">11</a></span>
+<span class="normal"><a href="#__codelineno-33-12">12</a></span>
+<span class="normal"><a href="#__codelineno-33-13">13</a></span>
+<span class="normal"><a href="#__codelineno-33-14">14</a></span>
+<span class="normal"><a href="#__codelineno-33-15">15</a></span>
+<span class="normal"><a href="#__codelineno-33-16">16</a></span>
+<span class="normal"><a href="#__codelineno-33-17">17</a></span>
+<span class="normal"><a href="#__codelineno-33-18">18</a></span>
+<span class="normal"><a href="#__codelineno-33-19">19</a></span>
+<span class="normal"><a href="#__codelineno-33-20">20</a></span>
+<span class="normal"><a href="#__codelineno-33-21">21</a></span>
+<span class="normal"><a href="#__codelineno-33-22">22</a></span>
+<span class="normal"><a href="#__codelineno-33-23">23</a></span>
+<span class="normal"><a href="#__codelineno-33-24">24</a></span>
+<span class="normal"><a href="#__codelineno-33-25">25</a></span>
+<span class="normal"><a href="#__codelineno-33-26">26</a></span>
+<span class="normal"><a href="#__codelineno-33-27">27</a></span>
+<span class="normal"><a href="#__codelineno-33-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-33-3" name="__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">config_app</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5"></a>
+<a id="__codelineno-33-6" name="__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">affiche_path</span><span class="p">(</span><span class="n">msg</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-33-8" name="__codelineno-33-8"></a>    <span class="c1"># message</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="s2">------------------------------&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10"></a>    <span class="c1"># sys.path</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11"></a>    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-33-13" name="__codelineno-33-13"></a>
+<a id="__codelineno-33-14" name="__codelineno-33-14"></a>
+<a id="__codelineno-33-15" name="__codelineno-33-15"></a><span class="c1"># main -------------</span>
+<a id="__codelineno-33-16" name="__codelineno-33-16"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-33-17" name="__codelineno-33-17"></a>    <span class="c1"># le sys.path est configuré</span>
+<a id="__codelineno-33-18" name="__codelineno-33-18"></a>    <span class="n">affiche_path</span><span class="p">(</span><span class="s2">&quot;avant....&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-19" name="__codelineno-33-19"></a>    <span class="n">config</span> <span class="o">=</span> <span class="n">config_app</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">get_scriptdir</span><span class="p">()</span><span class="si">}</span><span class="s2">/config.json&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-20" name="__codelineno-33-20"></a>    <span class="n">affiche_path</span><span class="p">(</span><span class="s2">&quot;après....&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-21" name="__codelineno-33-21"></a>    <span class="c1"># on importe module4</span>
+<a id="__codelineno-33-22" name="__codelineno-33-22"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-33-23" name="__codelineno-33-23"></a>    <span class="c1"># exécution f4</span>
+<a id="__codelineno-33-24" name="__codelineno-33-24"></a>    <span class="n">f4</span><span class="p">()</span>
+<a id="__codelineno-33-25" name="__codelineno-33-25"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-33-26" name="__codelineno-33-26"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-33-27" name="__codelineno-33-27"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-33-28" name="__codelineno-33-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 4 : la fonction <strong>[config_app]</strong> est importée. On notera que puisque <strong>[utils]</strong> et <strong>[main]</strong> sont dans le même dossier, cet <strong>[import]</strong> fonctionne tout le temps. En effet, le dossier du script principal est automatiquement ajouté au python Path ;</li>
+<li>lignes 7-12 : la fonction <strong>[affiche_path]</strong> affiche la liste des dossiers du Python Path ;</li>
+<li>ligne 19 : on configure l’application. Noter qu’on passe à la fonction <strong>[config_app]</strong> le nom absolu du fichier de configuration. Après cette instruction, le Python Path a été reconstruit ;</li>
+<li>ligne 22 : on importe <strong>[module4]</strong>. Grâce à la reconstruction du Python Path, ce module va être trouvé ;</li>
+<li>ligne 24 : on exécute la fonction  <strong>[f4]</strong> ;
+Dans le contexte PyCharm, les résultats de l’exécution sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-34-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-34-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-34-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-34-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-34-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-34-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-34-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-34-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-34-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-34-10">10</a></span>
+<span class="normal"><a href="#__codelineno-34-11">11</a></span>
+<span class="normal"><a href="#__codelineno-34-12">12</a></span>
+<span class="normal"><a href="#__codelineno-34-13">13</a></span>
+<span class="normal"><a href="#__codelineno-34-14">14</a></span>
+<span class="normal"><a href="#__codelineno-34-15">15</a></span>
+<span class="normal"><a href="#__codelineno-34-16">16</a></span>
+<span class="normal"><a href="#__codelineno-34-17">17</a></span>
+<span class="normal"><a href="#__codelineno-34-18">18</a></span>
+<span class="normal"><a href="#__codelineno-34-19">19</a></span>
+<span class="normal"><a href="#__codelineno-34-20">20</a></span>
+<span class="normal"><a href="#__codelineno-34-21">21</a></span>
+<span class="normal"><a href="#__codelineno-34-22">22</a></span>
+<span class="normal"><a href="#__codelineno-34-23">23</a></span>
+<span class="normal"><a href="#__codelineno-34-24">24</a></span>
+<span class="normal"><a href="#__codelineno-34-25">25</a></span>
+<span class="normal"><a href="#__codelineno-34-26">26</a></span>
+<span class="normal"><a href="#__codelineno-34-27">27</a></span>
+<span class="normal"><a href="#__codelineno-34-28">28</a></span>
+<span class="normal"><a href="#__codelineno-34-29">29</a></span>
+<span class="normal"><a href="#__codelineno-34-30">30</a></span>
+<span class="normal"><a href="#__codelineno-34-31">31</a></span>
+<span class="normal"><a href="#__codelineno-34-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2"></a><span class="n">avant</span><span class="o">....------------------------------</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">06</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>
+<a id="__codelineno-34-5" name="__codelineno-34-5"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">fonctions</span>\<span class="n">shared</span>
+<a id="__codelineno-34-6" name="__codelineno-34-6"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">v01</span>\<span class="n">shared</span>
+<a id="__codelineno-34-7" name="__codelineno-34-7"></a><span class="err">…</span>
+<a id="__codelineno-34-8" name="__codelineno-34-8"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">python38</span><span class="o">.</span><span class="n">zip</span>
+<a id="__codelineno-34-9" name="__codelineno-34-9"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">DLLs</span>
+<a id="__codelineno-34-10" name="__codelineno-34-10"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">lib</span>
+<a id="__codelineno-34-11" name="__codelineno-34-11"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>
+<a id="__codelineno-34-12" name="__codelineno-34-12"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>
+<a id="__codelineno-34-13" name="__codelineno-34-13"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<a id="__codelineno-34-14" name="__codelineno-34-14"></a><span class="n">après</span><span class="o">....------------------------------</span>
+<a id="__codelineno-34-15" name="__codelineno-34-15"></a><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">v</span><span class="o">-</span><span class="mi">02</span><span class="o">/</span><span class="n">imports</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">dir2</span>
+<a id="__codelineno-34-16" name="__codelineno-34-16"></a><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">v</span><span class="o">-</span><span class="mi">02</span><span class="o">/</span><span class="n">imports</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">dir1</span>
+<a id="__codelineno-34-17" name="__codelineno-34-17"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">06</span>
+<a id="__codelineno-34-18" name="__codelineno-34-18"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>
+<a id="__codelineno-34-19" name="__codelineno-34-19"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">fonctions</span>\<span class="n">shared</span>
+<a id="__codelineno-34-20" name="__codelineno-34-20"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">v01</span>\<span class="n">shared</span>
+<a id="__codelineno-34-21" name="__codelineno-34-21"></a><span class="err">…</span><span class="o">.</span>
+<a id="__codelineno-34-22" name="__codelineno-34-22"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">python38</span><span class="o">.</span><span class="n">zip</span>
+<a id="__codelineno-34-23" name="__codelineno-34-23"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">DLLs</span>
+<a id="__codelineno-34-24" name="__codelineno-34-24"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">lib</span>
+<a id="__codelineno-34-25" name="__codelineno-34-25"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>
+<a id="__codelineno-34-26" name="__codelineno-34-26"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>
+<a id="__codelineno-34-27" name="__codelineno-34-27"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<a id="__codelineno-34-28" name="__codelineno-34-28"></a><span class="n">f3</span>
+<a id="__codelineno-34-29" name="__codelineno-34-29"></a><span class="n">f4</span>
+<a id="__codelineno-34-30" name="__codelineno-34-30"></a><span class="n">done</span>
+<a id="__codelineno-34-31" name="__codelineno-34-31"></a>
+<a id="__codelineno-34-32" name="__codelineno-34-32"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Commentaires</strong></p>
+<ul>
+<li>lignes 2-13 : le Python Path de PyCharm. On y retrouve tous les dossiers mis dans les <strong>[Sources Root]</strong> du projet ;</li>
+<li>lignes 14-29 : le Python Path construit par la fonction <strong>[config_app]</strong>. On y trouve aux lignes 15-16, les deux dépendances que nous avons ajoutées ;</li>
+<li>lignes 22-27 : les dossiers système de l’interpréteur Python qui a exécuté le script ;</li>
+<li>
+<p>lignes 28-29 : l’exécution se passe normalement ;
+Maintenant, plaçons-nous dans le contexte qui jusqu’à maintenant provoquait une erreur d’exécution :</p>
+</li>
+<li>
+<p>on se place dans un terminal Python ;</p>
+</li>
+<li>on se met dans un dossier autre que celui contenant le script exécuté ;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-35-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-35-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-35-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-35-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-35-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-35-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-35-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-35-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-35-10">10</a></span>
+<span class="normal"><a href="#__codelineno-35-11">11</a></span>
+<span class="normal"><a href="#__codelineno-35-12">12</a></span>
+<span class="normal"><a href="#__codelineno-35-13">13</a></span>
+<span class="normal"><a href="#__codelineno-35-14">14</a></span>
+<span class="normal"><a href="#__codelineno-35-15">15</a></span>
+<span class="normal"><a href="#__codelineno-35-16">16</a></span>
+<span class="normal"><a href="#__codelineno-35-17">17</a></span>
+<span class="normal"><a href="#__codelineno-35-18">18</a></span>
+<span class="normal"><a href="#__codelineno-35-19">19</a></span>
+<span class="normal"><a href="#__codelineno-35-20">20</a></span>
+<span class="normal"><a href="#__codelineno-35-21">21</a></span>
+<span class="normal"><a href="#__codelineno-35-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span><span class="o">&gt;</span><span class="n">python</span> <span class="mi">06</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2"></a><span class="n">avant</span><span class="o">....------------------------------</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">06</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">python38</span><span class="o">.</span><span class="n">zip</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">DLLs</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">lib</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10"></a><span class="n">après</span><span class="o">....------------------------------</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11"></a><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">v</span><span class="o">-</span><span class="mi">02</span><span class="o">/</span><span class="n">imports</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">dir2</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12"></a><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">v</span><span class="o">-</span><span class="mi">02</span><span class="o">/</span><span class="n">imports</span><span class="o">/</span><span class="mi">06</span><span class="o">/</span><span class="n">dir1</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span>\<span class="mi">06</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">python38</span><span class="o">.</span><span class="n">zip</span>
+<a id="__codelineno-35-15" name="__codelineno-35-15"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">DLLs</span>
+<a id="__codelineno-35-16" name="__codelineno-35-16"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>\<span class="n">lib</span>
+<a id="__codelineno-35-17" name="__codelineno-35-17"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Program</span> <span class="n">Files</span>\<span class="n">Python38</span>
+<a id="__codelineno-35-18" name="__codelineno-35-18"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>
+<a id="__codelineno-35-19" name="__codelineno-35-19"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<a id="__codelineno-35-20" name="__codelineno-35-20"></a><span class="n">f3</span>
+<a id="__codelineno-35-21" name="__codelineno-35-21"></a><span class="n">f4</span>
+<a id="__codelineno-35-22" name="__codelineno-35-22"></a><span class="n">done</span>
+</code></pre></div></td></tr></table></div></li>
+</ul>
+<p>Cette fois-ci c’est bon (lignes 20-21). On notera que le <strong>[sys.path]</strong> ne contient pas les mêmes dossiers que lorsque l’exécution se passe sous PyCharm. </p>
+<h2 id="97-scripts-import_07">9.7. Scripts [import_07]</h2>
+<p>Nous améliorons la solution précédente de deux façons :</p>
+<ul>
+<li>nous remplaçons le fichier de configuration <strong>[config.json]</strong> par un script <strong>[config.py]</strong>. En effet, le fichier jSON pose un problème important : il ne peut pas être commenté. Le dictionnaire <strong>[config.json]</strong> peut être remplacé par un dictionnaire Python qui a l’avantage de pouvoir être commenté ;</li>
+<li>nous utilisons un module visible de tous les projets Python de la machine ;</li>
+</ul>
+<h3 id="971-installation-dun-module-de-portee-machine">9.7.1. Installation d’un module de portée machine</h3>
+<p><img src="images/1000000100000128000000D5D97F6A33.png" style="width:2.77cm;height:1.99cm;" alt="Image" /></p>
+<p>Ci-dessus, nous créons un dossier <strong>[packages/myutils]</strong> dans le projet PyCharm (les noms n’importent pas).</p>
+<p>Le script <strong>[myutils.py]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-36-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-36-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-36-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-36-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-36-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-36-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-36-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-36-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-36-10">10</a></span>
+<span class="normal"><a href="#__codelineno-36-11">11</a></span>
+<span class="normal"><a href="#__codelineno-36-12">12</a></span>
+<span class="normal"><a href="#__codelineno-36-13">13</a></span>
+<span class="normal"><a href="#__codelineno-36-14">14</a></span>
+<span class="normal"><a href="#__codelineno-36-15">15</a></span>
+<span class="normal"><a href="#__codelineno-36-16">16</a></span>
+<span class="normal"><a href="#__codelineno-36-17">17</a></span>
+<span class="normal"><a href="#__codelineno-36-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-36-4" name="__codelineno-36-4"></a>
+<a id="__codelineno-36-5" name="__codelineno-36-5"></a>
+<a id="__codelineno-36-6" name="__codelineno-36-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-36-7" name="__codelineno-36-7"></a>    <span class="c1"># absolute_dependencies : une liste de noms absolus de dossiers</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8"></a>
+<a id="__codelineno-36-9" name="__codelineno-36-9"></a>    <span class="c1"># on ajoute au syspath les dépendances absolues du projet</span>
+<a id="__codelineno-36-10" name="__codelineno-36-10"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">absolute_dependencies</span><span class="p">:</span>
+<a id="__codelineno-36-11" name="__codelineno-36-11"></a>        <span class="c1"># on vérifie l&#39;existence du dossier</span>
+<a id="__codelineno-36-12" name="__codelineno-36-12"></a>        <span class="n">existe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
+<a id="__codelineno-36-13" name="__codelineno-36-13"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">existe</span><span class="p">:</span>
+<a id="__codelineno-36-14" name="__codelineno-36-14"></a>            <span class="c1"># on lève une exception</span>
+<a id="__codelineno-36-15" name="__codelineno-36-15"></a>            <span class="k">raise</span> <span class="ne">BaseException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[set_syspath] le dossier du Python Path [</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">] n&#39;existe pas&quot;</span><span class="p">)</span>
+<a id="__codelineno-36-16" name="__codelineno-36-16"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-36-17" name="__codelineno-36-17"></a>            <span class="c1"># on joute le dossier au début du syspath</span>
+<a id="__codelineno-36-18" name="__codelineno-36-18"></a>            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 6-18 : la fonction <strong>[set_syspath]</strong> crée un Python Path avec la liste des dossiers qu’on lui transmet en paramètre ;</li>
+<li>lignes 12-15 : on vérifie que le dossier à mettre dans le Python Path existe ;
+Le script <strong>[<strong>init.py</strong>]</strong> (deux soulignés devant et derrière le nom. Celui-ci est imposé) est le suivant :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
+</code></pre></div></td></tr></table></div>
+<p>On importe la fonction <strong>[set_syspath]</strong> du script <strong>[myutils]</strong>. La notation <strong>[.myutils]</strong> désigne le chemin <strong>[./myutils]</strong>, donc le script <strong>[myutils]</strong> se trouvant dans le même dossier que <strong>[__init.py]</strong>. On aurait pu utiliser la notation <strong>[myutils]</strong>. Seulement, nous allons créer un module <strong>[myutils]</strong> de portée machine. Si bien que la notation <strong>[from myutils import set_syspath]</strong> deviendrait alors ambigüe. S’agit-il d’importer le script <strong>[myutils]</strong> du dossier courant ou le script <strong>[myutils]</strong> de portée machine ? La notation <strong>[.myutils]</strong> lève cette ambiguïté.</p>
+<p>Le script <strong>[setup.py]</strong> (là également le nom est imposé) est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-38-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-38-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-38-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-38-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-38-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-38-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-38-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-38-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-38-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-38-10">10</a></span>
+<span class="normal"><a href="#__codelineno-38-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">setuptools</span><span class="w"> </span><span class="kn">import</span> <span class="n">setup</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3"></a><span class="n">setup</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;myutils&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-4" name="__codelineno-38-4"></a>      <span class="n">version</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5"></a>      <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Utilitaire fixant le Python Path&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-6" name="__codelineno-38-6"></a>      <span class="n">url</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7"></a>      <span class="n">author</span><span class="o">=</span><span class="s1">&#39;st&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8"></a>      <span class="n">author_email</span><span class="o">=</span><span class="s1">&#39;st@gmail.com&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9"></a>      <span class="n">license</span><span class="o">=</span><span class="s1">&#39;MIT&#39;</span><span class="p">,</span>
+<a id="__codelineno-38-10" name="__codelineno-38-10"></a>      <span class="n">packages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myutils&#39;</span><span class="p">],</span>
+<a id="__codelineno-38-11" name="__codelineno-38-11"></a>      <span class="n">zip_safe</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Dans ce script, on décrit le module qu’on va créer. Ici, nous allons le créer localement. Mais le même processus est utilisé pour créer un module distribué officiellement (cf. |<a href="https://pypi.org/"><u><u>pypi</u></u></a>|). Les points importants sont ici les suivants :</p>
+<ul>
+<li>ligne 3 : le nom du module créé ;</li>
+<li>ligne 4 : la version du module ;</li>
+<li>ligne 5 : sa description ;</li>
+<li>lignes 7-8 : l’auteur du module ;
+Pour installer ce module avec une portée machine, on procède de la façon suivante :</li>
+</ul>
+<p><img src="images/100000010000024B0000027B839BBBD2.png" style="width:6.961cm;height:7.531cm;" alt="Image" /></p>
+<p>Puis dans le terminal Python, on tape la commande suivante <strong>[pip install .]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-39-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-39-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-39-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-39-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-39-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-39-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-39-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-39-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-39-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2"></a><span class="n">Processing</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3"></a><span class="n">Using</span> <span class="n">legacy</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="k">for</span> <span class="n">myutils</span><span class="p">,</span> <span class="n">since</span> <span class="n">package</span> <span class="s1">&#39;wheel&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">installed</span><span class="o">.</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">myutils</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5"></a>  <span class="n">Attempting</span> <span class="n">uninstall</span><span class="p">:</span> <span class="n">myutils</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6"></a>    <span class="n">Found</span> <span class="n">existing</span> <span class="n">installation</span><span class="p">:</span> <span class="n">myutils</span> <span class="mf">0.1</span>
+<a id="__codelineno-39-7" name="__codelineno-39-7"></a>    <span class="n">Uninstalling</span> <span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span><span class="p">:</span>
+<a id="__codelineno-39-8" name="__codelineno-39-8"></a>      <span class="n">Successfully</span> <span class="n">uninstalled</span> <span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span>
+<a id="__codelineno-39-9" name="__codelineno-39-9"></a>    <span class="n">Running</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="k">for</span> <span class="n">myutils</span> <span class="o">...</span> <span class="n">done</span>
+<a id="__codelineno-39-10" name="__codelineno-39-10"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span>
+</code></pre></div></td></tr></table></div>
+<p>A partir de maintenant, tout script de la machine peut importer le module <strong>[myutils]</strong> sans que celui-ci soit dans les codes du projet.</p>
+<h3 id="972-le-script-configpy">9.7.2. Le script [config.py]</h3>
+<p><img src="images/100000010000010D000000D3BDDE0700.png" style="width:3.56cm;height:2.791cm;" alt="Image" /></p>
+<p>Le script <strong>[config.py]</strong> assure la configuration de l’application :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-40-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-40-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-40-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-40-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-40-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-40-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-40-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-40-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-40-10">10</a></span>
+<span class="normal"><a href="#__codelineno-40-11">11</a></span>
+<span class="normal"><a href="#__codelineno-40-12">12</a></span>
+<span class="normal"><a href="#__codelineno-40-13">13</a></span>
+<span class="normal"><a href="#__codelineno-40-14">14</a></span>
+<span class="normal"><a href="#__codelineno-40-15">15</a></span>
+<span class="normal"><a href="#__codelineno-40-16">16</a></span>
+<span class="normal"><a href="#__codelineno-40-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">():</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-40-3" name="__codelineno-40-3"></a>
+<a id="__codelineno-40-4" name="__codelineno-40-4"></a>    <span class="c1"># nom absolu du dossier du script de configuration</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5"></a>    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<a id="__codelineno-40-6" name="__codelineno-40-6"></a>    <span class="c1"># chemins absolus des dossiers à mettre dans le syspath</span>
+<a id="__codelineno-40-7" name="__codelineno-40-7"></a>    <span class="n">absolute_dependencies</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-40-8" name="__codelineno-40-8"></a>        <span class="c1"># dossiers locaux</span>
+<a id="__codelineno-40-9" name="__codelineno-40-9"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/dir1&quot;</span><span class="p">,</span>
+<a id="__codelineno-40-10" name="__codelineno-40-10"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/dir2&quot;</span><span class="p">,</span>
+<a id="__codelineno-40-11" name="__codelineno-40-11"></a>    <span class="p">]</span>
+<a id="__codelineno-40-12" name="__codelineno-40-12"></a>    <span class="c1"># mise à jour du syspath</span>
+<a id="__codelineno-40-13" name="__codelineno-40-13"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
+<a id="__codelineno-40-14" name="__codelineno-40-14"></a>    <span class="n">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
+<a id="__codelineno-40-15" name="__codelineno-40-15"></a>
+<a id="__codelineno-40-16" name="__codelineno-40-16"></a>    <span class="c1"># on retourne la config</span>
+<a id="__codelineno-40-17" name="__codelineno-40-17"></a>    <span class="k">return</span> <span class="p">{}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 1 : la fonction <strong>[configure]</strong> assure la configuration de l’application ;</li>
+<li>lignes 7-10 : le dictionnaire qui était auparavant dans <strong>[config.json]</strong> ;</li>
+<li>lignes 9-10 : parce qu’on est dans un script, on peut avoir directement les noms absolus des dossiers <strong>[dir1, dir2]</strong> ;</li>
+<li>lignes 12-14 : on utilise la fonction <strong>[set_syspath]</strong> du module <strong>[myutils]</strong> que nous venons de créer pour définir le Python Path de la configuration ;</li>
+<li>ligne 20 : on rend le dictionnaire de la configuration de l’application. Ici, il est vide ;</li>
+</ul>
+<h3 id="973-le-script-mainpy">9.7.3. Le script [main.py]</h3>
+<p>Le script principal <strong>[main]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-41-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-41-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-41-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-41-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-41-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-41-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-41-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-41-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-41-10">10</a></span>
+<span class="normal"><a href="#__codelineno-41-11">11</a></span>
+<span class="normal"><a href="#__codelineno-41-12">12</a></span>
+<span class="normal"><a href="#__codelineno-41-13">13</a></span>
+<span class="normal"><a href="#__codelineno-41-14">14</a></span>
+<span class="normal"><a href="#__codelineno-41-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1"></a><span class="c1"># on configure l&#39;application</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3"></a>
+<a id="__codelineno-41-4" name="__codelineno-41-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
+<a id="__codelineno-41-5" name="__codelineno-41-5"></a>
+<a id="__codelineno-41-6" name="__codelineno-41-6"></a><span class="c1"># le syspath est configuré - on peut faire les imports</span>
+<a id="__codelineno-41-7" name="__codelineno-41-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">module4</span><span class="w"> </span><span class="kn">import</span> <span class="n">f4</span>
+<a id="__codelineno-41-8" name="__codelineno-41-8"></a>
+<a id="__codelineno-41-9" name="__codelineno-41-9"></a><span class="c1"># main -------------</span>
+<a id="__codelineno-41-10" name="__codelineno-41-10"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-41-11" name="__codelineno-41-11"></a>    <span class="n">f4</span><span class="p">()</span>
+<a id="__codelineno-41-12" name="__codelineno-41-12"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-41-13" name="__codelineno-41-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-41-14" name="__codelineno-41-14"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-41-15" name="__codelineno-41-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 2-4 : on configure l’application à l’aide du module <strong>[config.py]</strong>. Celui-ci est accessible car il est dans le même dossier que le script principal. Or le dossier du script principal fait toujours partie du Python Path ;</li>
+<li>lorsqu’on arrive à la ligne 6, le Python Path a été construit avec dedans le dossier du module <strong>[module4]</strong>. On peut donc importer celui-ci ligne 7 ;</li>
+<li>lignes 10-15 : il ne reste plus qu’à exécuter la fonction <strong>[f4]</strong> ;
+Les résultats de l’exécution dans PyCharm sont les suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1">1</a></span>
+<span class="normal"><a href="#__codelineno-42-2">2</a></span>
+<span class="normal"><a href="#__codelineno-42-3">3</a></span>
+<span class="normal"><a href="#__codelineno-42-4">4</a></span>
+<span class="normal"><a href="#__codelineno-42-5">5</a></span>
+<span class="normal"><a href="#__codelineno-42-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">import</span><span class="o">/</span><span class="mi">07</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2"></a><span class="n">f3</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3"></a><span class="n">f4</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4"></a><span class="n">done</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5"></a>
+<a id="__codelineno-42-6" name="__codelineno-42-6"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Dans un terminal Python et ailleurs que dans le dossier du script principal, les résultats sont les suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1">1</a></span>
+<span class="normal"><a href="#__codelineno-43-2">2</a></span>
+<span class="normal"><a href="#__codelineno-43-3">3</a></span>
+<span class="normal"><a href="#__codelineno-43-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">import</span><span class="o">&gt;</span><span class="n">python</span> <span class="mi">07</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2"></a><span class="n">f3</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3"></a><span class="n">f4</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4"></a><span class="n">done</span>
+</code></pre></div></td></tr></table></div>
+<p>Désormais nous procèderons toujours de la même façon pour configurer une application :</p>
+<ul>
+<li>présence d’un script <strong>[config.py]</strong> dans le dossier du script principal. Ce script contient une fonction <strong>[configure]</strong> qui a deux objectifs :</li>
+<li>construire le Python Path pour l’application. Pour cela, <strong>[config.py]</strong> déclare tous les dossiers contenant les modules utilisés par l’application et construit le Python Path avec leurs noms absolus ;</li>
+<li>construire le dictionnaire <strong>[config]</strong> de la configuration de l’application ;
+Nous appliquons ce schéma à la seconde version de l’exercice d’application. On se souvient en effet que la version 1 fonctionnait dans l’environnement PyCharm mais pas dans un terminal Python. Le problème venait du Python Path.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1771 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction au langage Python 3 et au framework web Flask par l'exemple">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/du-dictionnaire-a-xml-et-vice-versa.html">
+      
+      
+        <link rel="prev" href="exercice-dapplication-version-8.html">
+      
+      
+        <link rel="next" href="exercice-dapplication-version-9.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>26. Du dictionnaire à XML et vice-versa - Introduction au langage Python 3 et au framework web Flask par l'exemple</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#26-du-dictionnaire-a-xml-et-vice-versa" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction au langage Python 3 et au framework web Flask par l'exemple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              26. Du dictionnaire à XML et vice-versa
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction au langage Python 3 et au framework web Flask par l'exemple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="avant-propos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Avant-propos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation d&#x27;un environnement de travail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-bases-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Les bases de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-chaines-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les chaînes de caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-exceptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Les exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fonctions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fichiers-texte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les fichiers texte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercice d&#x27;application – version 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-imports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Les imports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercice d’application : version 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercice d’application : version 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-et-objets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Les classes et objets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-generiques-baseentity-et-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les classes génériques [BaseEntity] et [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-programmation-par-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Architecture en couches et programmation par interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercice d&#x27;application - version 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilisation du SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilisation du SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ecrire-du-code-independant-du-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Ecrire du code indépendant du SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-de-lorm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilisation de l’ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercice d&#x27;application : version 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fonctions-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Fonctions internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="services-web-avec-le-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Services web avec le framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercice d’application : version 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercice d’application : version 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Exercice d’application : version 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="du-dictionnaire-a-xml-et-vice-versa.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Du dictionnaire à XML et vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercice d’application : version 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercice d’application : version 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercice d’application : version 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercice d’application : version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clients-web-pour-les-services-json-et-xml-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clients web pour les services jSON et XML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-mode-html-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Le mode HTML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercice d’application : version 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercice d’application : version 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercice d’application : version 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercice d’application : version 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercice d’application : version 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-18.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercice d’application : version 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="26-du-dictionnaire-a-xml-et-vice-versa">26. Du dictionnaire à XML et vice-versa</h1>
+<p>Nous nous proposons ici de découvrir le module <strong>[xml2dict]</strong> qui permet de transformer :</p>
+<ul>
+<li>une chaîne XML en dictionnaire :</li>
+<li>un dictionnaire en chaîne XML ;
+Avant l’avènement du jSON, la réponse des services web était souvent du XML (eXtended Markup Language). Par ailleurs, le protocole de ces services web était souvent SOAP (Simple Object Process Protocol). SOAP est un protocole qui s’appuie sur le protocole HTTP du web. Actuellement (2020), les services web sont plutôt de type REST (Representational State Transfer). Les services web que nous avons étudiés ne sont d’aucun de ces types mais sont définitivement plus proches de REST que de SOAP. Néanmoins je préfère dire qu’ils sont de type ‘libre’ ou ‘inconnu’ car ils ne respectent pas toutes les règles du REST.</li>
+</ul>
+<p>Nous allons montrer combien il est facile de transformer nos architectures client / serveur jSON en architectures client / serveur XML. Il suffit d’utiliser le module <strong>[xmltodict]</strong>.</p>
+<p>Nous commençons par l’installer dans un terminal Python :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">xmltodict</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Collecting</span> <span class="n">xmltodict</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="n">Using</span> <span class="n">cached</span> <span class="n">xmltodict</span><span class="o">-</span><span class="mf">0.12.0</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mf">9.2</span> <span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">xmltodict</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">xmltodict</span><span class="o">-</span><span class="mf">0.12.0</span>
+</code></pre></div></td></tr></table></div>
+<p>Ceci fait, nous allons étudier sur un exemple ce qu’on peut faire avec ce module :</p>
+<p><img src="images/100000000000015D0000011089FC3BAD.png" style="width:4.04cm;height:3.14cm;" alt="Image" /></p>
+<p>Le script <strong>[xml_01]</strong> est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">OrderedDict</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">xmltodict</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># xmltodict.parse pour passer du XML au dictionnaire. Le dictionnaire doit avoir une racine</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># le dictionnaire produit est de type OrderedDict</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># xmltodict.unparse pour passer du dictionnaire au XML</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">ordereddict2dict</span><span class="p">(</span><span class="n">ordered_dictionary</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="err">…</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="n">message</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">dictionary</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="c1"># logs</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">message</span><span class="si">}</span><span class="s2">-------&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dictionnaire=</span><span class="si">{</span><span class="n">dictionary</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>    <span class="c1"># dict -&gt; xml</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="n">xml1</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">unparse</span><span class="p">(</span><span class="n">dictionary</span><span class="p">)</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;xml=</span><span class="si">{</span><span class="n">xml1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a>    <span class="c1"># xml -&gt; OrderedDict</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="n">ordereddict_dictionary1</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">xml1</span><span class="p">)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ordereddict_dictionary1=</span><span class="si">{</span><span class="n">ordereddict_dictionary1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="c1"># OrderedDict -&gt; dict</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dict_dictionary1=</span><span class="si">{</span><span class="n">ordereddict2dict</span><span class="p">(</span><span class="n">ordereddict_dictionary1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="c1"># test 1</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 1&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;séléné&quot;</span><span class="p">})</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="c1"># test 2</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 2&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;famille&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;père&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;andré&quot;</span><span class="p">},</span> <span class="s2">&quot;mère&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;angèle&quot;</span><span class="p">},</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;séléné&quot;</span><span class="p">}})</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="c1"># test 3</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 3&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;famille&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;séléné&quot;</span><span class="p">,</span> <span class="s2">&quot;père&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;andré&quot;</span><span class="p">},</span> <span class="s2">&quot;mère&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;angèle&quot;</span><span class="p">},</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a>                                 <span class="s2">&quot;hobbies&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;chant&quot;</span><span class="p">,</span> <span class="s2">&quot;footing&quot;</span><span class="p">]}})</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="c1"># test 4</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 4&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>    <span class="s1">&#39;erreurs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [marié] manquant&#39;</span><span class="p">,</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>                <span class="s1">&#39;paramètre [enfants] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [salaire] manquant&#39;</span><span class="p">]}})</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="c1"># test 5</span>
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 5&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>    <span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>               <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">347</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}}})</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="c1"># test 6</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 6&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;root&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;un&quot;</span><span class="p">,</span> <span class="s2">&quot;deux&quot;</span><span class="p">,</span> <span class="s2">&quot;trois&quot;</span><span class="p">]}})</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a><span class="c1"># test 7</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a><span class="n">transform</span><span class="p">(</span><span class="s2">&quot;test 7&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;root&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;un&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]},</span> <span class="p">{</span><span class="s2">&quot;deux&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">]},</span> <span class="p">{</span><span class="s2">&quot;trois&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]}]}})</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 14-25 : la fonction <strong>[transform]</strong> reçoit un texte à écrire <strong>[message]</strong> et un dictionnaire <strong>[dictionary]</strong> ;</li>
+<li>ligne 16 : affichage du message ;</li>
+<li>ligne 17 : on affiche le dictionnaire reçu ;</li>
+<li>lignes 19-20 : ce dictionnaire est transformé en chaîne XML et celle-ci est affichée. La méthode qui sait faire cela est <strong>[xmltodict.unparse]</strong> ;</li>
+<li>lignes 21-23 : la chaîne XML précédente est transformée en dictionnaire et celui-ci est affiché. La méthode qui sait faire cela est <strong>[xmltodict.parse]</strong>. Cette méthode ne produit pas un dictionnaire de type <strong>[dict]</strong> mais de type <strong>[OrderedDict]</strong> (ligne 1) ;</li>
+<li>lignes 24-25 : on transforme le type <strong>[OrderedDict]</strong> obtenu en type <strong>[dict]</strong> à l’aide de la méthode (non encore écrite) <strong>[</strong><strong>ordereddict2dict</strong><strong>]</strong>. Cette méthode travaille de façon récursive. Si certaines valeurs du dictionnaire sont de type <strong>[OrderedDict, list]</strong>, les valeurs de ces collections sont examinées pour savoir si elles-aussi sont de type <strong>[OrderedDict]</strong>. Si c’est le cas, elles sont transformées en type <strong>[dict]</strong>. On remarquera que la méthode <strong>[xmltodict.parse]</strong> ne produit aucun dictionnaire de type <strong>[dict]</strong> ;
+Avant d’examiner les fonctions manquantes, examinons les résultats pour voir ce qui est cherché :</li>
+</ul>
+<p>Le test 1 (lignes 28-29) produit les résultats suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span>
+<span class="normal"><a href="#__codelineno-2-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">test</span> <span class="mi">1</span><span class="o">-------</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;séléné&#39;</span><span class="p">}</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="o">&lt;</span><span class="n">nom</span><span class="o">&gt;</span><span class="n">séléné</span><span class="o">&lt;/</span><span class="n">nom</span><span class="o">&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="s1">&#39;séléné&#39;</span><span class="p">)])</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;séléné&#39;</span><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : le dictionnaire testé. Il faut noter un point important : la méthode <strong>[xml2dict.unparse]</strong> exisge que le dictionnaire soit de la forme {‘clé’ : valeur} où <strong>[valeur]</strong> peut être ensuite un dictionnaire, une liste, un type simple ;</li>
+<li>lignes 3-4 : la chaîne XML issue du dictionnaire. Elle est précédée de l’entête <strong>[&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;\n]</strong> qui est normalement la 1ère ligne d’un fichier XML ;</li>
+<li>ligne 5 : le type <strong>[OrderedDict]</strong> obtenu par la méthode <strong>[xml2dict.parse]</strong> recevant pour paramètre la chaîne XML précédente ;</li>
+<li>ligne 6 : le dictionnaire de type <strong>[dict]</strong> obtenu en appliquant la méthode <strong>[ordereddict2dict]</strong> au type précédent. On retrouve le dictionnaire d’origine de la ligne 2 ;
+Tous les autres tests sont construits sur le même schéma et devraient vous permettre de comprendre comment passer d’un dictionnaire à une chaîne XML puis de cette chaîne XML au dictionnaire d’origine.</li>
+</ul>
+<p>Les autres tests donnent les résultats suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">test</span> <span class="mi">2</span><span class="o">-------</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;famille&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;père&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;andré&#39;</span><span class="p">},</span> <span class="s1">&#39;mère&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;angèle&#39;</span><span class="p">},</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;séléné&#39;</span><span class="p">}}</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="o">&lt;</span><span class="n">famille</span><span class="o">&gt;&lt;</span><span class="n">père</span><span class="o">&gt;&lt;</span><span class="n">prénom</span><span class="o">&gt;</span><span class="n">andré</span><span class="o">&lt;/</span><span class="n">prénom</span><span class="o">&gt;&lt;/</span><span class="n">père</span><span class="o">&gt;&lt;</span><span class="n">mère</span><span class="o">&gt;&lt;</span><span class="n">prénom</span><span class="o">&gt;</span><span class="n">angèle</span><span class="o">&lt;/</span><span class="n">prénom</span><span class="o">&gt;&lt;/</span><span class="n">mère</span><span class="o">&gt;&lt;</span><span class="n">nom</span><span class="o">&gt;</span><span class="n">séléné</span><span class="o">&lt;/</span><span class="n">nom</span><span class="o">&gt;&lt;/</span><span class="n">famille</span><span class="o">&gt;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;famille&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;père&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;prénom&#39;</span><span class="p">,</span> <span class="s1">&#39;andré&#39;</span><span class="p">)])),</span> <span class="p">(</span><span class="s1">&#39;mère&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;prénom&#39;</span><span class="p">,</span> <span class="s1">&#39;angèle&#39;</span><span class="p">)])),</span> <span class="p">(</span><span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="s1">&#39;séléné&#39;</span><span class="p">)]))])</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;famille&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;père&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;andré&#39;</span><span class="p">},</span> <span class="s1">&#39;mère&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;angèle&#39;</span><span class="p">},</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;séléné&#39;</span><span class="p">}}</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">test</span> <span class="mi">3</span><span class="o">-------</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;famille&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;séléné&#39;</span><span class="p">,</span> <span class="s1">&#39;père&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;andré&#39;</span><span class="p">},</span> <span class="s1">&#39;mère&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;angèle&#39;</span><span class="p">},</span> <span class="s1">&#39;hobbies&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;chant&#39;</span><span class="p">,</span> <span class="s1">&#39;footing&#39;</span><span class="p">]}}</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="o">&lt;</span><span class="n">famille</span><span class="o">&gt;&lt;</span><span class="n">nom</span><span class="o">&gt;</span><span class="n">séléné</span><span class="o">&lt;/</span><span class="n">nom</span><span class="o">&gt;&lt;</span><span class="n">père</span><span class="o">&gt;&lt;</span><span class="n">prénom</span><span class="o">&gt;</span><span class="n">andré</span><span class="o">&lt;/</span><span class="n">prénom</span><span class="o">&gt;&lt;/</span><span class="n">père</span><span class="o">&gt;&lt;</span><span class="n">mère</span><span class="o">&gt;&lt;</span><span class="n">prénom</span><span class="o">&gt;</span><span class="n">angèle</span><span class="o">&lt;/</span><span class="n">prénom</span><span class="o">&gt;&lt;/</span><span class="n">mère</span><span class="o">&gt;&lt;</span><span class="n">hobbies</span><span class="o">&gt;</span><span class="n">chant</span><span class="o">&lt;/</span><span class="n">hobbies</span><span class="o">&gt;&lt;</span><span class="n">hobbies</span><span class="o">&gt;</span><span class="n">footing</span><span class="o">&lt;/</span><span class="n">hobbies</span><span class="o">&gt;&lt;/</span><span class="n">famille</span><span class="o">&gt;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;famille&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;nom&#39;</span><span class="p">,</span> <span class="s1">&#39;séléné&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;père&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;prénom&#39;</span><span class="p">,</span> <span class="s1">&#39;andré&#39;</span><span class="p">)])),</span> <span class="p">(</span><span class="s1">&#39;mère&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;prénom&#39;</span><span class="p">,</span> <span class="s1">&#39;angèle&#39;</span><span class="p">)])),</span> <span class="p">(</span><span class="s1">&#39;hobbies&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;chant&#39;</span><span class="p">,</span> <span class="s1">&#39;footing&#39;</span><span class="p">])]))])</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;famille&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;séléné&#39;</span><span class="p">,</span> <span class="s1">&#39;père&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;andré&#39;</span><span class="p">},</span> <span class="s1">&#39;mère&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;angèle&#39;</span><span class="p">},</span> <span class="s1">&#39;hobbies&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;chant&#39;</span><span class="p">,</span> <span class="s1">&#39;footing&#39;</span><span class="p">]}}</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="n">test</span> <span class="mi">4</span><span class="o">-------</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;erreurs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [marié] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [enfants] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [salaire] manquant&#39;</span><span class="p">]}}</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="o">&lt;</span><span class="n">réponse</span><span class="o">&gt;&lt;</span><span class="n">erreurs</span><span class="o">&gt;</span><span class="n">Méthode</span> <span class="n">GET</span> <span class="n">requise</span> <span class="n">avec</span> <span class="n">les</span> <span class="n">seuls</span> <span class="n">paramètres</span> <span class="p">[</span><span class="n">marié</span><span class="p">,</span> <span class="n">enfants</span><span class="p">,</span> <span class="n">salaire</span><span class="p">]</span><span class="o">&lt;/</span><span class="n">erreurs</span><span class="o">&gt;&lt;</span><span class="n">erreurs</span><span class="o">&gt;</span><span class="n">paramètre</span> <span class="p">[</span><span class="n">marié</span><span class="p">]</span> <span class="n">manquant</span><span class="o">&lt;/</span><span class="n">erreurs</span><span class="o">&gt;&lt;</span><span class="n">erreurs</span><span class="o">&gt;</span><span class="n">paramètre</span> <span class="p">[</span><span class="n">enfants</span><span class="p">]</span> <span class="n">manquant</span><span class="o">&lt;/</span><span class="n">erreurs</span><span class="o">&gt;&lt;</span><span class="n">erreurs</span><span class="o">&gt;</span><span class="n">paramètre</span> <span class="p">[</span><span class="n">salaire</span><span class="p">]</span> <span class="n">manquant</span><span class="o">&lt;/</span><span class="n">erreurs</span><span class="o">&gt;&lt;/</span><span class="n">réponse</span><span class="o">&gt;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;réponse&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;erreurs&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [marié] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [enfants] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [salaire] manquant&#39;</span><span class="p">])]))])</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;erreurs&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [marié] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [enfants] manquant&#39;</span><span class="p">,</span> <span class="s1">&#39;paramètre [salaire] manquant&#39;</span><span class="p">]}}</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="n">test</span> <span class="mi">5</span><span class="o">-------</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">347</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">}}}</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="o">&lt;</span><span class="n">réponse</span><span class="o">&gt;&lt;</span><span class="n">result</span><span class="o">&gt;&lt;</span><span class="nb">id</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="nb">id</span><span class="o">&gt;&lt;</span><span class="n">marié</span><span class="o">&gt;</span><span class="n">oui</span><span class="o">&lt;/</span><span class="n">marié</span><span class="o">&gt;&lt;</span><span class="n">enfants</span><span class="o">&gt;</span><span class="mi">2</span><span class="o">&lt;/</span><span class="n">enfants</span><span class="o">&gt;&lt;</span><span class="n">salaire</span><span class="o">&gt;</span><span class="mi">50000</span><span class="o">&lt;/</span><span class="n">salaire</span><span class="o">&gt;&lt;</span><span class="n">impôt</span><span class="o">&gt;</span><span class="mi">1384</span><span class="o">&lt;/</span><span class="n">impôt</span><span class="o">&gt;&lt;</span><span class="n">décôte</span><span class="o">&gt;</span><span class="mi">384</span><span class="o">&lt;/</span><span class="n">décôte</span><span class="o">&gt;&lt;</span><span class="n">surcôte</span><span class="o">&gt;</span><span class="mi">0</span><span class="o">&lt;/</span><span class="n">surcôte</span><span class="o">&gt;&lt;</span><span class="n">réduction</span><span class="o">&gt;</span><span class="mi">347</span><span class="o">&lt;/</span><span class="n">réduction</span><span class="o">&gt;&lt;</span><span class="n">taux</span><span class="o">&gt;</span><span class="mf">0.14</span><span class="o">&lt;/</span><span class="n">taux</span><span class="o">&gt;&lt;/</span><span class="n">result</span><span class="o">&gt;&lt;/</span><span class="n">réponse</span><span class="o">&gt;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;réponse&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;result&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;marié&#39;</span><span class="p">,</span> <span class="s1">&#39;oui&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;enfants&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;salaire&#39;</span><span class="p">,</span> <span class="s1">&#39;50000&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;impôt&#39;</span><span class="p">,</span> <span class="s1">&#39;1384&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;décôte&#39;</span><span class="p">,</span> <span class="s1">&#39;384&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;surcôte&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;réduction&#39;</span><span class="p">,</span> <span class="s1">&#39;347&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;taux&#39;</span><span class="p">,</span> <span class="s1">&#39;0.14&#39;</span><span class="p">)]))]))])</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="s1">&#39;50000&#39;</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="s1">&#39;1384&#39;</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="s1">&#39;384&#39;</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="s1">&#39;347&#39;</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="s1">&#39;0.14&#39;</span><span class="p">}}}</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="n">test</span> <span class="mi">6</span><span class="o">-------</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;un&#39;</span><span class="p">,</span> <span class="s1">&#39;deux&#39;</span><span class="p">,</span> <span class="s1">&#39;trois&#39;</span><span class="p">]}}</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="o">&lt;</span><span class="n">root</span><span class="o">&gt;&lt;</span><span class="n">liste</span><span class="o">&gt;</span><span class="n">un</span><span class="o">&lt;/</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">liste</span><span class="o">&gt;</span><span class="n">deux</span><span class="o">&lt;/</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">liste</span><span class="o">&gt;</span><span class="n">trois</span><span class="o">&lt;/</span><span class="n">liste</span><span class="o">&gt;&lt;/</span><span class="n">root</span><span class="o">&gt;</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;liste&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;un&#39;</span><span class="p">,</span> <span class="s1">&#39;deux&#39;</span><span class="p">,</span> <span class="s1">&#39;trois&#39;</span><span class="p">])]))])</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;un&#39;</span><span class="p">,</span> <span class="s1">&#39;deux&#39;</span><span class="p">,</span> <span class="s1">&#39;trois&#39;</span><span class="p">]}}</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="n">test</span> <span class="mi">7</span><span class="o">-------</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="n">dictionnaire</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;un&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]},</span> <span class="p">{</span><span class="s1">&#39;deux&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">]},</span> <span class="p">{</span><span class="s1">&#39;trois&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">]}]}}</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="n">xml</span><span class="o">=&lt;</span><span class="err">?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="err">?</span><span class="o">&gt;</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="o">&lt;</span><span class="n">root</span><span class="o">&gt;&lt;</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">un</span><span class="o">&gt;</span><span class="mi">10</span><span class="o">&lt;/</span><span class="n">un</span><span class="o">&gt;&lt;</span><span class="n">un</span><span class="o">&gt;</span><span class="mi">11</span><span class="o">&lt;/</span><span class="n">un</span><span class="o">&gt;&lt;/</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">deux</span><span class="o">&gt;</span><span class="mi">20</span><span class="o">&lt;/</span><span class="n">deux</span><span class="o">&gt;&lt;</span><span class="n">deux</span><span class="o">&gt;</span><span class="mi">21</span><span class="o">&lt;/</span><span class="n">deux</span><span class="o">&gt;&lt;/</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">liste</span><span class="o">&gt;&lt;</span><span class="n">trois</span><span class="o">&gt;</span><span class="mi">30</span><span class="o">&lt;/</span><span class="n">trois</span><span class="o">&gt;&lt;</span><span class="n">trois</span><span class="o">&gt;</span><span class="mi">31</span><span class="o">&lt;/</span><span class="n">trois</span><span class="o">&gt;&lt;/</span><span class="n">liste</span><span class="o">&gt;&lt;/</span><span class="n">root</span><span class="o">&gt;</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="n">ordereddict_dictionary1</span><span class="o">=</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;root&#39;</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;liste&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;un&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">])]),</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;deux&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">])]),</span> <span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;trois&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;31&#39;</span><span class="p">])])])]))])</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="n">dict_dictionary1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;un&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="s1">&#39;11&#39;</span><span class="p">]},</span> <span class="p">{</span><span class="s1">&#39;deux&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;20&#39;</span><span class="p">,</span> <span class="s1">&#39;21&#39;</span><span class="p">]},</span> <span class="p">{</span><span class="s1">&#39;trois&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;30&#39;</span><span class="p">,</span> <span class="s1">&#39;31&#39;</span><span class="p">]}]}}</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>les lignes 23 et 27 montrent un point important :</li>
+<li>ligne 23 : les valeurs associées aux clés du dictionnaire <strong>[result]</strong> sont des nombres ;</li>
+<li>ligne 26 : les valeurs associées aux clés du dictionnaire <strong>[ordereddict_dictionary1]</strong> sont des chaînes de caractères. C’est une faiblesse de la bibliothèque <strong>[xmltodict]</strong>. Sa méthode <strong>[parse]</strong> ne produit que des chaînes de caractères. Cela peut se comprendre aisément :</li>
+<li>ligne 25 : la chaîne XML à partir de laquelle est produit le dictionnaire. Dans cette chaîne, il n’y a aucune indication du type des données encapsulées dans les balises XML. <strong>[xmltodict.parse]</strong> fait ce qu’il y a de plus logique : elle laisse tout en chaîne de caractères dans le dictionnaire produit. On trouve d’autres bibliothèques similaires à <strong>[xmltodict]</strong> où le type des données encapsulées est indiqué dans les balises. On pourrait trouver par exemple la balise <strong>[&lt;enfants </strong><strong>type=’int’</strong><strong>&gt;2&lt;/enfants&gt;]</strong> ;</li>
+<li>la conséquence de ceci est que lorsqu’on exploite un dictionnaire produit par le module <strong>[xmltodict]</strong> on doit connaître le type des données qu’il encapsule pour pouvoir passer du type ‘str’ au type réel de la donnée ;
+Attardons-nous maintenant sur la méthode <strong>[ordereddict2dict]</strong> qui transforme un type <strong>[OrderedDict]</strong> en type <strong>[dict]</strong> :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># xmltodict.parse pour passer du XML au dictionnaire. Le dictionnaire doit avoir une racine</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1"># le dictionnaire produit est de type OrderedDict</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># xmltodict.unparse pour passer du dictionnaire au XML</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>    <span class="c1"># si la valeur est de type OrderedDict, on la transforme</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">OrderedDict</span><span class="p">):</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a>        <span class="n">value2</span> <span class="o">=</span> <span class="n">ordereddict2dict</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="c1"># si la valeur est de type list, on la transforme</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span class="n">value2</span> <span class="o">=</span> <span class="n">list2list</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        <span class="c1"># on est en présence d&#39;un type simple pas d&#39;une collection</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        <span class="n">value2</span> <span class="o">=</span> <span class="n">value</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="c1"># on rend la nouvelle valeur</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>    <span class="k">return</span> <span class="n">value2</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">list2list</span><span class="p">(</span><span class="n">liste</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="c1"># la nouvelle liste</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a>    <span class="n">newliste</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>    <span class="c1"># on exploite les éléments de la liste paramètre</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>    <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">liste</span><span class="p">:</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>        <span class="c1"># on ajoute value à la nouvelle liste</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>        <span class="n">newliste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">check</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>    <span class="c1"># on rend la nouvelle liste</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>    <span class="k">return</span> <span class="n">newliste</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="k">def</span><span class="w"> </span><span class="nf">ordereddict2dict</span><span class="p">(</span><span class="n">ordered_dictionary</span><span class="p">:</span> <span class="n">OrderedDict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>    <span class="c1"># OrderedDict -&gt; dict de façon récursive</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a>    <span class="n">newdict</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">ordered_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a>        <span class="c1"># on mémorise la valeur dans le nouveau dictionnaire</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a>        <span class="n">newdict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">check</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a>    <span class="c1"># on rend le dictionnaire</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a>    <span class="k">return</span> <span class="n">newdict</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 30 : la fonction <strong>[</strong><strong>ordereddict2dict</strong><strong>]</strong> reçoit un type <strong>[</strong><strong>OrderedDict</strong><strong>]</strong> comme paramètre ;</li>
+<li>ligne 32 : le dictionnaire de type <strong>[dict]</strong> qui sera rendu ligne 37 par la fonction ;</li>
+<li>ligne 33 : on explore tous les tuples (clé, valeur) du dictionnaire <strong>[</strong><strong>ordered_dictionary</strong><strong>]</strong> ;</li>
+<li>
+<p>ligne 35 : dans le nouveau dictionnaire, la clé <strong>[key]</strong> est gardée mais la valeur associée n’est pas <strong>[value]</strong> mais <strong>[check(value)]</strong>. La fonction <strong>[check(value)]</strong> est chargée de trouver, si <strong>[value]</strong> est une collection, tous les éléments de type <strong>[OrderedDict]</strong> et de les transformer en type <strong>[dict]</strong> ;
+La méthode <strong>[check]</strong> est définie aux lignes 5-16 :</p>
+</li>
+<li>
+<p>ligne 5 : on ne connaît pas le type de <strong>[value]</strong>, aussi n’a-t-on pu écrire <strong>[value : type]</strong> ;</p>
+</li>
+<li>lignes 7-8 : si <strong>[value]</strong> est de type <strong>[OrderedDict]</strong> alors on appelle de façon récursive la fonction <strong>[ordereddict2dict]</strong> qu’on vient de commenter ;</li>
+<li>lignes 9-11 : un autre cas possible est que <strong>[value]</strong> soit une liste. Dans ce cas, ligne 11, on appelle la fonction <strong>[list2list]</strong> des 19-27 ;</li>
+<li>lignes 12-14 : le dernier cas est que <strong>[value]</strong> n’est pas une collection mais un type simple. La fonction <strong>[check]</strong>, comme les fonctions <strong>[ordereddict2dict]</strong> et <strong>[list2list]</strong> sont récursives. On sait qu’alors il faut toujours prévoir le cas où la récursion s’arrête. Les lignes 12-14 sont ce cas ;</li>
+<li>
+<p>ligne 16 : la fonction <strong>[check]</strong> appelée récursivement ou pas produit une valeur <strong>[valeur2]</strong> qui doit remplacer le paramètre <strong>[value]</strong> de la ligne 5 ;
+La méthode <strong>[list2list]</strong> définie aux lignes 19-27 exploite une liste passée en paramètre. Elle va l’explorer et remplacer toute valeur de type <strong>[OrderedDict]</strong> trouvée dedans en un type <strong>[dict]</strong>.</p>
+</li>
+<li>
+<p>ligne 21 : la nouvelle liste que va créer la fonction ;</p>
+</li>
+<li>lignes 23-25 : toutes les valeurs <strong>[value]</strong> de la liste sont explorées et remplacées par la valeur <strong>[check(value)]</strong>. Cette valeur <strong>[value]</strong> peut elle-même contenir des éléments de type <strong>[list]</strong> ou <strong>[OrderedDict]</strong>. Ils seront traités correctement par la fonction récursive <strong>[check]</strong> ;</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2472 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction au langage Python 3 et au framework web Flask par l'exemple">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/les-fonctions.html">
+      
+      
+        <link rel="prev" href="les-exceptions.html">
+      
+      
+        <link rel="next" href="les-fichiers-texte.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>6. Les fonctions - Introduction au langage Python 3 et au framework web Flask par l'exemple</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-les-fonctions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction au langage Python 3 et au framework web Flask par l'exemple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Les fonctions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction au langage Python 3 et au framework web Flask par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction au langage Python 3 et au framework web Flask par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction au langage Python 3 et au framework web Flask par l'exemple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/stahe/python-flask-sept-2020" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="avant-propos.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Avant-propos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation d&#x27;un environnement de travail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-bases-de-python.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Les bases de Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-chaines-de-caracteres.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Les chaînes de caractères
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-exceptions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Les exceptions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="les-fonctions.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Les fonctions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-script-fonc_01-portee-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. Script [fonc_01] : portée des variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-script-fonc_02-portee-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. Script [fonc_02] : portée des variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#63-script-fonc_03-portee-des-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3. Script [fonc_03] : portée des variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#64-script-fonc_04-mode-de-passage-des-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.4. Script [fonc_04] : mode de passage des paramètres
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#65-script-fonc_05-ordre-decriture-des-fonctions-dans-un-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.5. Script [fonc_05] : ordre d&#x27;écriture des fonctions dans un script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#66-script-fonc_06-ordre-decriture-des-fonctions-dans-un-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.6. Script [fonc_06] : ordre d&#x27;écriture des fonctions dans un script
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#67-script-fonc_07-utilisation-de-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.7. Script [fonc_07] : utilisation de modules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#68-script-fonc_08-ajouter-des-dossiers-au-python-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.8. Script [fonc_08] : ajouter des dossiers au [Python Path]
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#69-script-fonc_09-declaration-du-type-des-parametres" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.9. Script [fonc_09] : déclaration du type des paramètres
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#610-script-fonc_10-parametres-nommes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.10. Script [fonc_10] : paramètres nommés
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#611-script-fonc_11-fonction-recursive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.11. Script [fonc_11] : fonction récursive
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#612-script-fonc_12-fonction-recursive" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.12. Script [fonc_12] : fonction récursive
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-fichiers-texte.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Les fichiers texte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Exercice d&#x27;application – version 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-imports.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Les imports
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Exercice d’application : version 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-3.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. Exercice d’application : version 3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-et-objets.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. Les classes et objets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="les-classes-generiques-baseentity-et-myexception.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. Les classes génériques [BaseEntity] et [MyException]
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="architecture-en-couches-et-programmation-par-interfaces.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. Architecture en couches et programmation par interfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    15. Exercice d&#x27;application - version 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-mysql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    16. Utilisation du SGBD MySQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-du-sgbd-postgresql.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    17. Utilisation du SGBD PostgreSQL
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ecrire-du-code-independant-du-sgbd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    18. Ecrire du code indépendant du SGBD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-de-lorm-sqlalchemy.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    19. Utilisation de l’ORM SQLALCHEMY
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    20. Exercice d&#x27;application : version 5
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="fonctions-internet.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    21. Fonctions internet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="services-web-avec-le-framework-flask.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    22. Services web avec le framework Flask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    23. Exercice d’application : version 6
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-7.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    24. Exercice d’application : version 7
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25. Exercice d’application : version 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="du-dictionnaire-a-xml-et-vice-versa.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26. Du dictionnaire à XML et vice-versa
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-9.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    27. Exercice d’application : version 9
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-10.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    28. Exercice d’application : version 10
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-11.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    29. Exercice d’application : version 11
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    30. Exercice d’application : version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="clients-web-pour-les-services-json-et-xml-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    31. Clients web pour les services jSON et XML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="le-mode-html-de-la-version-12.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    32. Le mode HTML de la version 12
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-13.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    33. Exercice d’application : version 13
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-14.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    34. Exercice d’application : version 14
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-15.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    35. Exercice d’application : version 15
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-16.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    36. Exercice d’application : version 16
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-17.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    37. Exercice d’application : version 17
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exercice-dapplication-version-18.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    38. Exercice d’application : version 18
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="conclusion.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    39. Conclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="6-les-fonctions">6. Les fonctions</h1>
+<p><img src="images/10000001000001D0000002259AC2B1C1.png" style="width:4.31cm;height:5.1cm;" alt="Image" /></p>
+<h2 id="61-script-fonc_01-portee-des-variables">6.1. Script [fonc_01] : portée des variables</h2>
+<p>Le script <strong>[fonc_01]</strong> montre des exemples de portée de variables entre fonctions :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># portée des variables</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">():</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># l&#39;utilisation de variables globales est à éviter</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="c1"># variable globale i</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="k">global</span> <span class="n">i</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="c1"># variable locale j</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f1[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">():</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="c1"># l&#39;utilisation de variables globales est à éviter</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="c1"># variable globale i</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">global</span> <span class="n">i</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="c1"># variable locale j</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f2[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">():</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="c1"># variable locale i</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="c1"># variable locale j</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">30</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f3[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="c1"># programme principal</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="c1"># ces deux variables ne seront connues d&#39;une fonction f</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="c1"># que si celle-ci déclare explicitement par l&#39;instruction global qu&#39;elle veut les utiliser</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="c1"># ou que la fonction n’utilise la variable globale qu’en lecture</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="n">f1</span><span class="p">()</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="n">f2</span><span class="p">()</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="n">f3</span><span class="p">()</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="c1"># j n&#39;a pas changé mais i a changé</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Résultats</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">f1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">f2</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">f3</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong> :</p>
+<ul>
+<li>le script montre l&#x27;utilisation de la variable i, déclarée globale dans les fonctions f1 et f2. Dans ce cas, le programme principal et les fonctions f1 et f2 partagent la même variable i.</li>
+</ul>
+<h2 id="62-script-fonc_02-portee-des-variables">6.2. Script [fonc_02] : portée des variables</h2>
+<p>Le script <strong>[fonc_03]</strong> reprend le script <strong>[fonc_02]</strong> et montre comment éviter l&#x27;usage de variables globales :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span>
+<span class="normal"><a href="#__codelineno-2-39">39</a></span>
+<span class="normal"><a href="#__codelineno-2-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># portée des variables</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>    <span class="c1"># variable locale i</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="c1"># variable locale j</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f1[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="c1"># on rend la valeur modifiée</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="k">return</span> <span class="n">i</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="c1"># variable locale i</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>    <span class="c1"># variable locale j</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">20</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f2[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>    <span class="c1"># on rend la valeur modifiée</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>    <span class="k">return</span> <span class="n">i</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">():</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>    <span class="c1"># variable locale i</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a>    <span class="c1"># variable locale j</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">30</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f3[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="c1"># programme principal</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="c1"># ces deux variables ne seront connues d&#39;une fonction f</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="c1"># que si celle-ci déclare explicitement par l&#39;instruction global qu&#39;elle veut les utiliser</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="c1"># ou si la fonction n’utilise la variable globale qu’en lecture</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="n">i</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="n">i</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="n">f3</span><span class="p">()</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="c1"># j n&#39;a pas changé mais i a changé</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[i,j]=[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Commentaires</strong> :</p>
+<ul>
+<li>lignes 2, 12 : au lieu d&#x27;être déclarée globale, la variable <strong>[i]</strong> est passée en paramètre aux fonctions f1 et f2 ;</li>
+<li>lignes 9, 19 : les fonctions f1 et f2 rendent la variable <strong>[i]</strong> modifiée au programme principal. Celui-ci la récupère aux lignes 36 et 37 ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">f1</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">f2</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">]</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">f3</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="63-script-fonc_03-portee-des-variables">6.3. Script [fonc_03] : portée des variables</h2>
+<p>Le script <strong>[fonc_03]</strong> montre une particularité des variables utilisées à la fois dans une fonction et dans le code appelant celle-ci, selon que dans la fonction cette variable est utilisée uniquement en <strong>lecture</strong> ou non.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span>
+<span class="normal"><a href="#__codelineno-4-38">38</a></span>
+<span class="normal"><a href="#__codelineno-4-39">39</a></span>
+<span class="normal"><a href="#__codelineno-4-40">40</a></span>
+<span class="normal"><a href="#__codelineno-4-41">41</a></span>
+<span class="normal"><a href="#__codelineno-4-42">42</a></span>
+<span class="normal"><a href="#__codelineno-4-43">43</a></span>
+<span class="normal"><a href="#__codelineno-4-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">():</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>    <span class="c1"># ici la variable globale i est connue</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[f1] i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="c1"># ici la variable globale j est connue</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[f1] j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">():</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="c1"># ici la variable globale i n&#39;est pas connue</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="c1"># car la fonction f2 définit une variable locale de même nom</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="c1"># c&#39;est alors elle qui a priorité</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a>        <span class="c1"># essai d&#39;affichage de la variable locale i définie plus loin</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[f2] i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a>        <span class="c1"># l&#39;instruction qui suit fait de i une variable locale de la fonction f2</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a>        <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a>    <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[f2] erreur=</span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="k">def</span><span class="w"> </span><span class="nf">f3</span><span class="p">():</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a>    <span class="c1"># ici la variable globale i n&#39;est pas connue</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a>    <span class="c1"># car la fonction f3 définit une variable locale de même nom</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a>    <span class="c1"># c&#39;est alors elle qui a priorité</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a>    <span class="c1"># l&#39;instruction qui suit fait de i une variable locale</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a>    <span class="n">i</span> <span class="o">=</span> <span class="mi">7</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a>    <span class="c1"># affichage - ici i est connue</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[f3] i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="c1"># main -----------</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="c1"># variables globales aux fonctions</span>
+<a id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">10</span>
+<a id="__codelineno-4-35" name="__codelineno-4-35"></a><span class="n">j</span> <span class="o">=</span> <span class="mi">20</span>
+<a id="__codelineno-4-36" name="__codelineno-4-36"></a><span class="c1"># appel de f1</span>
+<a id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="n">f1</span><span class="p">()</span>
+<a id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[main] i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="c1"># appel de f2</span>
+<a id="__codelineno-4-40" name="__codelineno-4-40"></a><span class="n">f2</span><span class="p">()</span>
+<a id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[main] i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-42" name="__codelineno-4-42"></a><span class="c1"># appel de f3</span>
+<a id="__codelineno-4-43" name="__codelineno-4-43"></a><span class="n">f3</span><span class="p">()</span>
+<a id="__codelineno-4-44" name="__codelineno-4-44"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[main] i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>ligne 34 : le code principal définit une variable <strong>[i]</strong> ;</li>
+<li>lignes 1-5 : la fonction f1 utilise également une variable <strong>[i]</strong> sans lui donner de valeur. C&#x27;est une <strong>lecture</strong> de la variable <strong>[i]</strong>. Dans ce cas, la variable <strong>[i]</strong> utilisée est celle du code appelant, ligne 34 ;</li>
+<li>lignes 8-18 : la fonction f2 utilise également une variable <strong>[i]</strong> mais lui donne une valeur ligne 16. Le fait de donner une valeur à la variable <strong>[i]</strong> dans f2 fait automatiquement de <strong>[i]</strong> une variable locale à la fonction <strong>[f2]</strong>. Celle-ci &#x27;cache&#x27; donc la variable <strong>[i]</strong> du code appelant ;</li>
+<li>ligne 14 : l&#x27;opération d&#x27;écriture de la variable locale <strong>[i]</strong> va échouer car celle-ci n&#x27;a pas de valeur lorsqu&#x27;on arrive à la ligne 14. Elle obtient sa valeur ligne 16.  Il va se produire une exception. Pour cette raison, on a inséré la ligne 14 dans un try / catch ;</li>
+<li>lignes 21-29 : la fonction f3 fait la même chose que la fonction f2 mais définit plus tôt sa variable locale <strong>[i]</strong> ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_03</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="p">[</span><span class="n">f1</span><span class="p">]</span> <span class="n">i</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="p">[</span><span class="n">f1</span><span class="p">]</span> <span class="n">j</span><span class="o">=</span><span class="mi">20</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">i</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="mi">20</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">[</span><span class="n">f2</span><span class="p">]</span> <span class="n">erreur</span><span class="o">=</span><span class="n">local</span> <span class="n">variable</span> <span class="s1">&#39;i&#39;</span> <span class="n">referenced</span> <span class="n">before</span> <span class="n">assignment</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">i</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">[</span><span class="n">f3</span><span class="p">]</span> <span class="n">i</span><span class="o">=</span><span class="mi">7</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">i</span><span class="o">=</span><span class="mi">10</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="64-script-fonc_04-mode-de-passage-des-parametres">6.4. Script [fonc_04] : mode de passage des paramètres</h2>
+<p>Le script est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># fonction f1</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>    <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># fonction f2</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>    <span class="n">a</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>    <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>    <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="c1"># ------------------------ main</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;x=</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Résultats</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_04</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">x</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">x</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">3</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong> :</p>
+<ul>
+<li>tout est objet en Python. Certains objets sont dits &quot;immutable&quot; (en anglais) : on ne peut pas les modifier. C&#x27;est le cas des nombres, des chaînes de caractères, des tuples. Lorsque des objets Python sont passés en paramètres à des fonctions, ce sont leur références qui sont passées sauf si ces objets sont &quot;immutable&quot; auquel cas, c&#x27;est la valeur de l&#x27;objet qui est passée ;</li>
+<li>les fonctions f1 (ligne 2), et f2 (ligne 7) veulent illustrer le passage d&#x27;un paramètre de sortie. On veut que le paramètre effectif d&#x27;une fonction soit modifié par la fonction ;</li>
+<li>lignes 2-3 : la fonction f1 modifie son paramètre formel a. On veut savoir si le paramètre effectif va lui aussi être modifié ;</li>
+<li>lignes 14-15 : le paramètre effectif est x=1. La ligne 2 des résultats, montre que le paramètre effectif n&#x27;est pas modifié. Ainsi le paramètre effectif <strong>x</strong> et le paramètre formel <strong>a</strong> sont <strong>deux objets différents ;</strong></li>
+<li>lignes 8-10 : la fonction f2 modifie ses paramètres formels <strong>a</strong> et <strong>b</strong>, et les rend comme résultats ;</li>
+<li>lignes 17-18 : on passe à f2 les paramètres effectifs (x,y) et le résultat de f2 est remis dans (x,y). La ligne 3 des résultats montre que les paramètres effectifs (x,y) ont été modifiés.
+On en conclut que lorsqu&#x27;on des objets &quot;immutable&quot; sont des paramètres de sortie, il faut qu&#x27;ils fassent partie des résultats renvoyés par la fonction.</li>
+</ul>
+<h2 id="65-script-fonc_05-ordre-decriture-des-fonctions-dans-un-script">6.5. Script [fonc_05] : ordre d&#x27;écriture des fonctions dans un script</h2>
+<p>Le script <strong>[fonc_05]</strong> montre qu&#x27;on ne peut appeler une fonction si elle n&#x27;a pas été précédemment rencontrée dans le code :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># ------------------------ main</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># fonction f1</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="c1"># fonction f2</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a>    <span class="k">return</span> <span class="n">f1</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>la ligne 2 va provoquer une erreur parce qu&#x27;elle utilise la fonction f2 qui n&#x27;a pas encore été définie dans le script ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span>
+<span class="normal"><a href="#__codelineno-9-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_05</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_05.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="ne">NameError</span><span class="p">:</span> <span class="n">name</span> <span class="s1">&#39;f2&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="66-script-fonc_06-ordre-decriture-des-fonctions-dans-un-script">6.6. Script [fonc_06] : ordre d&#x27;écriture des fonctions dans un script</h2>
+<p>Le script <strong>[fonc_06]</strong> montre que ce qui vaut pour le code appelant ne vaut pas pour les fonctions :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># fonction f2</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="k">return</span> <span class="n">f1</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># fonction f1</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="c1"># ------------------------ main</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>ligne 3 : la fonction <strong>[f2]</strong> utilise la fonction <strong>[f1]</strong> définie plus loin dans le script. Cela ne provoque cependant pas d&#x27;erreur. On peut donc en conclure que l&#x27;ordre de définition des fonctions dans un script Python n&#x27;a pas d&#x27;importance ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_06</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="mi">310</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="67-script-fonc_07-utilisation-de-modules">6.7. Script [fonc_07] : utilisation de modules</h2>
+<p>Le script <strong>[fonc_07]</strong> montre comment isoler les fonctions dans un module.</p>
+<p><img src="images/10000000000001A2000001E95C62738A.png" style="width:4.821cm;height:5.64cm;" alt="Image" /></p>
+<p>Nous isolons dans un module des fonctions réutilisables. Plutôt que de les transporter d&#x27;un script à l&#x27;autre :</p>
+<ul>
+<li>on les place dans un fichier à part que l&#x27;on déclare d&#x27;une façon particulière ;</li>
+<li>les scripts ayant besoin de ces fonctions &#x27;importe&#x27; le module qui les contient ;
+Le script <strong>[fonctions_module_01]</strong> est le suivant :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span>
+<span class="normal"><a href="#__codelineno-12-4">4</a></span>
+<span class="normal"><a href="#__codelineno-12-5">5</a></span>
+<span class="normal"><a href="#__codelineno-12-6">6</a></span>
+<span class="normal"><a href="#__codelineno-12-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># fonction f2</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    <span class="k">return</span> <span class="n">f1</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># fonction f1</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">10</span>
+</code></pre></div></td></tr></table></div>
+<p>Pour que les fonctions du script <strong>[fonctions_module_01]</strong> puissent être référencées par d&#x27;autres scripts, il y a différentes façons de faire. Elles diffèrent selon qu&#x27;on exécute ou non le script à l&#x27;intérieur de <strong>[PyCharm]</strong>.</p>
+<p>Sous <strong>[PyCharm]</strong> les modules importés sont cherchés dans des dossiers précis appelés <strong>[Sources Root]</strong>. Il y a deux façons de faire d&#x27;un dossier un <strong>[Sources Root]</strong> :</p>
+<p><img src="images/10000000000004060000030AD1D7093D.png" style="width:16.431cm;height:12.401cm;" alt="Image" /></p>
+<ul>
+<li>en <strong>[4]</strong>, le dossier a changé de couleur ;
+Après cette opération, le dossier <strong>[fonctions/modules]</strong> est reconnu comme un dossier source. On peut alors écrire dans un script :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fonctions_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="n">f2</span>
+</code></pre></div></td></tr></table></div>
+<p>Pour importer / utiliser la fonction f2 définie dans le module <strong>[fonctions_module_01.py]</strong>.</p>
+<p>Une autre méthode est de passer par les propriétés du projet :</p>
+<p><img src="images/100000000000051C000002086882FC9E.png" style="width:15.11cm;height:6.002cm;" alt="Image" /></p>
+<ul>
+<li>ci-dessus, la séquence <strong>[1-6]</strong> permet de faire du dossier <strong>[shared]</strong> un dossier où ranger des modules à importer ;
+Nous n&#x27;allons pour l’instant déclarer aucun dossier comme <strong>[Sources Root]</strong> à part la racine du projet :</li>
+</ul>
+<p><img src="images/1000000000000557000002557F6FC5D5.png" style="width:14.451cm;height:6.31cm;" alt="Image" /></p>
+<p>Ceci fait, on peut écrire le script <strong>[fonc-07]</strong> suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span>
+<span class="normal"><a href="#__codelineno-14-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1"># utilisation de modules</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="c1"># ------------------------ main</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python path=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fonctions.shared.fonctions_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="n">f2</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : on importe l&#x27;objet <strong>[sys]</strong> pour pouvoir utiliser ligne 5, son attribut <strong>[path]</strong> qui donne, ce qu&#x27;on appelle le <strong>[Python Path]</strong> : une liste de dossiers qui seront explorés à la recherche de modules importés ;</li>
+<li>ligne 6 : on importe la fonction f2 du module <strong>[</strong><strong>fonctions_module_01</strong><strong>]</strong>. Pour désigner ce module, on utilise le chemin qui mène de la racine du projet au module. Avec Pycharm, la racine du projet fait toujours partie des dossiers explorés lorsqu&#x27;est cherché un module importé dans un script. Ce dossier fait donc partie du <strong>[Python Path]</strong> du projet. C&#x27;est ce que la ligne 5 va nous permettre de vérifier ;</li>
+<li>ligne 6 : si on décrivait le chemin qui mène de la racine du projet au dossier <strong>[</strong><strong>fonctions_module_01</strong><strong>]</strong> on écrirait <strong>[</strong><strong>fonctions/shared/</strong><strong>fonctions_module_01</strong><strong>]</strong>. Dans le chemin d&#x27;un module, le signe / est remplacé par le point. On écrit donc <strong>[</strong><strong>fonctions.modules.</strong><strong>fonctions_module_01</strong><strong>]</strong> ;</li>
+<li>après la ligne 6, la fonction f2 est connue. On l&#x27;utilise ligne 8 ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_07</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">Python</span> <span class="n">path</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions</span><span class="se">\\</span><span class="s1">shared&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">python38.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">DLLs&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">lib&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages&#39;</span><span class="p">]</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="mi">310</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>Ci-dessus :</p>
+<ul>
+<li>surlignée en vert, on voit que la racine du projet fait partie du <strong>[Python Path]</strong> ;</li>
+<li>surligné en jaune, on voit que le dossier du script exécuté fait également partie du <strong>[Python Path]</strong> ;</li>
+<li>les autres éléments du <strong>[Python Path]</strong> proviennent directement du dossier d&#x27;installation de Python ;
+Que se passe-t-il lorsqu&#x27;on n&#x27;utilise pas PyCharm pour exécuter <strong>[fonc-07]</strong> ?</li>
+</ul>
+<p><img src="images/10000001000001A4000001F2CC605062.png" style="width:7.092cm;height:8.411cm;" alt="Image" /></p>
+<p><img src="images/100000000000058400000154DD0D1166.png" style="width:16.311cm;height:3.931cm;" alt="Image" /></p>
+<ul>
+<li>en <strong>[1]</strong>, on exécute le script <strong>[fonc-07]</strong>. On est positionnés dans le dossier <strong>[fonctions]</strong> ;</li>
+<li>en <strong>[2]</strong>, on voit que le dossier d&#x27;exécution fait partie du <strong>[Python Path]</strong>. C&#x27;est toujours ainsi. On peut voir également que le dossier racine <strong>[</strong><strong>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020</strong><strong>]</strong> ne fait pas partie du <strong>[Python Path]</strong> ;</li>
+<li>en <strong>[3]</strong>, l&#x27;interpréteur Python déclare qu&#x27;il ne trouve pas le module <strong>[fonctions]</strong> ;
+Pour chercher le module importé <strong>[</strong><strong>fo</strong><strong>n</strong><strong>ct</strong><strong>i</strong><strong>ons.shared.fonctions_module_01</strong><strong>]</strong>, l&#x27;interpréteur Python cherche dans les dossiers du <strong>[Python Path]</strong> un sous-dossier nommé <strong>[fonctions]</strong>. Il ne le trouve nulle part. En effet le sous-dossier <strong>[fonctions]</strong> est sous le dossier <strong>[</strong><strong>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020</strong><strong>]</strong> qui ne fait pas partie du <strong>[Python Path]</strong>.</li>
+</ul>
+<p>Le script <strong>[fonc-08]</strong> donne une solution possible à ce problème.</p>
+<h2 id="68-script-fonc_08-ajouter-des-dossiers-au-python-path">6.8. Script [fonc_08] : ajouter des dossiers au [Python Path]</h2>
+<p>Il est possible de modifier le <strong>[Python Path]</strong> par programmation comme le montre le script <strong>[fonc-08]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-16-10">10</a></span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span>
+<span class="normal"><a href="#__codelineno-16-12">12</a></span>
+<span class="normal"><a href="#__codelineno-16-13">13</a></span>
+<span class="normal"><a href="#__codelineno-16-14">14</a></span>
+<span class="normal"><a href="#__codelineno-16-15">15</a></span>
+<span class="normal"><a href="#__codelineno-16-16">16</a></span>
+<span class="normal"><a href="#__codelineno-16-17">17</a></span>
+<span class="normal"><a href="#__codelineno-16-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># utilisation de modules</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1"># dossier du script</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="c1"># Python Path avant modification</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python path avant=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="c1"># on ajoute le dossier [shared] au Python Path</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/shared&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="c1"># Python Path après modification</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Python path après=</span><span class="si">{</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13"></a>
+<a id="__codelineno-16-14" name="__codelineno-16-14"></a><span class="c1"># import f2</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="kn">from</span><span class="w"> </span><span class="nn">fonctions_module_01</span><span class="w"> </span><span class="kn">import</span> <span class="n">f2</span>
+<a id="__codelineno-16-16" name="__codelineno-16-16"></a>
+<a id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="c1"># ------------------------ main</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18"></a><span class="nb">print</span><span class="p">(</span><span class="n">f2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>ligne 4 : la variable spéciale <strong>[<strong>file</strong>]</strong> est le nom du script qui s’exécute. Selon le contexte d’exécution, ce nom peut être absolu (Pycharm) ou relatif (console). La fonction <strong>[os.path.abspath]</strong> donne le nom absolu du fichier dont on lui passe le nom. La fonction <strong>[os.path.dirname]</strong> donne le nom absolu du dossier contenant le fichier dont on lui passe le nom ;</li>
+<li>ligne 10 : <strong>[sys.path]</strong> est un tableau contenant les noms des dossiers à explorer lorsqu&#x27;un module est recherché. On ajoute à ce tableau la racine du projet définie ligne 4 ;</li>
+<li>on affiche le <strong>[Python Path]</strong> avant (ligne 8) et après (ligne 12) modification ;</li>
+<li>ligne 15 : on importe le module <strong>[</strong><strong>fonctions_module_01</strong><strong>]</strong> qui contient la fonction f2 ;
+L&#x27;exécution dans PyCharm donne les résultats suivants :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
+<span class="normal"><a href="#__codelineno-17-2">2</a></span>
+<span class="normal"><a href="#__codelineno-17-3">3</a></span>
+<span class="normal"><a href="#__codelineno-17-4">4</a></span>
+<span class="normal"><a href="#__codelineno-17-5">5</a></span>
+<span class="normal"><a href="#__codelineno-17-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_08</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">Python</span> <span class="n">path</span> <span class="n">avant</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions</span><span class="se">\\</span><span class="s1">shared&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">python38.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">DLLs&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">lib&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages&#39;</span><span class="p">]</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">Python</span> <span class="n">path</span> <span class="n">après</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions</span><span class="se">\\</span><span class="s1">shared&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">python38.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">DLLs&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">lib&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions/shared&#39;</span><span class="p">]</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="mi">310</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 3 : on voit que le dossier <strong>[shared]</strong> est présent deux fois dans le <strong>[Python Path]</strong>. On peut éviter cela mais ici ça ne gêne pas ;</li>
+<li>ligne 4 : la fonction f2 a bien été exécutée ;
+Maintenant exécutons <strong>[fonc-08]</strong> dans un terminal :</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
+<span class="normal"><a href="#__codelineno-18-2">2</a></span>
+<span class="normal"><a href="#__codelineno-18-3">3</a></span>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">fonctions</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">fonc_08</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="n">Python</span> <span class="n">path</span> <span class="n">avant</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">python38.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">DLLs&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">lib&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages&#39;</span><span class="p">]</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">Python</span> <span class="n">path</span> <span class="n">après</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">python38.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">DLLs&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38</span><span class="se">\\</span><span class="s1">lib&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">myprograms</span><span class="se">\\</span><span class="s1">Python38&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">venv</span><span class="se">\\</span><span class="s1">lib</span><span class="se">\\</span><span class="s1">site-packages&#39;</span><span class="p">,</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Data</span><span class="se">\\</span><span class="s1">st-2020</span><span class="se">\\</span><span class="s1">dev</span><span class="se">\\</span><span class="s1">python</span><span class="se">\\</span><span class="s1">cours-2020</span><span class="se">\\</span><span class="s1">python3-flask-2020</span><span class="se">\\</span><span class="s1">fonctions/shared&#39;</span><span class="p">]</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="mi">310</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : comme précédemment, le dossier <strong>[shared]</strong> n&#x27;est pas dans le <strong>[Python Path]</strong> ;</li>
+<li>ligne 3 : maintenant il y est ;</li>
+<li>ligne 4 : la fonction f2 a été trouvée ;</li>
+</ul>
+<h2 id="69-script-fonc_09-declaration-du-type-des-parametres">6.9. Script [fonc_09] : déclaration du type des paramètres</h2>
+<p>Le script <strong>[fonc_09]</strong> montre qu&#x27;on peut déclarer le type des paramètres d&#x27;une fonction ainsi que celui du résultat. Cependant cette déclaration n&#x27;est utile que pour la documentation de la fonction. L&#x27;interpréteur Python ne vérifie pas que les paramètres effectifs de la fonction ont bien le type attendu. Cependant, Pycharm signale les incohérences de types entre paramètres effectifs et formels. Cette seule raison suffit pour rendre les déclarations de type indispensables. </p>
+<p>Le script est le suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-19-10">10</a></span>
+<span class="normal"><a href="#__codelineno-19-11">11</a></span>
+<span class="normal"><a href="#__codelineno-19-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1"># une fonction avec indication du type des paramètres</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="c1"># cela sert de documentation uniquement car l&#39;interpréteur python n&#39;en tient pas compte</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="n">param</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;param=</span><span class="si">{</span><span class="n">param</span><span class="si">}</span><span class="s2">, type(param)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a>    <span class="k">return</span> <span class="n">param</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="c1"># main -------------------------</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="nb">print</span><span class="p">(</span><span class="n">show</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="n">show</span><span class="p">(</span><span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong> :</p>
+<ul>
+<li>ligne 5 : on déclare que le paramètre formel <strong>[param]</strong> est de type <strong>[int]</strong> et que le résultat de la fonction est également de type <strong>[int]</strong> ;</li>
+<li>ligne 11 : le paramètre effectif de la fonction <strong>[show]</strong> a le bon type ;</li>
+<li>ligne 12 : le paramètre effectif de la fonction <strong>[show]</strong> n&#x27;a pas le bon type ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-20-10">10</a></span>
+<span class="normal"><a href="#__codelineno-20-11">11</a></span>
+<span class="normal"><a href="#__codelineno-20-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_09</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">param</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)</span><span class="o">=&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="mi">5</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">param</span><span class="o">=</span><span class="n">xyz</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">param</span><span class="p">)</span><span class="o">=&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_09.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">11</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>    <span class="n">show</span><span class="p">(</span><span class="s2">&quot;xyz&quot;</span><span class="p">)</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fonctions/fonc_09.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="n">show</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a>    <span class="k">return</span> <span class="n">param</span> <span class="o">+</span> <span class="mi">1</span>
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">can</span> <span class="n">only</span> <span class="n">concatenate</span> <span class="nb">str</span> <span class="p">(</span><span class="ow">not</span> <span class="s2">&quot;int&quot;</span><span class="p">)</span> <span class="n">to</span> <span class="nb">str</span>
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 10 : le type du paramètre <strong>[param]</strong> est de type <strong>[str]</strong>. Lorsque ce message s&#x27;affiche, on est déjà entrés dans le code de la fonction <strong>[show]</strong>. L&#x27;interpréteur Python a donc accepté que le paramètre effectif da la fonction <strong>[show]</strong> soit de type <strong>[str]</strong> ;</li>
+<li>la ligne 7 du code provoque l&#x27;exception reflétée par les lignes 4-10 des résultats ;
+PyCharm indique néanmoins qu’il y a une anomalie :</li>
+</ul>
+<p><img src="images/10000000000002D9000001945D4D8660.png" style="width:8.411cm;height:4.661cm;" alt="Image" /></p>
+<p>En <strong>[1]</strong>, PyCharm a surligné l’appel erroné.</p>
+<h2 id="610-script-fonc_10-parametres-nommes">6.10. Script [fonc_10] : paramètres nommés</h2>
+<p>Pour passer des paramètres à une fonction, on peut utiliser les noms des paramètres formels de celle-ci. Dans ce cas, on n&#x27;est pas obligés de respecter l&#x27;ordre des paramètres formels :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
+<span class="normal"><a href="#__codelineno-21-2">2</a></span>
+<span class="normal"><a href="#__codelineno-21-3">3</a></span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span>
+<span class="normal"><a href="#__codelineno-21-5">5</a></span>
+<span class="normal"><a href="#__codelineno-21-6">6</a></span>
+<span class="normal"><a href="#__codelineno-21-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1"># on peut désigner les paramètres effectifs par leurs noms formels</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="c1"># main</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Notes</strong></p>
+<ul>
+<li>ligne 2 : la fonction f a deux paramètres formels x et y ;</li>
+<li>ligne 7 : lors de l&#x27;appel à la fonction f, on peut utiliser les noms des paramètres formels. Cette pratique peut être utile au moins dans deux cas :</li>
+<li>la fonction a beaucoup de paramètres dont la plupart ont une valeur par défaut. Lors de l&#x27;appel, la technique précédente permet d&#x27;initialiser les seuls paramètres dont on ne veut pas utiliser la valeur par défaut ;</li>
+<li>si les paramètres formels ont un nom significatif, alors l&#x27;utilisation de paramètres nommés dans l&#x27;appel de la fonction améliore la lisibilité du code ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
+<span class="normal"><a href="#__codelineno-22-2">2</a></span>
+<span class="normal"><a href="#__codelineno-22-3">3</a></span>
+<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_10</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="mi">13</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="611-script-fonc_11-fonction-recursive">6.11. Script [fonc_11] : fonction récursive</h2>
+<p>Le script <strong>[fonc_11]</strong> est un exemple de fonction récursive (qui s’appelle elle-même) :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-23-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-23-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-23-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-23-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-23-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-23-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-23-10">10</a></span>
+<span class="normal"><a href="#__codelineno-23-11">11</a></span>
+<span class="normal"><a href="#__codelineno-23-12">12</a></span>
+<span class="normal"><a href="#__codelineno-23-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="c1"># fonction récursive</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3"></a>    <span class="c1"># factorielle(1) est 1</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="c1"># une fonction récursive doit se terminer à un certain moment</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6"></a>        <span class="k">return</span> <span class="mi">1</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8"></a>        <span class="c1"># factorielle(i)=i*factorielle(i-1)</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9"></a>        <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10"></a>
+<a id="__codelineno-23-11" name="__codelineno-23-11"></a>
+<a id="__codelineno-23-12" name="__codelineno-23-12"></a><span class="c1"># ---------- main</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fact(8)=</span><span class="si">{</span><span class="n">fact</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Commentaires</strong></p>
+<ul>
+<li>lignes 1-9 : la fonction factorielle ;</li>
+<li>ligne 9 : la fonction <strong>[factorielle]</strong> s’appelle elle-même ;</li>
+<li>lignes 5-6 : une fonction récursive doit toujours s’arrêter lorsqu’une condition est réalisée sinon on a une récursion infinie ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span>
+<span class="normal"><a href="#__codelineno-24-3">3</a></span>
+<span class="normal"><a href="#__codelineno-24-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_11</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="n">fact</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">=</span><span class="mi">40320</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<h2 id="612-script-fonc_12-fonction-recursive">6.12. Script [fonc_12] : fonction récursive</h2>
+<p>La fonction <strong>[fonc_12]</strong> donne davantage de détails sur le fonctionnement de la récursivité :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-25-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-25-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-25-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-25-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-25-10">10</a></span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span>
+<span class="normal"><a href="#__codelineno-25-12">12</a></span>
+<span class="normal"><a href="#__codelineno-25-13">13</a></span>
+<span class="normal"><a href="#__codelineno-25-14">14</a></span>
+<span class="normal"><a href="#__codelineno-25-15">15</a></span>
+<span class="normal"><a href="#__codelineno-25-16">16</a></span>
+<span class="normal"><a href="#__codelineno-25-17">17</a></span>
+<span class="normal"><a href="#__codelineno-25-18">18</a></span>
+<span class="normal"><a href="#__codelineno-25-19">19</a></span>
+<span class="normal"><a href="#__codelineno-25-20">20</a></span>
+<span class="normal"><a href="#__codelineno-25-21">21</a></span>
+<span class="normal"><a href="#__codelineno-25-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># fonction récursive</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="c1"># comportement du paramètre j</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">fact</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">j</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<a id="__codelineno-25-6" name="__codelineno-25-6"></a>    <span class="c1"># arrêt de la fonction récursive</span>
+<a id="__codelineno-25-7" name="__codelineno-25-7"></a>    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>        <span class="k">return</span> <span class="mi">1</span>
+<a id="__codelineno-25-10" name="__codelineno-25-10"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>        <span class="c1"># on manipule j</span>
+<a id="__codelineno-25-12" name="__codelineno-25-12"></a>        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-25-13" name="__codelineno-25-13"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;avant fact j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-14" name="__codelineno-25-14"></a>        <span class="c1"># récursivité</span>
+<a id="__codelineno-25-15" name="__codelineno-25-15"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">fact</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<a id="__codelineno-25-16" name="__codelineno-25-16"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;après fact j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-25-17" name="__codelineno-25-17"></a>        <span class="c1"># résultat</span>
+<a id="__codelineno-25-18" name="__codelineno-25-18"></a>        <span class="k">return</span> <span class="n">i</span> <span class="o">*</span> <span class="n">f</span>
+<a id="__codelineno-25-19" name="__codelineno-25-19"></a>
+<a id="__codelineno-25-20" name="__codelineno-25-20"></a>
+<a id="__codelineno-25-21" name="__codelineno-25-21"></a><span class="c1"># ---------- main</span>
+<a id="__codelineno-25-22" name="__codelineno-25-22"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fact(8)=</span><span class="si">{</span><span class="n">fact</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p><strong>Commentaires</strong></p>
+<ul>
+<li>ligne 5 : on s’intéresse toujours à la fonction factorielle. On lui ajoute le paramètre <strong>[j]</strong> ;</li>
+<li>ligne 12 : la variable j est régulièrement incrémentée à chaque factorielle. On affiche sa valeur avant (ligne 12) et après (ligne 16) la récursivité (ligne 15) ;
+<strong>Résultats</strong></li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-26-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-26-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-26-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-26-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-26-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-26-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-26-10">10</a></span>
+<span class="normal"><a href="#__codelineno-26-11">11</a></span>
+<span class="normal"><a href="#__codelineno-26-12">12</a></span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span>
+<span class="normal"><a href="#__codelineno-26-14">14</a></span>
+<span class="normal"><a href="#__codelineno-26-15">15</a></span>
+<span class="normal"><a href="#__codelineno-26-16">16</a></span>
+<span class="normal"><a href="#__codelineno-26-17">17</a></span>
+<span class="normal"><a href="#__codelineno-26-18">18</a></span>
+<span class="normal"><a href="#__codelineno-26-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fonctions</span><span class="o">/</span><span class="n">fonc_12</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">2</span>
+<a id="__codelineno-26-4" name="__codelineno-26-4"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">3</span>
+<a id="__codelineno-26-5" name="__codelineno-26-5"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">4</span>
+<a id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">5</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">6</span>
+<a id="__codelineno-26-8" name="__codelineno-26-8"></a><span class="n">avant</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">7</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="n">j</span><span class="o">=</span><span class="mi">7</span>
+<a id="__codelineno-26-10" name="__codelineno-26-10"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">7</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">6</span>
+<a id="__codelineno-26-12" name="__codelineno-26-12"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">5</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">4</span>
+<a id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">3</span>
+<a id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">2</span>
+<a id="__codelineno-26-16" name="__codelineno-26-16"></a><span class="n">après</span> <span class="n">fact</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span>
+<a id="__codelineno-26-17" name="__codelineno-26-17"></a><span class="n">fact</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">=</span><span class="mi">40320</span>
+<a id="__codelineno-26-18" name="__codelineno-26-18"></a>
+<a id="__codelineno-26-19" name="__codelineno-26-19"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>lignes 2-8 : on voit que la valeur de <strong>[j]</strong> croît tant que la récursivité continue jusqu’à rencontrer la condition où la récursivité s’arrête. A partir de ce moment, le retour des appels à la fonction <strong>[fact]</strong> s’opère en sens inverse des appels ;</li>
+<li>lignes 10-16 : ces affichages traduisent les retours successifs de l’appel de la factorielle. La variable <strong>[j]</strong> retrouve ses valeurs jusqu’à sa valeur initiale 1 ;</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
