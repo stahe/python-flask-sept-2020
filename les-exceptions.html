@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d&#x27;un environnement de travail
+    2. Installation d'un environnement de travail
   
 
     
@@ -562,14 +562,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d&#x27;application – version 1
+    8. Exercice d'application – version 1
   
 
     
@@ -751,14 +751,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d&#x27;application - version 4
+    15. Exercice d'application - version 4
   
 
     
@@ -886,14 +886,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+      <a href="exercice-dapplication-version-5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d&#x27;application : version 5
+    20. Exercice d'application : version 5
   
 
     
@@ -1445,8 +1445,8 @@
 <h2 id="51-script-exceptions_01">5.1. script [exceptions_01]</h2>
 <p>Le premier script illustre la nécessité de gérer les exceptions.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># on provoque volontairement une erreur</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a># on provoque volontairement une erreur
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>x = 4 / 0
 </code></pre></div></td></tr></table></div>
 <p>On provoque volontairement une erreur pour voir ce qui se passe (exceptions-01.py) :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
@@ -1455,21 +1455,21 @@
 <span class="normal"><a href="#__codelineno-1-4">4</a></span>
 <span class="normal"><a href="#__codelineno-1-5">5</a></span>
 <span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">exceptions</span><span class="o">/</span><span class="n">exceptions_01</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_01.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_01.py
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>Traceback (most recent call last):
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_01.py&quot;, line 2, in &lt;module&gt;
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    x = 4 / 0
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>ZeroDivisionError: division by zero
 <a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>Process finished with exit code 1
 </code></pre></div></td></tr></table></div>
 <p>La ligne 4 nous donne :</p>
 <ul>
-<li>le type de l&#x27;exception : ZeroDivisionError ;</li>
-<li>le message d&#x27;erreur associé : division by zero. Il est en anglais. C&#x27;est quelque chose qu&#x27;on peut vouloir changer.
-Une règle essentielle est qu&#x27;on doit tout faire pour éviter les exceptions produites par l&#x27;interpréteur Python. Il nous faut gérer les erreurs nous-mêmes.</li>
+<li>le type de l'exception : ZeroDivisionError ;</li>
+<li>le message d'erreur associé : division by zero. Il est en anglais. C'est quelque chose qu'on peut vouloir changer.</li>
 </ul>
-<p>La syntaxe d&#x27;une gestion d&#x27;exceptions est la suivante :</p>
+<p>Une règle essentielle est qu'on doit tout faire pour éviter les exceptions produites par l'interpréteur Python. Il nous faut gérer les erreurs nous-mêmes.</p>
+<p>La syntaxe d'une gestion d'exceptions est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -1477,31 +1477,31 @@ Une règle essentielle est qu&#x27;on doit tout faire pour éviter les exception
 <span class="normal"><a href="#__codelineno-2-5">5</a></span>
 <span class="normal"><a href="#__codelineno-2-6">6</a></span>
 <span class="normal"><a href="#__codelineno-2-7">7</a></span>
-<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="n">actions</span> <span class="n">susceptibles</span> <span class="n">de</span> <span class="n">lancer</span> <span class="n">une</span> <span class="n">exception</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">except</span> <span class="p">(</span><span class="n">Ex1</span><span class="p">,</span> <span class="n">Ex2</span><span class="err">…</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="n">actions</span> <span class="n">de</span> <span class="n">gestion</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;exception [ex]</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">except</span> <span class="p">(</span><span class="n">Ex11</span><span class="p">,</span> <span class="n">Ex12</span><span class="err">…</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="n">actions</span> <span class="n">de</span> <span class="n">gestion</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;exception [ex]</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>   <span class="n">actions</span> <span class="n">toujours</span> <span class="n">exécutées</span> <span class="n">qu</span><span class="s1">&#39;il y ait exception ou non</span>
+<span class="normal"><a href="#__codelineno-2-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>try:
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    actions susceptibles de lancer une exception
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>except (Ex1, Ex2…) as ex:
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    actions de gestion de l&#39;exception [ex]
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>except (Ex11, Ex12…) as ex:
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    actions de gestion de l&#39;exception [ex]
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>finally:
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>   actions toujours exécutées qu&#39;il y ait exception ou non
 </code></pre></div></td></tr></table></div>
-<p>Dans le <strong>try</strong>, l&#x27;exécution des actions s&#x27;arrête dès qu&#x27;une exception (erreur) survient. Dans ce cas, l&#x27;exécution se poursuit avec les actions de l&#x27;une des clauses <strong>except </strong>:</p>
+<p>Dans le <strong>try</strong>, l'exécution des actions s'arrête dès qu'une exception (erreur) survient. Dans ce cas, l'exécution se poursuit avec les actions de l'une des clauses <strong>except </strong>:</p>
 <ul>
-<li>ligne 3 : si l&#x27;exception <strong>[ex]</strong> qui s&#x27;est produite est d&#x27;un type appartenant au tuple (Ex1, Ex2…) ou dérivé de l&#x27;un d&#x27;eux, alors les actions de la ligne 4 sont exécutées ;</li>
-<li>ligne 5 : si l&#x27;exception n&#x27;a pas été interceptée par la ligne 3, et qu&#x27;une autre clause <strong>[except]</strong> existe, alors le même processus se déroule. Etc… ;</li>
-<li>il peut y avoir autant de clauses <strong>[except]</strong> que nécessaires pour gérer les différents types d&#x27;exception qui peuvent de produire dans le <strong>[try]</strong> ;</li>
-<li>si l&#x27;exception n&#x27;a été traitée par aucune des clauses <strong>[except]</strong> alors elle remontera au code appelant. Si celui-ci est lui-même dans une structure <strong>try</strong> / <strong>except</strong>, l&#x27;exception est de nouveau gérée sinon elle continue à remonter la chaîne des méthodes appelées. En dernier ressort, elle arrive à l&#x27;interpréteur Python. Celui-ci arrête alors le programme excécuté et affiche un message d&#x27;erreur du type montré dans l&#x27;exemple précédent. La règle est donc que le programme principal doit arrêter toutes les exceptions qui peuvent remonter des méthodes appelées ;</li>
-<li>ligne 7 : la clause <strong>[</strong><strong>finally</strong><strong>]</strong> est toujours exécutée qu&#x27;il y ait eu exception (suite du <strong>except</strong>) ou pas (suite du <strong>try</strong>). Ceci est vrai même si une exception a eu lieu et qu&#x27;elle n&#x27;a pas été interceptée. Dans ce cas, la clause <strong>[finally]</strong> sera exécutée avant que l&#x27;exception ne remonte au code appelant ;
-Une exception transporte avec elle des informations sur l&#x27;erreur qui s&#x27;est produite. On peut les obtenir avec la syntaxe suivante :</li>
+<li>ligne 3 : si l'exception <strong>[ex]</strong> qui s'est produite est d'un type appartenant au tuple (Ex1, Ex2…) ou dérivé de l'un d'eux, alors les actions de la ligne 4 sont exécutées ;</li>
+<li>ligne 5 : si l'exception n'a pas été interceptée par la ligne 3, et qu'une autre clause <strong>[except]</strong> existe, alors le même processus se déroule. Etc… ;</li>
+<li>il peut y avoir autant de clauses <strong>[except]</strong> que nécessaires pour gérer les différents types d'exception qui peuvent de produire dans le <strong>[try]</strong> ;</li>
+<li>si l'exception n'a été traitée par aucune des clauses <strong>[except]</strong> alors elle remontera au code appelant. Si celui-ci est lui-même dans une structure <strong>try</strong> / <strong>except</strong>, l'exception est de nouveau gérée sinon elle continue à remonter la chaîne des méthodes appelées. En dernier ressort, elle arrive à l'interpréteur Python. Celui-ci arrête alors le programme excécuté et affiche un message d'erreur du type montré dans l'exemple précédent. La règle est donc que le programme principal doit arrêter toutes les exceptions qui peuvent remonter des méthodes appelées ;</li>
+<li>ligne 7 : la clause <strong>[</strong><strong>finally</strong><strong>]</strong> est toujours exécutée qu'il y ait eu exception (suite du <strong>except</strong>) ou pas (suite du <strong>try</strong>). Ceci est vrai même si une exception a eu lieu et qu'elle n'a pas été interceptée. Dans ce cas, la clause <strong>[finally]</strong> sera exécutée avant que l'exception ne remonte au code appelant ;</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">except</span> <span class="n">MyException</span> <span class="k">as</span> <span class="n">exception</span><span class="p">:</span>
+<p>Une exception transporte avec elle des informations sur l'erreur qui s'est produite. On peut les obtenir avec la syntaxe suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>except MyException as exception:
 </code></pre></div></td></tr></table></div>
-<p><strong>[</strong><strong>exception</strong><strong>]</strong> est l&#x27;exception qui s&#x27;est produite. <strong>[</strong><strong>exception.args</strong><strong>]</strong> représente le tuple des paramètres de l&#x27;exception.</p>
+<p><strong>[</strong><strong>exception</strong><strong>]</strong> est l'exception qui s'est produite. <strong>[</strong><strong>exception.args</strong><strong>]</strong> représente le tuple des paramètres de l'exception.</p>
 <p>Pour lancer une exception, on utilise la syntaxe</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">raise</span> <span class="n">MyException</span><span class="p">(</span><span class="n">param1</span><span class="p">,</span> <span class="n">param2</span><span class="err">…</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>raise MyException(param1, param2…)
 </code></pre></div></td></tr></table></div>
-<p>où le plus souvent MyException est une classe dérivée de la classe BaseException. Les paramètres passés au constructeur de la classe seront disponibles à la clause <strong>except</strong> des structures d&#x27;interception des exceptions avec la syntaxe <strong>[</strong><strong>ex.args</strong><strong>]</strong> si <strong>[ex]</strong> est l&#x27;exception interceptée par la clause <strong>[except]</strong>.</p>
+<p>où le plus souvent MyException est une classe dérivée de la classe BaseException. Les paramètres passés au constructeur de la classe seront disponibles à la clause <strong>except</strong> des structures d'interception des exceptions avec la syntaxe <strong>[</strong><strong>ex.args</strong><strong>]</strong> si <strong>[ex]</strong> est l'exception interceptée par la clause <strong>[except]</strong>.</p>
 <p>Ces concepts sont illustrés par le script suivant.</p>
 <h2 id="52-script-exceptions_02">5.2. script [exceptions_02]</h2>
 <p>Le script suivant gère explicitement les erreurs :</p>
@@ -1786,20 +1786,20 @@ Une exception transporte avec elle des informations sur l&#x27;erreur qui s&#x27
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>lignes 4-12 : on gère une division par zéro ;</li>
-<li>ligne 8 : on intercepte l&#x27;exception exacte qui se produit et on l&#x27;affiche ;</li>
-<li>ligne 12 : à cause de l&#x27;exception qui s&#x27;est produite, x n&#x27;a pas reçu de valeur ligne 7 et n&#x27;a donc pas changé de valeur ;</li>
-<li>lignes 14-21 : on refait la même chose mais en interceptant une exception de plus haut niveau de type BaseException. Comme l&#x27;exception ZeroDivisionError dérive de la classe BaseException, la clause except l&#x27;arrêtera ;</li>
-<li>lignes 23-36 : on met plusieurs clauses except pour gérer plusieurs types d&#x27;exception. Une seule clause except sera exécutée ou aucune si l&#x27;exception ne vérifie aucune clause except ;</li>
-<li>lignes 38-50 : on refait la même chose en changeant l&#x27;ordre des clauses <strong>[except]</strong> pour montrer le rôle de celui-ci ;</li>
-<li>lignes 52-58 : la clause except peut n&#x27;avoir aucun argument. Dans ce cas, elle arrête toutes les exceptions ;</li>
-<li>lignes 60-67 : introduisent l&#x27;exception ValueError ;</li>
-<li>lignes 69-75 : on récupère les informations transportées par l&#x27;exception ;</li>
+<li>ligne 8 : on intercepte l'exception exacte qui se produit et on l'affiche ;</li>
+<li>ligne 12 : à cause de l'exception qui s'est produite, x n'a pas reçu de valeur ligne 7 et n'a donc pas changé de valeur ;</li>
+<li>lignes 14-21 : on refait la même chose mais en interceptant une exception de plus haut niveau de type BaseException. Comme l'exception ZeroDivisionError dérive de la classe BaseException, la clause except l'arrêtera ;</li>
+<li>lignes 23-36 : on met plusieurs clauses except pour gérer plusieurs types d'exception. Une seule clause except sera exécutée ou aucune si l'exception ne vérifie aucune clause except ;</li>
+<li>lignes 38-50 : on refait la même chose en changeant l'ordre des clauses <strong>[except]</strong> pour montrer le rôle de celui-ci ;</li>
+<li>lignes 52-58 : la clause except peut n'avoir aucun argument. Dans ce cas, elle arrête toutes les exceptions ;</li>
+<li>lignes 60-67 : introduisent l'exception ValueError ;</li>
+<li>lignes 69-75 : on récupère les informations transportées par l'exception ;</li>
 <li>lignes 77-83 : introduisent la façon de lancer (raise) une exception ;</li>
-<li>lignes 86-106 : illustrent l&#x27;utilisation d&#x27;une classe d&#x27;exception propriétaire MyError. La classe MyError se contente de dériver la classe de base BaseException. Elle n&#x27;ajoute rien à sa classe de base. Mais maintenant, elle peut être nommée explicitement dans les clauses except ;</li>
-<li>lignes 108-130 : illustrent l&#x27;utilisation de la clause finally ;</li>
-<li>lignes 132-139 : ces lignes montrent que la clause <strong>[except]</strong> n’est pas obligatoire ;
-Les résultats écran sont les suivants :</li>
+<li>lignes 86-106 : illustrent l'utilisation d'une classe d'exception propriétaire MyError. La classe MyError se contente de dériver la classe de base BaseException. Elle n'ajoute rien à sa classe de base. Mais maintenant, elle peut être nommée explicitement dans les clauses except ;</li>
+<li>lignes 108-130 : illustrent l'utilisation de la clause finally ;</li>
+<li>lignes 132-139 : ces lignes montrent que la clause <strong>[except]</strong> n’est pas obligatoire ;</li>
 </ul>
+<p>Les résultats écran sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -1821,28 +1821,28 @@ Les résultats écran sont les suivants :</li>
 <span class="normal"><a href="#__codelineno-6-19">19</a></span>
 <span class="normal"><a href="#__codelineno-6-20">20</a></span>
 <span class="normal"><a href="#__codelineno-6-21">21</a></span>
-<span class="normal"><a href="#__codelineno-6-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">exceptions</span><span class="o">/</span><span class="n">exceptions_02</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_02.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">136</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">0</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">x</span><span class="o">=</span><span class="mi">2</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">1</span> <span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">2</span> <span class="p">:</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">)</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">3</span> <span class="p">:</span> <span class="p">(</span><span class="ne">ZeroDivisionError</span><span class="p">)</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">4</span> <span class="p">:</span> <span class="n">il</span> <span class="n">y</span> <span class="n">a</span> <span class="n">eu</span> <span class="n">un</span> <span class="n">problème</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">5</span> <span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">int</span><span class="p">()</span> <span class="k">with</span> <span class="n">base</span> <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">6</span> <span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">int</span><span class="p">()</span> <span class="k">with</span> <span class="n">base</span> <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">paramètres</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;invalid literal for int() with base 10: &#39;x&#39;&quot;</span><span class="p">,)</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">7</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;param1&#39;</span><span class="p">,</span> <span class="s1">&#39;param2&#39;</span><span class="p">,</span> <span class="s1">&#39;param3&#39;</span><span class="p">),</span> <span class="n">paramètres</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;param1&#39;</span><span class="p">,</span> <span class="s1">&#39;param2&#39;</span><span class="p">,</span> <span class="s1">&#39;param3&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">8</span> <span class="p">:</span> <span class="p">(</span><span class="s1">&#39;info1&#39;</span><span class="p">,</span> <span class="s1">&#39;info2&#39;</span><span class="p">,</span> <span class="s1">&#39;info3&#39;</span><span class="p">),</span> <span class="n">paramètres</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;info1&#39;</span><span class="p">,</span> <span class="s1">&#39;info2&#39;</span><span class="p">,</span> <span class="s1">&#39;info3&#39;</span><span class="p">)</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">9</span> <span class="p">:</span> <span class="n">mon</span> <span class="n">msg</span> <span class="n">d</span><span class="s1">&#39;erreur</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">10</span> <span class="p">:</span> <span class="k">finally</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">11</span> <span class="p">:</span> <span class="n">exception</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">11</span> <span class="p">:</span> <span class="k">finally</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="n">essai</span> <span class="n">n</span><span class="err">°</span> <span class="mi">12</span> <span class="p">:</span> <span class="k">finally</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_02.py
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>Traceback (most recent call last):
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_02.py&quot;, line 136, in &lt;module&gt;
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    x = 4 / 0
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>ZeroDivisionError: division by zero
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>essai n° 0 : division by zero
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>x=2
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>essai n° 1 : division by zero
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>essai n° 2 : (Exception) division by zero
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>essai n° 3 : (ZeroDivisionError) division by zero
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>essai n° 4 : il y a eu un problème
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>essai n° 5 : invalid literal for int() with base 10: &#39;x&#39;
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a>essai n° 6 : invalid literal for int() with base 10: &#39;x&#39;, paramètres=(&quot;invalid literal for int() with base 10: &#39;x&#39;&quot;,)
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>essai n° 7 : (&#39;param1&#39;, &#39;param2&#39;, &#39;param3&#39;), paramètres=(&#39;param1&#39;, &#39;param2&#39;, &#39;param3&#39;)
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a>essai n° 8 : (&#39;info1&#39;, &#39;info2&#39;, &#39;info3&#39;), paramètres=(&#39;info1&#39;, &#39;info2&#39;, &#39;info3&#39;)
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a>essai n° 9 : mon msg d&#39;erreur
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>essai n° 10 : finally x=1
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a>essai n° 11 : exception
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>essai n° 11 : finally x=None
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a>essai n° 12 : finally x=None
 <a id="__codelineno-6-21" name="__codelineno-6-21"></a>
-<a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>Process finished with exit code 1
 </code></pre></div></td></tr></table></div>
 <h2 id="53-script-exceptions_03">5.3. script [exceptions_03]</h2>
 <p>Ce nouveau script illustre la remontée des exceptions dans la chaîne des fonctions appelantes :</p>
@@ -1998,12 +1998,12 @@ Les résultats écran sont les suivants :</li>
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong> :</p>
 <ul>
-<li>lignes 25-32, dans l&#x27;appel main --&gt; f1 --&gt; f2 --&gt; f3 (ligne 30), l&#x27;exception MyError lancée par f3 va remonter jusqu&#x27;à main. Elle sera alors traitée par la clause except de la ligne 31 ;</li>
-<li>lignes 61-75 : dans l&#x27;appel main --&gt; f4 --&gt; f5 --&gt; f6 (ligne 62), l&#x27;exception lancée MyError par f6 va remonter jusqu&#x27;à main. Elle sera alors traitée par la clause except de la ligne 63. Cette fois-ci, dans sa remontée de la chaîne des fonctions appelantes, l&#x27;exception MyError qui remonte, est elle-même encapsulée dans une autre exception ;</li>
+<li>lignes 25-32, dans l'appel main --&gt; f1 --&gt; f2 --&gt; f3 (ligne 30), l'exception MyError lancée par f3 va remonter jusqu'à main. Elle sera alors traitée par la clause except de la ligne 31 ;</li>
+<li>lignes 61-75 : dans l'appel main --&gt; f4 --&gt; f5 --&gt; f6 (ligne 62), l'exception lancée MyError par f6 va remonter jusqu'à main. Elle sera alors traitée par la clause except de la ligne 63. Cette fois-ci, dans sa remontée de la chaîne des fonctions appelantes, l'exception MyError qui remonte, est elle-même encapsulée dans une autre exception ;</li>
 <li>lignes 66-75 : montrent comment remonter la pile des exceptions ;</li>
-<li>ligne 71 : la fonction <strong>[isinstance(instance, Classe)]</strong> rend True si l&#x27;objet <strong>[instance]</strong> est de type <strong>[Classe]</strong> ou dérivé. Ici, nous avons utilisé l&#x27;exception de niveau le plus haut <strong>[BaseException]</strong>, ce qui nous assure de récupérer toutes les exceptions ;
-Les résultats écran sont les suivants :</li>
+<li>ligne 71 : la fonction <strong>[isinstance(instance, Classe)]</strong> rend True si l'objet <strong>[instance]</strong> est de type <strong>[Classe]</strong> ou dérivé. Ici, nous avons utilisé l'exception de niveau le plus haut <strong>[BaseException]</strong>, ce qui nous assure de récupérer toutes les exceptions ;</li>
 </ul>
+<p>Les résultats écran sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
@@ -2011,14 +2011,14 @@ Les résultats écran sont les suivants :</li>
 <span class="normal"><a href="#__codelineno-8-5">5</a></span>
 <span class="normal"><a href="#__codelineno-8-6">6</a></span>
 <span class="normal"><a href="#__codelineno-8-7">7</a></span>
-<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">exceptions</span><span class="o">/</span><span class="n">exceptions_03</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nb">type</span> <span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">MyError</span><span class="s1">&#39;&gt;, arguments : (&#39;</span><span class="n">exception</span> <span class="n">dans</span> <span class="n">f3</span><span class="s1">&#39;,)</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="nb">type</span> <span class="p">:</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">MyError</span><span class="s1">&#39;&gt;, arguments : (&#39;</span><span class="n">exception</span> <span class="n">dans</span> <span class="n">f4</span><span class="s1">&#39;, MyError(&#39;</span><span class="n">exception</span> <span class="n">dans</span> <span class="n">f5</span><span class="s1">&#39;, MyError(&#39;</span><span class="n">exception</span> <span class="n">dans</span> <span class="n">f6</span><span class="s1">&#39;)))</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">exception</span> <span class="n">dans</span> <span class="n">f4</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">exception</span> <span class="n">dans</span> <span class="n">f5</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="n">exception</span> <span class="n">dans</span> <span class="n">f6</span>
+<span class="normal"><a href="#__codelineno-8-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/exceptions/exceptions_03.py
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a>type : &lt;class &#39;__main__.MyError&#39;&gt;, arguments : (&#39;exception dans f3&#39;,)
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a>type : &lt;class &#39;__main__.MyError&#39;&gt;, arguments : (&#39;exception dans f4&#39;, MyError(&#39;exception dans f5&#39;, MyError(&#39;exception dans f6&#39;)))
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a>exception dans f4
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>exception dans f5
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a>exception dans f6
 <a id="__codelineno-8-7" name="__codelineno-8-7"></a>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 
 
@@ -2075,7 +2075,7 @@ Les résultats écran sont les suivants :</li>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

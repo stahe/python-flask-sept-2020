@@ -12,7 +12,7 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/exercice-dx27application-version-5.html">
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/exercice-dapplication-version-5.html">
       
       
         <link rel="prev" href="utilisation-de-lorm-sqlalchemy.html">
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              20. Exercice d&#x27;application : version 5
+              20. Exercice d'application : version 5
             
           </span>
         </div>
@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d&#x27;un environnement de travail
+    2. Installation d'un environnement de travail
   
 
     
@@ -482,14 +482,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d&#x27;application – version 1
+    8. Exercice d'application – version 1
   
 
     
@@ -671,14 +671,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d&#x27;application - version 4
+    15. Exercice d'application - version 4
   
 
     
@@ -822,7 +822,7 @@
   <span class="md-ellipsis">
     
   
-    20. Exercice d&#x27;application : version 5
+    20. Exercice d'application : version 5
   
 
     
@@ -833,14 +833,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="exercice-dx27application-version-5.html" class="md-nav__link md-nav__link--active">
+      <a href="exercice-dapplication-version-5.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d&#x27;application : version 5
+    20. Exercice d'application : version 5
   
 
     
@@ -1583,7 +1583,7 @@
   
 
 
-<h1 id="20-exercice-dapplication-version-5">20. Exercice d&#x27;application : version 5</h1>
+<h1 id="20-exercice-dapplication-version-5">20. Exercice d'application : version 5</h1>
 <p>Nous allons développer trois applications :</p>
 <ul>
 <li>l’application 1 initialisera la base de données qui va venir remplacer le fichier <strong>[admindata.json]</strong> de la version 4 ;</li>
@@ -1591,9 +1591,9 @@
 <li>l’application 3 fera le calcul des impôts en mode interactif ;</li>
 </ul>
 <h2 id="201-application-1-initialisation-de-la-base-de-donnees">20.1. Application 1 : initialisation de la base de données</h2>
-<p>L’application 1 aura l&#x27;architecture suivante :</p>
+<p>L’application 1 aura l'architecture suivante :</p>
 <p><img src="images/1000000000000474000002D64D661730.png" style="width:13.14cm;height:8.37cm;" alt="Image" /></p>
-<p>C&#x27;est une évolution de l&#x27;architecture de la version 4 (paragraphe |<a href="#_Exercice_d'application_-"><u><u>Version 4</u></u></a>|) : les données fiscales seront trouvées dans une base de données au lieu d&#x27;être dans un fichier jSON. La couche <strong>[dao]</strong> va évoluer pour implémenter ce changement.</p>
+<p>C'est une évolution de l'architecture de la version 4 (paragraphe |<a href="#_Exercice_d'application_-"><u><u>Version 4</u></u></a>|) : les données fiscales seront trouvées dans une base de données au lieu d'être dans un fichier jSON. La couche <strong>[dao]</strong> va évoluer pour implémenter ce changement.</p>
 <h3 id="2011-le-fichier-admindatajson">20.1.1. Le fichier [admindata.json]</h3>
 <p>Le fichier <strong>[admindata.json]</strong> est celui qu’il était dans la version 4 :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -1610,21 +1610,21 @@
 <span class="normal"><a href="#__codelineno-0-12">12</a></span>
 <span class="normal"><a href="#__codelineno-0-13">13</a></span>
 <span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="s2">&quot;limites&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9964</span><span class="p">,</span> <span class="mi">27519</span><span class="p">,</span> <span class="mi">73779</span><span class="p">,</span> <span class="mi">156244</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="s2">&quot;coeffr&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="s2">&quot;coeffn&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1394.96</span><span class="p">,</span> <span class="mi">5798</span><span class="p">,</span> <span class="mf">13913.69</span><span class="p">,</span> <span class="mf">20163.45</span><span class="p">],</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="s2">&quot;plafond_qf_demi_part&quot;</span><span class="p">:</span> <span class="mi">1551</span><span class="p">,</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="s2">&quot;plafond_revenus_celibataire_pour_reduction&quot;</span><span class="p">:</span> <span class="mi">21037</span><span class="p">,</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="s2">&quot;plafond_revenus_couple_pour_reduction&quot;</span><span class="p">:</span> <span class="mi">42074</span><span class="p">,</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="s2">&quot;valeur_reduc_demi_part&quot;</span><span class="p">:</span> <span class="mi">3797</span><span class="p">,</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="s2">&quot;plafond_decote_celibataire&quot;</span><span class="p">:</span> <span class="mi">1196</span><span class="p">,</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="s2">&quot;plafond_decote_couple&quot;</span><span class="p">:</span> <span class="mi">1970</span><span class="p">,</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="s2">&quot;plafond_impot_couple_pour_decote&quot;</span><span class="p">:</span> <span class="mi">2627</span><span class="p">,</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="s2">&quot;plafond_impot_celibataire_pour_decote&quot;</span><span class="p">:</span> <span class="mi">1595</span><span class="p">,</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="s2">&quot;abattement_dixpourcent_max&quot;</span><span class="p">:</span> <span class="mi">12502</span><span class="p">,</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="s2">&quot;abattement_dixpourcent_min&quot;</span><span class="p">:</span> <span class="mi">437</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>{
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    &quot;limites&quot;: [9964, 27519, 73779, 156244, 0],
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    &quot;coeffr&quot;: [0, 0.14, 0.3, 0.41, 0.45],
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    &quot;coeffn&quot;: [0, 1394.96, 5798, 13913.69, 20163.45],
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    &quot;plafond_qf_demi_part&quot;: 1551,
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a>    &quot;plafond_revenus_celibataire_pour_reduction&quot;: 21037,
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    &quot;plafond_revenus_couple_pour_reduction&quot;: 42074,
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    &quot;valeur_reduc_demi_part&quot;: 3797,
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    &quot;plafond_decote_celibataire&quot;: 1196,
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    &quot;plafond_decote_couple&quot;: 1970,
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    &quot;plafond_impot_couple_pour_decote&quot;: 2627,
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    &quot;plafond_impot_celibataire_pour_decote&quot;: 1595,
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>    &quot;abattement_dixpourcent_max&quot;: 12502,
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>    &quot;abattement_dixpourcent_min&quot;: 437
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>}
 </code></pre></div></td></tr></table></div>
 <p>Nous allons utiliser comme colonnes de la base de données les clés de ce dictionnaire.</p>
 <h3 id="2012-creation-des-bases-de-donnees">20.1.2. Création des bases de données</h3>
@@ -1642,13 +1642,13 @@
 <span class="normal"><a href="#__codelineno-1-4">4</a></span>
 <span class="normal"><a href="#__codelineno-1-5">5</a></span>
 <span class="normal"><a href="#__codelineno-1-6">6</a></span>
-<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>    <span class="c1"># la table des tranches de l&#39;impôt</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="n">tranches_table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s2">&quot;tbtranches&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>                           <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>                           <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;limite&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>                           <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;coeffr&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>                           <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;coeffn&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>                           <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-1-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>    # la table des tranches de l&#39;impôt
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    tranches_table = Table(&quot;tbtranches&quot;, metadata,
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>                           Column(&#39;id&#39;, Integer, primary_key=True),
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>                           Column(&#39;limite&#39;, Float, nullable=False),
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a>                           Column(&#39;coeffr&#39;, Float, nullable=False),
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>                           Column(&#39;coeffn&#39;, Float, nullable=False)
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>                           )
 </code></pre></div></td></tr></table></div>
 <p>Définie par <strong>[sqlalchemy]</strong> la table <strong>[</strong><strong>tbconstantes</strong><strong>]</strong> rassemblera les constantes du dictionnaire <strong>[admindata.json]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
@@ -1664,20 +1664,20 @@
 <span class="normal"><a href="#__codelineno-2-11">11</a></span>
 <span class="normal"><a href="#__codelineno-2-12">12</a></span>
 <span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>    <span class="c1"># la table des constantes</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="n">constantes_table</span> <span class="o">=</span> <span class="n">Table</span><span class="p">(</span><span class="s2">&quot;tbconstantes&quot;</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">Integer</span><span class="p">,</span> <span class="n">primary_key</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_qf_demi_part&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_revenus_celibataire_pour_reduction&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_revenus_couple_pour_reduction&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;valeur_reduc_demi_part&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_decote_celibataire&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_decote_couple&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_impot_celibataire_pour_decote&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;plafond_impot_couple_pour_decote&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;abattement_dixpourcent_max&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a>                             <span class="n">Column</span><span class="p">(</span><span class="s1">&#39;abattement_dixpourcent_min&#39;</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">nullable</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a>                             <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>    # la table des constantes
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>    constantes_table = Table(&quot;tbconstantes&quot;, metadata,
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>                             Column(&#39;id&#39;, Integer, primary_key=True),
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>                             Column(&#39;plafond_qf_demi_part&#39;, Float, nullable=False),
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>                             Column(&#39;plafond_revenus_celibataire_pour_reduction&#39;, Float, nullable=False),
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>                             Column(&#39;plafond_revenus_couple_pour_reduction&#39;, Float, nullable=False),
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>                             Column(&#39;valeur_reduc_demi_part&#39;, Float, nullable=False),
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>                             Column(&#39;plafond_decote_celibataire&#39;, Float, nullable=False),
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>                             Column(&#39;plafond_decote_couple&#39;, Float, nullable=False),
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>                             Column(&#39;plafond_impot_celibataire_pour_decote&#39;, Float, nullable=False),
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>                             Column(&#39;plafond_impot_couple_pour_decote&#39;, Float, nullable=False),
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>                             Column(&#39;abattement_dixpourcent_max&#39;, Float, nullable=False),
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>                             Column(&#39;abattement_dixpourcent_min&#39;, Float, nullable=False)
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>                             )
 </code></pre></div></td></tr></table></div>
 <p>Les entités qui seront mappées avec ces deux tables seront les suivantes :</p>
 <p><img src="images/100000000000013F0000014DF6407E52.png" style="width:3.68cm;height:3.841cm;" alt="Image" /></p>
@@ -1731,9 +1731,9 @@
 <ul>
 <li>ligne 5 : la classe <strong>[Constantes]</strong> étend la classe <strong>[BaseEntity]</strong> ;</li>
 <li>ligne 7 : par mapping <strong>[sqlalchemy]</strong>, la classe <strong>[Constante]</strong> va recevoir la propriété <strong>[</strong><strong>_sa_instance_state</strong><strong>]</strong>. Nous l’excluons du dictionnaire <strong>[asdict]</strong> de l’entité ;</li>
-<li>lignes 11-23 : les propriétés de l’entité. On a repris les noms utilisés dans le dictionnaire <strong>[admindata.json]</strong> pour faciliter l’écriture du code ;
-L’entité <strong>[Tranche]</strong> encapsule une ligne des trois tableaux <strong>[limites, coeffr, coeffn]</strong> du dictionnaire <strong>[admindata.json]</strong> :</li>
+<li>lignes 11-23 : les propriétés de l’entité. On a repris les noms utilisés dans le dictionnaire <strong>[admindata.json]</strong> pour faciliter l’écriture du code ;</li>
 </ul>
+<p>L’entité <strong>[Tranche]</strong> encapsule une ligne des trois tableaux <strong>[limites, coeffr, coeffn]</strong> du dictionnaire <strong>[admindata.json]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -1761,9 +1761,9 @@ L’entité <strong>[Tranche]</strong> encapsule une ligne des trois tableaux <s
 <ul>
 <li>ligne 5 : la classe <strong>[Tranche]</strong> étend la classe <strong>[BaseEntity]</strong> ;</li>
 <li>ligne 7 : on exclut des propriétés du dictionnaire <strong>[asdict]</strong> de l’entité, la propriété <strong>[</strong><strong>_sa_instance_state</strong><strong>]</strong> ajoutée par <strong>[sqlalchemy]</strong> ;</li>
-<li>lignes 10-12 : les propriétés de la classe ;
-Le mapping entre les entités <strong>[Constantes, Tranche]</strong> et les tables <strong>[constantes, tranches]</strong> sera le suivant :</li>
+<li>lignes 10-12 : les propriétés de la classe ;</li>
 </ul>
+<p>Le mapping entre les entités <strong>[Constantes, Tranche]</strong> et les tables <strong>[constantes, tranches]</strong> sera le suivant :</p>
 <p><img src="images/10000000000001AB000002060FD6F2A5.png" style="width:4.43cm;height:5.381cm;" alt="Image" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
@@ -1980,9 +1980,9 @@ Le mapping entre les entités <strong>[Constantes, Tranche]</strong> et les tabl
 <a id="__codelineno-7-10" name="__codelineno-7-10"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 8-10 : l’interface ne présente qu’une méthode <strong>[</strong><strong>transfer_admindata_in_database</strong><strong>]</strong> sans paramètres. Comme cette méthode a besoin de paramètres (quel fichier ?, quelle base de données ?), cela signifie que ceux-ci seront passés au constructeur des classes implémentant cette interface ;
-La classe <strong>[</strong><strong>DaoTransferAdminDataFromJsonFile2Database</strong><strong>]</strong> implémente l’interface <strong>[</strong><strong>InterfaceDao4TransferAdminData2Database</strong><strong>]</strong> de la façon suivante :</li>
+<li>lignes 8-10 : l’interface ne présente qu’une méthode <strong>[</strong><strong>transfer_admindata_in_database</strong><strong>]</strong> sans paramètres. Comme cette méthode a besoin de paramètres (quel fichier ?, quelle base de données ?), cela signifie que ceux-ci seront passés au constructeur des classes implémentant cette interface ;</li>
 </ul>
+<p>La classe <strong>[</strong><strong>DaoTransferAdminDataFromJsonFile2Database</strong><strong>]</strong> implémente l’interface <strong>[</strong><strong>InterfaceDao4TransferAdminData2Database</strong><strong>]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
@@ -2151,9 +2151,9 @@ La classe <strong>[</strong><strong>DaoTransferAdminDataFromJsonFile2Database</s
 <ul>
 <li><strong>[config]</strong> est le fichier de configuration générale. C’est lui qui configure l’application <strong>[main]</strong>. Il se fait aider par les deux autres fichiers :</li>
 <li><strong>[config_database]</strong> que nous avons étudié et qui configure l’ORM <strong>[sqlalchemy]</strong> ;</li>
-<li><strong>[config_layers]</strong> qui configure les couches de l’application ;
-Le fichier <strong>[config]</strong> est le suivant :</li>
+<li><strong>[config_layers]</strong> qui configure les couches de l’application ;</li>
 </ul>
+<p>Le fichier <strong>[config]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -2271,9 +2271,9 @@ Le fichier <strong>[config]</strong> est le suivant :</li>
 <li>lignes 38-43 : on met dans la configuration le chemin du fichier <strong>[admindata.json]</strong> ;</li>
 <li>lignes 45-48 : configuration <strong>[sqlalchemy]</strong> ;</li>
 <li>lignes 50-53 : instanciation des couches de l’application ;</li>
-<li>ligne 56 : on rend la configuration générale ;
-Le fichier <strong>[config_layers]</strong> est le suivant :</li>
+<li>ligne 56 : on rend la configuration générale ;</li>
 </ul>
+<p>Le fichier <strong>[config_layers]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
 <span class="normal"><a href="#__codelineno-10-2">2</a></span>
 <span class="normal"><a href="#__codelineno-10-3">3</a></span>
@@ -2369,9 +2369,9 @@ Le fichier <strong>[config_layers]</strong> est le suivant :</li>
 <li>lignes 1-10 : on attend un paramètre. On vérifie qu’il est là et correct ;</li>
 <li>lignes 12-14 : on configure l’application (générale, sqlalchemy, couches) en passant en paramètre le type de SGBD choisi ;</li>
 <li>lignes 19-20 : on va avoir besoin de la couche <strong>[dao]</strong>. On la récupère ;</li>
-<li>ligne 25 : on fait le transfert en base. Toutes les informations nécessaires à la méthode <strong>[</strong><strong>transfer_admindata_in_database</strong><strong>]</strong> sont disponibles dans les propriétés de la couche <strong>[dao]</strong> de la ligne 20. C’est là qu’elle ira les chercher ;
-Après exécution avec la base MySQL, celle-ci contient les éléments suivants (phpMyAdmin) :</li>
+<li>ligne 25 : on fait le transfert en base. Toutes les informations nécessaires à la méthode <strong>[</strong><strong>transfer_admindata_in_database</strong><strong>]</strong> sont disponibles dans les propriétés de la couche <strong>[dao]</strong> de la ligne 20. C’est là qu’elle ira les chercher ;</li>
 </ul>
+<p>Après exécution avec la base MySQL, celle-ci contient les éléments suivants (phpMyAdmin) :</p>
 <p><img src="images/10000000000002560000042A6C088693.png" style="width:6.901cm;height:12.3cm;" alt="Image" /></p>
 <p><img src="images/10000001000003FC000001280C474C2E.png" style="width:17.521cm;height:5.081cm;" alt="Image" /></p>
 <p><img src="images/1000000100000239000001CAA30A3175.png" style="width:9.61cm;height:7.73cm;" alt="Image" /></p>
@@ -2382,22 +2382,22 @@ Après exécution avec la base MySQL, celle-ci contient les éléments suivants 
 <p><img src="images/10000001000003DF0000016937D5EBBA.png" style="width:16.44cm;height:5.98cm;" alt="Image" /></p>
 <ul>
 <li>on clique droit sur <strong>[1]</strong>, puis ensuite <strong>[2-3]</strong> ;</li>
-<li>en <strong>[4]</strong>, on a bien les données des tranches d’impôts ;
-On refait la même chose pour la table des constantes <strong>[tbconstantes]</strong> :</li>
+<li>en <strong>[4]</strong>, on a bien les données des tranches d’impôts ;</li>
 </ul>
+<p>On refait la même chose pour la table des constantes <strong>[tbconstantes]</strong> :</p>
 <p><img src="images/100000010000030C000000FE916880AF.png" style="width:13.151cm;height:4.28cm;" alt="Image" /></p>
 <p><img src="images/10000001000002F8000000FEB93CE4B7.png" style="width:13.131cm;height:4.381cm;" alt="Image" /></p>
 <p><img src="images/100000010000031F000000FC161A736A.png" style="width:13.821cm;height:4.351cm;" alt="Image" /></p>
 <h2 id="202-application-2-calcul-de-limpot-en-mode-batch">20.2. Application 2 : calcul de l’impôt en mode batch</h2>
 <p><img src="images/10000000000001850000023E1A30A3E3.png" style="width:4.492cm;height:6.621cm;" alt="Image" /></p>
 <h3 id="2021-architecture">20.2.1. Architecture</h3>
-<p>L’application de calcul de l’impôt de la version 4 utilisait l&#x27;architecture suivante :</p>
+<p>L’application de calcul de l’impôt de la version 4 utilisait l'architecture suivante :</p>
 <p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
 <p>La couche <strong>[</strong><strong>dao</strong><strong>]</strong> implémente une interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong>. Nous avons construit une classe implémentant cette interface :</p>
 <ul>
-<li><strong>[</strong><strong>Imp</strong><strong>ôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> qui allait chercher les données fiscales dans un fichier jSON. C’était la version 3 ;
-Nous allons implémenter l’interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong> par une nouvelle classe <strong>[</strong><strong>ImpotsDaoWithTaxAdminDataInDatabase</strong><strong>]</strong> qui ira chercher les données de l’administration fiscale dans une base de données. La couche <strong>[</strong><strong>dao</strong><strong>]</strong>, comme précédemment, écrira les résultats dans un fichier jSON et trouvera les données des contribuables dans un fichier texte. Nous savons que si nous continuons à respecter l’interface <strong>[InterfaceImpôtsDao]</strong>, la couche <strong>[</strong><strong>métier</strong><strong>]</strong> n’aura pas à être modifiée.</li>
+<li><strong>[</strong><strong>Imp</strong><strong>ôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> qui allait chercher les données fiscales dans un fichier jSON. C’était la version 3 ;</li>
 </ul>
+<p>Nous allons implémenter l’interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong> par une nouvelle classe <strong>[</strong><strong>ImpotsDaoWithTaxAdminDataInDatabase</strong><strong>]</strong> qui ira chercher les données de l’administration fiscale dans une base de données. La couche <strong>[</strong><strong>dao</strong><strong>]</strong>, comme précédemment, écrira les résultats dans un fichier jSON et trouvera les données des contribuables dans un fichier texte. Nous savons que si nous continuons à respecter l’interface <strong>[InterfaceImpôtsDao]</strong>, la couche <strong>[</strong><strong>métier</strong><strong>]</strong> n’aura pas à être modifiée.</p>
 <p>La nouvelle architecture sera la suivante :</p>
 <p><img src="images/10000000000003B5000002BD8D4E698A.png" style="width:10.951cm;height:8.09cm;" alt="Image" /></p>
 <h3 id="2022-configuration-de-lapplication">20.2.2. Configuration de l’application</h3>
@@ -2411,20 +2411,20 @@ Nous allons implémenter l’interface <strong>[</strong><strong>InterfaceImpôt
 <span class="normal"><a href="#__codelineno-12-6">6</a></span>
 <span class="normal"><a href="#__codelineno-12-7">7</a></span>
 <span class="normal"><a href="#__codelineno-12-8">8</a></span>
-<span class="normal"><a href="#__codelineno-12-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>    <span class="c1"># étape 2 ------</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>    <span class="c1"># on complète la configuration de l&#39;application</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    <span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a>        <span class="c1"># chemins absolus des fichiers de données</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a>        <span class="s2">&quot;admindataFilename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../../data/input/admindata.json&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a>        <span class="s2">&quot;taxpayersFilename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../../data/input/taxpayersdata.txt&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a>        <span class="s2">&quot;errorsFilename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../../data/output/errors.txt&quot;</span><span class="p">,</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a>        <span class="s2">&quot;resultsFilename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../../data/output/résultats.json&quot;</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="p">})</span>
+<span class="normal"><a href="#__codelineno-12-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>    # étape 2 ------
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>    # on complète la configuration de l&#39;application
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>    config.update({
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>        # chemins absolus des fichiers de données
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a>        &quot;admindataFilename&quot;: f&quot;{script_dir}/../../data/input/admindata.json&quot;,
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a>        &quot;taxpayersFilename&quot;: f&quot;{script_dir}/../../data/input/taxpayersdata.txt&quot;,
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>        &quot;errorsFilename&quot;: f&quot;{script_dir}/../../data/output/errors.txt&quot;,
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>        &quot;resultsFilename&quot;: f&quot;{script_dir}/../../data/output/résultats.json&quot;
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    })
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 6-8 : les chemins absolus des fichiers texte utilisés par l’application 2 ;
-La configuration des couches <strong>[config_layers]</strong> évolue de la façon suivante :</li>
+<li>lignes 6-8 : les chemins absolus des fichiers texte utilisés par l’application 2 ;</li>
 </ul>
+<p>La configuration des couches <strong>[config_layers]</strong> évolue de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
@@ -2452,7 +2452,7 @@ La configuration des couches <strong>[config_layers]</strong> évolue de la fa�
 <li>lignes 7-8 : la couche <strong>[métier]</strong> est implémentée par la classe <strong>[ImpôtsMétier]</strong>. C’est la classe utilisée dans la version 4 de l’exercice d’application ;</li>
 </ul>
 <h3 id="2023-la-couche-dao">20.2.3. La couche [dao]</h3>
-<p>La classe d&#x27;implémentation <strong>[</strong><strong>ImpotsDaoWithAdminDataInDatabase</strong><strong>]</strong> de l&#x27;interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong> sera la suivante :</p>
+<p>La classe d'implémentation <strong>[</strong><strong>ImpotsDaoWithAdminDataInDatabase</strong><strong>]</strong> de l'interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong> sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
@@ -2753,9 +2753,9 @@ La configuration des couches <strong>[config_layers]</strong> évolue de la fa�
 <li>lignes 50-51 : le test est configuré ;</li>
 <li>ligne 53 : on récupère la couche <strong>[métier]</strong> dans la configuration ;</li>
 <li>ligne 56 : on fait de même avec la couche <strong>[dao]</strong>. On récupère alors l’instance <strong>[admindata]</strong> qui encapsule les données nécessaires au calcul de l’impôt ;</li>
-<li>les tests ont montré que la méthode <strong>[unittest</strong><strong>.</strong><strong>main</strong><strong>()</strong><strong>]</strong> de la ligne 66 n’ignorait pas le paramètre <strong>[mysql / pgres]</strong> reçu par le script mais lui donnait une signification autre. La ligne 63 fait en sorte que cette méthode n’ait plus aucun paramètre ;
-Nous créons deux <a href="#_Le_script_principal_2"><u><u>configurations d’exécution</u></u></a> :</li>
+<li>les tests ont montré que la méthode <strong>[unittest</strong><strong>.</strong><strong>main</strong><strong>()</strong><strong>]</strong> de la ligne 66 n’ignorait pas le paramètre <strong>[mysql / pgres]</strong> reçu par le script mais lui donnait une signification autre. La ligne 63 fait en sorte que cette méthode n’ait plus aucun paramètre ;</li>
 </ul>
+<p>Nous créons deux <a href="#_Le_script_principal_2"><u><u>configurations d’exécution</u></u></a> :</p>
 <p><img src="images/1000000000000517000002697CC32661.png" style="width:15.031cm;height:7.111cm;" alt="Image" /></p>
 <p><img src="images/1000000000000513000002406E8B8A1E.png" style="width:15.011cm;height:6.651cm;" alt="Image" /></p>
 <p>Si nous exécutons l’une de ces deux configurations, nous obtenons les résultats suivants :</p>
@@ -2767,20 +2767,20 @@ Nous créons deux <a href="#_Le_script_principal_2"><u><u>configurations d’ex�
 <span class="normal"><a href="#__codelineno-16-6">6</a></span>
 <span class="normal"><a href="#__codelineno-16-7">7</a></span>
 <span class="normal"><a href="#__codelineno-16-8">8</a></span>
-<span class="normal"><a href="#__codelineno-16-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="n">v05</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestDaoMétier</span><span class="o">.</span><span class="n">py</span> <span class="n">mysql</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">tests</span> <span class="n">en</span> <span class="n">cours</span><span class="o">...</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="o">...........</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="o">----------------------------------------------------------------------</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="n">Ran</span> <span class="mi">11</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.001</span><span class="n">s</span>
+<span class="normal"><a href="#__codelineno-16-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v05/tests/TestDaoMétier.py mysql
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>tests en cours...
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>...........
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>----------------------------------------------------------------------
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>Ran 11 tests in 0.001s
 <a id="__codelineno-16-6" name="__codelineno-16-6"></a>
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">OK</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>OK
 <a id="__codelineno-16-8" name="__codelineno-16-8"></a>
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 5 et 7 : les 11 tests ont été réussis ;
-Rappelons que ces tests ne vérifient que 11 cas du calcul de l’impôt. Leur réussite peut néanmoins suffire pour nous donner confiance dans la couche <strong>[dao]</strong>.</li>
+<li>lignes 5 et 7 : les 11 tests ont été réussis ;</li>
 </ul>
+<p>Rappelons que ces tests ne vérifient que 11 cas du calcul de l’impôt. Leur réussite peut néanmoins suffire pour nous donner confiance dans la couche <strong>[dao]</strong>.</p>
 <h3 id="2025-le-script-principal">20.2.5. Le script principal</h3>
 <p><img src="images/10000000000001A1000002152583529E.png" style="width:4.34cm;height:5.55cm;" alt="Image" /></p>
 <p><img src="images/100000000000039F000002AD82466924.png" style="width:10.701cm;height:7.901cm;" alt="Image" /></p>
@@ -2880,11 +2880,11 @@ Rappelons que ces tests ne vérifient que 11 cas du calcul de l’impôt. Leur r
 <li>ligne 25 : on demande à la couche <strong>[dao]</strong> les données de l’administration fiscale. La couche <strong>[métier]</strong> en a besoin pour le calcul de l’impôt ;</li>
 <li>ligne 27 : on récupère dans une liste, les données (id, marié, enfants, salaire) des contribuables ;</li>
 <li>lignes 29-30 : si cette liste est vide, on lance une exception ;</li>
-<li>lignes 32-35 : calcul de l&#x27;impôt des éléments de la liste <strong>[taxpayers]</strong> ;</li>
+<li>lignes 32-35 : calcul de l'impôt des éléments de la liste <strong>[taxpayers]</strong> ;</li>
 <li>ligne 37 : écriture des résultats dans le fichier jSON<strong>[résultats.json]</strong> ;</li>
-<li>lignes 38-40 : gestion de l&#x27;éventuelle erreur ;
-Pour l’exécution du script, on crée deux |<a href="#_Le_script_principal_2"><u><u>configurations d’exécution</u></u></a>| :</li>
+<li>lignes 38-40 : gestion de l'éventuelle erreur ;</li>
 </ul>
+<p>Pour l’exécution du script, on crée deux |<a href="#_Le_script_principal_2"><u><u>configurations d’exécution</u></u></a>| :</p>
 <p><img src="images/10000000000003D2000001DC25ED70E5.png" style="width:11.27cm;height:5.501cm;" alt="Image" /></p>
 <p>Les résultats obtenus dans le fichier <strong>[résultats.json]</strong> sont ceux de la version 4.</p>
 <p><img src="images/10000000000003D2000001D660C57B6C.png" style="width:11.27cm;height:5.441cm;" alt="Image" /></p>
@@ -2897,9 +2897,9 @@ Pour l’exécution du script, on crée deux |<a href="#_Le_script_principal_2">
 <li>la couche <strong>[ui]</strong> :</li>
 <li>utilise la couche <strong>[dao]</strong> pour obtenir les données permettant de faire le calcul de l’impôt ;</li>
 <li>demande à l’utilisateur les renseignements concernant le contribuable dont on veut calculer l’impôt ;</li>
-<li>utilise la couche <strong>[métier]</strong> pour faire ce calcul ;
-Le fichier <strong>[config_layers]</strong> instancie une couche supplémentaire :</li>
+<li>utilise la couche <strong>[métier]</strong> pour faire ce calcul ;</li>
 </ul>
+<p>Le fichier <strong>[config_layers]</strong> instancie une couche supplémentaire :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
@@ -3004,9 +3004,9 @@ Le fichier <strong>[config_layers]</strong> instancie une couche supplémentaire
 <li>lignes 1-10, le script attend un paramètre <strong>[mysql / pgres]</strong> qui indique le SGBD à utiliser ;</li>
 <li>lignes 12-14 : l’application est configurée ;</li>
 <li>lignes 19-20 : on récupère la couche <strong>[ui]</strong> dans la configuration ;</li>
-<li>ligne 25 : on l’exécute ;
-Les résultats sont identiques à ceux de la |<a href="#_Le_script_principal_4"><u><u>version 4</u></u></a>|. Il ne pouvait en être autrement puisque toutes les interfaces de la version 4 ont été respectées dans la version 5.</li>
+<li>ligne 25 : on l’exécute ;</li>
 </ul>
+<p>Les résultats sont identiques à ceux de la |<a href="#_Le_script_principal_4"><u><u>version 4</u></u></a>|. Il ne pouvait en être autrement puisque toutes les interfaces de la version 4 ont été respectées dans la version 5.</p>
 
 
 
@@ -3062,7 +3062,7 @@ Les résultats sont identiques à ceux de la |<a href="#_Le_script_principal_4">
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

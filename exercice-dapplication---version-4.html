@@ -12,7 +12,7 @@
         <meta name="author" content="Serge Tahé">
       
       
-        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/exercice-dx27application---version-4.html">
+        <link rel="canonical" href="https://stahe.github.io/python-flask-sept-2020/exercice-dapplication---version-4.html">
       
       
         <link rel="prev" href="architecture-en-couches-et-programmation-par-interfaces.html">
@@ -118,7 +118,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              15. Exercice d&#x27;application - version 4
+              15. Exercice d'application - version 4
             
           </span>
         </div>
@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d&#x27;un environnement de travail
+    2. Installation d'un environnement de travail
   
 
     
@@ -482,14 +482,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d&#x27;application – version 1
+    8. Exercice d'application – version 1
   
 
     
@@ -687,7 +687,7 @@
   <span class="md-ellipsis">
     
   
-    15. Exercice d&#x27;application - version 4
+    15. Exercice d'application - version 4
   
 
     
@@ -698,14 +698,14 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="exercice-dx27application---version-4.html" class="md-nav__link md-nav__link--active">
+      <a href="exercice-dapplication---version-4.html" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d&#x27;application - version 4
+    15. Exercice d'application - version 4
   
 
     
@@ -808,7 +808,7 @@
   <a href="#15121-linterface-interfaceimpotsdao" class="md-nav__link">
     <span class="md-ellipsis">
       
-        15.1.2.1. L&#x27;interface [InterfaceImpôtsDao]
+        15.1.2.1. L'interface [InterfaceImpôtsDao]
       
     </span>
   </a>
@@ -858,7 +858,7 @@
   <a href="#15131-linterface-interfaceimpotsmetier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        15.1.3.1. L&#x27;interface [InterfaceImpôtsMétier]
+        15.1.3.1. L'interface [InterfaceImpôtsMétier]
       
     </span>
   </a>
@@ -924,7 +924,7 @@
   <a href="#1521-linterface-interfaceimpotsui" class="md-nav__link">
     <span class="md-ellipsis">
       
-        15.2.1. L&#x27;interface [InterfaceImpôtsUi]
+        15.2.1. L'interface [InterfaceImpôtsUi]
       
     </span>
   </a>
@@ -1081,14 +1081,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+      <a href="exercice-dapplication-version-5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d&#x27;application : version 5
+    20. Exercice d'application : version 5
   
 
     
@@ -1634,35 +1634,35 @@
   
 
 
-<h1 id="15-exercice-dapplication-version-4">15. Exercice d&#x27;application - version 4</h1>
-<p>Nous reprenons ici l&#x27;exercice décrit au paragraphe |<a href="#_Exercice_d’application_:"><u><u>Version 3</u></u></a>| et nous le traitons maintenant avec des classes et interfaces. Nous écrirons deux applications :</p>
+<h1 id="15-exercice-dapplication-version-4">15. Exercice d'application - version 4</h1>
+<p>Nous reprenons ici l'exercice décrit au paragraphe |<a href="#_Exercice_d’application_:"><u><u>Version 3</u></u></a>| et nous le traitons maintenant avec des classes et interfaces. Nous écrirons deux applications :</p>
 <p>L’application 1 sera la suivante :</p>
 <p><img src="images/100000010000025A000000D06120CF11.png" style="width:10.141cm;height:3.5cm;" alt="Image" /></p>
 <p>Un script principal <strong>[main]</strong> instanciera une couche <strong>[dao]</strong> et une couche <strong>[métier]</strong> :</p>
 <ul>
 <li>la couche <strong>[dao]</strong> aura pour rôle de gérer des données stockées dans des fichiers texte et ultérieurement dans une base de données ;</li>
-<li>la couche <strong>[métier]</strong> aura pour rôle de faire le calcul de l&#x27;impôt ;
-Dans cette application, il n&#x27;y aura pas d&#x27;actions de la part d&#x27;un utilisateur : les données des contribuables seront trouvées dans un fichier texte dont on donnera le nom au module <strong>[main]</strong><strong>.</strong></li>
+<li>la couche <strong>[métier]</strong> aura pour rôle de faire le calcul de l'impôt ;</li>
 </ul>
-<p>Dans l’application 2, c&#x27;est l&#x27;utilisateur qui tapera au clavier les données des contribuables. L&#x27;architecture évoluera alors de la façon suivante  :</p>
+<p>Dans cette application, il n'y aura pas d'actions de la part d'un utilisateur : les données des contribuables seront trouvées dans un fichier texte dont on donnera le nom au module <strong>[main]</strong><strong>.</strong></p>
+<p>Dans l’application 2, c'est l'utilisateur qui tapera au clavier les données des contribuables. L'architecture évoluera alors de la façon suivante  :</p>
 <p><img src="images/1000000100000276000000B3ACA856C0.png" style="width:10.54cm;height:2.991cm;" alt="Image" /></p>
 <ul>
-<li>la couche <strong>[dao]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bject) s&#x27;occupe de l&#x27;accès aux données externes</li>
-<li>la couche <strong>[métier]</strong> s&#x27;occupe des problèmes métier, ici le calcul de l&#x27;impôt. Elle ne s&#x27;occupe pas des données. Celles-ci peuvent avoir deux provenances :</li>
+<li>la couche <strong>[dao]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bject) s'occupe de l'accès aux données externes</li>
+<li>la couche <strong>[métier]</strong> s'occupe des problèmes métier, ici le calcul de l'impôt. Elle ne s'occupe pas des données. Celles-ci peuvent avoir deux provenances :</li>
 <li>la couche <strong>[dao]</strong> pour les données persistantes ;</li>
-<li>la couche <strong>[ui]</strong> pour les données fournies par l&#x27;utilisateur.</li>
-<li>la couche <strong>[ui]</strong> (<strong>U</strong>ser <strong>I</strong>nterface) s&#x27;occupe des interactions avec l&#x27;utilisateur ;</li>
-<li><strong>[main]</strong> est le chef d&#x27;orchestre ;
-Dans la suite, les couches <strong>[dao]</strong>, <strong>[métier]</strong> et <strong>[ui]</strong> seront chacune implémentée à l&#x27;aide d&#x27;une classe. Les couches <strong>[métier]</strong> et <strong>[dao]</strong> seront les mêmes pour les deux applications. C’est la raison pour laquelle on les a réunies dans une même version de l’exercice d’application.</li>
+<li>la couche <strong>[ui]</strong> pour les données fournies par l'utilisateur.</li>
+<li>la couche <strong>[ui]</strong> (<strong>U</strong>ser <strong>I</strong>nterface) s'occupe des interactions avec l'utilisateur ;</li>
+<li><strong>[main]</strong> est le chef d'orchestre ;</li>
 </ul>
+<p>Dans la suite, les couches <strong>[dao]</strong>, <strong>[métier]</strong> et <strong>[ui]</strong> seront chacune implémentée à l'aide d'une classe. Les couches <strong>[métier]</strong> et <strong>[dao]</strong> seront les mêmes pour les deux applications. C’est la raison pour laquelle on les a réunies dans une même version de l’exercice d’application.</p>
 <h2 id="151-version-4-application-1">15.1. Version 4 – application 1</h2>
-<p>La version 4 calcule l&#x27;impôt d&#x27;une liste de contribuables placée dans un fichier texte. Elle a l&#x27;architecture suivante :</p>
+<p>La version 4 calcule l'impôt d'une liste de contribuables placée dans un fichier texte. Elle a l'architecture suivante :</p>
 <p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
 <h3 id="1511-les-entites">15.1.1. Les entités</h3>
 <p>Les entités sont des classes de données. Leur rôle est d’encapsuler des données et d’offrir des getters / setters qui permettent de vérifier la validité de celles-ci. Les entités sont échangées par les couches. Une même entité peut partir de la couche <strong>[ui]</strong> pour aller jusqu’à la couche <strong>[dao]</strong> et vice-versa.</p>
 <p><img src="images/1000000000000152000002069D0947DC.png" style="width:3.901cm;height:5.98cm;" alt="Image" /></p>
 <h4 id="15111-la-classe-impotserror">15.1.1.1. La classe [ImpôtsError]</h4>
-<p>Nous utiliserons une classe d&#x27;exception propriétaire :</p>
+<p>Nous utiliserons une classe d'exception propriétaire :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -1735,9 +1735,9 @@ Dans la suite, les couches <strong>[dao]</strong>, <strong>[métier]</strong> et
 <ul>
 <li>ligne 5 : la classe <strong>[AdminData]</strong> étend la classe <strong>[BaseEntity]</strong> décrite au paragraphe |<a href="#_La_classe_[BaseEntity]"><u><u>BaseEntity</u></u></a>|. On se rappelle que les classes  étendant la classe <strong>[BaseEntity]</strong> doivent définir :</li>
 <li>un attribut de classe <strong>[excluded_keys]</strong> (ligne 7) qui liste les propriétés de l’objet exclues lorsque l’objet est transformé en dictionnaire ;</li>
-<li>une méthode statique <strong>[get_allowed_keys]</strong> (lignes 10-26) qui rend la liste des propriétés acceptées lorsque l’objet est initialisé avec un dictionnaire ;
-On n’a pas utilisé de setters pour vérifier la validité des données utilisées pour initialiser un objet <strong>[AdminData]</strong>. En effet, cet objet est unique et défini par configuration et donc pas susceptible d’être erroné.</li>
+<li>une méthode statique <strong>[get_allowed_keys]</strong> (lignes 10-26) qui rend la liste des propriétés acceptées lorsque l’objet est initialisé avec un dictionnaire ;</li>
 </ul>
+<p>On n’a pas utilisé de setters pour vérifier la validité des données utilisées pour initialiser un objet <strong>[AdminData]</strong>. En effet, cet objet est unique et défini par configuration et donc pas susceptible d’être erroné.</p>
 <h4 id="15113-la-classe-taxpayer">15.1.1.3. La classe [TaxPayer]</h4>
 <p>La classe <strong>[TaxPayer]</strong> modèlisera un contribuable :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">  1</a></span>
@@ -2075,8 +2075,8 @@ On n’a pas utilisé de setters pour vérifier la validité des données utilis
 <p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
 <p>Nous allons réunir les implémentations des couches dans un dossier <strong>[</strong><strong>services</strong><strong>]</strong>. Ces classes implémenteront des interfaces définies dans le dossier <strong>[</strong><strong>interfaces</strong><strong>]</strong>.</p>
 <p><img src="images/100000000000023B00000216ED994750.png" style="width:6.58cm;height:6.181cm;" alt="Image" /></p>
-<h4 id="15121-linterface-interfaceimpotsdao">15.1.2.1. L&#x27;interface [InterfaceImpôtsDao]</h4>
-<p>La couche <strong>[dao]</strong> implémentera l&#x27;interface <strong>[InterfaceImpôtsDao]</strong> suivante (fichier InterfaceImpôtsDao.py) :</p>
+<h4 id="15121-linterface-interfaceimpotsdao">15.1.2.1. L'interface [InterfaceImpôtsDao]</h4>
+<p>La couche <strong>[dao]</strong> implémentera l'interface <strong>[InterfaceImpôtsDao]</strong> suivante (fichier InterfaceImpôtsDao.py) :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -2123,26 +2123,24 @@ On n’a pas utilisé de setters pour vérifier la validité des données utilis
 <a id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">write_taxpayers_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">taxpayers_results</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
 <a id="__codelineno-3-23" name="__codelineno-3-23"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
-<p>L&#x27;interface définit trois méthodes :</p>
+<p>L'interface définit trois méthodes :</p>
 <ul>
-<li><strong>[</strong><strong>get_admindata</strong><strong>]</strong> : est la méthode qui obtient le tableau des tranches d&#x27;impôt. On notera qu&#x27;on ne donne aucun renseignement sur la façon d&#x27;obtenir ces données. Dans la suite, elles seront trouvées d&#x27;abord dans un fichier texte puis dans une base de données. Ce seront aux classes qui implémentent l&#x27;interface de s&#x27;adapter au mode de stockage des données. On aura donc une classe pour récupérer les tranches d&#x27;impôt dans un fichier texte et une autre pour les récupérer dans une base de données. Elles implémenteront toutes deux la méthode <strong>[</strong><strong>get_admindata</strong><strong>]</strong> ;</li>
+<li><strong>[</strong><strong>get_admindata</strong><strong>]</strong> : est la méthode qui obtient le tableau des tranches d'impôt. On notera qu'on ne donne aucun renseignement sur la façon d'obtenir ces données. Dans la suite, elles seront trouvées d'abord dans un fichier texte puis dans une base de données. Ce seront aux classes qui implémentent l'interface de s'adapter au mode de stockage des données. On aura donc une classe pour récupérer les tranches d'impôt dans un fichier texte et une autre pour les récupérer dans une base de données. Elles implémenteront toutes deux la méthode <strong>[</strong><strong>get_admindata</strong><strong>]</strong> ;</li>
 <li><strong>[</strong><strong>get_taxpayers_data</strong><strong>]</strong> : est la méthode qui obtient les données des contribuables. Là encore nous ne disons pas où elles seront trouvées. Nous ne traiterons que le cas où elles sont dans un fichier texte ;</li>
-<li><strong>[</strong><strong>write_taxpayers_results</strong><strong>]</strong> : est la méthode qui va persister les résultats du calcul de l&#x27;impôt. Nous ne disons pas où. Nous ne traiterons que le cas où les résultats sont persistés dans un fichier texte. Le paramètre <strong>[</strong><strong>taxpayers_results</strong><strong>]</strong> sera la liste des résultats à persister ;</li>
+<li><strong>[</strong><strong>write_taxpayers_results</strong><strong>]</strong> : est la méthode qui va persister les résultats du calcul de l'impôt. Nous ne disons pas où. Nous ne traiterons que le cas où les résultats sont persistés dans un fichier texte. Le paramètre <strong>[</strong><strong>taxpayers_results</strong><strong>]</strong> sera la liste des résultats à persister ;</li>
 </ul>
 <h4 id="15122-la-classe-abstractimpotsdao">15.1.2.2. La classe [AbstractImpôtsDao]</h4>
 <p>La couche <strong>[dao]</strong> va être implémentée par deux classes :</p>
 <ul>
-<li>l&#x27;une ira chercher les données (contribuables, résultats, tranches d&#x27;impôt) dans des fichiers texte ;</li>
-<li>
-<p>l&#x27;autre ira chercher les données (contribuables, résultats) dans des fichiers texte et les tranches de l&#x27;impôt dans une base de données ;
-Les deux classes ne vont différer que par la gestion des tranches de l&#x27;impôt. Les données contribuables et les résultats des calculs de l&#x27;impôt seront, elles, gérées de la même façon. Pour cette raison, nous allons les gérer dans une classe parent <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong>. La particularité de la gestion des tranches d&#x27;impôt sera, elle, gérée dans deux classes filles :</p>
-</li>
-<li>
-<p>la classe <strong>[</strong><strong>Imp</strong><strong>ôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> ira chercher les tranches de l&#x27;impôt dans un fichier texte au format jSON ;</p>
-</li>
-<li>la classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInDatabase</strong><strong>]</strong>  ira chercher les tranches de l&#x27;impôt dans une base de données ;
-La classe parent <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong> sera la suivante :</li>
+<li>l'une ira chercher les données (contribuables, résultats, tranches d'impôt) dans des fichiers texte ;</li>
+<li>l'autre ira chercher les données (contribuables, résultats) dans des fichiers texte et les tranches de l'impôt dans une base de données ;</li>
 </ul>
+<p>Les deux classes ne vont différer que par la gestion des tranches de l'impôt. Les données contribuables et les résultats des calculs de l'impôt seront, elles, gérées de la même façon. Pour cette raison, nous allons les gérer dans une classe parent <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong>. La particularité de la gestion des tranches d'impôt sera, elle, gérée dans deux classes filles :</p>
+<ul>
+<li>la classe <strong>[</strong><strong>Imp</strong><strong>ôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> ira chercher les tranches de l'impôt dans un fichier texte au format jSON ;</li>
+<li>la classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInDatabase</strong><strong>]</strong>  ira chercher les tranches de l'impôt dans une base de données ;</li>
+</ul>
+<p>La classe parent <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong> sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -2226,16 +2224,16 @@ La classe parent <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]<
 <a id="__codelineno-4-41" name="__codelineno-4-41"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 13 : la classe <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong> implémente l&#x27;interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong>. Aussi trouve-t-on les trois méthodes de cette interface :</li>
+<li>ligne 13 : la classe <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong> implémente l'interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong>. Aussi trouve-t-on les trois méthodes de cette interface :</li>
 <li><strong>[</strong><strong>get_taxpayers_data</strong><strong>]</strong> : ligne 31 ;</li>
 <li><strong>[</strong><strong>write_taxpayers_results</strong><strong>]</strong> : ligne 35 ;</li>
 <li><strong>[</strong><strong>get_admindata</strong><strong>]</strong> : ligne 40. Cette méthode ne sera pas implémentée par la classe <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong> aussi est-elle déclarée abstraite (ligne 39) ;</li>
 <li>ligne 16 : le constructeur reçoit un dictionnaire <strong>[config]</strong> contenant les informations suivantes :</li>
 <li><strong>[</strong><strong>taxpayersFilename</strong><strong>]</strong> : le nom du fichier texte qui contient les données des contribuables ;</li>
 <li><strong>[</strong><strong>resultsFilename</strong><strong>]</strong> : le nom du fichier texte dans lequel seront mis les résultats ;</li>
-<li><strong>[</strong><strong>errorsFilename</strong><strong>]</strong> : le nom du fichier texte listant les erreurs rencontrées lors de l’exploitation du fichier <strong>[</strong><strong>taxpayersFilename</strong><strong>]</strong> ;
-La méthode <strong>[</strong><strong>get_taxpayers_data</strong><strong>]</strong> est la suivante :</li>
+<li><strong>[</strong><strong>errorsFilename</strong><strong>]</strong> : le nom du fichier texte listant les erreurs rencontrées lors de l’exploitation du fichier <strong>[</strong><strong>taxpayersFilename</strong><strong>]</strong> ;</li>
 </ul>
+<p>La méthode <strong>[</strong><strong>get_taxpayers_data</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -2327,8 +2325,9 @@ La méthode <strong>[</strong><strong>get_taxpayers_data</strong><strong>]</stro
 <a id="__codelineno-5-45" name="__codelineno-5-45"></a>                <span class="n">datafile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 4 : les données des contribuables (marié, enfants, salaire) seront placées dans une liste d&#x27;objets de type <strong>[TaxPayer]</strong> ;</li>
-<li>lignes 8-9 : on ouvre le fichier texte des contribuables en lecture. Son contenu a la forme suivante :
+<li>ligne 4 : les données des contribuables (marié, enfants, salaire) seront placées dans une liste d'objets de type <strong>[TaxPayer]</strong> ;</li>
+<li>lignes 8-9 : on ouvre le fichier texte des contribuables en lecture. Son contenu a la forme suivante :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -2349,40 +2348,37 @@ La méthode <strong>[</strong><strong>get_taxpayers_data</strong><strong>]</stro
 <span class="normal"><a href="#__codelineno-6-18">18</a></span>
 <span class="normal"><a href="#__codelineno-6-19">19</a></span>
 <span class="normal"><a href="#__codelineno-6-20">20</a></span>
-<span class="normal"><a href="#__codelineno-6-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># données valides : id, marié, enfants, salaire</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="mi">1</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">55555</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="mi">2</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50000</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="mi">3</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">50000</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="mi">4</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="mi">5</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="mi">6</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="mi">7</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="mi">8</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="mi">9</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30000</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="mi">10</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200000</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="mi">11</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="c1"># on peut avoir des lignes vides</span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a># données valides : id, marié, enfants, salaire
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>1,oui,2,55555
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a>2,oui,2,50000
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a>3,oui,3,50000
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>4,non,2,100000
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a>5,non,3,100000
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>6,oui,3,100000
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a>7,oui,5,100000
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a>8,non,0,100000
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a>9,oui,2,30000
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a>10,non,0,200000
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a>11,oui,3,200000
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a># on peut avoir des lignes vides
 <a id="__codelineno-6-14" name="__codelineno-6-14"></a>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="c1"># on crée des lignes erronées</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="c1"># pas assez de valeurs</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="mi">11</span><span class="p">,</span><span class="mi">12</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="c1"># trop de valeurs</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="mi">12</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="c1"># des valeurs erronées</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span>
-</code></pre></div></td></tr></table></div></li>
-</ul>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a># on crée des lignes erronées
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a># pas assez de valeurs
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a>11,12
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a># trop de valeurs
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a>12,oui,3,200000, x, y
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a># des valeurs erronées
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a>x,x,x,x
+</code></pre></div></td></tr></table></div>
 <p>Par rapport aux versions précédentes :</p>
 <ul>
-<li>chaque ligne du fichier <strong>[</strong><strong>taxpayersFilename</strong><strong>]</strong> commence par l&#x27;identifiant du contribuable, un simple numéro ;</li>
+<li>chaque ligne du fichier <strong>[</strong><strong>taxpayersFilename</strong><strong>]</strong> commence par l'identifiant du contribuable, un simple numéro ;</li>
 <li>les commentaires et les lignes vides sont autorisés ;</li>
-<li>
-<p>on va gérer les erreurs. Ainsi les lignes 17, 19 et 21 doivent être déclarées erronées. Les erreurs sont consignées dans un fichier à part ;
-Continuons l’examen du code :</p>
-</li>
-<li>
-<p>ligne 4 : les données du fichier texte sont transférées dans la liste <strong>[</strong><strong>taxPayersData</strong><strong>]</strong> ;</p>
-</li>
+<li>on va gérer les erreurs. Ainsi les lignes 17, 19 et 21 doivent être déclarées erronées. Les erreurs sont consignées dans un fichier à part ;</li>
+</ul>
+<p>Continuons l’examen du code :</p>
+<ul>
+<li>ligne 4 : les données du fichier texte sont transférées dans la liste <strong>[</strong><strong>taxPayersData</strong><strong>]</strong> ;</li>
 <li>lignes 14-31 : le fichier des contribuables est lu ligne par ligne ;</li>
 <li>ligne 14 : la fin du fichier est atteinte lorsqu’on lit une ligne vide (rien – pas même la marque de fin de ligne \r\n) ;</li>
 <li>ligne 20 : on ignore les lignes vides et les commentaires. Une ligne est un commentaire si, une fois la ligne débarrassée de ses blancs devant et derrière le texte, le 1er caractère est le caractère # ;</li>
@@ -2393,10 +2389,10 @@ Continuons l’examen du code :</p>
 <li>lignes 33-36 : la liste des erreurs rencontrées est enregistrée dans le fichier texte <strong>[</strong><strong>errorsFilename</strong><strong>]</strong>. Elles sont de deux types :</li>
 <li>une ligne n’avait pas le nombre correct de champs attendus ;</li>
 <li>les informations de la ligne étaient erronées et ont échoué à construire un objet <strong>[TaxPayer]</strong> ;</li>
-<li>lignes 39-41 : on intercepte toute erreur (BaseException) et on la remonte en l&#x27;encapsulant dans un type <strong>[ImpôtsError]</strong> ;</li>
-<li>lignes 42-45 : dans tous les cas, réussite ou échec, le fichier texte des contrbuables est fermé s&#x27;il a été ouvert ;
-La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]</strong> doit produire un fichier jSON de la forme :</li>
+<li>lignes 39-41 : on intercepte toute erreur (BaseException) et on la remonte en l'encapsulant dans un type <strong>[ImpôtsError]</strong> ;</li>
+<li>lignes 42-45 : dans tous les cas, réussite ou échec, le fichier texte des contrbuables est fermé s'il a été ouvert ;</li>
 </ul>
+<p>La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]</strong> doit produire un fichier jSON de la forme :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
@@ -2432,42 +2428,42 @@ La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]<
 <span class="normal"><a href="#__codelineno-7-33">33</a></span>
 <span class="normal"><a href="#__codelineno-7-34">34</a></span>
 <span class="normal"><a href="#__codelineno-7-35">35</a></span>
-<span class="normal"><a href="#__codelineno-7-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="p">[</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>  <span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">55555</span><span class="p">,</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">2814</span><span class="p">,</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span class="p">},</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  <span class="p">{</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span>
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span>
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a>    <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span>
-<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span>
-<a id="__codelineno-7-22" name="__codelineno-7-22"></a>    <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">347</span>
-<a id="__codelineno-7-23" name="__codelineno-7-23"></a>  <span class="p">},</span>
-<a id="__codelineno-7-24" name="__codelineno-7-24"></a>  <span class="p">{</span>
-<a id="__codelineno-7-25" name="__codelineno-7-25"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-7-26" name="__codelineno-7-26"></a>    <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span>
-<a id="__codelineno-7-27" name="__codelineno-7-27"></a>    <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-7-28" name="__codelineno-7-28"></a>    <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span>
-<a id="__codelineno-7-29" name="__codelineno-7-29"></a>    <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-7-30" name="__codelineno-7-30"></a>    <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-7-31" name="__codelineno-7-31"></a>    <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span>
-<a id="__codelineno-7-32" name="__codelineno-7-32"></a>    <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">720</span><span class="p">,</span>
-<a id="__codelineno-7-33" name="__codelineno-7-33"></a>    <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span>
-<a id="__codelineno-7-34" name="__codelineno-7-34"></a>  <span class="p">},</span>
-<a id="__codelineno-7-35" name="__codelineno-7-35"></a>  <span class="err">…</span>
-<a id="__codelineno-7-36" name="__codelineno-7-36"></a><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-7-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>[
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a>  {
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a>    &quot;id&quot;: 1,
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>    &quot;marié&quot;: &quot;oui&quot;,
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>    &quot;enfants&quot;: 2,
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>    &quot;salaire&quot;: 55555,
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    &quot;impôt&quot;: 2814,
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    &quot;surcôte&quot;: 0,
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    &quot;taux&quot;: 0.14,
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>    &quot;décôte&quot;: 0,
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    &quot;réduction&quot;: 0
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  },
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>  {
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    &quot;id&quot;: 2,
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    &quot;marié&quot;: &quot;oui&quot;,
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    &quot;enfants&quot;: 2,
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>    &quot;salaire&quot;: 50000,
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    &quot;impôt&quot;: 1384,
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a>    &quot;surcôte&quot;: 0,
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    &quot;taux&quot;: 0.14,
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    &quot;décôte&quot;: 384,
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>    &quot;réduction&quot;: 347
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a>  },
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>  {
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>    &quot;id&quot;: 3,
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>    &quot;marié&quot;: &quot;oui&quot;,
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>    &quot;enfants&quot;: 3,
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>    &quot;salaire&quot;: 50000,
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a>    &quot;impôt&quot;: 0,
+<a id="__codelineno-7-30" name="__codelineno-7-30"></a>    &quot;surcôte&quot;: 0,
+<a id="__codelineno-7-31" name="__codelineno-7-31"></a>    &quot;taux&quot;: 0.14,
+<a id="__codelineno-7-32" name="__codelineno-7-32"></a>    &quot;décôte&quot;: 720,
+<a id="__codelineno-7-33" name="__codelineno-7-33"></a>    &quot;réduction&quot;: 0
+<a id="__codelineno-7-34" name="__codelineno-7-34"></a>  },
+<a id="__codelineno-7-35" name="__codelineno-7-35"></a>  …
+<a id="__codelineno-7-36" name="__codelineno-7-36"></a>]
 </code></pre></div></td></tr></table></div>
 <p>La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
@@ -2513,21 +2509,21 @@ La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]<
 <a id="__codelineno-8-21" name="__codelineno-8-21"></a>                <span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 2 : la méthode reçoit une liste de contribuables <strong>[taxpayers]</strong> qu&#x27;elle doit enregistrer dans le fichier texte <strong>[</strong><strong>self</strong><strong>.</strong><strong>taxpayers_results_filename</strong><strong>]</strong> au format jSON ;</li>
+<li>ligne 2 : la méthode reçoit une liste de contribuables <strong>[taxpayers]</strong> qu'elle doit enregistrer dans le fichier texte <strong>[</strong><strong>self</strong><strong>.</strong><strong>taxpayers_results_filename</strong><strong>]</strong> au format jSON ;</li>
 <li>ligne 10 : création du fichier UTF-8 des résultats ;</li>
-<li>ligne 12 : nous introduisons ici la fonction <strong>[map]</strong> dont la syntaxe ici est <strong>[map (fonction, liste1)]</strong>. La fonction <strong>[fonction]</strong> est appliquée à chaque élément de <strong>[liste1]</strong> et produit un nouvel élément qui alimente une liste <strong>[liste2]</strong>. Finalement, pour chaque i :
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">liste2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="n">fonction</span><span class="p">(</span><span class="n">liste1</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</code></pre></div></td></tr></table></div></li>
+<li>ligne 12 : nous introduisons ici la fonction <strong>[map]</strong> dont la syntaxe ici est <strong>[map (fonction, liste1)]</strong>. La fonction <strong>[fonction]</strong> est appliquée à chaque élément de <strong>[liste1]</strong> et produit un nouvel élément qui alimente une liste <strong>[liste2]</strong>. Finalement, pour chaque i :</li>
 </ul>
-<p>Ici, <strong>[liste1]</strong> est la liste <strong>[taxPayers]</strong>, une liste d&#x27;objets de type <strong>[TaxPayer]</strong>. La fonction <strong>[fonction]</strong> est exprimée ici sous la forme d&#x27;une fonction dite <strong>[lambda]</strong> qui exprime la transformation faite sur un élément <strong>[taxpayer]</strong> de la liste <strong>[taxpayers]</strong> : chaque élément <strong>[taxpayer]</strong> est remplacé par son dictionnaire <strong>[taxpayer.asdict()]</strong>. Finalement, la liste <strong>[liste2]</strong> obtenue est la liste des dictionnaires des éléments de la liste <strong>[taxpayers]</strong> ;</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>liste2[i]=fonction(liste1[i])
+</code></pre></div></td></tr></table></div>
+<p>Ici, <strong>[liste1]</strong> est la liste <strong>[taxPayers]</strong>, une liste d'objets de type <strong>[TaxPayer]</strong>. La fonction <strong>[fonction]</strong> est exprimée ici sous la forme d'une fonction dite <strong>[lambda]</strong> qui exprime la transformation faite sur un élément <strong>[taxpayer]</strong> de la liste <strong>[taxpayers]</strong> : chaque élément <strong>[taxpayer]</strong> est remplacé par son dictionnaire <strong>[taxpayer.asdict()]</strong>. Finalement, la liste <strong>[liste2]</strong> obtenue est la liste des dictionnaires des éléments de la liste <strong>[taxpayers]</strong> ;</p>
 <ul>
-<li>ligne 12 : le résultat rendu par la fonction <strong>[map]</strong> n&#x27;est pas la liste <strong>[liste2]</strong> mais un objet de type <strong>[map]</strong>. Pour avoir <strong>[liste2]</strong>, il faut utiliser l&#x27;expression <strong>[list(mapping)]</strong> (ligne 14) ;</li>
+<li>ligne 12 : le résultat rendu par la fonction <strong>[map]</strong> n'est pas la liste <strong>[liste2]</strong> mais un objet de type <strong>[map]</strong>. Pour avoir <strong>[liste2]</strong>, il faut utiliser l'expression <strong>[list(mapping)]</strong> (ligne 14) ;</li>
 <li>ligne 14 : la liste <strong>[liste2]</strong> est enregistrée au format jSON dans le fichier <strong>[</strong><strong>self</strong><strong>.</strong><strong>taxpayers_results_filename</strong><strong>]</strong> ;</li>
-<li>lignes 15-17 : tout type d&#x27;exception est intercepté et encapsulé dans une erreur de type <strong>[</strong><strong>ImpôtsError</strong><strong>]</strong> avant d&#x27;être relancé (ligne 17) ;</li>
-<li>lignes 19-21 : dans tous les cas, réussite ou échec, le fichier des résultats est fermé s&#x27;il a été ouvert ;</li>
+<li>lignes 15-17 : tout type d'exception est intercepté et encapsulé dans une erreur de type <strong>[</strong><strong>ImpôtsError</strong><strong>]</strong> avant d'être relancé (ligne 17) ;</li>
+<li>lignes 19-21 : dans tous les cas, réussite ou échec, le fichier des résultats est fermé s'il a été ouvert ;</li>
 </ul>
 <h4 id="15123-classe-impotsdaowithadmindatainjsonfile">15.1.2.3. Classe [ImpôtsDaoWithAdminDataInJsonFile]</h4>
-<p>La classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> va dériver de la classe <strong>[AbstractImpôtsDao]</strong> et implémenter la méthode <strong>[getAdminData]</strong> que sa classe parent n&#x27;a pas implémentée. Elle ira chercher les données de l&#x27;administration fiscale dans un fichier jSON :</p>
+<p>La classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> va dériver de la classe <strong>[AbstractImpôtsDao]</strong> et implémenter la méthode <strong>[getAdminData]</strong> que sa classe parent n'a pas implémentée. Elle ira chercher les données de l'administration fiscale dans un fichier jSON :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
@@ -2542,21 +2538,21 @@ La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]<
 <span class="normal"><a href="#__codelineno-10-12">12</a></span>
 <span class="normal"><a href="#__codelineno-10-13">13</a></span>
 <span class="normal"><a href="#__codelineno-10-14">14</a></span>
-<span class="normal"><a href="#__codelineno-10-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="p">{</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="s2">&quot;limites&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9964</span><span class="p">,</span> <span class="mi">27519</span><span class="p">,</span> <span class="mi">73779</span><span class="p">,</span> <span class="mi">156244</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    <span class="s2">&quot;coeffr&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="s2">&quot;coeffn&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1394.96</span><span class="p">,</span> <span class="mi">5798</span><span class="p">,</span> <span class="mf">13913.69</span><span class="p">,</span> <span class="mf">20163.45</span><span class="p">],</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    <span class="s2">&quot;plafond_qf_demi_part&quot;</span><span class="p">:</span> <span class="mi">1551</span><span class="p">,</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a>    <span class="s2">&quot;plafond_revenus_celibataire_pour_reduction&quot;</span><span class="p">:</span> <span class="mi">21037</span><span class="p">,</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="s2">&quot;plafond_revenus_couple_pour_reduction&quot;</span><span class="p">:</span> <span class="mi">42074</span><span class="p">,</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="s2">&quot;valeur_reduc_demi_part&quot;</span><span class="p">:</span> <span class="mi">3797</span><span class="p">,</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a>    <span class="s2">&quot;plafond_decote_celibataire&quot;</span><span class="p">:</span> <span class="mi">1196</span><span class="p">,</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    <span class="s2">&quot;plafond_decote_couple&quot;</span><span class="p">:</span> <span class="mi">1970</span><span class="p">,</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="s2">&quot;plafond_impot_couple_pour_decote&quot;</span><span class="p">:</span> <span class="mi">2627</span><span class="p">,</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    <span class="s2">&quot;plafond_impot_celibataire_pour_decote&quot;</span><span class="p">:</span> <span class="mi">1595</span><span class="p">,</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="s2">&quot;abattement_dixpourcent_max&quot;</span><span class="p">:</span> <span class="mi">12502</span><span class="p">,</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="s2">&quot;abattement_dixpourcent_min&quot;</span><span class="p">:</span> <span class="mi">437</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>{
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    &quot;limites&quot;: [9964, 27519, 73779, 156244, 0],
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>    &quot;coeffr&quot;: [0, 0.14, 0.3, 0.41, 0.45],
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    &quot;coeffn&quot;: [0, 1394.96, 5798, 13913.69, 20163.45],
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    &quot;plafond_qf_demi_part&quot;: 1551,
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>    &quot;plafond_revenus_celibataire_pour_reduction&quot;: 21037,
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    &quot;plafond_revenus_couple_pour_reduction&quot;: 42074,
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    &quot;valeur_reduc_demi_part&quot;: 3797,
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>    &quot;plafond_decote_celibataire&quot;: 1196,
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>    &quot;plafond_decote_couple&quot;: 1970,
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>    &quot;plafond_impot_couple_pour_decote&quot;: 2627,
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>    &quot;plafond_impot_celibataire_pour_decote&quot;: 1595,
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    &quot;abattement_dixpourcent_max&quot;: 12502,
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a>    &quot;abattement_dixpourcent_min&quot;: 437
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>}
 </code></pre></div></td></tr></table></div>
 <p>La classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
@@ -2646,19 +2642,19 @@ La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]<
 <a id="__codelineno-11-43" name="__codelineno-11-43"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">admindata</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 11 : la classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> hérite de la classe <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong>. A ce titre elle implémente l&#x27;interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong> ;</li>
+<li>ligne 11 : la classe <strong>[</strong><strong>ImpôtsDaoWithAdminDataInJsonFile</strong><strong>]</strong> hérite de la classe <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong>. A ce titre elle implémente l'interface <strong>[</strong><strong>InterfaceImpôtsDao</strong><strong>]</strong> ;</li>
 <li>ligne 13 : le constructeur reçoit en paramètre un dictionnaire contenant les informations des lignes 14-17 ;</li>
 <li>ligne 20 : la classe parent est initialisée ;</li>
-<li>ligne 24 : ouverture du fichier jSON des données de l&#x27;administration fiscale ;</li>
+<li>ligne 24 : ouverture du fichier jSON des données de l'administration fiscale ;</li>
 <li>ligne 25 : le fichier UTF-8 des données de l’administration fiscale est ouvert ;</li>
 <li>ligne 27 : le contenu du fichier est lu et placé dans l’objet <strong>[</strong><strong>self</strong><strong>.admindata</strong><strong>]</strong> de type <strong>[AdminData]</strong>. Il faut que les clés du fichier jSON correspondent aux propriétés acceptées pour un objet <strong>[AdminData]</strong> sinon la méthode <strong>[fromdict]</strong> lancera une exception ;</li>
-<li>lignes 28-30 : gestion des exceptions. Les exceptions qui peuvent se produire sont encapsulées dans un type <strong>[</strong><strong>ImpôtsError</strong><strong>]</strong> avant d&#x27;être relancées ;</li>
-<li>lignes 32-34 : le fichier est fermé s&#x27;il a été ouvert ;</li>
-<li>lignes 42-43 : implémentation de la méthode <strong>[</strong><strong>get_admindata</strong><strong>]</strong> de l&#x27;interface <strong>[InterfaceImpôtsDao]</strong> ;</li>
+<li>lignes 28-30 : gestion des exceptions. Les exceptions qui peuvent se produire sont encapsulées dans un type <strong>[</strong><strong>ImpôtsError</strong><strong>]</strong> avant d'être relancées ;</li>
+<li>lignes 32-34 : le fichier est fermé s'il a été ouvert ;</li>
+<li>lignes 42-43 : implémentation de la méthode <strong>[</strong><strong>get_admindata</strong><strong>]</strong> de l'interface <strong>[InterfaceImpôtsDao]</strong> ;</li>
 </ul>
 <h3 id="1513-la-couche-metier">15.1.3. La couche [métier]</h3>
-<h4 id="15131-linterface-interfaceimpotsmetier">15.1.3.1. L&#x27;interface [InterfaceImpôtsMétier]</h4>
-<p>L&#x27;interface de la couche <strong>[métier]</strong> sera la suivante :</p>
+<h4 id="15131-linterface-interfaceimpotsmetier">15.1.3.1. L'interface [InterfaceImpôtsMétier]</h4>
+<p>L'interface de la couche <strong>[métier]</strong> sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
@@ -2686,19 +2682,19 @@ La méthode <strong>[</strong><strong>write_taxpayers_results</strong><strong>]<
 <a id="__codelineno-12-13" name="__codelineno-12-13"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>l&#x27;interface <strong>[InterfaceImpôtsMétier]</strong> définit une unique méthode :</li>
-<li>ligne 12 : la méthode <strong>[</strong><strong>calculate_tax</strong><strong>]</strong> permet de calculer l&#x27;impôt d&#x27;un unique contribuable <strong>[</strong><strong>taxpayer</strong><strong>]</strong>. <strong>[</strong><strong>admindata</strong><strong>]</strong> est l’objet <strong>[AdminData]</strong> encapsulant les données de l&#x27;administration fiscale ;</li>
-<li>ligne 12 : la méthode <strong>[</strong><strong>calculate_tax</strong><strong>]</strong> ne rend pas de résultat. Les données obtenues (impôt, surcôte, décôte, réduction, taux) sont incluses dans le paramètre <strong>[taxpayer]</strong> : avant l&#x27;appel ces attributs sont vides, après l&#x27;appel ils ont été initialisés ;</li>
+<li>l'interface <strong>[InterfaceImpôtsMétier]</strong> définit une unique méthode :</li>
+<li>ligne 12 : la méthode <strong>[</strong><strong>calculate_tax</strong><strong>]</strong> permet de calculer l'impôt d'un unique contribuable <strong>[</strong><strong>taxpayer</strong><strong>]</strong>. <strong>[</strong><strong>admindata</strong><strong>]</strong> est l’objet <strong>[AdminData]</strong> encapsulant les données de l'administration fiscale ;</li>
+<li>ligne 12 : la méthode <strong>[</strong><strong>calculate_tax</strong><strong>]</strong> ne rend pas de résultat. Les données obtenues (impôt, surcôte, décôte, réduction, taux) sont incluses dans le paramètre <strong>[taxpayer]</strong> : avant l'appel ces attributs sont vides, après l'appel ils ont été initialisés ;</li>
 </ul>
 <h4 id="15132-la-classe-impotsmetier">15.1.3.2. La classe [ImpôtsMétier]</h4>
-<p>La classe <strong>[ImpôtsMétier]</strong> implémente l&#x27;interface <strong>[InterfaceImpôtsMétier]</strong> de la façon suivante :</p>
+<p>La classe <strong>[ImpôtsMétier]</strong> implémente l'interface <strong>[InterfaceImpôtsMétier]</strong> de la façon suivante :</p>
 <p><img src="images/10000000000003DF0000039527DE6C80.png" style="width:11.45cm;height:10.6cm;" alt="Image" /></p>
 <p>Les méthodes de la classe sont issues du module <strong>[impôts_module_02]</strong> du paragraphe |<a href="#_Le_module_[impots.v02.modules.impôt"><u><u>Le module </u><u><strong>[impots.v02.modules.impôts_module_02]</strong></u></u></a>|. On a seulement limité les paramètres des méthodes à deux :</p>
 <ul>
-<li>taxpayer(id, marié, enfants, salaire, impôt, décôte, surcôte, réduction, taux) : l&#x27;objet représentant un contribuable et son impôt ;</li>
-<li>admindata : l’objet encapsulant les données de l&#x27;administration fiscale ;
-Nous montrons sur une méthode les changements ainsi apportés ;</li>
+<li>taxpayer(id, marié, enfants, salaire, impôt, décôte, surcôte, réduction, taux) : l'objet représentant un contribuable et son impôt ;</li>
+<li>admindata : l’objet encapsulant les données de l'administration fiscale ;</li>
 </ul>
+<p>Nous montrons sur une méthode les changements ainsi apportés ;</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
@@ -2800,18 +2796,18 @@ Nous montrons sur une méthode les changements ainsi apportés ;</li>
 <a id="__codelineno-13-50" name="__codelineno-13-50"></a>        <span class="n">taxpayer</span><span class="o">.</span><span class="n">impôt</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">taxpayer</span><span class="o">.</span><span class="n">impôt</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 3: la méthode <strong>[calculate_tax]</strong> est l&#x27;unique méthode de l&#x27;interface <strong>[InterfaceImpôtsMétier]</strong>. Elle admet deux paramètres :</li>
-<li><strong>[tapPayer]</strong> : le contribuable dont on calcule l&#x27;impôt ;</li>
-<li><strong>[admindata]</strong> : l’objet encapsulant les données de l&#x27;administration fiscale ;</li>
-<li>les résultats du calcul sont encapsulés dans le paramètre <strong>[taxpayer]</strong> (lignes 40-50). Le contenu de cet objet n&#x27;est donc pas le même avant et après l&#x27;appel à la méthode ;</li>
+<li>ligne 3: la méthode <strong>[calculate_tax]</strong> est l'unique méthode de l'interface <strong>[InterfaceImpôtsMétier]</strong>. Elle admet deux paramètres :</li>
+<li><strong>[tapPayer]</strong> : le contribuable dont on calcule l'impôt ;</li>
+<li><strong>[admindata]</strong> : l’objet encapsulant les données de l'administration fiscale ;</li>
+<li>les résultats du calcul sont encapsulés dans le paramètre <strong>[taxpayer]</strong> (lignes 40-50). Le contenu de cet objet n'est donc pas le même avant et après l'appel à la méthode ;</li>
 </ul>
 <h3 id="1514-tests-des-couches-dao-et-metier">15.1.4. Tests des couches [dao] et [métier]</h3>
 <p><img src="images/1000000000000170000002065376CC8F.png" style="width:4.25cm;height:5.991cm;" alt="Image" /></p>
 <ul>
 <li><strong>[TestDaoMétier]</strong> est la classe UnitTest de test des couches <strong>[dao]</strong> et <strong>[métier]</strong> ;</li>
-<li><strong>[config]</strong> est le fichier de configuration des tests ; 
-La configuration <strong>[config]</strong> est la suivante :</li>
+<li><strong>[config]</strong> est le fichier de configuration des tests ; </li>
 </ul>
+<p>La configuration <strong>[config]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
@@ -2903,9 +2899,9 @@ La configuration <strong>[config]</strong> est la suivante :</li>
 <ul>
 <li>lignes 4-23 : on configure le Python Path des tests ;</li>
 <li>lignes 32-41 : on instancie les couches <strong>[dao]</strong> et <strong>[métier]</strong>. On met leurs références dans le dictionnaire <strong>[config]</strong> ;</li>
-<li>ligne 44 : on rend ce dictionnaire ;
-La classe de test <strong>[</strong><strong>TestDaoMétier</strong><strong>]</strong> est la suivante :</li>
+<li>ligne 44 : on rend ce dictionnaire ;</li>
 </ul>
+<p>La classe de test <strong>[</strong><strong>TestDaoMétier</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">  1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">  2</a></span>
 <span class="normal"><a href="#__codelineno-15-3">  3</a></span>
@@ -3275,9 +3271,9 @@ La classe de test <strong>[</strong><strong>TestDaoMétier</strong><strong>]</st
 <li>ligne 26 : construction de l’objet <strong>[TaxPayer]</strong> du contribuable ;</li>
 <li>ligne 27 : calcul de son impôt. Le résultat est dans <strong>[taxpayer]</strong> ;</li>
 <li>lignes 29-33 : vérification des résultats obtenus ;</li>
-<li>ligne 29 : on vérifie le montant de l’impôt à l’euro près. Les tests ont en effet montré que les résultats obtenus par l’algorithme de ce document pouvaient différer des chiffres officiels au plus d’un montant de 1 euro ;
-L’exécution des tests donne les résultats suivants :</li>
+<li>ligne 29 : on vérifie le montant de l’impôt à l’euro près. Les tests ont en effet montré que les résultats obtenus par l’algorithme de ce document pouvaient différer des chiffres officiels au plus d’un montant de 1 euro ;</li>
 </ul>
+<p>L’exécution des tests donne les résultats suivants :</p>
 <p><img src="images/1000000000000260000002BB45DA0CBB.png" style="width:7.021cm;height:8.071cm;" alt="Image" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
@@ -3289,17 +3285,17 @@ L’exécution des tests donne les résultats suivants :</li>
 <span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-16-10">10</a></span>
-<span class="normal"><a href="#__codelineno-16-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="n">Testing</span> <span class="n">started</span> <span class="n">at</span> <span class="mi">16</span><span class="p">:</span><span class="mi">08</span> <span class="o">...</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py&quot;</span> <span class="o">--</span><span class="n">path</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="n">v04</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestDaoMétier</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="n">Launching</span> <span class="n">unittests</span> <span class="k">with</span> <span class="n">arguments</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="n">v04</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestDaoMétier</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">v04</span>\<span class="n">tests</span>
+<span class="normal"><a href="#__codelineno-16-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>Testing started at 16:08 ...
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe &quot;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py&quot; --path C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v04/tests/TestDaoMétier.py
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>Launching unittests with arguments python -m unittest C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v04/tests/TestDaoMétier.py in C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\v04\tests
 <a id="__codelineno-16-4" name="__codelineno-16-4"></a>
 <a id="__codelineno-16-5" name="__codelineno-16-5"></a>
 <a id="__codelineno-16-6" name="__codelineno-16-6"></a>
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">Ran</span> <span class="mi">11</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.055</span><span class="n">s</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7"></a>Ran 11 tests in 0.055s
 <a id="__codelineno-16-8" name="__codelineno-16-8"></a>
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="n">OK</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9"></a>OK
 <a id="__codelineno-16-10" name="__codelineno-16-10"></a>
-<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <h3 id="1515-script-principal">15.1.5. Script principal</h3>
 <p><img src="images/10000000000001B20000027E72AAE6FF.png" style="width:5.01cm;height:7.37cm;" alt="Image" /></p>
@@ -3472,24 +3468,24 @@ L’exécution des tests donne les résultats suivants :</li>
 <ul>
 <li>lignes 2-4 : on récupère la configuration de l’application. On sait également que le Python Path de l’application a été construit ;</li>
 <li>lignes 9-11 : on récupère des références sur les couches <strong>[métier]</strong> et <strong>[dao]</strong> ;</li>
-<li>ligne 15 : on obtient les données de l&#x27;administration fiscale ;</li>
-<li>ligne 17 : on obtient la liste des contribuables dont il faut calculer l&#x27;impôt ;</li>
+<li>ligne 15 : on obtient les données de l'administration fiscale ;</li>
+<li>ligne 17 : on obtient la liste des contribuables dont il faut calculer l'impôt ;</li>
 <li>lignes 19-20 : si cette liste est vide, on lève une exception ;</li>
-<li>lignes 22-25 : calcul de l&#x27;impôt des différents objets <strong>[taxpayer]</strong> grâce à la couche <strong>[métier]</strong> ;</li>
-<li>ligne 27 : <strong>[taxpayers]</strong> est désormais une liste d&#x27;objets <strong>[TaxPayer]</strong> où les attributs (impôt, décôte, surcôte, réduction, taux) ont reçu une valeur. Cette liste est écrite dans un fichier jSON ;</li>
-<li>lignes 28-30 : interception d&#x27;une éventuelle erreur ;</li>
-<li>lignes 31-33 : exécutées dans tous les cas ;
-L’exécution du script donne les mêmes résultats que dans les versions précédentes. Le fichier des erreurs de contribuables était une nouveauté dans cette version. Après exécution du script <strong>[main]</strong> son contenu est le suivant :</li>
+<li>lignes 22-25 : calcul de l'impôt des différents objets <strong>[taxpayer]</strong> grâce à la couche <strong>[métier]</strong> ;</li>
+<li>ligne 27 : <strong>[taxpayers]</strong> est désormais une liste d'objets <strong>[TaxPayer]</strong> où les attributs (impôt, décôte, surcôte, réduction, taux) ont reçu une valeur. Cette liste est écrite dans un fichier jSON ;</li>
+<li>lignes 28-30 : interception d'une éventuelle erreur ;</li>
+<li>lignes 31-33 : exécutées dans tous les cas ;</li>
 </ul>
+<p>L’exécution du script donne les mêmes résultats que dans les versions précédentes. Le fichier des erreurs de contribuables était une nouveauté dans cette version. Après exécution du script <strong>[main]</strong> son contenu est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
 <span class="normal"><a href="#__codelineno-19-3">3</a></span>
 <span class="normal"><a href="#__codelineno-19-4">4</a></span>
-<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">Analyse</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">v04</span>\<span class="n">main</span>\<span class="mi">01</span><span class="o">/../../</span><span class="n">data</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">taxpayersdata</span><span class="o">.</span><span class="n">txt</span>
+<span class="normal"><a href="#__codelineno-19-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>Analyse du fichier C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\v04\main\01/../../data/input/taxpayersdata.txt
 <a id="__codelineno-19-2" name="__codelineno-19-2"></a>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">Ligne</span> <span class="mi">17</span><span class="p">,</span> <span class="ow">not</span> <span class="n">enough</span> <span class="n">values</span> <span class="n">to</span> <span class="n">unpack</span> <span class="p">(</span><span class="n">expected</span> <span class="mi">4</span><span class="p">,</span> <span class="n">got</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">Ligne</span> <span class="mi">19</span><span class="p">,</span> <span class="n">too</span> <span class="n">many</span> <span class="n">values</span> <span class="n">to</span> <span class="n">unpack</span> <span class="p">(</span><span class="n">expected</span> <span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">Ligne</span> <span class="mi">21</span><span class="p">,</span> <span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;identifiant d&#39;</span><span class="n">une</span> <span class="n">entité</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">TaxPayer</span><span class="o">.</span><span class="n">TaxPayer</span><span class="s1">&#39;&gt; doit être un entier &gt;=0]</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>Ligne 17, not enough values to unpack (expected 4, got 2)
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>Ligne 19, too many values to unpack (expected 4)
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a>Ligne 21, MyException[1, L&#39;identifiant d&#39;une entité &lt;class &#39;TaxPayer.TaxPayer&#39;&gt; doit être un entier &gt;=0]
 </code></pre></div></td></tr></table></div>
 <p>Les lignes erronées étaient les suivantes :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
@@ -3512,34 +3508,34 @@ L’exécution du script donne les mêmes résultats que dans les versions préc
 <span class="normal"><a href="#__codelineno-20-18">18</a></span>
 <span class="normal"><a href="#__codelineno-20-19">19</a></span>
 <span class="normal"><a href="#__codelineno-20-20">20</a></span>
-<span class="normal"><a href="#__codelineno-20-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1"># données valides : id, marié, enfants, salaire</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="mi">1</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">55555</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="mi">2</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50000</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="mi">3</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">50000</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="mi">4</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="mi">5</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="mi">6</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="mi">7</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="mi">8</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="mi">9</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30000</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="mi">10</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200000</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="mi">11</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="c1"># on peut avoir des lignes vides</span>
+<span class="normal"><a href="#__codelineno-20-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a># données valides : id, marié, enfants, salaire
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>1,oui,2,55555
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>2,oui,2,50000
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>3,oui,3,50000
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>4,non,2,100000
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>5,non,3,100000
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>6,oui,3,100000
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>7,oui,5,100000
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a>8,non,0,100000
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a>9,oui,2,30000
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>10,non,0,200000
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a>11,oui,3,200000
+<a id="__codelineno-20-13" name="__codelineno-20-13"></a># on peut avoir des lignes vides
 <a id="__codelineno-20-14" name="__codelineno-20-14"></a>
-<a id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="c1"># on crée des lignes erronées</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="c1"># pas assez de valeurs</span>
-<a id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="mi">11</span><span class="p">,</span><span class="mi">12</span>
-<a id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="c1"># trop de valeurs</span>
-<a id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="mi">12</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
-<a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="c1"># des valeurs erronées</span>
-<a id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span>
+<a id="__codelineno-20-15" name="__codelineno-20-15"></a># on crée des lignes erronées
+<a id="__codelineno-20-16" name="__codelineno-20-16"></a># pas assez de valeurs
+<a id="__codelineno-20-17" name="__codelineno-20-17"></a>11,12
+<a id="__codelineno-20-18" name="__codelineno-20-18"></a># trop de valeurs
+<a id="__codelineno-20-19" name="__codelineno-20-19"></a>12,oui,3,200000, x, y
+<a id="__codelineno-20-20" name="__codelineno-20-20"></a># des valeurs erronées
+<a id="__codelineno-20-21" name="__codelineno-20-21"></a>x,x,x,x
 </code></pre></div></td></tr></table></div>
 <h2 id="152-version-4-application-2">15.2. Version 4 – application 2</h2>
-<p>Dans cette version, c&#x27;est l&#x27;utilisateur au clavier qui donne la liste des contribuables. L&#x27;architecture de l&#x27;application sera la suivante :</p>
+<p>Dans cette version, c'est l'utilisateur au clavier qui donne la liste des contribuables. L'architecture de l'application sera la suivante :</p>
 <p><img src="images/1000000100000301000000E74B894567.png" style="width:10.381cm;height:3.111cm;" alt="Image" /></p>
-<p>Un nouveau module apparaît : la couche <strong>[ui]</strong> (User Interface) qui va dialoguer avec l&#x27;utilisateur. Cette couche aura une interface et sera implémentée par une classe.</p>
+<p>Un nouveau module apparaît : la couche <strong>[ui]</strong> (User Interface) qui va dialoguer avec l'utilisateur. Cette couche aura une interface et sera implémentée par une classe.</p>
 <p><img src="images/10000000000002350000034FDD3FB621.png" style="width:5.871cm;height:8.801cm;" alt="Image" /></p>
-<h3 id="1521-linterface-interfaceimpotsui">15.2.1. L&#x27;interface [InterfaceImpôtsUi]</h3>
+<h3 id="1521-linterface-interfaceimpotsui">15.2.1. L'interface [InterfaceImpôtsUi]</h3>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
@@ -3560,15 +3556,15 @@ L’exécution du script donne les mêmes résultats que dans les versions préc
 <a id="__codelineno-21-9" name="__codelineno-21-9"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <a id="__codelineno-21-10" name="__codelineno-21-10"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
-<p>L&#x27;interface <strong>[</strong><strong>InterfaceImpôtsUi</strong><strong>]</strong> n&#x27;aura qu&#x27;une méthode, celle des lignes 8-10. L&#x27;interface sera ici implémentée avec une application console mais on pourrait aussi l&#x27;implémenter avec une interface graphique. Les paramètres passés à la méthode <strong>[run]</strong> ne seraient pas les mêmes dans les deux implémentations. Pour contourner ce problème, la méthode habituelle est de :</p>
+<p>L'interface <strong>[</strong><strong>InterfaceImpôtsUi</strong><strong>]</strong> n'aura qu'une méthode, celle des lignes 8-10. L'interface sera ici implémentée avec une application console mais on pourrait aussi l'implémenter avec une interface graphique. Les paramètres passés à la méthode <strong>[run]</strong> ne seraient pas les mêmes dans les deux implémentations. Pour contourner ce problème, la méthode habituelle est de :</p>
 <ul>
 <li>ne pas mettre de paramètres à la méthode <strong>[run]</strong> (ou le minimum de paramètres) ;</li>
-<li>passer des paramètres au constructeur de la classe implémentant l&#x27;interface. Ils peuvent être différents d&#x27;une implémentation à l&#x27;autre. Ces paramètres sont enregistrés comme attributs de la classe ;</li>
-<li>faire en sorte que la méthode <strong>[run]</strong> utilise ces attributs de classe (self.x) ;
-Cette méthode permet d&#x27;avoir une interface très générale qui est précisée par les paramètres des constructeurs de chaque classe d&#x27;implémentation. Cette méthode a déjà été utilisée pour la version modulaire n° 1.</li>
+<li>passer des paramètres au constructeur de la classe implémentant l'interface. Ils peuvent être différents d'une implémentation à l'autre. Ces paramètres sont enregistrés comme attributs de la classe ;</li>
+<li>faire en sorte que la méthode <strong>[run]</strong> utilise ces attributs de classe (self.x) ;</li>
 </ul>
+<p>Cette méthode permet d'avoir une interface très générale qui est précisée par les paramètres des constructeurs de chaque classe d'implémentation. Cette méthode a déjà été utilisée pour la version modulaire n° 1.</p>
 <h3 id="1522-la-classe-impotsconsole">15.2.2. La classe [ImpôtsConsole]</h3>
-<p>La classe <strong>[</strong><strong>ImpôtsConsole</strong><strong>]</strong> implémente l&#x27;interface <strong>[</strong><strong>InterfaceImpôtsUi</strong><strong>]</strong> de la façon suivante :</p>
+<p>La classe <strong>[</strong><strong>ImpôtsConsole</strong><strong>]</strong> implémente l'interface <strong>[</strong><strong>InterfaceImpôtsUi</strong><strong>]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
@@ -3676,22 +3672,22 @@ Cette méthode permet d&#x27;avoir une interface très générale qui est préci
 <a id="__codelineno-22-53" name="__codelineno-22-53"></a>            <span class="c1"># contribuable suivant</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 9 : la classe <strong>[</strong><strong>ImpôtsConsole</strong><strong>]</strong> implémente l&#x27;interface <strong>[</strong><strong>InterfaceImpôtsUi</strong><strong>]</strong> ;</li>
+<li>ligne 9 : la classe <strong>[</strong><strong>ImpôtsConsole</strong><strong>]</strong> implémente l'interface <strong>[</strong><strong>InterfaceImpôtsUi</strong><strong>]</strong> ;</li>
 <li>ligne 11 : le constructeur de la classe reçoit un paramètre, le dictionnaire <strong>[config]</strong>  de la configuration de l’application ;</li>
 <li>ligne 13 : on récupère les données de l’administration fiscale permettant le calcul de l’impôt ;</li>
 <li>ligne 14 : on mémorise une référence sur la couche <strong>[métier]</strong> ;</li>
-<li>ligne 16 : implémentation de la méthode <strong>[run]</strong> de l&#x27;interface ;</li>
-<li>lignes 19-53 : dialogue avec l&#x27;utilisateur. Il consiste</li>
+<li>ligne 16 : implémentation de la méthode <strong>[run]</strong> de l'interface ;</li>
+<li>lignes 19-53 : dialogue avec l'utilisateur. Il consiste</li>
 <li>à demander les trois informations (marié, enfants, salaire) du contribuable ;</li>
 <li>à calculer son impôt ;</li>
 <li>à afficher celui-ci ;</li>
-<li>le dialogue se termine lorsque l&#x27;utilisateur répond * à la première question ;</li>
+<li>le dialogue se termine lorsque l'utilisateur répond * à la première question ;</li>
 <li>lignes 20-27 : on demande si le contribuable est marié et on vérifie la validité de la réponse ;</li>
 <li>lignes 29-31 : si l’utilisateur a répondu ‘*’ à la question le dialogue est arrêté ;</li>
-<li>lignes 32-39 : on demande le nombre d&#x27;enfants du contribuable et on vérifie la validité de la réponse ;</li>
+<li>lignes 32-39 : on demande le nombre d'enfants du contribuable et on vérifie la validité de la réponse ;</li>
 <li>lignes 40-47 : on demande le salaire annuel du contribuable et on vérifie la validité de la réponse ;</li>
-<li>lignes 48-50 : avec ces informations on fait calculer, par la couche <strong>[métier]</strong>, l&#x27;impôt du contribuable ;</li>
-<li>ligne 52 : le montant de l&#x27;impôt est affiché ;</li>
+<li>lignes 48-50 : avec ces informations on fait calculer, par la couche <strong>[métier]</strong>, l'impôt du contribuable ;</li>
+<li>ligne 52 : le montant de l'impôt est affiché ;</li>
 </ul>
 <h3 id="1523-le-script-principal">15.2.3. Le script principal</h3>
 <p>Le script principal <strong>[main]</strong> est configuré par le fichier <strong>[config]</strong> suivant :</p>
@@ -3795,7 +3791,7 @@ Cette méthode permet d&#x27;avoir une interface très générale qui est préci
 <a id="__codelineno-23-49" name="__codelineno-23-49"></a>    <span class="c1"># on rend la config</span>
 <a id="__codelineno-23-50" name="__codelineno-23-50"></a>    <span class="k">return</span> <span class="n">config</span>
 </code></pre></div></td></tr></table></div>
-<p>Le script chef d&#x27;orchestre est le suivant (main.py) :</p>
+<p>Le script chef d'orchestre est le suivant (main.py) :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
@@ -3841,11 +3837,11 @@ Cette méthode permet d&#x27;avoir une interface très générale qui est préci
 <ul>
 <li>lignes 1-4 : on récupère la configuration de l’application ;</li>
 <li>ligne 10 : on récupère une référence sur la couche <strong>[ui]</strong> ;</li>
-<li>lignes 12-21 : la structure du code est la même que dans l’application précédente : du code entouré d&#x27;un try / catch pour arrêter toute éventuelle exception ;</li>
-<li>ligne 15 : on demande à la couche <strong>[ui]</strong> de s&#x27;exécuter : le dialogue avec l&#x27;utilisateur commence alors ;</li>
-<li>lignes 16-18 : interception d&#x27;une éventuelle exception ;
-Voici un exemple d&#x27;exécution :</li>
+<li>lignes 12-21 : la structure du code est la même que dans l’application précédente : du code entouré d'un try / catch pour arrêter toute éventuelle exception ;</li>
+<li>ligne 15 : on demande à la couche <strong>[ui]</strong> de s'exécuter : le dialogue avec l'utilisateur commence alors ;</li>
+<li>lignes 16-18 : interception d'une éventuelle exception ;</li>
 </ul>
+<p>Voici un exemple d'exécution :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-25-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-25-3"> 3</a></span>
@@ -3856,17 +3852,17 @@ Voici un exemple d&#x27;exécution :</li>
 <span class="normal"><a href="#__codelineno-25-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-25-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-25-10">10</a></span>
-<span class="normal"><a href="#__codelineno-25-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="n">v04</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="n">Le</span> <span class="n">contribuable</span> <span class="n">est</span><span class="o">-</span><span class="n">il</span> <span class="n">marié</span> <span class="o">/</span> <span class="n">pacsé</span> <span class="p">(</span><span class="n">oui</span><span class="o">/</span><span class="n">non</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span> <span class="n">pour</span> <span class="n">arrêter</span><span class="p">)</span> <span class="p">:</span> <span class="n">oui</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="n">Nombre</span> <span class="n">d</span><span class="s1">&#39;enfants : 3</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4"></a><span class="n">Salaire</span> <span class="n">annuel</span> <span class="p">:</span> <span class="mi">200000</span>
-<a id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="n">Impôt</span> <span class="n">du</span> <span class="n">contribuable</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">42842</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">17283</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-25-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v04/main/02/main.py
+<a id="__codelineno-25-2" name="__codelineno-25-2"></a>Le contribuable est-il marié / pacsé (oui/non) (* pour arrêter) : oui
+<a id="__codelineno-25-3" name="__codelineno-25-3"></a>Nombre d&#39;enfants : 3
+<a id="__codelineno-25-4" name="__codelineno-25-4"></a>Salaire annuel : 200000
+<a id="__codelineno-25-5" name="__codelineno-25-5"></a>Impôt du contribuable = {&quot;id&quot;: 0, &quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 3, &quot;salaire&quot;: 200000, &quot;impôt&quot;: 42842, &quot;surcôte&quot;: 17283, &quot;taux&quot;: 0.41, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}
 <a id="__codelineno-25-6" name="__codelineno-25-6"></a>
 <a id="__codelineno-25-7" name="__codelineno-25-7"></a>
-<a id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="n">Le</span> <span class="n">contribuable</span> <span class="n">est</span><span class="o">-</span><span class="n">il</span> <span class="n">marié</span> <span class="o">/</span> <span class="n">pacsé</span> <span class="p">(</span><span class="n">oui</span><span class="o">/</span><span class="n">non</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span> <span class="n">pour</span> <span class="n">arrêter</span><span class="p">)</span> <span class="p">:</span> <span class="o">*</span>
-<a id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="n">Travail</span> <span class="n">terminé</span><span class="o">...</span>
+<a id="__codelineno-25-8" name="__codelineno-25-8"></a>Le contribuable est-il marié / pacsé (oui/non) (* pour arrêter) : *
+<a id="__codelineno-25-9" name="__codelineno-25-9"></a>Travail terminé...
 <a id="__codelineno-25-10" name="__codelineno-25-10"></a>
-<a id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-25-11" name="__codelineno-25-11"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 
 
@@ -3923,7 +3919,7 @@ Voici un exemple d&#x27;exécution :</li>
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

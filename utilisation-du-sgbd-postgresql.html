@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d&#x27;un environnement de travail
+    2. Installation d'un environnement de travail
   
 
     
@@ -482,14 +482,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d&#x27;application – version 1
+    8. Exercice d'application – version 1
   
 
     
@@ -671,14 +671,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d&#x27;application - version 4
+    15. Exercice d'application - version 4
   
 
     
@@ -980,14 +980,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+      <a href="exercice-dapplication-version-5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d&#x27;application : version 5
+    20. Exercice d'application : version 5
   
 
     
@@ -1534,9 +1534,9 @@
 
 
 <h1 id="17-utilisation-du-sgbd-postgresql">17. Utilisation du SGBD PostgreSQL</h1>
-<p>Le SGBD PostgreSQL est librement disponible. Il est une alternative à la version &#x27;community&#x27; de MySQL.</p>
-<p>Nous l&#x27;utilisons ici pour montrer qu&#x27;il est assez simple de migrer des scripts Python / MySQL vers des scripts Python / PostgreSQL.</p>
-<p>Avec le SGBD MySQL, l&#x27;architecture de nos scripts était la suivante :</p>
+<p>Le SGBD PostgreSQL est librement disponible. Il est une alternative à la version 'community' de MySQL.</p>
+<p>Nous l'utilisons ici pour montrer qu'il est assez simple de migrer des scripts Python / MySQL vers des scripts Python / PostgreSQL.</p>
+<p>Avec le SGBD MySQL, l'architecture de nos scripts était la suivante :</p>
 <p><img src="images/100000010000030B0000008320840B22.png" style="width:11.84cm;height:1.99cm;" alt="Image" /></p>
 <p>Avec le SGBD PostgreSQL, elle sera la suivante :</p>
 <p><img src="images/10000001000003050000007CE8B4EDA2.png" style="width:11.851cm;height:1.9cm;" alt="Image" /></p>
@@ -1545,9 +1545,9 @@
 <p><img src="images/10000001000003CD000000F6106EB3D0.png" style="width:16.431cm;height:4.141cm;" alt="Image" /></p>
 <p><img src="images/10000001000004230000008739572A29.png" style="width:17.5cm;height:2.23cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[1-4]</strong>, on télécharge l’installateur du SGBD ;
-On lance l’installateur téléchargé :</li>
+<li>en <strong>[1-4]</strong>, on télécharge l’installateur du SGBD ;</li>
 </ul>
+<p>On lance l’installateur téléchargé :</p>
 <p><img src="images/100000010000040B000001ADDC26881C.png" style="width:17.541cm;height:7.272cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[6]</strong>, indiquez un dossier d’installation ;</li>
@@ -1577,9 +1577,9 @@ On lance l’installateur téléchargé :</li>
 <p><img src="images/1000000100000433000001BB5FB8CE5F.png" style="width:18.8cm;height:7.741cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[31-32]</strong>, mettez le démarrage en mode manuel ;</li>
-<li>en <strong>[33]</strong>, arrêtez le service ;
-Lorsque vous voudrez démarrer manuellement le SGBD, revenez à l’application <strong>[services]</strong>, cliquez droit sur le service <strong>[postgresql]</strong> (34) et lancez le (35).</li>
+<li>en <strong>[33]</strong>, arrêtez le service ;</li>
 </ul>
+<p>Lorsque vous voudrez démarrer manuellement le SGBD, revenez à l’application <strong>[services]</strong>, cliquez droit sur le service <strong>[postgresql]</strong> (34) et lancez le (35).</p>
 <h2 id="172-administrer-postgresql-avec-loutil-pgadmin">17.2. Administrer PostgreSQL avec l’outil [pgAdmin]</h2>
 <p>Lancez le service windows du SGBD PostgreSQL (paragraphe précédent). Puis de la même façon que vous avez lancé l’outil <strong>[services]</strong>, lancez l’outil <strong>[pgadmin]</strong> qui permet d’administrer le SGBD PostgreSQL <strong>[1-3]</strong> :</p>
 <p><img src="images/1000000100000348000001C74A4AB9A3.png" style="width:14.611cm;height:7.91cm;" alt="Image" /></p>
@@ -1589,9 +1589,9 @@ Lorsque vous voudrez démarrer manuellement le SGBD, revenez à l’application 
 <li>en <strong>[5]</strong>, la liste des serveurs PostgreSQL détectés par <strong>[pgAdmin]</strong>, ici 1 ;</li>
 <li>en <strong>[6]</strong>, le serveur PostgreSQL que nous avons lancé ;</li>
 <li>en <strong>[7]</strong>, les bases de données du SGBD, ici 1 ;</li>
-<li>en <strong>[8]</strong>, la base <strong>[postgresql]</strong> est gérée par le super-utilisateur <strong>[postgres]</strong> ;
-Créons tout d’abord un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <strong>[nobody]</strong> :</li>
+<li>en <strong>[8]</strong>, la base <strong>[postgresql]</strong> est gérée par le super-utilisateur <strong>[postgres]</strong> ;</li>
 </ul>
+<p>Créons tout d’abord un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <strong>[nobody]</strong> :</p>
 <p><img src="images/10000001000003F0000000D0C2B22823.png" style="width:17.53cm;height:3.611cm;" alt="Image" /></p>
 <p><img src="images/10000001000003940000017EDE7CB6E0.png" style="width:15.461cm;height:6.441cm;" alt="Image" /></p>
 <ul>
@@ -1600,17 +1600,17 @@ Créons tout d’abord un utilisateur <strong>[admpersonnes]</strong> avec le mo
 <p><img src="images/10000001000003A9000001182171979B.png" style="width:15.481cm;height:4.62cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[21]</strong>, le code SQL que va émettre l’outil <strong>[pgAdmin]</strong> vers le SGBD PostgreSQL. C’est une façon d’apprendre le langage SQL propriétaire de PostgreSQL ;</li>
-<li>en <strong>[22]</strong>, après validation de l’assistant <strong>[Save]</strong>, l’utilisateur <strong>[admpersonnes]</strong> a été créé ;
-Maintenant nous créons la base <strong>[dbpersonnes]</strong> :</li>
+<li>en <strong>[22]</strong>, après validation de l’assistant <strong>[Save]</strong>, l’utilisateur <strong>[admpersonnes]</strong> a été créé ;</li>
 </ul>
+<p>Maintenant nous créons la base <strong>[dbpersonnes]</strong> :</p>
 <p><img src="images/1000000100000399000000DE79C7FE8C.png" style="width:15.491cm;height:3.731cm;" alt="Image" /></p>
 <p>On clique droit sur <strong>[23]</strong>, puis <strong>[24-25]</strong> pour créer une nouvelle base de données. Dans l’onglet <strong>[26]</strong>, on définit le nom de la base <strong>[27]</strong> et son propriétaire <strong>[admpersonnes]</strong> <strong>[28]</strong>.</p>
 <p><img src="images/10000001000003450000017724CA6CF0.png" style="width:13.84cm;height:6.201cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[30]</strong>, le code SQL de création de la base ;</li>
-<li>en <strong>[31]</strong>, après validation de l’assistant <strong>[Save]</strong>, la base <strong>[dbpersonnes]</strong> est créée ;
-Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Python.</li>
+<li>en <strong>[31]</strong>, après validation de l’assistant <strong>[Save]</strong>, la base <strong>[dbpersonnes]</strong> est créée ;</li>
 </ul>
+<p>Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Python.</p>
 <h2 id="173-installation-du-connecteur-python-du-sgbd-postgresql">17.3. Installation du connecteur Python du SGBD PostgreSQL</h2>
 <p><img src="images/10000001000003050000007CE8B4EDA2.png" style="width:11.851cm;height:1.9cm;" alt="Image" /></p>
 <p>Dans le schéma ci-dessus est représenté un connecteur faisant le lien entre les scripts Python et le SGBD PostgreSQL. Il en existe plusieurs. Nous installons le connecteur <strong>[psycopg2]</strong>. Cela se fait dans un terminal Python (peu importe le dossier dans lequel est ouvert ce terminal). Le connecteur est installé par la commande <strong>[pip install psycopg2]</strong> :</p>
@@ -1619,12 +1619,12 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
 <span class="normal"><a href="#__codelineno-0-4">4</a></span>
 <span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">troiscouches</span>\<span class="n">v01</span>\<span class="n">tests</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Collecting</span> <span class="n">psycopg2</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="n">Downloading</span> <span class="n">psycopg2</span><span class="o">-</span><span class="mf">2.8.5</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mf">1.1</span> <span class="n">MB</span><span class="p">)</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>     <span class="o">||</span> <span class="mf">1.1</span> <span class="n">MB</span> <span class="mf">3.2</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">psycopg2</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">psycopg2</span><span class="o">-</span><span class="mf">2.8.5</span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">troiscouches</span><span class="err">\</span><span class="n">v01</span><span class="err">\</span><span class="n">tests</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">psycopg2</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">psycopg2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">psycopg2</span><span class="o">-</span><span class="mf">2.8.5</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">win_amd64</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mf">1.1</span><span class="w"> </span><span class="n">MB</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">     </span><span class="o">||</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="n">MB</span><span class="w"> </span><span class="mf">3.2</span><span class="w"> </span><span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">psycopg2</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">psycopg2</span><span class="o">-</span><span class="mf">2.8.5</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="174-portage-des-scripts-mysql-vers-des-scripts-postgresql">17.4. Portage des scripts MySQL vers des scripts PostgreSQL</h2>
 <p><img src="images/10000000000004CC0000021C60DF9970.png" style="width:14.2cm;height:6.231cm;" alt="Image" /></p>
@@ -1632,7 +1632,7 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <li>le dossier <strong>[1]</strong> des scripts MySQL est dupliqué (Ctrl-C / Ctrl-V), puis les noms des fichiers sont changés mais par leur contenu ;</li>
 </ul>
 <h3 id="1741-module-pgres_module">17.4.1. module [pgres_module]</h3>
-<p>Ce module est la copie du module <strong>[mysql_module]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d&#x27;un fichier d&#x27;ordres SQL</u>|). On change les imports :</p>
+<p>Ce module est la copie du module <strong>[mysql_module]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d'un fichier d'ordres SQL</u>|). On change les imports :</p>
 <p>Au lieu de :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
@@ -1678,7 +1678,7 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># import du module psycopg2</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
 </code></pre></div></td></tr></table></div>
-<p>Le reste ne change pas. Les résultats sont les mêmes qu&#x27;avec MySQL.</p>
+<p>Le reste ne change pas. Les résultats sont les mêmes qu'avec MySQL.</p>
 <h3 id="1743-script-pgres_02">17.4.3. script [pgres_02]</h3>
 <p>Le script <strong>[pgres_02]</strong> est la copie du script <strong>[mysql_02]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-02]</strong></u><u> : connexion à une base MySQL - 2</u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
@@ -1696,11 +1696,11 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <span class="normal"><a href="#__codelineno-11-2">2</a></span>
 <span class="normal"><a href="#__codelineno-11-3">3</a></span>
 <span class="normal"><a href="#__codelineno-11-4">4</a></span>
-<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_02</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Connexion</span> <span class="n">MySQL</span> <span class="n">réussie</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">localhost</span> <span class="n">sous</span> <span class="n">l</span><span class="s1">&#39;identité user=admpersonnes, passwd=nobody</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">Déconnexion</span> <span class="n">MySQL</span> <span class="n">réussie</span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/pgres_02.py
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>Connexion MySQL réussie à la base database=dbpersonnes, host=localhost sous l&#39;identité user=admpersonnes, passwd=nobody
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>Déconnexion MySQL réussie
 <a id="__codelineno-11-4" name="__codelineno-11-4"></a>
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>Le script <strong>[pgres_02]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
@@ -1785,7 +1785,7 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <a id="__codelineno-12-40" name="__codelineno-12-40"></a>    <span class="c1"># on affiche l&#39;erreur</span>
 <a id="__codelineno-12-41" name="__codelineno-12-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">erreur</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Alors que les lignes 36-41 auraient dû afficher un message d&#x27;erreur indiquant que la connexion au SGBD avait échoué, rien n&#x27;est affiché. En fait lorsqu&#x27;on creuse la question, on voit qu&#x27;on passe bien dans le <strong>[except]</strong> des lignes 35-37 mais que la variable <strong>[erreur]</strong> vaut <strong>[None]</strong>. Ceci avec la versions 2.8.4 du connecteur <strong>[</strong><strong>psycopg2</strong><strong>]</strong>.</p>
+<p>Alors que les lignes 36-41 auraient dû afficher un message d'erreur indiquant que la connexion au SGBD avait échoué, rien n'est affiché. En fait lorsqu'on creuse la question, on voit qu'on passe bien dans le <strong>[except]</strong> des lignes 35-37 mais que la variable <strong>[erreur]</strong> vaut <strong>[None]</strong>. Ceci avec la versions 2.8.4 du connecteur <strong>[</strong><strong>psycopg2</strong><strong>]</strong>.</p>
 <p>On peut contourner ce problème en écrivant un message générique mais moins précis :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
 <span class="normal"><a href="#__codelineno-13-2">2</a></span>
@@ -1806,16 +1806,16 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <span class="normal"><a href="#__codelineno-14-4">4</a></span>
 <span class="normal"><a href="#__codelineno-14-5">5</a></span>
 <span class="normal"><a href="#__codelineno-14-6">6</a></span>
-<span class="normal"><a href="#__codelineno-14-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_02</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">Connexion</span> <span class="n">réussie</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">localhost</span> <span class="n">sous</span> <span class="n">l</span><span class="s1">&#39;identité user=admpersonnes, passwd=nobody</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">Déconnexion</span> <span class="n">réussie</span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/pgres_02.py
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>Connexion réussie à la base database=dbpersonnes, host=localhost sous l&#39;identité user=admpersonnes, passwd=nobody
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>Déconnexion réussie
 <a id="__codelineno-14-4" name="__codelineno-14-4"></a>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">Erreur</span> <span class="n">de</span> <span class="n">connexion</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="p">[</span><span class="n">dbpersonnes</span><span class="p">]</span> <span class="n">par</span> <span class="n">l</span><span class="s1">&#39;utilisateur [xx/yy]</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>Erreur de connexion à la base [dbpersonnes] par l&#39;utilisateur [xx/yy]
 <a id="__codelineno-14-6" name="__codelineno-14-6"></a>
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <h3 id="1744-script-pgres_03">17.4.4. script [pgres_03]</h3>
-<p>Le script <strong>[pgres_03]</strong> est la copie du script <strong>[mysql_03]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-03]</strong></u><u> : création d&#x27;une table MySQL</u>|). On y fait les modifications suivantes :</p>
+<p>Le script <strong>[pgres_03]</strong> est la copie du script <strong>[mysql_03]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-03]</strong></u><u> : création d'une table MySQL</u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span><span class="p">,</span> <span class="n">connect</span>
@@ -1836,15 +1836,15 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
 <span class="normal"><a href="#__codelineno-19-3">3</a></span>
-<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_03</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">unique</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))</span>  <span class="p">:</span> <span class="n">requête</span> <span class="n">réussie</span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/pgres_03.py
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a>create table personnes (id int PRIMARY KEY, prenom varchar(30) NOT NULL, nom varchar(30) NOT NULL, age integer NOT NULL, unique(nom,prenom))  : requête réussie
 <a id="__codelineno-19-3" name="__codelineno-19-3"></a>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
-<p>On peut vérifier la présence de la table <strong>[personnes]</strong> avec l&#x27;outil d&#x27;administration <strong>[pgAdmin]</strong> :</p>
+<p>On peut vérifier la présence de la table <strong>[personnes]</strong> avec l'outil d'administration <strong>[pgAdmin]</strong> :</p>
 <p><img src="images/10000000000004DE0000046766E0BCA6.png" style="width:14.791cm;height:13.371cm;" alt="Image" /></p>
 <h3 id="1745-script-pgres_04">17.4.5. script [pgres_04]</h3>
-<p>Le script <strong>[pgres_04]</strong> est une copie du script <strong>[mysql_04]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d&#x27;un fichier d&#x27;ordres SQL</u>|). Il utilise le module <strong>[</strong><strong>pgres_module</strong><strong>]</strong> :</p>
+<p>Le script <strong>[pgres_04]</strong> est une copie du script <strong>[mysql_04]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d'un fichier d'ordres SQL</u>|). Il utilise le module <strong>[</strong><strong>pgres_module</strong><strong>]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
 <span class="normal"><a href="#__codelineno-20-2">2</a></span>
 <span class="normal"><a href="#__codelineno-20-3">3</a></span>
@@ -1864,8 +1864,8 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
 </code></pre></div></td></tr></table></div>
 <p>Le reste ne change pas.</p>
-<p>On crée une configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> comme il a été fait au paragraphe |<a href="#_script_[mysql-04]_:"><u><u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d&#x27;un fichier d&#x27;ordres SQL</u></u></a>|. On crée de même une configuration <strong>[pgres pgres-04 </strong><strong>with_</strong><strong>transaction]</strong>.</p>
-<p>L&#x27;exécution de la configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
+<p>On crée une configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> comme il a été fait au paragraphe |<a href="#_script_[mysql-04]_:"><u><u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d'un fichier d'ordres SQL</u></u></a>|. On crée de même une configuration <strong>[pgres pgres-04 </strong><strong>with_</strong><strong>transaction]</strong>.</p>
+<p>L'exécution de la configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
@@ -2021,11 +2021,11 @@ Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Py
 <a id="__codelineno-21-77" name="__codelineno-21-77"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 5 : on a dû modifier la commande de suppression de la table <strong>[personnes]</strong>. Contrairement au connecteur de MySQL le connecteur de PostgreSQL lance une exception si la table à supprimer n’existe pas. La commande <strong>[drop table]</strong> a une variante <strong>[drop table if exists]</strong> qui ne lance pas d’exception si la table n’existe pas. Nous l’avons utilisée ici. C’est un exemple où deux SGBD ne se comportent pas de la même façon dans des situations analogues ;
-La table <strong>[personnes]</strong> dans l&#x27;outil <strong>[pgAdmin]</strong> est la suivante :</li>
+<li>ligne 5 : on a dû modifier la commande de suppression de la table <strong>[personnes]</strong>. Contrairement au connecteur de MySQL le connecteur de PostgreSQL lance une exception si la table à supprimer n’existe pas. La commande <strong>[drop table]</strong> a une variante <strong>[drop table if exists]</strong> qui ne lance pas d’exception si la table n’existe pas. Nous l’avons utilisée ici. C’est un exemple où deux SGBD ne se comportent pas de la même façon dans des situations analogues ;</li>
 </ul>
+<p>La table <strong>[personnes]</strong> dans l'outil <strong>[pgAdmin]</strong> est la suivante :</p>
 <p><img src="images/10000000000006310000022E6AD52E07.png" style="width:18.291cm;height:6.451cm;" alt="Image" /></p>
-<p>L&#x27;exécution de la configuration <strong>[pgres pgres_04 </strong><strong>with</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
+<p>L'exécution de la configuration <strong>[pgres pgres_04 </strong><strong>with</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
@@ -2090,19 +2090,17 @@ La table <strong>[personnes]</strong> dans l&#x27;outil <strong>[pgAdmin]</stron
 <a id="__codelineno-22-31" name="__codelineno-22-31"></a>
 <a id="__codelineno-22-32" name="__codelineno-22-32"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<p>La table <strong>[personnes]</strong> dans l&#x27;outil <strong>[pgAdmin]</strong> est la suivante :</p>
+<p>La table <strong>[personnes]</strong> dans l'outil <strong>[pgAdmin]</strong> est la suivante :</p>
 <p><img src="images/10000000000003F6000002C0A2F89F20.png" style="width:11.69cm;height:8.111cm;" alt="Image" /></p>
 <p>Ici, le résultat est différent de celui obtenu avec MySQL. Si on exécute les scripts dans les mêmes conditions, ç-à-d après exécution du script sans transaction, on a les résultats suivants :</p>
 <ul>
 <li>avec MySQL, la table <strong>[personnes]</strong> est vide ;</li>
-<li>
-<p>avec PostgreSQL, la table <strong>[personnes]</strong> ne l&#x27;est pas ;
-La différence repose sur les façons différentes qu&#x27;ont ces deux SGBD de défaire la transaction :</p>
-</li>
-<li>
-<p>MySQL ne défait pas les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On se retrouve avec une table <strong>[personnes]</strong> vide ;</p>
-</li>
-<li>PostgreSQL défait les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On retrouve la table dans l&#x27;état où elle était avant l&#x27;exécution du script avec transaction ;</li>
+<li>avec PostgreSQL, la table <strong>[personnes]</strong> ne l'est pas ;</li>
+</ul>
+<p>La différence repose sur les façons différentes qu'ont ces deux SGBD de défaire la transaction :</p>
+<ul>
+<li>MySQL ne défait pas les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On se retrouve avec une table <strong>[personnes]</strong> vide ;</li>
+<li>PostgreSQL défait les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On retrouve la table dans l'état où elle était avant l'exécution du script avec transaction ;</li>
 </ul>
 <h3 id="1746-script-pgres_05">17.4.6. script [pgres_05]</h3>
 <p>Le script <strong>[pgres_05]</strong> est une copie du script <strong>[mysql_05]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-05]</strong></u><u> : utilisation de requêtes paramétrées</u>|). Le script est modifié de la façon suivante :</p>
@@ -2120,7 +2118,7 @@ La différence repose sur les façons différentes qu&#x27;ont ces deux SGBD de 
 <p>Les résultats obtenus dans <strong>[pgAdmin]</strong> sont les suivants :</p>
 <p><img src="images/10000000000003F50000029C1102C03E.png" style="width:11.69cm;height:7.711cm;" alt="Image" /></p>
 <h2 id="175-conclusion">17.5. Conclusion</h2>
-<p>Le portage des scripts MySQL vers des scripts PostgreSQL s&#x27;est réalisé plutôt facilement. C&#x27;est une exception. Les deux SGBD ne supportent pas les mêmes règles de nommage des objets SQL (bases, tables, colonnes, contraintes, types des données…), ont des extensions SQL incompatibles… Pour assurer un portage simple, il faut s&#x27;en tenir dans les deux cas à la norme SQL sans essayer d&#x27;utiliser les extensions propriétaires des SGBD. Cela se fait alors aux dépens des performances.</p>
+<p>Le portage des scripts MySQL vers des scripts PostgreSQL s'est réalisé plutôt facilement. C'est une exception. Les deux SGBD ne supportent pas les mêmes règles de nommage des objets SQL (bases, tables, colonnes, contraintes, types des données…), ont des extensions SQL incompatibles… Pour assurer un portage simple, il faut s'en tenir dans les deux cas à la norme SQL sans essayer d'utiliser les extensions propriétaires des SGBD. Cela se fait alors aux dépens des performances.</p>
 
 
 
@@ -2176,7 +2174,7 @@ La différence repose sur les façons différentes qu&#x27;ont ces deux SGBD de 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

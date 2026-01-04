@@ -18,7 +18,7 @@
         <link rel="prev" href="les-classes-generiques-baseentity-et-myexception.html">
       
       
-        <link rel="next" href="exercice-dx27application---version-4.html">
+        <link rel="next" href="exercice-dapplication---version-4.html">
       
       
         
@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d&#x27;un environnement de travail
+    2. Installation d'un environnement de travail
   
 
     
@@ -482,14 +482,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d&#x27;application – version 1
+    8. Exercice d'application – version 1
   
 
     
@@ -730,7 +730,7 @@
   <a href="#1421-les-entites-de-lapplication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.1. Les entités de l&#x27;application
+        14.2.1. Les entités de l'application
       
     </span>
   </a>
@@ -742,7 +742,7 @@
   <a href="#14211-lentite-classe" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.1.1. L&#x27;entité [Classe]
+        14.2.1.1. L'entité [Classe]
       
     </span>
   </a>
@@ -753,7 +753,7 @@
   <a href="#14212-lentite-matiere" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.1.2. L&#x27;entité [Matière]
+        14.2.1.2. L'entité [Matière]
       
     </span>
   </a>
@@ -764,7 +764,7 @@
   <a href="#14213-lentite-eleve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.1.3. L&#x27;entité [Elève]
+        14.2.1.3. L'entité [Elève]
       
     </span>
   </a>
@@ -775,7 +775,7 @@
   <a href="#14214-lentite-note" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.1.4. L&#x27;entité [Note]
+        14.2.1.4. L'entité [Note]
       
     </span>
   </a>
@@ -903,7 +903,7 @@
   <a href="#14252-lentite-statsforeleve" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.5.2. L&#x27;entité [StatsForElève]
+        14.2.5.2. L'entité [StatsForElève]
       
     </span>
   </a>
@@ -914,7 +914,7 @@
   <a href="#14253-limplementation-metier" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.5.3. L&#x27;implémentation [Métier]
+        14.2.5.3. L'implémentation [Métier]
       
     </span>
   </a>
@@ -964,7 +964,7 @@
   <a href="#14262-limplementation-console" class="md-nav__link">
     <span class="md-ellipsis">
       
-        14.2.6.2. L&#x27;implémentation [Console]
+        14.2.6.2. L'implémentation [Console]
       
     </span>
   </a>
@@ -1079,14 +1079,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
+      <a href="exercice-dapplication---version-4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d&#x27;application - version 4
+    15. Exercice d'application - version 4
   
 
     
@@ -1214,14 +1214,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
+      <a href="exercice-dapplication-version-5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d&#x27;application : version 5
+    20. Exercice d'application : version 5
   
 
     
@@ -1769,44 +1769,42 @@
 
 <h1 id="14-architecture-en-couches-et-programmation-par-interfaces">14. Architecture en couches et programmation par interfaces</h1>
 <h2 id="141-introduction">14.1. Introduction</h2>
-<p>Nous nous proposons d&#x27;écrire une application permettant l&#x27;affichage des notes des élèves d&#x27;un collège. Cette application peut avoir une architecture multicouche :</p>
+<p>Nous nous proposons d'écrire une application permettant l'affichage des notes des élèves d'un collège. Cette application peut avoir une architecture multicouche :</p>
 <p><img src="images/1000000100000366000000ABD38E9B95.png" style="width:11.881cm;height:2.331cm;" alt="Image" /></p>
 <ul>
-<li>la couche <strong>[</strong><strong>ui</strong><strong>]</strong> (<strong>U</strong>ser <strong>I</strong>nterface) est la couche en contact avec l&#x27;utilisateur de l&#x27;application ;</li>
-<li>la couche <strong>[</strong><strong>métier</strong><strong>]</strong> implémente les règles de gestion de l&#x27;application, tels que le calcul d&#x27;un salaire ou d&#x27;une facture. Cette couche utilise des données provenant de l&#x27;utilisateur via la couche <strong>[présentation]</strong> et du SGBD via la couche <strong>[dao]</strong> ;</li>
-<li>la couche <strong>[</strong><strong>dao</strong><strong>]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bjects) gère l&#x27;accès aux données du SGBD (Système de Gestion de Bases de Données).
-C&#x27;est l&#x27;architecture qui avait été utilisée dans le |<a href="https://tahe.developpez.com/tutoriels-cours/python-2012/"><u><u>cours sur Python 2</u></u></a>|. On peut également introduire une variante :</li>
+<li>la couche <strong>[</strong><strong>ui</strong><strong>]</strong> (<strong>U</strong>ser <strong>I</strong>nterface) est la couche en contact avec l'utilisateur de l'application ;</li>
+<li>la couche <strong>[</strong><strong>métier</strong><strong>]</strong> implémente les règles de gestion de l'application, tels que le calcul d'un salaire ou d'une facture. Cette couche utilise des données provenant de l'utilisateur via la couche <strong>[présentation]</strong> et du SGBD via la couche <strong>[dao]</strong> ;</li>
+<li>la couche <strong>[</strong><strong>dao</strong><strong>]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bjects) gère l'accès aux données du SGBD (Système de Gestion de Bases de Données).</li>
 </ul>
+<p>C'est l'architecture qui avait été utilisée dans le |<a href="https://tahe.developpez.com/tutoriels-cours/python-2012/"><u><u>cours sur Python 2</u></u></a>|. On peut également introduire une variante :</p>
 <p><img src="images/100000010000036D00000113F6F5317B.png" style="width:11.69cm;height:3.661cm;" alt="Image" /></p>
 <p>Les différences vis à vis de la structure en couches précédente sont les suivantes :</p>
 <ul>
-<li>un script principal appelé <strong>[main]</strong> ci-dessus organise l&#x27;instanciation des couches ;</li>
-<li>
-<p>les couches <strong>[ui, métier, dao]</strong> ne communiquent plus forcément entre-elles. Si elles le doivent, le script <strong>[main]</strong> leur fournit les références des couches dont elles ont besoin ;
-Le code est ici organisé en centres de compétences avec un chef d&#x27;orchestre :</p>
-</li>
-<li>
-<p>le chef d&#x27;orchestre est le script principal <strong>[main]</strong> ;</p>
-</li>
-<li>les couches <strong>[ui]</strong>, <strong>[dao]</strong> et <strong>[métier]</strong> sont les centres de compétences ;
-On pourrait appeler cette organisation, une organisation <strong>orchestrale</strong>.</li>
+<li>un script principal appelé <strong>[main]</strong> ci-dessus organise l'instanciation des couches ;</li>
+<li>les couches <strong>[ui, métier, dao]</strong> ne communiquent plus forcément entre-elles. Si elles le doivent, le script <strong>[main]</strong> leur fournit les références des couches dont elles ont besoin ;</li>
 </ul>
+<p>Le code est ici organisé en centres de compétences avec un chef d'orchestre :</p>
+<ul>
+<li>le chef d'orchestre est le script principal <strong>[main]</strong> ;</li>
+<li>les couches <strong>[ui]</strong>, <strong>[dao]</strong> et <strong>[métier]</strong> sont les centres de compétences ;</li>
+</ul>
+<p>On pourrait appeler cette organisation, une organisation <strong>orchestrale</strong>.</p>
 <h2 id="142-exemple-1">14.2. Exemple 1</h2>
 <p>Nous allons illustrer l’architecture en couches avec une application console simple :</p>
 <ul>
-<li>il n&#x27;y aura pas de base de données ;</li>
+<li>il n'y aura pas de base de données ;</li>
 <li>la couche <strong>[dao]</strong> gèrera des entités Elève, Classe, Matière, Note permettant de gérer les notes des élèves ;</li>
-<li>la couche <strong>[métier]</strong> permettra de calculer des indicateurs sur les notes d&#x27;un élève précis ;</li>
-<li>la couche <strong>[ui]</strong> sera une application console qui affichera les résultats des élèves ;
-Le projet PyCharm de l&#x27;application est le suivant :</li>
+<li>la couche <strong>[métier]</strong> permettra de calculer des indicateurs sur les notes d'un élève précis ;</li>
+<li>la couche <strong>[ui]</strong> sera une application console qui affichera les résultats des élèves ;</li>
 </ul>
+<p>Le projet PyCharm de l'application est le suivant :</p>
 <p><img src="images/1000000100000128000002B0930A5206.png" style="width:2.761cm;height:6.411cm;" alt="Image" /></p>
 <p><strong>Note</strong> : les dossiers en bleu font partie des <strong>[Sources Root]</strong> du projet PyCharm.</p>
-<h3 id="1421-les-entites-de-lapplication">14.2.1. Les entités de l&#x27;application</h3>
-<p>On appellera entités, des classes dont le seul rôle est d&#x27;encapsuler des données. On pourrait pour ce faire utiliser des dictionnaires. L&#x27;intérêt de la classe est de permettre de tester la validité des données stockées dans l&#x27;objet et de fournir une méthode fournissant l&#x27;identité de l&#x27;objet sous la forme d&#x27;une chaîne de caractères.</p>
+<h3 id="1421-les-entites-de-lapplication">14.2.1. Les entités de l'application</h3>
+<p>On appellera entités, des classes dont le seul rôle est d'encapsuler des données. On pourrait pour ce faire utiliser des dictionnaires. L'intérêt de la classe est de permettre de tester la validité des données stockées dans l'objet et de fournir une méthode fournissant l'identité de l'objet sous la forme d'une chaîne de caractères.</p>
 <p><img src="images/10000000000001230000011048549434.png" style="width:3.361cm;height:3.14cm;" alt="Image" /></p>
-<h4 id="14211-lentite-classe">14.2.1.1. L&#x27;entité [Classe]</h4>
-<p>L&#x27;entité <strong>[Classe]</strong> (Classe.py) représente une classe du collège :</p>
+<h4 id="14211-lentite-classe">14.2.1.1. L'entité [Classe]</h4>
+<p>L'entité <strong>[Classe]</strong> (Classe.py) représente une classe du collège :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -1869,11 +1867,11 @@ Le projet PyCharm de l&#x27;application est le suivant :</li>
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong></p>
 <ul>
-<li>ligne 7 : l&#x27;entité <strong>[Classe]</strong> dérive de l&#x27;entité <strong>[BaseEntity]</strong> étudiée au paragraphe |<a href="#_La_classe_[BaseEntity]"><u><u>La classe BaseEntity</u></u></a>| ;</li>
+<li>ligne 7 : l'entité <strong>[Classe]</strong> dérive de l'entité <strong>[BaseEntity]</strong> étudiée au paragraphe |<a href="#_La_classe_[BaseEntity]"><u><u>La classe BaseEntity</u></u></a>| ;</li>
 <li>lignes 11-16 : une classe est définie par un n° id et un nom (ligne 16). La propriété <strong>[id]</strong> est fournie par la classe <strong>[BaseEntity]</strong> et le nom par la classe <strong>[Classe]</strong> ;</li>
-<li>lignes 18-30 : getter / setter de l&#x27;attribut <strong>[nom]</strong> ;</li>
+<li>lignes 18-30 : getter / setter de l'attribut <strong>[nom]</strong> ;</li>
 </ul>
-<h4 id="14212-lentite-matiere">14.2.1.2. L&#x27;entité [Matière]</h4>
+<h4 id="14212-lentite-matiere">14.2.1.2. L'entité [Matière]</h4>
 <p>La classe <strong>[Matière]</strong> (matière.py) est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
@@ -1981,7 +1979,7 @@ Le projet PyCharm de l&#x27;application est le suivant :</li>
 <li>lignes 11-17 : une matière est définie par son n° <strong>[id]</strong>, son nom <strong>[nom]</strong>, son coefficient <strong>[coefficient]</strong> ;</li>
 <li>lignes 19-50 : getters / setters des attributs de la classe ;</li>
 </ul>
-<h4 id="14213-lentite-eleve">14.2.1.3. L&#x27;entité [Elève]</h4>
+<h4 id="14213-lentite-eleve">14.2.1.3. L'entité [Elève]</h4>
 <p>La classe <strong>[Elève]</strong> (élève.py) est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
@@ -2119,7 +2117,7 @@ Le projet PyCharm de l&#x27;application est le suivant :</li>
 <li>lignes 13-20 : un élève est caractérisé par son n° <strong>[id]</strong>, son nom <strong>[nom]</strong>, son prénom <strong>[prénom]</strong>, sa classe<strong>[classe]</strong>. Ce dernier paramètre est une référence sur un objet <strong>[Classe]</strong> ;</li>
 <li>lignes 22-65 : getters / setters des attributs de la classe ;</li>
 </ul>
-<h4 id="14214-lentite-note">14.2.1.4. L&#x27;entité [Note]</h4>
+<h4 id="14214-lentite-note">14.2.1.4. L'entité [Note]</h4>
 <p>La classe <strong>[Note]</strong> (note.py) est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
@@ -2274,7 +2272,7 @@ Le projet PyCharm de l&#x27;application est le suivant :</li>
 <p><strong>Notes</strong></p>
 <ul>
 <li>ligne 8 : la classe <strong>[Note]</strong> dérive de la classe <strong>[BaseEntity]</strong> ;</li>
-<li>lignes 12-20 : un objet <strong>[Note]</strong> est caractérisé par son n° <strong>[id]</strong>, la valeur de la note <strong>[valeur]</strong>, une référence <strong>[élève]</strong> sur <strong>l&#x27;élève</strong> qui a cette note, une référence sur la <strong>matière</strong> <strong>[matière]</strong> objet de la note ;</li>
+<li>lignes 12-20 : un objet <strong>[Note]</strong> est caractérisé par son n° <strong>[id]</strong>, la valeur de la note <strong>[valeur]</strong>, une référence <strong>[élève]</strong> sur <strong>l'élève</strong> qui a cette note, une référence sur la <strong>matière</strong> <strong>[matière]</strong> objet de la note ;</li>
 <li>lignes 22-75 : getters / setters des attributs de la classe ;</li>
 </ul>
 <h3 id="1422-configuration-de-lapplication">14.2.2. Configuration de l’application</h3>
@@ -2327,10 +2325,10 @@ Le projet PyCharm de l&#x27;application est le suivant :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 11-14 : les dossiers qui doivent faire partie du Python Path (sys.path) ;</li>
-<li>le dossier <strong>[</strong><strong>f&quot;{root_dir}/02/entities&quot;</strong><strong>]</strong> donne accès aux classes <strong>[BaseEntity]</strong> et <strong>[MyException]</strong> ;</li>
-<li>le dossier <strong>[</strong><strong>f&quot;{script_dir}/../entities&quot;</strong><strong>]</strong> donne accès aux classes <strong>[Elève]</strong>, <strong>[Classe]</strong>, <strong>[Matière]</strong>, <strong>[Note]</strong> ;</li>
-<li>le dossier <strong>[</strong><strong>f&quot;{script_dir}/../interfaces&quot;</strong><strong>,]</strong> donne accès aux interfaces de l’application ;</li>
-<li>le dossier <strong>[</strong><strong>f&quot;{script_dir}/../services&quot;</strong><strong>]</strong> donne accès aux classes implémentant les interfaces ;</li>
+<li>le dossier <strong>[</strong><strong>f"{root_dir}/02/entities"</strong><strong>]</strong> donne accès aux classes <strong>[BaseEntity]</strong> et <strong>[MyException]</strong> ;</li>
+<li>le dossier <strong>[</strong><strong>f"{script_dir}/../entities"</strong><strong>]</strong> donne accès aux classes <strong>[Elève]</strong>, <strong>[Classe]</strong>, <strong>[Matière]</strong>, <strong>[Note]</strong> ;</li>
+<li>le dossier <strong>[</strong><strong>f"{script_dir}/../interfaces"</strong><strong>,]</strong> donne accès aux interfaces de l’application ;</li>
+<li>le dossier <strong>[</strong><strong>f"{script_dir}/../services"</strong><strong>]</strong> donne accès aux classes implémentant les interfaces ;</li>
 </ul>
 <h3 id="1423-tests-des-entites">14.2.3. Tests des entités</h3>
 <p><img src="images/100000000000013000000164F1DEE7D5.png" style="width:3.511cm;height:4.1cm;" alt="Image" /></p>
@@ -2445,15 +2443,15 @@ Le projet PyCharm de l&#x27;application est le suivant :</li>
 <li>ligne 22 : on vérifie que <strong>[note.élève]</strong> est bien de type <strong>[Elève]</strong> ;</li>
 <li>ligne 23 : on vérifie que <strong>[note.élève.classe]</strong> est bien de type <strong>[Classe]</strong> ;</li>
 <li>ligne 24 : on vérifie que <strong>[note.matière]</strong> est bien de type <strong>[Matière]</strong> ;</li>
-<li>lignes 33-42 : on fait de même avec la méthode <strong>[BaseEntity.fromdict]</strong> ;
-Il y a plusieurs façon d’exécuter les tests :</li>
+<li>lignes 33-42 : on fait de même avec la méthode <strong>[BaseEntity.fromdict]</strong> ;</li>
 </ul>
+<p>Il y a plusieurs façon d’exécuter les tests :</p>
 <p><img src="images/10000000000005CB00000286E288C9FB.png" style="width:17.13cm;height:7.46cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, on exécute <strong>[TestBaseEntity]</strong> avec le framework <strong>[UnitTest]</strong> ;</li>
-<li>en <strong>[3-5]</strong>, les tests échouent. <strong>[UnitTests]</strong> indique qu’il n’a trouvé aucun test à exécuter ;
-L’échec des tests vient de l’organisation du code de <strong>[TestBaseEntity]</strong> :</li>
+<li>en <strong>[3-5]</strong>, les tests échouent. <strong>[UnitTests]</strong> indique qu’il n’a trouvé aucun test à exécuter ;</li>
 </ul>
+<p>L’échec des tests vient de l’organisation du code de <strong>[TestBaseEntity]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
 <span class="normal"><a href="#__codelineno-6-3">3</a></span>
@@ -2515,9 +2513,9 @@ L’échec des tests vient de l’organisation du code de <strong>[TestBaseEntit
 <a id="__codelineno-7-20" name="__codelineno-7-20"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 6-10 : on définit une fonction <strong>[setUp]</strong>. Cette fonction a un rôle particulier : elle est exécutée avant chaque fonction de test (test_note1, test_note2) ;
-Ceci fait, l’exécution de la classe <strong>[TestBaseEntity]</strong> donne les résultats suivants :</li>
+<li>lignes 6-10 : on définit une fonction <strong>[setUp]</strong>. Cette fonction a un rôle particulier : elle est exécutée avant chaque fonction de test (test_note1, test_note2) ;</li>
 </ul>
+<p>Ceci fait, l’exécution de la classe <strong>[TestBaseEntity]</strong> donne les résultats suivants :</p>
 <p><img src="images/10000000000005EE000001C151CB179A.png" style="width:17.551cm;height:5.19cm;" alt="Image" /></p>
 <p>Cette fois-ci les deux méthodes de test ont été exécutées et les tests ont été réussis.</p>
 <p>Voyons ce qui se passe lorsqu’un test échoue. Modifions le code de <strong>[test_note1]</strong> de la façon suivante :</p>
@@ -2534,28 +2532,28 @@ Ceci fait, l’exécution de la classe <strong>[TestBaseEntity]</strong> donne l
 <a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="err">…</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 2 : on vérifie que 1==2 ;
-Les résultats de l’exécution sont alors les suivants :</li>
+<li>ligne 2 : on vérifie que 1==2 ;</li>
 </ul>
+<p>Les résultats de l’exécution sont alors les suivants :</p>
 <p><img src="images/10000000000005F0000001CF3B807400.png" style="width:17.53cm;height:5.351cm;" alt="Image" /></p>
 <p>On peut connaître la cause de l’erreur en cliquant sur le test raté <strong>[2]</strong> :</p>
 <p><img src="images/10000000000004740000027069C2E74C.png" style="width:13.151cm;height:7.212cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[7-8]</strong>, la cause de l’erreur ;
-Une autre façon d’exécuter une classe de tests est de l’exécuter dans un terminal :</li>
+<li>en <strong>[7-8]</strong>, la cause de l’erreur ;</li>
 </ul>
+<p>Une autre façon d’exécuter une classe de tests est de l’exécuter dans un terminal :</p>
 <p><img src="images/100000000000019400000341AD03E861.png" style="width:4.661cm;height:9.61cm;" alt="Image" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
 <span class="normal"><a href="#__codelineno-9-4">4</a></span>
 <span class="normal"><a href="#__codelineno-9-5">5</a></span>
-<span class="normal"><a href="#__codelineno-9-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">troiscouches</span>\<span class="n">v01</span>\<span class="n">tests</span><span class="o">&gt;</span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">TestBaseEntity</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="o">..</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="o">----------------------------------------------------------------------</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">Ran</span> <span class="mi">2</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.026</span><span class="n">s</span>
+<span class="normal"><a href="#__codelineno-9-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\troiscouches\v01\tests&gt;python -m unittest TestBaseEntity.py
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>..
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a>----------------------------------------------------------------------
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>Ran 2 tests in 0.026s
 <a id="__codelineno-9-5" name="__codelineno-9-5"></a>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">OK</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>OK
 </code></pre></div></td></tr></table></div>
 <p>La ligne 6 indique que les deux tests ont réussi (on a enlevé l’erreur 1==2) ;</p>
 <p>Enfin une troisème façon d’exécuter la classe de tests <strong>[TestBaseEntity]</strong>, toujours dans un terminal, est la suivante. On termine la classe de tests avec les lignes 6-7 suivantes ;</p>
@@ -2565,29 +2563,29 @@ Une autre façon d’exécuter une classe de tests est de l’exécuter dans un 
 <span class="normal"><a href="#__codelineno-10-4">4</a></span>
 <span class="normal"><a href="#__codelineno-10-5">5</a></span>
 <span class="normal"><a href="#__codelineno-10-6">6</a></span>
-<span class="normal"><a href="#__codelineno-10-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="err">…</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">élève</span><span class="o">.</span><span class="n">classe</span><span class="p">,</span> <span class="n">Classe</span><span class="p">)</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">note</span><span class="o">.</span><span class="n">matière</span><span class="p">,</span> <span class="n">Matière</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-10-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a>…
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>        self.assertIsInstance(note.élève.classe, Classe)
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a>        self.assertIsInstance(note.matière, Matière)
 <a id="__codelineno-10-4" name="__codelineno-10-4"></a>
 <a id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a>if __name__ == &#39;__main__&#39;:
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    unittest.main()
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 6 : la variable <strong>[<strong>name</strong>]</strong> est le nom donné au script qui s’exécute. Lorsque le script est le script lancé par la commande <strong>[python script.py]</strong>, la variable <strong>[<strong>name</strong>]</strong> vaut <strong>[<strong>main</strong>]</strong> (2 caractères soulignés avant et après l’identifiant). Ainsi la ligne 7 n’est exécutée que lorsque le script <strong>[TestBaseEntity]</strong> est lancé par la commande <strong>[python TestBaseEntity.py]</strong>. L’instruction <strong>[unittest.main()]</strong> lance l’exécution du script par le framework <strong>[UnitTest]</strong>. Voici un exemple :
+<li>ligne 6 : la variable <strong>[__name__]</strong> est le nom donné au script qui s’exécute. Lorsque le script est le script lancé par la commande <strong>[python script.py]</strong>, la variable <strong>[__name__]</strong> vaut <strong>[__main__]</strong> (2 caractères soulignés avant et après l’identifiant). Ainsi la ligne 7 n’est exécutée que lorsque le script <strong>[TestBaseEntity]</strong> est lancé par la commande <strong>[python TestBaseEntity.py]</strong>. L’instruction <strong>[unittest.main()]</strong> lance l’exécution du script par le framework <strong>[UnitTest]</strong>. Voici un exemple :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
 <span class="normal"><a href="#__codelineno-11-2">2</a></span>
 <span class="normal"><a href="#__codelineno-11-3">3</a></span>
 <span class="normal"><a href="#__codelineno-11-4">4</a></span>
 <span class="normal"><a href="#__codelineno-11-5">5</a></span>
-<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">troiscouches</span>\<span class="n">v01</span>\<span class="n">tests</span><span class="o">&gt;</span><span class="n">python</span> <span class="n">TestBaseEntity</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="o">..</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="o">----------------------------------------------------------------------</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">Ran</span> <span class="mi">2</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.013</span><span class="n">s</span>
+<span class="normal"><a href="#__codelineno-11-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\troiscouches\v01\tests&gt;python TestBaseEntity.py
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a>..
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a>----------------------------------------------------------------------
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>Ran 2 tests in 0.013s
 <a id="__codelineno-11-5" name="__codelineno-11-5"></a>
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="n">OK</span>
-</code></pre></div></td></tr></table></div></li>
-</ul>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>OK
+</code></pre></div></td></tr></table></div>
 <h4 id="14232-la-classe-de-tests-testentites">14.2.3.2. La classe de tests [TestEntités]</h4>
 <p>La classe de tests <strong>[TestEntités]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">  1</a></span>
@@ -3043,18 +3041,18 @@ Une autre façon d’exécuter une classe de tests est de l’exécuter dans un 
 <a id="__codelineno-12-226" name="__codelineno-12-226"></a>    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>le script de test a pour but de tester les setters des classes : vérifier qu&#x27;on ne peut pas attribuer des valeurs incorrectes aux attributs des différentes entités ;</li>
-<li>lignes 11-24 : on teste qu&#x27;on ne peut pas passer un identifiant invalide à un élève. Parce qu&#x27;on passe la valeur &#x27;x&#x27;, ligne 16, comme identifiant de l&#x27;élève, on s&#x27;attend à avoir une exception. On devrait donc passer dans les lignes 20-22 ;</li>
-<li>ligne 21 : affichage du message d&#x27;erreur ;</li>
-<li>ligne 22 : on récupère le code de l&#x27;erreur (cf paragraphe |<u>L&#x27;entité MyException</u>|) ;</li>
-<li>ligne 24 : on vérifie (assert) que le code d&#x27;erreur est 1. Ici, on vérifie deux choses :</li>
-<li>qu&#x27;il y a bien eu erreur ;</li>
-<li>que le code d&#x27;erreur est 1 ;</li>
+<li>le script de test a pour but de tester les setters des classes : vérifier qu'on ne peut pas attribuer des valeurs incorrectes aux attributs des différentes entités ;</li>
+<li>lignes 11-24 : on teste qu'on ne peut pas passer un identifiant invalide à un élève. Parce qu'on passe la valeur 'x', ligne 16, comme identifiant de l'élève, on s'attend à avoir une exception. On devrait donc passer dans les lignes 20-22 ;</li>
+<li>ligne 21 : affichage du message d'erreur ;</li>
+<li>ligne 22 : on récupère le code de l'erreur (cf paragraphe |<u>L'entité MyException</u>|) ;</li>
+<li>ligne 24 : on vérifie (assert) que le code d'erreur est 1. Ici, on vérifie deux choses :</li>
+<li>qu'il y a bien eu erreur ;</li>
+<li>que le code d'erreur est 1 ;</li>
 <li>ce processus est répété avec les fonctions des lignes 24-213 ;</li>
-<li>lignes 215-222 : on teste qu&#x27;une action lève une exception d&#x27;un certain type ;</li>
-<li>ligne 220 : on indique que le test est réussi s&#x27;il lève une exception de type <strong>[MyException]</strong> ;
-<strong>Résultats</strong></li>
+<li>lignes 215-222 : on teste qu'une action lève une exception d'un certain type ;</li>
+<li>ligne 220 : on indique que le test est réussi s'il lève une exception de type <strong>[MyException]</strong> ;</li>
 </ul>
+<p><strong>Résultats</strong></p>
 <p>On exécute le script de test :</p>
 <p><img src="images/10000000000003EF000002CECA97401A.png" style="width:8.656cm;height:6.171cm;" alt="Image" /></p>
 <p>Les résultats obtenus sont les suivants :</p>
@@ -3092,41 +3090,41 @@ Une autre façon d’exécuter une classe de tests est de l’exécuter dans un 
 <span class="normal"><a href="#__codelineno-13-32">32</a></span>
 <span class="normal"><a href="#__codelineno-13-33">33</a></span>
 <span class="normal"><a href="#__codelineno-13-34">34</a></span>
-<span class="normal"><a href="#__codelineno-13-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">Testing</span> <span class="n">started</span> <span class="n">at</span> <span class="mi">09</span><span class="p">:</span><span class="mi">39</span> <span class="o">...</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py&quot;</span> <span class="o">--</span><span class="n">path</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestEntités</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">Launching</span> <span class="n">unittests</span> <span class="k">with</span> <span class="n">arguments</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestEntités</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">troiscouches</span>\<span class="n">v01</span>\<span class="n">tests</span>
+<span class="normal"><a href="#__codelineno-13-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>Testing started at 09:39 ...
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe &quot;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py&quot; --path C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/TestEntités.py
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>Launching unittests with arguments python -m unittest C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/TestEntités.py in C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\troiscouches\v01\tests
 <a id="__codelineno-13-4" name="__codelineno-13-4"></a>
 <a id="__codelineno-13-5" name="__codelineno-13-5"></a>
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;identifiant d&#39;</span><span class="n">une</span> <span class="n">entité</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">Elève</span><span class="o">.</span><span class="n">Elève</span><span class="s1">&#39;&gt; doit être un entier &gt;=0]</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>code erreur=1, message=MyException[1, L&#39;identifiant d&#39;une entité &lt;class &#39;Elève.Elève&#39;&gt; doit être un entier &gt;=0]
 <a id="__codelineno-13-7" name="__codelineno-13-7"></a>
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;identifiant d&#39;</span><span class="n">une</span> <span class="n">entité</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">Classe</span><span class="o">.</span><span class="n">Classe</span><span class="s1">&#39;&gt; doit être un entier &gt;=0]</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8"></a>code erreur=1, message=MyException[1, L&#39;identifiant d&#39;une entité &lt;class &#39;Classe.Classe&#39;&gt; doit être un entier &gt;=0]
 <a id="__codelineno-13-9" name="__codelineno-13-9"></a>
-<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;identifiant d&#39;</span><span class="n">une</span> <span class="n">entité</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">Matière</span><span class="o">.</span><span class="n">Matière</span><span class="s1">&#39;&gt; doit être un entier &gt;=0]</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10"></a>code erreur=1, message=MyException[1, L&#39;identifiant d&#39;une entité &lt;class &#39;Matière.Matière&#39;&gt; doit être un entier &gt;=0]
 <a id="__codelineno-13-11" name="__codelineno-13-11"></a>
-<a id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;identifiant d&#39;</span><span class="n">une</span> <span class="n">entité</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">Note</span><span class="o">.</span><span class="n">Note</span><span class="s1">&#39;&gt; doit être un entier &gt;=0]</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12"></a>code erreur=1, message=MyException[1, L&#39;identifiant d&#39;une entité &lt;class &#39;Note.Note&#39;&gt; doit être un entier &gt;=0]
 <a id="__codelineno-13-13" name="__codelineno-13-13"></a>
-<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="n">Le</span> <span class="n">nom</span> <span class="n">de</span> <span class="n">la</span> <span class="n">matière</span> <span class="mi">1</span> <span class="n">doit</span> <span class="n">être</span> <span class="n">une</span> <span class="n">chaîne</span> <span class="n">de</span> <span class="n">caractères</span> <span class="n">non</span> <span class="n">vide</span><span class="p">]</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14"></a>code erreur=21, message=MyException[21, Le nom de la matière 1 doit être une chaîne de caractères non vide]
 <a id="__codelineno-13-15" name="__codelineno-13-15"></a>
-<a id="__codelineno-13-16" name="__codelineno-13-16"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">22</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="n">Le</span> <span class="n">coefficient</span> <span class="n">de</span> <span class="n">la</span> <span class="n">matière</span> <span class="n">y</span> <span class="n">doit</span> <span class="n">être</span> <span class="n">un</span> <span class="n">réel</span> <span class="o">&gt;=</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-13-16" name="__codelineno-13-16"></a>code erreur=22, message=MyException[22, Le coefficient de la matière y doit être un réel &gt;=0]
 <a id="__codelineno-13-17" name="__codelineno-13-17"></a>
-<a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;attribut x de la note 1 doit être un nombre dans l&#39;</span><span class="n">intervalle</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">]]</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18"></a>code erreur=31, message=MyException[31, L&#39;attribut x de la note 1 doit être un nombre dans l&#39;intervalle [0,20]]
 <a id="__codelineno-13-19" name="__codelineno-13-19"></a>
-<a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">32</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;attribut [y] de la note 1 doit être de type Elève ou dict ou json. Erreur : Expecting value: line 1 column 1 (char 0)]</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20"></a>code erreur=32, message=MyException[32, L&#39;attribut [y] de la note 1 doit être de type Elève ou dict ou json. Erreur : Expecting value: line 1 column 1 (char 0)]
 <a id="__codelineno-13-21" name="__codelineno-13-21"></a>
-<a id="__codelineno-13-22" name="__codelineno-13-22"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">33</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">33</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;attribut [z] de la note 1 doit être de type Matière ou dict ou json. Erreur : Expecting value: line 1 column 1 (char 0)]</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22"></a>code erreur=33, message=MyException[33, L&#39;attribut [z] de la note 1 doit être de type Matière ou dict ou json. Erreur : Expecting value: line 1 column 1 (char 0)]
 <a id="__codelineno-13-23" name="__codelineno-13-23"></a>
-<a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">41</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">41</span><span class="p">,</span> <span class="n">Le</span> <span class="n">nom</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève 1 doit être une chaîne de caractères non vide]</span>
+<a id="__codelineno-13-24" name="__codelineno-13-24"></a>code erreur=41, message=MyException[41, Le nom de l&#39;élève 1 doit être une chaîne de caractères non vide]
 <a id="__codelineno-13-25" name="__codelineno-13-25"></a>
-<a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">42</span><span class="p">,</span> <span class="n">Le</span> <span class="n">prénom</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève 1 doit être une chaîne de caractères non vide]</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26"></a>code erreur=42, message=MyException[42, Le prénom de l&#39;élève 1 doit être une chaîne de caractères non vide]
 <a id="__codelineno-13-27" name="__codelineno-13-27"></a>
-<a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="n">code</span> <span class="n">erreur</span><span class="o">=</span><span class="mi">43</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="n">MyException</span><span class="p">[</span><span class="mi">43</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;attribut [t] de l&#39;</span><span class="n">élève</span> <span class="mi">1</span> <span class="n">doit</span> <span class="n">être</span> <span class="n">de</span> <span class="nb">type</span> <span class="n">Classe</span> <span class="n">ou</span> <span class="nb">dict</span> <span class="n">ou</span> <span class="n">json</span><span class="o">.</span> <span class="n">Erreur</span> <span class="p">:</span> <span class="n">Expecting</span> <span class="n">value</span><span class="p">:</span> <span class="n">line</span> <span class="mi">1</span> <span class="n">column</span> <span class="mi">1</span> <span class="p">(</span><span class="n">char</span> <span class="mi">0</span><span class="p">)]</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28"></a>code erreur=43, message=MyException[43, L&#39;attribut [t] de l&#39;élève 1 doit être de type Classe ou dict ou json. Erreur : Expecting value: line 1 column 1 (char 0)]
 <a id="__codelineno-13-29" name="__codelineno-13-29"></a>
 <a id="__codelineno-13-30" name="__codelineno-13-30"></a>
-<a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="n">Ran</span> <span class="mi">14</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.040</span><span class="n">s</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31"></a>Ran 14 tests in 0.040s
 <a id="__codelineno-13-32" name="__codelineno-13-32"></a>
-<a id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="n">OK</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33"></a>OK
 <a id="__codelineno-13-34" name="__codelineno-13-34"></a>
-<a id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>Ici, tous les tests ont été réussis</p>
 <h3 id="1424-la-couche-dao">14.2.4. La couche [dao]</h3>
@@ -3136,21 +3134,19 @@ Une autre façon d’exécuter une classe de tests est de l’exécuter dans un 
 <p>Une interface est un contrat passé entre code appelant et code appelé. C’est le code appelé qui offre l’interface :</p>
 <p><img src="images/100000000000038A000000E37692A18F.png" style="width:11.951cm;height:2.991cm;" alt="Image" /></p>
 <ul>
-<li>
-<p>le code appelant <strong>[1]</strong> ne connait pas l’implémentation du code appelé <strong>[3]</strong>. Il ne connaît que la façon de l’appeler. C’est l’interface <strong>[2]</strong> qui le lui indique. Celle-ci définit un certain nombre de méthodes / fonctions à utiliser pour interagir avec le code appelé. On appelle également API (Application Programming Interface) cette interface ;
-La couche <strong>[dao]</strong> offrira l&#x27;interface suivante :</p>
-</li>
-<li>
-<p><strong>[get_classes]</strong> rend la liste des classes du collège ;</p>
-</li>
+<li>le code appelant <strong>[1]</strong> ne connait pas l’implémentation du code appelé <strong>[3]</strong>. Il ne connaît que la façon de l’appeler. C’est l’interface <strong>[2]</strong> qui le lui indique. Celle-ci définit un certain nombre de méthodes / fonctions à utiliser pour interagir avec le code appelé. On appelle également API (Application Programming Interface) cette interface ;</li>
+</ul>
+<p>La couche <strong>[dao]</strong> offrira l'interface suivante :</p>
+<ul>
+<li><strong>[get_classes]</strong> rend la liste des classes du collège ;</li>
 <li><strong>[get_matières]</strong> rend la liste des matières enseignées au collège ;</li>
 <li><strong>[get_élèves]</strong> rend la liste des élèves du collège ;</li>
 <li><strong>[get_notes]</strong> rend la liste des notes de tous les élèves ;</li>
 <li><strong>[</strong><strong>get_notes_for_élève_by_id</strong><strong>]</strong> rend les notes d’un élève particulier ;</li>
-<li><strong>[</strong><strong>get_élève_by_id</strong><strong>]</strong> rend un élève repéré par son n° ;
-Le code appelant n&#x27;utilisera que ces méthodes. Il n&#x27;a pas à savoir comment elles sont implémentées. Les données peuvent alors provenir de différentes sources (en dur, d&#x27;une base de données, de fichiers texte…) sans que cela impacte le code appelant. On appelle cela la <strong>programmation par interfaces</strong>.</li>
+<li><strong>[</strong><strong>get_élève_by_id</strong><strong>]</strong> rend un élève repéré par son n° ;</li>
 </ul>
-<p>Python 3 a une notion qui s&#x27;approche de celle d&#x27;interface : la <strong>classe abstraite</strong>. Nous allons l&#x27;utiliser. Nous allons regrouper les interfaces de cet exemple dans le dossier <strong>[interfaces]</strong>.</p>
+<p>Le code appelant n'utilisera que ces méthodes. Il n'a pas à savoir comment elles sont implémentées. Les données peuvent alors provenir de différentes sources (en dur, d'une base de données, de fichiers texte…) sans que cela impacte le code appelant. On appelle cela la <strong>programmation par interfaces</strong>.</p>
+<p>Python 3 a une notion qui s'approche de celle d'interface : la <strong>classe abstraite</strong>. Nous allons l'utiliser. Nous allons regrouper les interfaces de cet exemple dans le dossier <strong>[interfaces]</strong>.</p>
 <p>Nous définissons une classe abstraite <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong> (InterfaceDao.py) pour la couche <strong>[dao]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
@@ -3229,13 +3225,13 @@ Le code appelant n&#x27;utilisera que ces méthodes. Il n&#x27;a pas à savoir c
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>ligne 2 : ABC=Abstract Base Class. On importe du module <strong>[abc]</strong>, la classe ABC ainsi que le décorateur <strong>[abstractmethod]</strong> utilisé aux lignes 10, 15, 20, 25, 30 et 35 ;</li>
-<li>ligne 8 : la classe abstraite s&#x27;appelle <strong>[InterfaceDao]</strong> et dérive de la classe <strong>[ABC]</strong> ;</li>
-<li>les méthodes de la classe abstraite sont décorées avec le décorateur <strong>[</strong><strong>@abstractmethod</strong><strong>]</strong> qui fait de la méthode ainsi décorée une méthode abstraite : son code n&#x27;est pas défini. Néanmoins, on y met du code : l’instruction <strong>[pass]</strong> qui ne fait rien ;</li>
-<li>la classe abstraite <strong>[InterfaceDao]</strong> ne peut être instanciée. Seules peuvent l&#x27;être les classes <strong>dérivées</strong> de <strong>[InterfaceDao]</strong> ayant implémenté toutes les méthodes de <strong>[InterfaceDao]</strong>. Si donc on crée deux classes <strong>[Dao1]</strong> et <strong>[Dao2]</strong> dérivant de la classe <strong>[InterfaceDao]</strong>, elles implémenteront toutes deux les méthodes abstraites de <strong>[InterfaceDao]</strong>. On pourrait dire ainsi qu&#x27;elles implémentent l&#x27;interface <strong>[InterfaceDao]</strong> ;</li>
-<li>les langages implémentant à la fois les interfaces et les classes abstraites donnent à l&#x27;interface un rôle différent de celui de la classe abstraite. Une interface n&#x27;a pas d&#x27;attributs et ne peut être instanciée. Une classe peut implémenter une interface en définissant toutes les méthodes de celle-ci ;</li>
+<li>ligne 8 : la classe abstraite s'appelle <strong>[InterfaceDao]</strong> et dérive de la classe <strong>[ABC]</strong> ;</li>
+<li>les méthodes de la classe abstraite sont décorées avec le décorateur <strong>[</strong><strong>@abstractmethod</strong><strong>]</strong> qui fait de la méthode ainsi décorée une méthode abstraite : son code n'est pas défini. Néanmoins, on y met du code : l’instruction <strong>[pass]</strong> qui ne fait rien ;</li>
+<li>la classe abstraite <strong>[InterfaceDao]</strong> ne peut être instanciée. Seules peuvent l'être les classes <strong>dérivées</strong> de <strong>[InterfaceDao]</strong> ayant implémenté toutes les méthodes de <strong>[InterfaceDao]</strong>. Si donc on crée deux classes <strong>[Dao1]</strong> et <strong>[Dao2]</strong> dérivant de la classe <strong>[InterfaceDao]</strong>, elles implémenteront toutes deux les méthodes abstraites de <strong>[InterfaceDao]</strong>. On pourrait dire ainsi qu'elles implémentent l'interface <strong>[InterfaceDao]</strong> ;</li>
+<li>les langages implémentant à la fois les interfaces et les classes abstraites donnent à l'interface un rôle différent de celui de la classe abstraite. Une interface n'a pas d'attributs et ne peut être instanciée. Une classe peut implémenter une interface en définissant toutes les méthodes de celle-ci ;</li>
 </ul>
 <h4 id="14242-implementation-dao">14.2.4.2. Implémentation [Dao]</h4>
-<p>La classe <strong>[Dao]</strong> (dao.py) implémente l&#x27;interface <strong>[InterfaceDao]</strong> de la façon suivante :</p>
+<p>La classe <strong>[Dao]</strong> (dao.py) implémente l'interface <strong>[InterfaceDao]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
@@ -3322,16 +3318,16 @@ Le code appelant n&#x27;utilisera que ces méthodes. Il n&#x27;a pas à savoir c
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong> :</p>
 <ul>
-<li>lignes 1-7 : on importe les entités et l&#x27;interface <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong> ;</li>
-<li>ligne 11 : la classe <strong>[Dao]</strong> dérive de la classe abstraite <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong>. Nous dirons qu&#x27;elle implémente l&#x27;interface <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong> ;</li>
-<li>ligne 14 : le constructeur n&#x27;a pas de paramètres. Il construit en dur quatre listes :</li>
+<li>lignes 1-7 : on importe les entités et l'interface <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong> ;</li>
+<li>ligne 11 : la classe <strong>[Dao]</strong> dérive de la classe abstraite <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong>. Nous dirons qu'elle implémente l'interface <strong>[</strong><strong>InterfaceDao</strong><strong>]</strong> ;</li>
+<li>ligne 14 : le constructeur n'a pas de paramètres. Il construit en dur quatre listes :</li>
 <li>lignes 15-18 : la liste des classes ;</li>
 <li>lignes 19-22 : la liste des matières ;</li>
 <li>lignes 23-28 : la liste des élèves ;</li>
 <li>lignes 29-38 : la liste des notes ;</li>
-<li>lignes 40-44 : implémentation des méthodes de l’interface <strong>[Interface Dao]</strong>. Ici, nous ne les définissons pas pour voir le message d’erreur émis par Python ;
-Un programme de test pourrait être le suivant <strong>[tests-dao.py]</strong> :</li>
+<li>lignes 40-44 : implémentation des méthodes de l’interface <strong>[Interface Dao]</strong>. Ici, nous ne les définissons pas pour voir le message d’erreur émis par Python ;</li>
 </ul>
+<p>Un programme de test pourrait être le suivant <strong>[tests-dao.py]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
@@ -3382,32 +3378,32 @@ Un programme de test pourrait être le suivant <strong>[tests-dao.py]</strong> 
 <a id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="k">for</span> <span class="n">note</span> <span class="ow">in</span> <span class="n">daoImpl</span><span class="o">.</span><span class="n">get_notes</span><span class="p">():</span>
 <a id="__codelineno-16-25" name="__codelineno-16-25"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">note</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p><strong>Note</strong> : le script <strong>[tests-dao.py]</strong> n&#x27;est pas un test <strong>[unittest]</strong> car il ne contient pas de méthodes avec un nom commençant par <strong>[test_]</strong>.</p>
-<p>Les commentaires se suffisent à eux-mêmes. Les lignes 11-25 utilisent l&#x27;interface de la couche <strong>[dao]</strong>. Il n&#x27;y a pas là d&#x27;hypothèses sur l&#x27;implémentation réelle de la couche. Ligne 9, on instancie la couche <strong>[dao]</strong>.</p>
-<p>Les résultats de l&#x27;exécution de ce script sont les suivants :</p>
+<p><strong>Note</strong> : le script <strong>[tests-dao.py]</strong> n'est pas un test <strong>[unittest]</strong> car il ne contient pas de méthodes avec un nom commençant par <strong>[test_]</strong>.</p>
+<p>Les commentaires se suffisent à eux-mêmes. Les lignes 11-25 utilisent l'interface de la couche <strong>[dao]</strong>. Il n'y a pas là d'hypothèses sur l'implémentation réelle de la couche. Ligne 9, on instancie la couche <strong>[dao]</strong>.</p>
+<p>Les résultats de l'exécution de ce script sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span>
 <span class="normal"><a href="#__codelineno-17-2">2</a></span>
 <span class="normal"><a href="#__codelineno-17-3">3</a></span>
 <span class="normal"><a href="#__codelineno-17-4">4</a></span>
 <span class="normal"><a href="#__codelineno-17-5">5</a></span>
 <span class="normal"><a href="#__codelineno-17-6">6</a></span>
-<span class="normal"><a href="#__codelineno-17-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">tests_dao</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  <span class="n">File</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/tests_dao.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">9</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a>    <span class="n">daoImpl</span> <span class="o">=</span> <span class="n">Dao</span><span class="p">()</span>
-<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="ne">TypeError</span><span class="p">:</span> <span class="n">Can</span><span class="s1">&#39;t instantiate abstract class Dao with abstract methods get_classes, get_matières, get_notes, get_notes_for_élève_by_id, get_élève_by_id, get_élèves</span>
+<span class="normal"><a href="#__codelineno-17-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/tests_dao.py
+<a id="__codelineno-17-2" name="__codelineno-17-2"></a>Traceback (most recent call last):
+<a id="__codelineno-17-3" name="__codelineno-17-3"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/tests_dao.py&quot;, line 9, in &lt;module&gt;
+<a id="__codelineno-17-4" name="__codelineno-17-4"></a>    daoImpl = Dao()
+<a id="__codelineno-17-5" name="__codelineno-17-5"></a>TypeError: Can&#39;t instantiate abstract class Dao with abstract methods get_classes, get_matières, get_notes, get_notes_for_élève_by_id, get_élève_by_id, get_élèves
 <a id="__codelineno-17-6" name="__codelineno-17-6"></a>
-<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">1</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7"></a>Process finished with exit code 1
 </code></pre></div></td></tr></table></div>
-<p>On voit qu&#x27;une erreur se produit dès l&#x27;instanciation de la classe <strong>[Dao]</strong> (ligne 3 ci-dessus). L&#x27;interpréteur Python 3 nous dit qu&#x27;il ne peut instancier la classe, ceci parce que nous n&#x27;avons pas défini les méthodes abstraites <strong>[get_classes, get_matières, get_notes, get_notes_for_élève_by_id, get_élève_by_id, get_élèves]</strong>.</p>
+<p>On voit qu'une erreur se produit dès l'instanciation de la classe <strong>[Dao]</strong> (ligne 3 ci-dessus). L'interpréteur Python 3 nous dit qu'il ne peut instancier la classe, ceci parce que nous n'avons pas défini les méthodes abstraites <strong>[get_classes, get_matières, get_notes, get_notes_for_élève_by_id, get_élève_by_id, get_élèves]</strong>.</p>
 <p>Pycharm a également la notion de classe abstraite et nous propose de définir les méhodes de celle-ci :</p>
 <p><img src="images/10000000000005B5000003042EF1D7AD.png" style="width:16.89cm;height:8.921cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[1]</strong>, cliquer droit sur le code ;</li>
 <li>en <strong>[2-3]</strong>, choisir <strong>[Generate / Implement Methods]</strong> pour implémenter les méthodes manquantes de la classe <strong>[Dao]</strong> ;</li>
-<li>en <strong>[4]</strong>, choisir les méthodes à implémenter, ici toutes ;
-Ceci fait, la classe <strong>[Dao]</strong> est complétée par PyCharm de la façon suivante :</li>
+<li>en <strong>[4]</strong>, choisir les méthodes à implémenter, ici toutes ;</li>
 </ul>
+<p>Ceci fait, la classe <strong>[Dao]</strong> est complétée par PyCharm de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
@@ -3541,9 +3537,9 @@ Ceci fait, la classe <strong>[Dao]</strong> est complétée par PyCharm de la fa
 <li>lignes 22-23 : on commence par rechercher l’élève de n° <strong>[élève_id]</strong> à l’aide de la méthode <strong>[</strong><strong>get_élève_by_id</strong><strong>]</strong> que l’on vient de commenter. Il peut se produire une exception si l’élève cherché n’existe pas. Comme il n’y a pas de try / catch autour de l’instruction de la ligne 23, l’exception remontera au code appelant. C’est ce qui est désiré ;</li>
 <li>lignes 24-25 : une fois l’élève récupéré, on récupère toutes ses notes. On le fait de nouveau avec un filtre :</li>
 <li>le filtre est <strong>[filter(critère, self_getnotes()]</strong>. La liste à filtrer est donc la liste de toutes les notes de tous les élèves du collège ;</li>
-<li>le critère de filtrage est exprimé à l’aide d’une fonction <strong>[lambda]</strong> : lambda n: n.élève.id == élève_id. Le paramètre n est un élément de la liste à filtrer, donc une note. Le type <strong>[Note]</strong> a une propriété <strong>[élève]</strong> qui représente l’élève propriétaire de la note. Il faut alors que <strong>[n.élève.id]</strong> qui représente le n° de cet élève soit égal au numéro de l’élève cherché ;
-Puis nous exécutons le script <strong>[tests-dao.py]</strong>.</li>
+<li>le critère de filtrage est exprimé à l’aide d’une fonction <strong>[lambda]</strong> : lambda n: n.élève.id == élève_id. Le paramètre n est un élément de la liste à filtrer, donc une note. Le type <strong>[Note]</strong> a une propriété <strong>[élève]</strong> qui représente l’élève propriétaire de la note. Il faut alors que <strong>[n.élève.id]</strong> qui représente le n° de cet élève soit égal au numéro de l’élève cherché ;</li>
 </ul>
+<p>Puis nous exécutons le script <strong>[tests-dao.py]</strong>.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
@@ -3635,36 +3631,36 @@ Puis nous exécutons le script <strong>[tests-dao.py]</strong>.</li>
 <span class="normal"><a href="#__codelineno-21-20">20</a></span>
 <span class="normal"><a href="#__codelineno-21-21">21</a></span>
 <span class="normal"><a href="#__codelineno-21-22">22</a></span>
-<span class="normal"><a href="#__codelineno-21-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">tests_dao</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière1&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière2&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}}</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom2&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom2&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}}</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom3&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom3&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}}</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom4&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom4&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}}</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière1&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom2&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom2&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière1&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">14</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom3&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom3&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière1&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom4&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom4&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière1&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}}</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière2&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}}</span>
-<a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">21</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom2&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom2&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière2&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}}</span>
-<a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom3&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom3&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière2&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}}</span>
-<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;valeur&quot;</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;élève&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom4&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom4&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe2&quot;</span><span class="p">}},</span> <span class="s2">&quot;matière&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;matière2&quot;</span><span class="p">,</span> <span class="s2">&quot;coefficient&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}}</span>
-<a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}}</span>
-<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="n">élève</span> <span class="n">n</span><span class="err">°</span> <span class="mi">11</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}}</span>
-<a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="n">note</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève n° 11 = {&quot;id&quot;: 1, &quot;valeur&quot;: 10, &quot;élève&quot;: {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}}</span>
-<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="n">note</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève n° 11 = {&quot;id&quot;: 5, &quot;valeur&quot;: 6, &quot;élève&quot;: {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}}</span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/tests_dao.py
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>{&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>{&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>{&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>{&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>{&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>{&quot;id&quot;: 21, &quot;nom&quot;: &quot;nom2&quot;, &quot;prénom&quot;: &quot;prénom2&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a>{&quot;id&quot;: 32, &quot;nom&quot;: &quot;nom3&quot;, &quot;prénom&quot;: &quot;prénom3&quot;, &quot;classe&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}}
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a>{&quot;id&quot;: 42, &quot;nom&quot;: &quot;nom4&quot;, &quot;prénom&quot;: &quot;prénom4&quot;, &quot;classe&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}}
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a>{&quot;id&quot;: 1, &quot;valeur&quot;: 10, &quot;élève&quot;: {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}}
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a>{&quot;id&quot;: 2, &quot;valeur&quot;: 12, &quot;élève&quot;: {&quot;id&quot;: 21, &quot;nom&quot;: &quot;nom2&quot;, &quot;prénom&quot;: &quot;prénom2&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}}
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a>{&quot;id&quot;: 3, &quot;valeur&quot;: 14, &quot;élève&quot;: {&quot;id&quot;: 32, &quot;nom&quot;: &quot;nom3&quot;, &quot;prénom&quot;: &quot;prénom3&quot;, &quot;classe&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}}
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a>{&quot;id&quot;: 4, &quot;valeur&quot;: 16, &quot;élève&quot;: {&quot;id&quot;: 42, &quot;nom&quot;: &quot;nom4&quot;, &quot;prénom&quot;: &quot;prénom4&quot;, &quot;classe&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}}
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a>{&quot;id&quot;: 5, &quot;valeur&quot;: 6, &quot;élève&quot;: {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}}
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a>{&quot;id&quot;: 6, &quot;valeur&quot;: 8, &quot;élève&quot;: {&quot;id&quot;: 21, &quot;nom&quot;: &quot;nom2&quot;, &quot;prénom&quot;: &quot;prénom2&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}}
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a>{&quot;id&quot;: 7, &quot;valeur&quot;: 10, &quot;élève&quot;: {&quot;id&quot;: 32, &quot;nom&quot;: &quot;nom3&quot;, &quot;prénom&quot;: &quot;prénom3&quot;, &quot;classe&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}}
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a>{&quot;id&quot;: 8, &quot;valeur&quot;: 12, &quot;élève&quot;: {&quot;id&quot;: 42, &quot;nom&quot;: &quot;nom4&quot;, &quot;prénom&quot;: &quot;prénom4&quot;, &quot;classe&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;classe2&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}}
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a>{&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a>élève n° 11 = {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a>note de l&#39;élève n° 11 = {&quot;id&quot;: 1, &quot;valeur&quot;: 10, &quot;élève&quot;: {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;matière1&quot;, &quot;coefficient&quot;: 1}}
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a>note de l&#39;élève n° 11 = {&quot;id&quot;: 5, &quot;valeur&quot;: 6, &quot;élève&quot;: {&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, &quot;matière&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;matière2&quot;, &quot;coefficient&quot;: 2}}
 <a id="__codelineno-21-22" name="__codelineno-21-22"></a>
-<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>On pourra remarquer que lorsqu’on affiche une note (pour les autres objets, c’est similaire), on a également :</p>
 <ul>
 <li>l’élève propriétaire de la note ;</li>
-<li>la matière référencée par la note ;
-C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résultat (cf. paragraphe <a href="#_La_classe_[BaseEntity]"><u><u>lien</u></u></a>).</li>
+<li>la matière référencée par la note ;</li>
 </ul>
+<p>C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résultat (cf. paragraphe <a href="#_La_classe_[BaseEntity]"><u><u>lien</u></u></a>).</p>
 <h3 id="1425-la-couche-metier">14.2.5. La couche [métier]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000250000000E5BCFA285A.png" style="display:inline-block; margin:4px;width:7.062cm;height:2.731cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019E0000029B19CC59FA.png" style="display:inline-block; margin:4px;width:4.31cm;height:6.921cm;" /></td></tr></table>
 
@@ -3674,7 +3670,7 @@ C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résulta
 <li><strong>[Testmétier]</strong> est une classe <strong>[UnitTest]</strong> de test de la classe <strong>[Métier]</strong> ;</li>
 </ul>
 <h4 id="14251-interface-interfacemetier">14.2.5.1. Interface [InterfaceMétier]</h4>
-<p>La couche <strong>[métier]</strong> implémentera l&#x27;interface <strong>[InterfaceMétier]</strong> suivante (InterfaceMétier.py) :</p>
+<p>La couche <strong>[métier]</strong> implémentera l'interface <strong>[InterfaceMétier]</strong> suivante (InterfaceMétier.py) :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
@@ -3700,10 +3696,10 @@ C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résulta
 <a id="__codelineno-22-12" name="__codelineno-22-12"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li><strong>[get_stats_for_élève]</strong> rend les notes de l&#x27;élève n° idElève ainsi que des informations sur celles-ci : moyenne pondérée, note la plus basse, note la plus haute. Ces informations sont encapsulées dans un objet de type <strong>[</strong><strong>StatsForElève</strong><strong>]</strong> ;</li>
+<li><strong>[get_stats_for_élève]</strong> rend les notes de l'élève n° idElève ainsi que des informations sur celles-ci : moyenne pondérée, note la plus basse, note la plus haute. Ces informations sont encapsulées dans un objet de type <strong>[</strong><strong>StatsForElève</strong><strong>]</strong> ;</li>
 </ul>
-<h4 id="14252-lentite-statsforeleve">14.2.5.2. L&#x27;entité [StatsForElève]</h4>
-<p>Le type <strong>[StatsForElève]</strong> (StatsForElève.py) qui encapsule les statistiques (notes, min, max, moyenne pondérée) d&#x27;un élève est le suivant :</p>
+<h4 id="14252-lentite-statsforeleve">14.2.5.2. L'entité [StatsForElève]</h4>
+<p>Le type <strong>[StatsForElève]</strong> (StatsForElève.py) qui encapsule les statistiques (notes, min, max, moyenne pondérée) d'un élève est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
@@ -3777,16 +3773,16 @@ C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résulta
 <li>ligne 8 : la classe <strong>[StatsForElève]</strong> dérive de la classe <strong>[BaseEntity]</strong> ;</li>
 <li>lignes 13-22 : les propriétés de la classe ;</li>
 <li>un identifiant <strong>[id]</strong> provenant de <strong>[BaseEntity]</strong> ;</li>
-<li>l&#x27;élève <strong>[élève]</strong> dont on encapsile les statistiques ;</li>
+<li>l'élève <strong>[élève]</strong> dont on encapsile les statistiques ;</li>
 <li>ses notes <strong>[notes]</strong> ;</li>
 <li>sa moyenne pondérée <strong>[moyenne_pondérée]</strong> ;</li>
 <li>sa note minimale <strong>[min]</strong> ;</li>
 <li>sa note maximale <strong>[max]</strong> ;</li>
-<li>on ne définit pas de getters / setters pour ces attributs. On part du principe que c&#x27;est la couche <strong>[métier]</strong> qui crée des objets de ce type et que celle-ci ne crée pas d&#x27;objets invalides ;</li>
-<li>lignes 23-33 : la fonction <strong>[<strong>str</strong>]</strong> rend une chaîne de caractères reprenant les propriétés de l’objet ;</li>
+<li>on ne définit pas de getters / setters pour ces attributs. On part du principe que c'est la couche <strong>[métier]</strong> qui crée des objets de ce type et que celle-ci ne crée pas d'objets invalides ;</li>
+<li>lignes 23-33 : la fonction <strong>[__str__]</strong> rend une chaîne de caractères reprenant les propriétés de l’objet ;</li>
 </ul>
-<h4 id="14253-limplementation-metier">14.2.5.3. L&#x27;implémentation [Métier]</h4>
-<p>L&#x27;implémentation <strong>[</strong><strong>Métier</strong><strong>]</strong> (Metier.py) de l&#x27;interface <strong>[</strong><strong>InterfaceMétier</strong><strong>]</strong> sera la suivante :</p>
+<h4 id="14253-limplementation-metier">14.2.5.3. L'implémentation [Métier]</h4>
+<p>L'implémentation <strong>[</strong><strong>Métier</strong><strong>]</strong> (Metier.py) de l'interface <strong>[</strong><strong>InterfaceMétier</strong><strong>]</strong> sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
@@ -3986,9 +3982,9 @@ C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résulta
 <li>ligne 19 : on affiche le résultat <strong>[StatsForElève]</strong> obtenu. Comme <strong>[StatsForElève]</strong> dérive de <strong>[BaseEntity]</strong>, c’est la chaîne jSON de <strong>[StatsForElève]</strong> qui est ici affichée ;</li>
 <li>ligne 21 : on vérifie la note minimale de l’élève ;</li>
 <li>ligne 22 : on vérifie sa note maximale ;</li>
-<li>ligne 23 : on teste que la moyenne pondérée vaut 7,333 à 10-3 près. En général, il n&#x27;est pas possible de comparer les nombres réels de façon exacte car de façon interne, ils n&#x27;ont le plus souvent qu&#x27;une représentation approchée ; 
-Les résultats du test sont les suivants :</li>
+<li>ligne 23 : on teste que la moyenne pondérée vaut 7,333 à 10-3 près. En général, il n'est pas possible de comparer les nombres réels de façon exacte car de façon interne, ils n'ont le plus souvent qu'une représentation approchée ; </li>
 </ul>
+<p>Les résultats du test sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-26-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-26-3"> 3</a></span>
@@ -4001,19 +3997,19 @@ Les résultats du test sont les suivants :</li>
 <span class="normal"><a href="#__codelineno-26-10">10</a></span>
 <span class="normal"><a href="#__codelineno-26-11">11</a></span>
 <span class="normal"><a href="#__codelineno-26-12">12</a></span>
-<span class="normal"><a href="#__codelineno-26-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="n">Testing</span> <span class="n">started</span> <span class="n">at</span> <span class="mi">18</span><span class="p">:</span><span class="mi">17</span> <span class="o">...</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="s2">&quot;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py&quot;</span> <span class="o">--</span><span class="n">path</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestMétier</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="n">Launching</span> <span class="n">unittests</span> <span class="k">with</span> <span class="n">arguments</span> <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">unittest</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestMétier</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">troiscouches</span>\<span class="n">v01</span>\<span class="n">tests</span>
+<span class="normal"><a href="#__codelineno-26-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>Testing started at 18:17 ...
+<a id="__codelineno-26-2" name="__codelineno-26-2"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe &quot;C:\Program Files\JetBrains\PyCharm Community Edition 2020.1.2\plugins\python-ce\helpers\pycharm\_jb_unittest_runner.py&quot; --path C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/TestMétier.py
+<a id="__codelineno-26-3" name="__codelineno-26-3"></a>Launching unittests with arguments python -m unittest C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/tests/TestMétier.py in C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\troiscouches\v01\tests
 <a id="__codelineno-26-4" name="__codelineno-26-4"></a>
 <a id="__codelineno-26-5" name="__codelineno-26-5"></a>
 <a id="__codelineno-26-6" name="__codelineno-26-6"></a>
-<a id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="n">Ran</span> <span class="mi">1</span> <span class="n">test</span> <span class="ow">in</span> <span class="mf">0.015</span><span class="n">s</span>
+<a id="__codelineno-26-7" name="__codelineno-26-7"></a>Ran 1 test in 0.015s
 <a id="__codelineno-26-8" name="__codelineno-26-8"></a>
-<a id="__codelineno-26-9" name="__codelineno-26-9"></a><span class="n">OK</span>
+<a id="__codelineno-26-9" name="__codelineno-26-9"></a>OK
 <a id="__codelineno-26-10" name="__codelineno-26-10"></a>
-<a id="__codelineno-26-11" name="__codelineno-26-11"></a><span class="n">stats</span><span class="o">=</span><span class="n">Elève</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}},</span> <span class="n">notes</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span> <span class="mi">6</span><span class="p">],</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">moyenne</span> <span class="n">pondérée</span><span class="o">=</span><span class="mf">7.33</span>
+<a id="__codelineno-26-11" name="__codelineno-26-11"></a>stats=Elève={&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, notes=[10 6], max=10, min=6, moyenne pondérée=7.33
 <a id="__codelineno-26-12" name="__codelineno-26-12"></a>
-<a id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-26-13" name="__codelineno-26-13"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <h3 id="1426-la-couche-ui">14.2.6. La couche [ui]</h3>
 <p><img src="images/100000000000053C00000277D270FF4C.png" style="width:15.47cm;height:7.28cm;" alt="Image" /></p>
@@ -4023,7 +4019,7 @@ Les résultats du test sont les suivants :</li>
 <li>en <strong>[3]</strong>, le script principal de l’application ;</li>
 </ul>
 <h4 id="14261-interface-interfaceui">14.2.6.1. Interface [InterfaceUi]</h4>
-<p>L&#x27;interface de la couche <strong>[UI]</strong> sera la suivante :</p>
+<p>L'interface de la couche <strong>[UI]</strong> sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
@@ -4046,9 +4042,9 @@ Les résultats du test sont les suivants :</li>
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong></p>
 <ul>
-<li>lignes 9-10 : la couche <strong>[UI]</strong> n&#x27;aura qu&#x27;une méthode, <strong>[run]</strong> ;</li>
+<li>lignes 9-10 : la couche <strong>[UI]</strong> n'aura qu'une méthode, <strong>[run]</strong> ;</li>
 </ul>
-<h4 id="14262-limplementation-console">14.2.6.2. L&#x27;implémentation [Console]</h4>
+<h4 id="14262-limplementation-console">14.2.6.2. L'implémentation [Console]</h4>
 <p>La couche <strong>[console]</strong> est implémentée par le script <strong>[Console.py]</strong> suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-28-2"> 2</a></span>
@@ -4148,9 +4144,9 @@ Les résultats du test sont les suivants :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 3-5 : import de toutes les interfaces ;</li>
-<li>ligne 11 : la classe <strong>[Console]</strong> implémente l&#x27;interface <strong>[</strong><strong>InterfaceUi</strong><strong>]</strong> ;</li>
+<li>ligne 11 : la classe <strong>[Console]</strong> implémente l'interface <strong>[</strong><strong>InterfaceUi</strong><strong>]</strong> ;</li>
 <li>lignes 12-17 : le constructeur de la classe <strong>[Console]</strong> reçoit en paramètre une référence sur la couche <strong>[métier]</strong>. On notera qu’on a donné le type <strong>[InterfaceMétier]</strong> à ce paramètre pour rappeler qu’on travaille avec des interfaces plutôt qu’avec des implémentations précises ;</li>
-<li>ligne 24 : implémentation de la méthode <strong>[run]</strong> de l&#x27;interface ;</li>
+<li>ligne 24 : implémentation de la méthode <strong>[run]</strong> de l'interface ;</li>
 <li>ligne 27 : une boucle qui s’arrête lorsque la condition de la ligne 31 est vérifiée ;</li>
 <li>ligne 29 : saisie d’une donnée tapée au clavier. La fonction <strong>[input]</strong> reçoit un paramètre facultatif : le message à écrire sur l’écran pour demander la saisie. Celle-ci est toujours récupérée comme une chaîne de caractères. La fonction <strong>[strip]</strong> débarrasse celle-ci de ses « blancs » qui la suivent ou la précèdent ;</li>
 <li>lignes 34-39 : on vérifie que la saisie, un n° d’élève, est valide. Il faut que ce soit un entier &gt;=1. On rappelle que la saisie a été faite en tant que chaîne de caractères ;</li>
@@ -4219,11 +4215,11 @@ Les résultats du test sont les suivants :</li>
 <li>ligne 14 : instanciation de la couche <strong>[dao]</strong> ;</li>
 <li>ligne 16 : instanciation de la couche <strong>[métier]</strong> ;</li>
 <li>ligne 18 : instanciation de la couche <strong>[ui]</strong> ;</li>
-<li>ligne 20 : on lance le dialogue avec l&#x27;utilisateur ;</li>
+<li>ligne 20 : on lance le dialogue avec l'utilisateur ;</li>
 <li>lignes 13-20 : normalement aucune exception ne sort de ces lignes. Celles qui remontent des couches <strong>[dao]</strong> et <strong>[métier]</strong> sont arrêtées par la couche <strong>[Console]</strong>. La gestion des exceptions est un art difficile lorsqu’on ne connaît pas parfaitement les couches utilisées (ici ce n’est pas le cas). Dans le cas de doutes, on peut ajouter du code pour arrêter tout type d’exception pouvant être lancé par le code exécuté. C’est ce qui est fait ici, lignes 21-23. On arrête toute exception dérivant de <strong>[BaseException]</strong>, ç-à-d toutes les exceptions ;</li>
-<li>lignes 24-25 : la clause <strong>[finally]</strong> ne fait rien ici. Elle n’est là que pour pouvoir mettre en commentaires les lignes 21-23. En effet, en mode débogage on n’a pas intérêt à arrêter les exceptions. Dans ce cas, c’est l’interpréteur Python qui les arrête et il donne alors le n° de la ligne où l’exception s’est produite. Une information indispensable. Lorsque les lignes 21-23 sont mises en commentaires, la présence des lignes 24-25 permet d’avoir un try/catch syntaxiquement correct. En leur absence, Python déclare une erreur ;
-Voici un exemple d&#x27;exécution :</li>
+<li>lignes 24-25 : la clause <strong>[finally]</strong> ne fait rien ici. Elle n’est là que pour pouvoir mettre en commentaires les lignes 21-23. En effet, en mode débogage on n’a pas intérêt à arrêter les exceptions. Dans ce cas, c’est l’interpréteur Python qui les arrête et il donne alors le n° de la ligne où l’exception s’est produite. Une information indispensable. Lorsque les lignes 21-23 sont mises en commentaires, la présence des lignes 24-25 permet d’avoir un try/catch syntaxiquement correct. En leur absence, Python déclare une erreur ;</li>
 </ul>
+<p>Voici un exemple d'exécution :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span>
 <span class="normal"><a href="#__codelineno-30-2">2</a></span>
 <span class="normal"><a href="#__codelineno-30-3">3</a></span>
@@ -4231,14 +4227,14 @@ Voici un exemple d&#x27;exécution :</li>
 <span class="normal"><a href="#__codelineno-30-5">5</a></span>
 <span class="normal"><a href="#__codelineno-30-6">6</a></span>
 <span class="normal"><a href="#__codelineno-30-7">7</a></span>
-<span class="normal"><a href="#__codelineno-30-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v01</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="n">Numéro</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève (&gt;=1 et * pour arrêter) : 11</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="n">Elève</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;nom1&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;prénom1&quot;</span><span class="p">,</span> <span class="s2">&quot;classe&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;classe1&quot;</span><span class="p">}},</span> <span class="n">notes</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span> <span class="mi">6</span><span class="p">],</span> <span class="nb">max</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">moyenne</span> <span class="n">pondérée</span><span class="o">=</span><span class="mf">7.33</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="n">Numéro</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève (&gt;=1 et * pour arrêter) : 1</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="n">L</span><span class="s1">&#39;erreur suivante s&#39;</span><span class="n">est</span> <span class="n">produite</span> <span class="p">:</span> <span class="n">MyException</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;élève d&#39;</span><span class="n">identifiant</span> <span class="mi">1</span> <span class="n">n</span><span class="s1">&#39;existe pas]</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="n">Numéro</span> <span class="n">de</span> <span class="n">l</span><span class="s1">&#39;élève (&gt;=1 et * pour arrêter) : *</span>
+<span class="normal"><a href="#__codelineno-30-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v01/main/main.py
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>Numéro de l&#39;élève (&gt;=1 et * pour arrêter) : 11
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>Elève={&quot;id&quot;: 11, &quot;nom&quot;: &quot;nom1&quot;, &quot;prénom&quot;: &quot;prénom1&quot;, &quot;classe&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;classe1&quot;}}, notes=[10 6], max=10, min=6, moyenne pondérée=7.33
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>Numéro de l&#39;élève (&gt;=1 et * pour arrêter) : 1
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>L&#39;erreur suivante s&#39;est produite : MyException[10, L&#39;élève d&#39;identifiant 1 n&#39;existe pas]
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>Numéro de l&#39;élève (&gt;=1 et * pour arrêter) : *
 <a id="__codelineno-30-7" name="__codelineno-30-7"></a>
-<a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <h2 id="144-exemple-2">14.4. Exemple 2</h2>
 <p>Ce nouvel exemple d’architectures en couches vise à montrer l’intérêt de la programmation par interfaces. Celle-ci facilite la maintenance et le test des applications. Nous utiliserons de nouveau une architecture à trois couches :</p>
@@ -4268,9 +4264,9 @@ Voici un exemple d&#x27;exécution :</li>
 <a id="__codelineno-31-10" name="__codelineno-31-10"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 8-10: la méthode <strong>[</strong><strong>do_something_in_dao_layer</strong><strong>]</strong> est l’unique méthode de l’interface ;
-La classe <strong>[DaoImpl1]</strong> implémente l’interface <strong>[InterfaceDao]</strong> de la façon suivante :</li>
+<li>lignes 8-10: la méthode <strong>[</strong><strong>do_something_in_dao_layer</strong><strong>]</strong> est l’unique méthode de l’interface ;</li>
 </ul>
+<p>La classe <strong>[DaoImpl1]</strong> implémente l’interface <strong>[InterfaceDao]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1">1</a></span>
 <span class="normal"><a href="#__codelineno-32-2">2</a></span>
 <span class="normal"><a href="#__codelineno-32-3">3</a></span>
@@ -4324,9 +4320,9 @@ La classe <strong>[DaoImpl1]</strong> implémente l’interface <strong>[Interfa
 <a id="__codelineno-34-10" name="__codelineno-34-10"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 8-10: la méthode <strong>[</strong><strong>do_something_in_métier_layer</strong><strong>]</strong> est l’unique méthode de l’interface ;
-La classe <strong>[AbstractBaseMétier]</strong> implémente l’interface <strong>[InterfaceMétier]</strong> de la façon suivante :</li>
+<li>lignes 8-10: la méthode <strong>[</strong><strong>do_something_in_métier_layer</strong><strong>]</strong> est l’unique méthode de l’interface ;</li>
 </ul>
+<p>La classe <strong>[AbstractBaseMétier]</strong> implémente l’interface <strong>[InterfaceMétier]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-35-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-35-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-35-3"> 3</a></span>
@@ -4375,15 +4371,13 @@ La classe <strong>[AbstractBaseMétier]</strong> implémente l’interface <stro
 <li>ligne 8 : la classe <strong>[AbstractBaseMétier]</strong> dérive deux classes :</li>
 <li><strong>[InterfaceMétier]</strong> : la classe <strong>[AbstractBaseMétier]</strong> implémente cette interface aux lignes 19-22. En fait on voit qu’elle n’a pas implémenté la méthode <strong>[</strong><strong>do_something_in_métier_layer</strong><strong>]</strong> qu’elle a déclarée abstraite (ligne 20). Ce sera aux classes dérivées d’implémenter la méthode;</li>
 <li><strong>[ABC]</strong> pour avoir accès aux annotations <strong>[</strong><strong>@abstractmethod</strong><strong>]</strong> ;</li>
-<li>
-<p>l’ordre a un sens : si on l’inverse ici, Python déclare une erreur à l’exécution ;
-C’est la première fois qu’on utilise l’héritage multiple (hériter de plusieurs classes). La classe <strong>[AbstractBaseMétier]</strong> hérite, à la fois, des propriétés des classes <strong>[InterfaceMétier]</strong> et <strong>[ABC]</strong>.</p>
-</li>
-<li>
-<p>lignes 9-17 : on définit la propriété <strong>[dao]</strong> qui sera une référence sur la couche <strong>[dao]</strong> ;
-Une interface est destinée à être implémentée. Lorsque des implémentations différentes partagent des propriétés il est intéressant de mettre celles-ci dans une classe parent afin d’éviter de les dupliquer. C’est le cas ici de la propriété <strong>[dao]</strong>. La classe parent est en général toujours abstraite parce qu’elle ne sait pas implémenter toutes les méthodes de l’interface.</p>
-</li>
+<li>l’ordre a un sens : si on l’inverse ici, Python déclare une erreur à l’exécution ;</li>
 </ul>
+<p>C’est la première fois qu’on utilise l’héritage multiple (hériter de plusieurs classes). La classe <strong>[AbstractBaseMétier]</strong> hérite, à la fois, des propriétés des classes <strong>[InterfaceMétier]</strong> et <strong>[ABC]</strong>.</p>
+<ul>
+<li>lignes 9-17 : on définit la propriété <strong>[dao]</strong> qui sera une référence sur la couche <strong>[dao]</strong> ;</li>
+</ul>
+<p>Une interface est destinée à être implémentée. Lorsque des implémentations différentes partagent des propriétés il est intéressant de mettre celles-ci dans une classe parent afin d’éviter de les dupliquer. C’est le cas ici de la propriété <strong>[dao]</strong>. La classe parent est en général toujours abstraite parce qu’elle ne sait pas implémenter toutes les méthodes de l’interface.</p>
 <p>La classe <strong>[MétierImpl1]</strong> implémente l’interface <strong>[InterfaceMétier]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-36-1">1</a></span>
 <span class="normal"><a href="#__codelineno-36-2">2</a></span>
@@ -4406,9 +4400,9 @@ Une interface est destinée à être implémentée. Lorsque des implémentations
 <ul>
 <li>ligne 4 : la classe <strong>[MétierImpl1]</strong> dérive de la classe <strong>[AbstractbaseMétier]</strong>. Elle hérite donc de la propriété <strong>[dao]</strong> de cette classe ;</li>
 <li>lignes 6-9 : implémentation de l’interface <strong>[InterfaceMétier]</strong> que n’a pas implémentée la classe parent <strong>[AbstractbaseMétier]</strong> ;</li>
-<li>ligne 9 : on utilise la couche <strong>[dao]</strong> ;
-La classe <strong>[MétierImpl2]</strong> implémente l’interface <strong>[InterfaceMétier]</strong> de façon analogue :</li>
+<li>ligne 9 : on utilise la couche <strong>[dao]</strong> ;</li>
 </ul>
+<p>La classe <strong>[MétierImpl2]</strong> implémente l’interface <strong>[InterfaceMétier]</strong> de façon analogue :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-37-1">1</a></span>
 <span class="normal"><a href="#__codelineno-37-2">2</a></span>
 <span class="normal"><a href="#__codelineno-37-3">3</a></span>
@@ -4451,9 +4445,9 @@ La classe <strong>[MétierImpl2]</strong> implémente l’interface <strong>[Int
 <a id="__codelineno-38-10" name="__codelineno-38-10"></a>        <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 8-10 : l’unique méthode de l’interface ;
-La classe <strong>[AbstractBaseUi]</strong> implémente l’interface <strong>[InterfaceUi]</strong> de la façon suivante :</li>
+<li>lignes 8-10 : l’unique méthode de l’interface ;</li>
 </ul>
+<p>La classe <strong>[AbstractBaseUi]</strong> implémente l’interface <strong>[InterfaceUi]</strong> de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-39-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-39-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-39-3"> 3</a></span>
@@ -4500,9 +4494,9 @@ La classe <strong>[AbstractBaseUi]</strong> implémente l’interface <strong>[I
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>la classe <strong>[AbstractBaseUi]</strong> est une classe abstraite (ligne 20). Elle devra être dérivée pour implémenter l’interface <strong>[InterfaceUi]</strong> ;</li>
-<li>lignes 9-17 : la classe <strong>[AbstractBaseUi]</strong> possède une référence sur la couche <strong>[métier]</strong> ;
-La classe d’implémentation <strong>[UiImpl1]</strong> est la suivante :</li>
+<li>lignes 9-17 : la classe <strong>[AbstractBaseUi]</strong> possède une référence sur la couche <strong>[métier]</strong> ;</li>
 </ul>
+<p>La classe d’implémentation <strong>[UiImpl1]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-40-1">1</a></span>
 <span class="normal"><a href="#__codelineno-40-2">2</a></span>
 <span class="normal"><a href="#__codelineno-40-3">3</a></span>
@@ -4522,9 +4516,9 @@ La classe d’implémentation <strong>[UiImpl1]</strong> est la suivante :</li>
 <a id="__codelineno-40-9" name="__codelineno-40-9"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">métier</span><span class="o">.</span><span class="n">do_something_in_métier_layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 4 : la classe <strong>[UiImpl1]</strong> dérive de la classe <strong>[AbstractBaseUi]</strong> et hérite donc de sa propriété <strong>[métier]</strong>. Celle-ci est utilisée ligne 9 ;
-La classe d’implémentation <strong>[UiImpl2]</strong> est analogue :</li>
+<li>ligne 4 : la classe <strong>[UiImpl1]</strong> dérive de la classe <strong>[AbstractBaseUi]</strong> et hérite donc de sa propriété <strong>[métier]</strong>. Celle-ci est utilisée ligne 9 ;</li>
 </ul>
+<p>La classe d’implémentation <strong>[UiImpl2]</strong> est analogue :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-41-1">1</a></span>
 <span class="normal"><a href="#__codelineno-41-2">2</a></span>
 <span class="normal"><a href="#__codelineno-41-3">3</a></span>
@@ -4550,9 +4544,9 @@ La classe d’implémentation <strong>[UiImpl2]</strong> est analogue :</li>
 <p><img src="images/100000000000015500000175811D8558.png" style="width:3.931cm;height:4.301cm;" alt="Image" /></p>
 <ul>
 <li>les fichiers <strong>[config1, config2]</strong> configurent l’application de deux façons différentes ;</li>
-<li>le fichier <strong>[main]</strong> est le script principal de l’application ;
-Le fichier <strong>[config1]</strong> est le suivant :</li>
+<li>le fichier <strong>[main]</strong> est le script principal de l’application ;</li>
 </ul>
+<p>Le fichier <strong>[config1]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-42-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-42-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-42-3"> 3</a></span>
@@ -4632,9 +4626,9 @@ Le fichier <strong>[config1]</strong> est le suivant :</li>
 <ul>
 <li>lignes 2-16 : configuration du Python Path de l’application ;</li>
 <li>lignes 18-31 : instanciation des couches <strong>[dao, métier, ui]</strong>. Pour implémenter leurs interfaces, on choisit à chaque fois la 1ère implémentation construite ;</li>
-<li>lignes 33-35 : on met les références de couches dans la configuration. Ici, le script principal n’a besoin que de la couche <strong>[ui]</strong> ;
-Le fichier <strong>[config2]</strong> est analogue et implémente chaque interface avec la 2ième implémentation disponible :</li>
+<li>lignes 33-35 : on met les références de couches dans la configuration. Ici, le script principal n’a besoin que de la couche <strong>[ui]</strong> ;</li>
 </ul>
+<p>Le fichier <strong>[config2]</strong> est analogue et implémente chaque interface avec la 2ième implémentation disponible :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-43-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-43-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-43-3"> 3</a></span>
@@ -4755,18 +4749,16 @@ Le fichier <strong>[config2]</strong> est analogue et implémente chaque interfa
 <p>Ce script reçoit un paramètre :</p>
 <ul>
 <li><strong>[config1]</strong> pour utiliser la configuration n° 1 ;</li>
-<li>
-<p><strong>[config2]</strong> pour utiliser la configuration n° 2 ;
-Python enregistre les paramètres dans une liste <strong>[sys.argv]</strong> :</p>
-</li>
-<li>
-<p>sys.argv<strong>[0]</strong> est le nom du script, ici <strong>[main]</strong>. Ce paramètre est toujours présent ;</p>
-</li>
+<li><strong>[config2]</strong> pour utiliser la configuration n° 2 ;</li>
+</ul>
+<p>Python enregistre les paramètres dans une liste <strong>[sys.argv]</strong> :</p>
+<ul>
+<li>sys.argv<strong>[0]</strong> est le nom du script, ici <strong>[main]</strong>. Ce paramètre est toujours présent ;</li>
 <li>sys.argv<strong>[1]</strong> est le 1er paramètre passé au script, sys.argv<strong>[2]</strong> le 2ième, …</li>
 <li>ligne 8 : on récupère le nombre de paramètres ;</li>
-<li>lignes 9-11 : on vérifie qu’il y a bien un paramètre et que sa valeur est soit <strong>[config1]</strong>, soit <strong>[config2]</strong>. Si ce n’est pas le cas, un message d’erreur est affiché (ligne 10) et on quitte le programme (ligne 11) ;
-Une fois connue la configuration souhaitée, il nous faut exécuter cette configuration. Par exemple, si c’est la configuration 1 qui a été choisie, il nous faut exécuter le code :</li>
+<li>lignes 9-11 : on vérifie qu’il y a bien un paramètre et que sa valeur est soit <strong>[config1]</strong>, soit <strong>[config2]</strong>. Si ce n’est pas le cas, un message d’erreur est affiché (ligne 10) et on quitte le programme (ligne 11) ;</li>
 </ul>
+<p>Une fois connue la configuration souhaitée, il nous faut exécuter cette configuration. Par exemple, si c’est la configuration 1 qui a été choisie, il nous faut exécuter le code :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-45-1">1</a></span>
 <span class="normal"><a href="#__codelineno-45-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config1</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2"></a><span class="n">config1</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
@@ -4775,9 +4767,9 @@ Une fois connue la configuration souhaitée, il nous faut exécuter cette config
 <ul>
 <li>ligne 14 : on importe le module dont le nom est dans <strong>[sys.argv[1]</strong> ;</li>
 <li>ligne 15 : ceci fait, on exécute la fonction <strong>[configure]</strong> de ce module. On récupère un dictionnaire <strong>[config]</strong> qui est la configuration de l’application ;</li>
-<li>ligne 18 : on sait qu’une référence de la couche <strong>[ui]</strong> est dans config<strong>[‘ui’]</strong>. On l’utilise pour appeler la méthode <strong>[</strong><strong>do_something_in_ui_layer</strong><strong>]</strong>. On sait que cette méthode va appeler une méthode de la couche <strong>[métier]</strong> qui elle-même va appeler une méthode de la couche <strong>[dao]</strong> ;
-Par exemple, la fonction <strong>[</strong><strong>do_something_in_ui_layer</strong><strong>]</strong> est la suivante :</li>
+<li>ligne 18 : on sait qu’une référence de la couche <strong>[ui]</strong> est dans config<strong>[‘ui’]</strong>. On l’utilise pour appeler la méthode <strong>[</strong><strong>do_something_in_ui_layer</strong><strong>]</strong>. On sait que cette méthode va appeler une méthode de la couche <strong>[métier]</strong> qui elle-même va appeler une méthode de la couche <strong>[dao]</strong> ;</li>
 </ul>
+<p>Par exemple, la fonction <strong>[</strong><strong>do_something_in_ui_layer</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-46-1">1</a></span>
 <span class="normal"><a href="#__codelineno-46-2">2</a></span>
 <span class="normal"><a href="#__codelineno-46-3">3</a></span>
@@ -4791,26 +4783,24 @@ Par exemple, la fonction <strong>[</strong><strong>do_something_in_ui_layer</str
 <a id="__codelineno-46-6" name="__codelineno-46-6"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">métier</span><span class="o">.</span><span class="n">do_something_in_métier_layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>
-<p>ligne 6 ci-dessus utilise la propriété <strong>[métier]</strong> de la classe <strong>[UiImpl1]</strong>, ligne 1. Or dans la configuration <strong>[config1]</strong> il a été écrit :
+<li>ligne 6 ci-dessus utilise la propriété <strong>[métier]</strong> de la classe <strong>[UiImpl1]</strong>, ligne 1. Or dans la configuration <strong>[config1]</strong> il a été écrit :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-47-1">1</a></span>
 <span class="normal"><a href="#__codelineno-47-2">2</a></span>
 <span class="normal"><a href="#__codelineno-47-3">3</a></span>
 <span class="normal"><a href="#__codelineno-47-4">4</a></span>
 <span class="normal"><a href="#__codelineno-47-5">5</a></span>
-<span class="normal"><a href="#__codelineno-47-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a><span class="c1"># métier</span>
-<a id="__codelineno-47-2" name="__codelineno-47-2"></a>    <span class="n">métier</span> <span class="o">=</span> <span class="n">MétierImpl1</span><span class="p">()</span>
-<a id="__codelineno-47-3" name="__codelineno-47-3"></a>    <span class="n">métier</span><span class="o">.</span><span class="n">dao</span> <span class="o">=</span> <span class="n">dao</span>
-<a id="__codelineno-47-4" name="__codelineno-47-4"></a>    <span class="c1"># ui</span>
-<a id="__codelineno-47-5" name="__codelineno-47-5"></a>    <span class="n">ui</span> <span class="o">=</span> <span class="n">UiImpl1</span><span class="p">()</span>
-<a id="__codelineno-47-6" name="__codelineno-47-6"></a>    <span class="n">ui</span><span class="o">.</span><span class="n">métier</span> <span class="o">=</span> <span class="n">métier</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>ligne 6 : la propriété <strong>[métier]</strong> de <strong>[UIImpl1]</strong> est une référence à la classe <strong>[MétierImpl1]</strong> (ligne 2). Ainsi c’est la méthode <strong>[do_something_in_ui_layer]</strong> de la classe <strong>[MétierImpl1]</strong> qui va être exécutée ;
-Dans la classe <strong>[MétierUiImpl1]</strong>, il est écrit :</p>
-</li>
+<span class="normal"><a href="#__codelineno-47-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1"></a># métier
+<a id="__codelineno-47-2" name="__codelineno-47-2"></a>    métier = MétierImpl1()
+<a id="__codelineno-47-3" name="__codelineno-47-3"></a>    métier.dao = dao
+<a id="__codelineno-47-4" name="__codelineno-47-4"></a>    # ui
+<a id="__codelineno-47-5" name="__codelineno-47-5"></a>    ui = UiImpl1()
+<a id="__codelineno-47-6" name="__codelineno-47-6"></a>    ui.métier = métier
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 6 : la propriété <strong>[métier]</strong> de <strong>[UIImpl1]</strong> est une référence à la classe <strong>[MétierImpl1]</strong> (ligne 2). Ainsi c’est la méthode <strong>[do_something_in_ui_layer]</strong> de la classe <strong>[MétierImpl1]</strong> qui va être exécutée ;</li>
 </ul>
+<p>Dans la classe <strong>[MétierUiImpl1]</strong>, il est écrit :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-48-1">1</a></span>
 <span class="normal"><a href="#__codelineno-48-2">2</a></span>
 <span class="normal"><a href="#__codelineno-48-3">3</a></span>
@@ -4824,23 +4814,23 @@ Dans la classe <strong>[MétierUiImpl1]</strong>, il est écrit :</p>
 <a id="__codelineno-48-6" name="__codelineno-48-6"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dao</span><span class="o">.</span><span class="n">do_something_in_dao_layer</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 6, la méthode appelée par la couche <strong>[ui]</strong> va à son tour appelée une méthode de la propriété <strong>[dao]</strong> de la classe <strong>[MétierImpl1]</strong> ;
-Or dans la configuration <strong>[config1]</strong>, il a été écrit :</li>
+<li>ligne 6, la méthode appelée par la couche <strong>[ui]</strong> va à son tour appelée une méthode de la propriété <strong>[dao]</strong> de la classe <strong>[MétierImpl1]</strong> ;</li>
 </ul>
+<p>Or dans la configuration <strong>[config1]</strong>, il a été écrit :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-49-1">1</a></span>
 <span class="normal"><a href="#__codelineno-49-2">2</a></span>
 <span class="normal"><a href="#__codelineno-49-3">3</a></span>
 <span class="normal"><a href="#__codelineno-49-4">4</a></span>
-<span class="normal"><a href="#__codelineno-49-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a><span class="c1"># dao</span>
-<a id="__codelineno-49-2" name="__codelineno-49-2"></a>    <span class="n">dao</span> <span class="o">=</span> <span class="n">DaoImpl1</span><span class="p">()</span>
-<a id="__codelineno-49-3" name="__codelineno-49-3"></a>    <span class="c1"># métier</span>
-<a id="__codelineno-49-4" name="__codelineno-49-4"></a>    <span class="n">métier</span> <span class="o">=</span> <span class="n">MétierImpl1</span><span class="p">()</span>
-<a id="__codelineno-49-5" name="__codelineno-49-5"></a>    <span class="n">métier</span><span class="o">.</span><span class="n">dao</span> <span class="o">=</span> <span class="n">dao</span>
+<span class="normal"><a href="#__codelineno-49-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1"></a># dao
+<a id="__codelineno-49-2" name="__codelineno-49-2"></a>    dao = DaoImpl1()
+<a id="__codelineno-49-3" name="__codelineno-49-3"></a>    # métier
+<a id="__codelineno-49-4" name="__codelineno-49-4"></a>    métier = MétierImpl1()
+<a id="__codelineno-49-5" name="__codelineno-49-5"></a>    métier.dao = dao
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 5 : la propriété <strong>[MétierImpl1.dao]</strong> est de type <strong>[DaoImpl1]</strong> (ligne 2) ;
-Ce qu’on veut montrer ici, c’est que le script <strong>[main]</strong> n’a pas à se préoccuper des couches <strong>[métier]</strong> et <strong>[dao]</strong>. Il n’a à se préoccuper que de la couche <strong>[ui]</strong>, les liens entre cette couche et les autres ayant été faits par configuration.</li>
+<li>ligne 5 : la propriété <strong>[MétierImpl1.dao]</strong> est de type <strong>[DaoImpl1]</strong> (ligne 2) ;</li>
 </ul>
+<p>Ce qu’on veut montrer ici, c’est que le script <strong>[main]</strong> n’a pas à se préoccuper des couches <strong>[métier]</strong> et <strong>[dao]</strong>. Il n’a à se préoccuper que de la couche <strong>[ui]</strong>, les liens entre cette couche et les autres ayant été faits par configuration.</p>
 <p><img src="images/1000000000000470000000BB574DD97C.png" style="width:13.14cm;height:2.162cm;" alt="Image" /></p>
 <p>Pour passer le paramètre <strong>[config1]</strong> ou <strong>[config2]</strong> au script <strong>[main]</strong>, on procèdera de la façon suivante :</p>
 <p><img src="images/100000000000054B0000041FD56C07BD.png" style="width:15.65cm;height:12.172cm;" alt="Image" /></p>
@@ -4858,28 +4848,28 @@ Ce qu’on veut montrer ici, c’est que le script <strong>[main]</strong> n’a
 </ul>
 <p><img src="images/1000000100000427000000D6C304DEAC.png" style="width:17.971cm;height:3.611cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[5]</strong>, le nom donné à la nouvelle configuration. Ce sera celle qui exécute le script <strong>[main]</strong> <strong>[6]</strong> en lui passant le paramètre <strong>[config2]</strong> <strong>[7]</strong> ;
-Les configurations d’exécution sont disponibles en haut à droite de la fenêtre PyCharm :</li>
+<li>en <strong>[5]</strong>, le nom donné à la nouvelle configuration. Ce sera celle qui exécute le script <strong>[main]</strong> <strong>[6]</strong> en lui passant le paramètre <strong>[config2]</strong> <strong>[7]</strong> ;</li>
 </ul>
+<p>Les configurations d’exécution sont disponibles en haut à droite de la fenêtre PyCharm :</p>
 <p><img src="images/100000000000034A000001C92AAF8360.png" style="width:9.722cm;height:5.28cm;" alt="Image" /></p>
 <p>Il suffit de sélectionner <strong>[2]</strong> ou <strong>[3]</strong> puis d’appuyer sur <strong>[4]</strong> pour exécuter le script <strong>[main]</strong> avec l’un ou l’autre des paramètres <strong>[config1]</strong> ou <strong>[config2]</strong>.</p>
 <p>Avec <strong>[config1]</strong>, l’exécution de <strong>[main]</strong> donne les résultats suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-50-1">1</a></span>
 <span class="normal"><a href="#__codelineno-50-2">2</a></span>
 <span class="normal"><a href="#__codelineno-50-3">3</a></span>
-<span class="normal"><a href="#__codelineno-50-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v02</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">config1</span>
-<a id="__codelineno-50-2" name="__codelineno-50-2"></a><span class="mi">34</span>
+<span class="normal"><a href="#__codelineno-50-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v02/main/main.py config1
+<a id="__codelineno-50-2" name="__codelineno-50-2"></a>34
 <a id="__codelineno-50-3" name="__codelineno-50-3"></a>
-<a id="__codelineno-50-4" name="__codelineno-50-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>Avec <strong>[config2]</strong>, l’exécution de <strong>[main]</strong> donne les résultats suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-51-1">1</a></span>
 <span class="normal"><a href="#__codelineno-51-2">2</a></span>
 <span class="normal"><a href="#__codelineno-51-3">3</a></span>
-<span class="normal"><a href="#__codelineno-51-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">troiscouches</span><span class="o">/</span><span class="n">v02</span><span class="o">/</span><span class="n">main</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span> <span class="n">config2</span>
-<a id="__codelineno-51-2" name="__codelineno-51-2"></a><span class="o">-</span><span class="mi">10</span>
+<span class="normal"><a href="#__codelineno-51-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/troiscouches/v02/main/main.py config2
+<a id="__codelineno-51-2" name="__codelineno-51-2"></a>-10
 <a id="__codelineno-51-3" name="__codelineno-51-3"></a>
-<a id="__codelineno-51-4" name="__codelineno-51-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>Le lecteur est invité à vérifier ces résultats.</p>
 
@@ -4937,7 +4927,7 @@ Les configurations d’exécution sont disponibles en haut à droite de la fenê
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
