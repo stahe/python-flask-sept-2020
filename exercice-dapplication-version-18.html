@@ -62,21 +62,17 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
-    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){
-        console.log("[GA Debug] Event:", arguments);
-        dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
-    console.log("[GA Debug] Setting page_title to:", siteName);
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
 
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] Config sent successfully.");
+    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1603,7 +1599,7 @@ Il nous faut également corriger tous les fragments pour que les URL qu’ils co
 <a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="p">{</span><span class="o">%</span> <span class="n">endfor</span> <span class="o">%</span><span class="p">}</span>
 <a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="o">&lt;/</span><span class="n">nav</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p>Les fragments ci-dessus utilisent tous le modèle <strong>[</strong><strong>modèle.application_root</strong><strong>]</strong>. Pour l’instant la clé <strong>[application_root]</strong> n’existe pas dans les modèles générés par les classes de modèles.</p>
+<p>Les fragments ci-dessus utilisent tous le modèle <strong>[</strong><strong><mark>modèle.application_root</mark></strong><strong>]</strong>. Pour l’instant la clé <strong>[application_root]</strong> n’existe pas dans les modèles générés par les classes de modèles.</p>
 <p><img src="images/10000000000001D50000011BCFEDFB3E.png" style="width:5.421cm;height:3.271cm;" alt="Image" /></p>
 <p>La classe <strong>[AbstractBaseModelForView]</strong> qui est la classe parent de toutes les classes générant un modèle devient la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>

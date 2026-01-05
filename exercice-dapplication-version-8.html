@@ -62,21 +62,17 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
-    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){
-        console.log("[GA Debug] Event:", arguments);
-        dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
-    console.log("[GA Debug] Setting page_title to:", siteName);
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
 
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] Config sent successfully.");
+    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -2394,14 +2390,14 @@ On ajoute une nouvelle importation dans le fichier <strong>[<strong>init</strong
 <li>on a au total 6 threads donc 6 clients (lignes 1, 3, 4, 6, 8, 9) qui interrogent simultanément le serveur de calcul de l’impôt ;</li>
 <li>nous allons suivre le thread <strong>[Thread-4]</strong> qui gère 3 contribuables (ligne 6). Il va faire séquentiellement trois requêtes au serveur de calcul de l’impôt ;</li>
 <li>ligne 10 : la 1ère requête de <strong>[Thread-4]</strong> ;</li>
-<li>ligne 13 : <strong>[Thread-4]</strong> a reçu la réponse à sa 1ère requête. Dedans elle trouve un cookie de session dans lequel il y a le n° <strong>[</strong><strong>fa3c83b82761c83e13217967</strong><strong>]</strong> que lui a attribué le serveur ;</li>
+<li>ligne 13 : <strong>[Thread-4]</strong> a reçu la réponse à sa 1ère requête. Dedans elle trouve un cookie de session dans lequel il y a le n° <strong>[</strong><strong><mark>fa3c83b82761c83e13217967</mark></strong><strong>]</strong> que lui a attribué le serveur ;</li>
 <li>ligne 14 : l’impôt du 1er contribuable ;</li>
 <li>ligne 16 : <strong>[Thread-4]</strong> fait une requête pour le 2ième contribuable ;</li>
 <li>ligne 43 : <strong>[Thread-4]</strong> reçoit l’impôt du 2ième contribuable ;</li>
 <li>ligne 45 : <strong>[Thread-4]</strong> fait une requête pour le 3ième contribuable ;</li>
 <li>ligne 49 : <strong>[Thread-4]</strong> reçoit l’impôt du 3ième contribuable ;</li>
 <li>ligne 51 : <strong>[Thread-4]</strong> a terminé son travail ;
-Maintenant, regardons comment les 3 requêtes de <strong>[Thread-4]</strong> ont été traitées côté serveur. On va pouvoir le suivre dans les logs du serveur grâce à son n° de client <strong>[</strong><strong>fa3c83b82761c83e13217967</strong><strong>]</strong>.</li>
+Maintenant, regardons comment les 3 requêtes de <strong>[Thread-4]</strong> ont été traitées côté serveur. On va pouvoir le suivre dans les logs du serveur grâce à son n° de client <strong>[</strong><strong><mark>fa3c83b82761c83e13217967</mark></strong><strong>]</strong>.</li>
 </ul>
 <p>Les logs <strong>[data/logs/logs.txt]</strong> côté serveur sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
@@ -2491,9 +2487,9 @@ Maintenant, regardons comment les 3 requêtes de <strong>[Thread-4]</strong> ont
 <a id="__codelineno-16-43" name="__codelineno-16-43"></a><span class="mi">2020</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">25</span> <span class="mi">10</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mf">48.748753</span><span class="p">,</span> <span class="n">Thread</span><span class="o">-</span><span class="mi">12</span> <span class="p">:</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">{</span><span class="s1">&#39;réponse&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;result&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;enfants&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;salaire&#39;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">4230</span><span class="p">,</span> <span class="s1">&#39;surcôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;taux&#39;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span> <span class="s1">&#39;décôte&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;réduction&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>on trouve le client <strong>[</strong><strong>fa3c83b82761c83e13217967</strong><strong>]</strong> pour la 1ère fois en ligne 14 : pour calculer l’impôt, le serveur a dû aller chercher en base les données de l’administration fiscale ;</li>
-<li>puis on retrouve le client <strong>[</strong><strong>fa3c83b82761c83e13217967</strong><strong>]</strong> en ligne 36. Cette fois-ci, le serveur trouve les données de l’administration fiscale en session, ce qui lui évite un accès, possiblement coûteux, à la couche <strong>[dao]</strong> ;</li>
-<li>on retrouve le client <strong>[</strong><strong>fa3c83b82761c83e13217967</strong><strong>]</strong> une 3ième fois en ligne 42, où là encore le serveur utilise la session du client ;
+<li>on trouve le client <strong>[</strong><strong><mark>fa3c83b82761c83e13217967</mark></strong><strong>]</strong> pour la 1ère fois en ligne 14 : pour calculer l’impôt, le serveur a dû aller chercher en base les données de l’administration fiscale ;</li>
+<li>puis on retrouve le client <strong>[</strong><strong><mark>fa3c83b82761c83e13217967</mark></strong><strong>]</strong> en ligne 36. Cette fois-ci, le serveur trouve les données de l’administration fiscale en session, ce qui lui évite un accès, possiblement coûteux, à la couche <strong>[dao]</strong> ;</li>
+<li>on retrouve le client <strong>[</strong><strong><mark>fa3c83b82761c83e13217967</mark></strong><strong>]</strong> une 3ième fois en ligne 42, où là encore le serveur utilise la session du client ;
 Cet exemple montre bien l’intérêt de la session pour un client : on y met des données partagées par toutes les requêtes de ce client et qui sont coûteuses à acquérir.</li>
 </ul>
 <p>Côté client, les résultats dans le fichier <strong>[data/output/résultats.json]</strong> sont les mêmes que pour les versions précédentes.</p>

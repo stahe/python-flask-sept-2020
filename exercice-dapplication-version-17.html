@@ -62,21 +62,17 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
-    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){
-        console.log("[GA Debug] Event:", arguments);
-        dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
-    console.log("[GA Debug] Setting page_title to:", siteName);
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
 
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] Config sent successfully.");
+    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1754,7 +1750,7 @@
 <a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">mod</span><span class="o">-</span><span class="n">wsgi</span><span class="o">-</span><span class="mf">4.7.1</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 1 : on fixe la valeur de la variable d’environnement <strong>[</strong><strong>MOD_WSGI_APACHE_ROOTDIR</strong><strong>]</strong>. Cette valeur est l’emplacement du serveur Apache dans le système de fichiers. Ici cet emplacement est <strong>[&lt;laragon&gt;</strong><strong>\bin\apache\httpd-2.4.35-win64-VC15</strong><strong>]</strong> où &lt;laragon&gt; est le dossier d’installation de Laragon. Vous pouvez obtenir cet emplacement de diverses façons. En voici une obtenue à partir d’une des options de Laragon :</li>
+<li>ligne 1 : on fixe la valeur de la variable d’environnement <strong>[</strong><strong><mark>MOD_WSGI_APACHE_ROOTDIR</mark></strong><strong>]</strong>. Cette valeur est l’emplacement du serveur Apache dans le système de fichiers. Ici cet emplacement est <strong>[&lt;laragon&gt;</strong><strong><mark>\bin\apache\httpd-2.4.35-win64-VC15</mark></strong><strong>]</strong> où &lt;laragon&gt; est le dossier d’installation de Laragon. Vous pouvez obtenir cet emplacement de diverses façons. En voici une obtenue à partir d’une des options de Laragon :</li>
 </ul>
 <p><img src="images/100000000000031D000001D48D3C5E42.png" style="width:9.21cm;height:5.4cm;" alt="Image" /></p>
 <p>En <strong>[1-3]</strong>, le fichier <strong>[httpd.conf]</strong> est le fichier de configuration principal du serveur Apache. Le fichier en question est alors ouvert dans un éditeur de texte (Notepad ++ ci-dessous) :</p>
@@ -2113,7 +2109,7 @@ Maintenant que fait Apache ?</li>
 <a id="__codelineno-10-43" name="__codelineno-10-43"></a>    <span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ENV</span><span class="o">=</span><span class="s2">&quot;development&quot;</span><span class="p">,</span> <span class="n">DEBUG</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-10-44" name="__codelineno-10-44"></a>    <span class="n">application</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
-<p>L’application Flask est référencée par l’identifiant <strong>[</strong><strong>application</strong><strong>]</strong> (lignes 14, 43, 44). Ce nom est <strong>obligatoire</strong>. Si on référence l’application Flask avec un autre identifiant l’application ne va pas marcher avec un message d’erreur indiquant qu’elle ne trouve pas l’URL demandée. Ce message d’erreur ne donne aucune indication sur la source de l’erreur. Il faut donc être vigilant sur ce point.</p>
+<p>L’application Flask est référencée par l’identifiant <strong>[</strong><strong><mark>application</mark></strong><strong>]</strong> (lignes 14, 43, 44). Ce nom est <strong><mark>obligatoire</mark></strong>. Si on référence l’application Flask avec un autre identifiant l’application ne va pas marcher avec un message d’erreur indiquant qu’elle ne trouve pas l’URL demandée. Ce message d’erreur ne donne aucune indication sur la source de l’erreur. Il faut donc être vigilant sur ce point.</p>
 <p>Le fichier HTML référencé ligne 34 est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
@@ -2225,8 +2221,8 @@ Nous obtenons ce fichier tout d’abord par recopie du fichier <strong>[auto.pro
 <li>ligne 7 : on donne un nom au serveur virtuel configuré par le fichier ;</li>
 <li>ligne 2 : on donne la valeur de la variable <strong>[ROOT]</strong> utilisée aux lignes 14 et 27 ;</li>
 <li>lignes 14 et 27 : on indique le chemin du script Python qui doit être exécuté lorsque le serveur virtuel reçoit une requête. On indique ici que les requêtes pour le serveur <strong>[date-time-server]</strong> sont traitées par le script Python <strong>[date_time_server.py]</strong>. Cette différence avec le fichier <strong>[auto.projet-test.test.conf]</strong> vient du fait que ce fichier configurait un serveur PHP alors que le fichier <strong>[date-time-server.conf]</strong> configure un serveur Python ;</li>
-<li>lignes 14 et 27 : l’attribut <strong>[</strong><strong>WSGIScriptAlias /</strong><strong>]</strong> indique ici que la racine du serveur <strong>[date-time-server]</strong> sera <strong>[/]</strong>. Ainsi les URL de l’application auront la forme <strong>[http(s)://date-time-server/chemin]</strong> ;</li>
-<li>lignes 14 et 27, on peut donner une autre racine à l’application par exemple <strong>[</strong><strong>WSGIScriptAlias /</strong><strong>show</strong><strong>]</strong>. Alors les URL de l’application auront la forme <strong>[http(s)://</strong><strong>show</strong><strong>/date-time-server/chemin]</strong> ;
+<li>lignes 14 et 27 : l’attribut <strong>[</strong><strong><mark>WSGIScriptAlias /</mark></strong><strong>]</strong> indique ici que la racine du serveur <strong>[date-time-server]</strong> sera <strong>[/]</strong>. Ainsi les URL de l’application auront la forme <strong>[http(s)://date-time-server/chemin]</strong> ;</li>
+<li>lignes 14 et 27, on peut donner une autre racine à l’application par exemple <strong>[</strong><strong><mark>WSGIScriptAlias /</mark></strong><strong><mark>show</mark></strong><strong>]</strong><mark>.</mark> Alors les URL de l’application auront la forme <strong>[http(s)://</strong><strong><mark>show</mark></strong><strong>/date-time-server/chemin]</strong> ;
 Il nous faut également ajouter une ligne au fichier <strong>[&lt;windows&gt;/system32/drivers/etc/hosts]</strong> :</li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>

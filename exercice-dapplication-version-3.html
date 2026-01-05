@@ -62,21 +62,17 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
-    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){
-        console.log("[GA Debug] Event:", arguments);
-        dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
-    console.log("[GA Debug] Setting page_title to:", siteName);
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
 
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] Config sent successfully.");
+    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     

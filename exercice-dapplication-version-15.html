@@ -62,21 +62,17 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
-    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){
-        console.log("[GA Debug] Event:", arguments);
-        dataLayer.push(arguments);
-    }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
-    console.log("[GA Debug] Setting page_title to:", siteName);
+    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
+    var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
 
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] Config sent successfully.");
+    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -2517,7 +2513,7 @@ On a écrit :</li>
 <a id="__codelineno-17-79" name="__codelineno-17-79"></a>        <span class="k">return</span> <span class="n">erreur</span><span class="p">,</span> <span class="n">résultat</span><span class="p">,</span> <span class="n">type_response1</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <strong>[</strong><strong>MainController.check_action</strong><strong>]</strong>  rend un tuple de trois éléments :</li>
+<li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <strong>[</strong><strong><mark>MainController.check_action</mark></strong><strong>]</strong>  rend un tuple de trois éléments :</li>
 <li><strong>[erreur]</strong> : True si une erreur a été détectée, False sinon ;</li>
 <li><strong>[résultat]</strong> : un résultat d’erreur si (erreur==True), None sinon ;</li>
 <li><strong>[type_response1]</strong> : le type (json, xml, html, None) de la session, type trouvé en session ;</li>
