@@ -18,7 +18,7 @@
         <link rel="prev" href="les-fonctions.html">
       
       
-        <link rel="next" href="exercice-dapplication---version-1.html">
+        <link rel="next" href="exercice-dx27application---version-1.html">
       
       
         
@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d'un environnement de travail
+    2. Installation d&#x27;un environnement de travail
   
 
     
@@ -518,7 +518,7 @@
   <a href="#71-script-fic_01-lecture-ecriture-dun-fichier-texte" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.1. Script [fic_01] : lecture / écriture d'un fichier texte
+        7.1. Script [fic_01] : lecture / écriture d&#x27;un fichier texte
       
     </span>
   </a>
@@ -551,7 +551,7 @@
   <a href="#74-script-json_01-gestion-dun-fichier-json" class="md-nav__link">
     <span class="md-ellipsis">
       
-        7.4. Script [json_01] : gestion d'un fichier jSON
+        7.4. Script [json_01] : gestion d&#x27;un fichier jSON
       
     </span>
   </a>
@@ -584,14 +584,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d'application – version 1
+    8. Exercice d&#x27;application – version 1
   
 
     
@@ -773,14 +773,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dapplication---version-4.html" class="md-nav__link">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d'application - version 4
+    15. Exercice d&#x27;application - version 4
   
 
     
@@ -908,14 +908,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dapplication-version-5.html" class="md-nav__link">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d'application : version 5
+    20. Exercice d&#x27;application : version 5
   
 
     
@@ -1463,341 +1463,524 @@
 
 <h1 id="7-les-fichiers-texte">7. Les fichiers texte</h1>
 <p><img src="images/1000000100000164000001FA035F948D.png" style="width:3.312cm;height:4.71cm;" alt="Image" /></p>
-<h2 id="71-script-fic_01-lecture-ecriture-dun-fichier-texte">7.1. Script [fic_01] : lecture / écriture d'un fichier texte</h2>
-<p>Le script suivant illustre un exemple d'exploitation de fichiers texte :</p>
-<ul>
-<li># imports</li>
-<li>import sys</li>
-<li></li>
-<li></li>
-<li># création puis exploitation séquentielle d'un fichier texte</li>
-<li># celui-ci est un ensemble de lignes de la forme login:pwd:uid:gid:infos:dir:shell</li>
-<li># chaque ligne est mis dans un dictionnaire sous la forme login =&gt; uid:gid:infos:dir:shell</li>
-<li></li>
-<li># --------------------------------------------------------------------------</li>
-<li>def affiche_infos(dico: dict, clé: str):</li>
-<li># affiche la valeur associée à clé dans le dictionnaire dico si elle existe</li>
-<li>if clé in dico.keys():</li>
-<li># on affiche la valeur associée à la clé</li>
-<li>print(f"{clé} : {dico<strong>[clé]</strong>}")</li>
-<li>else:</li>
-<li># clé n'est pas une clé du dictionnaire dico</li>
-<li>print(f"la clé <strong>[{clé}]</strong> n'existe pas")</li>
-<li></li>
-<li></li>
-<li># main -----------------------------------------------</li>
-<li># on fixe le nom du fichier</li>
-<li>FILE_NAME = "./data/infos.txt"</li>
-<li></li>
-<li># création et remplissage du fichier texte</li>
-<li>fic = None</li>
-<li>try:</li>
-<li># ouverture du fichier en écriture (w=write)</li>
-<li>fic = open(FILE_NAME, "w")</li>
-<li># on génère un contenu arbitraire</li>
-<li>for i in range(1, 101):</li>
-<li># une ligne</li>
-<li>ligne = f"login{i}:pwd{i}:uid{i}:gid{i}:infos{i}:dir{i}:shell{i}"</li>
-<li># est écrite dans le fichier texte</li>
-<li>fic.write(f"{ligne}\n")</li>
-<li>except IOError as erreur:</li>
-<li>print(f"Erreur d'exploitation du fichier {FILE_NAME} : {erreur}")</li>
-<li>sys.exit()</li>
-<li>finally:</li>
-<li># on ferme le fichier s'il a été ouvert</li>
-<li>if fic:</li>
-<li>fic.close()</li>
-<li></li>
-<li># on l'ouvre en lecture</li>
-<li>fic = None</li>
-<li>try:</li>
-<li># ouverture du fichier en lecture</li>
-<li>fic = open(FILE_NAME, "r")</li>
-<li># dictionnaire vide au départ</li>
-<li>dico = {}</li>
-<li># chaque ligne est mis dans le dictionnaire <strong>[dico]</strong> sous la forme login =&gt; uid:gid:infos:dir:shell</li>
-<li># lecture 1ère ligne en enlevant espaces de début et fin de ligne</li>
-<li>ligne = fic.readline().strip()</li>
-<li># tant que la ligne n'est pas vide</li>
-<li>while ligne != '':</li>
-<li># on met la ligne dans un tableau</li>
-<li>infos = ligne.split(":")</li>
-<li># on récupère le login</li>
-<li>login = infos<strong>[0]</strong></li>
-<li># on néglige le pwd</li>
-<li>infos<strong>[0:2]</strong> = <strong>[]</strong></li>
-<li># on crée une entrée dans le dictionnaire</li>
-<li>dico<strong>[login]</strong> = infos</li>
-<li># lecture ligne suivante</li>
-<li>ligne = fic.readline().strip()</li>
-<li>except IOError as erreur:</li>
-<li>print(f"Erreur d'exploitation du fichier {FILE_NAME} : {erreur}")</li>
-<li>sys.exit()</li>
-<li>finally:</li>
-<li># on ferme le fichier s'il a été ouvert</li>
-<li>if fic:</li>
-<li>fic.close()</li>
-<li></li>
-<li># exploitation du dictionnaire dico</li>
-<li>affiche_infos(dico, "login10")</li>
-<li>affiche_infos(dico, "X")</li>
-</ul>
+<h2 id="71-script-fic_01-lecture-ecriture-dun-fichier-texte">7.1. Script [fic_01] : lecture / écriture d&#x27;un fichier texte</h2>
+<p>Le script suivant illustre un exemple d&#x27;exploitation de fichiers texte :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span>
+<span class="normal"><a href="#__codelineno-0-15">15</a></span>
+<span class="normal"><a href="#__codelineno-0-16">16</a></span>
+<span class="normal"><a href="#__codelineno-0-17">17</a></span>
+<span class="normal"><a href="#__codelineno-0-18">18</a></span>
+<span class="normal"><a href="#__codelineno-0-19">19</a></span>
+<span class="normal"><a href="#__codelineno-0-20">20</a></span>
+<span class="normal"><a href="#__codelineno-0-21">21</a></span>
+<span class="normal"><a href="#__codelineno-0-22">22</a></span>
+<span class="normal"><a href="#__codelineno-0-23">23</a></span>
+<span class="normal"><a href="#__codelineno-0-24">24</a></span>
+<span class="normal"><a href="#__codelineno-0-25">25</a></span>
+<span class="normal"><a href="#__codelineno-0-26">26</a></span>
+<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<span class="normal"><a href="#__codelineno-0-28">28</a></span>
+<span class="normal"><a href="#__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span>
+<span class="normal"><a href="#__codelineno-0-35">35</a></span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<span class="normal"><a href="#__codelineno-0-46">46</a></span>
+<span class="normal"><a href="#__codelineno-0-47">47</a></span>
+<span class="normal"><a href="#__codelineno-0-48">48</a></span>
+<span class="normal"><a href="#__codelineno-0-49">49</a></span>
+<span class="normal"><a href="#__codelineno-0-50">50</a></span>
+<span class="normal"><a href="#__codelineno-0-51">51</a></span>
+<span class="normal"><a href="#__codelineno-0-52">52</a></span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span>
+<span class="normal"><a href="#__codelineno-0-61">61</a></span>
+<span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span>
+<span class="normal"><a href="#__codelineno-0-71">71</a></span>
+<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<span class="normal"><a href="#__codelineno-0-73">73</a></span>
+<span class="normal"><a href="#__codelineno-0-74">74</a></span>
+<span class="normal"><a href="#__codelineno-0-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># création puis exploitation séquentielle d&#39;un fichier texte</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># celui-ci est un ensemble de lignes de la forme login:pwd:uid:gid:infos:dir:shell</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># chaque ligne est mis dans un dictionnaire sous la forme login =&gt; uid:gid:infos:dir:shell</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># --------------------------------------------------------------------------</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">affiche_infos</span><span class="p">(</span><span class="n">dico</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">clé</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="c1"># affiche la valeur associée à clé dans le dictionnaire dico si elle existe</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="k">if</span> <span class="n">clé</span> <span class="ow">in</span> <span class="n">dico</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="c1"># on affiche la valeur associée à la clé</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">clé</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">dico</span><span class="p">[</span><span class="n">clé</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="c1"># clé n&#39;est pas une clé du dictionnaire dico</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;la clé [</span><span class="si">{</span><span class="n">clé</span><span class="si">}</span><span class="s2">] n&#39;existe pas&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="c1"># main -----------------------------------------------</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="c1"># on fixe le nom du fichier</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="n">FILE_NAME</span> <span class="o">=</span> <span class="s2">&quot;./data/infos.txt&quot;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="c1"># création et remplissage du fichier texte</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="n">fic</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>    <span class="c1"># ouverture du fichier en écriture (w=write)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="n">fic</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="c1"># on génère un contenu arbitraire</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="c1"># une ligne</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">ligne</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;login</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:pwd</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:uid</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:gid</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:infos</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:dir</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">:shell</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="c1"># est écrite dans le fichier texte</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">fic</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ligne</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur d&#39;exploitation du fichier </span><span class="si">{</span><span class="n">FILE_NAME</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="c1"># on ferme le fichier s&#39;il a été ouvert</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="k">if</span> <span class="n">fic</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="c1"># on l&#39;ouvre en lecture</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="n">fic</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="c1"># ouverture du fichier en lecture</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">fic</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">FILE_NAME</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="c1"># dictionnaire vide au départ</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">dico</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="c1"># chaque ligne est mis dans le dictionnaire [dico] sous la forme login =&gt; uid:gid:infos:dir:shell</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="c1"># lecture 1ère ligne en enlevant espaces de début et fin de ligne</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">ligne</span> <span class="o">=</span> <span class="n">fic</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="c1"># tant que la ligne n&#39;est pas vide</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">while</span> <span class="n">ligne</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="c1"># on met la ligne dans un tableau</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">infos</span> <span class="o">=</span> <span class="n">ligne</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="c1"># on récupère le login</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">login</span> <span class="o">=</span> <span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="c1"># on néglige le pwd</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="n">infos</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="c1"># on crée une entrée dans le dictionnaire</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="n">dico</span><span class="p">[</span><span class="n">login</span><span class="p">]</span> <span class="o">=</span> <span class="n">infos</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="c1"># lecture ligne suivante</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>        <span class="n">ligne</span> <span class="o">=</span> <span class="n">fic</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur d&#39;exploitation du fichier </span><span class="si">{</span><span class="n">FILE_NAME</span><span class="si">}</span><span class="s2"> : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="c1"># on ferme le fichier s&#39;il a été ouvert</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">if</span> <span class="n">fic</span><span class="p">:</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>        <span class="n">fic</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="c1"># exploitation du dictionnaire dico</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="n">affiche_infos</span><span class="p">(</span><span class="n">dico</span><span class="p">,</span> <span class="s2">&quot;login10&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="n">affiche_infos</span><span class="p">(</span><span class="n">dico</span><span class="p">,</span> <span class="s2">&quot;X&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>ligne 28 : ouverture du fichier en écriture (w=write). Si le fichier existe déjà, il sera écrasé ;</li>
 <li>lignes 30-34 : on génère 100 lignes dans le fichier texte ;</li>
 <li>ligne 34 : pour écrire une ligne dans le fichier texte. La méthode <strong>[write]</strong> ne rajoute pas la marque de fin de ligne. Il faut donc prévoir celle-ci dans le texte écrit ;</li>
-<li>lignes 35-37 : gestion de l'éventuelle exception ;</li>
-<li>ligne 37 : abandon de l'exécution du script (néanmoins après l'exécution de la clause finally) ;</li>
-<li>lignes 38-41 : dans tous les cas, erreur ou pas, on fermet le fichier s'il est ouvert ;</li>
+<li>lignes 35-37 : gestion de l&#x27;éventuelle exception ;</li>
+<li>ligne 37 : abandon de l&#x27;exécution du script (néanmoins après l&#x27;exécution de la clause finally) ;</li>
+<li>lignes 38-41 : dans tous les cas, erreur ou pas, on fermet le fichier s&#x27;il est ouvert ;</li>
 <li>ligne 47 : ouverture du fichier en lecture (r=read) ;</li>
-<li>ligne 49 : définition d'un dictionnaire vide ;</li>
-<li>ligne 52 : la méthode <strong>[readline]</strong> lit une ligne de texte, marque de fin de ligne incluse. La méthode <strong>[strip]</strong> supprime les "espaces" de début et fin de chaîne. Par "espace", il faut entendre caractère blanc, marque de fin de ligne, saut de page, tabulation, et quelques autres. Donc ici, <strong>[ligne]</strong> n'aura pas les caractères de fin de ligne <strong>[\r\n]</strong> (windows) ou <strong>[\n]</strong> (unix) ;</li>
-<li>ligne 54 : on exploite le fichier tant qu'on n'a pas récupéré une ligne vide ;</li>
+<li>ligne 49 : définition d&#x27;un dictionnaire vide ;</li>
+<li>ligne 52 : la méthode <strong>[readline]</strong> lit une ligne de texte, marque de fin de ligne incluse. La méthode <strong>[strip]</strong> supprime les &quot;espaces&quot; de début et fin de chaîne. Par &quot;espace&quot;, il faut entendre caractère blanc, marque de fin de ligne, saut de page, tabulation, et quelques autres. Donc ici, <strong>[ligne]</strong> n&#x27;aura pas les caractères de fin de ligne <strong>[\r\n]</strong> (windows) ou <strong>[\n]</strong> (unix) ;</li>
+<li>ligne 54 : on exploite le fichier tant qu&#x27;on n&#x27;a pas récupéré une ligne vide ;</li>
 <li>lignes 54-64 : le fichier texte est transféré dans le dictionnaire <strong>[dico]</strong>. La clé est le champ <strong>[login]</strong>, la valeur les champs <strong>[</strong><strong>uid:gid:infos:dir:shell</strong><strong>]</strong> ;</li>
-<li>lignes 65-67 : gestion de l'éventuelle exception ;</li>
+<li>lignes 65-67 : gestion de l&#x27;éventuelle exception ;</li>
 <li>lignes 68-71 : fermeture du fichier dans tous les cas, erreur ou pas ;</li>
-<li>lignes 74-75 : exploitation du dictionnaire <strong>[dico]</strong> ;</li>
+<li>lignes 74-75 : exploitation du dictionnaire <strong>[dico]</strong> ;
+Le fichier <strong>[data/infos.txt]</strong> :</li>
 </ul>
-<p>Le fichier <strong>[data/infos.txt]</strong> :</p>
-<ul>
-<li>login0:pwd0:uid0:gid0:infos0:dir0:shell0</li>
-<li>login1:pwd1:uid1:gid1:infos1:dir1:shell1</li>
-<li>login2:pwd2:uid2:gid2:infos2:dir2:shell2</li>
-<li>…</li>
-<li>login98:pwd98:uid98:gid98:infos98:dir98:shell98</li>
-<li>login99:pwd99:uid99:gid99:infos99:dir99:shell99</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">login0</span><span class="p">:</span><span class="n">pwd0</span><span class="p">:</span><span class="n">uid0</span><span class="p">:</span><span class="n">gid0</span><span class="p">:</span><span class="n">infos0</span><span class="p">:</span><span class="n">dir0</span><span class="p">:</span><span class="n">shell0</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">login1</span><span class="p">:</span><span class="n">pwd1</span><span class="p">:</span><span class="n">uid1</span><span class="p">:</span><span class="n">gid1</span><span class="p">:</span><span class="n">infos1</span><span class="p">:</span><span class="n">dir1</span><span class="p">:</span><span class="n">shell1</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">login2</span><span class="p">:</span><span class="n">pwd2</span><span class="p">:</span><span class="n">uid2</span><span class="p">:</span><span class="n">gid2</span><span class="p">:</span><span class="n">infos2</span><span class="p">:</span><span class="n">dir2</span><span class="p">:</span><span class="n">shell2</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="err">…</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">login98</span><span class="p">:</span><span class="n">pwd98</span><span class="p">:</span><span class="n">uid98</span><span class="p">:</span><span class="n">gid98</span><span class="p">:</span><span class="n">infos98</span><span class="p">:</span><span class="n">dir98</span><span class="p">:</span><span class="n">shell98</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">login99</span><span class="p">:</span><span class="n">pwd99</span><span class="p">:</span><span class="n">uid99</span><span class="p">:</span><span class="n">gid99</span><span class="p">:</span><span class="n">infos99</span><span class="p">:</span><span class="n">dir99</span><span class="p">:</span><span class="n">shell99</span>
+</code></pre></div></td></tr></table></div>
 <p>Les résultats écran :</p>
-<ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fichiers/fic_01.py</li>
-<li>login10 : <strong>['uid10', 'gid10', 'infos10', 'dir10', 'shell10']</strong></li>
-<li>la clé <strong>[X]</strong> n'existe pas</li>
-<li></li>
-<li>Process finished with exit code 0</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span>
+<span class="normal"><a href="#__codelineno-2-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fichiers</span><span class="o">/</span><span class="n">fic_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">login10</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;uid10&#39;</span><span class="p">,</span> <span class="s1">&#39;gid10&#39;</span><span class="p">,</span> <span class="s1">&#39;infos10&#39;</span><span class="p">,</span> <span class="s1">&#39;dir10&#39;</span><span class="p">,</span> <span class="s1">&#39;shell10&#39;</span><span class="p">]</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="n">la</span> <span class="n">clé</span> <span class="p">[</span><span class="n">X</span><span class="p">]</span> <span class="n">n</span><span class="s1">&#39;existe pas</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="72-script-fic_02-gerer-des-fichiers-texte-encodes-en-utf-8">7.2. Script [fic_02] : gérer des fichiers texte encodés en UTF-8</h2>
-<p>Dans la suite du document, nous allons gérer des fichiers texte codés uniquement en UTF-8. Nous allons tout d'abord configurer PyCharm :</p>
+<p>Dans la suite du document, nous allons gérer des fichiers texte codés uniquement en UTF-8. Nous allons tout d&#x27;abord configurer PyCharm :</p>
 <p><img src="images/1000000100000427000001394C69DF4C.png" style="width:16.241cm;height:4.781cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[5-6]</strong> : choisir l'encodage UTF-8 pour les fichiers du projet ;</li>
+<li>en <strong>[5-6]</strong> : choisir l&#x27;encodage UTF-8 pour les fichiers du projet ;
+Pour créer un fichier encodé en UTF-8, on pourra procéder comme suit (fic-02) :</li>
 </ul>
-<p>Pour créer un fichier encodé en UTF-8, on pourra procéder comme suit (fic-02) :</p>
-<ul>
-<li># imports</li>
-<li>import codecs</li>
-<li></li>
-<li># écriture utf8 dans un fichier texte</li>
-<li># on ne gère pas les exceptions</li>
-<li>file=codecs.open("./data/utf8.txt","w","utf8")</li>
-<li>file.write("Hélène est partie à Bâle pendant l'été chez sa grand-mère")</li>
-<li>file.close()</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># écriture utf8 dans un fichier texte</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1"># on ne gère pas les exceptions</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">file</span><span class="o">=</span><span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/utf8.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hélène est partie à Bâle pendant l&#39;été chez sa grand-mère&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong></p>
 <ul>
-<li>ligne 2 : pour gérer l'encodage des fichiers, on importe le module <strong>[codecs]</strong> ;</li>
-<li>ligne 6 : la méthode <strong>[codecs.open]</strong> s'utilise comme la classique fonction <strong>[open]</strong>. On peut cependant préciser l'encodage souhaité (création) ou existant (lecture). Après l'ouverture, l'objet <strong>[file]</strong> obtenu ligne 6, s'utilise comme un fichier classique ;</li>
-<li>ligne 7 : on a utilisé des caractères accentués qui ont la plupart du temps des représentations différentes selon le code de caractères utilisé ;</li>
+<li>ligne 2 : pour gérer l&#x27;encodage des fichiers, on importe le module <strong>[codecs]</strong> ;</li>
+<li>ligne 6 : la méthode <strong>[codecs.open]</strong> s&#x27;utilise comme la classique fonction <strong>[open]</strong>. On peut cependant préciser l&#x27;encodage souhaité (création) ou existant (lecture). Après l&#x27;ouverture, l&#x27;objet <strong>[file]</strong> obtenu ligne 6, s&#x27;utilise comme un fichier classique ;</li>
+<li>ligne 7 : on a utilisé des caractères accentués qui ont la plupart du temps des représentations différentes selon le code de caractères utilisé ;
+<strong>Résultats</strong></li>
 </ul>
-<p><strong>Résultats</strong></p>
-<p>Lorsqu'on ouvre le fichier <strong>[data/utf8.txt]</strong> obtenu (cf. ligne 6), on obtient le résultat suivant :</p>
+<p>Lorsqu&#x27;on ouvre le fichier <strong>[data/utf8.txt]</strong> obtenu (cf. ligne 6), on obtient le résultat suivant :</p>
 <p><img src="images/10000001000002E200000063A7B3ED9E.png" style="width:11.261cm;height:1.511cm;" alt="Image" /></p>
 <h2 id="73-script-fic_03-gerer-des-fichiers-texte-encodes-en-iso-8859-1">7.3. Script [fic_03] : gérer des fichiers texte encodés en ISO-8859-1</h2>
 <p>Le script <strong>[fic_03]</strong> fait la même chose que le script <strong>[fic_02]</strong> mais code le fichier texte en ISO-8859-1. On veut montrer la différence des fichiers obtenus :</p>
-<ul>
-<li># imports</li>
-<li>import codecs</li>
-<li></li>
-<li># écriture iso-8859-1 dans un fichier texte</li>
-<li># on ne gère pas les exceptions</li>
-<li>file=codecs.open("./data/iso-8859-1.txt","w","<mark>iso-8859-1</mark>")</li>
-<li>file.write("Hélène est partie à Bâle pendant l'été chez sa grand-mère")</li>
-<li>file.close()</li>
-</ul>
-<p>Lorsqu'on ouvre le fichier <strong>[data/iso-8859-1]</strong> créé ligne 6, on obtient le résultat suivant :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span>
+<span class="normal"><a href="#__codelineno-4-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># écriture iso-8859-1 dans un fichier texte</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># on ne gère pas les exceptions</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="n">file</span><span class="o">=</span><span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/iso-8859-1.txt&quot;</span><span class="p">,</span><span class="s2">&quot;w&quot;</span><span class="p">,</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Hélène est partie à Bâle pendant l&#39;été chez sa grand-mère&quot;</span><span class="p">)</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+<p>Lorsqu&#x27;on ouvre le fichier <strong>[data/iso-8859-1]</strong> créé ligne 6, on obtient le résultat suivant :</p>
 <p><img src="images/100000010000040A000000589D25691A.png" style="width:15.74cm;height:1.331cm;" alt="Image" /></p>
-<p>Parce que nous avons configuré le projet pour fonctionner avec des fichiers UTF-8, PyCharm a essayé d'ouvrir le fichier <strong>[iso-8859-1.txt]</strong> en UTF-8. Il est capable de voir <strong>[1]</strong> que le fichier n'est pas du UTF-8. Il propose alors <strong>[2]</strong> de recharger le fichier dans un autre encodage :</p>
+<p>Parce que nous avons configuré le projet pour fonctionner avec des fichiers UTF-8, PyCharm a essayé d&#x27;ouvrir le fichier <strong>[iso-8859-1.txt]</strong> en UTF-8. Il est capable de voir <strong>[1]</strong> que le fichier n&#x27;est pas du UTF-8. Il propose alors <strong>[2]</strong> de recharger le fichier dans un autre encodage :</p>
 <p><img src="images/1000000100000427000000AEC44ED68F.png" style="width:17.92cm;height:2.931cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[3-5]</strong> : on recharge le fichier en utilisant un codage ISO-8859-1 ;</li>
 </ul>
 <p><img src="images/10000001000002FF0000006F782E3F1F.png" style="width:13.181cm;height:1.9cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[6]</strong>, le même fichier mais affiché avec un encodage différent ;</li>
+<li>en <strong>[6]</strong>, le même fichier mais affiché avec un encodage différent ;
+Si on retourne dans les paramétrages du projet :</li>
 </ul>
-<p>Si on retourne dans les paramétrages du projet :</p>
 <p><img src="images/10000001000002D10000016BE86BE79B.png" style="width:12.232cm;height:6.151cm;" alt="Image" /></p>
 <ul>
-<li>on voit qu'en <strong>[6-7]</strong>, Pycharm a noté le fait que le fichier <strong>[iso-8859-1.txt]</strong> devait être ouvert avec un encodage ISO-8859-1. C'est donc une exception à la règle <strong>[5]</strong> ;</li>
+<li>on voit qu&#x27;en <strong>[6-7]</strong>, Pycharm a noté le fait que le fichier <strong>[iso-8859-1.txt]</strong> devait être ouvert avec un encodage ISO-8859-1. C&#x27;est donc une exception à la règle <strong>[5]</strong> ;</li>
 </ul>
-<h2 id="74-script-json_01-gestion-dun-fichier-json">7.4. Script [json_01] : gestion d'un fichier jSON</h2>
-<p>JSON signifie <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation. Comme son nom l'indique c'est un mode de représentation texte des objets du langage Javascript. Nous l'utiliserons ici avec des objets Python.</p>
+<h2 id="74-script-json_01-gestion-dun-fichier-json">7.4. Script [json_01] : gestion d&#x27;un fichier jSON</h2>
+<p>JSON signifie <strong>J</strong>ava<strong>S</strong>cript <strong>O</strong>bject <strong>N</strong>otation. Comme son nom l&#x27;indique c&#x27;est un mode de représentation texte des objets du langage Javascript. Nous l&#x27;utiliserons ici avec des objets Python.</p>
 <p>Le fichier jSON géré <strong>[data/in.json]</strong> sera le suivant :</p>
 <p><img src="images/10000001000001FF0000016D8B770EC0.png" style="width:8.76cm;height:6.261cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[2]</strong>, on voit que le contenu texte du fichier <strong>[in.json]</strong> pourrait représenter un dictionnaire Python. PyCharm a mis en forme (Ctrl-Alt-L) ce texte mais il serait sur une ligne que ça ne changerait rien. La forme du texte n'a aucune importance tant qu'il représente syntaxiquement un objet Python ;</li>
+<li>en <strong>[2]</strong>, on voit que le contenu texte du fichier <strong>[in.json]</strong> pourrait représenter un dictionnaire Python. PyCharm a mis en forme (Ctrl-Alt-L) ce texte mais il serait sur une ligne que ça ne changerait rien. La forme du texte n&#x27;a aucune importance tant qu&#x27;il représente syntaxiquement un objet Python ;
+Le script <strong>[json-01]</strong> montre comment exploiter ce fichier :</li>
 </ul>
-<p>Le script <strong>[json-01]</strong> montre comment exploiter ce fichier :</p>
-<ul>
-<li># imports</li>
-<li>import codecs</li>
-<li>import json</li>
-<li>import sys</li>
-<li></li>
-<li># lecture / écriture d'un fichier jSON</li>
-<li>inFile=None</li>
-<li>outFile=None</li>
-<li>try:</li>
-<li># ouverture du fichier jSON en lecture</li>
-<li>inFile = codecs.open("./data/in.json", "r", "utf8")</li>
-<li># transfert du contenu dans un dictionnaire</li>
-<li>data = json.load(inFile)</li>
-<li># affichage des données lues</li>
-<li>print(f"data={data}, type(data)={type(data)}")</li>
-<li>limites = data<strong>[</strong><strong>'limites'</strong><strong>]</strong></li>
-<li>print(f"limites={limites}, type(limites)={type(limites)}")</li>
-<li>print(f"limites<strong>[1]</strong>={limites<strong>[1]</strong>}, type(limites<strong>[1]</strong>)={type(limites<strong>[1]</strong>)}")</li>
-<li># transfert du dictionnaire <strong>[data]</strong> dans un fichier json</li>
-<li>outFile = codecs.open("./data/out.json", "w", "utf8")</li>
-<li>json.dump(data, outFile)</li>
-<li>except BaseException as erreur:</li>
-<li># on affiche l'erreur et on quitte</li>
-<li>print(f"L'erreur suivante s'est produite : {erreur}")</li>
-<li>sys.exit()</li>
-<li>finally:</li>
-<li># fermeture des fichiers s'ils sont ouverts</li>
-<li>if inFile:</li>
-<li>inFile.close()</li>
-<li>if outFile:</li>
-<li>outFile.close()</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span>
+<span class="normal"><a href="#__codelineno-5-18">18</a></span>
+<span class="normal"><a href="#__codelineno-5-19">19</a></span>
+<span class="normal"><a href="#__codelineno-5-20">20</a></span>
+<span class="normal"><a href="#__codelineno-5-21">21</a></span>
+<span class="normal"><a href="#__codelineno-5-22">22</a></span>
+<span class="normal"><a href="#__codelineno-5-23">23</a></span>
+<span class="normal"><a href="#__codelineno-5-24">24</a></span>
+<span class="normal"><a href="#__codelineno-5-25">25</a></span>
+<span class="normal"><a href="#__codelineno-5-26">26</a></span>
+<span class="normal"><a href="#__codelineno-5-27">27</a></span>
+<span class="normal"><a href="#__codelineno-5-28">28</a></span>
+<span class="normal"><a href="#__codelineno-5-29">29</a></span>
+<span class="normal"><a href="#__codelineno-5-30">30</a></span>
+<span class="normal"><a href="#__codelineno-5-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># lecture / écriture d&#39;un fichier jSON</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">inFile</span><span class="o">=</span><span class="kc">None</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">outFile</span><span class="o">=</span><span class="kc">None</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    <span class="c1"># ouverture du fichier jSON en lecture</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="n">inFile</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/in.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="c1"># transfert du contenu dans un dictionnaire</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">inFile</span><span class="p">)</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="c1"># affichage des données lues</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;data=</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">, type(data)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="n">limites</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;limites&#39;</span><span class="p">]</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;limites=</span><span class="si">{</span><span class="n">limites</span><span class="si">}</span><span class="s2">, type(limites)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;limites[1]=</span><span class="si">{</span><span class="n">limites</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">, type(limites[1])=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">limites</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-19" name="__codelineno-5-19"></a>    <span class="c1"># transfert du dictionnaire [data] dans un fichier json</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20"></a>    <span class="n">outFile</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/out.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">outFile</span><span class="p">)</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23"></a>    <span class="c1"># on affiche l&#39;erreur et on quitte</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27"></a>    <span class="c1"># fermeture des fichiers s&#39;ils sont ouverts</span>
+<a id="__codelineno-5-28" name="__codelineno-5-28"></a>    <span class="k">if</span> <span class="n">inFile</span><span class="p">:</span>
+<a id="__codelineno-5-29" name="__codelineno-5-29"></a>        <span class="n">inFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-5-30" name="__codelineno-5-30"></a>    <span class="k">if</span> <span class="n">outFile</span><span class="p">:</span>
+<a id="__codelineno-5-31" name="__codelineno-5-31"></a>        <span class="n">outFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong></p>
 <ul>
 <li>ligne 3 : pour gérer du JSON, on importe le module <strong>[json]</strong> ;</li>
 <li>ligne 11 : nous allons gérer des fichiers jSON codés en UTF-8. Ici on ouvre le fichier <strong>[data/in.json]</strong> avec le module <strong>[codecs]</strong> ;</li>
 <li>ligne 13 : la méthode <strong>[json.load]</strong> lit le contenu du fichier jSON et le met dans la variable <strong>[data]</strong>. Le type de cette variable sera ici un dictionnaire ;</li>
-<li>lignes 15-18 : pour montrer qu'on a bien obtenu un dictionnaire Python, on fait quelques affichages d'éléments de celui-ci ;</li>
-<li>lignes 20-21 : on fait l'opération inverse : le dictionnaire <strong>[data]</strong> est mis dans un fichier codé en UTF-8 grâce à la méthode <strong>[json.dump]</strong> ;</li>
-<li>lignes 22-25 : gestion de l'éventuelle exception ;</li>
-<li>lignes 26-31 : dans tous les cas, erreur ou pas, on ferme les fichiers qui ont pu être ouverts ;</li>
+<li>lignes 15-18 : pour montrer qu&#x27;on a bien obtenu un dictionnaire Python, on fait quelques affichages d&#x27;éléments de celui-ci ;</li>
+<li>lignes 20-21 : on fait l&#x27;opération inverse : le dictionnaire <strong>[data]</strong> est mis dans un fichier codé en UTF-8 grâce à la méthode <strong>[json.dump]</strong> ;</li>
+<li>lignes 22-25 : gestion de l&#x27;éventuelle exception ;</li>
+<li>lignes 26-31 : dans tous les cas, erreur ou pas, on ferme les fichiers qui ont pu être ouverts ;
+<strong>Résultats</strong></li>
 </ul>
-<p><strong>Résultats</strong></p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span>
+<span class="normal"><a href="#__codelineno-6-4">4</a></span>
+<span class="normal"><a href="#__codelineno-6-5">5</a></span>
+<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fichiers</span><span class="o">/</span><span class="n">json_01</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;limites&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">9964</span><span class="p">,</span> <span class="mi">27519</span><span class="p">,</span> <span class="mi">73779</span><span class="p">,</span> <span class="mi">156244</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;coeffR&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span> <span class="s1">&#39;coeffN&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1394.96</span><span class="p">,</span> <span class="mi">5798</span><span class="p">,</span> <span class="mf">13913.69</span><span class="p">,</span> <span class="mf">20163.45</span><span class="p">],</span> <span class="s1">&#39;PLAFOND_QF_DEMI_PART&#39;</span><span class="p">:</span> <span class="mi">1551</span><span class="p">,</span> <span class="s1">&#39;PLAFOND_REVENUS_CELIBATAIRE_POUR_REDUCTION&#39;</span><span class="p">:</span> <span class="mi">21037</span><span class="p">,</span> <span class="s1">&#39;PLAFOND_REVENUS_COUPLE_POUR_REDUCTION&#39;</span><span class="p">:</span> <span class="mi">42074</span><span class="p">,</span> <span class="s1">&#39;VALEUR_REDUC_DEMI_PART&#39;</span><span class="p">:</span> <span class="mi">3797</span><span class="p">,</span> <span class="s1">&#39;PLAFOND_DECOTE_CELIBATAIRE&#39;</span><span class="p">:</span> <span class="mi">1196</span><span class="p">,</span> <span class="s1">&#39;PLAFOND_DECOTE_COUPLE&#39;</span><span class="p">:</span> <span class="mi">1970</span><span class="p">,</span> <span class="s1">&#39;PLAFOND_IMPOT_COUPLE_POUR_DECOTE&#39;</span><span class="p">:</span> <span class="mi">2627</span><span class="p">,</span> <span class="s1">&#39;PLAFOND_IMPOT_CELIBATAIRE_POUR_DECOTE&#39;</span><span class="p">:</span> <span class="mi">1595</span><span class="p">,</span> <span class="s1">&#39;ABATTEMENT_DIXPOURCENT_MAX&#39;</span><span class="p">:</span> <span class="mi">12502</span><span class="p">,</span> <span class="s1">&#39;ABATTEMENT_DIXPOURCENT_MIN&#39;</span><span class="p">:</span> <span class="mi">437</span><span class="p">},</span> <span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">=&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">dict</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">limites</span><span class="o">=</span><span class="p">[</span><span class="mi">9964</span><span class="p">,</span> <span class="mi">27519</span><span class="p">,</span> <span class="mi">73779</span><span class="p">,</span> <span class="mi">156244</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="n">limites</span><span class="p">)</span><span class="o">=&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">list</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">limites</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">27519</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">limites</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">=&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">int</span><span class="s1">&#39;&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
 <ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fichiers/json_01.py</li>
-<li>data={'limites': <strong>[9964, 27519, 73779, 156244, 0]</strong>, 'coeffR': <strong>[0, 0.14, 0.3, 0.41, 0.45]</strong>, 'coeffN': <strong>[0, 1394.96, 5798, 13913.69, 20163.45]</strong>, 'PLAFOND_QF_DEMI_PART': 1551, 'PLAFOND_REVENUS_CELIBATAIRE_POUR_REDUCTION': 21037, 'PLAFOND_REVENUS_COUPLE_POUR_REDUCTION': 42074, 'VALEUR_REDUC_DEMI_PART': 3797, 'PLAFOND_DECOTE_CELIBATAIRE': 1196, 'PLAFOND_DECOTE_COUPLE': 1970, 'PLAFOND_IMPOT_COUPLE_POUR_DECOTE': 2627, 'PLAFOND_IMPOT_CELIBATAIRE_POUR_DECOTE': 1595, 'ABATTEMENT_DIXPOURCENT_MAX': 12502, 'ABATTEMENT_DIXPOURCENT_MIN': 437}, <mark>type(data)=&lt;class 'dict'&gt;</mark></li>
-<li>limites=<strong>[9964, 27519, 73779, 156244, 0]</strong>, <mark>type(limites)=&lt;class 'list'&gt;</mark></li>
-<li>limites<strong>[1]</strong>=27519, type(limites<strong>[1]</strong>)=<mark>&lt;class 'int'&gt;</mark></li>
-<li></li>
-<li>
-<p>Process finished with exit code 0</p>
-</li>
-<li>
-<p>les lignes 2-4 montrent qu'on a correctement récupéré le dictionnaire présent dans le fichier jSON ;</p>
-</li>
+<li>les lignes 2-4 montrent qu&#x27;on a correctement récupéré le dictionnaire présent dans le fichier jSON ;
+Maintenant, regardons le contenu du fichier <strong>[data/out.json]</strong> :</li>
 </ul>
-<p>Maintenant, regardons le contenu du fichier <strong>[data/out.json]</strong> :</p>
 <p><img src="images/10000001000004090000007424E5A072.png" style="width:17.5cm;height:1.96cm;" alt="Image" /></p>
-<p>Le texte du fichier est sur une ligne. Cependant PyCharm reconnaît les fichiers jSON et on peut les formater, comme les fichiers Python et d'autres par Ctrl-Alt-L. On obtient alors la chose suivante :</p>
+<p>Le texte du fichier est sur une ligne. Cependant PyCharm reconnaît les fichiers jSON et on peut les formater, comme les fichiers Python et d&#x27;autres par Ctrl-Alt-L. On obtient alors la chose suivante :</p>
 <p><img src="images/10000001000001E1000001CE89D07797.png" style="width:8.22cm;height:7.891cm;" alt="Image" /></p>
 <h2 id="75-script-json_02-gestion-des-fichiers-json-codes-en-utf-8">7.5. Script [json_02] : gestion des fichiers jSON codés en UTF-8</h2>
 <p>Un fichier jSON codé en UTF-8 peut avoir deux formes :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span>
+<span class="normal"><a href="#__codelineno-7-14">14</a></span>
+<span class="normal"><a href="#__codelineno-7-15">15</a></span>
+<span class="normal"><a href="#__codelineno-7-16">16</a></span>
+<span class="normal"><a href="#__codelineno-7-17">17</a></span>
+<span class="normal"><a href="#__codelineno-7-18">18</a></span>
+<span class="normal"><a href="#__codelineno-7-19">19</a></span>
+<span class="normal"><a href="#__codelineno-7-20">20</a></span>
+<span class="normal"><a href="#__codelineno-7-21">21</a></span>
+<span class="normal"><a href="#__codelineno-7-22">22</a></span>
+<span class="normal"><a href="#__codelineno-7-23">23</a></span>
+<span class="normal"><a href="#__codelineno-7-24">24</a></span>
+<span class="normal"><a href="#__codelineno-7-25">25</a></span>
+<span class="normal"><a href="#__codelineno-7-26">26</a></span>
+<span class="normal"><a href="#__codelineno-7-27">27</a></span>
+<span class="normal"><a href="#__codelineno-7-28">28</a></span>
+<span class="normal"><a href="#__codelineno-7-29">29</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="c1"># dictionnaire</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1340</span><span class="p">}</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="c1"># écriture d&#39;un fichier jSON</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="n">out_file1</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">out_file2</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a>    <span class="c1"># transfert du dictionnaire [data] dans un fichier json</span>
+<a id="__codelineno-7-14" name="__codelineno-7-14"></a>    <span class="n">out_file1</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/out1.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-15" name="__codelineno-7-15"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">out_file1</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-7-16" name="__codelineno-7-16"></a>    <span class="c1"># transfert du dictionnaire [data] dans un fichier json</span>
+<a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="n">out_file2</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/out2.json&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">out_file2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-7-19" name="__codelineno-7-19"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-7-20" name="__codelineno-7-20"></a>    <span class="c1"># on affiche l&#39;erreur et on quitte</span>
+<a id="__codelineno-7-21" name="__codelineno-7-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-7-22" name="__codelineno-7-22"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<a id="__codelineno-7-23" name="__codelineno-7-23"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-7-24" name="__codelineno-7-24"></a>    <span class="c1"># fermeture des fichiers s&#39;ils sont ouverts</span>
+<a id="__codelineno-7-25" name="__codelineno-7-25"></a>    <span class="k">if</span> <span class="n">out_file1</span><span class="p">:</span>
+<a id="__codelineno-7-26" name="__codelineno-7-26"></a>        <span class="n">out_file1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-7-27" name="__codelineno-7-27"></a>    <span class="k">if</span> <span class="n">out_file2</span><span class="p">:</span>
+<a id="__codelineno-7-28" name="__codelineno-7-28"></a>        <span class="n">out_file2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-7-29" name="__codelineno-7-29"></a><span class="err">…</span>
+</code></pre></div></td></tr></table></div>
 <ul>
-<li># imports</li>
-<li>import codecs</li>
-<li>import json</li>
-<li>import sys</li>
-<li></li>
-<li># dictionnaire</li>
-<li>data = {'marié': 'oui', 'impôt': 1340}</li>
-<li></li>
-<li># écriture d'un fichier jSON</li>
-<li>out_file1 = None</li>
-<li>out_file2 = None</li>
-<li>try:</li>
-<li># transfert du dictionnaire <strong>[data]</strong> dans un fichier json</li>
-<li>out_file1 = codecs.open("./data/out1.json", "w", "utf8")</li>
-<li><mark>json</mark><mark>.dump</mark>(data, out_file1, ensure_ascii=True)</li>
-<li># transfert du dictionnaire <strong>[data]</strong> dans un fichier json</li>
-<li>out_file2 = codecs.open("./data/out2.json", "w", "utf8")</li>
-<li>json.dump(data, out_file2, ensure_ascii=False)</li>
-<li>except BaseException as erreur:</li>
-<li># on affiche l'erreur et on quitte</li>
-<li>print(f"L'erreur suivante s'est produite : {erreur}")</li>
-<li>sys.exit()</li>
-<li>finally:</li>
-<li># fermeture des fichiers s'ils sont ouverts</li>
-<li>if out_file1:</li>
-<li>out_file1.close()</li>
-<li>if out_file2:</li>
-<li>out_file2.close()</li>
-<li>
-<p>…</p>
-</li>
-<li>
-<p>dans ce script, on écrit le dictionnaire <strong>[data]</strong> (ligne 7) dans deux fichiers jSON (lignes 14, 17) ;</p>
-</li>
+<li>dans ce script, on écrit le dictionnaire <strong>[data]</strong> (ligne 7) dans deux fichiers jSON (lignes 14, 17) ;</li>
 <li>lignes 14, 17 : dans les deux cas, on crée un fichier texte UTF-8 ;</li>
-<li>lignes 15 : lors de l'écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong><mark>ensure_ascii=</mark></strong><strong><mark>True</mark></strong><strong>]</strong> ;</li>
-<li>lignes 18 : lors de l'écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong><mark>ensure_ascii=</mark></strong><strong><mark>False</mark></strong><strong>]</strong> ;</li>
+<li>lignes 15 : lors de l&#x27;écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong>ensure_ascii=</strong><strong>True</strong><strong>]</strong> ;</li>
+<li>lignes 18 : lors de l&#x27;écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong>ensure_ascii=</strong><strong>False</strong><strong>]</strong> ;
+Voici les deux fichiers obtenus :</li>
 </ul>
-<p>Voici les deux fichiers obtenus :</p>
 <p><img src="images/1000000100000378000000B9171524C0.png" style="width:15.491cm;height:3.222cm;" alt="Image" /></p>
 <ul>
-<li>dans le fichier <strong>[out1.json]</strong>, les caractères accentués ont été remplacés par une série de <strong>caractères</strong> représentant leur code UTF-8. On dit parfois qu'ils ont été 'échappés'. Techniquement, dans le binaire de <strong>[out1.json]</strong>, on trouve pour le caractère é de <strong>[marié]</strong> successivement les codes binaires UTF-8 des 6 caractères <strong>[</strong><strong>\u00e9</strong><strong>]</strong> ;</li>
+<li>dans le fichier <strong>[out1.json]</strong>, les caractères accentués ont été remplacés par une série de <strong>caractères</strong> représentant leur code UTF-8. On dit parfois qu&#x27;ils ont été &#x27;échappés&#x27;. Techniquement, dans le binaire de <strong>[out1.json]</strong>, on trouve pour le caractère é de <strong>[marié]</strong> successivement les codes binaires UTF-8 des 6 caractères <strong>[</strong><strong>\u00e9</strong><strong>]</strong> ;</li>
 <li>dans le fichier <strong>[out2.json]</strong>, les caractères accentués ont été laissés tels quels. Cela signifie que dans le binaire de <strong>[out2.json]</strong> ces caractères sont représentés par leur code <strong>binaire</strong> UTF-8 (1 seul code UTF-8 donc au lieu de 6 pour out1). Pour le caractère é de <strong>[marié]</strong>, on trouvera ainsi le code binaire <strong>[</strong><strong>00e9</strong><strong>]</strong> sur 4 octets ;</li>
-<li>c'est la valeur du paramètre <strong>[</strong><strong><mark>ensure_ascii</mark></strong><strong>]</strong> de la méthode <strong>[json.dump]</strong> qui décide du format utilisé ;</li>
+<li>c&#x27;est la valeur du paramètre <strong>[</strong><strong>ensure_ascii</strong><strong>]</strong> de la méthode <strong>[json.dump]</strong> qui décide du format utilisé ;
+Certaines applications utilisent de l&#x27;UTF-8 &#x27;échappé&#x27; pour leurs fichiers jSON. C&#x27;est la valeur <strong>[</strong><strong>ensure_ascii=</strong><strong>True</strong><strong>]</strong> qui doit être alors utilisée. Cette valeur est en fait la valeur par défaut. Si donc on n&#x27;utilise pas le paramètre <strong>[</strong><strong>ensure_ascii</strong><strong>]</strong> on travaillera avec des fichiers jSON UTF-8 échappés.</li>
 </ul>
-<p>Certaines applications utilisent de l'UTF-8 'échappé' pour leurs fichiers jSON. C'est la valeur <strong>[</strong><strong><mark>ensure_ascii=</mark></strong><strong><mark>True</mark></strong><strong>]</strong> qui doit être alors utilisée. Cette valeur est en fait la valeur par défaut. Si donc on n'utilise pas le paramètre <strong>[</strong><strong><mark>ensure_ascii</mark></strong><strong>]</strong> on travaillera avec des fichiers jSON UTF-8 échappés.</p>
 <p>Le script se poursuit de la façon suivante :</p>
-<ul>
-<li># imports</li>
-<li>import codecs</li>
-<li>import json</li>
-<li>import sys</li>
-<li></li>
-<li># dictionnaire</li>
-<li>data = {'marié': 'oui', 'impôt': 1340}</li>
-<li></li>
-<li>…</li>
-<li></li>
-<li># relecture des fichiers jSON</li>
-<li>in_file1 = None</li>
-<li>in_file2 = None</li>
-<li>try:</li>
-<li># transfert du fichier jSON 1 dans un dictionnaire</li>
-<li>in_file1 = codecs.open("./data/out1.json", "r", "utf8")</li>
-<li>dico1 = json.load(in_file1)</li>
-<li># affichage</li>
-<li>print(f"dico1={dico1}")</li>
-<li># transfert du fichier jSON 2 dans un dictionnaire</li>
-<li>in_file2 = codecs.open("./data/out2.json", "r", "utf8")</li>
-<li>dico2 = json.load(in_file2)</li>
-<li># affichage</li>
-<li>print(f"dico2={dico2}")</li>
-<li>except BaseException as erreur:</li>
-<li># on affiche l'erreur et on quitte</li>
-<li>print(f"L'erreur suivante s'est produite : {erreur}")</li>
-<li>sys.exit()</li>
-<li>finally:</li>
-<li># fermeture des fichiers s'ils sont ouverts</li>
-<li>if in_file1:</li>
-<li>in_file1.close()</li>
-<li>if in_file2:</li>
-<li>in_file2.close()</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span>
+<span class="normal"><a href="#__codelineno-8-20">20</a></span>
+<span class="normal"><a href="#__codelineno-8-21">21</a></span>
+<span class="normal"><a href="#__codelineno-8-22">22</a></span>
+<span class="normal"><a href="#__codelineno-8-23">23</a></span>
+<span class="normal"><a href="#__codelineno-8-24">24</a></span>
+<span class="normal"><a href="#__codelineno-8-25">25</a></span>
+<span class="normal"><a href="#__codelineno-8-26">26</a></span>
+<span class="normal"><a href="#__codelineno-8-27">27</a></span>
+<span class="normal"><a href="#__codelineno-8-28">28</a></span>
+<span class="normal"><a href="#__codelineno-8-29">29</a></span>
+<span class="normal"><a href="#__codelineno-8-30">30</a></span>
+<span class="normal"><a href="#__codelineno-8-31">31</a></span>
+<span class="normal"><a href="#__codelineno-8-32">32</a></span>
+<span class="normal"><a href="#__codelineno-8-33">33</a></span>
+<span class="normal"><a href="#__codelineno-8-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># dictionnaire</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1340</span><span class="p">}</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="err">…</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="c1"># relecture des fichiers jSON</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="n">in_file1</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="n">in_file2</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a>    <span class="c1"># transfert du fichier jSON 1 dans un dictionnaire</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a>    <span class="n">in_file1</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/out1.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a>    <span class="n">dico1</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">in_file1</span><span class="p">)</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a>    <span class="c1"># affichage</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dico1=</span><span class="si">{</span><span class="n">dico1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-20" name="__codelineno-8-20"></a>    <span class="c1"># transfert du fichier jSON 2 dans un dictionnaire</span>
+<a id="__codelineno-8-21" name="__codelineno-8-21"></a>    <span class="n">in_file2</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./data/out2.json&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;utf8&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-22" name="__codelineno-8-22"></a>    <span class="n">dico2</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">in_file2</span><span class="p">)</span>
+<a id="__codelineno-8-23" name="__codelineno-8-23"></a>    <span class="c1"># affichage</span>
+<a id="__codelineno-8-24" name="__codelineno-8-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dico2=</span><span class="si">{</span><span class="n">dico2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-25" name="__codelineno-8-25"></a><span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-8-26" name="__codelineno-8-26"></a>    <span class="c1"># on affiche l&#39;erreur et on quitte</span>
+<a id="__codelineno-8-27" name="__codelineno-8-27"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-8-28" name="__codelineno-8-28"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<a id="__codelineno-8-29" name="__codelineno-8-29"></a><span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-8-30" name="__codelineno-8-30"></a>    <span class="c1"># fermeture des fichiers s&#39;ils sont ouverts</span>
+<a id="__codelineno-8-31" name="__codelineno-8-31"></a>    <span class="k">if</span> <span class="n">in_file1</span><span class="p">:</span>
+<a id="__codelineno-8-32" name="__codelineno-8-32"></a>        <span class="n">in_file1</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-8-33" name="__codelineno-8-33"></a>    <span class="k">if</span> <span class="n">in_file2</span><span class="p">:</span>
+<a id="__codelineno-8-34" name="__codelineno-8-34"></a>        <span class="n">in_file2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong></p>
 <ul>
-<li>lignes 11-34 : relecture des deux fichiers <strong>[out1.json, out2.json]</strong> et affichage du dictionnaire lu dans chacun des cas ;</li>
+<li>lignes 11-34 : relecture des deux fichiers <strong>[out1.json, out2.json]</strong> et affichage du dictionnaire lu dans chacun des cas ;
+<strong>Résultats</strong></li>
 </ul>
-<p><strong>Résultats</strong></p>
-<ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/fichiers/json_02.py</li>
-<li>dico1={'marié': 'oui', 'impôt': 1340}</li>
-<li>dico2={'marié': 'oui', 'impôt': 1340}</li>
-<li></li>
-<li>Process finished with exit code 0</li>
-</ul>
-<p>De façon surprenante, on constate qu'on n'a pas eu besoin de préciser à la fonction <strong>[json.load]</strong> (lignes 17, 22) le type d'encodage (échappé ou non) de la chaîne jSON à lire. On récupère dans les deux cas le bon dictionnaire.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span>
+<span class="normal"><a href="#__codelineno-9-3">3</a></span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span>
+<span class="normal"><a href="#__codelineno-9-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">fichiers</span><span class="o">/</span><span class="n">json_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">dico1</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1340</span><span class="p">}</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">dico2</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;marié&#39;</span><span class="p">:</span> <span class="s1">&#39;oui&#39;</span><span class="p">,</span> <span class="s1">&#39;impôt&#39;</span><span class="p">:</span> <span class="mi">1340</span><span class="p">}</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>De façon surprenante, on constate qu&#x27;on n&#x27;a pas eu besoin de préciser à la fonction <strong>[json.load]</strong> (lignes 17, 22) le type d&#x27;encodage (échappé ou non) de la chaîne jSON à lire. On récupère dans les deux cas le bon dictionnaire.</p>
 
 
 
@@ -1853,7 +2036,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>

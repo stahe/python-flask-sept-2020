@@ -320,14 +320,14 @@
   
   
     <li class="md-nav__item">
-      <a href="installation-dun-environnement-de-travail.html" class="md-nav__link">
+      <a href="installation-dx27un-environnement-de-travail.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    2. Installation d'un environnement de travail
+    2. Installation d&#x27;un environnement de travail
   
 
     
@@ -482,14 +482,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dapplication---version-1.html" class="md-nav__link">
+      <a href="exercice-dx27application---version-1.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    8. Exercice d'application – version 1
+    8. Exercice d&#x27;application – version 1
   
 
     
@@ -671,14 +671,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dapplication---version-4.html" class="md-nav__link">
+      <a href="exercice-dx27application---version-4.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    15. Exercice d'application - version 4
+    15. Exercice d&#x27;application - version 4
   
 
     
@@ -980,14 +980,14 @@
   
   
     <li class="md-nav__item">
-      <a href="exercice-dapplication-version-5.html" class="md-nav__link">
+      <a href="exercice-dx27application-version-5.html" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    20. Exercice d'application : version 5
+    20. Exercice d&#x27;application : version 5
   
 
     
@@ -1534,9 +1534,9 @@
 
 
 <h1 id="17-utilisation-du-sgbd-postgresql">17. Utilisation du SGBD PostgreSQL</h1>
-<p>Le SGBD PostgreSQL est librement disponible. Il est une alternative à la version 'community' de MySQL.</p>
-<p>Nous l'utilisons ici pour montrer qu'il est assez simple de migrer des scripts Python / MySQL vers des scripts Python / PostgreSQL.</p>
-<p>Avec le SGBD MySQL, l'architecture de nos scripts était la suivante :</p>
+<p>Le SGBD PostgreSQL est librement disponible. Il est une alternative à la version &#x27;community&#x27; de MySQL.</p>
+<p>Nous l&#x27;utilisons ici pour montrer qu&#x27;il est assez simple de migrer des scripts Python / MySQL vers des scripts Python / PostgreSQL.</p>
+<p>Avec le SGBD MySQL, l&#x27;architecture de nos scripts était la suivante :</p>
 <p><img src="images/100000010000030B0000008320840B22.png" style="width:11.84cm;height:1.99cm;" alt="Image" /></p>
 <p>Avec le SGBD PostgreSQL, elle sera la suivante :</p>
 <p><img src="images/10000001000003050000007CE8B4EDA2.png" style="width:11.851cm;height:1.9cm;" alt="Image" /></p>
@@ -1545,9 +1545,9 @@
 <p><img src="images/10000001000003CD000000F6106EB3D0.png" style="width:16.431cm;height:4.141cm;" alt="Image" /></p>
 <p><img src="images/10000001000004230000008739572A29.png" style="width:17.5cm;height:2.23cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[1-4]</strong>, on télécharge l’installateur du SGBD ;</li>
+<li>en <strong>[1-4]</strong>, on télécharge l’installateur du SGBD ;
+On lance l’installateur téléchargé :</li>
 </ul>
-<p>On lance l’installateur téléchargé :</p>
 <p><img src="images/100000010000040B000001ADDC26881C.png" style="width:17.541cm;height:7.272cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[6]</strong>, indiquez un dossier d’installation ;</li>
@@ -1577,9 +1577,9 @@
 <p><img src="images/1000000100000433000001BB5FB8CE5F.png" style="width:18.8cm;height:7.741cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[31-32]</strong>, mettez le démarrage en mode manuel ;</li>
-<li>en <strong>[33]</strong>, arrêtez le service ;</li>
+<li>en <strong>[33]</strong>, arrêtez le service ;
+Lorsque vous voudrez démarrer manuellement le SGBD, revenez à l’application <strong>[services]</strong>, cliquez droit sur le service <strong>[postgresql]</strong> (34) et lancez le (35).</li>
 </ul>
-<p>Lorsque vous voudrez démarrer manuellement le SGBD, revenez à l’application <strong>[services]</strong>, cliquez droit sur le service <strong>[postgresql]</strong> (34) et lancez le (35).</p>
 <h2 id="172-administrer-postgresql-avec-loutil-pgadmin">17.2. Administrer PostgreSQL avec l’outil [pgAdmin]</h2>
 <p>Lancez le service windows du SGBD PostgreSQL (paragraphe précédent). Puis de la même façon que vous avez lancé l’outil <strong>[services]</strong>, lancez l’outil <strong>[pgadmin]</strong> qui permet d’administrer le SGBD PostgreSQL <strong>[1-3]</strong> :</p>
 <p><img src="images/1000000100000348000001C74A4AB9A3.png" style="width:14.611cm;height:7.91cm;" alt="Image" /></p>
@@ -1589,9 +1589,9 @@
 <li>en <strong>[5]</strong>, la liste des serveurs PostgreSQL détectés par <strong>[pgAdmin]</strong>, ici 1 ;</li>
 <li>en <strong>[6]</strong>, le serveur PostgreSQL que nous avons lancé ;</li>
 <li>en <strong>[7]</strong>, les bases de données du SGBD, ici 1 ;</li>
-<li>en <strong>[8]</strong>, la base <strong>[postgresql]</strong> est gérée par le super-utilisateur <strong>[postgres]</strong> ;</li>
+<li>en <strong>[8]</strong>, la base <strong>[postgresql]</strong> est gérée par le super-utilisateur <strong>[postgres]</strong> ;
+Créons tout d’abord un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <strong>[nobody]</strong> :</li>
 </ul>
-<p>Créons tout d’abord un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <strong>[nobody]</strong> :</p>
 <p><img src="images/10000001000003F0000000D0C2B22823.png" style="width:17.53cm;height:3.611cm;" alt="Image" /></p>
 <p><img src="images/10000001000003940000017EDE7CB6E0.png" style="width:15.461cm;height:6.441cm;" alt="Image" /></p>
 <ul>
@@ -1600,355 +1600,527 @@
 <p><img src="images/10000001000003A9000001182171979B.png" style="width:15.481cm;height:4.62cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[21]</strong>, le code SQL que va émettre l’outil <strong>[pgAdmin]</strong> vers le SGBD PostgreSQL. C’est une façon d’apprendre le langage SQL propriétaire de PostgreSQL ;</li>
-<li>en <strong>[22]</strong>, après validation de l’assistant <strong>[Save]</strong>, l’utilisateur <strong>[admpersonnes]</strong> a été créé ;</li>
+<li>en <strong>[22]</strong>, après validation de l’assistant <strong>[Save]</strong>, l’utilisateur <strong>[admpersonnes]</strong> a été créé ;
+Maintenant nous créons la base <strong>[dbpersonnes]</strong> :</li>
 </ul>
-<p>Maintenant nous créons la base <strong>[dbpersonnes]</strong> :</p>
 <p><img src="images/1000000100000399000000DE79C7FE8C.png" style="width:15.491cm;height:3.731cm;" alt="Image" /></p>
 <p>On clique droit sur <strong>[23]</strong>, puis <strong>[24-25]</strong> pour créer une nouvelle base de données. Dans l’onglet <strong>[26]</strong>, on définit le nom de la base <strong>[27]</strong> et son propriétaire <strong>[admpersonnes]</strong> <strong>[28]</strong>.</p>
 <p><img src="images/10000001000003450000017724CA6CF0.png" style="width:13.84cm;height:6.201cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[30]</strong>, le code SQL de création de la base ;</li>
-<li>en <strong>[31]</strong>, après validation de l’assistant <strong>[Save]</strong>, la base <strong>[dbpersonnes]</strong> est créée ;</li>
+<li>en <strong>[31]</strong>, après validation de l’assistant <strong>[Save]</strong>, la base <strong>[dbpersonnes]</strong> est créée ;
+Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Python.</li>
 </ul>
-<p>Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Python.</p>
 <h2 id="173-installation-du-connecteur-python-du-sgbd-postgresql">17.3. Installation du connecteur Python du SGBD PostgreSQL</h2>
 <p><img src="images/10000001000003050000007CE8B4EDA2.png" style="width:11.851cm;height:1.9cm;" alt="Image" /></p>
 <p>Dans le schéma ci-dessus est représenté un connecteur faisant le lien entre les scripts Python et le SGBD PostgreSQL. Il en existe plusieurs. Nous installons le connecteur <strong>[psycopg2]</strong>. Cela se fait dans un terminal Python (peu importe le dossier dans lequel est ouvert ce terminal). Le connecteur est installé par la commande <strong>[pip install psycopg2]</strong> :</p>
-<ul>
-<li>(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\troiscouches\v01\tests&gt;<mark>pip install psycopg2</mark></li>
-<li>Collecting psycopg2</li>
-<li>Downloading psycopg2-2.8.5-cp38-cp38-win_amd64.whl (1.1 MB)</li>
-<li>|| 1.1 MB 3.2 MB/s</li>
-<li>Installing collected packages: psycopg2</li>
-<li>Successfully installed psycopg2-2.8.5</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">troiscouches</span>\<span class="n">v01</span>\<span class="n">tests</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">Collecting</span> <span class="n">psycopg2</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="n">Downloading</span> <span class="n">psycopg2</span><span class="o">-</span><span class="mf">2.8.5</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mf">1.1</span> <span class="n">MB</span><span class="p">)</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a>     <span class="o">||</span> <span class="mf">1.1</span> <span class="n">MB</span> <span class="mf">3.2</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">psycopg2</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">psycopg2</span><span class="o">-</span><span class="mf">2.8.5</span>
+</code></pre></div></td></tr></table></div>
 <h2 id="174-portage-des-scripts-mysql-vers-des-scripts-postgresql">17.4. Portage des scripts MySQL vers des scripts PostgreSQL</h2>
 <p><img src="images/10000000000004CC0000021C60DF9970.png" style="width:14.2cm;height:6.231cm;" alt="Image" /></p>
 <ul>
 <li>le dossier <strong>[1]</strong> des scripts MySQL est dupliqué (Ctrl-C / Ctrl-V), puis les noms des fichiers sont changés mais par leur contenu ;</li>
 </ul>
 <h3 id="1741-module-pgres_module">17.4.1. module [pgres_module]</h3>
-<p>Ce module est la copie du module <strong>[mysql_module]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d'un fichier d'ordres SQL</u>|). On change les imports :</p>
+<p>Ce module est la copie du module <strong>[mysql_module]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d&#x27;un fichier d&#x27;ordres SQL</u>|). On change les imports :</p>
 <p>Au lieu de :</p>
-<ul>
-<li># imports</li>
-<li>from mysql.connector import DatabaseError, InterfaceError</li>
-<li>from mysql.connector.connection import MySQLConnection</li>
-<li>from mysql.connector.cursor import MySQLCursor</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySQLConnection</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector.cursor</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySQLCursor</span>
+</code></pre></div></td></tr></table></div>
 <p>on écrit :</p>
-<ul>
-<li># imports</li>
-<li>from psycopg2 import DatabaseError, InterfaceError</li>
-<li>from psycopg2.extensions import connection, cursor</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2.extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">connection</span><span class="p">,</span> <span class="n">cursor</span>
+</code></pre></div></td></tr></table></div>
 <p>La signature de la fonction <strong>[</strong><strong>afficher_infos</strong><strong>]</strong> était :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_infos</span><span class="p">(</span><span class="n">curseur</span><span class="p">:</span> <span class="n">MySQLCursor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_infos</span><span class="p">(</span><span class="n">curseur</span><span class="p">:</span> <span class="n">MySQLCursor</span><span class="p">):</span>
 </code></pre></div></td></tr></table></div>
 <p>Elle devient :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_infos</span><span class="p">(</span><span class="n">curseur</span><span class="p">:</span> <span class="n">cursor</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_infos</span><span class="p">(</span><span class="n">curseur</span><span class="p">:</span> <span class="n">cursor</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>La signature de la fonction <strong>[</strong><strong>execute_list_of_commands</strong><strong>]</strong> était :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_list_of_commands</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">MySQLConnection</span><span class="p">,</span> <span class="n">sql_commands</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>                             <span class="n">suivi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_list_of_commands</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">MySQLConnection</span><span class="p">,</span> <span class="n">sql_commands</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>                             <span class="n">suivi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>Elle devient :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_list_of_commands</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">connection</span><span class="p">,</span> <span class="n">sql_commands</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>                             <span class="n">suivi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
+<span class="normal"><a href="#__codelineno-6-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_list_of_commands</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">connection</span><span class="p">,</span> <span class="n">sql_commands</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a>                             <span class="n">suivi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 </code></pre></div></td></tr></table></div>
 <p>Sinon rien d’autre ne change.</p>
 <h3 id="1742-script-pgres_01">17.4.2. script [pgres_01]</h3>
 <p>Le script <strong>[pgres_01]</strong> est la copie du script <strong>[mysql_01]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-01]</strong></u><u> : connexion à une base MySQL - 1</u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
-<ul>
-<li># import du module mysql.connector</li>
-<li>from mysql.connector import connect, DatabaseError, InterfaceError</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># import du module mysql.connector</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+</code></pre></div></td></tr></table></div>
 <p>on écrit :</p>
-<ul>
-<li># import du module psycopg2</li>
-<li>from psycopg2 import connect, DatabaseError, InterfaceError</li>
-</ul>
-<p>Le reste ne change pas. Les résultats sont les mêmes qu'avec MySQL.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># import du module psycopg2</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+</code></pre></div></td></tr></table></div>
+<p>Le reste ne change pas. Les résultats sont les mêmes qu&#x27;avec MySQL.</p>
 <h3 id="1743-script-pgres_02">17.4.3. script [pgres_02]</h3>
 <p>Le script <strong>[pgres_02]</strong> est la copie du script <strong>[mysql_02]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-02]</strong></u><u> : connexion à une base MySQL - 2</u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
-<ul>
-<li># import du module mysql.connector</li>
-<li>from mysql.connector import DatabaseError, InterfaceError, connect</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
+<span class="normal"><a href="#__codelineno-9-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1"># import du module mysql.connector</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span><span class="p">,</span> <span class="n">connect</span>
+</code></pre></div></td></tr></table></div>
 <p>on écrit :</p>
-<ul>
-<li># import du module psycopg2</li>
-<li>from psycopg2 import DatabaseError, InterfaceError, connect</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1">1</a></span>
+<span class="normal"><a href="#__codelineno-10-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># import du module psycopg2</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span><span class="p">,</span> <span class="n">connect</span>
+</code></pre></div></td></tr></table></div>
 <p>Les résultats ne sont pas les mêmes que ceux du script <strong>[mysql_02]</strong> :</p>
-<ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/pgres_02.py</li>
-<li>Connexion MySQL réussie à la base database=dbpersonnes, host=localhost sous l'identité user=admpersonnes, passwd=nobody</li>
-<li>Déconnexion MySQL réussie</li>
-<li></li>
-<li>Process finished with exit code 0</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
+<span class="normal"><a href="#__codelineno-11-2">2</a></span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span>
+<span class="normal"><a href="#__codelineno-11-4">4</a></span>
+<span class="normal"><a href="#__codelineno-11-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Connexion</span> <span class="n">MySQL</span> <span class="n">réussie</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">localhost</span> <span class="n">sous</span> <span class="n">l</span><span class="s1">&#39;identité user=admpersonnes, passwd=nobody</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">Déconnexion</span> <span class="n">MySQL</span> <span class="n">réussie</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
 <p>Le script <strong>[pgres_02]</strong> est le suivant :</p>
-<ul>
-<li># import du module mysql.connector</li>
-<li>from psycopg2 import DatabaseError, InterfaceError, connect</li>
-<li></li>
-<li></li>
-<li># ---------------------------------------------------------------------------------</li>
-<li>def connexion(host: str, database: str, login: str, pwd: str):</li>
-<li># connecte puis déconnecte (login,pwd) de la base <strong>[database]</strong> du serveur <strong>[host]</strong></li>
-<li># lance l'exception DatabaseError si problème</li>
-<li>connexion = None</li>
-<li>try:</li>
-<li># connexion</li>
-<li>connexion = connect(host=host, user=login, password=pwd, database=database)</li>
-<li>print(</li>
-<li>f"Connexion réussie à la base database={database}, host={host} sous l'identité user={login}, passwd={pwd}")</li>
-<li>finally:</li>
-<li># on ferme la connexion si elle a été ouverte</li>
-<li>if connexion:</li>
-<li>connexion.close()</li>
-<li>print("Déconnexion réussie\n")</li>
-<li></li>
-<li></li>
-<li># ---------------------------------------------- main</li>
-<li># identifiants de la connexion</li>
-<li>USER = "admpersonnes"</li>
-<li>PASSWD = "nobody"</li>
-<li>HOST = "localhost"</li>
-<li>DATABASE = "dbpersonnes"</li>
-<li></li>
-<li># connexion d'un utilisateur existant</li>
-<li>try:</li>
-<li>connexion(host=HOST, login=USER, pwd=PASSWD, database=DATABASE)</li>
-<li>except (InterfaceError, DatabaseError) as erreur:</li>
-<li># on affiche l'erreur</li>
-<li>print(erreur)</li>
-<li></li>
-<li># connexion d'un utilisateur inexistant</li>
-<li>try:</li>
-<li>connexion(host=HOST, login="xx", pwd="yy", database=DATABASE)</li>
-<li>except (InterfaceError, DatabaseError) as erreur:</li>
-<li># on affiche l'erreur</li>
-<li>print(erreur)</li>
-</ul>
-<p>Alors que les lignes 36-41 auraient dû afficher un message d'erreur indiquant que la connexion au SGBD avait échoué, rien n'est affiché. En fait lorsqu'on creuse la question, on voit qu'on passe bien dans le <strong>[except]</strong> des lignes 35-37 mais que la variable <strong>[erreur]</strong> vaut <strong>[None]</strong>. Ceci avec la versions 2.8.4 du connecteur <strong>[</strong><strong>psycopg2</strong><strong>]</strong>.</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span>
+<span class="normal"><a href="#__codelineno-12-21">21</a></span>
+<span class="normal"><a href="#__codelineno-12-22">22</a></span>
+<span class="normal"><a href="#__codelineno-12-23">23</a></span>
+<span class="normal"><a href="#__codelineno-12-24">24</a></span>
+<span class="normal"><a href="#__codelineno-12-25">25</a></span>
+<span class="normal"><a href="#__codelineno-12-26">26</a></span>
+<span class="normal"><a href="#__codelineno-12-27">27</a></span>
+<span class="normal"><a href="#__codelineno-12-28">28</a></span>
+<span class="normal"><a href="#__codelineno-12-29">29</a></span>
+<span class="normal"><a href="#__codelineno-12-30">30</a></span>
+<span class="normal"><a href="#__codelineno-12-31">31</a></span>
+<span class="normal"><a href="#__codelineno-12-32">32</a></span>
+<span class="normal"><a href="#__codelineno-12-33">33</a></span>
+<span class="normal"><a href="#__codelineno-12-34">34</a></span>
+<span class="normal"><a href="#__codelineno-12-35">35</a></span>
+<span class="normal"><a href="#__codelineno-12-36">36</a></span>
+<span class="normal"><a href="#__codelineno-12-37">37</a></span>
+<span class="normal"><a href="#__codelineno-12-38">38</a></span>
+<span class="normal"><a href="#__codelineno-12-39">39</a></span>
+<span class="normal"><a href="#__codelineno-12-40">40</a></span>
+<span class="normal"><a href="#__codelineno-12-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># import du module mysql.connector</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span><span class="p">,</span> <span class="n">connect</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+<a id="__codelineno-12-4" name="__codelineno-12-4"></a>
+<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># ---------------------------------------------------------------------------------</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">connexion</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">database</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">login</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">pwd</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7"></a>    <span class="c1"># connecte puis déconnecte (login,pwd) de la base [database] du serveur [host]</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="c1"># lance l&#39;exception DatabaseError si problème</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="n">connexion</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span class="c1"># connexion</span>
+<a id="__codelineno-12-12" name="__codelineno-12-12"></a>        <span class="n">connexion</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">host</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">login</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">pwd</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">database</span><span class="p">)</span>
+<a id="__codelineno-12-13" name="__codelineno-12-13"></a>        <span class="nb">print</span><span class="p">(</span>
+<a id="__codelineno-12-14" name="__codelineno-12-14"></a>            <span class="sa">f</span><span class="s2">&quot;Connexion réussie à la base database=</span><span class="si">{</span><span class="n">database</span><span class="si">}</span><span class="s2">, host=</span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2"> sous l&#39;identité user=</span><span class="si">{</span><span class="n">login</span><span class="si">}</span><span class="s2">, passwd=</span><span class="si">{</span><span class="n">pwd</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-15" name="__codelineno-12-15"></a>    <span class="k">finally</span><span class="p">:</span>
+<a id="__codelineno-12-16" name="__codelineno-12-16"></a>        <span class="c1"># on ferme la connexion si elle a été ouverte</span>
+<a id="__codelineno-12-17" name="__codelineno-12-17"></a>        <span class="k">if</span> <span class="n">connexion</span><span class="p">:</span>
+<a id="__codelineno-12-18" name="__codelineno-12-18"></a>            <span class="n">connexion</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<a id="__codelineno-12-19" name="__codelineno-12-19"></a>            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Déconnexion réussie</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-12-20" name="__codelineno-12-20"></a>
+<a id="__codelineno-12-21" name="__codelineno-12-21"></a>
+<a id="__codelineno-12-22" name="__codelineno-12-22"></a><span class="c1"># ---------------------------------------------- main</span>
+<a id="__codelineno-12-23" name="__codelineno-12-23"></a><span class="c1"># identifiants de la connexion</span>
+<a id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="n">USER</span> <span class="o">=</span> <span class="s2">&quot;admpersonnes&quot;</span>
+<a id="__codelineno-12-25" name="__codelineno-12-25"></a><span class="n">PASSWD</span> <span class="o">=</span> <span class="s2">&quot;nobody&quot;</span>
+<a id="__codelineno-12-26" name="__codelineno-12-26"></a><span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span>
+<a id="__codelineno-12-27" name="__codelineno-12-27"></a><span class="n">DATABASE</span> <span class="o">=</span> <span class="s2">&quot;dbpersonnes&quot;</span>
+<a id="__codelineno-12-28" name="__codelineno-12-28"></a>
+<a id="__codelineno-12-29" name="__codelineno-12-29"></a><span class="c1"># connexion d&#39;un utilisateur existant</span>
+<a id="__codelineno-12-30" name="__codelineno-12-30"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-12-31" name="__codelineno-12-31"></a>    <span class="n">connexion</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">HOST</span><span class="p">,</span> <span class="n">login</span><span class="o">=</span><span class="n">USER</span><span class="p">,</span> <span class="n">pwd</span><span class="o">=</span><span class="n">PASSWD</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">)</span>
+<a id="__codelineno-12-32" name="__codelineno-12-32"></a><span class="k">except</span> <span class="p">(</span><span class="n">InterfaceError</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-12-33" name="__codelineno-12-33"></a>    <span class="c1"># on affiche l&#39;erreur</span>
+<a id="__codelineno-12-34" name="__codelineno-12-34"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">erreur</span><span class="p">)</span>
+<a id="__codelineno-12-35" name="__codelineno-12-35"></a>
+<a id="__codelineno-12-36" name="__codelineno-12-36"></a><span class="c1"># connexion d&#39;un utilisateur inexistant</span>
+<a id="__codelineno-12-37" name="__codelineno-12-37"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-12-38" name="__codelineno-12-38"></a>    <span class="n">connexion</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">HOST</span><span class="p">,</span> <span class="n">login</span><span class="o">=</span><span class="s2">&quot;xx&quot;</span><span class="p">,</span> <span class="n">pwd</span><span class="o">=</span><span class="s2">&quot;yy&quot;</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">)</span>
+<a id="__codelineno-12-39" name="__codelineno-12-39"></a><span class="k">except</span> <span class="p">(</span><span class="n">InterfaceError</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-12-40" name="__codelineno-12-40"></a>    <span class="c1"># on affiche l&#39;erreur</span>
+<a id="__codelineno-12-41" name="__codelineno-12-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">erreur</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+<p>Alors que les lignes 36-41 auraient dû afficher un message d&#x27;erreur indiquant que la connexion au SGBD avait échoué, rien n&#x27;est affiché. En fait lorsqu&#x27;on creuse la question, on voit qu&#x27;on passe bien dans le <strong>[except]</strong> des lignes 35-37 mais que la variable <strong>[erreur]</strong> vaut <strong>[None]</strong>. Ceci avec la versions 2.8.4 du connecteur <strong>[</strong><strong>psycopg2</strong><strong>]</strong>.</p>
 <p>On peut contourner ce problème en écrivant un message générique mais moins précis :</p>
-<ul>
-<li># connexion d'un utilisateur inexistant</li>
-<li>try:</li>
-<li>connexion(host=HOST, login="xx", pwd="yy", database=DATABASE)</li>
-<li>except (InterfaceError, DatabaseError) as erreur:</li>
-<li># on affiche l'erreur</li>
-<li>print(f"Erreur de connexion à la base <strong>[{DATABASE}]</strong> par l'utilisateur <strong>[xx/yy]</strong>")</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span>
+<span class="normal"><a href="#__codelineno-13-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># connexion d&#39;un utilisateur inexistant</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="n">connexion</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">HOST</span><span class="p">,</span> <span class="n">login</span><span class="o">=</span><span class="s2">&quot;xx&quot;</span><span class="p">,</span> <span class="n">pwd</span><span class="o">=</span><span class="s2">&quot;yy&quot;</span><span class="p">,</span> <span class="n">database</span><span class="o">=</span><span class="n">DATABASE</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="k">except</span> <span class="p">(</span><span class="n">InterfaceError</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="c1"># on affiche l&#39;erreur</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Erreur de connexion à la base [</span><span class="si">{</span><span class="n">DATABASE</span><span class="si">}</span><span class="s2">] par l&#39;utilisateur [xx/yy]&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>Les résultats sont alors les suivants :</p>
-<ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/pgres_02.py</li>
-<li>Connexion réussie à la base database=dbpersonnes, host=localhost sous l'identité user=admpersonnes, passwd=nobody</li>
-<li>Déconnexion réussie</li>
-<li></li>
-<li>Erreur de connexion à la base <strong>[dbpersonnes]</strong> par l'utilisateur <strong>[xx/yy]</strong></li>
-<li></li>
-<li>Process finished with exit code 0</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span>
+<span class="normal"><a href="#__codelineno-14-3">3</a></span>
+<span class="normal"><a href="#__codelineno-14-4">4</a></span>
+<span class="normal"><a href="#__codelineno-14-5">5</a></span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span>
+<span class="normal"><a href="#__codelineno-14-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_02</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">Connexion</span> <span class="n">réussie</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">localhost</span> <span class="n">sous</span> <span class="n">l</span><span class="s1">&#39;identité user=admpersonnes, passwd=nobody</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">Déconnexion</span> <span class="n">réussie</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">Erreur</span> <span class="n">de</span> <span class="n">connexion</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="p">[</span><span class="n">dbpersonnes</span><span class="p">]</span> <span class="n">par</span> <span class="n">l</span><span class="s1">&#39;utilisateur [xx/yy]</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
 <h3 id="1744-script-pgres_03">17.4.4. script [pgres_03]</h3>
-<p>Le script <strong>[pgres_03]</strong> est la copie du script <strong>[mysql_03]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-03]</strong></u><u> : création d'une table MySQL</u>|). On y fait les modifications suivantes :</p>
+<p>Le script <strong>[pgres_03]</strong> est la copie du script <strong>[mysql_03]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-03]</strong></u><u> : création d&#x27;une table MySQL</u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
-<ul>
-<li>from mysql.connector import DatabaseError, InterfaceError, connect</li>
-<li>from mysql.connector.connection import MySQLConnection</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span><span class="p">,</span> <span class="n">connect</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector.connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">MySQLConnection</span>
+</code></pre></div></td></tr></table></div>
 <p>on écrit :</p>
-<ul>
-<li>from psycopg2 import DatabaseError, InterfaceError, connect</li>
-<li>from psycopg2.extensions import connection</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span><span class="p">,</span> <span class="n">connect</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2.extensions</span><span class="w"> </span><span class="kn">import</span> <span class="n">connection</span>
+</code></pre></div></td></tr></table></div>
 <p>Par ailleurs, la signature de la fonction <strong>[</strong><strong>execute_sql</strong><strong>]</strong> qui était :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_sql</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">MySQLConnection</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_sql</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">MySQLConnection</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </code></pre></div></td></tr></table></div>
 <p>devient :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_sql</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">connection</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_sql</span><span class="p">(</span><span class="n">connexion</span><span class="p">:</span> <span class="n">connection</span><span class="p">,</span> <span class="n">update</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 </code></pre></div></td></tr></table></div>
 <p>Le reste ne change pas. Le résultat est le suivant :</p>
-<ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/pgres_03.py</li>
-<li>create table personnes (id int PRIMARY KEY, prenom varchar(30) NOT NULL, nom varchar(30) NOT NULL, age integer NOT NULL, unique(nom,prenom))  : <mark>requête réussie</mark></li>
-<li></li>
-<li>Process finished with exit code 0</li>
-</ul>
-<p>On peut vérifier la présence de la table <strong>[personnes]</strong> avec l'outil d'administration <strong>[pgAdmin]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
+<span class="normal"><a href="#__codelineno-19-2">2</a></span>
+<span class="normal"><a href="#__codelineno-19-3">3</a></span>
+<span class="normal"><a href="#__codelineno-19-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_03</span><span class="o">.</span><span class="n">py</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">unique</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))</span>  <span class="p">:</span> <span class="n">requête</span> <span class="n">réussie</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>On peut vérifier la présence de la table <strong>[personnes]</strong> avec l&#x27;outil d&#x27;administration <strong>[pgAdmin]</strong> :</p>
 <p><img src="images/10000000000004DE0000046766E0BCA6.png" style="width:14.791cm;height:13.371cm;" alt="Image" /></p>
 <h3 id="1745-script-pgres_04">17.4.5. script [pgres_04]</h3>
-<p>Le script <strong>[pgres_04]</strong> est une copie du script <strong>[mysql_04]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d'un fichier d'ordres SQL</u>|). Il utilise le module <strong>[</strong><strong>pgres_module</strong><strong>]</strong> :</p>
-<ul>
-<li># on récupère la configuration de l'application</li>
-<li>import config_04</li>
-<li></li>
-<li>config = config_04.configure()</li>
-<li></li>
-<li># le syspath est configuré - on peut faire les imports</li>
-<li>import sys</li>
-<li>from <mark>pgres_module</mark> import execute_file_of_commands</li>
-<li>from <mark>psycopg2</mark> import connect, DatabaseError, InterfaceError</li>
-</ul>
+<p>Le script <strong>[pgres_04]</strong> est une copie du script <strong>[mysql_04]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d&#x27;un fichier d&#x27;ordres SQL</u>|). Il utilise le module <strong>[</strong><strong>pgres_module</strong><strong>]</strong> :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1">1</a></span>
+<span class="normal"><a href="#__codelineno-20-2">2</a></span>
+<span class="normal"><a href="#__codelineno-20-3">3</a></span>
+<span class="normal"><a href="#__codelineno-20-4">4</a></span>
+<span class="normal"><a href="#__codelineno-20-5">5</a></span>
+<span class="normal"><a href="#__codelineno-20-6">6</a></span>
+<span class="normal"><a href="#__codelineno-20-7">7</a></span>
+<span class="normal"><a href="#__codelineno-20-8">8</a></span>
+<span class="normal"><a href="#__codelineno-20-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1"># on récupère la configuration de l&#39;application</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config_04</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">config_04</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1"># le syspath est configuré - on peut faire les imports</span>
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pgres_module</span><span class="w"> </span><span class="kn">import</span> <span class="n">execute_file_of_commands</span>
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+</code></pre></div></td></tr></table></div>
 <p>Le reste ne change pas.</p>
-<p>On crée une configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> comme il a été fait au paragraphe |<a href="#_script_[mysql-04]_:"><u><u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d'un fichier d'ordres SQL</u></u></a>|. On crée de même une configuration <strong>[pgres pgres-04 </strong><strong>with_</strong><strong>transaction]</strong>.</p>
-<p>L'exécution de la configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
+<p>On crée une configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> comme il a été fait au paragraphe |<a href="#_script_[mysql-04]_:"><u><u>script </u><u><strong>[mysql-04]</strong></u><u> : exécution d&#x27;un fichier d&#x27;ordres SQL</u></u></a>|. On crée de même une configuration <strong>[pgres pgres-04 </strong><strong>with_</strong><strong>transaction]</strong>.</p>
+<p>L&#x27;exécution de la configuration <strong>[pgres pgres-04 </strong><strong>without</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-21-10">10</a></span>
+<span class="normal"><a href="#__codelineno-21-11">11</a></span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span>
+<span class="normal"><a href="#__codelineno-21-13">13</a></span>
+<span class="normal"><a href="#__codelineno-21-14">14</a></span>
+<span class="normal"><a href="#__codelineno-21-15">15</a></span>
+<span class="normal"><a href="#__codelineno-21-16">16</a></span>
+<span class="normal"><a href="#__codelineno-21-17">17</a></span>
+<span class="normal"><a href="#__codelineno-21-18">18</a></span>
+<span class="normal"><a href="#__codelineno-21-19">19</a></span>
+<span class="normal"><a href="#__codelineno-21-20">20</a></span>
+<span class="normal"><a href="#__codelineno-21-21">21</a></span>
+<span class="normal"><a href="#__codelineno-21-22">22</a></span>
+<span class="normal"><a href="#__codelineno-21-23">23</a></span>
+<span class="normal"><a href="#__codelineno-21-24">24</a></span>
+<span class="normal"><a href="#__codelineno-21-25">25</a></span>
+<span class="normal"><a href="#__codelineno-21-26">26</a></span>
+<span class="normal"><a href="#__codelineno-21-27">27</a></span>
+<span class="normal"><a href="#__codelineno-21-28">28</a></span>
+<span class="normal"><a href="#__codelineno-21-29">29</a></span>
+<span class="normal"><a href="#__codelineno-21-30">30</a></span>
+<span class="normal"><a href="#__codelineno-21-31">31</a></span>
+<span class="normal"><a href="#__codelineno-21-32">32</a></span>
+<span class="normal"><a href="#__codelineno-21-33">33</a></span>
+<span class="normal"><a href="#__codelineno-21-34">34</a></span>
+<span class="normal"><a href="#__codelineno-21-35">35</a></span>
+<span class="normal"><a href="#__codelineno-21-36">36</a></span>
+<span class="normal"><a href="#__codelineno-21-37">37</a></span>
+<span class="normal"><a href="#__codelineno-21-38">38</a></span>
+<span class="normal"><a href="#__codelineno-21-39">39</a></span>
+<span class="normal"><a href="#__codelineno-21-40">40</a></span>
+<span class="normal"><a href="#__codelineno-21-41">41</a></span>
+<span class="normal"><a href="#__codelineno-21-42">42</a></span>
+<span class="normal"><a href="#__codelineno-21-43">43</a></span>
+<span class="normal"><a href="#__codelineno-21-44">44</a></span>
+<span class="normal"><a href="#__codelineno-21-45">45</a></span>
+<span class="normal"><a href="#__codelineno-21-46">46</a></span>
+<span class="normal"><a href="#__codelineno-21-47">47</a></span>
+<span class="normal"><a href="#__codelineno-21-48">48</a></span>
+<span class="normal"><a href="#__codelineno-21-49">49</a></span>
+<span class="normal"><a href="#__codelineno-21-50">50</a></span>
+<span class="normal"><a href="#__codelineno-21-51">51</a></span>
+<span class="normal"><a href="#__codelineno-21-52">52</a></span>
+<span class="normal"><a href="#__codelineno-21-53">53</a></span>
+<span class="normal"><a href="#__codelineno-21-54">54</a></span>
+<span class="normal"><a href="#__codelineno-21-55">55</a></span>
+<span class="normal"><a href="#__codelineno-21-56">56</a></span>
+<span class="normal"><a href="#__codelineno-21-57">57</a></span>
+<span class="normal"><a href="#__codelineno-21-58">58</a></span>
+<span class="normal"><a href="#__codelineno-21-59">59</a></span>
+<span class="normal"><a href="#__codelineno-21-60">60</a></span>
+<span class="normal"><a href="#__codelineno-21-61">61</a></span>
+<span class="normal"><a href="#__codelineno-21-62">62</a></span>
+<span class="normal"><a href="#__codelineno-21-63">63</a></span>
+<span class="normal"><a href="#__codelineno-21-64">64</a></span>
+<span class="normal"><a href="#__codelineno-21-65">65</a></span>
+<span class="normal"><a href="#__codelineno-21-66">66</a></span>
+<span class="normal"><a href="#__codelineno-21-67">67</a></span>
+<span class="normal"><a href="#__codelineno-21-68">68</a></span>
+<span class="normal"><a href="#__codelineno-21-69">69</a></span>
+<span class="normal"><a href="#__codelineno-21-70">70</a></span>
+<span class="normal"><a href="#__codelineno-21-71">71</a></span>
+<span class="normal"><a href="#__codelineno-21-72">72</a></span>
+<span class="normal"><a href="#__codelineno-21-73">73</a></span>
+<span class="normal"><a href="#__codelineno-21-74">74</a></span>
+<span class="normal"><a href="#__codelineno-21-75">75</a></span>
+<span class="normal"><a href="#__codelineno-21-76">76</a></span>
+<span class="normal"><a href="#__codelineno-21-77">77</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_04</span><span class="o">.</span><span class="n">py</span> <span class="n">false</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">Exécution</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">SQL</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">databases</span>\<span class="n">postgresql</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">commandes</span><span class="o">.</span><span class="n">sql</span> <span class="n">sans</span> <span class="n">transaction</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="p">[</span><span class="n">drop</span> <span class="n">table</span> <span class="k">if</span> <span class="n">exists</span> <span class="n">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="p">[</span><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">primary</span> <span class="n">key</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">unique</span> <span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">,</span><span class="s1">&#39;Langevin&#39;</span><span class="p">,</span><span class="mi">48</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span><span class="s1">&#39;Lefur&#39;</span><span class="p">,</span><span class="mi">70</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="p">[</span><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="o">*****************</span>
+<a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="p">(</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="o">*****************</span>
+<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="n">xx</span> <span class="p">:</span> <span class="n">Erreur</span> <span class="p">(</span><span class="n">ERREUR</span><span class="p">:</span>  <span class="n">erreur</span> <span class="n">de</span> <span class="n">syntaxe</span> <span class="n">sur</span> <span class="n">ou</span> <span class="n">près</span> <span class="n">de</span> <span class="err">«</span> <span class="n">xx</span> <span class="err">»</span>
+<a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="n">LINE</span> <span class="mi">1</span><span class="p">:</span> <span class="n">xx</span>
+<a id="__codelineno-21-21" name="__codelineno-21-21"></a>        <span class="o">^</span>
+<a id="__codelineno-21-22" name="__codelineno-21-22"></a><span class="p">)</span>
+<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">,</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span><span class="mi">26</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-27" name="__codelineno-21-27"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Paulette&#39;</span><span class="p">,</span><span class="s1">&#39;Girond&#39;</span><span class="p">,</span><span class="mi">56</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-29" name="__codelineno-21-29"></a><span class="p">[</span><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-21-31" name="__codelineno-21-31"></a><span class="o">*****************</span>
+<a id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="p">(</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<a id="__codelineno-21-33" name="__codelineno-21-33"></a><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<a id="__codelineno-21-34" name="__codelineno-21-34"></a><span class="p">(</span><span class="s1">&#39;Pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<a id="__codelineno-21-35" name="__codelineno-21-35"></a><span class="p">(</span><span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span> <span class="s1">&#39;Colou&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
+<a id="__codelineno-21-36" name="__codelineno-21-36"></a><span class="p">(</span><span class="s1">&#39;Paulette&#39;</span><span class="p">,</span> <span class="s1">&#39;Girond&#39;</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
+<a id="__codelineno-21-37" name="__codelineno-21-37"></a><span class="o">*****************</span>
+<a id="__codelineno-21-38" name="__codelineno-21-38"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">order</span> <span class="n">by</span> <span class="n">nom</span> <span class="n">asc</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">desc</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-39" name="__codelineno-21-39"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span>
+<a id="__codelineno-21-40" name="__codelineno-21-40"></a><span class="o">************</span>
+<a id="__codelineno-21-41" name="__codelineno-21-41"></a><span class="p">(</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-42" name="__codelineno-21-42"></a><span class="p">(</span><span class="s1">&#39;Girond&#39;</span><span class="p">,</span> <span class="s1">&#39;Paulette&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-43" name="__codelineno-21-43"></a><span class="p">(</span><span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-44" name="__codelineno-21-44"></a><span class="p">(</span><span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="s1">&#39;Sylvie&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-45" name="__codelineno-21-45"></a><span class="p">(</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">)</span>
+<a id="__codelineno-21-46" name="__codelineno-21-46"></a><span class="o">************</span>
+<a id="__codelineno-21-47" name="__codelineno-21-47"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">age</span> <span class="n">between</span> <span class="mi">20</span> <span class="ow">and</span> <span class="mi">40</span> <span class="n">order</span> <span class="n">by</span> <span class="n">age</span> <span class="n">desc</span><span class="p">,</span> <span class="n">nom</span> <span class="n">asc</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">asc</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-48" name="__codelineno-21-48"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-21-49" name="__codelineno-21-49"></a><span class="o">*****************</span>
+<a id="__codelineno-21-50" name="__codelineno-21-50"></a><span class="p">(</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
+<a id="__codelineno-21-51" name="__codelineno-21-51"></a><span class="p">(</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
+<a id="__codelineno-21-52" name="__codelineno-21-52"></a><span class="o">*****************</span>
+<a id="__codelineno-21-53" name="__codelineno-21-53"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Josette&#39;</span><span class="p">,</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">,</span><span class="mi">46</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-54" name="__codelineno-21-54"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-55" name="__codelineno-21-55"></a><span class="p">[</span><span class="n">update</span> <span class="n">personnes</span> <span class="nb">set</span> <span class="n">age</span><span class="o">=</span><span class="mi">47</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-56" name="__codelineno-21-56"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-57" name="__codelineno-21-57"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-58" name="__codelineno-21-58"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-21-59" name="__codelineno-21-59"></a><span class="o">*****************</span>
+<a id="__codelineno-21-60" name="__codelineno-21-60"></a><span class="p">(</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">,</span> <span class="s1">&#39;Josette&#39;</span><span class="p">,</span> <span class="mi">47</span><span class="p">)</span>
+<a id="__codelineno-21-61" name="__codelineno-21-61"></a><span class="o">*****************</span>
+<a id="__codelineno-21-62" name="__codelineno-21-62"></a><span class="p">[</span><span class="n">delete</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-63" name="__codelineno-21-63"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-21-64" name="__codelineno-21-64"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-21-65" name="__codelineno-21-65"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-21-66" name="__codelineno-21-66"></a><span class="o">*****************</span>
+<a id="__codelineno-21-67" name="__codelineno-21-67"></a><span class="o">*****************</span>
+<a id="__codelineno-21-68" name="__codelineno-21-68"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-21-69" name="__codelineno-21-69"></a><span class="n">Exécution</span> <span class="n">terminée</span>
+<a id="__codelineno-21-70" name="__codelineno-21-70"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-21-71" name="__codelineno-21-71"></a><span class="n">Il</span> <span class="n">y</span> <span class="n">a</span> <span class="n">eu</span> <span class="mi">1</span> <span class="n">erreur</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-21-72" name="__codelineno-21-72"></a><span class="n">xx</span> <span class="p">:</span> <span class="n">Erreur</span> <span class="p">(</span><span class="n">ERREUR</span><span class="p">:</span>  <span class="n">erreur</span> <span class="n">de</span> <span class="n">syntaxe</span> <span class="n">sur</span> <span class="n">ou</span> <span class="n">près</span> <span class="n">de</span> <span class="err">«</span> <span class="n">xx</span> <span class="err">»</span>
+<a id="__codelineno-21-73" name="__codelineno-21-73"></a><span class="n">LINE</span> <span class="mi">1</span><span class="p">:</span> <span class="n">xx</span>
+<a id="__codelineno-21-74" name="__codelineno-21-74"></a>        <span class="o">^</span>
+<a id="__codelineno-21-75" name="__codelineno-21-75"></a><span class="p">)</span>
+<a id="__codelineno-21-76" name="__codelineno-21-76"></a>
+<a id="__codelineno-21-77" name="__codelineno-21-77"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
 <ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/<mark>pgres_04.py false</mark></li>
-<li>--------------------------------------------------------------------</li>
-<li>Exécution du fichier SQL C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\databases\postgresql/data/commandes.sql sans transaction</li>
-<li>--------------------------------------------------------------------</li>
-<li><strong>[</strong><strong><mark>drop table if exists personnes</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : -1</li>
-<li><strong>[</strong><strong><mark>create table personnes (id int primary key, prenom varchar(30) not null, nom varchar(30) not null, age integer not null, unique (nom,prenom))</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : -1</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values(1, 'Paul','Langevin',48)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values (2, 'Sylvie','Lefur',70)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>select prenom, nom, age from personnes</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>prenom, nom, age,</li>
-<li>*****************</li>
-<li>('Paul', 'Langevin', 48)</li>
-<li>('Sylvie', 'Lefur', 70)</li>
-<li>*****************</li>
-<li>xx : Erreur (ERREUR:  erreur de syntaxe sur ou près de « xx »</li>
-<li>LINE 1: xx</li>
-<li>\^</li>
-<li>)</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values (3, 'Pierre','Nicazou',35)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values (4, 'Geraldine','Colou',26)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values (5, 'Paulette','Girond',56)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>select prenom, nom, age from personnes</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>prenom, nom, age,</li>
-<li>*****************</li>
-<li>('Paul', 'Langevin', 48)</li>
-<li>('Sylvie', 'Lefur', 70)</li>
-<li>('Pierre', 'Nicazou', 35)</li>
-<li>('Geraldine', 'Colou', 26)</li>
-<li>('Paulette', 'Girond', 56)</li>
-<li>*****************</li>
-<li><strong>[</strong><strong><mark>select nom,prenom from personnes order by nom asc, prenom desc</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nom, prenom,</li>
-<li>************</li>
-<li>('Colou', 'Geraldine')</li>
-<li>('Girond', 'Paulette')</li>
-<li>('Langevin', 'Paul')</li>
-<li>('Lefur', 'Sylvie')</li>
-<li>('Nicazou', 'Pierre')</li>
-<li>************</li>
-<li><strong>[</strong><strong><mark>select nom,prenom,age from personnes where age between 20 and 40 order by age desc, nom asc, prenom asc</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nom, prenom, age,</li>
-<li>*****************</li>
-<li>('Nicazou', 'Pierre', 35)</li>
-<li>('Colou', 'Geraldine', 26)</li>
-<li>*****************</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values(6, 'Josette','Bruneau',46)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>update personnes set age=47 where nom='Bruneau'</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>select nom,prenom,age from personnes where nom='Bruneau'</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nom, prenom, age,</li>
-<li>*****************</li>
-<li>('Bruneau', 'Josette', 47)</li>
-<li>*****************</li>
-<li><strong>[</strong><strong><mark>delete from personnes where nom='Bruneau'</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>select nom,prenom,age from personnes where nom='Bruneau'</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nom, prenom, age,</li>
-<li>*****************</li>
-<li>*****************</li>
-<li>--------------------------------------------------------------------</li>
-<li>Exécution terminée</li>
-<li>--------------------------------------------------------------------</li>
-<li><mark>Il y a eu 1 erreur(s)</mark></li>
-<li>xx : Erreur (ERREUR:  erreur de syntaxe sur ou près de « xx »</li>
-<li>LINE 1: xx</li>
-<li>\^</li>
-<li>)</li>
-<li></li>
-<li>
-<p>Process finished with exit code 0</p>
-</li>
-<li>
-<p>ligne 5 : on a dû modifier la commande de suppression de la table <strong>[personnes]</strong>. Contrairement au connecteur de MySQL le connecteur de PostgreSQL lance une exception si la table à supprimer n’existe pas. La commande <strong>[drop table]</strong> a une variante <strong>[drop table if exists]</strong> qui ne lance pas d’exception si la table n’existe pas. Nous l’avons utilisée ici. C’est un exemple où deux SGBD ne se comportent pas de la même façon dans des situations analogues ;</p>
-</li>
+<li>ligne 5 : on a dû modifier la commande de suppression de la table <strong>[personnes]</strong>. Contrairement au connecteur de MySQL le connecteur de PostgreSQL lance une exception si la table à supprimer n’existe pas. La commande <strong>[drop table]</strong> a une variante <strong>[drop table if exists]</strong> qui ne lance pas d’exception si la table n’existe pas. Nous l’avons utilisée ici. C’est un exemple où deux SGBD ne se comportent pas de la même façon dans des situations analogues ;
+La table <strong>[personnes]</strong> dans l&#x27;outil <strong>[pgAdmin]</strong> est la suivante :</li>
 </ul>
-<p>La table <strong>[personnes]</strong> dans l'outil <strong>[pgAdmin]</strong> est la suivante :</p>
 <p><img src="images/10000000000006310000022E6AD52E07.png" style="width:18.291cm;height:6.451cm;" alt="Image" /></p>
-<p>L'exécution de la configuration <strong>[pgres pgres_04 </strong><strong>with</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
-<ul>
-<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/postgresql/<mark>pgres_04.py true</mark></li>
-<li>--------------------------------------------------------------------</li>
-<li>Exécution du fichier SQL C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\databases\postgresql/data/commandes.sql avec transaction</li>
-<li>--------------------------------------------------------------------</li>
-<li><strong>[</strong><strong><mark>drop table if exists personnes</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : -1</li>
-<li><strong>[</strong><strong><mark>create table personnes (id int primary key, prenom varchar(30) not null, nom varchar(30) not null, age integer not null, unique (nom,prenom))</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : -1</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values(1, 'Paul','Langevin',48)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>insert into personnes(id, prenom, nom, age) values (2, 'Sylvie','Lefur',70)</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>nombre de lignes modifiées : 1</li>
-<li><strong>[</strong><strong><mark>select prenom, nom, age from personnes</mark></strong><strong>]</strong> : Exécution réussie</li>
-<li>prenom, nom, age,</li>
-<li>*****************</li>
-<li>('Paul', 'Langevin', 48)</li>
-<li>('Sylvie', 'Lefur', 70)</li>
-<li>*****************</li>
-<li>xx : Erreur (ERREUR:  erreur de syntaxe sur ou près de « xx »</li>
-<li>LINE 1: xx</li>
-<li>\^</li>
-<li>)</li>
-<li>--------------------------------------------------------------------</li>
-<li>Exécution terminée</li>
-<li>--------------------------------------------------------------------</li>
-<li><mark>Il y a eu 1 erreur(s)</mark></li>
-<li>xx : Erreur (ERREUR:  erreur de syntaxe sur ou près de « xx »</li>
-<li>LINE 1: xx</li>
-<li>\^</li>
-<li>)</li>
-<li></li>
-<li>Process finished with exit code 0</li>
-</ul>
-<p>La table <strong>[personnes]</strong> dans l'outil <strong>[pgAdmin]</strong> est la suivante :</p>
+<p>L&#x27;exécution de la configuration <strong>[pgres pgres_04 </strong><strong>with</strong><strong>_transaction]</strong> donne les résultats suivants :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-22-10">10</a></span>
+<span class="normal"><a href="#__codelineno-22-11">11</a></span>
+<span class="normal"><a href="#__codelineno-22-12">12</a></span>
+<span class="normal"><a href="#__codelineno-22-13">13</a></span>
+<span class="normal"><a href="#__codelineno-22-14">14</a></span>
+<span class="normal"><a href="#__codelineno-22-15">15</a></span>
+<span class="normal"><a href="#__codelineno-22-16">16</a></span>
+<span class="normal"><a href="#__codelineno-22-17">17</a></span>
+<span class="normal"><a href="#__codelineno-22-18">18</a></span>
+<span class="normal"><a href="#__codelineno-22-19">19</a></span>
+<span class="normal"><a href="#__codelineno-22-20">20</a></span>
+<span class="normal"><a href="#__codelineno-22-21">21</a></span>
+<span class="normal"><a href="#__codelineno-22-22">22</a></span>
+<span class="normal"><a href="#__codelineno-22-23">23</a></span>
+<span class="normal"><a href="#__codelineno-22-24">24</a></span>
+<span class="normal"><a href="#__codelineno-22-25">25</a></span>
+<span class="normal"><a href="#__codelineno-22-26">26</a></span>
+<span class="normal"><a href="#__codelineno-22-27">27</a></span>
+<span class="normal"><a href="#__codelineno-22-28">28</a></span>
+<span class="normal"><a href="#__codelineno-22-29">29</a></span>
+<span class="normal"><a href="#__codelineno-22-30">30</a></span>
+<span class="normal"><a href="#__codelineno-22-31">31</a></span>
+<span class="normal"><a href="#__codelineno-22-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">postgresql</span><span class="o">/</span><span class="n">pgres_04</span><span class="o">.</span><span class="n">py</span> <span class="n">true</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="n">Exécution</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">SQL</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">databases</span>\<span class="n">postgresql</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">commandes</span><span class="o">.</span><span class="n">sql</span> <span class="n">avec</span> <span class="n">transaction</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="p">[</span><span class="n">drop</span> <span class="n">table</span> <span class="k">if</span> <span class="n">exists</span> <span class="n">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="p">[</span><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">primary</span> <span class="n">key</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">unique</span> <span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">,</span><span class="s1">&#39;Langevin&#39;</span><span class="p">,</span><span class="mi">48</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span><span class="s1">&#39;Lefur&#39;</span><span class="p">,</span><span class="mi">70</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a><span class="p">[</span><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
+<a id="__codelineno-22-15" name="__codelineno-22-15"></a><span class="o">*****************</span>
+<a id="__codelineno-22-16" name="__codelineno-22-16"></a><span class="p">(</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
+<a id="__codelineno-22-17" name="__codelineno-22-17"></a><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
+<a id="__codelineno-22-18" name="__codelineno-22-18"></a><span class="o">*****************</span>
+<a id="__codelineno-22-19" name="__codelineno-22-19"></a><span class="n">xx</span> <span class="p">:</span> <span class="n">Erreur</span> <span class="p">(</span><span class="n">ERREUR</span><span class="p">:</span>  <span class="n">erreur</span> <span class="n">de</span> <span class="n">syntaxe</span> <span class="n">sur</span> <span class="n">ou</span> <span class="n">près</span> <span class="n">de</span> <span class="err">«</span> <span class="n">xx</span> <span class="err">»</span>
+<a id="__codelineno-22-20" name="__codelineno-22-20"></a><span class="n">LINE</span> <span class="mi">1</span><span class="p">:</span> <span class="n">xx</span>
+<a id="__codelineno-22-21" name="__codelineno-22-21"></a>        <span class="o">^</span>
+<a id="__codelineno-22-22" name="__codelineno-22-22"></a><span class="p">)</span>
+<a id="__codelineno-22-23" name="__codelineno-22-23"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-22-24" name="__codelineno-22-24"></a><span class="n">Exécution</span> <span class="n">terminée</span>
+<a id="__codelineno-22-25" name="__codelineno-22-25"></a><span class="o">--------------------------------------------------------------------</span>
+<a id="__codelineno-22-26" name="__codelineno-22-26"></a><span class="n">Il</span> <span class="n">y</span> <span class="n">a</span> <span class="n">eu</span> <span class="mi">1</span> <span class="n">erreur</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<a id="__codelineno-22-27" name="__codelineno-22-27"></a><span class="n">xx</span> <span class="p">:</span> <span class="n">Erreur</span> <span class="p">(</span><span class="n">ERREUR</span><span class="p">:</span>  <span class="n">erreur</span> <span class="n">de</span> <span class="n">syntaxe</span> <span class="n">sur</span> <span class="n">ou</span> <span class="n">près</span> <span class="n">de</span> <span class="err">«</span> <span class="n">xx</span> <span class="err">»</span>
+<a id="__codelineno-22-28" name="__codelineno-22-28"></a><span class="n">LINE</span> <span class="mi">1</span><span class="p">:</span> <span class="n">xx</span>
+<a id="__codelineno-22-29" name="__codelineno-22-29"></a>        <span class="o">^</span>
+<a id="__codelineno-22-30" name="__codelineno-22-30"></a><span class="p">)</span>
+<a id="__codelineno-22-31" name="__codelineno-22-31"></a>
+<a id="__codelineno-22-32" name="__codelineno-22-32"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+</code></pre></div></td></tr></table></div>
+<p>La table <strong>[personnes]</strong> dans l&#x27;outil <strong>[pgAdmin]</strong> est la suivante :</p>
 <p><img src="images/10000000000003F6000002C0A2F89F20.png" style="width:11.69cm;height:8.111cm;" alt="Image" /></p>
 <p>Ici, le résultat est différent de celui obtenu avec MySQL. Si on exécute les scripts dans les mêmes conditions, ç-à-d après exécution du script sans transaction, on a les résultats suivants :</p>
 <ul>
 <li>avec MySQL, la table <strong>[personnes]</strong> est vide ;</li>
-<li>avec PostgreSQL, la table <strong>[personnes]</strong> ne l'est pas ;</li>
-</ul>
-<p>La différence repose sur les façons différentes qu'ont ces deux SGBD de défaire la transaction :</p>
-<ul>
-<li>MySQL ne défait pas les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On se retrouve avec une table <strong>[personnes]</strong> vide ;</li>
-<li>PostgreSQL défait les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On retrouve la table dans l'état où elle était avant l'exécution du script avec transaction ;</li>
+<li>
+<p>avec PostgreSQL, la table <strong>[personnes]</strong> ne l&#x27;est pas ;
+La différence repose sur les façons différentes qu&#x27;ont ces deux SGBD de défaire la transaction :</p>
+</li>
+<li>
+<p>MySQL ne défait pas les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On se retrouve avec une table <strong>[personnes]</strong> vide ;</p>
+</li>
+<li>PostgreSQL défait les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On retrouve la table dans l&#x27;état où elle était avant l&#x27;exécution du script avec transaction ;</li>
 </ul>
 <h3 id="1746-script-pgres_05">17.4.6. script [pgres_05]</h3>
 <p>Le script <strong>[pgres_05]</strong> est une copie du script <strong>[mysql_05]</strong> (cf paragraphe |<u>script </u><u><strong>[mysql-05]</strong></u><u> : utilisation de requêtes paramétrées</u>|). Le script est modifié de la façon suivante :</p>
 <p>Au lieu de :</p>
-<ul>
-<li># imports</li>
-<li>from mysql.connector import connect, DatabaseError, InterfaceError</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
+<span class="normal"><a href="#__codelineno-23-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mysql.connector</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+</code></pre></div></td></tr></table></div>
 <p>on écrit :</p>
-<ul>
-<li># imports</li>
-<li>from psycopg2 import connect, DatabaseError, InterfaceError</li>
-</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
+<span class="normal"><a href="#__codelineno-24-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="c1"># imports</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">psycopg2</span><span class="w"> </span><span class="kn">import</span> <span class="n">connect</span><span class="p">,</span> <span class="n">DatabaseError</span><span class="p">,</span> <span class="n">InterfaceError</span>
+</code></pre></div></td></tr></table></div>
 <p>Le reste ne change pas.</p>
 <p>Les résultats obtenus dans <strong>[pgAdmin]</strong> sont les suivants :</p>
 <p><img src="images/10000000000003F50000029C1102C03E.png" style="width:11.69cm;height:7.711cm;" alt="Image" /></p>
 <h2 id="175-conclusion">17.5. Conclusion</h2>
-<p>Le portage des scripts MySQL vers des scripts PostgreSQL s'est réalisé plutôt facilement. C'est une exception. Les deux SGBD ne supportent pas les mêmes règles de nommage des objets SQL (bases, tables, colonnes, contraintes, types des données…), ont des extensions SQL incompatibles… Pour assurer un portage simple, il faut s'en tenir dans les deux cas à la norme SQL sans essayer d'utiliser les extensions propriétaires des SGBD. Cela se fait alors aux dépens des performances.</p>
+<p>Le portage des scripts MySQL vers des scripts PostgreSQL s&#x27;est réalisé plutôt facilement. C&#x27;est une exception. Les deux SGBD ne supportent pas les mêmes règles de nommage des objets SQL (bases, tables, colonnes, contraintes, types des données…), ont des extensions SQL incompatibles… Pour assurer un portage simple, il faut s&#x27;en tenir dans les deux cas à la norme SQL sans essayer d&#x27;utiliser les extensions propriétaires des SGBD. Cela se fait alors aux dépens des performances.</p>
 
 
 
@@ -2004,7 +2176,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
