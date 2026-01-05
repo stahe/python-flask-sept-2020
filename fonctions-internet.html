@@ -62,12 +62,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     
@@ -4864,17 +4873,17 @@ Lorsqu’on exécute le script <strong>[main.py]</strong> on obtient les résult
 </code></pre></div></td></tr></table></div>
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>en <mark>bleu</mark>, les commandes http envoyées au serveur ;</li>
-<li>en <mark>vert</mark>, les données reçues en réponse par le client ;</li>
+<li>en bleu, les commandes http envoyées au serveur ;</li>
+<li>en vert, les données reçues en réponse par le client ;</li>
 <li>on obtient les mêmes échanges qu’avec l’outil <strong>[curl]</strong> ;</li>
 <li>ligne 9 : l&#x27;URL <strong>[http://sergetahe.com/]</strong> est demandée ;</li>
 <li>ligne 15 : le serveur répond que la page a bougé. Ligne 21, la nouvelle URL ;</li>
-<li>ligne 32 : l&#x27;URL <strong>[</strong><strong><mark>http://sergetahe.com/cours-tutoriels-de-programmation</mark></strong><strong>]</strong> est demandée ;</li>
+<li>ligne 32 : l&#x27;URL <strong>[</strong><strong>http://sergetahe.com/cours-tutoriels-de-programmation</strong><strong>]</strong> est demandée ;</li>
 <li>ligne 38 : le serveur répond que la page a bougé. Ligne 43, la nouvelle URL ;</li>
-<li>ligne 54 : l&#x27;URL <strong>[</strong><strong><mark>http://sergetahe.com/cours-tutoriels-de-programmation/</mark></strong><strong>]</strong> est demandée ;</li>
+<li>ligne 54 : l&#x27;URL <strong>[</strong><strong>http://sergetahe.com/cours-tutoriels-de-programmation/</strong><strong>]</strong> est demandée ;</li>
 <li>ligne 60 : le serveur répond que la page a bougé. Ligne 65, la nouvelle URL. Elle utilise le protocole sécurisé <strong>[HTTPS]</strong> ;</li>
 <li>lignes 71-75 : le protocole sécurisé est mis en place avec le serveur ;</li>
-<li>ligne 76 : l&#x27;URL <strong>[</strong><strong><mark>https://sergetahe.com/cours-tutoriels-de-programmation/</mark></strong><strong>]</strong> est demandée ;</li>
+<li>ligne 76 : l&#x27;URL <strong>[</strong><strong>https://sergetahe.com/cours-tutoriels-de-programmation/</strong><strong>]</strong> est demandée ;</li>
 <li>ligne 82 : le document demandé a été trouvé ;</li>
 </ul>
 <h3 id="2146-conclusion">21.4.6. Conclusion</h3>
@@ -8541,20 +8550,20 @@ Le code est le suivant :</li>
 <li>lignes 10-12 : chaque sous-partie est sauvegardée par un appel récursif à <strong>[save_message]</strong>. Le 3e paramètre est l&#x27;indice de numérotation des mails encapsulés dans <strong>[subpart]</strong>. Au départ cet indice vaut 0 ;</li>
 <li>
 <p>ligne 21 : même explication que pour la ligne 12, mais la valeur du 3e paramètre <strong>[irfc822]</strong> change. Si dans la boucle des lignes 18-21, il y a plusieurs mails encapsulés, ils doivent être rangés dans des dossiers <strong>[…/rfc822-1…/rfc822_2…]</strong>. Donc le 3e paramètre de la fonction <strong>[save_message]</strong> doit avoir successivement les valeurs, 1, 2, 3… Pour ce faire, <strong>[save_message]</strong> rend la valeur de <strong>[irfc822]</strong> (ligne 21).
-<mark>Prenons un exemple et supposons que la liste des sous-parties de la ligne 18 soit </mark><strong><mark>[subpart1, subpart2, subpart3, subpart4, subpart5]</mark></strong><mark> et que </mark><strong><mark>[subpart1, subpart3, subpart5]</mark></strong><mark> soient des mails attachés, </mark><strong><mark>[subpart2]</mark></strong><mark> une partie text/plain et </mark><strong><mark>[subpart4]</mark></strong><mark> un attachement, et qu&#x27;on n&#x27;a pas encore rencontré de mail attaché dans le message </mark><strong><mark>[irfc822=0]</mark></strong><mark>. Dans ce cas :</mark></p>
+Prenons un exemple et supposons que la liste des sous-parties de la ligne 18 soit <strong>[subpart1, subpart2, subpart3, subpart4, subpart5]</strong> et que <strong>[subpart1, subpart3, subpart5]</strong> soient des mails attachés, <strong>[subpart2]</strong> une partie text/plain et <strong>[subpart4]</strong> un attachement, et qu&#x27;on n&#x27;a pas encore rencontré de mail attaché dans le message <strong>[irfc822=0]</strong>. Dans ce cas :</p>
 </li>
 <li>
-<p><strong><mark>[subpart1]</mark></strong><mark> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark>[saveMessage]</mark></strong><mark> est exécutée avec irfc822=0 ;</mark></p>
+<p><strong>[subpart1]</strong> est sauvegardé par la ligne 21 : la fonction <strong>[saveMessage]</strong> est exécutée avec irfc822=0 ;</p>
 </li>
-<li><strong><mark>[subpart1]</mark></strong><mark> est un mail attaché, donc irfc822 passe à 1 (ligne 6 du code). Un dossier </mark><strong><mark>[output/irfc822_1]</mark></strong><mark> est créé. La valeur rendue par </mark><strong><mark>[saveMessage(ouput,subpart1,0)]</mark></strong><mark> est donc 1 (ligne 23) ;</mark></li>
-<li><strong><mark>[subpart2]</mark></strong><mark> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark>[saveMessage]</mark></strong><mark> est exécutée avec irfc822=1 ;</mark></li>
-<li><strong><mark>[subpart2]</mark></strong><mark> n&#x27;est pas un mail attaché. Donc irfc822 reste à 1. C&#x27;est la valeur récupérée ligne 21 ;</mark></li>
-<li><strong><mark>[subpart3]</mark></strong><mark> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark>[save_message]</mark></strong><mark> est exécutée avec irfc822=1 ;</mark></li>
-<li><strong><mark>[subpart3]</mark></strong><mark> est un mail attaché, donc irfc822 passe à 2 (ligne 6 du code).  Un dossier </mark><strong><mark>[output/irfc822_2]</mark></strong><mark> est créé. La valeur rendue par </mark><strong><mark>[save_message(ouput,subpart1,1)]</mark></strong><mark> est donc 2 (ligne 21) ;</mark></li>
-<li><strong><mark>[subpart4]</mark></strong><mark> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark>[save_message]</mark></strong><mark> est exécutée avec irfc822=2 ;</mark></li>
-<li><strong><mark>[subpart4]</mark></strong><mark> n&#x27;est pas un mail attaché. Donc irfc822 reste à 2. C&#x27;est la valeur récupérée ligne 21 ;</mark></li>
-<li><strong><mark>[subpart5]</mark></strong><mark> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark>[save_message]</mark></strong><mark> est exécutée avec irfc822=2 ;</mark></li>
-<li><strong><mark>[subpart5]</mark></strong><mark> est un mail attaché, donc irfc822 passe à 3 (ligne 6 du code). Un dossier </mark><strong><mark>[output/irfc822_3]</mark></strong><mark> est créé.  La valeur rendue par </mark><strong><mark>[save_message(ouput,subpart1,2)]</mark></strong><mark> est donc 3 (ligne 21) ;</mark>
+<li><strong>[subpart1]</strong> est un mail attaché, donc irfc822 passe à 1 (ligne 6 du code). Un dossier <strong>[output/irfc822_1]</strong> est créé. La valeur rendue par <strong>[saveMessage(ouput,subpart1,0)]</strong> est donc 1 (ligne 23) ;</li>
+<li><strong>[subpart2]</strong> est sauvegardé par la ligne 21 : la fonction <strong>[saveMessage]</strong> est exécutée avec irfc822=1 ;</li>
+<li><strong>[subpart2]</strong> n&#x27;est pas un mail attaché. Donc irfc822 reste à 1. C&#x27;est la valeur récupérée ligne 21 ;</li>
+<li><strong>[subpart3]</strong> est sauvegardé par la ligne 21 : la fonction <strong>[save_message]</strong> est exécutée avec irfc822=1 ;</li>
+<li><strong>[subpart3]</strong> est un mail attaché, donc irfc822 passe à 2 (ligne 6 du code).  Un dossier <strong>[output/irfc822_2]</strong> est créé. La valeur rendue par <strong>[save_message(ouput,subpart1,1)]</strong> est donc 2 (ligne 21) ;</li>
+<li><strong>[subpart4]</strong> est sauvegardé par la ligne 21 : la fonction <strong>[save_message]</strong> est exécutée avec irfc822=2 ;</li>
+<li><strong>[subpart4]</strong> n&#x27;est pas un mail attaché. Donc irfc822 reste à 2. C&#x27;est la valeur récupérée ligne 21 ;</li>
+<li><strong>[subpart5]</strong> est sauvegardé par la ligne 21 : la fonction <strong>[save_message]</strong> est exécutée avec irfc822=2 ;</li>
+<li><strong>[subpart5]</strong> est un mail attaché, donc irfc822 passe à 3 (ligne 6 du code). Un dossier <strong>[output/irfc822_3]</strong> est créé.  La valeur rendue par <strong>[save_message(ouput,subpart1,2)]</strong> est donc 3 (ligne 21) ;
  <strong>Exemples d&#x27;exécution</strong></li>
 </ul>
 <p>Nous envoyons 4 mails à <strong>[pymail2parlexemple@gmail.com]</strong> à partir de : <strong>[Gmail, Outlook, em Client, Thunderbird]</strong></p>

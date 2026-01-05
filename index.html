@@ -60,12 +60,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     

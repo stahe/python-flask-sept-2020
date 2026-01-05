@@ -62,12 +62,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     
@@ -1498,7 +1507,7 @@ Avant l’avènement du jSON, la réponse des services web était souvent du XML
 <li>ligne 17 : on affiche le dictionnaire reçu ;</li>
 <li>lignes 19-20 : ce dictionnaire est transformé en chaîne XML et celle-ci est affichée. La méthode qui sait faire cela est <strong>[xmltodict.unparse]</strong> ;</li>
 <li>lignes 21-23 : la chaîne XML précédente est transformée en dictionnaire et celui-ci est affiché. La méthode qui sait faire cela est <strong>[xmltodict.parse]</strong>. Cette méthode ne produit pas un dictionnaire de type <strong>[dict]</strong> mais de type <strong>[OrderedDict]</strong> (ligne 1) ;</li>
-<li>lignes 24-25 : on transforme le type <strong>[OrderedDict]</strong> obtenu en type <strong>[dict]</strong> à l’aide de la méthode (non encore écrite) <strong>[</strong><strong><mark>ordereddict2dict</mark></strong><strong>]</strong>. Cette méthode travaille de façon récursive. Si certaines valeurs du dictionnaire sont de type <strong>[OrderedDict, list]</strong>, les valeurs de ces collections sont examinées pour savoir si elles-aussi sont de type <strong>[OrderedDict]</strong>. Si c’est le cas, elles sont transformées en type <strong>[dict]</strong>. On remarquera que la méthode <strong>[xmltodict.parse]</strong> ne produit aucun dictionnaire de type <strong>[dict]</strong> ;
+<li>lignes 24-25 : on transforme le type <strong>[OrderedDict]</strong> obtenu en type <strong>[dict]</strong> à l’aide de la méthode (non encore écrite) <strong>[</strong><strong>ordereddict2dict</strong><strong>]</strong>. Cette méthode travaille de façon récursive. Si certaines valeurs du dictionnaire sont de type <strong>[OrderedDict, list]</strong>, les valeurs de ces collections sont examinées pour savoir si elles-aussi sont de type <strong>[OrderedDict]</strong>. Si c’est le cas, elles sont transformées en type <strong>[dict]</strong>. On remarquera que la méthode <strong>[xmltodict.parse]</strong> ne produit aucun dictionnaire de type <strong>[dict]</strong> ;
 Avant d’examiner les fonctions manquantes, examinons les résultats pour voir ce qui est cherché :</li>
 </ul>
 <p>Le test 1 (lignes 28-29) produit les résultats suivants :</p>
@@ -1612,7 +1621,7 @@ Tous les autres tests sont construits sur le même schéma et devraient vous per
 <li>les lignes 23 et 27 montrent un point important :</li>
 <li>ligne 23 : les valeurs associées aux clés du dictionnaire <strong>[result]</strong> sont des nombres ;</li>
 <li>ligne 26 : les valeurs associées aux clés du dictionnaire <strong>[ordereddict_dictionary1]</strong> sont des chaînes de caractères. C’est une faiblesse de la bibliothèque <strong>[xmltodict]</strong>. Sa méthode <strong>[parse]</strong> ne produit que des chaînes de caractères. Cela peut se comprendre aisément :</li>
-<li>ligne 25 : la chaîne XML à partir de laquelle est produit le dictionnaire. Dans cette chaîne, il n’y a aucune indication du type des données encapsulées dans les balises XML. <strong>[xmltodict.parse]</strong> fait ce qu’il y a de plus logique : elle laisse tout en chaîne de caractères dans le dictionnaire produit. On trouve d’autres bibliothèques similaires à <strong>[xmltodict]</strong> où le type des données encapsulées est indiqué dans les balises. On pourrait trouver par exemple la balise <strong>[&lt;enfants </strong><strong><mark>type=’int’</mark></strong><strong>&gt;2&lt;/enfants&gt;]</strong> ;</li>
+<li>ligne 25 : la chaîne XML à partir de laquelle est produit le dictionnaire. Dans cette chaîne, il n’y a aucune indication du type des données encapsulées dans les balises XML. <strong>[xmltodict.parse]</strong> fait ce qu’il y a de plus logique : elle laisse tout en chaîne de caractères dans le dictionnaire produit. On trouve d’autres bibliothèques similaires à <strong>[xmltodict]</strong> où le type des données encapsulées est indiqué dans les balises. On pourrait trouver par exemple la balise <strong>[&lt;enfants </strong><strong>type=’int’</strong><strong>&gt;2&lt;/enfants&gt;]</strong> ;</li>
 <li>la conséquence de ceci est que lorsqu’on exploite un dictionnaire produit par le module <strong>[xmltodict]</strong> on doit connaître le type des données qu’il encapsule pour pouvoir passer du type ‘str’ au type réel de la donnée ;
 Attardons-nous maintenant sur la méthode <strong>[ordereddict2dict]</strong> qui transforme un type <strong>[OrderedDict]</strong> en type <strong>[dict]</strong> :</li>
 </ul>

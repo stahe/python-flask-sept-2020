@@ -62,12 +62,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     
@@ -1894,16 +1903,16 @@ Maintenant, regardons le contenu du fichier <strong>[data/out.json]</strong> :<
 <ul>
 <li>dans ce script, on écrit le dictionnaire <strong>[data]</strong> (ligne 7) dans deux fichiers jSON (lignes 14, 17) ;</li>
 <li>lignes 14, 17 : dans les deux cas, on crée un fichier texte UTF-8 ;</li>
-<li>lignes 15 : lors de l&#x27;écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong><mark>ensure_ascii=</mark></strong><strong><mark>True</mark></strong><strong>]</strong> ;</li>
-<li>lignes 18 : lors de l&#x27;écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong><mark>ensure_ascii=</mark></strong><strong><mark>False</mark></strong><strong>]</strong> ;
+<li>lignes 15 : lors de l&#x27;écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong>ensure_ascii=</strong><strong>True</strong><strong>]</strong> ;</li>
+<li>lignes 18 : lors de l&#x27;écriture du dictionnaire, on utilise le paramètre nommé <strong>[</strong><strong>ensure_ascii=</strong><strong>False</strong><strong>]</strong> ;
 Voici les deux fichiers obtenus :</li>
 </ul>
 <p><img src="images/1000000100000378000000B9171524C0.png" style="width:15.491cm;height:3.222cm;" alt="Image" /></p>
 <ul>
 <li>dans le fichier <strong>[out1.json]</strong>, les caractères accentués ont été remplacés par une série de <strong>caractères</strong> représentant leur code UTF-8. On dit parfois qu&#x27;ils ont été &#x27;échappés&#x27;. Techniquement, dans le binaire de <strong>[out1.json]</strong>, on trouve pour le caractère é de <strong>[marié]</strong> successivement les codes binaires UTF-8 des 6 caractères <strong>[</strong><strong>\u00e9</strong><strong>]</strong> ;</li>
 <li>dans le fichier <strong>[out2.json]</strong>, les caractères accentués ont été laissés tels quels. Cela signifie que dans le binaire de <strong>[out2.json]</strong> ces caractères sont représentés par leur code <strong>binaire</strong> UTF-8 (1 seul code UTF-8 donc au lieu de 6 pour out1). Pour le caractère é de <strong>[marié]</strong>, on trouvera ainsi le code binaire <strong>[</strong><strong>00e9</strong><strong>]</strong> sur 4 octets ;</li>
-<li>c&#x27;est la valeur du paramètre <strong>[</strong><strong><mark>ensure_ascii</mark></strong><strong>]</strong> de la méthode <strong>[json.dump]</strong> qui décide du format utilisé ;
-Certaines applications utilisent de l&#x27;UTF-8 &#x27;échappé&#x27; pour leurs fichiers jSON. C&#x27;est la valeur <strong>[</strong><strong><mark>ensure_ascii=</mark></strong><strong><mark>True</mark></strong><strong>]</strong> qui doit être alors utilisée. Cette valeur est en fait la valeur par défaut. Si donc on n&#x27;utilise pas le paramètre <strong>[</strong><strong><mark>ensure_ascii</mark></strong><strong>]</strong> on travaillera avec des fichiers jSON UTF-8 échappés.</li>
+<li>c&#x27;est la valeur du paramètre <strong>[</strong><strong>ensure_ascii</strong><strong>]</strong> de la méthode <strong>[json.dump]</strong> qui décide du format utilisé ;
+Certaines applications utilisent de l&#x27;UTF-8 &#x27;échappé&#x27; pour leurs fichiers jSON. C&#x27;est la valeur <strong>[</strong><strong>ensure_ascii=</strong><strong>True</strong><strong>]</strong> qui doit être alors utilisée. Cette valeur est en fait la valeur par défaut. Si donc on n&#x27;utilise pas le paramètre <strong>[</strong><strong>ensure_ascii</strong><strong>]</strong> on travaillera avec des fichiers jSON UTF-8 échappés.</li>
 </ul>
 <p>Le script se poursuit de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>

@@ -62,12 +62,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     
@@ -1789,9 +1798,9 @@ Le serveur Flask sera utilisé dans la totalité des exemples. Le serveur Apache
 <ul>
 <li>ligne 1 : la commande exécutée ;</li>
 <li>ligne 19 : les éléments qui ont été installés :</li>
-<li><strong>[</strong><strong><mark>flask-1.1.2</mark></strong><strong>]</strong> : est un framework de développement web en Python ;</li>
-<li><strong>[</strong><strong><mark>Werkzeug-1.0.1</mark></strong><strong>]</strong> : est le serveur web qui va répondre aux demandes des clients ;</li>
-<li><strong>[</strong><strong><mark>Jinja2-2.11.2</mark></strong><strong>]</strong> : est un outil permetant d’insérer des éléments dynamiques dans des pages qui seraient autrement des pages statiques ;</li>
+<li><strong>[</strong><strong>flask-1.1.2</strong><strong>]</strong> : est un framework de développement web en Python ;</li>
+<li><strong>[</strong><strong>Werkzeug-1.0.1</strong><strong>]</strong> : est le serveur web qui va répondre aux demandes des clients ;</li>
+<li><strong>[</strong><strong>Jinja2-2.11.2</strong><strong>]</strong> : est un outil permetant d’insérer des éléments dynamiques dans des pages qui seraient autrement des pages statiques ;</li>
 </ul>
 <h2 id="222-scripts-flask01-premiers-elements-de-programmation-web">22.2. scripts [flask/01] : premiers éléments de programmation web</h2>
 <p><img src="images/10000000000001BA0000029951F70989.png" style="width:4.601cm;height:6.921cm;" alt="Image" /></p>
@@ -2040,7 +2049,7 @@ Voici un exemple d’exécution :</li>
 <li>ligne 3 : on est en mode développement ;</li>
 <li>lignes 4-5 : le serveur voit qu’on l’a lancé en mode <strong>[debug]</strong>. Il redémarre alors (ligne 5). Le mode <strong>[debug]</strong> ralentit donc un peu le démarrage ;</li>
 <li>ligne 8 : l’URL où l’application web déployée <strong>[exemple_01]</strong> est disponible ;
-Avec un navigateur web demandons l’URL <strong>[</strong><strong><mark>http://127.0.0.1:5000/</mark></strong><strong>]</strong> :</li>
+Avec un navigateur web demandons l’URL <strong>[</strong><strong>http://127.0.0.1:5000/</strong><strong>]</strong> :</li>
 </ul>
 <p><img src="images/100000000000033C000003A564DC961D.png" style="width:9.542cm;height:10.76cm;" alt="Image" /></p>
 <p>On obtient bien le document <strong>[balises.html]</strong> attendu.</p>
@@ -2149,7 +2158,7 @@ Avant d’exécuter <strong>[exemple_02]</strong>, nous devons arrêter l’exé
 <a id="__codelineno-12-8" name="__codelineno-12-8"></a> <span class="o">*</span> <span class="n">Running</span> <span class="n">on</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="mf">127.0.0.1</span><span class="p">:</span><span class="mi">5000</span><span class="o">/</span> <span class="p">(</span><span class="n">Press</span> <span class="n">CTRL</span><span class="o">+</span><span class="n">C</span> <span class="n">to</span> <span class="n">quit</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <p>La ligne 8 indique le port de déploiement (5000) de l’application <strong>[exemple_02]</strong> (ligne 1) sur la machine <strong>[localhost]</strong>. Les lignes précédentes étant toujours les mêmes, nous ne les remontrerons plus.</p>
-<p>Avec un navigateur, nous demandons l’URL <strong>[</strong><strong><mark>http://localhost:5000/</mark></strong><strong>]</strong> :</p>
+<p>Avec un navigateur, nous demandons l’URL <strong>[</strong><strong>http://localhost:5000/</strong><strong>]</strong> :</p>
 <p><img src="images/100000000000025F000001379F673CC6.png" style="width:7.01cm;height:3.581cm;" alt="Image" /></p>
 <ul>
 <li>l’expression {{page.title}} a produit <strong>[1]</strong> ;</li>
@@ -2419,7 +2428,7 @@ L’exécution du script donne le résultat suivant dans un navigateur :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 10 : on voit que le type de la valeur rendue par <strong>[render_template]</strong> est de type <strong>[str]</strong>. Cette chaîne de caractères n’est autre que le document <strong>[date_time_server.html]</strong> une fois interprété (lignes 10-19) ;</li>
-<li>ligne 20 : on voit que le type de la valeur rendue par <strong>[make_response]</strong> est de type <strong>[</strong><strong><mark>flask.wrappers.Response</mark></strong><strong>]</strong>. La fonction <strong>[Response.<strong>str</strong>]</strong> a été implicitement appelée pour afficher l’objet <strong>[Response]</strong>. La chaîne rendue par cette fonction donne deux informations sur la réponse HTTP qui va être faite :</li>
+<li>ligne 20 : on voit que le type de la valeur rendue par <strong>[make_response]</strong> est de type <strong>[</strong><strong>flask.wrappers.Response</strong><strong>]</strong>. La fonction <strong>[Response.<strong>str</strong>]</strong> a été implicitement appelée pour afficher l’objet <strong>[Response]</strong>. La chaîne rendue par cette fonction donne deux informations sur la réponse HTTP qui va être faite :</li>
 <li>le document envoyé fait 195 octets ;</li>
 <li>le statut de la réponse HTTP est <strong>[200 OK]</strong>. On verra ultérieurement qu’on a accès à ce code de statut ;</li>
 </ul>

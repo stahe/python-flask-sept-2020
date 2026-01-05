@@ -62,12 +62,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     
@@ -1624,7 +1633,7 @@ La fonction <strong>[xml_response]</strong> doit être importée dans le script 
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span><span class="p">,</span> <span class="n">json_response</span><span class="p">,</span> <span class="n">decode_flask_session</span><span class="p">,</span> <span class="n">xml_response</span>
 </code></pre></div></td></tr></table></div>
-<p>Puis le module <strong>[myutils]</strong> doit être incorporé dans les modules de portée machine. Cela se fait dans un terminal PyCharm avec la commande <strong>[</strong><strong><mark>pip install .</mark></strong><strong>]</strong> (dans le dossier packages).</p>
+<p>Puis le module <strong>[myutils]</strong> doit être incorporé dans les modules de portée machine. Cela se fait dans un terminal PyCharm avec la commande <strong>[</strong><strong>pip install .</strong><strong>]</strong> (dans le dossier packages).</p>
 <h2 id="272-le-client-web">27.2. Le client web</h2>
 <h3 id="2721-le-code">27.2.1. Le code</h3>
 <p>Le dossier <strong>[http-clients/04]</strong> est obtenu par recopie du client <strong>[http-clients/02]</strong>. Puis nous modifions la classe <strong>[</strong><strong>ImpôtsDaoWithHttpClient</strong><strong>]</strong> de la façon suivante :</p>

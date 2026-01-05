@@ -62,12 +62,21 @@
       
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
   <script>
+    console.log("[GA Debug] Initializing Analytics for property: G-EBZC3JVJNR");
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){
+        console.log("[GA Debug] Event:", arguments);
+        dataLayer.push(arguments);
+    }
     gtag('js', new Date());
+
+    var siteName = 'Introduction au langage Python 3 et au framework web Flask par l'exemple';
+    console.log("[GA Debug] Setting page_title to:", siteName);
+
     gtag('config', 'G-EBZC3JVJNR', {
-        'page_title': 'Introduction au langage Python 3 et au framework web Flask par l'exemple'
+        'page_title': siteName
     });
+    console.log("[GA Debug] Config sent successfully.");
   </script>
 
     
@@ -1649,9 +1658,9 @@ La protection est là : si le navigateur renvoie automatiquement au site A le c
 <a id="__codelineno-3-20" name="__codelineno-3-20"></a>            <span class="k">return</span> <span class="s2">&quot;&quot;</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 9 : la classe <strong>[</strong><strong>AbstractBaseModelForView</strong><strong>]</strong> implémente l’interface <strong>[</strong><strong><mark>InterfaceModelForView</mark></strong><strong>]</strong> implémentée par les classes des modèles ;</li>
-<li>lignes 11-13 : la méthode <strong>[</strong><strong><mark>get_model_for_view</mark></strong><strong>]</strong> n’est pas implémentée ;</li>
-<li>lignes 15-20 : la méthode <strong>[</strong><strong><mark>get_csrftoken</mark></strong><strong>]</strong> génère le jeton CSRF si l’application a été configurée pour les utiliser. Selon les cas, la fonction rend un jeton précédé du signe / sinon une chaîne vide. La fonction <strong>[generate_csrf]</strong> a la particularité de toujours générer la même valeur pour une requête client donnée. Le traitement d’une requête implique l’exécution de différentes fonctions. Utiliser <strong>[generate_csrf]</strong> dans celles-ci génère toujours la même valeur. Lors de la requête suivante, en revanche, un nouveau jeton CSRF est généré ;
+<li>ligne 9 : la classe <strong>[</strong><strong>AbstractBaseModelForView</strong><strong>]</strong> implémente l’interface <strong>[</strong><strong>InterfaceModelForView</strong><strong>]</strong> implémentée par les classes des modèles ;</li>
+<li>lignes 11-13 : la méthode <strong>[</strong><strong>get_model_for_view</strong><strong>]</strong> n’est pas implémentée ;</li>
+<li>lignes 15-20 : la méthode <strong>[</strong><strong>get_csrftoken</strong><strong>]</strong> génère le jeton CSRF si l’application a été configurée pour les utiliser. Selon les cas, la fonction rend un jeton précédé du signe / sinon une chaîne vide. La fonction <strong>[generate_csrf]</strong> a la particularité de toujours générer la même valeur pour une requête client donnée. Le traitement d’une requête implique l’exécution de différentes fonctions. Utiliser <strong>[generate_csrf]</strong> dans celles-ci génère toujours la même valeur. Lors de la requête suivante, en revanche, un nouveau jeton CSRF est généré ;
 Tous les modèles M de vue V inclueront le jeton CSRF de la façon suivante :</li>
 </ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
@@ -1679,7 +1688,7 @@ Tous les modèles M de vue V inclueront le jeton CSRF de la façon suivante :</
 <a id="__codelineno-4-12" name="__codelineno-4-12"></a>        <span class="k">return</span> <span class="n">modèle</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>chaque classe de modèle étend la classe de base <strong>[</strong><strong><mark>AbstractBaseModelForView</mark></strong><strong>]</strong> ;</li>
+<li>chaque classe de modèle étend la classe de base <strong>[</strong><strong>AbstractBaseModelForView</strong><strong>]</strong> ;</li>
 <li>ligne 8 : le jeton CSRF est demandé à la classe parent. On obtient soit la chaîne vide, soit une chaîne du genre <strong>[</strong><strong>/</strong><strong>Ijk4NjQ2ZDdjZjI0ZDJiYTVjZTZjYmFhZGNjMjE3Y2U5M2I3ODI0NzYi.Xy5Okg.n-kSR_nslkndfT7AFVy2UDtdb8c]</strong> ;</li>
 </ul>
 <h3 id="3433-les-vues">34.3.3. Les vues</h3>
@@ -2553,7 +2562,7 @@ Par ailleurs, la méthode <strong>[init_session]</strong> évolue un peu :</li>
 <a id="__codelineno-18-11" name="__codelineno-18-11"></a>        <span class="c1"># exécution requête</span>
 <a id="__codelineno-18-12" name="__codelineno-18-12"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_response</span><span class="p">(</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="n">url_service</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
-<p>Il faut se rappeler ici qu’on a créé une route <strong>[/init-session-without-csrftoken/&lt;type-response&gt;]</strong> pour initialiser le dialogue client / serveur sans jeton CSRF. Or nous avons vu que la méthode <strong>[get_response]</strong> appelée ligne 12 du code ajoute systématiquement à la fin de l’URL de service le jeton CSRF mémorisé dans <strong>[</strong><strong><mark>self</mark></strong><strong><mark>.__csrf_token</mark></strong><strong>]</strong>. C’est pourquoi ligne 6 du code on supprime ce jeton CSRF s’il existait.</p>
+<p>Il faut se rappeler ici qu’on a créé une route <strong>[/init-session-without-csrftoken/&lt;type-response&gt;]</strong> pour initialiser le dialogue client / serveur sans jeton CSRF. Or nous avons vu que la méthode <strong>[get_response]</strong> appelée ligne 12 du code ajoute systématiquement à la fin de l’URL de service le jeton CSRF mémorisé dans <strong>[</strong><strong>self</strong><strong>.__csrf_token</strong><strong>]</strong>. C’est pourquoi ligne 6 du code on supprime ce jeton CSRF s’il existait.</p>
 <p>C’est tout. Pour les tests, on exécutera :</p>
 <ul>
 <li>les clients console <strong>[main, main2, main3]</strong> ;</li>
