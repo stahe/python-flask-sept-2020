@@ -1509,194 +1509,108 @@
 <h2 id="371-relocalisation-des-dependances-de-lapplication">37.1. Relocalisation des dépendances de l’application</h2>
 <p><img src="images/1000000000000109000000D06F1F6856.png" style="width:3.07cm;height:2.401cm;" alt="Image" /></p>
 <p>On rappelle que la gestion des dépendances de l’application est faite dans le script <strong>[syspath]</strong>. Dans la version précédente, ce script était le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="c1"># dossier de ce fichier</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>    <span class="c1"># chemin racine</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="n">root_dir</span> <span class="o">=</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020&quot;</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="c1"># dépendances</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">absolute_dependencies</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        <span class="c1"># dossiers du projet</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        <span class="c1"># BaseEntity, MyException</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/classes/02/entities&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        <span class="c1"># InterfaceImpôtsDao, InterfaceImpôtsMétier, InterfaceImpôtsUi</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/impots/v04/interfaces&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        <span class="c1"># AbstractImpôtsdao, ImpôtsConsole, ImpôtsMétier</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/impots/v04/services&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        <span class="c1"># ImpotsDaoWithAdminDataInDatabase</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/impots/v05/services&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        <span class="c1"># AdminData, ImpôtsError, TaxPayer</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/impots/v04/entities&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>        <span class="c1"># Constantes, tranches</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/impots/v05/entities&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>        <span class="c1"># Logger, SendAdminMail</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">root_dir</span><span class="si">}</span><span class="s2">/impots/http-servers/02/utilities&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="c1"># dossier du script principal</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>        <span class="n">script_dir</span><span class="p">,</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>        <span class="c1"># configs [database, layers, parameters, controllers, views]</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../configs&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="c1"># contrôleurs</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../controllers&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="c1"># réponses HTTP</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../responses&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>        <span class="c1"># modèles des vues</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../models_for_views&quot;</span><span class="p">,</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>    <span class="p">]</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>    <span class="c1"># on fixe le syspath</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="c1"># on rend la configuration</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>        <span class="s2">&quot;root_dir&quot;</span><span class="p">:</span> <span class="n">root_dir</span><span class="p">,</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="s2">&quot;script_dir&quot;</span><span class="p">:</span> <span class="n">script_dir</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>def configure(config: dict) -&gt; dict:</li>
+<li>import os</li>
+<li></li>
+<li># dossier de ce fichier</li>
+<li>script_dir = os.path.dirname(os.path.abspath(__file__))</li>
+<li></li>
+<li># chemin racine</li>
+<li>root_dir = "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020"</li>
+<li></li>
+<li># dépendances</li>
+<li>absolute_dependencies = <strong>[</strong></li>
+<li>**        <strong>**# dossiers du projet</strong></li>
+<li>**        <strong>**# BaseEntity, MyException</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/classes/02/entities"</em><strong>*,</strong></li>
+<li>**        <strong>**# InterfaceImpôtsDao, InterfaceImpôtsMétier, InterfaceImpôtsUi</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/impots/v04/interfaces"</em><strong>*,</strong></li>
+<li>**        <strong>**# AbstractImpôtsdao, ImpôtsConsole, ImpôtsMétier</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/impots/v04/services"</em><strong>*,</strong></li>
+<li>**        <strong>**# ImpotsDaoWithAdminDataInDatabase</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/impots/v05/services"</em><strong>*,</strong></li>
+<li>**        <strong>**# AdminData, ImpôtsError, TaxPayer</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/impots/v04/entities"</em><strong>*,</strong></li>
+<li>**        <strong>**# Constantes, tranches</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/impots/v05/entities"</em><strong>*,</strong></li>
+<li>**        <strong>**# Logger, SendAdminMail</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{root_dir}</em></strong><em>/impots/http-servers/02/utilities"</em><strong>*,</strong></li>
+<li>**        <strong>**# dossier du script principal</strong></li>
+<li>**        script_dir,**</li>
+<li>**        <strong><em>*# configs [database, layers, parameters, controllers, views</em></strong><em>]</em>*</li>
+<li>f"{script_dir}/../configs",</li>
+<li># contrôleurs</li>
+<li>f"{script_dir}/../controllers",</li>
+<li># réponses HTTP</li>
+<li>f"{script_dir}/../responses",</li>
+<li># modèles des vues</li>
+<li>f"{script_dir}/../models_for_views",</li>
+<li>]</li>
+<li></li>
+<li># on fixe le syspath</li>
+<li>from myutils import set_syspath</li>
+<li>set_syspath(absolute_dependencies)</li>
+<li></li>
+<li># on rend la configuration</li>
+<li>return {</li>
+<li>"root_dir": root_dir,</li>
+<li>"script_dir": script_dir</li>
+<li>}</li>
+</ul>
 <p>Il faut relocaliser toutes les dépendances dont le nom absolu dépend de la variable <strong>[root_dir]</strong> de la ligne 8, ç-à-d les lignes 13-26.</p>
 <p>Le script <strong>[syspath]</strong> de la nouvelle version sera le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span>
-<span class="normal"><a href="#__codelineno-1-33">33</a></span>
-<span class="normal"><a href="#__codelineno-1-34">34</a></span>
-<span class="normal"><a href="#__codelineno-1-35">35</a></span>
-<span class="normal"><a href="#__codelineno-1-36">36</a></span>
-<span class="normal"><a href="#__codelineno-1-37">37</a></span>
-<span class="normal"><a href="#__codelineno-1-38">38</a></span>
-<span class="normal"><a href="#__codelineno-1-39">39</a></span>
-<span class="normal"><a href="#__codelineno-1-40">40</a></span>
-<span class="normal"><a href="#__codelineno-1-41">41</a></span>
-<span class="normal"><a href="#__codelineno-1-42">42</a></span>
-<span class="normal"><a href="#__codelineno-1-43">43</a></span>
-<span class="normal"><a href="#__codelineno-1-44">44</a></span>
-<span class="normal"><a href="#__codelineno-1-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="c1"># dossier de ce fichier</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="c1"># dépendances</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="n">absolute_dependencies</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span class="c1"># entités de l’application</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../entities&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        <span class="c1"># couche [dao]</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../layers/dao&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>        <span class="c1"># couche [métier]</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../layers/métier&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="c1"># utilitaires</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../utilities&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="c1"># dossier du script principal</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>        <span class="n">script_dir</span><span class="p">,</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="c1"># configs [database, layers, parameters, controllers, views]</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../configs&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="c1"># contrôleurs</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../controllers&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>        <span class="c1"># réponses HTTP</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../responses&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>        <span class="c1"># modèles des vues</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/../models_for_views&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>    <span class="p">]</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a>    <span class="c1"># on fixe le syspath</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="c1"># on lui ajoute les dépendances absolues du projet</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="k">for</span> <span class="n">directory</span> <span class="ow">in</span> <span class="n">absolute_dependencies</span><span class="p">:</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a>        <span class="c1"># on vérifie l&#39;existence du dossier</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a>        <span class="n">existe</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">directory</span><span class="p">)</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="n">existe</span><span class="p">:</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a>            <span class="c1"># on avertit le développeur</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a>            <span class="k">raise</span> <span class="ne">BaseException</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[set_syspath] le dossier du Python Path [</span><span class="si">{</span><span class="n">directory</span><span class="si">}</span><span class="s2">] n&#39;existe pas&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a>            <span class="c1"># on insère le dossier au début du syspath</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a>            <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a>    <span class="c1"># on rend la configuration</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a>    <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a>        <span class="s2">&quot;script_dir&quot;</span><span class="p">:</span> <span class="n">script_dir</span><span class="p">,</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45"></a>    <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 8-27 : toutes les dépendances sont désormais relatives à la variable <strong>[script_dir]</strong> de la ligne 5 ;</li>
+<li>def configure(config: dict) -&gt; dict:</li>
+<li>import os</li>
+<li></li>
+<li># dossier de ce fichier</li>
+<li>script_dir = os.path.dirname(os.path.abspath(__file__))</li>
+<li></li>
+<li># dépendances</li>
+<li>absolute_dependencies = <strong>[</strong></li>
+<li>**        <strong>**# entités de l’application</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{script_dir}</em></strong><em>/../entities"</em><strong>*,</strong></li>
+<li>**        <strong><em>*# couche [dao</em></strong><em>]</em>*</li>
+<li>f"{script_dir}/../layers/dao",</li>
+<li># couche <strong>[métier]</strong></li>
+<li>f"{script_dir}/../layers/métier",</li>
+<li># utilitaires</li>
+<li>f"{script_dir}/../utilities",</li>
+<li># dossier du script principal</li>
+<li>script_dir,</li>
+<li># configs <strong>[database, layers, parameters, controllers, views]</strong></li>
+<li>f"{script_dir}/../configs",</li>
+<li># contrôleurs</li>
+<li>f"{script_dir}/../controllers",</li>
+<li># réponses HTTP</li>
+<li>f"{script_dir}/../responses",</li>
+<li># modèles des vues</li>
+<li>f"{script_dir}/../models_for_views",</li>
+<li>]</li>
+<li></li>
+<li># on fixe le syspath</li>
+<li>import sys</li>
+<li># on lui ajoute les dépendances absolues du projet</li>
+<li>for directory in absolute_dependencies:</li>
+<li># on vérifie l'existence du dossier</li>
+<li>existe = os.path.exists(directory) and os.path.isdir(directory)</li>
+<li>if not existe:</li>
+<li># on avertit le développeur</li>
+<li>raise BaseException(f"<strong>[set_syspath]</strong> le dossier du Python Path <strong>[</strong><strong>{directory}</strong><strong>]</strong> n'existe pas")</li>
+<li>else:</li>
+<li># on insère le dossier au début du syspath</li>
+<li>sys.path.insert(0, directory)</li>
+<li></li>
+<li># on rend la configuration</li>
+<li>return {</li>
+<li>"script_dir": script_dir,</li>
+<li>
+<p>}</p>
+</li>
+<li>
+<p>lignes 8-27 : toutes les dépendances sont désormais relatives à la variable <strong>[script_dir]</strong> de la ligne 5 ;</p>
+</li>
 <li>lignes 42-45 : la variable <strong>[root_dir]</strong> a disparu de la configuration du syspath ;</li>
 <li>ligne 10 : les entités de l’application sont dans le dossier <strong>[entities]</strong> <strong>[1]</strong> ;</li>
 <li>ligne 12 : la couche <strong>[dao]</strong> est dans le dossier <strong>[layers/dao]</strong> <strong>[2]</strong> ;</li>
@@ -1717,26 +1631,21 @@
 <p>Si on n’a pas l’utilité de Visual Studio autrement que pour <strong>[mod_wsgi]</strong>, on peut limiter l’installation à l’environnement C++ :</p>
 <p><img src="images/100000000000053100000327B3B2CAA6.png" style="width:15.331cm;height:9.311cm;" alt="Image" /></p>
 <p>Une fois le compilateur C++ installé, l’installation du module <strong>[mod_wsgi]</strong> se fait dans un terminal PyCharm :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span>
-<span class="normal"><a href="#__codelineno-2-7">7</a></span>
-<span class="normal"><a href="#__codelineno-2-8">8</a></span>
-<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">impots</span><span class="err">\</span><span class="n">http</span><span class="o">-</span><span class="n">servers</span><span class="err">\</span><span class="mi">11</span><span class="o">&gt;</span><span class="n">SET</span><span class="w"> </span><span class="n">MOD_WSGI_APACHE_ROOTDIR</span><span class="o">=</span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">MyPrograms</span><span class="err">\</span><span class="n">laragon</span><span class="err">\</span><span class="n">bin</span><span class="err">\</span><span class="n">apache</span><span class="err">\</span><span class="n">httpd</span><span class="o">-</span><span class="mf">2.4.35</span><span class="o">-</span><span class="n">win64</span><span class="o">-</span><span class="n">VC15</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">impots</span><span class="err">\</span><span class="n">http</span><span class="o">-</span><span class="n">servers</span><span class="err">\</span><span class="mi">11</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">mod_wsgi</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">mod_wsgi</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="n">Using</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">mod_wsgi</span><span class="o">-</span><span class="mf">4.7.1</span><span class="p">.</span><span class="na">tar</span><span class="p">.</span><span class="na">gz</span><span class="w"> </span><span class="p">(</span><span class="mi">498</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Using</span><span class="w"> </span><span class="n">legacy</span><span class="w"> </span><span class="n">setup</span><span class="p">.</span><span class="na">py</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">mod</span><span class="o">-</span><span class="n">wsgi</span><span class="p">,</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="kn">package</span><span class="w"> </span><span class="err">&#39;</span><span class="nn">wheel</span><span class="err">&#39;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">installed</span><span class="p">.</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">mod</span><span class="o">-</span><span class="n">wsgi</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">    </span><span class="n">Running</span><span class="w"> </span><span class="n">setup</span><span class="p">.</span><span class="na">py</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">mod</span><span class="o">-</span><span class="n">wsgi</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">done</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">mod</span><span class="o">-</span><span class="n">wsgi</span><span class="o">-</span><span class="mf">4.7.1</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 1 : on fixe la valeur de la variable d’environnement <strong>[</strong><strong><mark>MOD_WSGI_APACHE_ROOTDIR</mark></strong><strong>]</strong>. Cette valeur est l’emplacement du serveur Apache dans le système de fichiers. Ici cet emplacement est <strong>[&lt;laragon&gt;</strong><strong><mark>\bin\apache\httpd-2.4.35-win64-VC15</mark></strong><strong>]</strong> où &lt;laragon&gt; est le dossier d’installation de Laragon. Vous pouvez obtenir cet emplacement de diverses façons. En voici une obtenue à partir d’une des options de Laragon :</li>
+<li>(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<mark>SET MOD_WSGI_APACHE_ROOTDIR=C:\MyPrograms\laragon\bin\apache\httpd-2.4.35-win64-VC15</mark></li>
+<li></li>
+<li>(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<mark>pip install mod_wsgi</mark></li>
+<li>Collecting mod_wsgi</li>
+<li>Using cached mod_wsgi-4.7.1.tar.gz (498 kB)</li>
+<li>Using legacy setup.py install for mod-wsgi, since package 'wheel' is not installed.</li>
+<li>Installing collected packages: mod-wsgi</li>
+<li>Running setup.py install for mod-wsgi ... done</li>
+<li>
+<p><mark>Successfully installed mod-wsgi-4.7.1</mark></p>
+</li>
+<li>
+<p>ligne 1 : on fixe la valeur de la variable d’environnement <strong>[</strong><strong><mark>MOD_WSGI_APACHE_ROOTDIR</mark></strong><strong>]</strong>. Cette valeur est l’emplacement du serveur Apache dans le système de fichiers. Ici cet emplacement est <strong>[&lt;laragon&gt;</strong><strong><mark>\bin\apache\httpd-2.4.35-win64-VC15</mark></strong><strong>]</strong> où &lt;laragon&gt; est le dossier d’installation de Laragon. Vous pouvez obtenir cet emplacement de diverses façons. En voici une obtenue à partir d’une des options de Laragon :</p>
+</li>
 </ul>
 <p><img src="images/100000000000031D000001D48D3C5E42.png" style="width:9.21cm;height:5.4cm;" alt="Image" /></p>
 <p>En <strong>[1-3]</strong>, le fichier <strong>[httpd.conf]</strong> est le fichier de configuration principal du serveur Apache. Le fichier en question est alors ouvert dans un éditeur de texte (Notepad ++ ci-dessous) :</p>
@@ -1750,32 +1659,27 @@
 <p>Nous allons configurer le serveur Apache de Laragon. Nous commençons par son fichier de configuration principal <strong>[httpd.conf]</strong> :</p>
 <p><img src="images/100000000000031D000001D48D3C5E42.png" style="width:9.21cm;height:5.4cm;" alt="Image" /></p>
 <p>Nous nous plaçons à la fin du fichier <strong>[httpd.conf]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
-<span class="normal"><a href="#__codelineno-3-2">2</a></span>
-<span class="normal"><a href="#__codelineno-3-3">3</a></span>
-<span class="normal"><a href="#__codelineno-3-4">4</a></span>
-<span class="normal"><a href="#__codelineno-3-5">5</a></span>
-<span class="normal"><a href="#__codelineno-3-6">6</a></span>
-<span class="normal"><a href="#__codelineno-3-7">7</a></span>
-<span class="normal"><a href="#__codelineno-3-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="err">…</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">IncludeOptional</span><span class="w"> </span><span class="s">&quot;C:/MyPrograms/laragon/etc/apache2/alias/*.conf&quot;</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">IncludeOptional</span><span class="w"> </span><span class="s">&quot;C:/MyPrograms/laragon/etc/apache2/sites-enabled/*.conf&quot;</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">Include</span><span class="w"> </span><span class="s">&quot;C:/MyPrograms/laragon/etc/apache2/httpd-ssl.conf&quot;</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">Include</span><span class="w"> </span><span class="s">&quot;C:/MyPrograms/laragon/etc/apache2/mod_php.conf&quot;</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="err">#</span><span class="w"> </span><span class="n">python</span><span class="w"> </span><span class="n">mod_wsgi</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">LoadModule</span><span class="w"> </span><span class="n">wsgi_module</span><span class="w"> </span><span class="s">&quot;c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd&quot;</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>la ligne 8 a été ajoutée à l’existant du fichier <strong>[httpd.conf]</strong> en fin de fichier. Elle indique au serveur Apache où se trouve un élément du module <strong>[mod_wsgi]</strong> que nous venons d’installer ;</li>
+<li>…</li>
+<li>IncludeOptional "C:/MyPrograms/laragon/etc/apache2/alias/*.conf"</li>
+<li>IncludeOptional "C:/MyPrograms/laragon/etc/apache2/sites-enabled/*.conf"</li>
+<li>Include "C:/MyPrograms/laragon/etc/apache2/httpd-ssl.conf"</li>
+<li>Include "C:/MyPrograms/laragon/etc/apache2/mod_php.conf"</li>
+<li></li>
+<li># python mod_wsgi</li>
+<li>
+<p><mark>LoadModule wsgi_module</mark> "c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd"</p>
+</li>
+<li>
+<p>la ligne 8 a été ajoutée à l’existant du fichier <strong>[httpd.conf]</strong> en fin de fichier. Elle indique au serveur Apache où se trouve un élément du module <strong>[mod_wsgi]</strong> que nous venons d’installer ;</p>
+</li>
 </ul>
 <p>Une façon simple d’avoir le chemin de la ligne 8 est d’exécuter la commande suivante dans un terminal PyCharm :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
-<span class="normal"><a href="#__codelineno-4-2">2</a></span>
-<span class="normal"><a href="#__codelineno-4-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">impots</span><span class="err">\</span><span class="n">http</span><span class="o">-</span><span class="n">servers</span><span class="err">\</span><span class="mi">11</span><span class="o">&gt;</span><span class="n">mod_wsgi</span><span class="o">-</span><span class="n">express</span><span class="w"> </span><span class="n">module</span><span class="o">-</span><span class="n">config</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="n">LoadModule</span><span class="w"> </span><span class="n">wsgi_module</span><span class="w"> </span><span class="s">&quot;c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd&quot;</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">WSGIPythonHome</span><span class="w"> </span><span class="s">&quot;c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv&quot;</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<mark>mod_wsgi-express module-config</mark></li>
+<li><mark>LoadModule wsgi_module</mark> "c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages/mod_wsgi/server/mod_wsgi.cp38-win_amd64.pyd"</li>
+<li><mark>WSGIPythonHome</mark> "c:/data/st-2020/dev/python/cours-2020/python3-flask-2020/venv"</li>
+</ul>
 <p>Certaines documentations disent qu’il faut ajouter les lignes 2 et 3 à la fin du fichier <strong>[httpd.conf]</strong>. Dans mon cas, la ligne 3 ci-dessus provoquait une erreur (module <strong>[encodings]</strong> manquant). Aussi n’a-t-elle pas été mise dans le fichier <strong>[httpd.conf]</strong>. Seule la ligne 2 y a été mise. La signification des différents paramètres du module <strong>[mod_wsgi]</strong> utilisables dans les fichiers de configuration d’Apache sont décrits |<a href="https://modwsgi.readthedocs.io/en/develop/configuration-directives/WSGIPythonHome.html"><u><u>ici</u></u></a>|.</p>
 <p>Ensuite, nous allons activer le protocole HTTPS du serveur Apache :</p>
 <p><img src="images/100000000000055600000275CC678078.png" style="width:15.77cm;height:7.25cm;" alt="Image" /></p>
@@ -1803,62 +1707,39 @@
 <li>en <strong>[1-5]</strong>, un projet vide a été créé. C’est un projet PHP situé dans le dossier <strong>[&lt;laragon&gt;/www]</strong> où <strong>[laragon]</strong> est le dossier d’installation de Laragon ;</li>
 </ul>
 <p>Maintenant examinons le fichier <strong>[auto.projet-test.test.conf]</strong> généré par Laragon dans le dossier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span>
-<span class="normal"><a href="#__codelineno-5-18">18</a></span>
-<span class="normal"><a href="#__codelineno-5-19">19</a></span>
-<span class="normal"><a href="#__codelineno-5-20">20</a></span>
-<span class="normal"><a href="#__codelineno-5-21">21</a></span>
-<span class="normal"><a href="#__codelineno-5-22">22</a></span>
-<span class="normal"><a href="#__codelineno-5-23">23</a></span>
-<span class="normal"><a href="#__codelineno-5-24">24</a></span>
-<span class="normal"><a href="#__codelineno-5-25">25</a></span>
-<span class="normal"><a href="#__codelineno-5-26">26</a></span>
-<span class="normal"><a href="#__codelineno-5-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">define</span> <span class="n">ROOT</span> <span class="s2">&quot;C:/MyPrograms/laragon/www/projet-test/&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">define</span> <span class="n">SITE</span> <span class="s2">&quot;projet-test.test&quot;</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">80</span><span class="o">&gt;</span> 
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>    <span class="n">DocumentRoot</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">ServerName</span> <span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">ServerAlias</span> <span class="o">*.</span><span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>        <span class="n">AllowOverride</span> <span class="n">All</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>        <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">443</span><span class="o">&gt;</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="n">DocumentRoot</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="n">ServerName</span> <span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a>    <span class="n">ServerAlias</span> <span class="o">*.</span><span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a>    <span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="n">AllowOverride</span> <span class="n">All</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20"></a>        <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21"></a>    <span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22"></a>
-<a id="__codelineno-5-23" name="__codelineno-5-23"></a>    <span class="n">SSLEngine</span> <span class="n">on</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24"></a>    <span class="n">SSLCertificateFile</span>      <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">MyPrograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="o">.</span><span class="n">crt</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25"></a>    <span class="n">SSLCertificateKeyFile</span>   <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">MyPrograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="o">.</span><span class="n">key</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26"></a> 
-<a id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 1 : la racine, dans le système de fichiers, du projet créé ;</li>
+<li>define ROOT "C:/MyPrograms/laragon/www/projet-test/"</li>
+<li>define SITE "projet-test.test"</li>
+<li></li>
+<li>&lt;VirtualHost *:80&gt;</li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li>&lt;/VirtualHost&gt;</li>
+<li></li>
+<li>&lt;VirtualHost *:443&gt;</li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li></li>
+<li>SSLEngine on</li>
+<li>SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</li>
+<li>SSLCertificateKeyFile   C:/MyPrograms/laragon/etc/ssl/laragon.key</li>
+<li></li>
+<li>
+<p>&lt;/VirtualHost&gt;</p>
+</li>
+<li>
+<p>ligne 1 : la racine, dans le système de fichiers, du projet créé ;</p>
+</li>
 <li>ligne 2 : le nom du serveur virtuel. Les URL pour ce serveur seront de la forme <strong>[http(s)://projet-test.test/chemin]</strong> ;</li>
 <li>lignes 4-12 : configuration du site virtuel pour le port 80 (ligne 4) et le protocole HTTP ;</li>
 <li>lignes 14-27 : configuration du site virtuel pour le port 443 (ligne 14) et le protocole HTTPS ;</li>
@@ -1879,54 +1760,35 @@
 </ul>
 <p>La création du serveur virtuel <strong>[projet-test.test]</strong> a créé une nouvelle entrée dans le fichier <strong>[&lt;windows&gt;/system32/drivers/etc/hosts]</strong> :</p>
 <p><img src="images/100000000000035500000233AB323C45.png" style="width:9.85cm;height:6.501cm;" alt="Image" /></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span>
-<span class="normal"><a href="#__codelineno-6-18">18</a></span>
-<span class="normal"><a href="#__codelineno-6-19">19</a></span>
-<span class="normal"><a href="#__codelineno-6-20">20</a></span>
-<span class="normal"><a href="#__codelineno-6-21">21</a></span>
-<span class="normal"><a href="#__codelineno-6-22">22</a></span>
-<span class="normal"><a href="#__codelineno-6-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a># Copyright (c) 1993-2009 Microsoft Corp.
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>#
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a># This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>#
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a># This file contains the mappings of IP addresses to host names. Each
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a># entry should be kept on an individual line. The IP address should
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a># be placed in the first column followed by the corresponding host name.
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a># The IP address and the host name should be separated by at least one
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a># space.
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>#
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a># Additionally, comments (such as these) may be inserted on individual
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a># lines or following the machine name denoted by a &#39;#&#39; symbol.
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a>#
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a># For example:
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a>#
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a>#      102.54.94.97     rhino.acme.com          # source server
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a>#       38.25.63.10     x.acme.com              # x client host
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a>
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a># localhost name resolution is handled within DNS itself.
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a>#    127.0.0.1       localhost
-<a id="__codelineno-6-21" name="__codelineno-6-21"></a>#    ::1             localhost
-<a id="__codelineno-6-22" name="__codelineno-6-22"></a>
-<a id="__codelineno-6-23" name="__codelineno-6-23"></a>127.0.0.1      projet-test.test     #laragon magic!   
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 23 : l’adresse IP du nom <strong>[projet-test.test]</strong> est 127.0.0.1, ç-à-d l’adresse de <strong>[localhost]</strong> (ligne 20), la machine locale. Ainsi lorsque dans un navigateur on tape l’URL <strong>[http://projet-test.test/chemin]</strong>, la requête est envoyée à l’adresse 127.0.0.1 sur le port 80. C’est alors le serveur Apache de la machine locale (localhost) qui répond.</li>
+<li># Copyright (c) 1993-2009 Microsoft Corp.</li>
+<li>#</li>
+<li># This is a sample HOSTS file used by Microsoft TCP/IP for Windows.</li>
+<li>#</li>
+<li># This file contains the mappings of IP addresses to host names. Each</li>
+<li># entry should be kept on an individual line. The IP address should</li>
+<li># be placed in the first column followed by the corresponding host name.</li>
+<li># The IP address and the host name should be separated by at least one</li>
+<li># space.</li>
+<li>#</li>
+<li># Additionally, comments (such as these) may be inserted on individual</li>
+<li># lines or following the machine name denoted by a '#' symbol.</li>
+<li>#</li>
+<li># For example:</li>
+<li>#</li>
+<li>#      102.54.94.97     rhino.acme.com          # source server</li>
+<li>#       38.25.63.10     x.acme.com              # x client host</li>
+<li></li>
+<li># localhost name resolution is handled within DNS itself.</li>
+<li>#    127.0.0.1       localhost</li>
+<li>#    ::1             localhost</li>
+<li></li>
+<li>
+<p><mark>127.0.0.1      projet-test.test     #laragon magic!</mark></p>
+</li>
+<li>
+<p>ligne 23 : l’adresse IP du nom <strong>[projet-test.test]</strong> est 127.0.0.1, ç-à-d l’adresse de <strong>[localhost]</strong> (ligne 20), la machine locale. Ainsi lorsque dans un navigateur on tape l’URL <strong>[http://projet-test.test/chemin]</strong>, la requête est envoyée à l’adresse 127.0.0.1 sur le port 80. C’est alors le serveur Apache de la machine locale (localhost) qui répond.</p>
+</li>
 </ul>
 <p>On peut se demander pourquoi lorsqu’on tape la requête [<a href="http://projet-test.test/"><u><u>http://projet-test.test/</u></u></a>], le serveur Apache utilise la configuration du fichier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled\auto.projet-test.test.conf]</strong> :</p>
 <p><img src="images/10000000000002D500000132A4D6508A.png" style="width:8.362cm;height:3.541cm;" alt="Image" /></p>
@@ -1939,330 +1801,203 @@
 <p>Nous cliquons sur le lien <strong>[5]</strong> pour désactiver la vérification SSL (Secure Sockets Layer). SSL / TSL (Transport Layer Security) est un protocole de sécurité qui crée un canal de communication sécurisé entre deux machines de l’internet. C’est le protocole utilisé ici par Apache. La réponse est la suivante :</p>
 <p><img src="images/10000000000002D4000001E194E1D0AF.png" style="width:8.37cm;height:5.55cm;" alt="Image" /></p>
 <p>Nous recevons la même page qu’avec un navigateur traditionnel. Maintenant voyons le dialogue client / serveur dans la console Postman (Ctrl-Alt-C) :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">PostmanRuntime</span><span class="o">/</span><span class="mf">7.26.2</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">Postman</span><span class="o">-</span><span class="n">Token</span><span class="p">:</span> <span class="n">d153f711</span><span class="o">-</span><span class="n">ad99</span><span class="o">-</span><span class="mf">4e1</span><span class="n">d</span><span class="o">-</span><span class="mi">93</span><span class="n">c3</span><span class="o">-</span><span class="mi">61</span><span class="n">c25374d1be</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">Host</span><span class="p">:</span> <span class="n">projet</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">test</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span> <span class="n">deflate</span><span class="p">,</span> <span class="n">br</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="n">Date</span><span class="p">:</span> <span class="n">Fri</span><span class="p">,</span> <span class="mi">14</span> <span class="n">Aug</span> <span class="mi">2020</span> <span class="mi">09</span><span class="p">:</span><span class="mi">19</span><span class="p">:</span><span class="mi">24</span> <span class="n">GMT</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="n">Server</span><span class="p">:</span> <span class="n">Apache</span><span class="o">/</span><span class="mf">2.4.35</span> <span class="p">(</span><span class="n">Win64</span><span class="p">)</span> <span class="n">OpenSSL</span><span class="o">/</span><span class="mf">1.1.1</span><span class="n">b</span> <span class="n">PHP</span><span class="o">/</span><span class="mf">7.2.19</span> <span class="n">mod_wsgi</span><span class="o">/</span><span class="mf">4.7.1</span> <span class="n">Python</span><span class="o">/</span><span class="mf">3.8</span>
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">161</span>
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a><span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span><span class="p">:</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span>
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">Keep</span><span class="o">-</span><span class="n">Alive</span>
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a><span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">text</span><span class="o">/</span><span class="n">html</span><span class="p">;</span><span class="n">charset</span><span class="o">=</span><span class="n">UTF</span><span class="o">-</span><span class="mi">8</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 6 : l’entête HTTP <strong>[Host]</strong> précise le nom du serveur ciblé par le client web. C’est le principe des serveurs virtuels. A une même adresse IP (ici 127.0.0.1), un serveur web peut héberger plusieurs sites web avec des noms différents. L’entête HTTP <strong>[Host]</strong> permet au client de dire à quel serveur (ici de l’adresse 127.0.0.1) il s’adresse ;</li>
+<li><mark>GET / HTTP/1.1</mark></li>
+<li>User-Agent: PostmanRuntime/7.26.2</li>
+<li>Accept: */*</li>
+<li>Cache-Control: no-cache</li>
+<li>Postman-Token: d153f711-ad99-4e1d-93c3-61c25374d1be</li>
+<li><mark>Host: projet-test.test</mark></li>
+<li>Accept-Encoding: gzip, deflate, br</li>
+<li>Connection: keep-alive</li>
+<li></li>
+<li>HTTP/1.1 200 OK</li>
+<li>Date: Fri, 14 Aug 2020 09:19:24 GMT</li>
+<li>Server: Apache/2.4.35 (Win64) OpenSSL/1.1.1b PHP/7.2.19 mod_wsgi/4.7.1 Python/3.8</li>
+<li>Content-Length: 161</li>
+<li>Keep-Alive: timeout=5, max=100</li>
+<li>Connection: Keep-Alive</li>
+<li>
+<p>Content-Type: text/html;charset=UTF-8</p>
+</li>
+<li>
+<p>ligne 6 : l’entête HTTP <strong>[Host]</strong> précise le nom du serveur ciblé par le client web. C’est le principe des serveurs virtuels. A une même adresse IP (ici 127.0.0.1), un serveur web peut héberger plusieurs sites web avec des noms différents. L’entête HTTP <strong>[Host]</strong> permet au client de dire à quel serveur (ici de l’adresse 127.0.0.1) il s’adresse ;</p>
+</li>
 </ul>
 <p>Maintenant que fait Apache ?</p>
 <p>Lorsqu’il démarre, Apache lit tous les fichiers de configuration trouvés dans le dossier <strong>[[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong> :</p>
 <p><img src="images/10000000000002D500000132A4D6508A.png" style="width:8.362cm;height:3.541cm;" alt="Image" /></p>
 <p>Chaque fichier de configuration définit un serveur virtuel. Par exemple dans le fichier <strong>[auto.projet-test.test.conf]</strong>, on trouve la ligne suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="n">define</span> <span class="n">ROOT</span> <span class="s2">&quot;C:/MyPrograms/laragon/www/projet-test/&quot;</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">define</span> <span class="n">SITE</span> <span class="s2">&quot;projet-test.test&quot;</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="err">…</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>define ROOT "C:/MyPrograms/laragon/www/projet-test/"</li>
+<li><mark>define SITE </mark><mark>"projet-test.test"</mark></li>
+<li>…</li>
+</ul>
 <p>La ligne 2 définit le serveur virtuel <strong>[projet-test.test]</strong>. Le fichier <strong>[auto.projet-test.test.conf]</strong> est la configuration de ce serveur virtuel. Parce qu’il lit au démarrage tous les fichiers de configuration du dossier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong>, le serveur Apache sait qu’il existe un serveur virtuel appelé <strong>[projet-test.test]</strong>. Ainsi lorsqu’il reçoit du client Postman, la requête HTTPS :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span>
-<span class="normal"><a href="#__codelineno-9-5">5</a></span>
-<span class="normal"><a href="#__codelineno-9-6">6</a></span>
-<span class="normal"><a href="#__codelineno-9-7">7</a></span>
-<span class="normal"><a href="#__codelineno-9-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">GET</span> <span class="o">/</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">User</span><span class="o">-</span><span class="n">Agent</span><span class="p">:</span> <span class="n">PostmanRuntime</span><span class="o">/</span><span class="mf">7.26.2</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">Accept</span><span class="p">:</span> <span class="o">*/*</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">Cache</span><span class="o">-</span><span class="n">Control</span><span class="p">:</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span>
-<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">Postman</span><span class="o">-</span><span class="n">Token</span><span class="p">:</span> <span class="n">d153f711</span><span class="o">-</span><span class="n">ad99</span><span class="o">-</span><span class="mf">4e1</span><span class="n">d</span><span class="o">-</span><span class="mi">93</span><span class="n">c3</span><span class="o">-</span><span class="mi">61</span><span class="n">c25374d1be</span>
-<a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="n">Host</span><span class="p">:</span> <span class="n">projet</span><span class="o">-</span><span class="n">test</span><span class="o">.</span><span class="n">test</span>
-<a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">Accept</span><span class="o">-</span><span class="n">Encoding</span><span class="p">:</span> <span class="n">gzip</span><span class="p">,</span> <span class="n">deflate</span><span class="p">,</span> <span class="n">br</span>
-<a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="n">Connection</span><span class="p">:</span> <span class="n">keep</span><span class="o">-</span><span class="n">alive</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li><mark>GET / HTTP/1.1</mark></li>
+<li>User-Agent: PostmanRuntime/7.26.2</li>
+<li>Accept: */*</li>
+<li>Cache-Control: no-cache</li>
+<li>Postman-Token: d153f711-ad99-4e1d-93c3-61c25374d1be</li>
+<li><mark>Host: projet-test.test</mark></li>
+<li>Accept-Encoding: gzip, deflate, br</li>
+<li>Connection: keep-alive</li>
+</ul>
 <p>il reconnaît que la requête est adressée au serveur virtuel <strong>[projet-test.test]</strong> (ligne 6) et que celui-ci existe. Il utilise alors la configuration du serveur virtuel <strong>[projet-test.test]</strong> pour répondre au client Postman.</p>
 <h2 id="374-creation-dun-premier-serveur-virtuel-apache">37.4. Création d’un premier serveur virtuel Apache</h2>
 <p>Maintenant que nous savons à quoi servent des serveurs virtuels et comment les définir, nous allons en créer un. Il servira à exécuter une application Python Flask installée dans un dossier <strong>[Apache]</strong> de la version 17 en cours de déploiement sur le serveur Apache:</p>
 <p>Nous avons mis dans le dossier <strong>[http-servers/12/apache/exemple]</strong> l’application développée au paragraphe |<a href="#_scripts_[flask/02]_:"><u><u>lien</u></u></a>|, un service web de date /heure :</p>
 <p><img src="images/100000000000016D000001854BC86A09.png" style="width:4.22cm;height:4.481cm;" alt="Image" /></p>
 <p>Le serveur <strong>[date_time_server.py]</strong> est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-10-10">10</a></span>
-<span class="normal"><a href="#__codelineno-10-11">11</a></span>
-<span class="normal"><a href="#__codelineno-10-12">12</a></span>
-<span class="normal"><a href="#__codelineno-10-13">13</a></span>
-<span class="normal"><a href="#__codelineno-10-14">14</a></span>
-<span class="normal"><a href="#__codelineno-10-15">15</a></span>
-<span class="normal"><a href="#__codelineno-10-16">16</a></span>
-<span class="normal"><a href="#__codelineno-10-17">17</a></span>
-<span class="normal"><a href="#__codelineno-10-18">18</a></span>
-<span class="normal"><a href="#__codelineno-10-19">19</a></span>
-<span class="normal"><a href="#__codelineno-10-20">20</a></span>
-<span class="normal"><a href="#__codelineno-10-21">21</a></span>
-<span class="normal"><a href="#__codelineno-10-22">22</a></span>
-<span class="normal"><a href="#__codelineno-10-23">23</a></span>
-<span class="normal"><a href="#__codelineno-10-24">24</a></span>
-<span class="normal"><a href="#__codelineno-10-25">25</a></span>
-<span class="normal"><a href="#__codelineno-10-26">26</a></span>
-<span class="normal"><a href="#__codelineno-10-27">27</a></span>
-<span class="normal"><a href="#__codelineno-10-28">28</a></span>
-<span class="normal"><a href="#__codelineno-10-29">29</a></span>
-<span class="normal"><a href="#__codelineno-10-30">30</a></span>
-<span class="normal"><a href="#__codelineno-10-31">31</a></span>
-<span class="normal"><a href="#__codelineno-10-32">32</a></span>
-<span class="normal"><a href="#__codelineno-10-33">33</a></span>
-<span class="normal"><a href="#__codelineno-10-34">34</a></span>
-<span class="normal"><a href="#__codelineno-10-35">35</a></span>
-<span class="normal"><a href="#__codelineno-10-36">36</a></span>
-<span class="normal"><a href="#__codelineno-10-37">37</a></span>
-<span class="normal"><a href="#__codelineno-10-38">38</a></span>
-<span class="normal"><a href="#__codelineno-10-39">39</a></span>
-<span class="normal"><a href="#__codelineno-10-40">40</a></span>
-<span class="normal"><a href="#__codelineno-10-41">41</a></span>
-<span class="normal"><a href="#__codelineno-10-42">42</a></span>
-<span class="normal"><a href="#__codelineno-10-43">43</a></span>
-<span class="normal"><a href="#__codelineno-10-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># imports</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># il nous faut mettre dans le Python Path le dossier des modules</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="c1"># pour portage vers apache windows</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">make_response</span><span class="p">,</span> <span class="n">render_template</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a>
-<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="c1"># application Flask</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="n">application</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="n">template_folder</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15"></a>
-<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="c1"># Home URL</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="nd">@application</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19"></a>    <span class="c1"># envoi heure au client</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20"></a>    <span class="c1"># time.localtime : nb de millisecondes depuis 01/01/1970</span>
-<a id="__codelineno-10-21" name="__codelineno-10-21"></a>    <span class="c1"># time.strftime permet de formater l&#39;heure et la date</span>
-<a id="__codelineno-10-22" name="__codelineno-10-22"></a>    <span class="c1"># format affichage date-heure</span>
-<a id="__codelineno-10-23" name="__codelineno-10-23"></a>    <span class="c1"># d: jour sur 2 chiffres</span>
-<a id="__codelineno-10-24" name="__codelineno-10-24"></a>    <span class="c1"># m: mois sur 2 chiffres</span>
-<a id="__codelineno-10-25" name="__codelineno-10-25"></a>    <span class="c1"># y : année sur 2 chiffres</span>
-<a id="__codelineno-10-26" name="__codelineno-10-26"></a>    <span class="c1"># H : heure 0,23</span>
-<a id="__codelineno-10-27" name="__codelineno-10-27"></a>    <span class="c1"># M : minutes</span>
-<a id="__codelineno-10-28" name="__codelineno-10-28"></a>    <span class="c1"># S: secondes</span>
-<a id="__codelineno-10-29" name="__codelineno-10-29"></a>
-<a id="__codelineno-10-30" name="__codelineno-10-30"></a>    <span class="c1"># date / heure du moment</span>
-<a id="__codelineno-10-31" name="__codelineno-10-31"></a>    <span class="n">time_of_day</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">/%m/%y %H:%M:%S&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
-<a id="__codelineno-10-32" name="__codelineno-10-32"></a>    <span class="c1"># on génère le document à envoyer au client</span>
-<a id="__codelineno-10-33" name="__codelineno-10-33"></a>    <span class="n">page</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;date_heure&quot;</span><span class="p">:</span> <span class="n">time_of_day</span><span class="p">}</span>
-<a id="__codelineno-10-34" name="__codelineno-10-34"></a>    <span class="n">document</span> <span class="o">=</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;date_time_server.html&quot;</span><span class="p">,</span> <span class="n">page</span><span class="o">=</span><span class="n">page</span><span class="p">)</span>
-<a id="__codelineno-10-35" name="__codelineno-10-35"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;document&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">document</span><span class="p">),</span> <span class="n">document</span><span class="p">)</span>
-<a id="__codelineno-10-36" name="__codelineno-10-36"></a>    <span class="c1"># réponse HTTP au client</span>
-<a id="__codelineno-10-37" name="__codelineno-10-37"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
-<a id="__codelineno-10-38" name="__codelineno-10-38"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;response&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">response</span><span class="p">),</span> <span class="n">response</span><span class="p">)</span>
-<a id="__codelineno-10-39" name="__codelineno-10-39"></a>    <span class="k">return</span> <span class="n">response</span>
-<a id="__codelineno-10-40" name="__codelineno-10-40"></a>
-<a id="__codelineno-10-41" name="__codelineno-10-41"></a><span class="c1"># main seulement</span>
-<a id="__codelineno-10-42" name="__codelineno-10-42"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-<a id="__codelineno-10-43" name="__codelineno-10-43"></a>    <span class="n">application</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ENV</span><span class="o">=</span><span class="s2">&quot;development&quot;</span><span class="p">,</span> <span class="n">DEBUG</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-10-44" name="__codelineno-10-44"></a>    <span class="n">application</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># imports</li>
+<li>import os</li>
+<li>import sys</li>
+<li>import time</li>
+<li></li>
+<li># il nous faut mettre dans le Python Path le dossier des modules</li>
+<li># pour portage vers apache windows</li>
+<li>sys.path.insert(0, "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages")</li>
+<li></li>
+<li>from flask import Flask, make_response, render_template</li>
+<li></li>
+<li># application Flask</li>
+<li>script_dir = os.path.dirname(os.path.abspath(__file__))</li>
+<li><mark>application</mark> = Flask(__name__, template_folder=f"{script_dir}")</li>
+<li></li>
+<li># Home URL</li>
+<li>@application.route('/')</li>
+<li>def index():</li>
+<li># envoi heure au client</li>
+<li># time.localtime : nb de millisecondes depuis 01/01/1970</li>
+<li># time.strftime permet de formater l'heure et la date</li>
+<li># format affichage date-heure</li>
+<li># d: jour sur 2 chiffres</li>
+<li># m: mois sur 2 chiffres</li>
+<li># y : année sur 2 chiffres</li>
+<li># H : heure 0,23</li>
+<li># M : minutes</li>
+<li># S: secondes</li>
+<li></li>
+<li># date / heure du moment</li>
+<li>time_of_day = time.strftime('%d/%m/%y %H:%M:%S', time.localtime())</li>
+<li># on génère le document à envoyer au client</li>
+<li>page = {"date_heure": time_of_day}</li>
+<li>document = render_template("<mark>date_time_server.html</mark>", page=page)</li>
+<li>print("document", type(document), document)</li>
+<li># réponse HTTP au client</li>
+<li>response = make_response(document)</li>
+<li>print("response", type(response), response)</li>
+<li>return response</li>
+<li></li>
+<li># main seulement</li>
+<li>if __name__ == '__main__':</li>
+<li><mark>application</mark>.config.update(ENV="development", DEBUG=True)</li>
+<li><mark>application</mark>.run()</li>
+</ul>
 <p>L’application Flask est référencée par l’identifiant <strong>[</strong><strong><mark>application</mark></strong><strong>]</strong> (lignes 14, 43, 44). Ce nom est <strong><mark>obligatoire</mark></strong>. Si on référence l’application Flask avec un autre identifiant l’application ne va pas marcher avec un message d’erreur indiquant qu’elle ne trouve pas l’URL demandée. Ce message d’erreur ne donne aucune indication sur la source de l’erreur. Il faut donc être vigilant sur ce point.</p>
 <p>Le fichier HTML référencé ligne 34 est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-11-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;fr&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;UTF-8&quot;</span><span class="p">&gt;</span>
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Date et heure du moment<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-<a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="p">&lt;</span><span class="nt">b</span><span class="p">&gt;</span>Date et heure du moment : {{page.date_heure}}<span class="p">&lt;/</span><span class="nt">b</span><span class="p">&gt;</span>
-<a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
-<a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li><strong>[date-time-server]</strong> sera le serveur virtuel qui hébergera cette application. Il sera configuré par le fichier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled\date-time-server.conf]</strong> (on rappelle que ce nom est libre – Apache lit tous les fichiers présents dans <strong>[sites-enabled]</strong> pour découvrir les sites virtuels hébergés) ;</li>
+<li>&lt;!DOCTYPE html&gt;</li>
+<li>&lt;html lang="fr"&gt;</li>
+<li>&lt;head&gt;</li>
+<li>&lt;meta charset="UTF-8"&gt;</li>
+<li>&lt;title&gt;Date et heure du moment&lt;/title&gt;</li>
+<li>&lt;/head&gt;</li>
+<li>&lt;body&gt;</li>
+<li>&lt;b&gt;Date et heure du moment : {{page.date_heure}}&lt;/b&gt;</li>
+<li>&lt;/body&gt;</li>
+<li>
+<p>&lt;/html&gt;</p>
+</li>
+<li>
+<p><strong>[date-time-server]</strong> sera le serveur virtuel qui hébergera cette application. Il sera configuré par le fichier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled\date-time-server.conf]</strong> (on rappelle que ce nom est libre – Apache lit tous les fichiers présents dans <strong>[sites-enabled]</strong> pour découvrir les sites virtuels hébergés) ;</p>
+</li>
 </ul>
 <p>Nous obtenons ce fichier tout d’abord par recopie du fichier <strong>[auto.projet-test.test.conf]</strong> puis nous le modifions.</p>
 <p><img src="images/100000000000033C0000017DAC6AA1DA.png" style="width:9.55cm;height:4.391cm;" alt="Image" /></p>
 <p>Le fichier <strong>[date-time-server.conf]</strong> sera le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-12-10">10</a></span>
-<span class="normal"><a href="#__codelineno-12-11">11</a></span>
-<span class="normal"><a href="#__codelineno-12-12">12</a></span>
-<span class="normal"><a href="#__codelineno-12-13">13</a></span>
-<span class="normal"><a href="#__codelineno-12-14">14</a></span>
-<span class="normal"><a href="#__codelineno-12-15">15</a></span>
-<span class="normal"><a href="#__codelineno-12-16">16</a></span>
-<span class="normal"><a href="#__codelineno-12-17">17</a></span>
-<span class="normal"><a href="#__codelineno-12-18">18</a></span>
-<span class="normal"><a href="#__codelineno-12-19">19</a></span>
-<span class="normal"><a href="#__codelineno-12-20">20</a></span>
-<span class="normal"><a href="#__codelineno-12-21">21</a></span>
-<span class="normal"><a href="#__codelineno-12-22">22</a></span>
-<span class="normal"><a href="#__codelineno-12-23">23</a></span>
-<span class="normal"><a href="#__codelineno-12-24">24</a></span>
-<span class="normal"><a href="#__codelineno-12-25">25</a></span>
-<span class="normal"><a href="#__codelineno-12-26">26</a></span>
-<span class="normal"><a href="#__codelineno-12-27">27</a></span>
-<span class="normal"><a href="#__codelineno-12-28">28</a></span>
-<span class="normal"><a href="#__codelineno-12-29">29</a></span>
-<span class="normal"><a href="#__codelineno-12-30">30</a></span>
-<span class="normal"><a href="#__codelineno-12-31">31</a></span>
-<span class="normal"><a href="#__codelineno-12-32">32</a></span>
-<span class="normal"><a href="#__codelineno-12-33">33</a></span>
-<span class="normal"><a href="#__codelineno-12-34">34</a></span>
-<span class="normal"><a href="#__codelineno-12-35">35</a></span>
-<span class="normal"><a href="#__codelineno-12-36">36</a></span>
-<span class="normal"><a href="#__codelineno-12-37">37</a></span>
-<span class="normal"><a href="#__codelineno-12-38">38</a></span>
-<span class="normal"><a href="#__codelineno-12-39">39</a></span>
-<span class="normal"><a href="#__codelineno-12-40">40</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># dossier du script python-flask de l&#39;application</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="n">define</span> <span class="n">ROOT</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache/exemple&quot;</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="c1"># nom du site web configuré par ce fichier</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># ici il s&#39;appellera date-time-server</span>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># les URL seront du type http(s)://date-time-server/chemin</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">define</span> <span class="n">SITE</span> <span class="s2">&quot;date-time-server&quot;</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># mettre l&#39;adresse IP 127.0.0.1 pour site SITE dans c:/windows/system32/drivers/etc/hosts</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10"></a>
-<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="c1"># URL HTTP</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">80</span><span class="o">&gt;</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13"></a>    <span class="c1"># avec l&#39;alias / les URL auront la forme http(s)://date-time-server/chemin/...</span>
-<a id="__codelineno-12-14" name="__codelineno-12-14"></a>    <span class="n">WSGIScriptAlias</span> <span class="o">/</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">/date_time_server.py&quot;</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15"></a>    <span class="n">DocumentRoot</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16"></a>    <span class="n">ServerName</span> <span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17"></a>    <span class="n">ServerAlias</span> <span class="o">*.</span><span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-12-18" name="__codelineno-12-18"></a>    <span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-12-19" name="__codelineno-12-19"></a>        <span class="n">AllowOverride</span> <span class="n">All</span>
-<a id="__codelineno-12-20" name="__codelineno-12-20"></a>        <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
-<a id="__codelineno-12-21" name="__codelineno-12-21"></a>    <span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-12-22" name="__codelineno-12-22"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-<a id="__codelineno-12-23" name="__codelineno-12-23"></a>
-<a id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="c1"># URL sécurisées avec HTTPS</span>
-<a id="__codelineno-12-25" name="__codelineno-12-25"></a><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">443</span><span class="o">&gt;</span>
-<a id="__codelineno-12-26" name="__codelineno-12-26"></a>    <span class="c1"># avec l&#39;alias / les URL auront la forme http(s)://date-time-server/chemin/...</span>
-<a id="__codelineno-12-27" name="__codelineno-12-27"></a>    <span class="n">WSGIScriptAlias</span> <span class="o">/</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">/date_time_server.py&quot;</span>
-<a id="__codelineno-12-28" name="__codelineno-12-28"></a>    <span class="n">DocumentRoot</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span>
-<a id="__codelineno-12-29" name="__codelineno-12-29"></a>    <span class="n">ServerName</span> <span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-12-30" name="__codelineno-12-30"></a>    <span class="n">ServerAlias</span> <span class="o">*.</span><span class="err">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-12-31" name="__codelineno-12-31"></a>    <span class="o">&lt;</span><span class="n">Directory</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-12-32" name="__codelineno-12-32"></a>        <span class="n">AllowOverride</span> <span class="n">All</span>
-<a id="__codelineno-12-33" name="__codelineno-12-33"></a>        <span class="n">Require</span> <span class="nb">all</span> <span class="n">granted</span>
-<a id="__codelineno-12-34" name="__codelineno-12-34"></a>    <span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-12-35" name="__codelineno-12-35"></a>
-<a id="__codelineno-12-36" name="__codelineno-12-36"></a>    <span class="n">SSLEngine</span> <span class="n">on</span>
-<a id="__codelineno-12-37" name="__codelineno-12-37"></a>    <span class="n">SSLCertificateFile</span>      <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">MyPrograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="o">.</span><span class="n">crt</span>
-<a id="__codelineno-12-38" name="__codelineno-12-38"></a>    <span class="n">SSLCertificateKeyFile</span>   <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">myprograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="o">.</span><span class="n">key</span>
-<a id="__codelineno-12-39" name="__codelineno-12-39"></a>
-<a id="__codelineno-12-40" name="__codelineno-12-40"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 7 : on donne un nom au serveur virtuel configuré par le fichier ;</li>
+<li># dossier du script python-flask de l'application</li>
+<li><mark>define ROOT </mark><mark>"C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache/exemple"</mark></li>
+<li></li>
+<li># nom du site web configuré par ce fichier</li>
+<li># ici il s'appellera date-time-server</li>
+<li># les URL seront du type http(s)://date-time-server/chemin</li>
+<li><mark>define SITE </mark><mark>"date-time-server"</mark></li>
+<li></li>
+<li># mettre l'adresse IP 127.0.0.1 pour site SITE dans c:/windows/system32/drivers/etc/hosts</li>
+<li></li>
+<li># URL HTTP</li>
+<li>&lt;VirtualHost *:80&gt;</li>
+<li># avec l'alias / les URL auront la forme http(s)://date-time-server/chemin/...</li>
+<li><mark>WSGIScriptAlias / </mark><mark>"\${ROOT}/date_time_server.py"</mark></li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li>&lt;/VirtualHost&gt;</li>
+<li></li>
+<li># URL sécurisées avec HTTPS</li>
+<li>&lt;VirtualHost *:443&gt;</li>
+<li># avec l'alias / les URL auront la forme http(s)://date-time-server/chemin/...</li>
+<li><mark>WSGIScriptAlias / </mark><mark>"\${ROOT}/date_time_server.py"</mark></li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li></li>
+<li>SSLEngine on</li>
+<li>SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</li>
+<li>SSLCertificateKeyFile   C:/myprograms/laragon/etc/ssl/laragon.key</li>
+<li></li>
+<li>
+<p>&lt;/VirtualHost&gt;</p>
+</li>
+<li>
+<p>ligne 7 : on donne un nom au serveur virtuel configuré par le fichier ;</p>
+</li>
 <li>ligne 2 : on donne la valeur de la variable <strong>[ROOT]</strong> utilisée aux lignes 14 et 27 ;</li>
 <li>lignes 14 et 27 : on indique le chemin du script Python qui doit être exécuté lorsque le serveur virtuel reçoit une requête. On indique ici que les requêtes pour le serveur <strong>[date-time-server]</strong> sont traitées par le script Python <strong>[date_time_server.py]</strong>. Cette différence avec le fichier <strong>[auto.projet-test.test.conf]</strong> vient du fait que ce fichier configurait un serveur PHP alors que le fichier <strong>[date-time-server.conf]</strong> configure un serveur Python ;</li>
 <li>lignes 14 et 27 : l’attribut <strong>[</strong><strong><mark>WSGIScriptAlias /</mark></strong><strong>]</strong> indique ici que la racine du serveur <strong>[date-time-server]</strong> sera <strong>[/]</strong>. Ainsi les URL de l’application auront la forme <strong>[http(s)://date-time-server/chemin]</strong> ;</li>
 <li>lignes 14 et 27, on peut donner une autre racine à l’application par exemple <strong>[</strong><strong><mark>WSGIScriptAlias /</mark></strong><strong><mark>show</mark></strong><strong>]</strong><mark>.</mark> Alors les URL de l’application auront la forme <strong>[http(s)://</strong><strong><mark>show</mark></strong><strong>/date-time-server/chemin]</strong> ;</li>
 </ul>
 <p>Il nous faut également ajouter une ligne au fichier <strong>[&lt;windows&gt;/system32/drivers/etc/hosts]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-13-10">10</a></span>
-<span class="normal"><a href="#__codelineno-13-11">11</a></span>
-<span class="normal"><a href="#__codelineno-13-12">12</a></span>
-<span class="normal"><a href="#__codelineno-13-13">13</a></span>
-<span class="normal"><a href="#__codelineno-13-14">14</a></span>
-<span class="normal"><a href="#__codelineno-13-15">15</a></span>
-<span class="normal"><a href="#__codelineno-13-16">16</a></span>
-<span class="normal"><a href="#__codelineno-13-17">17</a></span>
-<span class="normal"><a href="#__codelineno-13-18">18</a></span>
-<span class="normal"><a href="#__codelineno-13-19">19</a></span>
-<span class="normal"><a href="#__codelineno-13-20">20</a></span>
-<span class="normal"><a href="#__codelineno-13-21">21</a></span>
-<span class="normal"><a href="#__codelineno-13-22">22</a></span>
-<span class="normal"><a href="#__codelineno-13-23">23</a></span>
-<span class="normal"><a href="#__codelineno-13-24">24</a></span>
-<span class="normal"><a href="#__codelineno-13-25">25</a></span>
-<span class="normal"><a href="#__codelineno-13-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a># Copyright (c) 1993-2009 Microsoft Corp.
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a>#
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a># This is a sample HOSTS file used by Microsoft TCP/IP for Windows.
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>#
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a># This file contains the mappings of IP addresses to host names. Each
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a># entry should be kept on an individual line. The IP address should
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a># be placed in the first column followed by the corresponding host name.
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a># The IP address and the host name should be separated by at least one
-<a id="__codelineno-13-9" name="__codelineno-13-9"></a># space.
-<a id="__codelineno-13-10" name="__codelineno-13-10"></a>#
-<a id="__codelineno-13-11" name="__codelineno-13-11"></a># Additionally, comments (such as these) may be inserted on individual
-<a id="__codelineno-13-12" name="__codelineno-13-12"></a># lines or following the machine name denoted by a &#39;#&#39; symbol.
-<a id="__codelineno-13-13" name="__codelineno-13-13"></a>#
-<a id="__codelineno-13-14" name="__codelineno-13-14"></a># For example:
-<a id="__codelineno-13-15" name="__codelineno-13-15"></a>#
-<a id="__codelineno-13-16" name="__codelineno-13-16"></a>#      102.54.94.97     rhino.acme.com          # source server
-<a id="__codelineno-13-17" name="__codelineno-13-17"></a>#       38.25.63.10     x.acme.com              # x client host
-<a id="__codelineno-13-18" name="__codelineno-13-18"></a>
-<a id="__codelineno-13-19" name="__codelineno-13-19"></a># localhost name resolution is handled within DNS itself.
-<a id="__codelineno-13-20" name="__codelineno-13-20"></a>#    127.0.0.1       localhost
-<a id="__codelineno-13-21" name="__codelineno-13-21"></a>#    ::1             localhost
-<a id="__codelineno-13-22" name="__codelineno-13-22"></a>
-<a id="__codelineno-13-23" name="__codelineno-13-23"></a>127.0.0.1    flask-impots-withmysql        # cours python - appli impôts avec MySQL
-<a id="__codelineno-13-24" name="__codelineno-13-24"></a>127.0.0.1    flask-impots-withpgres        # cours python - appli impôts avec PostgreSQL
-<a id="__codelineno-13-25" name="__codelineno-13-25"></a>127.0.0.1    date-time-server            # cours python - heure et date du moment
-<a id="__codelineno-13-26" name="__codelineno-13-26"></a>127.0.0.1           projet-test.test                #laragon magic!
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># Copyright (c) 1993-2009 Microsoft Corp.</li>
+<li>#</li>
+<li># This is a sample HOSTS file used by Microsoft TCP/IP for Windows.</li>
+<li>#</li>
+<li># This file contains the mappings of IP addresses to host names. Each</li>
+<li># entry should be kept on an individual line. The IP address should</li>
+<li># be placed in the first column followed by the corresponding host name.</li>
+<li># The IP address and the host name should be separated by at least one</li>
+<li># space.</li>
+<li>#</li>
+<li># Additionally, comments (such as these) may be inserted on individual</li>
+<li># lines or following the machine name denoted by a '#' symbol.</li>
+<li>#</li>
+<li># For example:</li>
+<li>#</li>
+<li>#      102.54.94.97     rhino.acme.com          # source server</li>
+<li>#       38.25.63.10     x.acme.com              # x client host</li>
+<li></li>
+<li># localhost name resolution is handled within DNS itself.</li>
+<li>#    127.0.0.1       localhost</li>
+<li>#    ::1             localhost</li>
+<li></li>
+<li>127.0.0.1    flask-impots-withmysql        # cours python - appli impôts avec MySQL</li>
+<li>127.0.0.1    flask-impots-withpgres        # cours python - appli impôts avec PostgreSQL</li>
+<li><mark>127.0.0.1    date-time-server            # cours python - heure et date du moment</mark></li>
+<li>127.0.0.1           projet-test.test                #laragon magic!</li>
+</ul>
 <p>On ajoute la ligne 25, pour donner l’adresse IP <strong>[127.0.0.1]</strong> au serveur virtuel <strong>[date-time-server]</strong>.</p>
 <p>Vérifions tout cela. Nous lançons le serveur Apache :</p>
 <p><img src="images/1000000000000615000002C02F914C45.png" style="width:18cm;height:8.14cm;" alt="Image" /></p>
@@ -2274,7 +2009,7 @@
 <li>en <strong>[2]</strong>, le navigateur indique que la connection HTTPS n’est pas sûre car il a détecté que le certificat envoyé par le serveur Apache était auto-signé ;</li>
 </ul>
 <p>Maintenant dans le fichier <strong>[date-time-server.conf]</strong>, mettons un alias aux lignes 14 et 27 :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>    WSGIScriptAlias /show-date-time &quot;${ROOT}/date_time_server.py&quot;
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>    WSGIScriptAlias /show-date-time &quot;${ROOT}/date_time_server.py&quot;
 </code></pre></div></td></tr></table></div>
 <p>La modification n’est pas prise en compte immédiatement par le serveur Apache. Il faut le recharger :</p>
 <p><img src="images/1000000000000476000000FF7F089CCB.png" style="width:13.17cm;height:2.95cm;" alt="Image" /></p>
@@ -2289,443 +2024,288 @@
 <li>le fichier <strong>[main_withmysql]</strong> de <strong>[2]</strong> est le fichier <strong>[main]</strong> de <strong>[1]</strong> avec les modifications suivantes :</li>
 </ul>
 <p>Le script principal <strong>[main]</strong> recevait un paramètre <strong>[mysql / pgres]</strong> qui lui disait quel SGBD utilisé. Le script <strong>[main_withmysql]</strong> utilise le SGBD MySQL :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-15-10">10</a></span>
-<span class="normal"><a href="#__codelineno-15-11">11</a></span>
-<span class="normal"><a href="#__codelineno-15-12">12</a></span>
-<span class="normal"><a href="#__codelineno-15-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># on attend un paramètre mysql ou pgres</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="c1"># on configure l&#39;application avec MySQL</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">configure</span><span class="p">({</span><span class="s1">&#39;sgbd&#39;</span><span class="p">:</span> <span class="s2">&quot;mysql&quot;</span><span class="p">})</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8"></a>
-<a id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="c1"># dépendances</span>
-<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">SendAdminMail</span><span class="w"> </span><span class="kn">import</span> <span class="n">SendAdminMail</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">Logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ImpôtsError</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImpôtsError</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="err">…</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># on attend un paramètre mysql ou pgres</li>
+<li>import os</li>
+<li>import sys</li>
+<li></li>
+<li># on configure l'application avec MySQL</li>
+<li>import config</li>
+<li><mark>config = config.configure({</mark><mark>'sgbd'</mark><mark>: </mark><mark>"mysql"</mark><mark>})</mark></li>
+<li></li>
+<li># dépendances</li>
+<li>from SendAdminMail import SendAdminMail</li>
+<li>from Logger import Logger</li>
+<li>from ImpôtsError import ImpôtsError</li>
+<li>…</li>
+</ul>
 <p>Ligne 7, on fixe le SGBD à MySQL.</p>
 <ul>
-<li>le fichier <strong>[main_withpgres]</strong> de <strong>[2]</strong> est le fichier <strong>[main]</strong> de <strong>[1]</strong> avec les modifications suivantes : il utilise le SGBD PostgreSQL :</li>
+<li>
+<p>le fichier <strong>[main_withpgres]</strong> de <strong>[2]</strong> est le fichier <strong>[main]</strong> de <strong>[1]</strong> avec les modifications suivantes : il utilise le SGBD PostgreSQL :</p>
+</li>
+<li>
+<p># on attend un paramètre mysql ou pgres</p>
+</li>
+<li>import os</li>
+<li>import sys</li>
+<li></li>
+<li># on configure l'application avec MySQL</li>
+<li>import config</li>
+<li><mark>config = config.configure({</mark><mark>'sgbd'</mark><mark>: </mark><mark>"pgres"</mark><mark>})</mark></li>
+<li></li>
+<li># dépendances</li>
+<li>from SendAdminMail import SendAdminMail</li>
+<li>from Logger import Logger</li>
+<li>from ImpôtsError import ImpôtsError</li>
+<li>…</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-16-10">10</a></span>
-<span class="normal"><a href="#__codelineno-16-11">11</a></span>
-<span class="normal"><a href="#__codelineno-16-12">12</a></span>
-<span class="normal"><a href="#__codelineno-16-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># on attend un paramètre mysql ou pgres</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a><span class="c1"># on configure l&#39;application avec MySQL</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">configure</span><span class="p">({</span><span class="s1">&#39;sgbd&#39;</span><span class="p">:</span> <span class="s2">&quot;pgres&quot;</span><span class="p">})</span>
-<a id="__codelineno-16-8" name="__codelineno-16-8"></a>
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="c1"># dépendances</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">SendAdminMail</span><span class="w"> </span><span class="kn">import</span> <span class="n">SendAdminMail</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">Logger</span><span class="w"> </span><span class="kn">import</span> <span class="n">Logger</span>
-<a id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ImpôtsError</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImpôtsError</span>
-<a id="__codelineno-16-13" name="__codelineno-16-13"></a><span class="err">…</span>
-</code></pre></div></td></tr></table></div>
 <p>Ligne 7, on fixe le SGBD à PostgreSQL.</p>
 <p>Ceci fait, on crée le script <strong>[main_withmysql.wsgi]</strong> (le suffixe utilisé n’a pas d’importance) suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-17-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># dossier de ce fichier</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
-<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="c1"># on l&#39;ajoute au syspath pour que l&#39;import qui suit soit possible</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">script_dir</span><span class="p">)</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8"></a>
-<a id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="c1"># on importe l&#39;application Flask [app] en lui donnant le nom [application]</span>
-<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">main_withmysql</span><span class="w"> </span><span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># dossier de ce fichier</li>
+<li>import os</li>
+<li>script_dir = os.path.dirname(os.path.abspath(__file__))</li>
+<li></li>
+<li># on l'ajoute au syspath pour que l'import qui suit soit possible</li>
+<li>import sys</li>
+<li>sys.path.insert(0, script_dir)</li>
+<li></li>
+<li># on importe l'application Flask <strong>[app]</strong> en lui donnant le nom <strong>[application]</strong></li>
+<li><mark>from main_withmysql import app as application</mark></li>
+</ul>
 <p>Le script <strong>[main_withmysql.wsgi]</strong> sera la cible exécutée par le serveur Apache en mode WSGI :</p>
 <ul>
-<li>la cible du serveur Apache aurait pu être le script <strong>[main_withmysql.py]</strong> comme il a été fait précédemment avec le script <strong>[date_time_server.py]</strong>. Mais il aurait fallu le modifier un peu :</li>
-<li>contrairement au mode d’exécution avec un script console, avec Apache, le dossier contenant la cible <strong>[main_withmysql.py]</strong> ne fait pas partie du Python Path. Aussi, la ligne 6 du script <strong>[main_withmysql.py]</strong> provoque-t-elle une erreur ;</li>
-<li>la seconde modification qu’il aurait fallu faire est que dans <strong>[main_withmysql]</strong> l’application Flask est référencée par l’identifiant <strong>[app]</strong>. On sait que pour Apache / WSGI elle doit être également référencée par un identifiant <strong>[application]</strong> ;</li>
-<li>plutôt que de modifier <strong>[main_withmysql.py]</strong>, on change la cible d’Apache. Ce sera désormais le script <strong>[main_withmysql.wsgi]</strong> ci-dessus :</li>
-<li>lignes 1-7 : on met le dossier du script dans le Python Path. Du coup, la ligne 6 de <strong>[main_withmysql.py]</strong> ne provoque plus d’erreur ;</li>
+<li>
+<p>la cible du serveur Apache aurait pu être le script <strong>[main_withmysql.py]</strong> comme il a été fait précédemment avec le script <strong>[date_time_server.py]</strong>. Mais il aurait fallu le modifier un peu :</p>
+</li>
+<li>
+<p>contrairement au mode d’exécution avec un script console, avec Apache, le dossier contenant la cible <strong>[main_withmysql.py]</strong> ne fait pas partie du Python Path. Aussi, la ligne 6 du script <strong>[main_withmysql.py]</strong> provoque-t-elle une erreur ;</p>
+</li>
+<li>
+<p>la seconde modification qu’il aurait fallu faire est que dans <strong>[main_withmysql]</strong> l’application Flask est référencée par l’identifiant <strong>[app]</strong>. On sait que pour Apache / WSGI elle doit être également référencée par un identifiant <strong>[application]</strong> ;</p>
+</li>
+<li>
+<p>plutôt que de modifier <strong>[main_withmysql.py]</strong>, on change la cible d’Apache. Ce sera désormais le script <strong>[main_withmysql.wsgi]</strong> ci-dessus :</p>
+</li>
+<li>
+<p>lignes 1-7 : on met le dossier du script dans le Python Path. Du coup, la ligne 6 de <strong>[main_withmysql.py]</strong> ne provoque plus d’erreur ;</p>
+</li>
 <li>lignes 9-10 : l’importation de <strong>[main_withmysql.py]</strong> provoque son exécution. Par ailleurs on référence l’application Flask <strong>[app]</strong> trouvée dans <strong>[main_withmysql.py]</strong> avec l’identificateur <strong>[application]</strong> dont a besoin Apache en mode WSGI ;</li>
 </ul>
 <p>On fait de même avec le script <strong>[main_withpgres.wsgi]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-18-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="c1"># dossier de ce fichier</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a>
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="c1"># on l&#39;ajoute au syspath pour que l&#39;import qui suit soit possible</span>
-<a id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">script_dir</span><span class="p">)</span>
-<a id="__codelineno-18-8" name="__codelineno-18-8"></a>
-<a id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="c1"># on importe l&#39;application Flask [app] en lui donnant le nom [application]</span>
-<a id="__codelineno-18-10" name="__codelineno-18-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">main_withpgres</span><span class="w"> </span><span class="kn">import</span> <span class="n">app</span> <span class="k">as</span> <span class="n">application</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># dossier de ce fichier</li>
+<li>import os</li>
+<li>script_dir = os.path.dirname(os.path.abspath(__file__))</li>
+<li></li>
+<li># on l'ajoute au syspath pour que l'import qui suit soit possible</li>
+<li>import sys</li>
+<li>sys.path.insert(0, script_dir)</li>
+<li></li>
+<li># on importe l'application Flask <strong>[app]</strong> en lui donnant le nom <strong>[application]</strong></li>
+<li>from <mark>main_withpgres</mark> import app as application</li>
+</ul>
 <p>Nous avons désormais les cibles exécutables pour le serveur Apache. Il nous faut maintenant créer deux serveurs virtuels, un pour chaque cible.</p>
 <p>Dans <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong>, nous créons le fichier <strong>[flask-impots-withmysql.conf]</strong> (le nom donné n’a pas d’importance) :</p>
 <p><img src="images/10000000000002D50000013F509BBA03.png" style="width:8.37cm;height:3.691cm;" alt="Image" /></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-19-10">10</a></span>
-<span class="normal"><a href="#__codelineno-19-11">11</a></span>
-<span class="normal"><a href="#__codelineno-19-12">12</a></span>
-<span class="normal"><a href="#__codelineno-19-13">13</a></span>
-<span class="normal"><a href="#__codelineno-19-14">14</a></span>
-<span class="normal"><a href="#__codelineno-19-15">15</a></span>
-<span class="normal"><a href="#__codelineno-19-16">16</a></span>
-<span class="normal"><a href="#__codelineno-19-17">17</a></span>
-<span class="normal"><a href="#__codelineno-19-18">18</a></span>
-<span class="normal"><a href="#__codelineno-19-19">19</a></span>
-<span class="normal"><a href="#__codelineno-19-20">20</a></span>
-<span class="normal"><a href="#__codelineno-19-21">21</a></span>
-<span class="normal"><a href="#__codelineno-19-22">22</a></span>
-<span class="normal"><a href="#__codelineno-19-23">23</a></span>
-<span class="normal"><a href="#__codelineno-19-24">24</a></span>
-<span class="normal"><a href="#__codelineno-19-25">25</a></span>
-<span class="normal"><a href="#__codelineno-19-26">26</a></span>
-<span class="normal"><a href="#__codelineno-19-27">27</a></span>
-<span class="normal"><a href="#__codelineno-19-28">28</a></span>
-<span class="normal"><a href="#__codelineno-19-29">29</a></span>
-<span class="normal"><a href="#__codelineno-19-30">30</a></span>
-<span class="normal"><a href="#__codelineno-19-31">31</a></span>
-<span class="normal"><a href="#__codelineno-19-32">32</a></span>
-<span class="normal"><a href="#__codelineno-19-33">33</a></span>
-<span class="normal"><a href="#__codelineno-19-34">34</a></span>
-<span class="normal"><a href="#__codelineno-19-35">35</a></span>
-<span class="normal"><a href="#__codelineno-19-36">36</a></span>
-<span class="normal"><a href="#__codelineno-19-37">37</a></span>
-<span class="normal"><a href="#__codelineno-19-38">38</a></span>
-<span class="normal"><a href="#__codelineno-19-39">39</a></span>
-<span class="normal"><a href="#__codelineno-19-40">40</a></span>
-<span class="normal"><a href="#__codelineno-19-41">41</a></span>
-<span class="normal"><a href="#__codelineno-19-42">42</a></span>
-<span class="normal"><a href="#__codelineno-19-43">43</a></span>
-<span class="normal"><a href="#__codelineno-19-44">44</a></span>
-<span class="normal"><a href="#__codelineno-19-45">45</a></span>
-<span class="normal"><a href="#__codelineno-19-46">46</a></span>
-<span class="normal"><a href="#__codelineno-19-47">47</a></span>
-<span class="normal"><a href="#__codelineno-19-48">48</a></span>
-<span class="normal"><a href="#__codelineno-19-49">49</a></span>
-<span class="normal"><a href="#__codelineno-19-50">50</a></span>
-<span class="normal"><a href="#__codelineno-19-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="err">#</span><span class="w"> </span><span class="n">dossier</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="p">.</span><span class="na">wsgi</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">define</span><span class="w"> </span><span class="n">ROOT</span><span class="w"> </span><span class="s">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache&quot;</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="err">#</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">configuré</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">fichier</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="err">#</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">il</span><span class="w"> </span><span class="n">s</span><span class="err">&#39;</span><span class="n">appellera</span><span class="w"> </span><span class="n">flask</span><span class="o">-</span><span class="n">impots</span><span class="o">-</span><span class="n">withmysql</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="err">#</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">seront</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="nf">http</span><span class="p">(</span><span class="n">s</span><span class="p">):</span><span class="c1">//flask-impots-withmysql/chemin</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="n">define</span><span class="w"> </span><span class="n">SITE</span><span class="w"> </span><span class="s">&quot;flask-impots-withmysql&quot;</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8"></a>
-<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="err">#</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">adresse</span><span class="w"> </span><span class="n">IP</span><span class="w"> </span><span class="mf">127.0.0.1</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">SITE</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">system32</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
-<a id="__codelineno-19-10" name="__codelineno-19-10"></a>
-<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="err">#</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">chemins</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">bibliothèques</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">utiliser</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">séparer</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">virgules</span>
-<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="err">#</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">bibliothèques</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">environnement</span><span class="w"> </span><span class="n">virtuel</span><span class="w"> </span><span class="n">Python</span>
-<a id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="n">WSGIPythonPath</span><span class="w">  </span><span class="s">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span>
-<a id="__codelineno-19-14" name="__codelineno-19-14"></a>
-<a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="err">#</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">Home</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nécessaire</span><span class="w"> </span><span class="n">uniquement</span><span class="w"> </span><span class="n">s</span><span class="err">&#39;</span><span class="n">il</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">plusieurs</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">installées</span>
-<a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="err">#</span><span class="w"> </span><span class="n">WSGIPythonHome</span><span class="w"> </span><span class="s">&quot;C:/Program Files/Python38&quot;</span>
-<a id="__codelineno-19-17" name="__codelineno-19-17"></a>
-<a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="err">#</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">HTTP</span>
-<a id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="o">&lt;</span><span class="n">VirtualHost</span><span class="w"> </span><span class="o">*</span><span class="p">:</span><span class="mi">80</span><span class="o">&gt;</span>
-<a id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-19-22" name="__codelineno-19-22"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">où</span><span class="w"> </span><span class="o">[</span><span class="n">prefixe_url</span><span class="o">]</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">défini</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">parameters</span><span class="p">.</span><span class="na">py</span>
-<a id="__codelineno-19-23" name="__codelineno-19-23"></a><span class="w">    </span><span class="n">WSGIScriptAlias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;${ROOT}/main_withmysql.wsgi&quot;</span>
-<a id="__codelineno-19-24" name="__codelineno-19-24"></a><span class="w">    </span><span class="n">DocumentRoot</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span>
-<a id="__codelineno-19-25" name="__codelineno-19-25"></a><span class="w">    </span><span class="n">ServerName</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-19-26" name="__codelineno-19-26"></a><span class="w">    </span><span class="n">ServerAlias</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="na">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-19-27" name="__codelineno-19-27"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">Directory</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-19-28" name="__codelineno-19-28"></a><span class="w">        </span><span class="n">AllowOverride</span><span class="w"> </span><span class="n">All</span>
-<a id="__codelineno-19-29" name="__codelineno-19-29"></a><span class="w">        </span><span class="n">Require</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">granted</span>
-<a id="__codelineno-19-30" name="__codelineno-19-30"></a><span class="w">    </span><span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-19-31" name="__codelineno-19-31"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-<a id="__codelineno-19-32" name="__codelineno-19-32"></a>
-<a id="__codelineno-19-33" name="__codelineno-19-33"></a><span class="err">#</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">sécurisées</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">HTTPS</span>
-<a id="__codelineno-19-34" name="__codelineno-19-34"></a><span class="o">&lt;</span><span class="n">VirtualHost</span><span class="w"> </span><span class="o">*</span><span class="p">:</span><span class="mi">443</span><span class="o">&gt;</span>
-<a id="__codelineno-19-35" name="__codelineno-19-35"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-19-36" name="__codelineno-19-36"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-19-37" name="__codelineno-19-37"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">où</span><span class="w"> </span><span class="o">[</span><span class="n">prefixe_url</span><span class="o">]</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">défini</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">parameters</span><span class="p">.</span><span class="na">py</span>
-<a id="__codelineno-19-38" name="__codelineno-19-38"></a><span class="w">    </span><span class="n">WSGIScriptAlias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;${ROOT}/main_withmysql.wsgi&quot;</span>
-<a id="__codelineno-19-39" name="__codelineno-19-39"></a><span class="w">    </span><span class="n">DocumentRoot</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span>
-<a id="__codelineno-19-40" name="__codelineno-19-40"></a><span class="w">    </span><span class="n">ServerName</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-19-41" name="__codelineno-19-41"></a><span class="w">    </span><span class="n">ServerAlias</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="na">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-19-42" name="__codelineno-19-42"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">Directory</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-19-43" name="__codelineno-19-43"></a><span class="w">        </span><span class="n">AllowOverride</span><span class="w"> </span><span class="n">All</span>
-<a id="__codelineno-19-44" name="__codelineno-19-44"></a><span class="w">        </span><span class="n">Require</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">granted</span>
-<a id="__codelineno-19-45" name="__codelineno-19-45"></a><span class="w">    </span><span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-19-46" name="__codelineno-19-46"></a>
-<a id="__codelineno-19-47" name="__codelineno-19-47"></a><span class="w">    </span><span class="n">SSLEngine</span><span class="w"> </span><span class="n">on</span>
-<a id="__codelineno-19-48" name="__codelineno-19-48"></a><span class="w">    </span><span class="n">SSLCertificateFile</span><span class="w">      </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">MyPrograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="p">.</span><span class="na">crt</span>
-<a id="__codelineno-19-49" name="__codelineno-19-49"></a><span class="w">    </span><span class="n">SSLCertificateKeyFile</span><span class="w">   </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">myprograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="p">.</span><span class="na">key</span>
-<a id="__codelineno-19-50" name="__codelineno-19-50"></a>
-<a id="__codelineno-19-51" name="__codelineno-19-51"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 2 : la racine de l’application, le dossier <strong>[apache]</strong> que nous avons créé ;</li>
+<li># dossier du script .wsgi</li>
+<li><mark>define ROOT</mark> "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache"</li>
+<li></li>
+<li># nom du site web configuré par ce fichier</li>
+<li># ici il s'appellera flask-impots-withmysql</li>
+<li># les URL seront du type http(s)://flask-impots-withmysql/chemin</li>
+<li>define SITE "<mark>flask-impots-withmysql</mark>"</li>
+<li></li>
+<li># mettre l'adresse IP 127.0.0.1 pour site SITE dans c:/windows/system32/drivers/etc/hosts</li>
+<li></li>
+<li># mettre ici les chemins des bibliothèques Python à utiliser - les séparer par des virgules</li>
+<li># ici les bibliothèques d'un environnement virtuel Python</li>
+<li><mark>WSGIPythonPath</mark>  "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages"</li>
+<li></li>
+<li># Python Home - nécessaire uniquement s'il y a plusieurs versions de Python installées</li>
+<li># <mark>WSGIPythonHome</mark> "C:/Program Files/Python38"</li>
+<li></li>
+<li># URL HTTP</li>
+<li>&lt;VirtualHost *:80&gt;</li>
+<li># avec l'alias / les URL auront la forme /{prefixe_url}/action/...</li>
+<li># avec l'alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</li>
+<li># où <strong>[prefixe_url]</strong> est défini dans parameters.py</li>
+<li><mark>WSGIScriptAlias / </mark><mark>"\${ROOT}/main_withmysql.wsgi"</mark></li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li>&lt;/VirtualHost&gt;</li>
+<li></li>
+<li># URL sécurisées avec HTTPS</li>
+<li>&lt;VirtualHost *:443&gt;</li>
+<li># avec l'alias / les URL auront la forme /{prefixe_url}/action/...</li>
+<li># avec l'alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</li>
+<li># où <strong>[prefixe_url]</strong> est défini dans parameters.py</li>
+<li><mark>WSGIScriptAlias / </mark><mark>"\${ROOT}/main_withmysql.wsgi"</mark></li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li></li>
+<li>SSLEngine on</li>
+<li>SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</li>
+<li>SSLCertificateKeyFile   C:/myprograms/laragon/etc/ssl/laragon.key</li>
+<li></li>
+<li>
+<p>&lt;/VirtualHost&gt;</p>
+</li>
+<li>
+<p>ligne 2 : la racine de l’application, le dossier <strong>[apache]</strong> que nous avons créé ;</p>
+</li>
 <li>lignes 23, 38 : la cible <strong>[main_witmysql.wsgi]</strong> que nous avons créée :</li>
 <li>ligne 7 : le serveur virtuel s’appellera <strong>[flask-impots-withmysql]</strong> ;</li>
 <li>ligne 13 : la directive <strong>[WSGIPythonPath]</strong> permet d’ajouter des dossiers au Python Path. Ici, Apache n’a pas connaissance que nous avons utilisé un environnement virtuel pour développer l’application et que tous les modules utilisés par l’application sont dans cet environnement virtuel. Aussi, ligne 13, nous ajoutons le dossier qui contient tous les modules de l’environnement virtuel utilisé. Une possibilité est de copier ce dossier à un autre endroit du système de fichiers et de référencer cet endroit. Une autre possibilité est d’ajouter ce dossier dans le Python Path directement dans la cible <strong>[main_witmysql.wsgi]</strong> (c’est probablement une meilleure solution) ;</li>
 <li>ligne 16 : on peut indiquer à Apache le dossier d’installation de Python dans le système de fichiers. Normalement, celui-ci est dans le PATH de la machine et souvent cette ligne est inutile (c’était le cas ici). Il peut cependant y avoir plusieurs installations de Python sur la machine et celle désirée n’est pas dans le PATH de la machine. Alors cette ligne résoud le problème ;</li>
 </ul>
 <p>On crée de la même façon un fichier <strong>[flask-impots-withpgres.conf]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-20-10">10</a></span>
-<span class="normal"><a href="#__codelineno-20-11">11</a></span>
-<span class="normal"><a href="#__codelineno-20-12">12</a></span>
-<span class="normal"><a href="#__codelineno-20-13">13</a></span>
-<span class="normal"><a href="#__codelineno-20-14">14</a></span>
-<span class="normal"><a href="#__codelineno-20-15">15</a></span>
-<span class="normal"><a href="#__codelineno-20-16">16</a></span>
-<span class="normal"><a href="#__codelineno-20-17">17</a></span>
-<span class="normal"><a href="#__codelineno-20-18">18</a></span>
-<span class="normal"><a href="#__codelineno-20-19">19</a></span>
-<span class="normal"><a href="#__codelineno-20-20">20</a></span>
-<span class="normal"><a href="#__codelineno-20-21">21</a></span>
-<span class="normal"><a href="#__codelineno-20-22">22</a></span>
-<span class="normal"><a href="#__codelineno-20-23">23</a></span>
-<span class="normal"><a href="#__codelineno-20-24">24</a></span>
-<span class="normal"><a href="#__codelineno-20-25">25</a></span>
-<span class="normal"><a href="#__codelineno-20-26">26</a></span>
-<span class="normal"><a href="#__codelineno-20-27">27</a></span>
-<span class="normal"><a href="#__codelineno-20-28">28</a></span>
-<span class="normal"><a href="#__codelineno-20-29">29</a></span>
-<span class="normal"><a href="#__codelineno-20-30">30</a></span>
-<span class="normal"><a href="#__codelineno-20-31">31</a></span>
-<span class="normal"><a href="#__codelineno-20-32">32</a></span>
-<span class="normal"><a href="#__codelineno-20-33">33</a></span>
-<span class="normal"><a href="#__codelineno-20-34">34</a></span>
-<span class="normal"><a href="#__codelineno-20-35">35</a></span>
-<span class="normal"><a href="#__codelineno-20-36">36</a></span>
-<span class="normal"><a href="#__codelineno-20-37">37</a></span>
-<span class="normal"><a href="#__codelineno-20-38">38</a></span>
-<span class="normal"><a href="#__codelineno-20-39">39</a></span>
-<span class="normal"><a href="#__codelineno-20-40">40</a></span>
-<span class="normal"><a href="#__codelineno-20-41">41</a></span>
-<span class="normal"><a href="#__codelineno-20-42">42</a></span>
-<span class="normal"><a href="#__codelineno-20-43">43</a></span>
-<span class="normal"><a href="#__codelineno-20-44">44</a></span>
-<span class="normal"><a href="#__codelineno-20-45">45</a></span>
-<span class="normal"><a href="#__codelineno-20-46">46</a></span>
-<span class="normal"><a href="#__codelineno-20-47">47</a></span>
-<span class="normal"><a href="#__codelineno-20-48">48</a></span>
-<span class="normal"><a href="#__codelineno-20-49">49</a></span>
-<span class="normal"><a href="#__codelineno-20-50">50</a></span>
-<span class="normal"><a href="#__codelineno-20-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="err">#</span><span class="w"> </span><span class="n">dossier</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">script</span><span class="w"> </span><span class="p">.</span><span class="na">wsgi</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="n">define</span><span class="w"> </span><span class="n">ROOT</span><span class="w"> </span><span class="s">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache&quot;</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="err">#</span><span class="w"> </span><span class="n">nom</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">web</span><span class="w"> </span><span class="n">configuré</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">ce</span><span class="w"> </span><span class="n">fichier</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="err">#</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">il</span><span class="w"> </span><span class="n">s</span><span class="err">&#39;</span><span class="n">appellera</span><span class="w"> </span><span class="n">flask</span><span class="o">-</span><span class="n">impots</span><span class="o">-</span><span class="n">withmysql</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="err">#</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">seront</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="nf">http</span><span class="p">(</span><span class="n">s</span><span class="p">):</span><span class="c1">//flask-impots-withmysql/chemin</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="n">define</span><span class="w"> </span><span class="n">SITE</span><span class="w"> </span><span class="s">&quot;flask-impots-withpgres&quot;</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8"></a>
-<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="err">#</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">adresse</span><span class="w"> </span><span class="n">IP</span><span class="w"> </span><span class="mf">127.0.0.1</span><span class="w"> </span><span class="n">pour</span><span class="w"> </span><span class="n">site</span><span class="w"> </span><span class="n">SITE</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">system32</span><span class="o">/</span><span class="n">drivers</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">hosts</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10"></a>
-<a id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="err">#</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">chemins</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">bibliothèques</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">utiliser</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">séparer</span><span class="w"> </span><span class="n">par</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">virgules</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="err">#</span><span class="w"> </span><span class="n">ici</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">bibliothèques</span><span class="w"> </span><span class="n">d</span><span class="err">&#39;</span><span class="n">un</span><span class="w"> </span><span class="n">environnement</span><span class="w"> </span><span class="n">virtuel</span><span class="w"> </span><span class="n">Python</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="n">WSGIPythonPath</span><span class="w">  </span><span class="s">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span>
-<a id="__codelineno-20-14" name="__codelineno-20-14"></a>
-<a id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="err">#</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">Home</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nécessaire</span><span class="w"> </span><span class="n">uniquement</span><span class="w"> </span><span class="n">s</span><span class="err">&#39;</span><span class="n">il</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">plusieurs</span><span class="w"> </span><span class="n">versions</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">installées</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="err">#</span><span class="w"> </span><span class="n">WSGIPythonHome</span><span class="w"> </span><span class="s">&quot;C:/Program Files/Python38&quot;</span>
-<a id="__codelineno-20-17" name="__codelineno-20-17"></a>
-<a id="__codelineno-20-18" name="__codelineno-20-18"></a><span class="err">#</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">HTTP</span>
-<a id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="o">&lt;</span><span class="n">VirtualHost</span><span class="w"> </span><span class="o">*</span><span class="p">:</span><span class="mi">80</span><span class="o">&gt;</span>
-<a id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-20-22" name="__codelineno-20-22"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">où</span><span class="w"> </span><span class="o">[</span><span class="n">prefixe_url</span><span class="o">]</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">défini</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">parameters</span><span class="p">.</span><span class="na">py</span>
-<a id="__codelineno-20-23" name="__codelineno-20-23"></a><span class="w">    </span><span class="n">WSGIScriptAlias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;${ROOT}/main_withpgres.wsgi&quot;</span>
-<a id="__codelineno-20-24" name="__codelineno-20-24"></a><span class="w">    </span><span class="n">DocumentRoot</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span>
-<a id="__codelineno-20-25" name="__codelineno-20-25"></a><span class="w">    </span><span class="n">ServerName</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-20-26" name="__codelineno-20-26"></a><span class="w">    </span><span class="n">ServerAlias</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="na">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-20-27" name="__codelineno-20-27"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">Directory</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-20-28" name="__codelineno-20-28"></a><span class="w">        </span><span class="n">AllowOverride</span><span class="w"> </span><span class="n">All</span>
-<a id="__codelineno-20-29" name="__codelineno-20-29"></a><span class="w">        </span><span class="n">Require</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">granted</span>
-<a id="__codelineno-20-30" name="__codelineno-20-30"></a><span class="w">    </span><span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-20-31" name="__codelineno-20-31"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-<a id="__codelineno-20-32" name="__codelineno-20-32"></a>
-<a id="__codelineno-20-33" name="__codelineno-20-33"></a><span class="err">#</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">sécurisées</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">HTTPS</span>
-<a id="__codelineno-20-34" name="__codelineno-20-34"></a><span class="o">&lt;</span><span class="n">VirtualHost</span><span class="w"> </span><span class="o">*</span><span class="p">:</span><span class="mi">443</span><span class="o">&gt;</span>
-<a id="__codelineno-20-35" name="__codelineno-20-35"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-20-36" name="__codelineno-20-36"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">avec</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">alias</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="w"> </span><span class="n">les</span><span class="w"> </span><span class="n">URL</span><span class="w"> </span><span class="n">auront</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">forme</span><span class="w"> </span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="p">{</span><span class="n">prefixe_url</span><span class="p">}</span><span class="o">/</span><span class="n">action</span><span class="o">/</span><span class="p">...</span>
-<a id="__codelineno-20-37" name="__codelineno-20-37"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">où</span><span class="w"> </span><span class="o">[</span><span class="n">prefixe_url</span><span class="o">]</span><span class="w"> </span><span class="n">est</span><span class="w"> </span><span class="n">défini</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">parameters</span><span class="p">.</span><span class="na">py</span>
-<a id="__codelineno-20-38" name="__codelineno-20-38"></a><span class="w">    </span><span class="n">WSGIScriptAlias</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s">&quot;${ROOT}/main_withpgres.wsgi&quot;</span>
-<a id="__codelineno-20-39" name="__codelineno-20-39"></a><span class="w">    </span><span class="n">DocumentRoot</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span>
-<a id="__codelineno-20-40" name="__codelineno-20-40"></a><span class="w">    </span><span class="n">ServerName</span><span class="w"> </span><span class="n">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-20-41" name="__codelineno-20-41"></a><span class="w">    </span><span class="n">ServerAlias</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="na">$</span><span class="p">{</span><span class="n">SITE</span><span class="p">}</span>
-<a id="__codelineno-20-42" name="__codelineno-20-42"></a><span class="w">    </span><span class="o">&lt;</span><span class="n">Directory</span><span class="w"> </span><span class="s">&quot;${ROOT}&quot;</span><span class="o">&gt;</span>
-<a id="__codelineno-20-43" name="__codelineno-20-43"></a><span class="w">        </span><span class="n">AllowOverride</span><span class="w"> </span><span class="n">All</span>
-<a id="__codelineno-20-44" name="__codelineno-20-44"></a><span class="w">        </span><span class="n">Require</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">granted</span>
-<a id="__codelineno-20-45" name="__codelineno-20-45"></a><span class="w">    </span><span class="o">&lt;/</span><span class="n">Directory</span><span class="o">&gt;</span>
-<a id="__codelineno-20-46" name="__codelineno-20-46"></a>
-<a id="__codelineno-20-47" name="__codelineno-20-47"></a><span class="w">    </span><span class="n">SSLEngine</span><span class="w"> </span><span class="n">on</span>
-<a id="__codelineno-20-48" name="__codelineno-20-48"></a><span class="w">    </span><span class="n">SSLCertificateFile</span><span class="w">      </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">MyPrograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="p">.</span><span class="na">crt</span>
-<a id="__codelineno-20-49" name="__codelineno-20-49"></a><span class="w">    </span><span class="n">SSLCertificateKeyFile</span><span class="w">   </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">myprograms</span><span class="o">/</span><span class="n">laragon</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">ssl</span><span class="o">/</span><span class="n">laragon</span><span class="p">.</span><span class="na">key</span>
-<a id="__codelineno-20-50" name="__codelineno-20-50"></a>
-<a id="__codelineno-20-51" name="__codelineno-20-51"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># dossier du script .wsgi</li>
+<li>define ROOT "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache"</li>
+<li></li>
+<li># nom du site web configuré par ce fichier</li>
+<li># ici il s'appellera flask-impots-withmysql</li>
+<li># les URL seront du type http(s)://flask-impots-withmysql/chemin</li>
+<li>define SITE "<mark>flask-impots-withpgres</mark>"</li>
+<li></li>
+<li># mettre l'adresse IP 127.0.0.1 pour site SITE dans c:/windows/system32/drivers/etc/hosts</li>
+<li></li>
+<li># mettre ici les chemins des bibliothèques Python à utiliser - les séparer par des virgules</li>
+<li># ici les bibliothèques d'un environnement virtuel Python</li>
+<li>WSGIPythonPath  "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages"</li>
+<li></li>
+<li># Python Home - nécessaire uniquement s'il y a plusieurs versions de Python installées</li>
+<li># WSGIPythonHome "C:/Program Files/Python38"</li>
+<li></li>
+<li># URL HTTP</li>
+<li>&lt;VirtualHost *:80&gt;</li>
+<li># avec l'alias / les URL auront la forme /{prefixe_url}/action/...</li>
+<li># avec l'alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</li>
+<li># où <strong>[prefixe_url]</strong> est défini dans parameters.py</li>
+<li>WSGIScriptAlias / "\${ROOT}/<mark>main_withpgres.wsgi</mark>"</li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li>&lt;/VirtualHost&gt;</li>
+<li></li>
+<li># URL sécurisées avec HTTPS</li>
+<li>&lt;VirtualHost *:443&gt;</li>
+<li># avec l'alias / les URL auront la forme /{prefixe_url}/action/...</li>
+<li># avec l'alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</li>
+<li># où <strong>[prefixe_url]</strong> est défini dans parameters.py</li>
+<li>WSGIScriptAlias / "\${ROOT}/<mark>main_withpgres.wsgi</mark>"</li>
+<li>DocumentRoot "\${ROOT}"</li>
+<li>ServerName \${SITE}</li>
+<li>ServerAlias *.\${SITE}</li>
+<li>&lt;Directory "\${ROOT}"&gt;</li>
+<li>AllowOverride All</li>
+<li>Require all granted</li>
+<li>&lt;/Directory&gt;</li>
+<li></li>
+<li>SSLEngine on</li>
+<li>SSLCertificateFile      C:/MyPrograms/laragon/etc/ssl/laragon.crt</li>
+<li>SSLCertificateKeyFile   C:/myprograms/laragon/etc/ssl/laragon.key</li>
+<li></li>
+<li>&lt;/VirtualHost&gt;</li>
+</ul>
 <p>Nous sauvegardons tous ces fichiers, lançons le serveur Apache et les SGBD MySQL et PostgreSQL. L’application est configurée avec le préfixe d’URL <strong>[/do]</strong> et <strong>[with_csrftoken=False]</strong> (pas de jeton CSRF) dans <strong>[configs/parameters.py]</strong>. Nous demandons l’URL <strong>[https://flask-impots-withmysql/do]</strong>. La réponse du serveur est la suivante :</p>
 <p><img src="images/100000000000057D00000361B0EE302C.png" style="width:16.23cm;height:9.991cm;" alt="Image" /></p>
 <p>Nous demandons maintenant l’URL <strong>[https://flask-impots-pgres/do]</strong>. La réponse est la suivante :</p>
 <p><img src="images/10000000000005590000033B0EA43231.png" style="width:15.791cm;height:9.542cm;" alt="Image" /></p>
 <p>Les deux applications fonctionnent normalement.</p>
 <p>Maintenant modifions le paramètre <strong>[</strong><strong>WSGIScriptAlias</strong><strong>]</strong> dans <strong>[flask-impots-withmysql.conf]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-21-10">10</a></span>
-<span class="normal"><a href="#__codelineno-21-11">11</a></span>
-<span class="normal"><a href="#__codelineno-21-12">12</a></span>
-<span class="normal"><a href="#__codelineno-21-13">13</a></span>
-<span class="normal"><a href="#__codelineno-21-14">14</a></span>
-<span class="normal"><a href="#__codelineno-21-15">15</a></span>
-<span class="normal"><a href="#__codelineno-21-16">16</a></span>
-<span class="normal"><a href="#__codelineno-21-17">17</a></span>
-<span class="normal"><a href="#__codelineno-21-18">18</a></span>
-<span class="normal"><a href="#__codelineno-21-19">19</a></span>
-<span class="normal"><a href="#__codelineno-21-20">20</a></span>
-<span class="normal"><a href="#__codelineno-21-21">21</a></span>
-<span class="normal"><a href="#__codelineno-21-22">22</a></span>
-<span class="normal"><a href="#__codelineno-21-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1"># dossier du script .wsgi</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="n">define</span> <span class="n">ROOT</span> <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache&quot;</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="err">…</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5"></a>
-<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="c1"># URL HTTP</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">80</span><span class="o">&gt;</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8"></a>    <span class="c1"># avec l&#39;alias / les URL auront la forme /{prefixe_url}/action/...</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9"></a>    <span class="c1"># avec l&#39;alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10"></a>    <span class="c1"># où [prefixe_url] est défini dans parameters.py</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11"></a>    <span class="n">WSGIScriptAlias</span> <span class="o">/</span><span class="n">impots</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">/main_withmysql.wsgi&quot;</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12"></a>    <span class="err">…</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14"></a>
-<a id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="c1"># URL sécurisées avec HTTPS</span>
-<a id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="o">&lt;</span><span class="n">VirtualHost</span> <span class="o">*</span><span class="p">:</span><span class="mi">443</span><span class="o">&gt;</span>
-<a id="__codelineno-21-17" name="__codelineno-21-17"></a>    <span class="c1"># avec l&#39;alias / les URL auront la forme /{prefixe_url}/action/...</span>
-<a id="__codelineno-21-18" name="__codelineno-21-18"></a>    <span class="c1"># avec l&#39;alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</span>
-<a id="__codelineno-21-19" name="__codelineno-21-19"></a>    <span class="c1"># où [prefixe_url] est défini dans parameters.py</span>
-<a id="__codelineno-21-20" name="__codelineno-21-20"></a>    <span class="n">WSGIScriptAlias</span> <span class="o">/</span><span class="n">impots</span> <span class="s2">&quot;$</span><span class="si">{ROOT}</span><span class="s2">/main_withmysql.wsgi&quot;</span>
-<a id="__codelineno-21-21" name="__codelineno-21-21"></a>    <span class="err">…</span>
-<a id="__codelineno-21-22" name="__codelineno-21-22"></a>
-<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="o">&lt;/</span><span class="n">VirtualHost</span><span class="o">&gt;</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 11 et 20, l’alias WSI est désormais <strong>[/impots]</strong> ;</li>
+<li># dossier du script .wsgi</li>
+<li>define ROOT "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/12/apache"</li>
+<li></li>
+<li>…</li>
+<li></li>
+<li># URL HTTP</li>
+<li>&lt;VirtualHost *:80&gt;</li>
+<li># avec l'alias / les URL auront la forme /{prefixe_url}/action/...</li>
+<li># avec l'alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</li>
+<li># où <strong>[prefixe_url]</strong> est défini dans parameters.py</li>
+<li>WSGIScriptAlias <mark>/impots</mark> "\${ROOT}/main_withmysql.wsgi"</li>
+<li>…</li>
+<li>&lt;/VirtualHost&gt;</li>
+<li></li>
+<li># URL sécurisées avec HTTPS</li>
+<li>&lt;VirtualHost *:443&gt;</li>
+<li># avec l'alias / les URL auront la forme /{prefixe_url}/action/...</li>
+<li># avec l'alias /impots les URL auront la forme /impots/{prefixe_url}/action/...</li>
+<li># où <strong>[prefixe_url]</strong> est défini dans parameters.py</li>
+<li>WSGIScriptAlias <mark>/impots</mark> "\${ROOT}/main_withmysql.wsgi"</li>
+<li>…</li>
+<li></li>
+<li>
+<p>&lt;/VirtualHost&gt;</p>
+</li>
+<li>
+<p>lignes 11 et 20, l’alias WSI est désormais <strong>[/impots]</strong> ;</p>
+</li>
 </ul>
 <p>Nous arrêtons / relançons le serveur Apache puis nous demandons l’URL <strong>[https://flask-impots-withmysql/impots/do]</strong>. La réponse du serveur est la suivante :</p>
 <p><img src="images/10000000000004710000011268577D28.png" style="width:13.151cm;height:3.16cm;" alt="Image" /></p>
 <p>Il y a un plantage. L’URL <strong>[1]</strong> nous en donne la cause. Elle aurait du être <strong>[</strong><strong>https://flask-impots-withmysql/</strong><strong>impots</strong><strong>/do/afficher-vue-authentification</strong><strong>]</strong>. L’alias WSGI manque. C’est une erreur de notre application. Elle sait gérer un préfixe d’URL (/do est bien présent). On pourrait penser qu’en mettant le préfixe <strong>[/impots/do]</strong> à notre application cela résoudrait le problème précédent. Mais non. On rencontre alors d’autres types de problèmes. L’alias WSGI ne se comporte pas comme un préfixe d’URL.</p>
 <p>Essayons de comprendre ce qui s’est passé. Nous avons demandé l’URL <strong>[https://flask-impots-withmysql/impots/do]</strong>. Nous nous attendions à avoir la vue d’authentification. En <strong>[1]</strong>, ci-dessus on voit que l’application a demandé son affichage mais pas avec la bonne URL. Examinons le cheminement de la requête <strong>[https://flask-impots-withmysql/impots/do]</strong>.</p>
 <p>Tout d’abord la route suivante (configs/routes.py) a été exécutée :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1">1</a></span>
-<span class="normal"><a href="#__codelineno-22-2">2</a></span>
-<span class="normal"><a href="#__codelineno-22-3">3</a></span>
-<span class="normal"><a href="#__codelineno-22-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>    # les routes de l&#39;application Flask
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a>    # racine de l&#39;application
-<a id="__codelineno-22-3" name="__codelineno-22-3"></a>    app.add_url_rule(f&#39;{prefix_url}/&#39;, methods=[&#39;GET&#39;],
-<a id="__codelineno-22-4" name="__codelineno-22-4"></a>                     view_func=routes.index)
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># les routes de l'application Flask</li>
+<li># racine de l'application</li>
+<li>app.add_url_rule(<mark>f</mark><mark>'</mark><mark>{prefix_url}</mark><mark>/</mark>', methods=<strong>[</strong><strong>'GET'</strong><strong>]</strong>,</li>
+<li>view_func=routes.index)</li>
+</ul>
 <p>La route de la ligne 3 est dans notre exemple <strong>[https://flask-impots-withmysql/impots/do]</strong>. On voit que la route a été débarrassée de la partie <strong>[https://flask-impots-withmysql/impots]</strong> pour devenir simplement <strong>[/do]</strong>. Pour la partie <strong>[https://flask-impots-withmysql]</strong> c’est normal, le nom du serveur n’est pas repris dans la route. Mais on voit qu’il ne reprend pas non plus l’alias WSGI <strong>[/impots]</strong>. C’est un point important. Même avec un alais WSGI nos routes initiales restent valides.</p>
 <p>Maintenant voyons ce que fait la fonction <strong>[index]</strong> de la ligne 4 (configs/routes_without_csrftoken) :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1">1</a></span>
-<span class="normal"><a href="#__codelineno-23-2">2</a></span>
-<span class="normal"><a href="#__codelineno-23-3">3</a></span>
-<span class="normal"><a href="#__codelineno-23-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="c1"># racine de l&#39;application</span>
-<a id="__codelineno-23-2" name="__codelineno-23-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-<a id="__codelineno-23-3" name="__codelineno-23-3"></a>    <span class="c1"># redirection vers /init-session/html</span>
-<a id="__codelineno-23-4" name="__codelineno-23-4"></a>    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s2">&quot;init_session&quot;</span><span class="p">,</span> <span class="n">type_response</span><span class="o">=</span><span class="s2">&quot;html&quot;</span><span class="p">),</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_302_FOUND</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># racine de l'application</li>
+<li>def index() -&gt; tuple:</li>
+<li># redirection vers /init-session/html</li>
+<li>return redirect(url_for("init_session", type_response="html"), status.HTTP_302_FOUND)</li>
+</ul>
 <p>Ligne 4, on est redirigé vers l’URL de la fonction <strong>[init_session]</strong>. Dans <strong>[configs/routes.py]</strong>, cette fonction a été associée à la route <strong>[/do/init-session/html]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1">1</a></span>
-<span class="normal"><a href="#__codelineno-24-2">2</a></span>
-<span class="normal"><a href="#__codelineno-24-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>    # init-session
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a>    app.add_url_rule(f&#39;{prefix_url}/init-session/&lt;string:type_response&gt;{csrftoken_param}&#39;, methods=[&#39;GET&#39;],
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a>                     view_func=routes.init_session)
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># init-session</li>
+<li>app.add_url_rule(f'<mark>{prefix_url}</mark><mark>/init-session/&lt;string:type_response&gt;</mark><mark>{csrftoken_param}</mark>', methods=<strong>[</strong><strong>'GET'</strong><strong>]</strong>,</li>
+<li>view_func=routes.init_session)</li>
+</ul>
 <p>Ligne 2, dans notre test <strong>[csrftoken_param]</strong> est la chaîne vide. L’application ne gère pas ici de jeton CSRF.</p>
 <p>La fonction <strong>[init_session]</strong> est définie de la façon suivante (configs/routes_without_csrftoken) :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
-<span class="normal"><a href="#__codelineno-25-2">2</a></span>
-<span class="normal"><a href="#__codelineno-25-3">3</a></span>
-<span class="normal"><a href="#__codelineno-25-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># init-session</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">init_session</span><span class="p">(</span><span class="n">type_response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3"></a>    <span class="c1"># on exécute le contrôleur associé à l&#39;action</span>
-<a id="__codelineno-25-4" name="__codelineno-25-4"></a>    <span class="k">return</span> <span class="n">front_controller</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># init-session</li>
+<li>def init_session(type_response: str) -&gt; tuple:</li>
+<li># on exécute le contrôleur associé à l'action</li>
+<li>return front_controller()</li>
+</ul>
 <p>Ligne 4, on commence la chaîne de traitement de l’action <strong>[init-session]</strong>. Cette chaîne se termine de la façon suivante dans <strong>[responses/HtmlResponse]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span>
-<span class="normal"><a href="#__codelineno-26-2">2</a></span>
-<span class="normal"><a href="#__codelineno-26-3">3</a></span>
-<span class="normal"><a href="#__codelineno-26-4">4</a></span>
-<span class="normal"><a href="#__codelineno-26-5">5</a></span>
-<span class="normal"><a href="#__codelineno-26-6">6</a></span>
-<span class="normal"><a href="#__codelineno-26-7">7</a></span>
-<span class="normal"><a href="#__codelineno-26-8">8</a></span>
-<span class="normal"><a href="#__codelineno-26-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>…
-<a id="__codelineno-26-2" name="__codelineno-26-2"></a># maintenant il faut générer l&#39;URL de redirection sans oublier le jeton CSRF s&#39;il est demandé
-<a id="__codelineno-26-3" name="__codelineno-26-3"></a>        if config[&#39;parameters&#39;][&#39;with_csrftoken&#39;]:
-<a id="__codelineno-26-4" name="__codelineno-26-4"></a>            csrf_token = f&quot;/{generate_csrf()}&quot;
-<a id="__codelineno-26-5" name="__codelineno-26-5"></a>        else:
-<a id="__codelineno-26-6" name="__codelineno-26-6"></a>            csrf_token = &quot;&quot;
-<a id="__codelineno-26-7" name="__codelineno-26-7"></a>
-<a id="__codelineno-26-8" name="__codelineno-26-8"></a>        # réponse de redirection
-<a id="__codelineno-26-9" name="__codelineno-26-9"></a>        return redirect(f&quot;{config[&#39;parameters&#39;][&#39;prefix_url&#39;]}{ads[&#39;to&#39;]}{csrf_token}&quot;), status.HTTP_302_FOUND
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>…</li>
+<li># maintenant il faut générer l'URL de redirection sans oublier le jeton CSRF s'il est demandé</li>
+<li>if config<strong>[</strong><strong>'parameters'</strong><strong>][</strong><strong>'with_csrftoken'</strong><strong>]</strong>:</li>
+<li>csrf_token = f"/{generate_csrf()}"</li>
+<li>else:</li>
+<li>csrf_token = ""</li>
+<li></li>
+<li># réponse de redirection</li>
+<li>return redirect(<mark>f</mark><mark>"</mark><mark>{config</mark><strong><mark>[</mark></strong><strong><mark>'parameters'</mark></strong><strong><mark>][</mark></strong><strong><mark>'prefix_url'</mark></strong><strong><mark>]</mark></strong><mark>}{ads</mark><strong><mark>[</mark></strong><strong><mark>'to'</mark></strong><strong><mark>]</mark></strong><mark>}{csrf_token}</mark><mark>"</mark><mark>)</mark>, status.HTTP_302_FOUND</li>
+</ul>
 <p>L’action <strong>[init-session]</strong> est une action ADS (Action Do Something) qui se termine pas une redirection vers une vue, ligne 9. C’est là que réside le problème. La fonction <strong>[redirect]</strong> de la ligne 9, n’ajoute pas automatiquement l’alias WSGI à l’URL de redirection. C’est ce que nous montre la copie d’écran ci-dessus. Il manque l’alias /impots dans l’URL objet de la redirection.</p>
 <p>La version suivante apporte une solution au problème d’alias WSGI.</p>
 

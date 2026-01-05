@@ -1454,22 +1454,16 @@
 <p><img src="images/1000000100000105000000B6F1AAECB8.png" style="width:2.431cm;height:1.691cm;" alt="Image" /></p>
 <h2 id="41-script-str_01-notation-des-chaines-de-caracteres">4.1. Script [str_01] : notation des chaînes de caractères</h2>
 <p>Le script <strong>[str_01]</strong> est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span>
-<span class="normal"><a href="#__codelineno-0-6">6</a></span>
-<span class="normal"><a href="#__codelineno-0-7">7</a></span>
-<span class="normal"><a href="#__codelineno-0-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># chaînes de caractères</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1"># trois notations possibles</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">chaine1</span> <span class="o">=</span> <span class="s2">&quot;un&quot;</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">chaine2</span> <span class="o">=</span> <span class="s1">&#39;deux&#39;</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">chaine3</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;hélène va au</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="s2"> marché acheter des légumes&quot;&quot;&quot;</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># affichage</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chaine1=[</span><span class="si">{</span><span class="n">chaine1</span><span class="si">}</span><span class="s2">], chaine2=[</span><span class="si">{</span><span class="n">chaine2</span><span class="si">}</span><span class="s2">], chaine3=[</span><span class="si">{</span><span class="n">chaine3</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># chaînes de caractères</li>
+<li># trois notations possibles</li>
+<li>chaine1 = "un"</li>
+<li>chaine2 = 'deux'</li>
+<li>chaine3 = """hélène va au</li>
+<li>marché acheter des légumes"""</li>
+<li># affichage</li>
+<li>print(f"chaine1=<strong>[{chaine1}]</strong>, chaine2=<strong>[{chaine2}]</strong>, chaine3=<strong>[{chaine3}]</strong>")</li>
+</ul>
 <p><strong>Commentaires</strong></p>
 <ul>
 <li>ligne 3  : une chaîne délimitée par des guillemets " ;</li>
@@ -1477,205 +1471,116 @@
 <li>ligne 5  : une chaîne délimitée par des triples guillemets """. Dans ce cas, la chaîne peut s'étaler sur plusieurs lignes ;</li>
 </ul>
 <p>Les résultats sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
-<span class="normal"><a href="#__codelineno-1-2">2</a></span>
-<span class="normal"><a href="#__codelineno-1-3">3</a></span>
-<span class="normal"><a href="#__codelineno-1-4">4</a></span>
-<span class="normal"><a href="#__codelineno-1-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_01.py
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>chaine1=[un], chaine2=[deux], chaine3=[hélène va au
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a> marché acheter des légumes]
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_01.py</li>
+<li>chaine1=<strong>[un]</strong>, chaine2=<strong>[deux]</strong>, chaine3=<strong>[hélène va au</strong></li>
+<li>** marché acheter des légumes]**</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="42-script-str_02-les-methodes-de-la-classe-str">4.2. Script [str_02] : les méthodes de la classe &lt;str&gt;</h2>
 <p>Le script <strong>[str_02]</strong> présente quelques-unes des méthodes de la classe &lt;str&gt; qui est la classe des chaînes de caractères :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span>
-<span class="normal"><a href="#__codelineno-2-30">30</a></span>
-<span class="normal"><a href="#__codelineno-2-31">31</a></span>
-<span class="normal"><a href="#__codelineno-2-32">32</a></span>
-<span class="normal"><a href="#__codelineno-2-33">33</a></span>
-<span class="normal"><a href="#__codelineno-2-34">34</a></span>
-<span class="normal"><a href="#__codelineno-2-35">35</a></span>
-<span class="normal"><a href="#__codelineno-2-36">36</a></span>
-<span class="normal"><a href="#__codelineno-2-37">37</a></span>
-<span class="normal"><a href="#__codelineno-2-38">38</a></span>
-<span class="normal"><a href="#__codelineno-2-39">39</a></span>
-<span class="normal"><a href="#__codelineno-2-40">40</a></span>
-<span class="normal"><a href="#__codelineno-2-41">41</a></span>
-<span class="normal"><a href="#__codelineno-2-42">42</a></span>
-<span class="normal"><a href="#__codelineno-2-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># fonctions sur chaînes de caractères</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># chaîne en minuscules</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;ABCD&#39;.lower()=</span><span class="si">{</span><span class="s1">&#39;ABCD&#39;</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># chaîne en majuscules</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.upper()=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># caractère n° 2</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;cheval[2]=</span><span class="si">{</span><span class="s1">&#39;cheval&#39;</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># sous-chaîne avec les caractères 5 et 6</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;caractères accentués&#39;[5:7]=</span><span class="si">{</span><span class="s1">&#39;caractères accentués&#39;</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># sous-chaîne à partir du caractère 4 inclus</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;caractères accentués&#39;[4:]=</span><span class="si">{</span><span class="s1">&#39;caractères accentués&#39;</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="c1"># sous-chaîne jusqu&#39;au caractère 6 exclus</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;caractères accentués&#39;[:5]=</span><span class="si">{</span><span class="s1">&#39;caractères accentués&#39;</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="c1"># longueur de la chaîne</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;len(&#39;123&#39;)=</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="s1">&#39;123&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="c1"># élimination des blancs qui précèdent et suivent la chaîne</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;  abcd &#39;.strip()=[</span><span class="si">{</span><span class="s1">&#39;  abcd &#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="c1"># élimination des blancs qui suivent la chaîne</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;  abcd &#39;.rstrip()=[</span><span class="si">{</span><span class="s1">&#39;  abcd &#39;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="c1"># élimination des blancs qui précèdent la chaîne</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;  abcd &#39;.lstrip()=[</span><span class="si">{</span><span class="s1">&#39;  abcd &#39;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="c1"># le terme blanc recouvre en fait différents caractères</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;  </span><span class="se">\r\n</span><span class="s1">abcd </span><span class="se">\t\f</span><span class="s1">&#39;</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str.strip()=[</span><span class="si">{</span><span class="nb">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="c1"># remplacement d&#39;une sous-chaîne par une autre</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.replace(&#39;a&#39;,&#39;x&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.replace(&#39;ab&#39;,&#39;xy&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;xy&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="c1"># recherche d&#39;une sous-chaîne : rend la position ou -1 si sous-chaîne pas trouvée</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.find(&#39;bc&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;bc&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.find(&#39;bc&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;Bc&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="c1"># début d&#39;une chaîne</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.startswith(&#39;ab&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;ab&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.startswith(&#39;x&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="c1"># fin d&#39;une chaîne</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.endswith(&#39;cd&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd&#39;.endswith(&#39;x&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd&#39;</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="c1"># passage d&#39;une liste de chaînes à une chaîne</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;[X]&#39;.join([&#39;abcd&#39;, &#39;123&#39;, &#39;èéà&#39;])=</span><span class="si">{</span><span class="s1">&#39;[X]&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;123&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;èéà&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;&#39;.join([&#39;abcd&#39;, &#39;123&#39;, &#39;èéà&#39;])=</span><span class="si">{</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;123&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;èéà&#39;</span><span class="p">])</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="c1"># passage d&#39;une chaîne à une liste de chaînes</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd 123 cdXY&#39;.split(&#39;cd&#39;)=</span><span class="si">{</span><span class="s1">&#39;abcd 123 cdXY&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;cd&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="c1"># récupérer les mots d&#39;une chaîne</span>
-<a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;abcd 123 cdXY&#39;.split(None)=</span><span class="si">{</span><span class="s1">&#39;abcd 123 cdXY&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># fonctions sur chaînes de caractères</li>
+<li># chaîne en minuscules</li>
+<li>print(f"'ABCD'.lower()={'ABCD'.lower()}")</li>
+<li># chaîne en majuscules</li>
+<li>print(f"'abcd'.upper()={'abcd'.upper()}")</li>
+<li># caractère n° 2</li>
+<li>print(f"'cheval<strong>[2]</strong>={'cheval'<strong>[2]</strong>}")</li>
+<li># sous-chaîne avec les caractères 5 et 6</li>
+<li>print(f"'caractères accentués'<strong>[5:7]</strong>={'caractères accentués'<strong>[5:7]</strong>}")</li>
+<li># sous-chaîne à partir du caractère 4 inclus</li>
+<li>print(f"'caractères accentués'<strong>[4:]</strong>={'caractères accentués'<strong>[4:]</strong>}")</li>
+<li># sous-chaîne jusqu'au caractère 6 exclus</li>
+<li>print(f"'caractères accentués'<strong>[:5]</strong>={'caractères accentués'<strong>[:5]</strong>}")</li>
+<li># longueur de la chaîne</li>
+<li>print(f"len('123')={len('123')}")</li>
+<li># élimination des blancs qui précèdent et suivent la chaîne</li>
+<li>print(f"'  abcd '.strip()=<strong>[{'  abcd '.strip()}]</strong>")</li>
+<li># élimination des blancs qui suivent la chaîne</li>
+<li>print(f"'  abcd '.rstrip()=<strong>[{'  abcd '.rstrip()}]</strong>")</li>
+<li># élimination des blancs qui précèdent la chaîne</li>
+<li>print(f"'  abcd '.lstrip()=<strong>[{'  abcd '.lstrip()}]</strong>")</li>
+<li># le terme blanc recouvre en fait différents caractères</li>
+<li>str = '  \r\nabcd \t\f'</li>
+<li>print(f"str.strip()=<strong>[{str.strip()}]</strong>")</li>
+<li># remplacement d'une sous-chaîne par une autre</li>
+<li>print(f"'abcd'.replace('a','x')={'abcd'.replace('a', 'x')}")</li>
+<li>print(f"'abcd'.replace('ab','xy')={'abcd'.replace('ab', 'xy')}")</li>
+<li># recherche d'une sous-chaîne : rend la position ou -1 si sous-chaîne pas trouvée</li>
+<li>print(f"'abcd'.find('bc')={'abcd'.find('bc')}")</li>
+<li>print(f"'abcd'.find('bc')={'abcd'.find('Bc')}")</li>
+<li># début d'une chaîne</li>
+<li>print(f"'abcd'.startswith('ab')={'abcd'.startswith('ab')}")</li>
+<li>print(f"'abcd'.startswith('x')={'abcd'.startswith('x')}")</li>
+<li># fin d'une chaîne</li>
+<li>print(f"'abcd'.endswith('cd')={'abcd'.endswith('cd')}")</li>
+<li>print(f"'abcd'.endswith('x')={'abcd'.endswith('x')}")</li>
+<li># passage d'une liste de chaînes à une chaîne</li>
+<li>print(f"'<strong>[X]</strong>'.join(<strong>['abcd', '123', 'èéà']</strong>)={'<strong>[X]</strong>'.join(<strong>['abcd', '123', 'èéà']</strong>)}")</li>
+<li>print(f"''.join(<strong>['abcd', '123', 'èéà']</strong>)={''.join(<strong>['abcd', '123', 'èéà']</strong>)}")</li>
+<li># passage d'une chaîne à une liste de chaînes</li>
+<li>print(f"'abcd 123 cdXY'.split('cd')={'abcd 123 cdXY'.split('cd')}")</li>
+<li># récupérer les mots d'une chaîne</li>
+<li>print(f"'abcd 123 cdXY'.split(None)={'abcd 123 cdXY'.split(None)}")</li>
+</ul>
 <p>Les commentaires alliés aux résultats obtenus suffisent pour la compréhension du script. Les résultats sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-3-10">10</a></span>
-<span class="normal"><a href="#__codelineno-3-11">11</a></span>
-<span class="normal"><a href="#__codelineno-3-12">12</a></span>
-<span class="normal"><a href="#__codelineno-3-13">13</a></span>
-<span class="normal"><a href="#__codelineno-3-14">14</a></span>
-<span class="normal"><a href="#__codelineno-3-15">15</a></span>
-<span class="normal"><a href="#__codelineno-3-16">16</a></span>
-<span class="normal"><a href="#__codelineno-3-17">17</a></span>
-<span class="normal"><a href="#__codelineno-3-18">18</a></span>
-<span class="normal"><a href="#__codelineno-3-19">19</a></span>
-<span class="normal"><a href="#__codelineno-3-20">20</a></span>
-<span class="normal"><a href="#__codelineno-3-21">21</a></span>
-<span class="normal"><a href="#__codelineno-3-22">22</a></span>
-<span class="normal"><a href="#__codelineno-3-23">23</a></span>
-<span class="normal"><a href="#__codelineno-3-24">24</a></span>
-<span class="normal"><a href="#__codelineno-3-25">25</a></span>
-<span class="normal"><a href="#__codelineno-3-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_02.py
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a>&#39;ABCD&#39;.lower()=abcd
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a>&#39;abcd&#39;.upper()=ABCD
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a>&#39;cheval[2]=e
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a>&#39;caractères accentués&#39;[5:7]=tè
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a>&#39;caractères accentués&#39;[4:]=ctères accentués
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a>&#39;caractères accentués&#39;[:5]=carac
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a>len(&#39;123&#39;)=3
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a>&#39;  abcd &#39;.strip()=[abcd]
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a>&#39;  abcd &#39;.rstrip()=[  abcd]
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a>&#39;  abcd &#39;.lstrip()=[abcd ]
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a>str.strip()=[abcd]
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a>&#39;abcd&#39;.replace(&#39;a&#39;,&#39;x&#39;)=xbcd
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a>&#39;abcd&#39;.replace(&#39;ab&#39;,&#39;xy&#39;)=xycd
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a>&#39;abcd&#39;.find(&#39;bc&#39;)=1
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a>&#39;abcd&#39;.find(&#39;bc&#39;)=-1
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a>&#39;abcd&#39;.startswith(&#39;ab&#39;)=True
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a>&#39;abcd&#39;.startswith(&#39;x&#39;)=False
-<a id="__codelineno-3-19" name="__codelineno-3-19"></a>&#39;abcd&#39;.endswith(&#39;cd&#39;)=True
-<a id="__codelineno-3-20" name="__codelineno-3-20"></a>&#39;abcd&#39;.endswith(&#39;x&#39;)=False
-<a id="__codelineno-3-21" name="__codelineno-3-21"></a>&#39;[X]&#39;.join([&#39;abcd&#39;, &#39;123&#39;, &#39;èéà&#39;])=abcd[X]123[X]èéà
-<a id="__codelineno-3-22" name="__codelineno-3-22"></a>&#39;&#39;.join([&#39;abcd&#39;, &#39;123&#39;, &#39;èéà&#39;])=abcd123èéà
-<a id="__codelineno-3-23" name="__codelineno-3-23"></a>&#39;abcd 123 cdXY&#39;.split(&#39;cd&#39;)=[&#39;ab&#39;, &#39; 123 &#39;, &#39;XY&#39;]
-<a id="__codelineno-3-24" name="__codelineno-3-24"></a>&#39;abcd 123 cdXY&#39;.split(None)=[&#39;abcd&#39;, &#39;123&#39;, &#39;cdXY&#39;]
-<a id="__codelineno-3-25" name="__codelineno-3-25"></a>
-<a id="__codelineno-3-26" name="__codelineno-3-26"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_02.py</li>
+<li>'ABCD'.lower()=abcd</li>
+<li>'abcd'.upper()=ABCD</li>
+<li>'cheval<strong>[2]</strong>=e</li>
+<li>'caractères accentués'<strong>[5:7]</strong>=tè</li>
+<li>'caractères accentués'<strong>[4:]</strong>=ctères accentués</li>
+<li>'caractères accentués'<strong>[:5]</strong>=carac</li>
+<li>len('123')=3</li>
+<li>'  abcd '.strip()=<strong>[abcd]</strong></li>
+<li>'  abcd '.rstrip()=<strong>[  abcd]</strong></li>
+<li>'  abcd '.lstrip()=<strong>[abcd ]</strong></li>
+<li>str.strip()=<strong>[abcd]</strong></li>
+<li>'abcd'.replace('a','x')=xbcd</li>
+<li>'abcd'.replace('ab','xy')=xycd</li>
+<li>'abcd'.find('bc')=1</li>
+<li>'abcd'.find('bc')=-1</li>
+<li>'abcd'.startswith('ab')=True</li>
+<li>'abcd'.startswith('x')=False</li>
+<li>'abcd'.endswith('cd')=True</li>
+<li>'abcd'.endswith('x')=False</li>
+<li>'<strong>[X]</strong>'.join(<strong>['abcd', '123', 'èéà']</strong>)=abcd<strong>[X]</strong>123<strong>[X]</strong>èéà</li>
+<li>''.join(<strong>['abcd', '123', 'èéà']</strong>)=abcd123èéà</li>
+<li>'abcd 123 cdXY'.split('cd')=<strong>['ab', ' 123 ', 'XY']</strong></li>
+<li>'abcd 123 cdXY'.split(None)=<strong>['abcd', '123', 'cdXY']</strong></li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="43-script-str_03-codage-des-chaines-de-caracteres-1">4.3. Script [str_03] : codage des chaînes de caractères (1)</h2>
 <p>Le script <strong>[str_03]</strong> présente des notions sur le codage des chaînes de caractères :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span>
-<span class="normal"><a href="#__codelineno-4-21">21</a></span>
-<span class="normal"><a href="#__codelineno-4-22">22</a></span>
-<span class="normal"><a href="#__codelineno-4-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># codage des caractères</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># chaîne de type str</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hélène va au marché acheter des légumes&quot;</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str=[</span><span class="si">{</span><span class="nb">str</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># encodage utf-8</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">bytes1</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes1=</span><span class="si">{</span><span class="n">bytes1</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">bytes2</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes2=</span><span class="si">{</span><span class="n">bytes2</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="c1"># encodage iso-8859-1</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- iso-8859-1&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="n">bytes1</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;iso-8859-1&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes1=</span><span class="si">{</span><span class="n">bytes1</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="n">bytes2</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;iso-8859-1&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes2=</span><span class="si">{</span><span class="n">bytes2</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="c1"># encodage latin1=iso-8859-1</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- latin1&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="n">bytes1</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes1=</span><span class="si">{</span><span class="n">bytes1</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="n">bytes2</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="s1">&#39;latin1&#39;</span><span class="p">)</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes2=</span><span class="si">{</span><span class="n">bytes2</span><span class="si">}</span><span class="s2">, type=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># codage des caractères</li>
+<li></li>
+<li># chaîne de type str</li>
+<li>str = "hélène va au marché acheter des légumes"</li>
+<li>print(f"str=<strong>[{str}, type={type(str)}]</strong>")</li>
+<li># encodage utf-8</li>
+<li>print("--- utf-8")</li>
+<li>bytes1 = str.encode('utf-8')</li>
+<li>print(f"bytes1={bytes1}, type={type(bytes1)}")</li>
+<li>bytes2 = bytes(str, 'utf-8')</li>
+<li>print(f"bytes2={bytes2}, type={type(bytes2)}")</li>
+<li># encodage iso-8859-1</li>
+<li>print("--- iso-8859-1")</li>
+<li>bytes1 = str.encode('iso-8859-1')</li>
+<li>print(f"bytes1={bytes1}, type={type(bytes1)}")</li>
+<li>bytes2 = bytes(str, 'iso-8859-1')</li>
+<li>print(f"bytes2={bytes2}, type={type(bytes2)}")</li>
+<li># encodage latin1=iso-8859-1</li>
+<li>print("--- latin1")</li>
+<li>bytes1 = str.encode('latin1')</li>
+<li>print(f"bytes1={bytes1}, type={type(bytes1)}")</li>
+<li>bytes2 = bytes(str, 'latin1')</li>
+<li>print(f"bytes2={bytes2}, type={type(bytes2)}")</li>
+</ul>
 <p>L'encodage d'une chaîne de caractère de type &lt;str&gt; produit une chaîne binaire où chaque caractère de la chaîne a été représenté par un ou plusieurs octets. Il existe différents types d'encodage. Le script ci-dessus présente les deux plus courants en occident "utf-8" et "iso-8859-1" dit aussi "latin1.</p>
 <p>Le principe de l'encodage / décodage est illustré ci-dessous (ref. |<a href="https://realpython.com/python-encodings-guide/">https://realpython.com/python-encodings-guide/</a> |) :</p>
 <p><img src="images/1000000000000595000004BDAC9DD9C8.png" style="width:11.341cm;height:9.632cm;" alt="Image" /></p>
@@ -1689,32 +1594,21 @@
 <li>lignes 18-23 : 'latin1' est un autre nom de l'encodage 'iso-8859-1' ;</li>
 </ul>
 <p>Les résultats sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_03.py
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a>str=[hélène va au marché acheter des légumes, type=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>--- utf-8
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a>bytes1=b&#39;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#39;, type=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a>bytes2=b&#39;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#39;, type=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a>--- iso-8859-1
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a>bytes1=b&#39;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#39;, type=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a>bytes2=b&#39;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#39;, type=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a>--- latin1
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a>bytes1=b&#39;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#39;, type=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>bytes2=b&#39;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#39;, type=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_03.py</li>
+<li>str=<strong>[hélène va au marché acheter des légumes, type=&lt;class 'str'&gt;</strong></li>
+<li><strong>--- utf-8</strong></li>
+<li><strong>bytes1=b'h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes', type=&lt;class 'bytes'&gt;</strong></li>
+<li><strong>bytes2=b'h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes', type=&lt;class 'bytes'&gt;</strong></li>
+<li><strong>--- iso-8859-1</strong></li>
+<li><strong>bytes1=b'h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes', type=&lt;class 'bytes'&gt;</strong></li>
+<li><strong>bytes2=b'h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes', type=&lt;class 'bytes'&gt;</strong></li>
+<li><strong>--- latin1</strong></li>
+<li><strong>bytes1=b'h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes', type=&lt;class 'bytes'&gt;</strong></li>
+<li><strong>bytes2=b'h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes', type=&lt;class 'bytes'&gt;</strong></li>
+<li></li>
+<li><strong>Process finished with exit code 0</strong></li>
+</ul>
 <p><strong>Commentaires</strong></p>
 <ul>
 <li><strong>ligne 4 : on voit que les caractères accentués ont été codés sur deux octets :</strong></li>
@@ -1727,124 +1621,67 @@
 <h2 id="44-script-str_04-encodage-des-chaines-de-caracteres-2">4.4. Script [str_04] : encodage des chaînes de caractères (2)</h2>
 <p>Le script <strong>[str_04]</strong> présente deux autres types d'encodage : 'base64' et 'quoted-printable'. Ces deux encodages n'encodent pas des chaînes de caractères Unicode mais des objets binaires. Par exemple, lorsqu'on attache un document Word à un mail, celui-ci va subir l'un des deux encodages selon le gestionnaire de courrier utilisé. Ce sera le cas pour la plupart des fichiers attachés.</p>
 <p>Le script est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span>
-<span class="normal"><a href="#__codelineno-6-18">18</a></span>
-<span class="normal"><a href="#__codelineno-6-19">19</a></span>
-<span class="normal"><a href="#__codelineno-6-20">20</a></span>
-<span class="normal"><a href="#__codelineno-6-21">21</a></span>
-<span class="normal"><a href="#__codelineno-6-22">22</a></span>
-<span class="normal"><a href="#__codelineno-6-23">23</a></span>
-<span class="normal"><a href="#__codelineno-6-24">24</a></span>
-<span class="normal"><a href="#__codelineno-6-25">25</a></span>
-<span class="normal"><a href="#__codelineno-6-26">26</a></span>
-<span class="normal"><a href="#__codelineno-6-27">27</a></span>
-<span class="normal"><a href="#__codelineno-6-28">28</a></span>
-<span class="normal"><a href="#__codelineno-6-29">29</a></span>
-<span class="normal"><a href="#__codelineno-6-30">30</a></span>
-<span class="normal"><a href="#__codelineno-6-31">31</a></span>
-<span class="normal"><a href="#__codelineno-6-32">32</a></span>
-<span class="normal"><a href="#__codelineno-6-33">33</a></span>
-<span class="normal"><a href="#__codelineno-6-34">34</a></span>
-<span class="normal"><a href="#__codelineno-6-35">35</a></span>
-<span class="normal"><a href="#__codelineno-6-36">36</a></span>
-<span class="normal"><a href="#__codelineno-6-37">37</a></span>
-<span class="normal"><a href="#__codelineno-6-38">38</a></span>
-<span class="normal"><a href="#__codelineno-6-39">39</a></span>
-<span class="normal"><a href="#__codelineno-6-40">40</a></span>
-<span class="normal"><a href="#__codelineno-6-41">41</a></span>
-<span class="normal"><a href="#__codelineno-6-42">42</a></span>
-<span class="normal"><a href="#__codelineno-6-43">43</a></span>
-<span class="normal"><a href="#__codelineno-6-44">44</a></span>
-<span class="normal"><a href="#__codelineno-6-45">45</a></span>
-<span class="normal"><a href="#__codelineno-6-46">46</a></span>
-<span class="normal"><a href="#__codelineno-6-47">47</a></span>
-<span class="normal"><a href="#__codelineno-6-48">48</a></span>
-<span class="normal"><a href="#__codelineno-6-49">49</a></span>
-<span class="normal"><a href="#__codelineno-6-50">50</a></span>
-<span class="normal"><a href="#__codelineno-6-51">51</a></span>
-<span class="normal"><a href="#__codelineno-6-52">52</a></span>
-<span class="normal"><a href="#__codelineno-6-53">53</a></span>
-<span class="normal"><a href="#__codelineno-6-54">54</a></span>
-<span class="normal"><a href="#__codelineno-6-55">55</a></span>
-<span class="normal"><a href="#__codelineno-6-56">56</a></span>
-<span class="normal"><a href="#__codelineno-6-57">57</a></span>
-<span class="normal"><a href="#__codelineno-6-58">58</a></span>
-<span class="normal"><a href="#__codelineno-6-59">59</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># encodage / décodage</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">codecs</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># chaîne</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- chaîne unicode&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;hélène va au marché acheter des légumes&quot;</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str1=[</span><span class="si">{</span><span class="n">str1</span><span class="si">}</span><span class="s2">], type(str1)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="c1"># encodage utf-8</span>
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- chaîne unicode -&gt; binaire utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">bytes1</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes1=[</span><span class="si">{</span><span class="n">bytes1</span><span class="si">}</span><span class="s2">], type(bytes1)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a>
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="c1"># décodage utf-8</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- binaire utf-8 -&gt; chaîne unicode&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="n">str2</span> <span class="o">=</span> <span class="n">bytes1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str2=[</span><span class="si">{</span><span class="n">str2</span><span class="si">}</span><span class="s2">], type(str2)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str2==str1=</span><span class="si">{</span><span class="n">str2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">str1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a>
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="c1"># encodage iso-8859-1</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- chaîne unicode -&gt; binaire iso-8859-1&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="n">bytes2</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes2=[</span><span class="si">{</span><span class="n">bytes2</span><span class="si">}</span><span class="s2">], type(bytes2)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-24" name="__codelineno-6-24"></a>
-<a id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="c1"># décodage iso-8859-1</span>
-<a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- binaire iso-8859-1 -&gt; chaîne unicode&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-27" name="__codelineno-6-27"></a><span class="n">str3</span> <span class="o">=</span> <span class="n">bytes2</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-28" name="__codelineno-6-28"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str3=[</span><span class="si">{</span><span class="n">str3</span><span class="si">}</span><span class="s2">], type(str3)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-29" name="__codelineno-6-29"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str3==str1=</span><span class="si">{</span><span class="n">str3</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">str1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-30" name="__codelineno-6-30"></a>
-<a id="__codelineno-6-31" name="__codelineno-6-31"></a><span class="c1"># erreur de décodage - bytes1 est en utf-8 - on le décode en iso-8859-1</span>
-<a id="__codelineno-6-32" name="__codelineno-6-32"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-33" name="__codelineno-6-33"></a><span class="n">str4</span> <span class="o">=</span> <span class="n">bytes1</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-34" name="__codelineno-6-34"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str4=[</span><span class="si">{</span><span class="n">str4</span><span class="si">}</span><span class="s2">], type(str4)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-35" name="__codelineno-6-35"></a>
-<a id="__codelineno-6-36" name="__codelineno-6-36"></a><span class="c1"># encodage utf-8 d’une chaîne Unicode</span>
-<a id="__codelineno-6-37" name="__codelineno-6-37"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- chaîne unicode -&gt; binaire utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-38" name="__codelineno-6-38"></a><span class="n">bytes3</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">str1</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-39" name="__codelineno-6-39"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes3=[</span><span class="si">{</span><span class="n">bytes3</span><span class="si">}</span><span class="s2">], type(bytes3)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes3</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-40" name="__codelineno-6-40"></a>
-<a id="__codelineno-6-41" name="__codelineno-6-41"></a><span class="c1"># encodage d&#39;une chaîne binaire UTF-8 en base64</span>
-<a id="__codelineno-6-42" name="__codelineno-6-42"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- binaire utf-8 -&gt; binaire base64&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-43" name="__codelineno-6-43"></a><span class="n">bytes4</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">bytes1</span><span class="p">,</span> <span class="s2">&quot;base64&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-44" name="__codelineno-6-44"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bytes4=[</span><span class="si">{</span><span class="n">bytes4</span><span class="si">}</span><span class="s2">], type(bytes4)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">bytes4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-45" name="__codelineno-6-45"></a>
-<a id="__codelineno-6-46" name="__codelineno-6-46"></a><span class="c1"># retour à la chaîne unicode d&#39;origine</span>
-<a id="__codelineno-6-47" name="__codelineno-6-47"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-48" name="__codelineno-6-48"></a><span class="n">str6</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">bytes4</span><span class="p">,</span> <span class="s2">&quot;base64&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-49" name="__codelineno-6-49"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str6=[</span><span class="si">{</span><span class="n">str6</span><span class="si">}</span><span class="s2">], type(str6)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str6</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-50" name="__codelineno-6-50"></a>
-<a id="__codelineno-6-51" name="__codelineno-6-51"></a><span class="c1"># encodage d&#39;une chaîne binaire en quoted-printable</span>
-<a id="__codelineno-6-52" name="__codelineno-6-52"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- binaire utf-8 -&gt; binaire quoted-printable&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-53" name="__codelineno-6-53"></a><span class="n">str7</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">bytes1</span><span class="p">,</span> <span class="s2">&quot;quoted-printable&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-54" name="__codelineno-6-54"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str7=[</span><span class="si">{</span><span class="n">str7</span><span class="si">}</span><span class="s2">], type(str7)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str7</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-55" name="__codelineno-6-55"></a>
-<a id="__codelineno-6-56" name="__codelineno-6-56"></a><span class="c1"># retour à la chaîne unicode d&#39;origine</span>
-<a id="__codelineno-6-57" name="__codelineno-6-57"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-58" name="__codelineno-6-58"></a><span class="n">str8</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">str7</span><span class="p">,</span> <span class="s2">&quot;quoted-printable&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<a id="__codelineno-6-59" name="__codelineno-6-59"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;str8=[</span><span class="si">{</span><span class="n">str8</span><span class="si">}</span><span class="s2">], type(str8)=</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">str8</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># encodage / décodage</li>
+<li>import codecs</li>
+<li></li>
+<li># chaîne</li>
+<li>print("---- chaîne unicode")</li>
+<li>str1 = "hélène va au marché acheter des légumes"</li>
+<li>print(f"str1=<strong>[{str1}]</strong>, type(str1)={type(str1)}")</li>
+<li></li>
+<li># encodage utf-8</li>
+<li>print("---- chaîne unicode -&gt; binaire utf-8")</li>
+<li>bytes1 = bytes(str1, "utf-8")</li>
+<li>print(f"bytes1=<strong>[{bytes1}]</strong>, type(bytes1)={type(bytes1)}")</li>
+<li></li>
+<li># décodage utf-8</li>
+<li>print("---- binaire utf-8 -&gt; chaîne unicode")</li>
+<li>str2 = bytes1.decode("utf-8")</li>
+<li>print(f"str2=<strong>[{str2}]</strong>, type(str2)={type(str2)}")</li>
+<li>print(f"str2==str1={str2 == str1}")</li>
+<li></li>
+<li># encodage iso-8859-1</li>
+<li>print("---- chaîne unicode -&gt; binaire iso-8859-1")</li>
+<li>bytes2 = bytes(str1, "iso-8859-1")</li>
+<li>print(f"bytes2=<strong>[{bytes2}]</strong>, type(bytes2)={type(bytes2)}")</li>
+<li></li>
+<li># décodage iso-8859-1</li>
+<li>print("---- binaire iso-8859-1 -&gt; chaîne unicode")</li>
+<li>str3 = bytes2.decode("iso-8859-1")</li>
+<li>print(f"str3=<strong>[{str3}]</strong>, type(str3)={type(str3)}")</li>
+<li>print(f"str3==str1={str3 == str1}")</li>
+<li></li>
+<li># erreur de décodage - bytes1 est en utf-8 - on le décode en iso-8859-1</li>
+<li>print("--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode")</li>
+<li>str4 = bytes1.decode("iso-8859-1")</li>
+<li>print(f"str4=<strong>[{str4}]</strong>, type(str4)={type(str4)}")</li>
+<li></li>
+<li># encodage utf-8 d’une chaîne Unicode</li>
+<li>print("---- chaîne unicode -&gt; binaire utf-8")</li>
+<li>bytes3 = codecs.encode(str1, "utf-8")</li>
+<li>print(f"bytes3=<strong>[{bytes3}]</strong>, type(bytes3)={type(bytes3)}")</li>
+<li></li>
+<li># encodage d'une chaîne binaire UTF-8 en base64</li>
+<li>print("---- binaire utf-8 -&gt; binaire base64")</li>
+<li>bytes4 = codecs.encode(bytes1, "base64")</li>
+<li>print(f"bytes4=<strong>[{bytes4}]</strong>, type(bytes4)={type(bytes4)}")</li>
+<li></li>
+<li># retour à la chaîne unicode d'origine</li>
+<li>print("---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode")</li>
+<li>str6 = codecs.decode(bytes4, "base64").decode("utf-8")</li>
+<li>print(f"str6=<strong>[{str6}]</strong>, type(str6)={type(str6)}")</li>
+<li></li>
+<li># encodage d'une chaîne binaire en quoted-printable</li>
+<li>print("---- binaire utf-8 -&gt; binaire quoted-printable")</li>
+<li>str7 = codecs.encode(bytes1, "quoted-printable")</li>
+<li>print(f"str7=<strong>[{str7}]</strong>, type(str7)={type(str7)}")</li>
+<li></li>
+<li># retour à la chaîne unicode d'origine</li>
+<li>print("---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode")</li>
+<li>str8 = codecs.decode(str7, "quoted-printable").decode("utf-8")</li>
+<li>print(f"str8=<strong>[{str8}]</strong>, type(str8)={type(str8)}")</li>
+</ul>
 <p><strong>Commentaires</strong></p>
 <ul>
 <li>ligne 2 : le module <strong>[codecs]</strong> permet de faire les codages 'base64' et 'quoted-printable'. Il peut en faire beuacoup d'autres ;</li>
@@ -1860,62 +1697,39 @@
 <li>lignes 51-59 : on répète ce processus avec un encodage 'quoted-printable' au lieu de 'base64' ;</li>
 </ul>
 <p>Les résultats sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span>
-<span class="normal"><a href="#__codelineno-7-17">17</a></span>
-<span class="normal"><a href="#__codelineno-7-18">18</a></span>
-<span class="normal"><a href="#__codelineno-7-19">19</a></span>
-<span class="normal"><a href="#__codelineno-7-20">20</a></span>
-<span class="normal"><a href="#__codelineno-7-21">21</a></span>
-<span class="normal"><a href="#__codelineno-7-22">22</a></span>
-<span class="normal"><a href="#__codelineno-7-23">23</a></span>
-<span class="normal"><a href="#__codelineno-7-24">24</a></span>
-<span class="normal"><a href="#__codelineno-7-25">25</a></span>
-<span class="normal"><a href="#__codelineno-7-26">26</a></span>
-<span class="normal"><a href="#__codelineno-7-27">27</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_04.py
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>---- chaîne unicode
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>str1=[hélène va au marché acheter des légumes], type(str1)=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>---- chaîne unicode -&gt; binaire utf-8
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>bytes1=[b&#39;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#39;], type(bytes1)=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>---- binaire utf-8 -&gt; chaîne unicode
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>str2=[hélène va au marché acheter des légumes], type(str2)=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>str2==str1=True
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>---- chaîne unicode -&gt; binaire iso-8859-1
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>bytes2=[b&#39;h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes&#39;], type(bytes2)=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>---- binaire iso-8859-1 -&gt; chaîne unicode
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>str3=[hélène va au marché acheter des légumes], type(str3)=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a>str3==str1=True
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a>--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a>str4=[hÃ©lÃ¨ne va au marchÃ© acheter des lÃ©gumes], type(str4)=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>---- chaîne unicode -&gt; binaire utf-8
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a>bytes3=[b&#39;h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes&#39;], type(bytes3)=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a>---- binaire utf-8 -&gt; binaire base64
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a>bytes4=[b&#39;aMOpbMOobmUgdmEgYXUgbWFyY2jDqSBhY2hldGVyIGRlcyBsw6lndW1lcw==\n&#39;], type(bytes4)=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-7-20" name="__codelineno-7-20"></a>---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode
-<a id="__codelineno-7-21" name="__codelineno-7-21"></a>str6=[hélène va au marché acheter des légumes], type(str6)=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-22" name="__codelineno-7-22"></a>---- binaire utf-8 -&gt; binaire quoted-printable
-<a id="__codelineno-7-23" name="__codelineno-7-23"></a>str7=[b&#39;h=C3=A9l=C3=A8ne=20va=20au=20march=C3=A9=20acheter=20des=20l=C3=A9gumes&#39;], type(str7)=&lt;class &#39;bytes&#39;&gt;
-<a id="__codelineno-7-24" name="__codelineno-7-24"></a>---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode
-<a id="__codelineno-7-25" name="__codelineno-7-25"></a>str8=[hélène va au marché acheter des légumes], type(str8)=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-26" name="__codelineno-7-26"></a>
-<a id="__codelineno-7-27" name="__codelineno-7-27"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 14-15 : un binaire utf-8 est décodé en chaîne Unicode avec le mauvais décodeur 'iso-8859-1'. Aussi certains caractères Unicode générés sont incorrects, ici les caractères accentués ;</li>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/strings/str_04.py</li>
+<li>---- chaîne unicode</li>
+<li>str1=<strong>[hélène va au marché acheter des légumes]</strong>, type(str1)=&lt;class 'str'&gt;</li>
+<li>---- chaîne unicode -&gt; binaire utf-8</li>
+<li>bytes1=<strong>[b'h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes']</strong>, type(bytes1)=&lt;class 'bytes'&gt;</li>
+<li>---- binaire utf-8 -&gt; chaîne unicode</li>
+<li>str2=<strong>[hélène va au marché acheter des légumes]</strong>, type(str2)=&lt;class 'str'&gt;</li>
+<li>str2==str1=True</li>
+<li>---- chaîne unicode -&gt; binaire iso-8859-1</li>
+<li>bytes2=<strong>[b'h\xe9l\xe8ne va au march\xe9 acheter des l\xe9gumes']</strong>, type(bytes2)=&lt;class 'bytes'&gt;</li>
+<li>---- binaire iso-8859-1 -&gt; chaîne unicode</li>
+<li>str3=<strong>[hélène va au marché acheter des légumes]</strong>, type(str3)=&lt;class 'str'&gt;</li>
+<li>str3==str1=True</li>
+<li>--- binaire utf-8 (décodage iso-8859-1) --&gt; chaîne unicode</li>
+<li>str4=<strong>[hÃ©lÃ¨ne va au marchÃ© acheter des lÃ©gumes]</strong>, type(str4)=&lt;class 'str'&gt;</li>
+<li>---- chaîne unicode -&gt; binaire utf-8</li>
+<li>bytes3=<strong>[b'h\xc3\xa9l\xc3\xa8ne va au march\xc3\xa9 acheter des l\xc3\xa9gumes']</strong>, type(bytes3)=&lt;class 'bytes'&gt;</li>
+<li>---- binaire utf-8 -&gt; binaire base64</li>
+<li>bytes4=<strong>[b'aMOpbMOobmUgdmEgYXUgbWFyY2jDqSBhY2hldGVyIGRlcyBsw6lndW1lcw==\n']</strong>, type(bytes4)=&lt;class 'bytes'&gt;</li>
+<li>---- binaire base64 -&gt; binaire utf-8 -&gt; chaîne unicode</li>
+<li>str6=<strong>[hélène va au marché acheter des légumes]</strong>, type(str6)=&lt;class 'str'&gt;</li>
+<li>---- binaire utf-8 -&gt; binaire quoted-printable</li>
+<li>str7=<strong>[b'h=C3=A9l=C3=A8ne=20va=20au=20march=C3=A9=20acheter=20des=20l=C3=A9gumes']</strong>, type(str7)=&lt;class 'bytes'&gt;</li>
+<li>---- binaire quoted-printable -&gt; binaire utf-8 -&gt; chaîne unicode</li>
+<li>str8=<strong>[hélène va au marché acheter des légumes]</strong>, type(str8)=&lt;class 'str'&gt;</li>
+<li></li>
+<li>
+<p>Process finished with exit code 0</p>
+</li>
+<li>
+<p>lignes 14-15 : un binaire utf-8 est décodé en chaîne Unicode avec le mauvais décodeur 'iso-8859-1'. Aussi certains caractères Unicode générés sont incorrects, ici les caractères accentués ;</p>
+</li>
 <li>lignes 18-19 : le codage 'base64' consiste à utiliser 64 caractères ASCII (codés sur 7 bits) pour encoder un binaire quleconque. Cela augmente, comme on le voit, la taille du binaire de la chaîne ;</li>
 <li>lignes 22-23 : le codage 'quoted-printable' consiste lui aussi à utiliser des caractères ASCII (codés sur 7 bits) pour encoder un binaire quelconque ;</li>
 </ul>

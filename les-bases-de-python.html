@@ -1531,221 +1531,147 @@
 <p><img src="images/1000000100000153000001B11F8A98DC.png" style="width:3.14cm;height:4.021cm;" alt="Image" /></p>
 <h2 id="31-script-bases_01-operations-elementaires">3.1. Script [bases_01] : opérations élémentaires</h2>
 <p>Le script <strong>[bases_01]</strong> présente les premières caractéristiques de Python.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
-<span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
-<span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span>
-<span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span>
-<span class="normal"><a href="#__codelineno-0-82">82</a></span>
-<span class="normal"><a href="#__codelineno-0-83">83</a></span>
-<span class="normal"><a href="#__codelineno-0-84">84</a></span>
-<span class="normal"><a href="#__codelineno-0-85">85</a></span>
-<span class="normal"><a href="#__codelineno-0-86">86</a></span>
-<span class="normal"><a href="#__codelineno-0-87">87</a></span>
-<span class="normal"><a href="#__codelineno-0-88">88</a></span>
-<span class="normal"><a href="#__codelineno-0-89">89</a></span>
-<span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span>
-<span class="normal"><a href="#__codelineno-0-96">96</a></span>
-<span class="normal"><a href="#__codelineno-0-97">97</a></span>
-<span class="normal"><a href="#__codelineno-0-98">98</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># ----------------------------------</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">affiche</span><span class="p">(</span><span class="n">chaine</span><span class="p">):</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>    <span class="c1"># affiche chaine</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;chaine=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">chaine</span><span class="p">)</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># ----------------------------------</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">affiche_type</span><span class="p">(</span><span class="n">variable</span><span class="p">):</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="c1"># affiche le type de variable</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;type[</span><span class="si">%s</span><span class="s2">]=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">variable</span><span class="p">)))</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1"># ----------------------------------</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span><span class="n">param</span><span class="p">):</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="c1"># ajoute 10 à param</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="k">return</span> <span class="n">param</span> <span class="o">+</span> <span class="mi">10</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="c1"># ----------------------------------</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="k">def</span><span class="w"> </span><span class="nf">f2</span><span class="p">():</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="c1"># rend un tuple de 3 valeurs</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="k">return</span> <span class="s2">&quot;un&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="c1"># -------------------------------- programme principal ------------------------------------</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="c1"># ceci est un commentaire</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="c1"># variable utilisée sans avoir été déclarée</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="n">nom</span> <span class="o">=</span> <span class="s2">&quot;dupont&quot;</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="c1"># un affichage écran</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;nom=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">nom</span><span class="p">)</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="c1"># une liste avec des éléments de type différent</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="n">liste</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;un&quot;</span><span class="p">,</span> <span class="s2">&quot;deux&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="c1"># son nombre d&#39;éléments</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="c1"># une boucle</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste[</span><span class="si">%d</span><span class="s2">]=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="c1"># initialisation de 2 variables avec un tuple</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="p">(</span><span class="n">chaine1</span><span class="p">,</span> <span class="n">chaine2</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;chaine1&quot;</span><span class="p">,</span> <span class="s2">&quot;chaine2&quot;</span><span class="p">)</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="c1"># concaténation des 2 chaînes</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="n">chaine3</span> <span class="o">=</span> <span class="n">chaine1</span> <span class="o">+</span> <span class="n">chaine2</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="c1"># affichage résultat</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">chaine1</span><span class="p">,</span> <span class="n">chaine2</span><span class="p">,</span> <span class="n">chaine3</span><span class="p">))</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="c1"># utilisation fonction</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="n">affiche</span><span class="p">(</span><span class="n">chaine1</span><span class="p">)</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="c1"># le type d&#39;une variable peut être connu</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="n">affiche_type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="n">affiche_type</span><span class="p">(</span><span class="n">chaine1</span><span class="p">)</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="n">affiche_type</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="c1"># le type d&#39;une variable peut changer en cours d&#39;exécution</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="n">n</span> <span class="o">=</span> <span class="s2">&quot;a changé&quot;</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="n">affiche_type</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="c1"># une fonction peut rendre un résultat</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="n">res1</span> <span class="o">=</span> <span class="n">f1</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;res1=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">res1</span><span class="p">)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="c1"># une fonction peut rendre une liste de valeurs</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="p">(</span><span class="n">res1</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="n">res3</span><span class="p">)</span> <span class="o">=</span> <span class="n">f2</span><span class="p">()</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;(res1,res2,res3)=[</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">,</span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">res1</span><span class="p">,</span> <span class="n">res2</span><span class="p">,</span> <span class="n">res3</span><span class="p">))</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="c1"># on aurait pu récupérer ces valeurs dans une variable</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="n">liste</span> <span class="o">=</span> <span class="n">f2</span><span class="p">()</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)):</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste[</span><span class="si">%s</span><span class="s2">]=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="c1"># des tests</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)):</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="c1"># n&#39;affiche que les chaînes</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;str&quot;</span><span class="p">:</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste[</span><span class="si">%s</span><span class="s2">]=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="c1"># d&#39;autres tests</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)):</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="c1"># n&#39;affiche que les entiers &gt;10</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">==</span> <span class="s2">&quot;int&quot;</span> <span class="ow">and</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste[</span><span class="si">%s</span><span class="s2">]=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="c1"># une boucle while</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="n">liste</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="n">somme</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span> <span class="ow">and</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste[</span><span class="si">%s</span><span class="s2">]=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="n">somme</span> <span class="o">+=</span> <span class="n">liste</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="c1"># somme=somme+liste[i]</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># i=i+1</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;somme=</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">somme</span><span class="p">)</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="c1"># fin programme</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># ----------------------------------</li>
+<li>def affiche(chaine):</li>
+<li># affiche chaine</li>
+<li>print("chaine=%s" % chaine)</li>
+<li></li>
+<li></li>
+<li># ----------------------------------</li>
+<li>def affiche_type(variable):</li>
+<li># affiche le type de variable</li>
+<li>print("type<strong>[%s]</strong>=%s" % (variable, type(variable)))</li>
+<li></li>
+<li></li>
+<li># ----------------------------------</li>
+<li>def f1(param):</li>
+<li># ajoute 10 à param</li>
+<li>return param + 10</li>
+<li></li>
+<li></li>
+<li># ----------------------------------</li>
+<li>def f2():</li>
+<li># rend un tuple de 3 valeurs</li>
+<li>return "un", 0, 100</li>
+<li></li>
+<li></li>
+<li># -------------------------------- programme principal ------------------------------------</li>
+<li># ceci est un commentaire</li>
+<li># variable utilisée sans avoir été déclarée</li>
+<li>nom = "dupont"</li>
+<li></li>
+<li># un affichage écran</li>
+<li>print("nom=%s" % nom)</li>
+<li></li>
+<li># une liste avec des éléments de type différent</li>
+<li>liste = <strong>[</strong><strong>"un"</strong><strong>, </strong><strong>"deux"</strong><strong>, 3, 4]</strong></li>
+<li></li>
+<li># son nombre d'éléments</li>
+<li>n = len(liste)</li>
+<li></li>
+<li># une boucle</li>
+<li>for i in range(n):</li>
+<li>print("liste<strong>[%d]</strong>=%s" % (i, liste<strong>[i]</strong>))</li>
+<li></li>
+<li># initialisation de 2 variables avec un tuple</li>
+<li>(chaine1, chaine2) = ("chaine1", "chaine2")</li>
+<li></li>
+<li># concaténation des 2 chaînes</li>
+<li>chaine3 = chaine1 + chaine2</li>
+<li></li>
+<li># affichage résultat</li>
+<li>print("<strong>[%s,%s,%s]</strong>" % (chaine1, chaine2, chaine3))</li>
+<li></li>
+<li># utilisation fonction</li>
+<li>affiche(chaine1)</li>
+<li></li>
+<li># le type d'une variable peut être connu</li>
+<li>affiche_type(n)</li>
+<li>affiche_type(chaine1)</li>
+<li>affiche_type(liste)</li>
+<li></li>
+<li># le type d'une variable peut changer en cours d'exécution</li>
+<li>n = "a changé"</li>
+<li>affiche_type(n)</li>
+<li></li>
+<li># une fonction peut rendre un résultat</li>
+<li>res1 = f1(4)</li>
+<li>print("res1=%s" % res1)</li>
+<li></li>
+<li># une fonction peut rendre une liste de valeurs</li>
+<li>(res1, res2, res3) = f2()</li>
+<li>print("(res1,res2,res3)=<strong>[%s,%s,%s]</strong>" % (res1, res2, res3))</li>
+<li></li>
+<li># on aurait pu récupérer ces valeurs dans une variable</li>
+<li>liste = f2()</li>
+<li>for i in range(len(liste)):</li>
+<li>print("liste<strong>[%s]</strong>=%s" % (i, liste<strong>[i]</strong>))</li>
+<li></li>
+<li># des tests</li>
+<li>for i in range(len(liste)):</li>
+<li># n'affiche que les chaînes</li>
+<li>if type(liste<strong>[i]</strong>) == "str":</li>
+<li>print("liste<strong>[%s]</strong>=%s" % (i, liste<strong>[i]</strong>))</li>
+<li></li>
+<li># d'autres tests</li>
+<li>for i in range(len(liste)):</li>
+<li># n'affiche que les entiers &gt;10</li>
+<li>if type(liste<strong>[i]</strong>) == "int" and liste<strong>[i]</strong> &gt; 10:</li>
+<li>print("liste<strong>[%s]</strong>=%s" % (i, liste<strong>[i]</strong>))</li>
+<li></li>
+<li># une boucle while</li>
+<li>liste = (8, 5, 0, -2, 3, 4)</li>
+<li>i = 0</li>
+<li>somme = 0</li>
+<li>while i &lt; len(liste) and liste<strong>[i]</strong> &gt; 0:</li>
+<li>print("liste<strong>[%s]</strong>=%s" % (i, liste<strong>[i]</strong>))</li>
+<li>somme += liste<strong>[i]</strong>  # somme=somme+liste<strong>[i]</strong></li>
+<li>i += 1  # i=i+1</li>
+<li>print("somme=%s" % somme)</li>
+<li># fin programme</li>
+</ul>
 <p><strong>Commentaires</strong> </p>
 <ul>
 <li>ligne 2 : le mot clé <strong>def</strong> définit une fonction ;</li>
-<li>ligne 2 : la fonction reçoit le paramètre <strong>[chaine]</strong>. On n'indique pas le type du paramètre. Python utilise exclusivement le passage par <strong>valeur. </strong>Celle-ci diffère selon la donnée :</li>
-<li>pour un type simple (nombre, booléen…), cette valeur est la <strong>valeur</strong> encapsulée par la donnée (4, True…) ;</li>
-<li>pour un type complexe (liste, classe…), cette valeur est <strong>l'adresse</strong> de la donnée ;</li>
-<li>lignes 3-4 : le contenu de la fonction. Il est décalé à droite d'une tabulation. C'est cette indentation associée au caractère <strong>:</strong> de l'instruction def qui définit le contenu de la fonction. Cela est vrai pour toutes les instructions ayant du contenu : if, else, while, for, try, except ;</li>
-<li>ligne 4 : la syntaxe utilisée ici est <strong>[</strong><strong>print('text1%F1text2%F2…' % data1, data2)</strong><strong>]</strong> :</li>
-<li>les <strong>[</strong><strong>%Fi</strong><strong>]</strong> (ici %s) sont des formats d'affichage :</li>
+<li>
+<p>ligne 2 : la fonction reçoit le paramètre <strong>[chaine]</strong>. On n'indique pas le type du paramètre. Python utilise exclusivement le passage par <strong>valeur. </strong>Celle-ci diffère selon la donnée :</p>
+</li>
+<li>
+<p>pour un type simple (nombre, booléen…), cette valeur est la <strong>valeur</strong> encapsulée par la donnée (4, True…) ;</p>
+</li>
+<li>
+<p>pour un type complexe (liste, classe…), cette valeur est <strong>l'adresse</strong> de la donnée ;</p>
+</li>
+<li>
+<p>lignes 3-4 : le contenu de la fonction. Il est décalé à droite d'une tabulation. C'est cette indentation associée au caractère <strong>:</strong> de l'instruction def qui définit le contenu de la fonction. Cela est vrai pour toutes les instructions ayant du contenu : if, else, while, for, try, except ;</p>
+</li>
+<li>
+<p>ligne 4 : la syntaxe utilisée ici est <strong>[</strong><strong>print('text1%F1text2%F2…' % data1, data2)</strong><strong>]</strong> :</p>
+</li>
+<li>
+<p>les <strong>[</strong><strong>%Fi</strong><strong>]</strong> (ici %s) sont des formats d'affichage :</p>
+</li>
 <li>%s (string) : pour une chaîne de caractères ;</li>
 <li>%d (decimal) : pour les nombres entiers décimaux signés ;</li>
 <li>%f (float) : format décimal pour les nombres réels ;</li>
 <li>%e (exponentiel) : format exponentiel pour un nombre réel ;</li>
-<li>…</li>
-<li><strong>[</strong><strong>data1, data2…</strong><strong>]</strong> sont les expressions dont on veut afficher la valeur :</li>
-<li><strong>[data1]</strong> sera affichée avec le format F1 ;</li>
+<li>
+<p>…</p>
+</li>
+<li>
+<p><strong>[</strong><strong>data1, data2…</strong><strong>]</strong> sont les expressions dont on veut afficher la valeur :</p>
+</li>
+<li>
+<p><strong>[data1]</strong> sera affichée avec le format F1 ;</p>
+</li>
 <li><strong>[data2]</strong> sera affichée avec le format F2 ;</li>
-<li>…</li>
-<li>ligne 10 : Python gère en interne le type des variables. On peut connaître le type d'une variable avec la fonction type(variable) qui rend une variable de type 'type'. L'expression '%s' % (type(variable)) est une chaîne de caractères représentant le type de la variable ;</li>
+<li>
+<p>…</p>
+</li>
+<li>
+<p>ligne 10 : Python gère en interne le type des variables. On peut connaître le type d'une variable avec la fonction type(variable) qui rend une variable de type 'type'. L'expression '%s' % (type(variable)) est une chaîne de caractères représentant le type de la variable ;</p>
+</li>
 <li>ligne 25 : le programme principal. Celui-ci vient habituellement (mais pas nécessairement) après la définition de toutes les fonctions du script. Son contenu est non indenté ;</li>
 <li>ligne 28 : en Python, on ne déclare pas les variables. Python est sensible à la casse. La variable Nom est différente de la variable nom. Une chaîne de caractères peut être entourée de guillemets " ou d'apostrophes '. On peut donc écrire 'dupont' ou "dupont" ;</li>
 <li>ligne 34 : il y a une différence entre un <strong>tuple</strong> (1,2,3) (notez les parenthèses) et une <strong>liste</strong> <strong>[1,2,3]</strong> (notez les crochets). Le tuple est <strong>non modifiable</strong> alors que la liste l'est. Dans les deux cas, l'élement n° i est noté <strong>[i]</strong> ;</li>
@@ -1757,97 +1683,59 @@
 <li>ligne 93 : fait la somme des nombres &gt;0 de la liste ;</li>
 </ul>
 <p>Les résultats écran sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_01.py
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>nom=dupont
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>liste[0]=un
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>liste[1]=deux
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>liste[2]=3
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>liste[3]=4
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>[chaine1,chaine2,chaine1chaine2]
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>chaine=chaine1
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>type[4]=&lt;class &#39;int&#39;&gt;
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>type[chaine1]=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>type[[&#39;un&#39;, &#39;deux&#39;, 3, 4]]=&lt;class &#39;list&#39;&gt;
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>type[a changé]=&lt;class &#39;str&#39;&gt;
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>res1=14
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>(res1,res2,res3)=[un,0,100]
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>liste[0]=un
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>liste[1]=0
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>liste[2]=100
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>liste[0]=8
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>liste[1]=5
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>somme=13
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_01.py</li>
+<li>nom=dupont</li>
+<li>liste<strong>[0]</strong>=un</li>
+<li>liste<strong>[1]</strong>=deux</li>
+<li>liste<strong>[2]</strong>=3</li>
+<li>liste<strong>[3]</strong>=4</li>
+<li><strong>[chaine1,chaine2,chaine1chaine2]</strong></li>
+<li>chaine=chaine1</li>
+<li>type<strong>[4]</strong>=&lt;class 'int'&gt;</li>
+<li>type<strong>[chaine1]</strong>=&lt;class 'str'&gt;</li>
+<li>type<strong>[['un', 'deux', 3, 4]</strong>]=&lt;class 'list'&gt;</li>
+<li>type<strong>[a changé]</strong>=&lt;class 'str'&gt;</li>
+<li>res1=14</li>
+<li>(res1,res2,res3)=<strong>[un,0,100]</strong></li>
+<li>liste<strong>[0]</strong>=un</li>
+<li>liste<strong>[1]</strong>=0</li>
+<li>liste<strong>[2]</strong>=100</li>
+<li>liste<strong>[0]</strong>=8</li>
+<li>liste<strong>[1]</strong>=5</li>
+<li>somme=13</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="32-script-bases_02-chaines-de-formatage">3.2. Script [bases_02]  : chaînes de formatage</h2>
 <p>Python 3 a amené une nouvelle façon de formater les chaînes de caractères :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># chaînes de formatage</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># les formats sont ceux du langage C</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># entier</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">int1</span> <span class="o">=</span> <span class="mi">10</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[int1=</span><span class="si">{</span><span class="n">int1</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[int1=</span><span class="si">{</span><span class="n">int1</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[int1=</span><span class="si">{</span><span class="n">int1</span><span class="si">:</span><span class="s2">04d</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1"># float</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">float1</span><span class="o">=</span><span class="mf">8.2</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[float1=</span><span class="si">{</span><span class="n">float1</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[float1=</span><span class="si">{</span><span class="n">float1</span><span class="si">:</span><span class="s2">8.2f</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[float1=</span><span class="si">{</span><span class="n">float1</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1"># string</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">str1</span><span class="o">=</span><span class="s2">&quot;abcd&quot;</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[str1=</span><span class="si">{</span><span class="n">str1</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[str1=</span><span class="si">{</span><span class="n">str1</span><span class="si">:</span><span class="s2">8s</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">str2</span><span class="o">=</span><span class="s2">&quot;jean de florette&quot;</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">str2</span><span class="si">:</span><span class="s2">20.10s</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="c1"># les chaînes formatées peuvent être affectées à des variables</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="n">str3</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">str2</span><span class="si">:</span><span class="s2">20.10s</span><span class="si">}</span><span class="s2">]&quot;</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">str3</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># chaînes de formatage</li>
+<li># les formats sont ceux du langage C</li>
+<li># entier</li>
+<li>int1 = 10</li>
+<li>print(f"<strong>[int1={int1}]</strong>")</li>
+<li>print(f"<strong>[int1={int1:4d}]</strong>")</li>
+<li>print(f"<strong>[int1={int1:04d}]</strong>")</li>
+<li># float</li>
+<li>float1=8.2</li>
+<li>print(f"<strong>[float1={float1}]</strong>")</li>
+<li>print(f"<strong>[float1={float1:8.2f}]</strong>")</li>
+<li>print(f"<strong>[float1={float1:.3e}]</strong>")</li>
+<li># string</li>
+<li>str1="abcd"</li>
+<li>print(f"<strong>[str1={str1}]</strong>")</li>
+<li>print(f"<strong>[str1={str1:8s}]</strong>")</li>
+<li>str2="jean de florette"</li>
+<li>print(f"<strong>[{str2:20.10s}]</strong>")</li>
+<li># les chaînes formatées peuvent être affectées à des variables</li>
+<li>str3=f"<strong>[{str2:20.10s}]</strong>"</li>
+<li>print(str3)</li>
+</ul>
 <p>La syntaxe de la chaîne formatée est la suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>f&#39;…{expr1:format1} …. {expr2:format2} ….&#39;
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>f'…{expr1:format1} …. {expr2:format2} ….'</li>
+</ul>
 <p>avec :</p>
 <ul>
 <li><strong>[</strong><strong>expri</strong><strong>]</strong> : une expression ;</li>
@@ -1863,198 +1751,110 @@
 <li>ligne 18 : <strong>[</strong><strong>20.10s</strong><strong>]</strong>, les 10 premiers caractères d'une chaîne complétée avec des espaces pour faire 20 caractères ;</li>
 </ul>
 <p>Les résultats de l'exécution sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_02.py
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>[int1=10]
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a>[int1=  10]
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>[int1=0010]
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>[float1=8.2]
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>[float1=    8.20]
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a>[float1=8.200e+00]
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a>[str1=abcd]
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>[str1=abcd    ]
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a>[jean de fl          ]
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>[jean de fl          ]
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_02.py</li>
+<li><strong>[int1=10]</strong></li>
+<li><strong>[int1=  10]</strong></li>
+<li><strong>[int1=0010]</strong></li>
+<li><strong>[float1=8.2]</strong></li>
+<li><strong>[float1=    8.20]</strong></li>
+<li><strong>[float1=8.200e+00]</strong></li>
+<li><strong>[str1=abcd]</strong></li>
+<li><strong>[str1=abcd    ]</strong></li>
+<li><strong>[jean de fl          ]</strong></li>
+<li><strong>[jean de fl          ]</strong></li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="33-script-bases_03-changements-de-types">3.3. Script [bases_03] : changements de types</h2>
 <p>On s'intéresse ici aux changements de types avec des données de type <strong>str</strong> (chaîne de caractères), <strong>int</strong> (entier), <strong>float</strong> (réel), <strong>bool</strong> (booléen).</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span>
-<span class="normal"><a href="#__codelineno-5-18">18</a></span>
-<span class="normal"><a href="#__codelineno-5-19">19</a></span>
-<span class="normal"><a href="#__codelineno-5-20">20</a></span>
-<span class="normal"><a href="#__codelineno-5-21">21</a></span>
-<span class="normal"><a href="#__codelineno-5-22">22</a></span>
-<span class="normal"><a href="#__codelineno-5-23">23</a></span>
-<span class="normal"><a href="#__codelineno-5-24">24</a></span>
-<span class="normal"><a href="#__codelineno-5-25">25</a></span>
-<span class="normal"><a href="#__codelineno-5-26">26</a></span>
-<span class="normal"><a href="#__codelineno-5-27">27</a></span>
-<span class="normal"><a href="#__codelineno-5-28">28</a></span>
-<span class="normal"><a href="#__codelineno-5-29">29</a></span>
-<span class="normal"><a href="#__codelineno-5-30">30</a></span>
-<span class="normal"><a href="#__codelineno-5-31">31</a></span>
-<span class="normal"><a href="#__codelineno-5-32">32</a></span>
-<span class="normal"><a href="#__codelineno-5-33">33</a></span>
-<span class="normal"><a href="#__codelineno-5-34">34</a></span>
-<span class="normal"><a href="#__codelineno-5-35">35</a></span>
-<span class="normal"><a href="#__codelineno-5-36">36</a></span>
-<span class="normal"><a href="#__codelineno-5-37">37</a></span>
-<span class="normal"><a href="#__codelineno-5-38">38</a></span>
-<span class="normal"><a href="#__codelineno-5-39">39</a></span>
-<span class="normal"><a href="#__codelineno-5-40">40</a></span>
-<span class="normal"><a href="#__codelineno-5-41">41</a></span>
-<span class="normal"><a href="#__codelineno-5-42">42</a></span>
-<span class="normal"><a href="#__codelineno-5-43">43</a></span>
-<span class="normal"><a href="#__codelineno-5-44">44</a></span>
-<span class="normal"><a href="#__codelineno-5-45">45</a></span>
-<span class="normal"><a href="#__codelineno-5-46">46</a></span>
-<span class="normal"><a href="#__codelineno-5-47">47</a></span>
-<span class="normal"><a href="#__codelineno-5-48">48</a></span>
-<span class="normal"><a href="#__codelineno-5-49">49</a></span>
-<span class="normal"><a href="#__codelineno-5-50">50</a></span>
-<span class="normal"><a href="#__codelineno-5-51">51</a></span>
-<span class="normal"><a href="#__codelineno-5-52">52</a></span>
-<span class="normal"><a href="#__codelineno-5-53">53</a></span>
-<span class="normal"><a href="#__codelineno-5-54">54</a></span>
-<span class="normal"><a href="#__codelineno-5-55">55</a></span>
-<span class="normal"><a href="#__codelineno-5-56">56</a></span>
-<span class="normal"><a href="#__codelineno-5-57">57</a></span>
-<span class="normal"><a href="#__codelineno-5-58">58</a></span>
-<span class="normal"><a href="#__codelineno-5-59">59</a></span>
-<span class="normal"><a href="#__codelineno-5-60">60</a></span>
-<span class="normal"><a href="#__codelineno-5-61">61</a></span>
-<span class="normal"><a href="#__codelineno-5-62">62</a></span>
-<span class="normal"><a href="#__codelineno-5-63">63</a></span>
-<span class="normal"><a href="#__codelineno-5-64">64</a></span>
-<span class="normal"><a href="#__codelineno-5-65">65</a></span>
-<span class="normal"><a href="#__codelineno-5-66">66</a></span>
-<span class="normal"><a href="#__codelineno-5-67">67</a></span>
-<span class="normal"><a href="#__codelineno-5-68">68</a></span>
-<span class="normal"><a href="#__codelineno-5-69">69</a></span>
-<span class="normal"><a href="#__codelineno-5-70">70</a></span>
-<span class="normal"><a href="#__codelineno-5-71">71</a></span>
-<span class="normal"><a href="#__codelineno-5-72">72</a></span>
-<span class="normal"><a href="#__codelineno-5-73">73</a></span>
-<span class="normal"><a href="#__codelineno-5-74">74</a></span>
-<span class="normal"><a href="#__codelineno-5-75">75</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># changements de type</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="c1"># int --&gt; str, float, bool</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">x</span> <span class="o">=</span> <span class="mi">4</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="c1"># bool --&gt; int, float, str</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21"></a>
-<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="c1"># str --&gt; int, float, bool</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="n">x</span> <span class="o">=</span> <span class="s2">&quot;4&quot;</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;4&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-31" name="__codelineno-5-31"></a>
-<a id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="c1"># float --&gt; str, int, bool</span>
-<a id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="n">x</span> <span class="o">=</span> <span class="mf">4.32</span>
-<a id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mf">4.32</span><span class="p">)</span>
-<a id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">4.32</span><span class="p">)</span>
-<a id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="mf">4.32</span><span class="p">)</span>
-<a id="__codelineno-5-40" name="__codelineno-5-40"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-41" name="__codelineno-5-41"></a>
-<a id="__codelineno-5-42" name="__codelineno-5-42"></a><span class="c1"># gestion des erreurs de changement de type</span>
-<a id="__codelineno-5-43" name="__codelineno-5-43"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-5-44" name="__codelineno-5-44"></a>    <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-45" name="__codelineno-5-45"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-46" name="__codelineno-5-46"></a><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-5-47" name="__codelineno-5-47"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">erreur</span><span class="p">)</span>
-<a id="__codelineno-5-48" name="__codelineno-5-48"></a>
-<a id="__codelineno-5-49" name="__codelineno-5-49"></a><span class="c1"># cas divers</span>
-<a id="__codelineno-5-50" name="__codelineno-5-50"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-51" name="__codelineno-5-51"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-52" name="__codelineno-5-52"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
-<a id="__codelineno-5-53" name="__codelineno-5-53"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-54" name="__codelineno-5-54"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-5-55" name="__codelineno-5-55"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-56" name="__codelineno-5-56"></a><span class="n">x</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-5-57" name="__codelineno-5-57"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-58" name="__codelineno-5-58"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-5-59" name="__codelineno-5-59"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-60" name="__codelineno-5-60"></a><span class="n">x</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)</span>
-<a id="__codelineno-5-61" name="__codelineno-5-61"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<a id="__codelineno-5-62" name="__codelineno-5-62"></a>
-<a id="__codelineno-5-63" name="__codelineno-5-63"></a><span class="c1"># toutes les données sont des instances de classe et à ce titre ont des méthodes</span>
-<a id="__codelineno-5-64" name="__codelineno-5-64"></a><span class="c1"># chaîne de caractères</span>
-<a id="__codelineno-5-65" name="__codelineno-5-65"></a><span class="n">str1</span> <span class="o">=</span> <span class="s2">&quot;abc&quot;</span>
-<a id="__codelineno-5-66" name="__codelineno-5-66"></a><span class="nb">print</span><span class="p">(</span><span class="n">str1</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-<a id="__codelineno-5-67" name="__codelineno-5-67"></a><span class="c1"># nombre entier</span>
-<a id="__codelineno-5-68" name="__codelineno-5-68"></a><span class="n">int1</span> <span class="o">=</span> <span class="mi">4</span>
-<a id="__codelineno-5-69" name="__codelineno-5-69"></a><span class="nb">print</span><span class="p">(</span><span class="n">int1</span><span class="o">.</span><span class="n">bit_length</span><span class="p">())</span>
-<a id="__codelineno-5-70" name="__codelineno-5-70"></a><span class="c1"># booléen</span>
-<a id="__codelineno-5-71" name="__codelineno-5-71"></a><span class="n">bool1</span><span class="o">=</span><span class="kc">True</span>
-<a id="__codelineno-5-72" name="__codelineno-5-72"></a><span class="nb">print</span><span class="p">(</span><span class="n">bool1</span><span class="o">.</span><span class="n">conjugate</span><span class="p">())</span>
-<a id="__codelineno-5-73" name="__codelineno-5-73"></a><span class="c1"># nombre réel</span>
-<a id="__codelineno-5-74" name="__codelineno-5-74"></a><span class="n">float1</span><span class="o">=</span><span class="mf">8.2</span>
-<a id="__codelineno-5-75" name="__codelineno-5-75"></a><span class="nb">print</span> <span class="p">(</span><span class="n">float1</span><span class="o">.</span><span class="n">is_integer</span><span class="p">())</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># changements de type</li>
+<li># int --&gt; str, float, bool</li>
+<li>x = 4</li>
+<li>print(x, type(x))</li>
+<li>x = str(4)</li>
+<li>print(x, type(x))</li>
+<li>x = float(4)</li>
+<li>print(x, type(x))</li>
+<li>x = bool(4)</li>
+<li>print(x, type(x))</li>
+<li></li>
+<li># bool --&gt; int, float, str</li>
+<li>x = True</li>
+<li>print(x, type(x))</li>
+<li>x = int(True)</li>
+<li>print(x, type(x))</li>
+<li>x = float(True)</li>
+<li>print(x, type(x))</li>
+<li>x = str(True)</li>
+<li>print(x, type(x))</li>
+<li></li>
+<li># str --&gt; int, float, bool</li>
+<li>x = "4"</li>
+<li>print(x, type(x))</li>
+<li>x = int("4")</li>
+<li>print(x, type(x))</li>
+<li>x = float("4")</li>
+<li>print(x, type(x))</li>
+<li>x = bool("4")</li>
+<li>print(x, type(x))</li>
+<li></li>
+<li># float --&gt; str, int, bool</li>
+<li>x = 4.32</li>
+<li>print(x, type(x))</li>
+<li>x = str(4.32)</li>
+<li>print(x, type(x))</li>
+<li>x = int(4.32)</li>
+<li>print(x, type(x))</li>
+<li>x = bool(4.32)</li>
+<li>print(x, type(x))</li>
+<li></li>
+<li># gestion des erreurs de changement de type</li>
+<li>try:</li>
+<li>x = int("abc")</li>
+<li>print(x, type(x))</li>
+<li>except ValueError as erreur:</li>
+<li>print(erreur)</li>
+<li></li>
+<li># cas divers</li>
+<li>x = bool("abc")</li>
+<li>print(x, type(x))</li>
+<li>x = bool("")</li>
+<li>print(x, type(x))</li>
+<li>x = bool(0)</li>
+<li>print(x, type(x))</li>
+<li>x = None</li>
+<li>print(x, type(x))</li>
+<li>x = bool(None)</li>
+<li>print(x, type(x))</li>
+<li>x = bool(0.0)</li>
+<li>print(x, type(x))</li>
+<li></li>
+<li># toutes les données sont des instances de classe et à ce titre ont des méthodes</li>
+<li># chaîne de caractères</li>
+<li>str1 = "abc"</li>
+<li>print(str1.capitalize())</li>
+<li># nombre entier</li>
+<li>int1 = 4</li>
+<li>print(int1.bit_length())</li>
+<li># booléen</li>
+<li>bool1=True</li>
+<li>print(bool1.conjugate())</li>
+<li># nombre réel</li>
+<li>float1=8.2</li>
+<li>print (float1.is_integer())</li>
+</ul>
 <p>De nombreux changements de type sont possibles. Certains peuvent échouer, comme celui des lignes 46-47 qui essaient de transformer la chaîne 'abc' en nombre entier. On a géré l'erreur avec une structure try / except. Une forme générale de cette structure</p>
 <p>est la suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
-<span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span>
-<span class="normal"><a href="#__codelineno-6-4">4</a></span>
-<span class="normal"><a href="#__codelineno-6-5">5</a></span>
-<span class="normal"><a href="#__codelineno-6-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>try:
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>    actions
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>except Exception as ex:
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>    actions
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>finally:
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>    actions
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>try:</li>
+<li>actions</li>
+<li><strong>except</strong> Exception as ex:</li>
+<li>actions</li>
+<li>finally:</li>
+<li>actions</li>
+</ul>
 <p>Si l'une des actions du <strong>try</strong> lance une exception (signale une erreur), il y a branchement immédiat sur la clause <strong>except</strong>. Si les actions du <strong>try</strong> ne lancent pas d'exception, la clause <strong>except</strong> est ignorée. Les attributs Exception et ex de l'instruction except sont facultatifs. Lorsqu'ils sont présents, Exception précise le type d'exception interceptée par l'instruction except et ex contient l’exception qui s’est produite. Il peut y avoir plusieurs instructions except, si on veut gérer différents types d'exceptions dans le même try.</p>
 <p>L'instruction finally est facultative. Si elle est présente, les actions du finally sont <strong>toujours exécutées qu'il y ait eu exception ou non</strong>.</p>
 <p>Nous reviendrons sur les exceptions un peu plus loin.</p>
@@ -2066,90 +1866,56 @@
 <li><strong>bool(None)</strong> vaut False. <strong>None</strong> est une valeur spéciale qui signifie que la variable existe mais n'a pas de valeur.</li>
 </ul>
 <p>Les résultats écran sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-7-10">10</a></span>
-<span class="normal"><a href="#__codelineno-7-11">11</a></span>
-<span class="normal"><a href="#__codelineno-7-12">12</a></span>
-<span class="normal"><a href="#__codelineno-7-13">13</a></span>
-<span class="normal"><a href="#__codelineno-7-14">14</a></span>
-<span class="normal"><a href="#__codelineno-7-15">15</a></span>
-<span class="normal"><a href="#__codelineno-7-16">16</a></span>
-<span class="normal"><a href="#__codelineno-7-17">17</a></span>
-<span class="normal"><a href="#__codelineno-7-18">18</a></span>
-<span class="normal"><a href="#__codelineno-7-19">19</a></span>
-<span class="normal"><a href="#__codelineno-7-20">20</a></span>
-<span class="normal"><a href="#__codelineno-7-21">21</a></span>
-<span class="normal"><a href="#__codelineno-7-22">22</a></span>
-<span class="normal"><a href="#__codelineno-7-23">23</a></span>
-<span class="normal"><a href="#__codelineno-7-24">24</a></span>
-<span class="normal"><a href="#__codelineno-7-25">25</a></span>
-<span class="normal"><a href="#__codelineno-7-26">26</a></span>
-<span class="normal"><a href="#__codelineno-7-27">27</a></span>
-<span class="normal"><a href="#__codelineno-7-28">28</a></span>
-<span class="normal"><a href="#__codelineno-7-29">29</a></span>
-<span class="normal"><a href="#__codelineno-7-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_03.py
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>4 &lt;class &#39;int&#39;&gt;
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>4 &lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>4.0 &lt;class &#39;float&#39;&gt;
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>True &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>True &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>1 &lt;class &#39;int&#39;&gt;
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>1.0 &lt;class &#39;float&#39;&gt;
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>True &lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-10" name="__codelineno-7-10"></a>4 &lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-11" name="__codelineno-7-11"></a>4 &lt;class &#39;int&#39;&gt;
-<a id="__codelineno-7-12" name="__codelineno-7-12"></a>4.0 &lt;class &#39;float&#39;&gt;
-<a id="__codelineno-7-13" name="__codelineno-7-13"></a>True &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-14" name="__codelineno-7-14"></a>4.32 &lt;class &#39;float&#39;&gt;
-<a id="__codelineno-7-15" name="__codelineno-7-15"></a>4.32 &lt;class &#39;str&#39;&gt;
-<a id="__codelineno-7-16" name="__codelineno-7-16"></a>4 &lt;class &#39;int&#39;&gt;
-<a id="__codelineno-7-17" name="__codelineno-7-17"></a>True &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-18" name="__codelineno-7-18"></a>invalid literal for int() with base 10: &#39;abc&#39;
-<a id="__codelineno-7-19" name="__codelineno-7-19"></a>True &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-20" name="__codelineno-7-20"></a>False &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-21" name="__codelineno-7-21"></a>False &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-22" name="__codelineno-7-22"></a>None &lt;class &#39;NoneType&#39;&gt;
-<a id="__codelineno-7-23" name="__codelineno-7-23"></a>False &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-24" name="__codelineno-7-24"></a>False &lt;class &#39;bool&#39;&gt;
-<a id="__codelineno-7-25" name="__codelineno-7-25"></a>Abc
-<a id="__codelineno-7-26" name="__codelineno-7-26"></a>3
-<a id="__codelineno-7-27" name="__codelineno-7-27"></a>1
-<a id="__codelineno-7-28" name="__codelineno-7-28"></a>False
-<a id="__codelineno-7-29" name="__codelineno-7-29"></a>
-<a id="__codelineno-7-30" name="__codelineno-7-30"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_03.py</li>
+<li>4 &lt;class 'int'&gt;</li>
+<li>4 &lt;class 'str'&gt;</li>
+<li>4.0 &lt;class 'float'&gt;</li>
+<li>True &lt;class 'bool'&gt;</li>
+<li>True &lt;class 'bool'&gt;</li>
+<li>1 &lt;class 'int'&gt;</li>
+<li>1.0 &lt;class 'float'&gt;</li>
+<li>True &lt;class 'str'&gt;</li>
+<li>4 &lt;class 'str'&gt;</li>
+<li>4 &lt;class 'int'&gt;</li>
+<li>4.0 &lt;class 'float'&gt;</li>
+<li>True &lt;class 'bool'&gt;</li>
+<li>4.32 &lt;class 'float'&gt;</li>
+<li>4.32 &lt;class 'str'&gt;</li>
+<li>4 &lt;class 'int'&gt;</li>
+<li>True &lt;class 'bool'&gt;</li>
+<li>invalid literal for int() with base 10: 'abc'</li>
+<li>True &lt;class 'bool'&gt;</li>
+<li>False &lt;class 'bool'&gt;</li>
+<li>False &lt;class 'bool'&gt;</li>
+<li>None &lt;class 'NoneType'&gt;</li>
+<li>False &lt;class 'bool'&gt;</li>
+<li>False &lt;class 'bool'&gt;</li>
+<li>Abc</li>
+<li>3</li>
+<li>1</li>
+<li>False</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <p>On notera que toutes les données sont des objets, c'est-à-dire des instances de classe. Cela signifie qu'elles peuvent avoir des méthodes. C'est ce que montrent les lignes 63-75 du code. Nous ne cherchons pas ici à expliquer ce que font les méthodes utilisées mais simplement à montrer qu'elles existent.</p>
 <h2 id="34-script-bases_04-portee-des-variables">3.4. Script [bases_04]: portée des variables</h2>
 <p>Le script <strong>[bases_04]</strong> montre que Python n'a pas la notion de variable de portée bloc :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
-<span class="normal"><a href="#__codelineno-8-2">2</a></span>
-<span class="normal"><a href="#__codelineno-8-3">3</a></span>
-<span class="normal"><a href="#__codelineno-8-4">4</a></span>
-<span class="normal"><a href="#__codelineno-8-5">5</a></span>
-<span class="normal"><a href="#__codelineno-8-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># portée des variables</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a>    <span class="n">j</span> <span class="o">=</span> <span class="mi">7</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, j=</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># portée des variables</li>
+<li>i = 4</li>
+<li>if True:</li>
+<li>i += 1</li>
+<li>j = 7</li>
+<li>print(f"i={i}, j={j}")</li>
+</ul>
 <p><strong>Résultats</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
-<span class="normal"><a href="#__codelineno-9-2">2</a></span>
-<span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_04.py
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a>i=5, j=7
-<a id="__codelineno-9-3" name="__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_04.py</li>
+<li>i=5, j=7</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <p><strong>Commentaires</strong></p>
 <p>Les résultats montrent deux choses :</p>
 <ul>
@@ -2159,78 +1925,44 @@
 <p>Dans certains langages, où on déclare les variables, une variable définie dans un bloc (comme celui des lignes 3-5) n'est pas connue à l'extérieur de celui-ci. En Python, rien de tel.</p>
 <h2 id="35-script-bases_05-listes-1">3.5. Script [bases_05] : listes - 1</h2>
 <p>Le script <strong>[bases_05]</strong> est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-10-10">10</a></span>
-<span class="normal"><a href="#__codelineno-10-11">11</a></span>
-<span class="normal"><a href="#__codelineno-10-12">12</a></span>
-<span class="normal"><a href="#__codelineno-10-13">13</a></span>
-<span class="normal"><a href="#__codelineno-10-14">14</a></span>
-<span class="normal"><a href="#__codelineno-10-15">15</a></span>
-<span class="normal"><a href="#__codelineno-10-16">16</a></span>
-<span class="normal"><a href="#__codelineno-10-17">17</a></span>
-<span class="normal"><a href="#__codelineno-10-18">18</a></span>
-<span class="normal"><a href="#__codelineno-10-19">19</a></span>
-<span class="normal"><a href="#__codelineno-10-20">20</a></span>
-<span class="normal"><a href="#__codelineno-10-21">21</a></span>
-<span class="normal"><a href="#__codelineno-10-22">22</a></span>
-<span class="normal"><a href="#__codelineno-10-23">23</a></span>
-<span class="normal"><a href="#__codelineno-10-24">24</a></span>
-<span class="normal"><a href="#__codelineno-10-25">25</a></span>
-<span class="normal"><a href="#__codelineno-10-26">26</a></span>
-<span class="normal"><a href="#__codelineno-10-27">27</a></span>
-<span class="normal"><a href="#__codelineno-10-28">28</a></span>
-<span class="normal"><a href="#__codelineno-10-29">29</a></span>
-<span class="normal"><a href="#__codelineno-10-30">30</a></span>
-<span class="normal"><a href="#__codelineno-10-31">31</a></span>
-<span class="normal"><a href="#__codelineno-10-32">32</a></span>
-<span class="normal"><a href="#__codelineno-10-33">33</a></span>
-<span class="normal"><a href="#__codelineno-10-34">34</a></span>
-<span class="normal"><a href="#__codelineno-10-35">35</a></span>
-<span class="normal"><a href="#__codelineno-10-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># listes à 1 dimension</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="c1"># initialisation</span>
-<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c1"># parcours - 1</span>
-<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;list1 a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)):</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;list1[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="c1"># parcours - 2</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;list1 a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
-<a id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<a id="__codelineno-10-15" name="__codelineno-10-15"></a>
-<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="c1"># ajout de deux éléments</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="n">list1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">):]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
-<a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="c1"># le format %s permet d&#39;afficher la liste sur une ligne</span>
-<a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">list1</span><span class="p">)</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20"></a>
-<a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="c1"># suppression des deux derniers éléments</span>
-<a id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="n">list1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="c1"># le format par défaut permet d&#39;afficher la liste sur une ligne</span>
-<a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-25" name="__codelineno-10-25"></a>
-<a id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="c1"># ajout en début de liste d&#39;une liste</span>
-<a id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="n">list1</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">12</span><span class="p">]</span>
-<a id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-29" name="__codelineno-10-29"></a>
-<a id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="c1"># insertion en milieu de liste de deux éléments</span>
-<a id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="n">list1</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">]</span>
-<a id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-10-33" name="__codelineno-10-33"></a>
-<a id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="c1"># suppression de deux éléments en milieu de liste</span>
-<a id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="n">list1</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># listes à 1 dimension</li>
+<li># initialisation</li>
+<li>list1 = <strong>[0, 1, 2, 3, 4, 5]</strong></li>
+<li></li>
+<li># parcours - 1</li>
+<li>print(f"list1 a {len(list1)} éléments")</li>
+<li>for i in range(len(list1)):</li>
+<li>print(f"list1<strong>[{i}]</strong>={list1<strong>[i]</strong>}")</li>
+<li></li>
+<li>list1<strong>[1]</strong> = 10</li>
+<li># parcours - 2</li>
+<li>print(f"list1 a {len(list1)} éléments")</li>
+<li>for element in list1:</li>
+<li>print(element)</li>
+<li></li>
+<li># ajout de deux éléments</li>
+<li>list1<strong>[len(list1):]</strong> = <strong>[10, 11]</strong></li>
+<li># le format %s permet d'afficher la liste sur une ligne</li>
+<li>print("%s" % list1)</li>
+<li></li>
+<li># suppression des deux derniers éléments</li>
+<li>list1<strong>[len(list1) - 2:]</strong> = <strong>[]</strong></li>
+<li># le format par défaut permet d'afficher la liste sur une ligne</li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># ajout en début de liste d'une liste</li>
+<li>list1<strong>[:0]</strong> = <strong>[-10, -11, -12]</strong></li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># insertion en milieu de liste de deux éléments</li>
+<li>list1<strong>[3:3]</strong> = <strong>[100, 101]</strong></li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># suppression de deux éléments en milieu de liste</li>
+<li>list1<strong>[3:4]</strong> = <strong>[]</strong></li>
+<li>print(f"{list1}")</li>
+</ul>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>la notation tableau<strong>[</strong><strong>i:j</strong><strong>]</strong> désigne les éléments <strong>i</strong> à <strong>j-1</strong> du tableau ;</li>
@@ -2240,225 +1972,124 @@
 <li>ligne 24 : la notation print ('f{list1}') fait la même chose ;</li>
 </ul>
 <p><strong>Résultats</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-11-10">10</a></span>
-<span class="normal"><a href="#__codelineno-11-11">11</a></span>
-<span class="normal"><a href="#__codelineno-11-12">12</a></span>
-<span class="normal"><a href="#__codelineno-11-13">13</a></span>
-<span class="normal"><a href="#__codelineno-11-14">14</a></span>
-<span class="normal"><a href="#__codelineno-11-15">15</a></span>
-<span class="normal"><a href="#__codelineno-11-16">16</a></span>
-<span class="normal"><a href="#__codelineno-11-17">17</a></span>
-<span class="normal"><a href="#__codelineno-11-18">18</a></span>
-<span class="normal"><a href="#__codelineno-11-19">19</a></span>
-<span class="normal"><a href="#__codelineno-11-20">20</a></span>
-<span class="normal"><a href="#__codelineno-11-21">21</a></span>
-<span class="normal"><a href="#__codelineno-11-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_05.py
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a>list1 a 6 éléments
-<a id="__codelineno-11-3" name="__codelineno-11-3"></a>list1[0]=0
-<a id="__codelineno-11-4" name="__codelineno-11-4"></a>list1[1]=1
-<a id="__codelineno-11-5" name="__codelineno-11-5"></a>list1[2]=2
-<a id="__codelineno-11-6" name="__codelineno-11-6"></a>list1[3]=3
-<a id="__codelineno-11-7" name="__codelineno-11-7"></a>list1[4]=4
-<a id="__codelineno-11-8" name="__codelineno-11-8"></a>list1[5]=5
-<a id="__codelineno-11-9" name="__codelineno-11-9"></a>list1 a 6 éléments
-<a id="__codelineno-11-10" name="__codelineno-11-10"></a>0
-<a id="__codelineno-11-11" name="__codelineno-11-11"></a>10
-<a id="__codelineno-11-12" name="__codelineno-11-12"></a>2
-<a id="__codelineno-11-13" name="__codelineno-11-13"></a>3
-<a id="__codelineno-11-14" name="__codelineno-11-14"></a>4
-<a id="__codelineno-11-15" name="__codelineno-11-15"></a>5
-<a id="__codelineno-11-16" name="__codelineno-11-16"></a>[0, 10, 2, 3, 4, 5, 10, 11]
-<a id="__codelineno-11-17" name="__codelineno-11-17"></a>[0, 10, 2, 3, 4, 5]
-<a id="__codelineno-11-18" name="__codelineno-11-18"></a>[-10, -11, -12, 0, 10, 2, 3, 4, 5]
-<a id="__codelineno-11-19" name="__codelineno-11-19"></a>[-10, -11, -12, 100, 101, 0, 10, 2, 3, 4, 5]
-<a id="__codelineno-11-20" name="__codelineno-11-20"></a>[-10, -11, -12, 101, 0, 10, 2, 3, 4, 5]
-<a id="__codelineno-11-21" name="__codelineno-11-21"></a>
-<a id="__codelineno-11-22" name="__codelineno-11-22"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_05.py</li>
+<li>list1 a 6 éléments</li>
+<li>list1<strong>[0]</strong>=0</li>
+<li>list1<strong>[1]</strong>=1</li>
+<li>list1<strong>[2]</strong>=2</li>
+<li>list1<strong>[3]</strong>=3</li>
+<li>list1<strong>[4]</strong>=4</li>
+<li>list1<strong>[5]</strong>=5</li>
+<li>list1 a 6 éléments</li>
+<li>0</li>
+<li>10</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li><strong>[0, 10, 2, 3, 4, 5, 10, 11]</strong></li>
+<li><strong>[0, 10, 2, 3, 4, 5]</strong></li>
+<li><strong>[-10, -11, -12, 0, 10, 2, 3, 4, 5]</strong></li>
+<li><strong>[-10, -11, -12, 100, 101, 0, 10, 2, 3, 4, 5]</strong></li>
+<li><strong>[-10, -11, -12, 101, 0, 10, 2, 3, 4, 5]</strong></li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="36-script-bases_06-listes-2">3.6. Script [bases_06] : listes - 2</h2>
 <p>Le code précédent peut être écrit différemment (<strong>bases_06</strong>) en utilisant certaines méthodes des listes :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-12-10">10</a></span>
-<span class="normal"><a href="#__codelineno-12-11">11</a></span>
-<span class="normal"><a href="#__codelineno-12-12">12</a></span>
-<span class="normal"><a href="#__codelineno-12-13">13</a></span>
-<span class="normal"><a href="#__codelineno-12-14">14</a></span>
-<span class="normal"><a href="#__codelineno-12-15">15</a></span>
-<span class="normal"><a href="#__codelineno-12-16">16</a></span>
-<span class="normal"><a href="#__codelineno-12-17">17</a></span>
-<span class="normal"><a href="#__codelineno-12-18">18</a></span>
-<span class="normal"><a href="#__codelineno-12-19">19</a></span>
-<span class="normal"><a href="#__codelineno-12-20">20</a></span>
-<span class="normal"><a href="#__codelineno-12-21">21</a></span>
-<span class="normal"><a href="#__codelineno-12-22">22</a></span>
-<span class="normal"><a href="#__codelineno-12-23">23</a></span>
-<span class="normal"><a href="#__codelineno-12-24">24</a></span>
-<span class="normal"><a href="#__codelineno-12-25">25</a></span>
-<span class="normal"><a href="#__codelineno-12-26">26</a></span>
-<span class="normal"><a href="#__codelineno-12-27">27</a></span>
-<span class="normal"><a href="#__codelineno-12-28">28</a></span>
-<span class="normal"><a href="#__codelineno-12-29">29</a></span>
-<span class="normal"><a href="#__codelineno-12-30">30</a></span>
-<span class="normal"><a href="#__codelineno-12-31">31</a></span>
-<span class="normal"><a href="#__codelineno-12-32">32</a></span>
-<span class="normal"><a href="#__codelineno-12-33">33</a></span>
-<span class="normal"><a href="#__codelineno-12-34">34</a></span>
-<span class="normal"><a href="#__codelineno-12-35">35</a></span>
-<span class="normal"><a href="#__codelineno-12-36">36</a></span>
-<span class="normal"><a href="#__codelineno-12-37">37</a></span>
-<span class="normal"><a href="#__codelineno-12-38">38</a></span>
-<span class="normal"><a href="#__codelineno-12-39">39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># listes à 1 dimension</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># initialisation</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<a id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># parcours - 1</span>
-<a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;list1 a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)):</span>
-<a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;list1[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">list1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-10" name="__codelineno-12-10"></a>
-<a id="__codelineno-12-11" name="__codelineno-12-11"></a><span class="c1"># modification d&#39;un élément</span>
-<a id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<a id="__codelineno-12-13" name="__codelineno-12-13"></a>
-<a id="__codelineno-12-14" name="__codelineno-12-14"></a><span class="c1"># parcours - 2</span>
-<a id="__codelineno-12-15" name="__codelineno-12-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;list1 a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-16" name="__codelineno-12-16"></a><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">list1</span><span class="p">:</span>
-<a id="__codelineno-12-17" name="__codelineno-12-17"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<a id="__codelineno-12-18" name="__codelineno-12-18"></a>
-<a id="__codelineno-12-19" name="__codelineno-12-19"></a><span class="c1"># ajout de deux éléments</span>
-<a id="__codelineno-12-20" name="__codelineno-12-20"></a><span class="n">list1</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
-<a id="__codelineno-12-21" name="__codelineno-12-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-22" name="__codelineno-12-22"></a>
-<a id="__codelineno-12-23" name="__codelineno-12-23"></a><span class="c1"># suppression des deux derniers éléments</span>
-<a id="__codelineno-12-24" name="__codelineno-12-24"></a><span class="k">del</span> <span class="n">list1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-12-25" name="__codelineno-12-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-26" name="__codelineno-12-26"></a>
-<a id="__codelineno-12-27" name="__codelineno-12-27"></a><span class="c1"># ajout en début de liste d&#39;un tuple</span>
-<a id="__codelineno-12-28" name="__codelineno-12-28"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span> <span class="o">-</span><span class="mi">11</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">):</span>
-<a id="__codelineno-12-29" name="__codelineno-12-29"></a>    <span class="n">list1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-12-30" name="__codelineno-12-30"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-31" name="__codelineno-12-31"></a>
-<a id="__codelineno-12-32" name="__codelineno-12-32"></a><span class="c1"># insertion en milieu de liste</span>
-<a id="__codelineno-12-33" name="__codelineno-12-33"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
-<a id="__codelineno-12-34" name="__codelineno-12-34"></a>    <span class="n">list1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
-<a id="__codelineno-12-35" name="__codelineno-12-35"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-12-36" name="__codelineno-12-36"></a>
-<a id="__codelineno-12-37" name="__codelineno-12-37"></a><span class="c1"># suppression en milieu de liste</span>
-<a id="__codelineno-12-38" name="__codelineno-12-38"></a><span class="k">del</span> <span class="n">list1</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-<a id="__codelineno-12-39" name="__codelineno-12-39"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">list1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># listes à 1 dimension</li>
+<li></li>
+<li># initialisation</li>
+<li>list1 = <strong>[0, 1, 2, 3, 4, 5]</strong></li>
+<li></li>
+<li># parcours - 1</li>
+<li>print(f"list1 a {len(list1)} éléments")</li>
+<li>for i in range(len(list1)):</li>
+<li>print(f"list1<strong>[{i}]</strong>={list1<strong>[i]</strong>}")</li>
+<li></li>
+<li># modification d'un élément</li>
+<li>list1<strong>[1]</strong> = 10</li>
+<li></li>
+<li># parcours - 2</li>
+<li>print(f"list1 a {len(list1)} éléments")</li>
+<li>for element in list1:</li>
+<li>print(element)</li>
+<li></li>
+<li># ajout de deux éléments</li>
+<li>list1.extend(<strong>[10, 11]</strong>)</li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># suppression des deux derniers éléments</li>
+<li>del list1<strong>[len(list1) - 2:]</strong></li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># ajout en début de liste d'un tuple</li>
+<li>for i in (-12, -11, -10):</li>
+<li>list1.insert(0, i)</li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># insertion en milieu de liste</li>
+<li>for i in (101, 100):</li>
+<li>list1.insert(3, i)</li>
+<li>print(f"{list1}")</li>
+<li></li>
+<li># suppression en milieu de liste</li>
+<li>del list1<strong>[3:4]</strong></li>
+<li>print(f"{list1}")</li>
+</ul>
 <p>Les résultats obtenus sont les mêmes qu'avec la version précédente.</p>
 <h2 id="37-script-bases_07-le-dictionnaire">3.7. script [bases_07] : le dictionnaire</h2>
 <p>Le script <strong>[bases_07]</strong> montre comment définir et exploiter un dictionnaire, parfois appelé tableau associatif.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-13-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-13-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-13-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-13-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-13-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-13-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-13-10">10</a></span>
-<span class="normal"><a href="#__codelineno-13-11">11</a></span>
-<span class="normal"><a href="#__codelineno-13-12">12</a></span>
-<span class="normal"><a href="#__codelineno-13-13">13</a></span>
-<span class="normal"><a href="#__codelineno-13-14">14</a></span>
-<span class="normal"><a href="#__codelineno-13-15">15</a></span>
-<span class="normal"><a href="#__codelineno-13-16">16</a></span>
-<span class="normal"><a href="#__codelineno-13-17">17</a></span>
-<span class="normal"><a href="#__codelineno-13-18">18</a></span>
-<span class="normal"><a href="#__codelineno-13-19">19</a></span>
-<span class="normal"><a href="#__codelineno-13-20">20</a></span>
-<span class="normal"><a href="#__codelineno-13-21">21</a></span>
-<span class="normal"><a href="#__codelineno-13-22">22</a></span>
-<span class="normal"><a href="#__codelineno-13-23">23</a></span>
-<span class="normal"><a href="#__codelineno-13-24">24</a></span>
-<span class="normal"><a href="#__codelineno-13-25">25</a></span>
-<span class="normal"><a href="#__codelineno-13-26">26</a></span>
-<span class="normal"><a href="#__codelineno-13-27">27</a></span>
-<span class="normal"><a href="#__codelineno-13-28">28</a></span>
-<span class="normal"><a href="#__codelineno-13-29">29</a></span>
-<span class="normal"><a href="#__codelineno-13-30">30</a></span>
-<span class="normal"><a href="#__codelineno-13-31">31</a></span>
-<span class="normal"><a href="#__codelineno-13-32">32</a></span>
-<span class="normal"><a href="#__codelineno-13-33">33</a></span>
-<span class="normal"><a href="#__codelineno-13-34">34</a></span>
-<span class="normal"><a href="#__codelineno-13-35">35</a></span>
-<span class="normal"><a href="#__codelineno-13-36">36</a></span>
-<span class="normal"><a href="#__codelineno-13-37">37</a></span>
-<span class="normal"><a href="#__codelineno-13-38">38</a></span>
-<span class="normal"><a href="#__codelineno-13-39">39</a></span>
-<span class="normal"><a href="#__codelineno-13-40">40</a></span>
-<span class="normal"><a href="#__codelineno-13-41">41</a></span>
-<span class="normal"><a href="#__codelineno-13-42">42</a></span>
-<span class="normal"><a href="#__codelineno-13-43">43</a></span>
-<span class="normal"><a href="#__codelineno-13-44">44</a></span>
-<span class="normal"><a href="#__codelineno-13-45">45</a></span>
-<span class="normal"><a href="#__codelineno-13-46">46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># une fonction qui vérifie si la clé mari existe dans le dictionnaire conjoints</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="k">def</span><span class="w"> </span><span class="nf">existe</span><span class="p">(</span><span class="n">conjoints</span><span class="p">,</span> <span class="n">mari</span><span class="p">):</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a>    <span class="k">if</span> <span class="n">mari</span> <span class="ow">in</span> <span class="n">conjoints</span><span class="p">:</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La clé [</span><span class="si">{</span><span class="n">mari</span><span class="si">}</span><span class="s2">] existe associée à la valeur [</span><span class="si">{</span><span class="n">conjoints</span><span class="p">[</span><span class="n">mari</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-5" name="__codelineno-13-5"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-13-6" name="__codelineno-13-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La clé [</span><span class="si">{</span><span class="n">mari</span><span class="si">}</span><span class="s2">] n&#39;existe pas&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-7" name="__codelineno-13-7"></a>
-<a id="__codelineno-13-8" name="__codelineno-13-8"></a>
-<a id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1"># ----------------------------- Main</span>
-<a id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="c1"># un dictionnaire</span>
-<a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="n">conjoints</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Pierre&quot;</span><span class="p">:</span> <span class="s2">&quot;Gisèle&quot;</span><span class="p">,</span> <span class="s2">&quot;Paul&quot;</span><span class="p">:</span> <span class="s2">&quot;Virginie&quot;</span><span class="p">,</span> <span class="s2">&quot;Jacques&quot;</span><span class="p">:</span> <span class="s2">&quot;Lucette&quot;</span><span class="p">,</span> <span class="s2">&quot;Jean&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">}</span>
-<a id="__codelineno-13-12" name="__codelineno-13-12"></a>
-<a id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="c1"># parcours - 1</span>
-<a id="__codelineno-13-14" name="__codelineno-13-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nombre d&#39;éléments du dictionnaire : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">conjoints</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-15" name="__codelineno-13-15"></a><span class="k">for</span> <span class="p">(</span><span class="n">clé</span><span class="p">,</span> <span class="n">valeur</span><span class="p">)</span> <span class="ow">in</span> <span class="n">conjoints</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-13-16" name="__codelineno-13-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;conjoints[</span><span class="si">{</span><span class="n">clé</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">valeur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-17" name="__codelineno-13-17"></a>
-<a id="__codelineno-13-18" name="__codelineno-13-18"></a><span class="c1"># liste des clés du dictionnaire</span>
-<a id="__codelineno-13-19" name="__codelineno-13-19"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste des clés-------------&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-20" name="__codelineno-13-20"></a><span class="n">clés</span> <span class="o">=</span> <span class="n">conjoints</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<a id="__codelineno-13-21" name="__codelineno-13-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">clés</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-22" name="__codelineno-13-22"></a>
-<a id="__codelineno-13-23" name="__codelineno-13-23"></a><span class="c1"># liste des valeurs du dictionnaire</span>
-<a id="__codelineno-13-24" name="__codelineno-13-24"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;liste des valeurs------------&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-25" name="__codelineno-13-25"></a><span class="n">valeurs</span> <span class="o">=</span> <span class="n">conjoints</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<a id="__codelineno-13-26" name="__codelineno-13-26"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">valeurs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-27" name="__codelineno-13-27"></a>
-<a id="__codelineno-13-28" name="__codelineno-13-28"></a><span class="c1"># recherche d&#39;une clé</span>
-<a id="__codelineno-13-29" name="__codelineno-13-29"></a><span class="n">existe</span><span class="p">(</span><span class="n">conjoints</span><span class="p">,</span> <span class="s2">&quot;Jacques&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-30" name="__codelineno-13-30"></a><span class="n">existe</span><span class="p">(</span><span class="n">conjoints</span><span class="p">,</span> <span class="s2">&quot;Lucette&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-31" name="__codelineno-13-31"></a><span class="n">existe</span><span class="p">(</span><span class="n">conjoints</span><span class="p">,</span> <span class="s2">&quot;Jean&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-32" name="__codelineno-13-32"></a>
-<a id="__codelineno-13-33" name="__codelineno-13-33"></a><span class="c1"># suppression d&#39;une clé-valeur</span>
-<a id="__codelineno-13-34" name="__codelineno-13-34"></a><span class="k">del</span> <span class="p">(</span><span class="n">conjoints</span><span class="p">[</span><span class="s2">&quot;Jean&quot;</span><span class="p">])</span>
-<a id="__codelineno-13-35" name="__codelineno-13-35"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nombre d&#39;éléments du dictionnaire : </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">conjoints</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-36" name="__codelineno-13-36"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">conjoints</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-37" name="__codelineno-13-37"></a>
-<a id="__codelineno-13-38" name="__codelineno-13-38"></a><span class="c1"># les clés et valeurs d&#39;un dictionnaire ne sont pas des listes</span>
-<a id="__codelineno-13-39" name="__codelineno-13-39"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;type des clés : </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">clés</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-40" name="__codelineno-13-40"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;type des valeurs : </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">valeurs</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-41" name="__codelineno-13-41"></a>
-<a id="__codelineno-13-42" name="__codelineno-13-42"></a><span class="c1"># on peut les transformer en listes</span>
-<a id="__codelineno-13-43" name="__codelineno-13-43"></a><span class="n">lclés</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">clés</span><span class="p">)</span>
-<a id="__codelineno-13-44" name="__codelineno-13-44"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;clés : </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">lclés</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lclés</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-13-45" name="__codelineno-13-45"></a><span class="n">lvaleurs</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">valeurs</span><span class="p">)</span>
-<a id="__codelineno-13-46" name="__codelineno-13-46"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;valeurs : </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">lvaleurs</span><span class="p">)</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">lvaleurs</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># une fonction qui vérifie si la clé mari existe dans le dictionnaire conjoints</li>
+<li>def existe(conjoints, mari):</li>
+<li>if mari in conjoints:</li>
+<li>print(f"La clé <strong>[{mari}]</strong> existe associée à la valeur <strong>[{conjoints[mari]</strong>}]")</li>
+<li>else:</li>
+<li>print(f"La clé <strong>[{mari}]</strong> n'existe pas")</li>
+<li></li>
+<li></li>
+<li># ----------------------------- Main</li>
+<li># un dictionnaire</li>
+<li>conjoints = {"Pierre": "Gisèle", "Paul": "Virginie", "Jacques": "Lucette", "Jean": ""}</li>
+<li></li>
+<li># parcours - 1</li>
+<li>print(f"Nombre d'éléments du dictionnaire : {len(conjoints)}")</li>
+<li>for (clé, valeur) in conjoints.items():</li>
+<li>print(f"conjoints<strong>[{clé}]</strong>={valeur}")</li>
+<li></li>
+<li># liste des clés du dictionnaire</li>
+<li>print("liste des clés-------------")</li>
+<li>clés = conjoints.keys()</li>
+<li>print(f"{clés}")</li>
+<li></li>
+<li># liste des valeurs du dictionnaire</li>
+<li>print("liste des valeurs------------")</li>
+<li>valeurs = conjoints.values()</li>
+<li>print(f"{valeurs}")</li>
+<li></li>
+<li># recherche d'une clé</li>
+<li>existe(conjoints, "Jacques")</li>
+<li>existe(conjoints, "Lucette")</li>
+<li>existe(conjoints, "Jean")</li>
+<li></li>
+<li># suppression d'une clé-valeur</li>
+<li>del (conjoints<strong>[</strong><strong>"Jean"</strong><strong>]</strong>)</li>
+<li>print(f"Nombre d'éléments du dictionnaire : {len(conjoints)}")</li>
+<li>print(f"{conjoints}")</li>
+<li></li>
+<li># les clés et valeurs d'un dictionnaire ne sont pas des listes</li>
+<li>print(f"type des clés : {type(clés)}")</li>
+<li>print(f"type des valeurs : {type(valeurs)}")</li>
+<li></li>
+<li># on peut les transformer en listes</li>
+<li>lclés = list(clés)</li>
+<li>print(f"clés : {type(lclés)}, {lclés}")</li>
+<li>lvaleurs = list(valeurs)</li>
+<li>print(f"valeurs : {type(lvaleurs)}, {lvaleurs}")</li>
+</ul>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>ligne 11 : la définition en dur d'un dictionnaire ;</li>
@@ -2469,48 +2100,29 @@
 <li>ligne 36 : un dictionnaire peut être affiché en une seule ligne.</li>
 </ul>
 <p><strong>Résultats</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-14-10">10</a></span>
-<span class="normal"><a href="#__codelineno-14-11">11</a></span>
-<span class="normal"><a href="#__codelineno-14-12">12</a></span>
-<span class="normal"><a href="#__codelineno-14-13">13</a></span>
-<span class="normal"><a href="#__codelineno-14-14">14</a></span>
-<span class="normal"><a href="#__codelineno-14-15">15</a></span>
-<span class="normal"><a href="#__codelineno-14-16">16</a></span>
-<span class="normal"><a href="#__codelineno-14-17">17</a></span>
-<span class="normal"><a href="#__codelineno-14-18">18</a></span>
-<span class="normal"><a href="#__codelineno-14-19">19</a></span>
-<span class="normal"><a href="#__codelineno-14-20">20</a></span>
-<span class="normal"><a href="#__codelineno-14-21">21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_07.py
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a>Nombre d&#39;éléments du dictionnaire : 4
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>conjoints[Pierre]=Gisèle
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a>conjoints[Paul]=Virginie
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a>conjoints[Jacques]=Lucette
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a>conjoints[Jean]=
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a>liste des clés-------------
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a>dict_keys([&#39;Pierre&#39;, &#39;Paul&#39;, &#39;Jacques&#39;, &#39;Jean&#39;])
-<a id="__codelineno-14-9" name="__codelineno-14-9"></a>liste des valeurs------------
-<a id="__codelineno-14-10" name="__codelineno-14-10"></a>dict_values([&#39;Gisèle&#39;, &#39;Virginie&#39;, &#39;Lucette&#39;, &#39;&#39;])
-<a id="__codelineno-14-11" name="__codelineno-14-11"></a>La clé [Jacques] existe associée à la valeur [Lucette]
-<a id="__codelineno-14-12" name="__codelineno-14-12"></a>La clé [Lucette] n&#39;existe pas
-<a id="__codelineno-14-13" name="__codelineno-14-13"></a>La clé [Jean] existe associée à la valeur []
-<a id="__codelineno-14-14" name="__codelineno-14-14"></a>Nombre d&#39;éléments du dictionnaire : 3
-<a id="__codelineno-14-15" name="__codelineno-14-15"></a>{&#39;Pierre&#39;: &#39;Gisèle&#39;, &#39;Paul&#39;: &#39;Virginie&#39;, &#39;Jacques&#39;: &#39;Lucette&#39;}
-<a id="__codelineno-14-16" name="__codelineno-14-16"></a>type des clés : &lt;class &#39;dict_keys&#39;&gt;
-<a id="__codelineno-14-17" name="__codelineno-14-17"></a>type des valeurs : &lt;class &#39;dict_values&#39;&gt;
-<a id="__codelineno-14-18" name="__codelineno-14-18"></a>clés : &lt;class &#39;list&#39;&gt;, [&#39;Pierre&#39;, &#39;Paul&#39;, &#39;Jacques&#39;]
-<a id="__codelineno-14-19" name="__codelineno-14-19"></a>valeurs : &lt;class &#39;list&#39;&gt;, [&#39;Gisèle&#39;, &#39;Virginie&#39;, &#39;Lucette&#39;]
-<a id="__codelineno-14-20" name="__codelineno-14-20"></a>
-<a id="__codelineno-14-21" name="__codelineno-14-21"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_07.py</li>
+<li>Nombre d'éléments du dictionnaire : 4</li>
+<li>conjoints<strong>[Pierre]</strong>=Gisèle</li>
+<li>conjoints<strong>[Paul]</strong>=Virginie</li>
+<li>conjoints<strong>[Jacques]</strong>=Lucette</li>
+<li>conjoints<strong>[Jean]</strong>=</li>
+<li>liste des clés-------------</li>
+<li>dict_keys(<strong>['Pierre', 'Paul', 'Jacques', 'Jean']</strong>)</li>
+<li>liste des valeurs------------</li>
+<li>dict_values(<strong>['Gisèle', 'Virginie', 'Lucette', '']</strong>)</li>
+<li>La clé <strong>[Jacques]</strong> existe associée à la valeur <strong>[Lucette]</strong></li>
+<li>La clé <strong>[Lucette]</strong> n'existe pas</li>
+<li>La clé <strong>[Jean]</strong> existe associée à la valeur <strong>[]</strong></li>
+<li>Nombre d'éléments du dictionnaire : 3</li>
+<li>{'Pierre': 'Gisèle', 'Paul': 'Virginie', 'Jacques': 'Lucette'}</li>
+<li>type des clés : &lt;class 'dict_keys'&gt;</li>
+<li>type des valeurs : &lt;class 'dict_values'&gt;</li>
+<li>clés : &lt;class 'list'&gt;, <strong>['Pierre', 'Paul', 'Jacques']</strong></li>
+<li>valeurs : &lt;class 'list'&gt;, <strong>['Gisèle', 'Virginie', 'Lucette']</strong></li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>on notera aux lignes 16-17 des résultats que les clés et valeurs d'un dictionnaire ne forment pas une liste mais un type 'dict_keys' ;</li>
@@ -2518,401 +2130,229 @@
 </ul>
 <h2 id="38-script-bases_08-les-tuples">3.8. script [bases_08] : les tuples</h2>
 <p>Le <strong>tuple</strong> a des similitudes avec la liste mais est non modifiable :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-15-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-15-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-15-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-15-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-15-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-15-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-15-10">10</a></span>
-<span class="normal"><a href="#__codelineno-15-11">11</a></span>
-<span class="normal"><a href="#__codelineno-15-12">12</a></span>
-<span class="normal"><a href="#__codelineno-15-13">13</a></span>
-<span class="normal"><a href="#__codelineno-15-14">14</a></span>
-<span class="normal"><a href="#__codelineno-15-15">15</a></span>
-<span class="normal"><a href="#__codelineno-15-16">16</a></span>
-<span class="normal"><a href="#__codelineno-15-17">17</a></span>
-<span class="normal"><a href="#__codelineno-15-18">18</a></span>
-<span class="normal"><a href="#__codelineno-15-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># tuples</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1"># initialisation</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="c1"># parcours - 1</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple1 a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)</span><span class="si">}</span><span class="s2"> elements&quot;</span><span class="p">)</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)):</span>
-<a id="__codelineno-15-8" name="__codelineno-15-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple1[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">tuple1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9"></a>
-<a id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="c1"># parcours - 2</span>
-<a id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple1 a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tuple1</span><span class="p">)</span><span class="si">}</span><span class="s2"> elements&quot;</span><span class="p">)</span>
-<a id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">tuple1</span><span class="p">:</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<a id="__codelineno-15-14" name="__codelineno-15-14"></a>
-<a id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="c1"># un tuble peut être affiché en une ligne</span>
-<a id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;tuple1=</span><span class="si">{</span><span class="n">tuple1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-15-17" name="__codelineno-15-17"></a>
-<a id="__codelineno-15-18" name="__codelineno-15-18"></a><span class="c1"># un tuple ne peut être modifié</span>
-<a id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="n">tuple1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># tuples</li>
+<li># initialisation</li>
+<li>tuple1 = (0, 1, 2, 3, 4, 5)</li>
+<li></li>
+<li># parcours - 1</li>
+<li>print(f"tuple1 a {len(tuple1)} elements")</li>
+<li>for i in range(len(tuple1)):</li>
+<li>print(f"tuple1<strong>[{i}]</strong>={tuple1<strong>[i]</strong>}")</li>
+<li></li>
+<li># parcours - 2</li>
+<li>print(f"tuple1 a {len(tuple1)} elements")</li>
+<li>for element in tuple1:</li>
+<li>print(element)</li>
+<li></li>
+<li># un tuble peut être affiché en une ligne</li>
+<li>print(f"tuple1={tuple1}")</li>
+<li></li>
+<li># un tuple ne peut être modifié</li>
+<li>tuple1<strong>[0]</strong> = 10</li>
+</ul>
 <p><strong>Résultats</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-16-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-16-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-16-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-16-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-16-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-16-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-16-10">10</a></span>
-<span class="normal"><a href="#__codelineno-16-11">11</a></span>
-<span class="normal"><a href="#__codelineno-16-12">12</a></span>
-<span class="normal"><a href="#__codelineno-16-13">13</a></span>
-<span class="normal"><a href="#__codelineno-16-14">14</a></span>
-<span class="normal"><a href="#__codelineno-16-15">15</a></span>
-<span class="normal"><a href="#__codelineno-16-16">16</a></span>
-<span class="normal"><a href="#__codelineno-16-17">17</a></span>
-<span class="normal"><a href="#__codelineno-16-18">18</a></span>
-<span class="normal"><a href="#__codelineno-16-19">19</a></span>
-<span class="normal"><a href="#__codelineno-16-20">20</a></span>
-<span class="normal"><a href="#__codelineno-16-21">21</a></span>
-<span class="normal"><a href="#__codelineno-16-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_08.py
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>tuple1 a 6 elements
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>tuple1[0]=0
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>tuple1[1]=1
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>tuple1[2]=2
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a>tuple1[3]=3
-<a id="__codelineno-16-7" name="__codelineno-16-7"></a>tuple1[4]=4
-<a id="__codelineno-16-8" name="__codelineno-16-8"></a>tuple1[5]=5
-<a id="__codelineno-16-9" name="__codelineno-16-9"></a>tuple1 a 6 elements
-<a id="__codelineno-16-10" name="__codelineno-16-10"></a>0
-<a id="__codelineno-16-11" name="__codelineno-16-11"></a>1
-<a id="__codelineno-16-12" name="__codelineno-16-12"></a>2
-<a id="__codelineno-16-13" name="__codelineno-16-13"></a>3
-<a id="__codelineno-16-14" name="__codelineno-16-14"></a>4
-<a id="__codelineno-16-15" name="__codelineno-16-15"></a>5
-<a id="__codelineno-16-16" name="__codelineno-16-16"></a>tuple1=(0, 1, 2, 3, 4, 5)
-<a id="__codelineno-16-17" name="__codelineno-16-17"></a>Traceback (most recent call last):
-<a id="__codelineno-16-18" name="__codelineno-16-18"></a>  File &quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_08.py&quot;, line 19, in &lt;module&gt;
-<a id="__codelineno-16-19" name="__codelineno-16-19"></a>    tuple1[0] = 10
-<a id="__codelineno-16-20" name="__codelineno-16-20"></a>TypeError: &#39;tuple&#39; object does not support item assignment
-<a id="__codelineno-16-21" name="__codelineno-16-21"></a>
-<a id="__codelineno-16-22" name="__codelineno-16-22"></a>Process finished with exit code 1
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_08.py</li>
+<li>tuple1 a 6 elements</li>
+<li>tuple1<strong>[0]</strong>=0</li>
+<li>tuple1<strong>[1]</strong>=1</li>
+<li>tuple1<strong>[2]</strong>=2</li>
+<li>tuple1<strong>[3]</strong>=3</li>
+<li>tuple1<strong>[4]</strong>=4</li>
+<li>tuple1<strong>[5]</strong>=5</li>
+<li>tuple1 a 6 elements</li>
+<li>0</li>
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>tuple1=(0, 1, 2, 3, 4, 5)</li>
+<li>Traceback (most recent call last):</li>
+<li>File "C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_08.py", line 19, in &lt;module&gt;</li>
+<li>tuple1<strong>[0]</strong> = 10</li>
+<li>TypeError: 'tuple' object does not support item assignment</li>
+<li></li>
+<li>Process finished with exit code 1</li>
+</ul>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>lignes 17-20 des résultats : montrent qu'un tuple ne peut pas être modifié.</li>
 </ul>
 <h2 id="39-script-bases_09-les-listes-et-dictionnaires-a-plusieurs-dimensions">3.9. Script [bases_09] : les listes et dictionnaires à plusieurs dimensions</h2>
 <p>Le script <strong>[bases_09]</strong> montre comment définir et exploiter une liste ou un dictionnaire multidimensionnel :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-17-10">10</a></span>
-<span class="normal"><a href="#__codelineno-17-11">11</a></span>
-<span class="normal"><a href="#__codelineno-17-12">12</a></span>
-<span class="normal"><a href="#__codelineno-17-13">13</a></span>
-<span class="normal"><a href="#__codelineno-17-14">14</a></span>
-<span class="normal"><a href="#__codelineno-17-15">15</a></span>
-<span class="normal"><a href="#__codelineno-17-16">16</a></span>
-<span class="normal"><a href="#__codelineno-17-17">17</a></span>
-<span class="normal"><a href="#__codelineno-17-18">18</a></span>
-<span class="normal"><a href="#__codelineno-17-19">19</a></span>
-<span class="normal"><a href="#__codelineno-17-20">20</a></span>
-<span class="normal"><a href="#__codelineno-17-21">21</a></span>
-<span class="normal"><a href="#__codelineno-17-22">22</a></span>
-<span class="normal"><a href="#__codelineno-17-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="c1"># listes multidimensionnelles</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="c1"># initialisation</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="n">multi</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">]]</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4"></a>
-<a id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="c1"># parcours</span>
-<a id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="k">for</span> <span class="n">i1</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">multi</span><span class="p">)):</span>
-<a id="__codelineno-17-7" name="__codelineno-17-7"></a>    <span class="k">for</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">multi</span><span class="p">[</span><span class="n">i1</span><span class="p">])):</span>
-<a id="__codelineno-17-8" name="__codelineno-17-8"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;multi[</span><span class="si">{</span><span class="n">i1</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">i2</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">multi</span><span class="p">[</span><span class="n">i1</span><span class="p">][</span><span class="n">i2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-17-9" name="__codelineno-17-9"></a>
-<a id="__codelineno-17-10" name="__codelineno-17-10"></a><span class="c1"># affichage en une ligne</span>
-<a id="__codelineno-17-11" name="__codelineno-17-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;multi=</span><span class="si">{</span><span class="n">multi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-17-12" name="__codelineno-17-12"></a>
-<a id="__codelineno-17-13" name="__codelineno-17-13"></a><span class="c1"># dictionnaires multidimensionnels</span>
-<a id="__codelineno-17-14" name="__codelineno-17-14"></a><span class="c1"># initialisation</span>
-<a id="__codelineno-17-15" name="__codelineno-17-15"></a><span class="n">multi</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;zéro&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;un&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="s2">&quot;deux&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">]}</span>
-<a id="__codelineno-17-16" name="__codelineno-17-16"></a>
-<a id="__codelineno-17-17" name="__codelineno-17-17"></a><span class="c1"># parcours</span>
-<a id="__codelineno-17-18" name="__codelineno-17-18"></a><span class="k">for</span> <span class="p">(</span><span class="n">clé</span><span class="p">,</span> <span class="n">valeur</span><span class="p">)</span> <span class="ow">in</span> <span class="n">multi</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-17-19" name="__codelineno-17-19"></a>    <span class="k">for</span> <span class="n">i2</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">valeur</span><span class="p">)):</span>
-<a id="__codelineno-17-20" name="__codelineno-17-20"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;multi[</span><span class="si">{</span><span class="n">clé</span><span class="si">}</span><span class="s2">][</span><span class="si">{</span><span class="n">i2</span><span class="si">}</span><span class="s2">]=</span><span class="si">{</span><span class="n">multi</span><span class="p">[</span><span class="n">clé</span><span class="p">][</span><span class="n">i2</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-17-21" name="__codelineno-17-21"></a>
-<a id="__codelineno-17-22" name="__codelineno-17-22"></a><span class="c1"># affichage en une ligne</span>
-<a id="__codelineno-17-23" name="__codelineno-17-23"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;multi=</span><span class="si">{</span><span class="n">multi</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># listes multidimensionnelles</li>
+<li># initialisation</li>
+<li>multi = <strong>[[0, 1, 2]</strong>, <strong>[10, 11, 12, 13]</strong>, <strong>[20, 21, 22, 23, 24]</strong>]</li>
+<li></li>
+<li># parcours</li>
+<li>for i1 in range(len(multi)):</li>
+<li>for i2 in range(len(multi<strong>[i1]</strong>)):</li>
+<li>print(f"multi<strong>[{i1}][{i2}]</strong>={multi<strong>[i1][i2]</strong>}")</li>
+<li></li>
+<li># affichage en une ligne</li>
+<li>print(f"multi={multi}")</li>
+<li></li>
+<li># dictionnaires multidimensionnels</li>
+<li># initialisation</li>
+<li>multi = {"zéro": <strong>[0, 1]</strong>, "un": <strong>[10, 11, 12, 13]</strong>, "deux": <strong>[20, 21, 22, 23, 24]</strong>}</li>
+<li></li>
+<li># parcours</li>
+<li>for (clé, valeur) in multi.items():</li>
+<li>for i2 in range(len(valeur)):</li>
+<li>print(f"multi<strong>[{clé}][{i2}]</strong>={multi<strong>[clé][i2]</strong>}")</li>
+<li></li>
+<li># affichage en une ligne</li>
+<li>print(f"multi={multi}")</li>
+</ul>
 <p><strong>Commentaires</strong></p>
 <ul>
 <li>ligne 7 : multi<strong>[i1]</strong> est une liste ;</li>
 <li>ligne 18 : valeur est une liste ;</li>
 </ul>
 <p><strong>Résultats</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-18-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-18-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-18-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-18-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-18-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-18-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-18-10">10</a></span>
-<span class="normal"><a href="#__codelineno-18-11">11</a></span>
-<span class="normal"><a href="#__codelineno-18-12">12</a></span>
-<span class="normal"><a href="#__codelineno-18-13">13</a></span>
-<span class="normal"><a href="#__codelineno-18-14">14</a></span>
-<span class="normal"><a href="#__codelineno-18-15">15</a></span>
-<span class="normal"><a href="#__codelineno-18-16">16</a></span>
-<span class="normal"><a href="#__codelineno-18-17">17</a></span>
-<span class="normal"><a href="#__codelineno-18-18">18</a></span>
-<span class="normal"><a href="#__codelineno-18-19">19</a></span>
-<span class="normal"><a href="#__codelineno-18-20">20</a></span>
-<span class="normal"><a href="#__codelineno-18-21">21</a></span>
-<span class="normal"><a href="#__codelineno-18-22">22</a></span>
-<span class="normal"><a href="#__codelineno-18-23">23</a></span>
-<span class="normal"><a href="#__codelineno-18-24">24</a></span>
-<span class="normal"><a href="#__codelineno-18-25">25</a></span>
-<span class="normal"><a href="#__codelineno-18-26">26</a></span>
-<span class="normal"><a href="#__codelineno-18-27">27</a></span>
-<span class="normal"><a href="#__codelineno-18-28">28</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_09.py
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a>multi[0][0]=0
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a>multi[0][1]=1
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a>multi[0][2]=2
-<a id="__codelineno-18-5" name="__codelineno-18-5"></a>multi[1][0]=10
-<a id="__codelineno-18-6" name="__codelineno-18-6"></a>multi[1][1]=11
-<a id="__codelineno-18-7" name="__codelineno-18-7"></a>multi[1][2]=12
-<a id="__codelineno-18-8" name="__codelineno-18-8"></a>multi[1][3]=13
-<a id="__codelineno-18-9" name="__codelineno-18-9"></a>multi[2][0]=20
-<a id="__codelineno-18-10" name="__codelineno-18-10"></a>multi[2][1]=21
-<a id="__codelineno-18-11" name="__codelineno-18-11"></a>multi[2][2]=22
-<a id="__codelineno-18-12" name="__codelineno-18-12"></a>multi[2][3]=23
-<a id="__codelineno-18-13" name="__codelineno-18-13"></a>multi[2][4]=24
-<a id="__codelineno-18-14" name="__codelineno-18-14"></a>multi=[[0, 1, 2], [10, 11, 12, 13], [20, 21, 22, 23, 24]]
-<a id="__codelineno-18-15" name="__codelineno-18-15"></a>multi[zéro][0]=0
-<a id="__codelineno-18-16" name="__codelineno-18-16"></a>multi[zéro][1]=1
-<a id="__codelineno-18-17" name="__codelineno-18-17"></a>multi[un][0]=10
-<a id="__codelineno-18-18" name="__codelineno-18-18"></a>multi[un][1]=11
-<a id="__codelineno-18-19" name="__codelineno-18-19"></a>multi[un][2]=12
-<a id="__codelineno-18-20" name="__codelineno-18-20"></a>multi[un][3]=13
-<a id="__codelineno-18-21" name="__codelineno-18-21"></a>multi[deux][0]=20
-<a id="__codelineno-18-22" name="__codelineno-18-22"></a>multi[deux][1]=21
-<a id="__codelineno-18-23" name="__codelineno-18-23"></a>multi[deux][2]=22
-<a id="__codelineno-18-24" name="__codelineno-18-24"></a>multi[deux][3]=23
-<a id="__codelineno-18-25" name="__codelineno-18-25"></a>multi[deux][4]=24
-<a id="__codelineno-18-26" name="__codelineno-18-26"></a>multi={&#39;zéro&#39;: [0, 1], &#39;un&#39;: [10, 11, 12, 13], &#39;deux&#39;: [20, 21, 22, 23, 24]}
-<a id="__codelineno-18-27" name="__codelineno-18-27"></a>
-<a id="__codelineno-18-28" name="__codelineno-18-28"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_09.py</li>
+<li>multi<strong>[0][0]</strong>=0</li>
+<li>multi<strong>[0][1]</strong>=1</li>
+<li>multi<strong>[0][2]</strong>=2</li>
+<li>multi<strong>[1][0]</strong>=10</li>
+<li>multi<strong>[1][1]</strong>=11</li>
+<li>multi<strong>[1][2]</strong>=12</li>
+<li>multi<strong>[1][3]</strong>=13</li>
+<li>multi<strong>[2][0]</strong>=20</li>
+<li>multi<strong>[2][1]</strong>=21</li>
+<li>multi<strong>[2][2]</strong>=22</li>
+<li>multi<strong>[2][3]</strong>=23</li>
+<li>multi<strong>[2][4]</strong>=24</li>
+<li>multi=<strong>[[0, 1, 2]</strong>, <strong>[10, 11, 12, 13]</strong>, <strong>[20, 21, 22, 23, 24]</strong>]</li>
+<li>multi<strong>[zéro][0]</strong>=0</li>
+<li>multi<strong>[zéro][1]</strong>=1</li>
+<li>multi<strong>[un][0]</strong>=10</li>
+<li>multi<strong>[un][1]</strong>=11</li>
+<li>multi<strong>[un][2]</strong>=12</li>
+<li>multi<strong>[un][3]</strong>=13</li>
+<li>multi<strong>[deux][0]</strong>=20</li>
+<li>multi<strong>[deux][1]</strong>=21</li>
+<li>multi<strong>[deux][2]</strong>=22</li>
+<li>multi<strong>[deux][3]</strong>=23</li>
+<li>multi<strong>[deux][4]</strong>=24</li>
+<li>multi={'zéro': <strong>[0, 1]</strong>, 'un': <strong>[10, 11, 12, 13]</strong>, 'deux': <strong>[20, 21, 22, 23, 24]</strong>}</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="310-script-bases_10-liens-entre-chaines-et-listes">3.10. Script [bases_10] : liens entre chaînes et listes</h2>
 <p>Le script <strong>[bases_10]</strong> montrent comment récupérer dans une liste les éléments d'une chaîne séparés par un même séparateur.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-19-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-19-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-19-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-19-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-19-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-19-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-19-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-19-10">10</a></span>
-<span class="normal"><a href="#__codelineno-19-11">11</a></span>
-<span class="normal"><a href="#__codelineno-19-12">12</a></span>
-<span class="normal"><a href="#__codelineno-19-13">13</a></span>
-<span class="normal"><a href="#__codelineno-19-14">14</a></span>
-<span class="normal"><a href="#__codelineno-19-15">15</a></span>
-<span class="normal"><a href="#__codelineno-19-16">16</a></span>
-<span class="normal"><a href="#__codelineno-19-17">17</a></span>
-<span class="normal"><a href="#__codelineno-19-18">18</a></span>
-<span class="normal"><a href="#__codelineno-19-19">19</a></span>
-<span class="normal"><a href="#__codelineno-19-20">20</a></span>
-<span class="normal"><a href="#__codelineno-19-21">21</a></span>
-<span class="normal"><a href="#__codelineno-19-22">22</a></span>
-<span class="normal"><a href="#__codelineno-19-23">23</a></span>
-<span class="normal"><a href="#__codelineno-19-24">24</a></span>
-<span class="normal"><a href="#__codelineno-19-25">25</a></span>
-<span class="normal"><a href="#__codelineno-19-26">26</a></span>
-<span class="normal"><a href="#__codelineno-19-27">27</a></span>
-<span class="normal"><a href="#__codelineno-19-28">28</a></span>
-<span class="normal"><a href="#__codelineno-19-29">29</a></span>
-<span class="normal"><a href="#__codelineno-19-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="c1"># chaîne vers liste</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">chaine</span> <span class="o">=</span> <span class="s1">&#39;1:2:3:4&#39;</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="n">liste</span> <span class="o">=</span> <span class="n">chaine</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">liste</span><span class="p">))</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5"></a>
-<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="c1"># affichage liste</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;liste a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;liste=</span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9"></a>
-<a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="c1"># liste vers chaîne</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="n">chaine2</span> <span class="o">=</span> <span class="s2">&quot;:&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span>
-<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chaine2=</span><span class="si">{</span><span class="n">chaine2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-13" name="__codelineno-19-13"></a>
-<a id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="c1"># ajoutons un champ vide</span>
-<a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="n">chaine</span> <span class="o">+=</span> <span class="s2">&quot;:&quot;</span>
-<a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chaine=</span><span class="si">{</span><span class="n">chaine</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="n">liste</span> <span class="o">=</span> <span class="n">chaine</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-18" name="__codelineno-19-18"></a>
-<a id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="c1"># affichage liste</span>
-<a id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;liste a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;liste=</span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-22" name="__codelineno-19-22"></a>
-<a id="__codelineno-19-23" name="__codelineno-19-23"></a><span class="c1"># ajoutons de nouveau un champ vide</span>
-<a id="__codelineno-19-24" name="__codelineno-19-24"></a><span class="n">chaine</span> <span class="o">+=</span> <span class="s2">&quot;:&quot;</span>
-<a id="__codelineno-19-25" name="__codelineno-19-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;chaine=</span><span class="si">{</span><span class="n">chaine</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-26" name="__codelineno-19-26"></a><span class="n">liste</span> <span class="o">=</span> <span class="n">chaine</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-27" name="__codelineno-19-27"></a>
-<a id="__codelineno-19-28" name="__codelineno-19-28"></a><span class="c1"># affichage liste</span>
-<a id="__codelineno-19-29" name="__codelineno-19-29"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;liste a </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">liste</span><span class="p">)</span><span class="si">}</span><span class="s2"> éléments&quot;</span><span class="p">)</span>
-<a id="__codelineno-19-30" name="__codelineno-19-30"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;liste=</span><span class="si">{</span><span class="n">liste</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># chaîne vers liste</li>
+<li>chaine = '1:2:3:4'</li>
+<li>liste = chaine.split(':')</li>
+<li>print(type(liste))</li>
+<li></li>
+<li># affichage liste</li>
+<li>print(f"liste a {len(liste)} éléments")</li>
+<li>print(f"liste={liste}")</li>
+<li></li>
+<li># liste vers chaîne</li>
+<li>chaine2 = ":".join(liste)</li>
+<li>print(f"chaine2={chaine2}")</li>
+<li></li>
+<li># ajoutons un champ vide</li>
+<li>chaine += ":"</li>
+<li>print(f"chaine={chaine}")</li>
+<li>liste = chaine.split(":")</li>
+<li></li>
+<li># affichage liste</li>
+<li>print(f"liste a {len(liste)} éléments")</li>
+<li>print(f"liste={liste}")</li>
+<li></li>
+<li># ajoutons de nouveau un champ vide</li>
+<li>chaine += ":"</li>
+<li>print(f"chaine={chaine}")</li>
+<li>liste = chaine.split(":")</li>
+<li></li>
+<li># affichage liste</li>
+<li>print(f"liste a {len(liste)} éléments")</li>
+<li>print(f"liste={liste}")</li>
+</ul>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>ligne 3 : la méthode chaine.split(séparateur) découpe la chaîne de caractères chaine en éléments séparés par séparateur et les rend sous forme de liste. Ainsi l'expression '1:2:3:4'.split(":") a pour valeur la liste ('1','2','3','4') ;</li>
 <li>ligne 11 : 'separateur'.join(liste) a pour valeur la chaîne de caractères 'liste<strong>[0]</strong>+separateur+liste<strong>[1]</strong>+separateur+…'.</li>
 </ul>
 <p><strong>Résultats</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-20-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-20-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-20-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-20-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-20-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-20-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-20-10">10</a></span>
-<span class="normal"><a href="#__codelineno-20-11">11</a></span>
-<span class="normal"><a href="#__codelineno-20-12">12</a></span>
-<span class="normal"><a href="#__codelineno-20-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_10.py
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a>&lt;class &#39;list&#39;&gt;
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a>liste a 4 éléments
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a>liste=[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;]
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a>chaine2=1:2:3:4
-<a id="__codelineno-20-6" name="__codelineno-20-6"></a>chaine=1:2:3:4:
-<a id="__codelineno-20-7" name="__codelineno-20-7"></a>liste a 5 éléments
-<a id="__codelineno-20-8" name="__codelineno-20-8"></a>liste=[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;&#39;]
-<a id="__codelineno-20-9" name="__codelineno-20-9"></a>chaine=1:2:3:4::
-<a id="__codelineno-20-10" name="__codelineno-20-10"></a>liste a 6 éléments
-<a id="__codelineno-20-11" name="__codelineno-20-11"></a>liste=[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;&#39;, &#39;&#39;]
-<a id="__codelineno-20-12" name="__codelineno-20-12"></a>
-<a id="__codelineno-20-13" name="__codelineno-20-13"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_10.py</li>
+<li>&lt;class 'list'&gt;</li>
+<li>liste a 4 éléments</li>
+<li>liste=<strong>['1', '2', '3', '4']</strong></li>
+<li>chaine2=1:2:3:4</li>
+<li>chaine=1:2:3:4:</li>
+<li>liste a 5 éléments</li>
+<li>liste=<strong>['1', '2', '3', '4', '']</strong></li>
+<li>chaine=1:2:3:4::</li>
+<li>liste a 6 éléments</li>
+<li>liste=<strong>['1', '2', '3', '4', '', '']</strong></li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 <h2 id="311-script-bases_11-les-expressions-regulieres">3.11. Script [bases_11] : les expressions régulières</h2>
 <p>Le script <strong>[bases_11]</strong> montre comment utiliser des expressions régulières :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-21-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-21-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-21-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-21-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-21-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-21-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-21-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-21-10">10</a></span>
-<span class="normal"><a href="#__codelineno-21-11">11</a></span>
-<span class="normal"><a href="#__codelineno-21-12">12</a></span>
-<span class="normal"><a href="#__codelineno-21-13">13</a></span>
-<span class="normal"><a href="#__codelineno-21-14">14</a></span>
-<span class="normal"><a href="#__codelineno-21-15">15</a></span>
-<span class="normal"><a href="#__codelineno-21-16">16</a></span>
-<span class="normal"><a href="#__codelineno-21-17">17</a></span>
-<span class="normal"><a href="#__codelineno-21-18">18</a></span>
-<span class="normal"><a href="#__codelineno-21-19">19</a></span>
-<span class="normal"><a href="#__codelineno-21-20">20</a></span>
-<span class="normal"><a href="#__codelineno-21-21">21</a></span>
-<span class="normal"><a href="#__codelineno-21-22">22</a></span>
-<span class="normal"><a href="#__codelineno-21-23">23</a></span>
-<span class="normal"><a href="#__codelineno-21-24">24</a></span>
-<span class="normal"><a href="#__codelineno-21-25">25</a></span>
-<span class="normal"><a href="#__codelineno-21-26">26</a></span>
-<span class="normal"><a href="#__codelineno-21-27">27</a></span>
-<span class="normal"><a href="#__codelineno-21-28">28</a></span>
-<span class="normal"><a href="#__codelineno-21-29">29</a></span>
-<span class="normal"><a href="#__codelineno-21-30">30</a></span>
-<span class="normal"><a href="#__codelineno-21-31">31</a></span>
-<span class="normal"><a href="#__codelineno-21-32">32</a></span>
-<span class="normal"><a href="#__codelineno-21-33">33</a></span>
-<span class="normal"><a href="#__codelineno-21-34">34</a></span>
-<span class="normal"><a href="#__codelineno-21-35">35</a></span>
-<span class="normal"><a href="#__codelineno-21-36">36</a></span>
-<span class="normal"><a href="#__codelineno-21-37">37</a></span>
-<span class="normal"><a href="#__codelineno-21-38">38</a></span>
-<span class="normal"><a href="#__codelineno-21-39">39</a></span>
-<span class="normal"><a href="#__codelineno-21-40">40</a></span>
-<span class="normal"><a href="#__codelineno-21-41">41</a></span>
-<span class="normal"><a href="#__codelineno-21-42">42</a></span>
-<span class="normal"><a href="#__codelineno-21-43">43</a></span>
-<span class="normal"><a href="#__codelineno-21-44">44</a></span>
-<span class="normal"><a href="#__codelineno-21-45">45</a></span>
-<span class="normal"><a href="#__codelineno-21-46">46</a></span>
-<span class="normal"><a href="#__codelineno-21-47">47</a></span>
-<span class="normal"><a href="#__codelineno-21-48">48</a></span>
-<span class="normal"><a href="#__codelineno-21-49">49</a></span>
-<span class="normal"><a href="#__codelineno-21-50">50</a></span>
-<span class="normal"><a href="#__codelineno-21-51">51</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="c1"># on importe le module des expressions régulières</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a>
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a>
-<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="c1"># --------------------------------------------------------------------------</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="n">chaine</span><span class="p">):</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7"></a>    <span class="c1"># compare la chaîne [chaîne] au modèle [modèle]</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8"></a>    <span class="c1"># affichage résultats</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Résultats(</span><span class="si">{</span><span class="n">chaine</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">modèle</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10"></a>    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="n">chaine</span><span class="p">)</span>
-<a id="__codelineno-21-11" name="__codelineno-21-11"></a>    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
-<a id="__codelineno-21-12" name="__codelineno-21-12"></a>        <span class="nb">print</span><span class="p">(</span><span class="n">match</span><span class="o">.</span><span class="n">groups</span><span class="p">())</span>
-<a id="__codelineno-21-13" name="__codelineno-21-13"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-21-14" name="__codelineno-21-14"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;La chaîne [</span><span class="si">{</span><span class="n">chaine</span><span class="si">}</span><span class="s2">] ne correspond pas au modèle [</span><span class="si">{</span><span class="n">modèle</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-15" name="__codelineno-21-15"></a>
-<a id="__codelineno-21-16" name="__codelineno-21-16"></a>
-<a id="__codelineno-21-17" name="__codelineno-21-17"></a><span class="c1"># expression régulières en python</span>
-<a id="__codelineno-21-18" name="__codelineno-21-18"></a><span class="c1"># récupérer les différents champs d&#39;une chaîne</span>
-<a id="__codelineno-21-19" name="__codelineno-21-19"></a><span class="c1"># le modèle : une suite de chiffres entourée de caractères quelconques</span>
-<a id="__codelineno-21-20" name="__codelineno-21-20"></a><span class="c1"># on ne veut récupérer que la suite de chiffres</span>
-<a id="__codelineno-21-21" name="__codelineno-21-21"></a><span class="n">modèle</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^.*?(\d+).*?$&quot;</span>
-<a id="__codelineno-21-22" name="__codelineno-21-22"></a>
-<a id="__codelineno-21-23" name="__codelineno-21-23"></a><span class="c1"># on confronte la chaîne au modèle</span>
-<a id="__codelineno-21-24" name="__codelineno-21-24"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;xyz1234abcd&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-25" name="__codelineno-21-25"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;12 34&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-26" name="__codelineno-21-26"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-27" name="__codelineno-21-27"></a>
-<a id="__codelineno-21-28" name="__codelineno-21-28"></a><span class="c1"># le modèle : une suite de chiffres entourée de caractères quelconques</span>
-<a id="__codelineno-21-29" name="__codelineno-21-29"></a><span class="c1"># on veut la suite de chiffres ainsi que les champs qui suivent et précèdent</span>
-<a id="__codelineno-21-30" name="__codelineno-21-30"></a><span class="n">modèle</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^(.*?)(\d+)(.*?)$&quot;</span>
-<a id="__codelineno-21-31" name="__codelineno-21-31"></a>
-<a id="__codelineno-21-32" name="__codelineno-21-32"></a><span class="c1"># on confronte la chaîne au modèle</span>
-<a id="__codelineno-21-33" name="__codelineno-21-33"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;xyz1234abcd&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-34" name="__codelineno-21-34"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;12 34&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-35" name="__codelineno-21-35"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;abcd&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-36" name="__codelineno-21-36"></a>
-<a id="__codelineno-21-37" name="__codelineno-21-37"></a><span class="c1"># le modèle - une date au format jj/mm/aa</span>
-<a id="__codelineno-21-38" name="__codelineno-21-38"></a><span class="n">modèle</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\s*(\d\d)\/(\d\d)\/(\d\d)\s*$&quot;</span>
-<a id="__codelineno-21-39" name="__codelineno-21-39"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;10/05/97&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-40" name="__codelineno-21-40"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot; 04/04/01 &quot;</span><span class="p">)</span>
-<a id="__codelineno-21-41" name="__codelineno-21-41"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;5/1/01&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-42" name="__codelineno-21-42"></a>
-<a id="__codelineno-21-43" name="__codelineno-21-43"></a><span class="c1"># le modèle - un nombre décimal</span>
-<a id="__codelineno-21-44" name="__codelineno-21-44"></a><span class="n">modèle</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$&quot;</span>
-<a id="__codelineno-21-45" name="__codelineno-21-45"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;187.8&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-46" name="__codelineno-21-46"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;-0.6&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-47" name="__codelineno-21-47"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-48" name="__codelineno-21-48"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;.6&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-49" name="__codelineno-21-49"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot;4.&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-50" name="__codelineno-21-50"></a><span class="n">compare</span><span class="p">(</span><span class="n">modèle</span><span class="p">,</span> <span class="s2">&quot; + 4&quot;</span><span class="p">)</span>
-<a id="__codelineno-21-51" name="__codelineno-21-51"></a><span class="c1"># fin</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># on importe le module des expressions régulières</li>
+<li>import re</li>
+<li></li>
+<li></li>
+<li># --------------------------------------------------------------------------</li>
+<li>def compare(modèle, chaine):</li>
+<li># compare la chaîne <strong>[chaîne]</strong> au modèle <strong>[modèle]</strong></li>
+<li># affichage résultats</li>
+<li>print(f"\nRésultats({chaine},{modèle})")</li>
+<li>match = re.match(modèle, chaine)</li>
+<li>if match:</li>
+<li>print(match.groups())</li>
+<li>else:</li>
+<li>print(f"La chaîne <strong>[{chaine}]</strong> ne correspond pas au modèle <strong>[{modèle}]</strong>")</li>
+<li></li>
+<li></li>
+<li># expression régulières en python</li>
+<li># récupérer les différents champs d'une chaîne</li>
+<li># le modèle : une suite de chiffres entourée de caractères quelconques</li>
+<li># on ne veut récupérer que la suite de chiffres</li>
+<li>modèle = r"\^.*?(\d+).*?\$"</li>
+<li></li>
+<li># on confronte la chaîne au modèle</li>
+<li>compare(modèle, "xyz1234abcd")</li>
+<li>compare(modèle, "12 34")</li>
+<li>compare(modèle, "abcd")</li>
+<li></li>
+<li># le modèle : une suite de chiffres entourée de caractères quelconques</li>
+<li># on veut la suite de chiffres ainsi que les champs qui suivent et précèdent</li>
+<li>modèle = r"\^(.*?)(\d+)(.*?)\$"</li>
+<li></li>
+<li># on confronte la chaîne au modèle</li>
+<li>compare(modèle, "xyz1234abcd")</li>
+<li>compare(modèle, "12 34")</li>
+<li>compare(modèle, "abcd")</li>
+<li></li>
+<li># le modèle - une date au format jj/mm/aa</li>
+<li>modèle = r"\^\s*(\d\d)\/(\d\d)\/(\d\d)\s*\$"</li>
+<li>compare(modèle, "10/05/97")</li>
+<li>compare(modèle, " 04/04/01 ")</li>
+<li>compare(modèle, "5/1/01")</li>
+<li></li>
+<li># le modèle - un nombre décimal</li>
+<li>modèle = r"\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$"</li>
+<li>compare(modèle, "187.8")</li>
+<li>compare(modèle, "-0.6")</li>
+<li>compare(modèle, "4")</li>
+<li>compare(modèle, ".6")</li>
+<li>compare(modèle, "4.")</li>
+<li>compare(modèle, " + 4")</li>
+<li># fin</li>
+</ul>
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>noter le module <strong>[re]</strong> importé en ligne 2. C'est lui qui contient les fonctions de gestion des expressions régulières ;</li>
@@ -2938,102 +2378,56 @@
 
 <p>Les sous-ensembles d'un modèle peuvent être "récupérés". Ainsi non seulement, on peut vérifier qu'une chaîne correspond à un modèle particulier mais on peut récupérer dans cette chaîne les éléments correspondant aux sous-ensembles du modèle qui ont été entourés de parenthèses. Ainsi si on analyse une chaîne contenant une date jj/mm/aa et si on veut de plus récupérer les éléments jj, mm, aa de cette date on utilisera le modèle (\d\d)/(\d\d)/(\d\d).</p>
 <p><strong>Résultats du script</strong></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-22-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-22-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-22-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-22-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-22-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-22-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-22-10">10</a></span>
-<span class="normal"><a href="#__codelineno-22-11">11</a></span>
-<span class="normal"><a href="#__codelineno-22-12">12</a></span>
-<span class="normal"><a href="#__codelineno-22-13">13</a></span>
-<span class="normal"><a href="#__codelineno-22-14">14</a></span>
-<span class="normal"><a href="#__codelineno-22-15">15</a></span>
-<span class="normal"><a href="#__codelineno-22-16">16</a></span>
-<span class="normal"><a href="#__codelineno-22-17">17</a></span>
-<span class="normal"><a href="#__codelineno-22-18">18</a></span>
-<span class="normal"><a href="#__codelineno-22-19">19</a></span>
-<span class="normal"><a href="#__codelineno-22-20">20</a></span>
-<span class="normal"><a href="#__codelineno-22-21">21</a></span>
-<span class="normal"><a href="#__codelineno-22-22">22</a></span>
-<span class="normal"><a href="#__codelineno-22-23">23</a></span>
-<span class="normal"><a href="#__codelineno-22-24">24</a></span>
-<span class="normal"><a href="#__codelineno-22-25">25</a></span>
-<span class="normal"><a href="#__codelineno-22-26">26</a></span>
-<span class="normal"><a href="#__codelineno-22-27">27</a></span>
-<span class="normal"><a href="#__codelineno-22-28">28</a></span>
-<span class="normal"><a href="#__codelineno-22-29">29</a></span>
-<span class="normal"><a href="#__codelineno-22-30">30</a></span>
-<span class="normal"><a href="#__codelineno-22-31">31</a></span>
-<span class="normal"><a href="#__codelineno-22-32">32</a></span>
-<span class="normal"><a href="#__codelineno-22-33">33</a></span>
-<span class="normal"><a href="#__codelineno-22-34">34</a></span>
-<span class="normal"><a href="#__codelineno-22-35">35</a></span>
-<span class="normal"><a href="#__codelineno-22-36">36</a></span>
-<span class="normal"><a href="#__codelineno-22-37">37</a></span>
-<span class="normal"><a href="#__codelineno-22-38">38</a></span>
-<span class="normal"><a href="#__codelineno-22-39">39</a></span>
-<span class="normal"><a href="#__codelineno-22-40">40</a></span>
-<span class="normal"><a href="#__codelineno-22-41">41</a></span>
-<span class="normal"><a href="#__codelineno-22-42">42</a></span>
-<span class="normal"><a href="#__codelineno-22-43">43</a></span>
-<span class="normal"><a href="#__codelineno-22-44">44</a></span>
-<span class="normal"><a href="#__codelineno-22-45">45</a></span>
-<span class="normal"><a href="#__codelineno-22-46">46</a></span>
-<span class="normal"><a href="#__codelineno-22-47">47</a></span>
-<span class="normal"><a href="#__codelineno-22-48">48</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_11.py
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a>
-<a id="__codelineno-22-3" name="__codelineno-22-3"></a>Résultats(xyz1234abcd,^.*?(\d+).*?$)
-<a id="__codelineno-22-4" name="__codelineno-22-4"></a>(&#39;1234&#39;,)
-<a id="__codelineno-22-5" name="__codelineno-22-5"></a>
-<a id="__codelineno-22-6" name="__codelineno-22-6"></a>Résultats(12 34,^.*?(\d+).*?$)
-<a id="__codelineno-22-7" name="__codelineno-22-7"></a>(&#39;12&#39;,)
-<a id="__codelineno-22-8" name="__codelineno-22-8"></a>
-<a id="__codelineno-22-9" name="__codelineno-22-9"></a>Résultats(abcd,^.*?(\d+).*?$)
-<a id="__codelineno-22-10" name="__codelineno-22-10"></a>La chaîne [abcd] ne correspond pas au modèle [^.*?(\d+).*?$]
-<a id="__codelineno-22-11" name="__codelineno-22-11"></a>
-<a id="__codelineno-22-12" name="__codelineno-22-12"></a>Résultats(xyz1234abcd,^(.*?)(\d+)(.*?)$)
-<a id="__codelineno-22-13" name="__codelineno-22-13"></a>(&#39;xyz&#39;, &#39;1234&#39;, &#39;abcd&#39;)
-<a id="__codelineno-22-14" name="__codelineno-22-14"></a>
-<a id="__codelineno-22-15" name="__codelineno-22-15"></a>Résultats(12 34,^(.*?)(\d+)(.*?)$)
-<a id="__codelineno-22-16" name="__codelineno-22-16"></a>(&#39;&#39;, &#39;12&#39;, &#39; 34&#39;)
-<a id="__codelineno-22-17" name="__codelineno-22-17"></a>
-<a id="__codelineno-22-18" name="__codelineno-22-18"></a>Résultats(abcd,^(.*?)(\d+)(.*?)$)
-<a id="__codelineno-22-19" name="__codelineno-22-19"></a>La chaîne [abcd] ne correspond pas au modèle [^(.*?)(\d+)(.*?)$]
-<a id="__codelineno-22-20" name="__codelineno-22-20"></a>
-<a id="__codelineno-22-21" name="__codelineno-22-21"></a>Résultats(10/05/97,^\s*(\d\d)\/(\d\d)\/(\d\d)\s*$)
-<a id="__codelineno-22-22" name="__codelineno-22-22"></a>(&#39;10&#39;, &#39;05&#39;, &#39;97&#39;)
-<a id="__codelineno-22-23" name="__codelineno-22-23"></a>
-<a id="__codelineno-22-24" name="__codelineno-22-24"></a>Résultats( 04/04/01 ,^\s*(\d\d)\/(\d\d)\/(\d\d)\s*$)
-<a id="__codelineno-22-25" name="__codelineno-22-25"></a>(&#39;04&#39;, &#39;04&#39;, &#39;01&#39;)
-<a id="__codelineno-22-26" name="__codelineno-22-26"></a>
-<a id="__codelineno-22-27" name="__codelineno-22-27"></a>Résultats(5/1/01,^\s*(\d\d)\/(\d\d)\/(\d\d)\s*$)
-<a id="__codelineno-22-28" name="__codelineno-22-28"></a>La chaîne [5/1/01] ne correspond pas au modèle [^\s*(\d\d)\/(\d\d)\/(\d\d)\s*$]
-<a id="__codelineno-22-29" name="__codelineno-22-29"></a>
-<a id="__codelineno-22-30" name="__codelineno-22-30"></a>Résultats(187.8,^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$)
-<a id="__codelineno-22-31" name="__codelineno-22-31"></a>(&#39;&#39;, &#39;187.8&#39;)
-<a id="__codelineno-22-32" name="__codelineno-22-32"></a>
-<a id="__codelineno-22-33" name="__codelineno-22-33"></a>Résultats(-0.6,^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$)
-<a id="__codelineno-22-34" name="__codelineno-22-34"></a>(&#39;-&#39;, &#39;0.6&#39;)
-<a id="__codelineno-22-35" name="__codelineno-22-35"></a>
-<a id="__codelineno-22-36" name="__codelineno-22-36"></a>Résultats(4,^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$)
-<a id="__codelineno-22-37" name="__codelineno-22-37"></a>(&#39;&#39;, &#39;4&#39;)
-<a id="__codelineno-22-38" name="__codelineno-22-38"></a>
-<a id="__codelineno-22-39" name="__codelineno-22-39"></a>Résultats(.6,^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$)
-<a id="__codelineno-22-40" name="__codelineno-22-40"></a>(&#39;&#39;, &#39;.6&#39;)
-<a id="__codelineno-22-41" name="__codelineno-22-41"></a>
-<a id="__codelineno-22-42" name="__codelineno-22-42"></a>Résultats(4.,^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$)
-<a id="__codelineno-22-43" name="__codelineno-22-43"></a>(&#39;&#39;, &#39;4.&#39;)
-<a id="__codelineno-22-44" name="__codelineno-22-44"></a>
-<a id="__codelineno-22-45" name="__codelineno-22-45"></a>Résultats( + 4,^\s*([+-]?)\s*(\d+\.\d*|\.\d+|\d+)\s*$)
-<a id="__codelineno-22-46" name="__codelineno-22-46"></a>(&#39;+&#39;, &#39;4&#39;)
-<a id="__codelineno-22-47" name="__codelineno-22-47"></a>
-<a id="__codelineno-22-48" name="__codelineno-22-48"></a>Process finished with exit code 0
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/bases/bases_11.py</li>
+<li></li>
+<li>Résultats(xyz1234abcd,\^.*?(\d+).*?\$)</li>
+<li>('1234',)</li>
+<li></li>
+<li>Résultats(12 34,\^.*?(\d+).*?\$)</li>
+<li>('12',)</li>
+<li></li>
+<li>Résultats(abcd,\^.*?(\d+).*?\$)</li>
+<li>La chaîne <strong>[abcd]</strong> ne correspond pas au modèle <strong>[\^.*?(\d+).*?\$]</strong></li>
+<li></li>
+<li>Résultats(xyz1234abcd,\^(.*?)(\d+)(.*?)\$)</li>
+<li>('xyz', '1234', 'abcd')</li>
+<li></li>
+<li>Résultats(12 34,\^(.*?)(\d+)(.*?)\$)</li>
+<li>('', '12', ' 34')</li>
+<li></li>
+<li>Résultats(abcd,\^(.*?)(\d+)(.*?)\$)</li>
+<li>La chaîne <strong>[abcd]</strong> ne correspond pas au modèle <strong>[\^(.*?)(\d+)(.*?)\$]</strong></li>
+<li></li>
+<li>Résultats(10/05/97,\^\s*(\d\d)\/(\d\d)\/(\d\d)\s*\$)</li>
+<li>('10', '05', '97')</li>
+<li></li>
+<li>Résultats( 04/04/01 ,\^\s*(\d\d)\/(\d\d)\/(\d\d)\s*\$)</li>
+<li>('04', '04', '01')</li>
+<li></li>
+<li>Résultats(5/1/01,\^\s*(\d\d)\/(\d\d)\/(\d\d)\s*\$)</li>
+<li>La chaîne <strong>[5/1/01]</strong> ne correspond pas au modèle <strong>[\^\s*(\d\d)\/(\d\d)\/(\d\d)\s*\$]</strong></li>
+<li></li>
+<li>Résultats(187.8,\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$)</li>
+<li>('', '187.8')</li>
+<li></li>
+<li>Résultats(-0.6,\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$)</li>
+<li>('-', '0.6')</li>
+<li></li>
+<li>Résultats(4,\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$)</li>
+<li>('', '4')</li>
+<li></li>
+<li>Résultats(.6,\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$)</li>
+<li>('', '.6')</li>
+<li></li>
+<li>Résultats(4.,\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$)</li>
+<li>('', '4.')</li>
+<li></li>
+<li>Résultats( + 4,\^\s*(<strong>[+-]</strong>?)\s*(\d+\.\d*|\.\d+|\d+)\s*\$)</li>
+<li>('+', '4')</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 
 
 

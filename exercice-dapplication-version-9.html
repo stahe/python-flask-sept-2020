@@ -1465,298 +1465,197 @@
 <p>Le dossier <strong>[http-servers/04]</strong> est obtenue par recopie du dossier <strong>[http-servers/02]</strong> à l’exception du sous-dossier <strong>[utilities]</strong>. Puis on change les éléments suivants :</p>
 <p><img src="images/100000000000018A0000011082E1D2F0.png" style="width:4.56cm;height:3.14cm;" alt="Image" /></p>
 <p>Le fichier <strong>[config]</strong> est modifié de la façon suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>    # dépendances absolues
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a>    absolute_dependencies = [
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a>        # dossiers du projet
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a>        # BaseEntity, MyException
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a>        f&quot;{root_dir}/classes/02/entities&quot;,
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a>        # InterfaceImpôtsDao, InterfaceImpôtsMétier, InterfaceImpôtsUi
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a>        f&quot;{root_dir}/impots/v04/interfaces&quot;,
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a>        # AbstractImpôtsdao, ImpôtsConsole, ImpôtsMétier
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a>        f&quot;{root_dir}/impots/v04/services&quot;,
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a>        # ImpotsDaoWithAdminDataInDatabase
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a>        f&quot;{root_dir}/impots/v05/services&quot;,
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a>        # AdminData, ImpôtsError, TaxPayer
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a>        f&quot;{root_dir}/impots/v04/entities&quot;,
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a>        # Constantes, tranches
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a>        f&quot;{root_dir}/impots/v05/entities&quot;,
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a>        # index_controller
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a>        f&quot;{root_dir}/impots/http-servers/01/controllers&quot;,
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a>        # scripts [config_database, config_layers]
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a>        script_dir,
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>        # Logger, SendAdminMail
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>        f&quot;{root_dir}/impots/http-servers/02/utilities&quot;,
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    ]
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 21 : on indique le dossier des utilitaires qui sont restés dans <strong>[http-servers/02]</strong> ;</li>
+<li># dépendances absolues</li>
+<li>absolute_dependencies = <strong>[</strong></li>
+<li>**        <strong>**# dossiers du projet</strong></li>
+<li>**        <strong>**# BaseEntity, MyException</strong></li>
+<li>**        <strong><em>*f"{root_dir}/classes/02/entities"</em></strong><em>,</em>*</li>
+<li>**        <strong>**# InterfaceImpôtsDao, InterfaceImpôtsMétier, InterfaceImpôtsUi</strong></li>
+<li>**        <strong><em>*f"{root_dir}/impots/v04/interfaces"</em></strong><em>,</em>*</li>
+<li>**        <strong>**# AbstractImpôtsdao, ImpôtsConsole, ImpôtsMétier</strong></li>
+<li>**        <strong><em>*f"{root_dir}/impots/v04/services"</em></strong><em>,</em>*</li>
+<li>**        <strong>**# ImpotsDaoWithAdminDataInDatabase</strong></li>
+<li>**        <strong><em>*f"{root_dir}/impots/v05/services"</em></strong><em>,</em>*</li>
+<li>**        <strong>**# AdminData, ImpôtsError, TaxPayer</strong></li>
+<li>**        <strong><em>*f"{root_dir}/impots/v04/entities"</em></strong><em>,</em>*</li>
+<li>**        <strong>**# Constantes, tranches</strong></li>
+<li>**        <strong><em>*f"{root_dir}/impots/v05/entities"</em></strong><em>,</em>*</li>
+<li>**        <strong>**# index_controller</strong></li>
+<li>**        <strong><em>*f"{root_dir}/impots/http-servers/01/controllers"</em></strong><em>,</em>*</li>
+<li>**        <strong><em>*# scripts [config_database, config_layers</em></strong><em>]</em>*</li>
+<li>script_dir,</li>
+<li># Logger, SendAdminMail</li>
+<li><mark>f"{root_dir}/impots/http-servers/02/utilities"</mark><mark>,</mark></li>
+<li>
+<p>]</p>
+</li>
+<li>
+<p>ligne 21 : on indique le dossier des utilitaires qui sont restés dans <strong>[http-servers/02]</strong> ;</p>
+</li>
 </ul>
 <p>Le script principal <strong>[main]</strong> évolue de la façon suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span>
-<span class="normal"><a href="#__codelineno-1-33">33</a></span>
-<span class="normal"><a href="#__codelineno-1-34">34</a></span>
-<span class="normal"><a href="#__codelineno-1-35">35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Home URL</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nd">@app</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">])</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nd">@auth</span><span class="o">.</span><span class="n">login_required</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">logger</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="c1"># logger</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>        <span class="n">logger</span> <span class="o">=</span> <span class="n">Logger</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">&quot;logsFilename&quot;</span><span class="p">])</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span class="c1"># on le mémorise dans une config associée au thread</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="n">thread_config</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;logger&quot;</span><span class="p">:</span> <span class="n">logger</span><span class="p">}</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>        <span class="n">thread_name</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span><span class="o">.</span><span class="n">name</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="n">config</span><span class="p">[</span><span class="n">thread_name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;config&quot;</span><span class="p">:</span> <span class="n">thread_config</span><span class="p">}</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>        <span class="c1"># on logue la requête</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[index] requête : </span><span class="si">{</span><span class="n">request</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="err">…</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="c1"># on fait exécuter la requête par un contrôleur</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="n">résultat</span><span class="p">,</span> <span class="n">status_code</span> <span class="o">=</span> <span class="n">index_controller</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>        <span class="c1"># y-a-t-il eu une erreur fatale ?</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="err">…</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        <span class="c1"># on logue la réponse</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="n">logger</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[index] </span><span class="si">{</span><span class="n">résultat</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="c1"># on envoie la réponse</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>        <span class="k">return</span> <span class="n">xml_response</span><span class="p">(</span><span class="n">résultat</span><span class="p">,</span> <span class="n">status_code</span><span class="p">)</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>        <span class="c1"># on logue l&#39;erreur si c&#39;est possible</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a>        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>            <span class="n">logger</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[index] </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a>        <span class="c1"># on prépare la réponse au client</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a>        <span class="n">résultat</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;erreurs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]}}</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>        <span class="c1"># on envoie la réponse</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="k">return</span> <span class="n">xml_response</span><span class="p">(</span><span class="n">résultat</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">HTTP_500_INTERNAL_SERVER_ERROR</span><span class="p">)</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a>    <span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a>        <span class="c1"># on ferme le fichier de logs s&#39;il a été ouvert</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a>        <span class="k">if</span> <span class="n">logger</span><span class="p">:</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a>            <span class="n">logger</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>l’unique modification est ligne 23 : on envoie désormais une réponse XML ;</li>
+<li># Home URL</li>
+<li>@app.route('/', methods=<strong>[</strong><strong>'GET'</strong><strong>]</strong>)</li>
+<li>@auth.login_required</li>
+<li>def index():</li>
+<li>logger = None</li>
+<li>try:</li>
+<li># logger</li>
+<li>logger = Logger(config<strong>[</strong><strong>"logsFilename"</strong><strong>]</strong>)</li>
+<li># on le mémorise dans une config associée au thread</li>
+<li>thread_config = {"logger": logger}</li>
+<li>thread_name = threading.current_thread().name</li>
+<li>config<strong>[</strong><strong>thread_name</strong><strong>]</strong> = {"config": thread_config}</li>
+<li># on logue la requête</li>
+<li>logger.write(f"<strong>[index]</strong> requête : {request}\n")</li>
+<li>…</li>
+<li># on fait exécuter la requête par un contrôleur</li>
+<li>résultat, status_code = index_controller.execute(request, config)</li>
+<li># y-a-t-il eu une erreur fatale ?</li>
+<li>…</li>
+<li># on logue la réponse</li>
+<li>logger.write(f"<strong>[index]</strong> {résultat}\n")</li>
+<li># on envoie la réponse</li>
+<li>return <mark>xml_response</mark>(résultat, status_code)</li>
+<li>except BaseException as erreur:</li>
+<li># on logue l'erreur si c'est possible</li>
+<li>if logger:</li>
+<li>logger.write(f"<strong>[index]</strong> {erreur}")</li>
+<li># on prépare la réponse au client</li>
+<li>résultat = {"réponse": {"erreurs": <strong>[</strong><strong>f"{erreur}"</strong><strong>]</strong>}}</li>
+<li># on envoie la réponse</li>
+<li>return xml_response(résultat, status.HTTP_500_INTERNAL_SERVER_ERROR)</li>
+<li>finally:</li>
+<li># on ferme le fichier de logs s'il a été ouvert</li>
+<li>if logger:</li>
+<li>
+<p>logger.close()</p>
+</li>
+<li>
+<p>l’unique modification est ligne 23 : on envoie désormais une réponse XML ;</p>
+</li>
 </ul>
 <p>La fonction <strong>[xml_response]</strong> est définie dans le module <strong>[myutils]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
-<span class="normal"><a href="#__codelineno-2-2">2</a></span>
-<span class="normal"><a href="#__codelineno-2-3">3</a></span>
-<span class="normal"><a href="#__codelineno-2-4">4</a></span>
-<span class="normal"><a href="#__codelineno-2-5">5</a></span>
-<span class="normal"><a href="#__codelineno-2-6">6</a></span>
-<span class="normal"><a href="#__codelineno-2-7">7</a></span>
-<span class="normal"><a href="#__codelineno-2-8">8</a></span>
-<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">xmltodict</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="err">…</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">xml_response</span><span class="p">(</span><span class="n">résultat</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="c1"># résultat : le dictionnaire à transformer en chaîne XML</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>    <span class="n">xmlString</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">unparse</span><span class="p">(</span><span class="n">résultat</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="c1"># on rend la réponse HTTP</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">make_response</span><span class="p">(</span><span class="n">xmlString</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a>    <span class="n">response</span><span class="o">.</span><span class="n">headers</span><span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;application/xml; charset=utf-8&#39;</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="k">return</span> <span class="n">response</span><span class="p">,</span> <span class="n">status_code</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 3 : la fonction <strong>[xml_response]</strong> reçoit en paramètres :</li>
-<li>le dictionnaire <strong>[résultat]</strong> à transformer en XML ;</li>
-<li>le code de statut <strong>[status_code]</strong> à renvoyer au client web ;</li>
-<li>ligne 5 : on utilise la bibliothèque <strong>[xmltodict]</strong> pour produire la chaîne XML ;</li>
+<li>import xmltodict</li>
+<li>…</li>
+<li>def xml_response(résultat: dict, status_code: int) -&gt; tuple:</li>
+<li># résultat : le dictionnaire à transformer en chaîne XML</li>
+<li>xmlString = <mark>xmltodict</mark><mark>.unparse</mark>(résultat)</li>
+<li># on rend la réponse HTTP</li>
+<li>response = make_response(xmlString)</li>
+<li>response.headers<strong>[</strong><strong>'Content-Type'</strong><strong>]</strong> = 'application/xml; charset=utf-8'</li>
+<li>
+<p>return response, status_code</p>
+</li>
+<li>
+<p>ligne 3 : la fonction <strong>[xml_response]</strong> reçoit en paramètres :</p>
+</li>
+<li>
+<p>le dictionnaire <strong>[résultat]</strong> à transformer en XML ;</p>
+</li>
+<li>
+<p>le code de statut <strong>[status_code]</strong> à renvoyer au client web ;</p>
+</li>
+<li>
+<p>ligne 5 : on utilise la bibliothèque <strong>[xmltodict]</strong> pour produire la chaîne XML ;</p>
+</li>
 <li>ligne 8 : on utilise l’entête <strong>[Content-Type]</strong> pour dire au client qu’on lui envoie du XML ;</li>
 </ul>
 <p>La fonction <strong>[xml_response]</strong> doit être importée dans le script <strong>[__init__.py]</strong> :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span><span class="p">,</span> <span class="n">json_response</span><span class="p">,</span> <span class="n">decode_flask_session</span><span class="p">,</span> <span class="n">xml_response</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span><span class="p">,</span> <span class="n">json_response</span><span class="p">,</span> <span class="n">decode_flask_session</span><span class="p">,</span> <span class="n">xml_response</span>
 </code></pre></div></td></tr></table></div>
 <p>Puis le module <strong>[myutils]</strong> doit être incorporé dans les modules de portée machine. Cela se fait dans un terminal PyCharm avec la commande <strong>[</strong><strong><mark>pip install .</mark></strong><strong>]</strong> (dans le dossier packages).</p>
 <h2 id="272-le-client-web">27.2. Le client web</h2>
 <h3 id="2721-le-code">27.2.1. Le code</h3>
 <p>Le dossier <strong>[http-clients/04]</strong> est obtenu par recopie du client <strong>[http-clients/02]</strong>. Puis nous modifions la classe <strong>[</strong><strong>ImpôtsDaoWithHttpClient</strong><strong>]</strong> de la façon suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span>
-<span class="normal"><a href="#__codelineno-4-21">21</a></span>
-<span class="normal"><a href="#__codelineno-4-22">22</a></span>
-<span class="normal"><a href="#__codelineno-4-23">23</a></span>
-<span class="normal"><a href="#__codelineno-4-24">24</a></span>
-<span class="normal"><a href="#__codelineno-4-25">25</a></span>
-<span class="normal"><a href="#__codelineno-4-26">26</a></span>
-<span class="normal"><a href="#__codelineno-4-27">27</a></span>
-<span class="normal"><a href="#__codelineno-4-28">28</a></span>
-<span class="normal"><a href="#__codelineno-4-29">29</a></span>
-<span class="normal"><a href="#__codelineno-4-30">30</a></span>
-<span class="normal"><a href="#__codelineno-4-31">31</a></span>
-<span class="normal"><a href="#__codelineno-4-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># imports</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">xmltodict</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">flask_api</span><span class="w"> </span><span class="kn">import</span> <span class="n">status</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">AbstractImpôtsDao</span><span class="w"> </span><span class="kn">import</span> <span class="n">AbstractImpôtsDao</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">AdminData</span><span class="w"> </span><span class="kn">import</span> <span class="n">AdminData</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ImpôtsError</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImpôtsError</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">InterfaceImpôtsMétier</span><span class="w"> </span><span class="kn">import</span> <span class="n">InterfaceImpôtsMétier</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="kn">from</span><span class="w"> </span><span class="nn">TaxPayer</span><span class="w"> </span><span class="kn">import</span> <span class="n">TaxPayer</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="k">class</span><span class="w"> </span><span class="nc">ImpôtsDaoWithHttpClient</span><span class="p">(</span><span class="n">AbstractImpôtsDao</span><span class="p">,</span> <span class="n">InterfaceImpôtsMétier</span><span class="p">):</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a>    <span class="c1"># constructeur</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a>        <span class="err">…</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="c1"># méthode inutilisée</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_admindata</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AdminData</span><span class="p">:</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a>        <span class="k">pass</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a>
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a>    <span class="c1"># calcul de l&#39;impôt</span>
-<a id="__codelineno-4-25" name="__codelineno-4-25"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">taxpayer</span><span class="p">:</span> <span class="n">TaxPayer</span><span class="p">,</span> <span class="n">admindata</span><span class="p">:</span> <span class="n">AdminData</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-4-26" name="__codelineno-4-26"></a>        <span class="err">…</span><span class="o">.</span>
-<a id="__codelineno-4-27" name="__codelineno-4-27"></a>        <span class="c1"># code de statut de la réponse HTTP</span>
-<a id="__codelineno-4-28" name="__codelineno-4-28"></a>        <span class="n">status_code</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
-<a id="__codelineno-4-29" name="__codelineno-4-29"></a>        <span class="c1"># on met la réponse XML dans un dictionnaire</span>
-<a id="__codelineno-4-30" name="__codelineno-4-30"></a>        <span class="n">résultat</span> <span class="o">=</span> <span class="n">xmltodict</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="mi">39</span><span class="p">:])</span>
-<a id="__codelineno-4-31" name="__codelineno-4-31"></a>        <span class="c1"># erreur si code de statut différent de 200 OK</span>
-<a id="__codelineno-4-32" name="__codelineno-4-32"></a>        <span class="err">…</span><span class="o">.</span>
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 30 : la réponse HTTP <strong>[response]</strong> du serveur web est désormais une chaîne XML. Les logs montrent la nature de celle-ci :</li>
+<li># imports</li>
+<li></li>
+<li>import requests</li>
+<li><mark>import</mark><mark> </mark><mark>xmltodict</mark></li>
+<li>from flask_api import status</li>
+<li></li>
+<li>from AbstractImpôtsDao import AbstractImpôtsDao</li>
+<li>from AdminData import AdminData</li>
+<li>from ImpôtsError import ImpôtsError</li>
+<li>from InterfaceImpôtsMétier import InterfaceImpôtsMétier</li>
+<li>from TaxPayer import TaxPayer</li>
+<li></li>
+<li></li>
+<li>class ImpôtsDaoWithHttpClient(AbstractImpôtsDao, InterfaceImpôtsMétier):</li>
+<li></li>
+<li># constructeur</li>
+<li>def __init__(self, config: dict):</li>
+<li>…</li>
+<li></li>
+<li># méthode inutilisée</li>
+<li>def get_admindata(self) -&gt; AdminData:</li>
+<li>pass</li>
+<li></li>
+<li># calcul de l'impôt</li>
+<li>def calculate_tax(self, taxpayer: TaxPayer, admindata: AdminData = None):</li>
+<li>….</li>
+<li># code de statut de la réponse HTTP</li>
+<li>status_code = response.status_code</li>
+<li># on met la réponse XML dans un dictionnaire</li>
+<li>résultat = <mark>xmltodict</mark><mark>.parse</mark>(response.text<strong>[39:]</strong>)</li>
+<li># erreur si code de statut différent de 200 OK</li>
+<li>
+<p>….</p>
+</li>
+<li>
+<p>ligne 30 : la réponse HTTP <strong>[response]</strong> du serveur web est désormais une chaîne XML. Les logs montrent la nature de celle-ci :</p>
+</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
-<span class="normal"><a href="#__codelineno-5-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>2020-07-27<span class="w"> </span>15:53:47.886283,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nt">&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;</span>non<span class="nt">&lt;/marié&gt;&lt;enfants&gt;</span>2<span class="nt">&lt;/enfants&gt;&lt;salaire&gt;</span>100000<span class="nt">&lt;/salaire&gt;&lt;impôt&gt;</span>19884<span class="nt">&lt;/impôt&gt;&lt;surcôte&gt;</span>4480<span class="nt">&lt;/surcôte&gt;&lt;taux&gt;</span>0.41<span class="nt">&lt;/taux&gt;&lt;décôte&gt;</span>0<span class="nt">&lt;/décôte&gt;&lt;réduction&gt;</span>0<span class="nt">&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>2020-07-27<span class="w"> </span>15:53:47.886283,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;</span>non<span class="nt">&lt;/marié&gt;&lt;enfants&gt;</span>2<span class="nt">&lt;/enfants&gt;&lt;salaire&gt;</span>100000<span class="nt">&lt;/salaire&gt;&lt;impôt&gt;</span>19884<span class="nt">&lt;/impôt&gt;&lt;surcôte&gt;</span>4480<span class="nt">&lt;/surcôte&gt;&lt;taux&gt;</span>0.41<span class="nt">&lt;/taux&gt;&lt;décôte&gt;</span>0<span class="nt">&lt;/décôte&gt;&lt;réduction&gt;</span>0<span class="nt">&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</span>
 </code></pre></div></td></tr></table></div>
 <p>La chaîne <strong>[&lt;?xml version="1.0" encoding="utf-8"?&gt;]</strong> compte 38 caractères. Par ailleurs, si on regarde le fichier de logs avec un éditeur hexadécimal, on voit que derrière cette chaîne il y a un caractère de saut de ligne \n. Puis vient la réponse &lt;réponse&gt;…&lt;/réponse&gt;. La chaîne XML que nous devons convertir commence donc après les 39 premiers caractères de la chaîne XML. Elle commence à partir du caractère n° 39, le 1er caractère étant numéroté 0. Cette chaîne est obtenue par l’expression <strong>[</strong><strong>response.text[39:</strong><strong>]</strong>].</p>
 <p>Si nous exécutons le client (suivez la procédure des exemples précédents), nous obtenons les mêmes résultats dans le fichier <strong>[résultats.json]</strong> que dans les versions précédentes. Les logs sont eux les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-6-10">10</a></span>
-<span class="normal"><a href="#__codelineno-6-11">11</a></span>
-<span class="normal"><a href="#__codelineno-6-12">12</a></span>
-<span class="normal"><a href="#__codelineno-6-13">13</a></span>
-<span class="normal"><a href="#__codelineno-6-14">14</a></span>
-<span class="normal"><a href="#__codelineno-6-15">15</a></span>
-<span class="normal"><a href="#__codelineno-6-16">16</a></span>
-<span class="normal"><a href="#__codelineno-6-17">17</a></span>
-<span class="normal"><a href="#__codelineno-6-18">18</a></span>
-<span class="normal"><a href="#__codelineno-6-19">19</a></span>
-<span class="normal"><a href="#__codelineno-6-20">20</a></span>
-<span class="normal"><a href="#__codelineno-6-21">21</a></span>
-<span class="normal"><a href="#__codelineno-6-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a>2020-07-27<span class="w"> </span>16:21:14.015941,<span class="w"> </span>Thread-1<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-1]<span class="w"> </span>avec<span class="w"> </span>2<span class="w"> </span>contribuable(s)
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a>2020-07-27<span class="w"> </span>16:21:14.016940,<span class="w"> </span>Thread-1<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>1,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>2,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>55555}
-<a id="__codelineno-6-3" name="__codelineno-6-3"></a>2020-07-27<span class="w"> </span>16:21:14.016940,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-2]<span class="w"> </span>avec<span class="w"> </span>3<span class="w"> </span>contribuable(s)
-<a id="__codelineno-6-4" name="__codelineno-6-4"></a>2020-07-27<span class="w"> </span>16:21:14.018939,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>3,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>3,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>50000}
-<a id="__codelineno-6-5" name="__codelineno-6-5"></a>2020-07-27<span class="w"> </span>16:21:14.019979,<span class="w"> </span>Thread-3<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-3]<span class="w"> </span>avec<span class="w"> </span>3<span class="w"> </span>contribuable(s)
-<a id="__codelineno-6-6" name="__codelineno-6-6"></a>2020-07-27<span class="w"> </span>16:21:14.019979,<span class="w"> </span>Thread-3<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>6,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>3,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>100000}
-<a id="__codelineno-6-7" name="__codelineno-6-7"></a>2020-07-27<span class="w"> </span>16:21:14.021938,<span class="w"> </span>Thread-4<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-4]<span class="w"> </span>avec<span class="w"> </span>2<span class="w"> </span>contribuable(s)
-<a id="__codelineno-6-8" name="__codelineno-6-8"></a>2020-07-27<span class="w"> </span>16:21:14.021938,<span class="w"> </span>Thread-4<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>9,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>2,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>30000}
-<a id="__codelineno-6-9" name="__codelineno-6-9"></a>2020-07-27<span class="w"> </span>16:21:14.021938,<span class="w"> </span>Thread-5<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-5]<span class="w"> </span>avec<span class="w"> </span>1<span class="w"> </span>contribuable(s)
-<a id="__codelineno-6-10" name="__codelineno-6-10"></a>2020-07-27<span class="w"> </span>16:21:14.022939,<span class="w"> </span>Thread-5<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>11,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>3,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>200000}
-<a id="__codelineno-6-11" name="__codelineno-6-11"></a>2020-07-27<span class="w"> </span>16:21:14.031942,<span class="w"> </span>Thread-1<span class="w"> </span>:<span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="nt">&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;</span>oui<span class="nt">&lt;/marié&gt;&lt;enfants&gt;</span>2<span class="nt">&lt;/enfants&gt;&lt;salaire&gt;</span>55555<span class="nt">&lt;/salaire&gt;&lt;impôt&gt;</span>2814<span class="nt">&lt;/impôt&gt;&lt;surcôte&gt;</span>0<span class="nt">&lt;/surcôte&gt;&lt;taux&gt;</span>0.14<span class="nt">&lt;/taux&gt;&lt;décôte&gt;</span>0<span class="nt">&lt;/décôte&gt;&lt;réduction&gt;</span>0<span class="nt">&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13"></a>2020-07-27<span class="w"> </span>16:21:14.031942,<span class="w"> </span>Thread-1<span class="w"> </span>:<span class="w"> </span>fin<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>1,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>2,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>55555,<span class="w"> </span>&quot;impôt&quot;:<span class="w"> </span>2814,<span class="w"> </span>&quot;surcôte&quot;:<span class="w"> </span>0,<span class="w"> </span>&quot;taux&quot;:<span class="w"> </span>0.14,<span class="w"> </span>&quot;décôte&quot;:<span class="w"> </span>0,<span class="w"> </span>&quot;réduction&quot;:<span class="w"> </span>0}
-<a id="__codelineno-6-14" name="__codelineno-6-14"></a>2020-07-27<span class="w"> </span>16:21:14.031942,<span class="w"> </span>Thread-1<span class="w"> </span>:<span class="w"> </span>début<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>2,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;oui&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>2,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>50000}
-<a id="__codelineno-6-15" name="__codelineno-6-15"></a>2020-07-27<span class="w"> </span>16:21:14.034941,<span class="w"> </span>Thread-4<span class="w"> </span>:<span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="nt">&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;</span>oui<span class="nt">&lt;/marié&gt;&lt;enfants&gt;</span>2<span class="nt">&lt;/enfants&gt;&lt;salaire&gt;</span>30000<span class="nt">&lt;/salaire&gt;&lt;impôt&gt;</span>0<span class="nt">&lt;/impôt&gt;&lt;surcôte&gt;</span>0<span class="nt">&lt;/surcôte&gt;&lt;taux&gt;</span>0.0<span class="nt">&lt;/taux&gt;&lt;décôte&gt;</span>0<span class="nt">&lt;/décôte&gt;&lt;réduction&gt;</span>0<span class="nt">&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17"></a>…
-<a id="__codelineno-6-18" name="__codelineno-6-18"></a>2020-07-27<span class="w"> </span>16:21:17.055931,<span class="w"> </span>Thread-3<span class="w"> </span>:<span class="w"> </span>fin<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-3]
-<a id="__codelineno-6-19" name="__codelineno-6-19"></a>2020-07-27<span class="w"> </span>16:21:17.059930,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="nt">&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;</span>non<span class="nt">&lt;/marié&gt;&lt;enfants&gt;</span>3<span class="nt">&lt;/enfants&gt;&lt;salaire&gt;</span>100000<span class="nt">&lt;/salaire&gt;&lt;impôt&gt;</span>16782<span class="nt">&lt;/impôt&gt;&lt;surcôte&gt;</span>7176<span class="nt">&lt;/surcôte&gt;&lt;taux&gt;</span>0.41<span class="nt">&lt;/taux&gt;&lt;décôte&gt;</span>0<span class="nt">&lt;/décôte&gt;&lt;réduction&gt;</span>0<span class="nt">&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</span>
-<a id="__codelineno-6-21" name="__codelineno-6-21"></a>2020-07-27<span class="w"> </span>16:21:17.060971,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span>fin<span class="w"> </span>du<span class="w"> </span>calcul<span class="w"> </span>de<span class="w"> </span>l&#39;impôt<span class="w"> </span>de<span class="w"> </span>{&quot;id&quot;:<span class="w"> </span>5,<span class="w"> </span>&quot;marié&quot;:<span class="w"> </span>&quot;non&quot;,<span class="w"> </span>&quot;enfants&quot;:<span class="w"> </span>3,<span class="w"> </span>&quot;salaire&quot;:<span class="w"> </span>100000,<span class="w"> </span>&quot;impôt&quot;:<span class="w"> </span>16782,<span class="w"> </span>&quot;surcôte&quot;:<span class="w"> </span>7176,<span class="w"> </span>&quot;taux&quot;:<span class="w"> </span>0.41,<span class="w"> </span>&quot;décôte&quot;:<span class="w"> </span>0,<span class="w"> </span>&quot;réduction&quot;:<span class="w"> </span>0}
-<a id="__codelineno-6-22" name="__codelineno-6-22"></a>2020-07-27<span class="w"> </span>16:21:17.060971,<span class="w"> </span>Thread-2<span class="w"> </span>:<span class="w"> </span>fin<span class="w"> </span>du<span class="w"> </span>thread<span class="w"> </span>[Thread-2]
-</code></pre></div></td></tr></table></div>
-<p>Côté serveur, les logs sont les suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
-<span class="normal"><a href="#__codelineno-7-2">2</a></span>
-<span class="normal"><a href="#__codelineno-7-3">3</a></span>
-<span class="normal"><a href="#__codelineno-7-4">4</a></span>
-<span class="normal"><a href="#__codelineno-7-5">5</a></span>
-<span class="normal"><a href="#__codelineno-7-6">6</a></span>
-<span class="normal"><a href="#__codelineno-7-7">7</a></span>
-<span class="normal"><a href="#__codelineno-7-8">8</a></span>
-<span class="normal"><a href="#__codelineno-7-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a>2020-07-27 16:32:04.983020, Thread-46 : [index] requête : &lt;Request &#39;http://127.0.0.1:5000/?marié=oui&amp;enfants=2&amp;salaire=50000&#39; [GET]&gt;
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a>2020-07-27 16:32:04.983020, Thread-46 : [index] mis en pause du thread pendant 1 seconde(s)
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a>2020-07-27 16:32:04.984021, Thread-47 : [index] requête : &lt;Request &#39;http://127.0.0.1:5000/?marié=oui&amp;enfants=2&amp;salaire=55555&#39; [GET]&gt;
-<a id="__codelineno-7-4" name="__codelineno-7-4"></a>2020-07-27 16:32:04.984021, Thread-47 : [index] mis en pause du thread pendant 1 seconde(s)
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a>…
-<a id="__codelineno-7-6" name="__codelineno-7-6"></a>2020-07-27 16:32:07.001271, Thread-56 : [index] mis en pause du thread pendant 1 seconde(s)
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a>2020-07-27 16:32:07.003078, Thread-54 : [index] {&#39;réponse&#39;: {&#39;result&#39;: {&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 5, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 4230, &#39;surcôte&#39;: 0, &#39;taux&#39;: 0.14, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0}}}
-<a id="__codelineno-7-8" name="__codelineno-7-8"></a>2020-07-27 16:32:07.006078, Thread-55 : [index] {&#39;réponse&#39;: {&#39;result&#39;: {&#39;marié&#39;: &#39;oui&#39;, &#39;enfants&#39;: 3, &#39;salaire&#39;: 200000, &#39;impôt&#39;: 42842, &#39;surcôte&#39;: 17283, &#39;taux&#39;: 0.41, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0}}}
-<a id="__codelineno-7-9" name="__codelineno-7-9"></a>2020-07-27 16:32:08.002824, Thread-56 : [index] {&#39;réponse&#39;: {&#39;result&#39;: {&#39;marié&#39;: &#39;non&#39;, &#39;enfants&#39;: 2, &#39;salaire&#39;: 100000, &#39;impôt&#39;: 19884, &#39;surcôte&#39;: 4480, &#39;taux&#39;: 0.41, &#39;décôte&#39;: 0, &#39;réduction&#39;: 0}}}
-</code></pre></div></td></tr></table></div>
 <ul>
-<li>le logueur continue à écrire le dictionnaire de la réponse et non la chaîne XML qui est envoyée au client. Ce n’est pas une erreur et c’est voulu ;</li>
+<li>2020-07-27 16:21:14.015941, Thread-1 : début du thread <strong>[Thread-1]</strong> avec 2 contribuable(s)</li>
+<li>2020-07-27 16:21:14.016940, Thread-1 : début du calcul de l'impôt de {"id": 1, "marié": "oui", "enfants": 2, "salaire": 55555}</li>
+<li>2020-07-27 16:21:14.016940, Thread-2 : début du thread <strong>[Thread-2]</strong> avec 3 contribuable(s)</li>
+<li>2020-07-27 16:21:14.018939, Thread-2 : début du calcul de l'impôt de {"id": 3, "marié": "oui", "enfants": 3, "salaire": 50000}</li>
+<li>2020-07-27 16:21:14.019979, Thread-3 : début du thread <strong>[Thread-3]</strong> avec 3 contribuable(s)</li>
+<li>2020-07-27 16:21:14.019979, Thread-3 : début du calcul de l'impôt de {"id": 6, "marié": "oui", "enfants": 3, "salaire": 100000}</li>
+<li>2020-07-27 16:21:14.021938, Thread-4 : début du thread <strong>[Thread-4]</strong> avec 2 contribuable(s)</li>
+<li>2020-07-27 16:21:14.021938, Thread-4 : début du calcul de l'impôt de {"id": 9, "marié": "oui", "enfants": 2, "salaire": 30000}</li>
+<li>2020-07-27 16:21:14.021938, Thread-5 : début du thread <strong>[Thread-5]</strong> avec 1 contribuable(s)</li>
+<li>2020-07-27 16:21:14.022939, Thread-5 : début du calcul de l'impôt de {"id": 11, "marié": "oui", "enfants": 3, "salaire": 200000}</li>
+<li>2020-07-27 16:21:14.031942, Thread-1 : &lt;?xml version="1.0" encoding="utf-8"?&gt;</li>
+<li>&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;oui&lt;/marié&gt;&lt;enfants&gt;2&lt;/enfants&gt;&lt;salaire&gt;55555&lt;/salaire&gt;&lt;impôt&gt;2814&lt;/impôt&gt;&lt;surcôte&gt;0&lt;/surcôte&gt;&lt;taux&gt;0.14&lt;/taux&gt;&lt;décôte&gt;0&lt;/décôte&gt;&lt;réduction&gt;0&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</li>
+<li>2020-07-27 16:21:14.031942, Thread-1 : fin du calcul de l'impôt de {"id": 1, "marié": "oui", "enfants": 2, "salaire": 55555, "impôt": 2814, "surcôte": 0, "taux": 0.14, "décôte": 0, "réduction": 0}</li>
+<li>2020-07-27 16:21:14.031942, Thread-1 : début du calcul de l'impôt de {"id": 2, "marié": "oui", "enfants": 2, "salaire": 50000}</li>
+<li>2020-07-27 16:21:14.034941, Thread-4 : &lt;?xml version="1.0" encoding="utf-8"?&gt;</li>
+<li>&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;oui&lt;/marié&gt;&lt;enfants&gt;2&lt;/enfants&gt;&lt;salaire&gt;30000&lt;/salaire&gt;&lt;impôt&gt;0&lt;/impôt&gt;&lt;surcôte&gt;0&lt;/surcôte&gt;&lt;taux&gt;0.0&lt;/taux&gt;&lt;décôte&gt;0&lt;/décôte&gt;&lt;réduction&gt;0&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</li>
+<li>…</li>
+<li>2020-07-27 16:21:17.055931, Thread-3 : fin du thread <strong>[Thread-3]</strong></li>
+<li>2020-07-27 16:21:17.059930, Thread-2 : &lt;?xml version="1.0" encoding="utf-8"?&gt;</li>
+<li>&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;non&lt;/marié&gt;&lt;enfants&gt;3&lt;/enfants&gt;&lt;salaire&gt;100000&lt;/salaire&gt;&lt;impôt&gt;16782&lt;/impôt&gt;&lt;surcôte&gt;7176&lt;/surcôte&gt;&lt;taux&gt;0.41&lt;/taux&gt;&lt;décôte&gt;0&lt;/décôte&gt;&lt;réduction&gt;0&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</li>
+<li>2020-07-27 16:21:17.060971, Thread-2 : fin du calcul de l'impôt de {"id": 5, "marié": "non", "enfants": 3, "salaire": 100000, "impôt": 16782, "surcôte": 7176, "taux": 0.41, "décôte": 0, "réduction": 0}</li>
+<li>2020-07-27 16:21:17.060971, Thread-2 : fin du thread <strong>[Thread-2]</strong></li>
+</ul>
+<p>Côté serveur, les logs sont les suivants :</p>
+<ul>
+<li>2020-07-27 16:32:04.983020, Thread-46 : <strong>[index]</strong> requête : &lt;Request 'http://127.0.0.1:5000/?marié=oui&amp;enfants=2&amp;salaire=50000' <strong>[GET]</strong>&gt;</li>
+<li>2020-07-27 16:32:04.983020, Thread-46 : <strong>[index]</strong> mis en pause du thread pendant 1 seconde(s)</li>
+<li>2020-07-27 16:32:04.984021, Thread-47 : <strong>[index]</strong> requête : &lt;Request 'http://127.0.0.1:5000/?marié=oui&amp;enfants=2&amp;salaire=55555' <strong>[GET]</strong>&gt;</li>
+<li>2020-07-27 16:32:04.984021, Thread-47 : <strong>[index]</strong> mis en pause du thread pendant 1 seconde(s)</li>
+<li>…</li>
+<li>2020-07-27 16:32:07.001271, Thread-56 : <strong>[index]</strong> mis en pause du thread pendant 1 seconde(s)</li>
+<li>2020-07-27 16:32:07.003078, Thread-54 : <strong>[index]</strong> {'réponse': {'result': {'marié': 'oui', 'enfants': 5, 'salaire': 100000, 'impôt': 4230, 'surcôte': 0, 'taux': 0.14, 'décôte': 0, 'réduction': 0}}}</li>
+<li>2020-07-27 16:32:07.006078, Thread-55 : <strong>[index]</strong> {'réponse': {'result': {'marié': 'oui', 'enfants': 3, 'salaire': 200000, 'impôt': 42842, 'surcôte': 17283, 'taux': 0.41, 'décôte': 0, 'réduction': 0}}}</li>
+<li>
+<p>2020-07-27 16:32:08.002824, Thread-56 : <strong>[index]</strong> {'réponse': {'result': {'marié': 'non', 'enfants': 2, 'salaire': 100000, 'impôt': 19884, 'surcôte': 4480, 'taux': 0.41, 'décôte': 0, 'réduction': 0}}}</p>
+</li>
+<li>
+<p>le logueur continue à écrire le dictionnaire de la réponse et non la chaîne XML qui est envoyée au client. Ce n’est pas une erreur et c’est voulu ;</p>
+</li>
 </ul>
 <h3 id="2722-test-de-la-couche-dao-du-client">27.2.2. Test de la couche [dao] du client</h3>
 <p><img src="images/10000000000001D9000002077E8AE75A.png" style="width:5.46cm;height:5.98cm;" alt="Image" /></p>

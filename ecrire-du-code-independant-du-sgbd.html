@@ -1376,346 +1376,210 @@
 <p>L’arborescence des scripts sera la suivante :</p>
 <p><img src="images/1000000000000168000001EBB3D4138F.png" style="width:4.16cm;height:5.661cm;" alt="Image" /></p>
 <p>Les scripts <strong>[any_xx]</strong> reprennent les scripts déjà étudiés pour les SGBD MySQL et PostgreSQL. Nous n’allons pas tous les reprendre. Nous allons nous concentrer sur le script <strong>[any_04]</strong> qui est le plus complexe. On rappelle que ce script exécute les commandes SQL du fichier <strong>[data/commandes.sql]</strong> suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-0-10">10</a></span>
-<span class="normal"><a href="#__codelineno-0-11">11</a></span>
-<span class="normal"><a href="#__codelineno-0-12">12</a></span>
-<span class="normal"><a href="#__codelineno-0-13">13</a></span>
-<span class="normal"><a href="#__codelineno-0-14">14</a></span>
-<span class="normal"><a href="#__codelineno-0-15">15</a></span>
-<span class="normal"><a href="#__codelineno-0-16">16</a></span>
-<span class="normal"><a href="#__codelineno-0-17">17</a></span>
-<span class="normal"><a href="#__codelineno-0-18">18</a></span>
-<span class="normal"><a href="#__codelineno-0-19">19</a></span>
-<span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># suppression de la table [personnes]</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">drop</span> <span class="n">table</span> <span class="k">if</span> <span class="n">exists</span> <span class="n">personnes</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># création de la table personnes</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">primary</span> <span class="n">key</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">unique</span> <span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># insertion de deux personnes</span>
-<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">,</span><span class="s1">&#39;Langevin&#39;</span><span class="p">,</span><span class="mi">48</span><span class="p">)</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span><span class="s1">&#39;Lefur&#39;</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># affichage de la table</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># erreur volontaire</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="n">xx</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># insertion de trois personnes</span>
-<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">,</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span><span class="mi">26</span><span class="p">)</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Paulette&#39;</span><span class="p">,</span><span class="s1">&#39;Girond&#39;</span><span class="p">,</span><span class="mi">56</span><span class="p">)</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="c1"># affichage de la table</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># liste des personnes par ordre alphabétique des noms et à nom égal par ordre alphabétique des prénoms</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">order</span> <span class="n">by</span> <span class="n">nom</span> <span class="n">asc</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">desc</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="c1"># liste des personnes ayant un âge dans l&#39;intervalle [20,40] par ordre décroissant de l&#39;âge</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="c1"># puis à âge égal par ordre alphabétique des noms et à nom égal par ordre alphabétique des prénoms</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">age</span> <span class="n">between</span> <span class="mi">20</span> <span class="ow">and</span> <span class="mi">40</span> <span class="n">order</span> <span class="n">by</span> <span class="n">age</span> <span class="n">desc</span><span class="p">,</span> <span class="n">nom</span> <span class="n">asc</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">asc</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="c1"># insertion de mme Bruneau</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Josette&#39;</span><span class="p">,</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">,</span><span class="mi">46</span><span class="p">)</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="c1"># mise à jour de son âge</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="n">update</span> <span class="n">personnes</span> <span class="nb">set</span> <span class="n">age</span><span class="o">=</span><span class="mi">47</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="c1"># liste des personnes ayant Bruneau pour nom</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="c1"># suppression de Mme Bruneau</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="n">delete</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="c1"># liste des personnes ayant Bruneau pour nom</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># suppression de la table <strong>[personnes]</strong></li>
+<li><mark>drop</mark><mark> </mark><mark>table</mark><mark> if exists personnes</mark></li>
+<li># création de la table personnes</li>
+<li>create table personnes (id int primary key, prenom varchar(30) not null, nom varchar(30) not null, age integer not null, unique (nom,prenom))</li>
+<li># insertion de deux personnes</li>
+<li>insert into personnes(id, prenom, nom, age) values(1, 'Paul','Langevin',48)</li>
+<li>insert into personnes(id, prenom, nom, age) values (2, 'Sylvie','Lefur',70)</li>
+<li># affichage de la table</li>
+<li>select prenom, nom, age from personnes</li>
+<li># erreur volontaire</li>
+<li>xx</li>
+<li># insertion de trois personnes</li>
+<li>insert into personnes(id, prenom, nom, age) values (3, 'Pierre','Nicazou',35)</li>
+<li>insert into personnes(id, prenom, nom, age) values (4, 'Geraldine','Colou',26)</li>
+<li>insert into personnes(id, prenom, nom, age) values (5, 'Paulette','Girond',56)</li>
+<li># affichage de la table</li>
+<li>select prenom, nom, age from personnes</li>
+<li># liste des personnes par ordre alphabétique des noms et à nom égal par ordre alphabétique des prénoms</li>
+<li>select nom,prenom from personnes order by nom asc, prenom desc</li>
+<li># liste des personnes ayant un âge dans l'intervalle <strong>[20,40]</strong> par ordre décroissant de l'âge</li>
+<li># puis à âge égal par ordre alphabétique des noms et à nom égal par ordre alphabétique des prénoms</li>
+<li>select nom,prenom,age from personnes where age between 20 and 40 order by age desc, nom asc, prenom asc</li>
+<li># insertion de mme Bruneau</li>
+<li>insert into personnes(id, prenom, nom, age) values(6, 'Josette','Bruneau',46)</li>
+<li># mise à jour de son âge</li>
+<li>update personnes set age=47 where nom='Bruneau'</li>
+<li># liste des personnes ayant Bruneau pour nom</li>
+<li>select nom,prenom,age from personnes where nom='Bruneau'</li>
+<li># suppression de Mme Bruneau</li>
+<li>delete from personnes where nom='Bruneau'</li>
+<li># liste des personnes ayant Bruneau pour nom</li>
+<li>select nom,prenom,age from personnes where nom='Bruneau'</li>
+</ul>
 <p>Nous avons modifié la ligne 2 pour que la commande ait le même comportement pour les SGBD MySQL et PostgreSQL si la table <strong>[personnes]</strong> n’existe pas.</p>
 <p>Le script <strong>[any_04]</strong> est configuré par le script <strong>[config.py]</strong> suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span>
-<span class="normal"><a href="#__codelineno-1-33">33</a></span>
-<span class="normal"><a href="#__codelineno-1-34">34</a></span>
-<span class="normal"><a href="#__codelineno-1-35">35</a></span>
-<span class="normal"><a href="#__codelineno-1-36">36</a></span>
-<span class="normal"><a href="#__codelineno-1-37">37</a></span>
-<span class="normal"><a href="#__codelineno-1-38">38</a></span>
-<span class="normal"><a href="#__codelineno-1-39">39</a></span>
-<span class="normal"><a href="#__codelineno-1-40">40</a></span>
-<span class="normal"><a href="#__codelineno-1-41">41</a></span>
-<span class="normal"><a href="#__codelineno-1-42">42</a></span>
-<span class="normal"><a href="#__codelineno-1-43">43</a></span>
-<span class="normal"><a href="#__codelineno-1-44">44</a></span>
-<span class="normal"><a href="#__codelineno-1-45">45</a></span>
-<span class="normal"><a href="#__codelineno-1-46">46</a></span>
-<span class="normal"><a href="#__codelineno-1-47">47</a></span>
-<span class="normal"><a href="#__codelineno-1-48">48</a></span>
-<span class="normal"><a href="#__codelineno-1-49">49</a></span>
-<span class="normal"><a href="#__codelineno-1-50">50</a></span>
-<span class="normal"><a href="#__codelineno-1-51">51</a></span>
-<span class="normal"><a href="#__codelineno-1-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">():</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a>    <span class="c1"># chemin absolu du dossier de ce script</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="c1"># configuration des dossiers du syspath</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="n">absolute_dependencies</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a>        <span class="c1"># dossiers locaux</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/shared&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="p">]</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="c1"># fixation du syspath</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="n">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="c1"># configuration de l&#39;application</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a>        <span class="c1"># sgbd gérés</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a>        <span class="s2">&quot;sgbds&quot;</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a>            <span class="s2">&quot;mysql&quot;</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a>                <span class="c1"># connecteur du sgbd</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a>                <span class="s2">&quot;sgbd_connector&quot;</span><span class="p">:</span> <span class="s2">&quot;mysql.connector&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a>                <span class="c1"># nom du module rassemblant des fonctions de gestion du sgbd</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a>                <span class="s2">&quot;sgbd_fonctions&quot;</span><span class="p">:</span> <span class="s2">&quot;any_module&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a>                <span class="c1"># identifiants de la connexion</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a>                <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;admpersonnes&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a>                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;nobody&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a>                <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a>                <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;dbpersonnes&quot;</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a>            <span class="p">},</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a>            <span class="s2">&quot;postgresql&quot;</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a>                <span class="c1"># connecteur du sgbd</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a>                <span class="s2">&quot;sgbd_connector&quot;</span><span class="p">:</span> <span class="s2">&quot;psycopg2&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a>                <span class="c1"># nom du module rassemblant des fonctions de gestion du sgbd</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a>                <span class="s2">&quot;sgbd_fonctions&quot;</span><span class="p">:</span> <span class="s2">&quot;any_module&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a>                <span class="c1"># identifiants de la connexion</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a>                <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;admpersonnes&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a>                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;nobody&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a>                <span class="s2">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a>                <span class="s2">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;dbpersonnes&quot;</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a>            <span class="p">}</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a>        <span class="p">},</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a>        <span class="c1"># fichier de commandes SQL</span>
-<a id="__codelineno-1-45" name="__codelineno-1-45"></a>        <span class="s2">&quot;commands_filename&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/data/commandes.sql&quot;</span>
-<a id="__codelineno-1-46" name="__codelineno-1-46"></a>    <span class="p">}</span>
-<a id="__codelineno-1-47" name="__codelineno-1-47"></a>    <span class="c1"># syspath de l&#39;application</span>
-<a id="__codelineno-1-48" name="__codelineno-1-48"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
-<a id="__codelineno-1-49" name="__codelineno-1-49"></a>    <span class="n">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
-<a id="__codelineno-1-50" name="__codelineno-1-50"></a>
-<a id="__codelineno-1-51" name="__codelineno-1-51"></a>    <span class="c1"># on rend la config</span>
-<a id="__codelineno-1-52" name="__codelineno-1-52"></a>    <span class="k">return</span> <span class="n">config</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>def configure():</li>
+<li>import os</li>
+<li></li>
+<li># chemin absolu du dossier de ce script</li>
+<li>script_dir = os.path.dirname(os.path.abspath(__file__))</li>
+<li></li>
+<li># configuration des dossiers du syspath</li>
+<li>absolute_dependencies = <strong>[</strong></li>
+<li>**        <strong>**# dossiers locaux</strong></li>
+<li>**        <strong><em>*f</em></strong><em>"</em><strong><em>{script_dir}</em></strong><em>/shared"</em><strong>*,</strong></li>
+<li>**    ]**</li>
+<li></li>
+<li># fixation du syspath</li>
+<li>from myutils import set_syspath</li>
+<li>set_syspath(absolute_dependencies)</li>
+<li></li>
+<li># configuration de l'application</li>
+<li>config = {</li>
+<li># sgbd gérés</li>
+<li>"sgbds": {</li>
+<li>"mysql": {</li>
+<li># connecteur du sgbd</li>
+<li>"sgbd_connector": "mysql.connector",</li>
+<li># nom du module rassemblant des fonctions de gestion du sgbd</li>
+<li>"sgbd_fonctions": "any_module",</li>
+<li># identifiants de la connexion</li>
+<li>"user": "admpersonnes",</li>
+<li>"password": "nobody",</li>
+<li>"host": "localhost",</li>
+<li>"database": "dbpersonnes"</li>
+<li>},</li>
+<li>"postgresql": {</li>
+<li># connecteur du sgbd</li>
+<li>"sgbd_connector": "psycopg2",</li>
+<li># nom du module rassemblant des fonctions de gestion du sgbd</li>
+<li>"sgbd_fonctions": "any_module",</li>
+<li># identifiants de la connexion</li>
+<li>"user": "admpersonnes",</li>
+<li>"password": "nobody",</li>
+<li>"host": "localhost",</li>
+<li>"database": "dbpersonnes"</li>
+<li>}</li>
+<li>},</li>
+<li># fichier de commandes SQL</li>
+<li>"commands_filename": f"{script_dir}/data/commandes.sql"</li>
+<li>}</li>
+<li># syspath de l'application</li>
+<li>from myutils import set_syspath</li>
+<li>set_syspath(absolute_dependencies)</li>
+<li></li>
+<li># on rend la config</li>
+<li>return config</li>
+</ul>
 <p>La nouveauté réside dans les lignes 18-43 :</p>
 <ul>
 <li>ligne 20 : <strong>[sgbds]</strong> est un dictionnaire avec deux clés <strong>[mysql]</strong> ligne 21 et <strong>[postgresql]</strong> ligne 32 ;</li>
 <li>la valeur associée à ces clés est un dictionnaire donnant les éléments permettant la connexion à un SGBD :</li>
-<li>lignes 21-32 : les éléments d’une connexion au SGBD MySQL ;</li>
-<li>ligne 23 : le connecteur Python à utiliser ;</li>
+<li>
+<p>lignes 21-32 : les éléments d’une connexion au SGBD MySQL ;</p>
+</li>
+<li>
+<p>ligne 23 : le connecteur Python à utiliser ;</p>
+</li>
 <li>ligne 25 : le module contenant des fonctions partagées ;</li>
-<li>lignes 26-30 : les identifiants de la connexion ;</li>
-<li>lignes 32-41 : les mêmes éléments pour une connexion au SGBD PostgreSQL ;</li>
+<li>
+<p>lignes 26-30 : les identifiants de la connexion ;</p>
+</li>
+<li>
+<p>lignes 32-41 : les mêmes éléments pour une connexion au SGBD PostgreSQL ;</p>
+</li>
 </ul>
 <p>Le script <strong>[any_04]</strong> qui exécute le fichier de commandes SQL <strong>[data/commandes.sql]</strong> est le suivant :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-2-10">10</a></span>
-<span class="normal"><a href="#__codelineno-2-11">11</a></span>
-<span class="normal"><a href="#__codelineno-2-12">12</a></span>
-<span class="normal"><a href="#__codelineno-2-13">13</a></span>
-<span class="normal"><a href="#__codelineno-2-14">14</a></span>
-<span class="normal"><a href="#__codelineno-2-15">15</a></span>
-<span class="normal"><a href="#__codelineno-2-16">16</a></span>
-<span class="normal"><a href="#__codelineno-2-17">17</a></span>
-<span class="normal"><a href="#__codelineno-2-18">18</a></span>
-<span class="normal"><a href="#__codelineno-2-19">19</a></span>
-<span class="normal"><a href="#__codelineno-2-20">20</a></span>
-<span class="normal"><a href="#__codelineno-2-21">21</a></span>
-<span class="normal"><a href="#__codelineno-2-22">22</a></span>
-<span class="normal"><a href="#__codelineno-2-23">23</a></span>
-<span class="normal"><a href="#__codelineno-2-24">24</a></span>
-<span class="normal"><a href="#__codelineno-2-25">25</a></span>
-<span class="normal"><a href="#__codelineno-2-26">26</a></span>
-<span class="normal"><a href="#__codelineno-2-27">27</a></span>
-<span class="normal"><a href="#__codelineno-2-28">28</a></span>
-<span class="normal"><a href="#__codelineno-2-29">29</a></span>
-<span class="normal"><a href="#__codelineno-2-30">30</a></span>
-<span class="normal"><a href="#__codelineno-2-31">31</a></span>
-<span class="normal"><a href="#__codelineno-2-32">32</a></span>
-<span class="normal"><a href="#__codelineno-2-33">33</a></span>
-<span class="normal"><a href="#__codelineno-2-34">34</a></span>
-<span class="normal"><a href="#__codelineno-2-35">35</a></span>
-<span class="normal"><a href="#__codelineno-2-36">36</a></span>
-<span class="normal"><a href="#__codelineno-2-37">37</a></span>
-<span class="normal"><a href="#__codelineno-2-38">38</a></span>
-<span class="normal"><a href="#__codelineno-2-39">39</a></span>
-<span class="normal"><a href="#__codelineno-2-40">40</a></span>
-<span class="normal"><a href="#__codelineno-2-41">41</a></span>
-<span class="normal"><a href="#__codelineno-2-42">42</a></span>
-<span class="normal"><a href="#__codelineno-2-43">43</a></span>
-<span class="normal"><a href="#__codelineno-2-44">44</a></span>
-<span class="normal"><a href="#__codelineno-2-45">45</a></span>
-<span class="normal"><a href="#__codelineno-2-46">46</a></span>
-<span class="normal"><a href="#__codelineno-2-47">47</a></span>
-<span class="normal"><a href="#__codelineno-2-48">48</a></span>
-<span class="normal"><a href="#__codelineno-2-49">49</a></span>
-<span class="normal"><a href="#__codelineno-2-50">50</a></span>
-<span class="normal"><a href="#__codelineno-2-51">51</a></span>
-<span class="normal"><a href="#__codelineno-2-52">52</a></span>
-<span class="normal"><a href="#__codelineno-2-53">53</a></span>
-<span class="normal"><a href="#__codelineno-2-54">54</a></span>
-<span class="normal"><a href="#__codelineno-2-55">55</a></span>
-<span class="normal"><a href="#__codelineno-2-56">56</a></span>
-<span class="normal"><a href="#__codelineno-2-57">57</a></span>
-<span class="normal"><a href="#__codelineno-2-58">58</a></span>
-<span class="normal"><a href="#__codelineno-2-59">59</a></span>
-<span class="normal"><a href="#__codelineno-2-60">60</a></span>
-<span class="normal"><a href="#__codelineno-2-61">61</a></span>
-<span class="normal"><a href="#__codelineno-2-62">62</a></span>
-<span class="normal"><a href="#__codelineno-2-63">63</a></span>
-<span class="normal"><a href="#__codelineno-2-64">64</a></span>
-<span class="normal"><a href="#__codelineno-2-65">65</a></span>
-<span class="normal"><a href="#__codelineno-2-66">66</a></span>
-<span class="normal"><a href="#__codelineno-2-67">67</a></span>
-<span class="normal"><a href="#__codelineno-2-68">68</a></span>
-<span class="normal"><a href="#__codelineno-2-69">69</a></span>
-<span class="normal"><a href="#__codelineno-2-70">70</a></span>
-<span class="normal"><a href="#__codelineno-2-71">71</a></span>
-<span class="normal"><a href="#__codelineno-2-72">72</a></span>
-<span class="normal"><a href="#__codelineno-2-73">73</a></span>
-<span class="normal"><a href="#__codelineno-2-74">74</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># on configure l&#39;application</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">config</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">configure</span><span class="p">()</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># le syspath est configuré - on peut faire les imports</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">importlib</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># vérification de la syntaxe de l&#39;appel</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1"># argv[0] sgbd_name true / false</span>
-<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="c1"># il faut 3 paramètres</span>
-<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">args</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span>
-<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">erreur</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="k">if</span> <span class="ow">not</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="c1"># on récupère les deux paramètres qui nous intéressent</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17"></a>    <span class="n">sgbd_name</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18"></a>    <span class="n">with_transaction</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19"></a>    <span class="c1"># vérification des deux paramètres</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20"></a>    <span class="n">erreur</span> <span class="o">=</span> <span class="p">(</span><span class="n">with_transaction</span> <span class="o">!=</span> <span class="s2">&quot;true&quot;</span> <span class="ow">and</span> <span class="n">with_transaction</span> <span class="o">!=</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span> \
-<a id="__codelineno-2-21" name="__codelineno-2-21"></a>             <span class="ow">or</span> <span class="n">sgbd_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sgbds&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="c1"># erreur ?</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="k">if</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;syntaxe : </span><span class="si">{</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> (1) sgbd_name (2) true / false&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-25" name="__codelineno-2-25"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26"></a>
-<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="c1"># configuration du sgbd_name</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="n">sgbd_config</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;sgbds&quot;</span><span class="p">][</span><span class="n">sgbd_name</span><span class="p">]</span>
-<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="c1"># connecteur du sgbd_name</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">sgbd_connector</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">sgbd_config</span><span class="p">[</span><span class="s2">&quot;sgbd_connector&quot;</span><span class="p">])</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="c1"># bibliothèque de fonctions</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="n">lib</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">sgbd_config</span><span class="p">[</span><span class="s2">&quot;sgbd_fonctions&quot;</span><span class="p">])</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33"></a>
-<a id="__codelineno-2-34" name="__codelineno-2-34"></a>
-<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="c1"># calcul d&#39;un texte à afficher</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="n">with_transaction</span> <span class="o">=</span> <span class="n">with_transaction</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="k">if</span> <span class="n">with_transaction</span><span class="p">:</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38"></a>    <span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;avec transaction&quot;</span>
-<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40"></a>    <span class="n">texte</span> <span class="o">=</span> <span class="s2">&quot;sans transaction&quot;</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41"></a>
-<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="c1"># affichage</span>
-<a id="__codelineno-2-43" name="__codelineno-2-43"></a><span class="n">commands_filename</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;commands_filename&#39;</span><span class="p">]</span>
-<a id="__codelineno-2-44" name="__codelineno-2-44"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------------------------------------------&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exécution du fichier SQL </span><span class="si">{</span><span class="n">commands_filename</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">texte</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-46" name="__codelineno-2-46"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------------------------------------------&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47"></a>
-<a id="__codelineno-2-48" name="__codelineno-2-48"></a><span class="c1"># exécution des ordres SQL du fichier</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49"></a><span class="n">connexion</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-2-50" name="__codelineno-2-50"></a><span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51"></a>    <span class="c1"># connexion</span>
-<a id="__codelineno-2-52" name="__codelineno-2-52"></a>    <span class="n">connexion</span> <span class="o">=</span> <span class="n">sgbd_connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-<a id="__codelineno-2-53" name="__codelineno-2-53"></a>        <span class="n">host</span><span class="o">=</span><span class="n">sgbd_config</span><span class="p">[</span><span class="s1">&#39;host&#39;</span><span class="p">],</span>
-<a id="__codelineno-2-54" name="__codelineno-2-54"></a>        <span class="n">user</span><span class="o">=</span><span class="n">sgbd_config</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">],</span>
-<a id="__codelineno-2-55" name="__codelineno-2-55"></a>        <span class="n">password</span><span class="o">=</span><span class="n">sgbd_config</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span>
-<a id="__codelineno-2-56" name="__codelineno-2-56"></a>        <span class="n">database</span><span class="o">=</span><span class="n">sgbd_config</span><span class="p">[</span><span class="s1">&#39;database&#39;</span><span class="p">])</span>
-<a id="__codelineno-2-57" name="__codelineno-2-57"></a>    <span class="c1"># exécution du fichier des commandes SQL</span>
-<a id="__codelineno-2-58" name="__codelineno-2-58"></a>    <span class="n">erreurs</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">execute_file_of_commands</span><span class="p">(</span><span class="n">sgbd_connector</span><span class="p">,</span> <span class="n">connexion</span><span class="p">,</span> <span class="n">commands_filename</span><span class="p">,</span> <span class="n">suivi</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">arrêt</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-2-59" name="__codelineno-2-59"></a>                                           <span class="n">with_transaction</span><span class="o">=</span><span class="n">with_transaction</span><span class="p">)</span>
-<a id="__codelineno-2-60" name="__codelineno-2-60"></a><span class="k">except</span> <span class="p">(</span><span class="n">sgbd_connector</span><span class="o">.</span><span class="n">InterfaceError</span><span class="p">,</span> <span class="n">sgbd_connector</span><span class="o">.</span><span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-2-61" name="__codelineno-2-61"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;L&#39;erreur suivante s&#39;est produite : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-62" name="__codelineno-2-62"></a><span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-2-63" name="__codelineno-2-63"></a>    <span class="c1"># fermeture de la connexion</span>
-<a id="__codelineno-2-64" name="__codelineno-2-64"></a>    <span class="k">if</span> <span class="n">connexion</span><span class="p">:</span>
-<a id="__codelineno-2-65" name="__codelineno-2-65"></a>        <span class="n">connexion</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<a id="__codelineno-2-66" name="__codelineno-2-66"></a>
-<a id="__codelineno-2-67" name="__codelineno-2-67"></a><span class="c1"># affichage nombre d&#39;erreurs</span>
-<a id="__codelineno-2-68" name="__codelineno-2-68"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------------------------------------------&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-69" name="__codelineno-2-69"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Exécution terminée&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-70" name="__codelineno-2-70"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;--------------------------------------------------------------------&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-71" name="__codelineno-2-71"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Il y a eu </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">erreurs</span><span class="p">)</span><span class="si">}</span><span class="s2"> erreur(s)&quot;</span><span class="p">)</span>
-<a id="__codelineno-2-72" name="__codelineno-2-72"></a><span class="c1"># affichage des erreurs</span>
-<a id="__codelineno-2-73" name="__codelineno-2-73"></a><span class="k">for</span> <span class="n">erreur</span> <span class="ow">in</span> <span class="n">erreurs</span><span class="p">:</span>
-<a id="__codelineno-2-74" name="__codelineno-2-74"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">erreur</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># on configure l'application</li>
+<li>import config</li>
+<li></li>
+<li>config = config.configure()</li>
+<li></li>
+<li># le syspath est configuré - on peut faire les imports</li>
+<li>import importlib</li>
+<li>import sys</li>
+<li></li>
+<li># vérification de la syntaxe de l'appel</li>
+<li># argv<strong>[0]</strong> sgbd_name true / false</li>
+<li># il faut 3 paramètres</li>
+<li>args = sys.argv</li>
+<li>erreur = len(args) != 3</li>
+<li>if not erreur:</li>
+<li># on récupère les deux paramètres qui nous intéressent</li>
+<li>sgbd_name = args<strong>[1]</strong>.lower()</li>
+<li>with_transaction = args<strong>[2]</strong>.lower()</li>
+<li># vérification des deux paramètres</li>
+<li>erreur = (with_transaction != "true" and with_transaction != "false") \</li>
+<li>or sgbd_name not in config<strong>[</strong><strong>"sgbds"</strong><strong>]</strong>.keys()</li>
+<li># erreur ?</li>
+<li>if erreur:</li>
+<li>print(f"syntaxe : {args<strong>[0]</strong>} (1) sgbd_name (2) true / false")</li>
+<li>sys.exit()</li>
+<li></li>
+<li># configuration du sgbd_name</li>
+<li>sgbd_config = config<strong>[</strong><strong>"sgbds"</strong><strong>][sgbd_name]</strong></li>
+<li># connecteur du sgbd_name</li>
+<li>sgbd_connector = importlib.import_module(sgbd_config<strong>[</strong><strong>"sgbd_connector"</strong><strong>]</strong>)</li>
+<li># bibliothèque de fonctions</li>
+<li>lib = importlib.import_module(sgbd_config<strong>[</strong><strong>"sgbd_fonctions"</strong><strong>]</strong>)</li>
+<li></li>
+<li></li>
+<li># calcul d'un texte à afficher</li>
+<li>with_transaction = with_transaction == "true"</li>
+<li>if with_transaction:</li>
+<li>texte = "avec transaction"</li>
+<li>else:</li>
+<li>texte = "sans transaction"</li>
+<li></li>
+<li># affichage</li>
+<li>commands_filename=config<strong>[</strong><strong>'commands_filename'</strong><strong>]</strong></li>
+<li>print("--------------------------------------------------------------------")</li>
+<li>print(f"Exécution du fichier SQL {commands_filename} {texte}")</li>
+<li>print("--------------------------------------------------------------------")</li>
+<li></li>
+<li># exécution des ordres SQL du fichier</li>
+<li>connexion = None</li>
+<li>try:</li>
+<li># connexion</li>
+<li>connexion = sgbd_connector.connect(</li>
+<li>host=sgbd_config<strong>[</strong><strong>'host'</strong><strong>]</strong>,</li>
+<li>user=sgbd_config<strong>[</strong><strong>'user'</strong><strong>]</strong>,</li>
+<li>password=sgbd_config<strong>[</strong><strong>'password'</strong><strong>]</strong>,</li>
+<li>database=sgbd_config<strong>[</strong><strong>'database'</strong><strong>]</strong>)</li>
+<li># exécution du fichier des commandes SQL</li>
+<li>erreurs = lib.execute_file_of_commands(sgbd_connector, connexion, commands_filename, suivi=True, arrêt=False,</li>
+<li>with_transaction=with_transaction)</li>
+<li>except (sgbd_connector.InterfaceError, sgbd_connector.DatabaseError) as erreur:</li>
+<li>print(f"L'erreur suivante s'est produite : {erreur}")</li>
+<li>finally:</li>
+<li># fermeture de la connexion</li>
+<li>if connexion:</li>
+<li>connexion.close()</li>
+<li></li>
+<li># affichage nombre d'erreurs</li>
+<li>print("--------------------------------------------------------------------")</li>
+<li>print(f"Exécution terminée")</li>
+<li>print("--------------------------------------------------------------------")</li>
+<li>print(f"Il y a eu {len(erreurs)} erreur(s)")</li>
+<li># affichage des erreurs</li>
+<li>for erreur in erreurs:</li>
+<li>print(erreur)</li>
+</ul>
 <p><strong>Commentaires</strong></p>
 <ul>
 <li>lignes 1-4 : on récupère la configuration <strong>[config]</strong> de l’application ;</li>
-<li>lignes 10-21 : le script s’appelle avec deux paramètres <strong>[sgbd_name with_transaction]</strong> :</li>
-<li><strong>[sgbd_name]</strong> : le nom du SGBD à utiliser ;</li>
-<li><strong>[with_transaction]</strong> : True si on veut exécuter le fichier de commandes SQL au sein d’une transaction, False sinon ;</li>
-<li>lignes 10-25 : les paramètres sont récupérés et vérifiés ;</li>
+<li>
+<p>lignes 10-21 : le script s’appelle avec deux paramètres <strong>[sgbd_name with_transaction]</strong> :</p>
+</li>
+<li>
+<p><strong>[sgbd_name]</strong> : le nom du SGBD à utiliser ;</p>
+</li>
+<li>
+<p><strong>[with_transaction]</strong> : True si on veut exécuter le fichier de commandes SQL au sein d’une transaction, False sinon ;</p>
+</li>
+<li>
+<p>lignes 10-25 : les paramètres sont récupérés et vérifiés ;</p>
+</li>
 <li>ligne 28 : la configuration du SGBD choisi ;</li>
 <li>ligne 30 : on importe le connecteur du SGBD choisi. On utilise pour cela la bibliothèque <strong>[importlib]</strong> (ligne 7) qui permet d’importer un module dont le nom est dans une variable. Le résultat de l’opération <strong>[</strong><strong>importlib</strong><strong>.import_module</strong><strong>]</strong> est un module. Ainsi après la ligne 30, tout se passe comme si l’instruction exécutée avait été :</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sgbd_connector</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sgbd_connector</span>
 </code></pre></div></td></tr></table></div>
 <p>Ceci va nous permettre d’écrire ligne 52 <strong>[</strong><strong>sgbd_connector.connect</strong><strong>]</strong> où on utilise la fonction <strong>[connect]</strong> du module <strong>[</strong><strong>sgbd_connector</strong><strong>]</strong>. Il faut se rappeler ici que <strong>[</strong><strong>sgbd_connector</strong><strong>]</strong> est soit <strong>[mysql.connector]</strong> ou <strong>[psycopg2]</strong>. Ces deux modules ont la fonction <strong>[connect]</strong>. De même, ligne 60, on peut écrire <strong>[</strong><strong>sgbd_connector.InterfaceError, sgbd_connector.DatabaseError</strong><strong>]</strong>.</p>
 <ul>
@@ -1724,254 +1588,135 @@
 <li>en-dehors de ces points, le script <strong>[any_04]</strong> reste ce qu’il était dans les versions précédentes ;</li>
 </ul>
 <p>La bibliothèque de fonctions <strong>[any_module]</strong> est la suivante :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-4-10">10</a></span>
-<span class="normal"><a href="#__codelineno-4-11">11</a></span>
-<span class="normal"><a href="#__codelineno-4-12">12</a></span>
-<span class="normal"><a href="#__codelineno-4-13">13</a></span>
-<span class="normal"><a href="#__codelineno-4-14">14</a></span>
-<span class="normal"><a href="#__codelineno-4-15">15</a></span>
-<span class="normal"><a href="#__codelineno-4-16">16</a></span>
-<span class="normal"><a href="#__codelineno-4-17">17</a></span>
-<span class="normal"><a href="#__codelineno-4-18">18</a></span>
-<span class="normal"><a href="#__codelineno-4-19">19</a></span>
-<span class="normal"><a href="#__codelineno-4-20">20</a></span>
-<span class="normal"><a href="#__codelineno-4-21">21</a></span>
-<span class="normal"><a href="#__codelineno-4-22">22</a></span>
-<span class="normal"><a href="#__codelineno-4-23">23</a></span>
-<span class="normal"><a href="#__codelineno-4-24">24</a></span>
-<span class="normal"><a href="#__codelineno-4-25">25</a></span>
-<span class="normal"><a href="#__codelineno-4-26">26</a></span>
-<span class="normal"><a href="#__codelineno-4-27">27</a></span>
-<span class="normal"><a href="#__codelineno-4-28">28</a></span>
-<span class="normal"><a href="#__codelineno-4-29">29</a></span>
-<span class="normal"><a href="#__codelineno-4-30">30</a></span>
-<span class="normal"><a href="#__codelineno-4-31">31</a></span>
-<span class="normal"><a href="#__codelineno-4-32">32</a></span>
-<span class="normal"><a href="#__codelineno-4-33">33</a></span>
-<span class="normal"><a href="#__codelineno-4-34">34</a></span>
-<span class="normal"><a href="#__codelineno-4-35">35</a></span>
-<span class="normal"><a href="#__codelineno-4-36">36</a></span>
-<span class="normal"><a href="#__codelineno-4-37">37</a></span>
-<span class="normal"><a href="#__codelineno-4-38">38</a></span>
-<span class="normal"><a href="#__codelineno-4-39">39</a></span>
-<span class="normal"><a href="#__codelineno-4-40">40</a></span>
-<span class="normal"><a href="#__codelineno-4-41">41</a></span>
-<span class="normal"><a href="#__codelineno-4-42">42</a></span>
-<span class="normal"><a href="#__codelineno-4-43">43</a></span>
-<span class="normal"><a href="#__codelineno-4-44">44</a></span>
-<span class="normal"><a href="#__codelineno-4-45">45</a></span>
-<span class="normal"><a href="#__codelineno-4-46">46</a></span>
-<span class="normal"><a href="#__codelineno-4-47">47</a></span>
-<span class="normal"><a href="#__codelineno-4-48">48</a></span>
-<span class="normal"><a href="#__codelineno-4-49">49</a></span>
-<span class="normal"><a href="#__codelineno-4-50">50</a></span>
-<span class="normal"><a href="#__codelineno-4-51">51</a></span>
-<span class="normal"><a href="#__codelineno-4-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># ---------------------------------------------------------------------------------</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="k">def</span><span class="w"> </span><span class="nf">afficher_infos</span><span class="p">(</span><span class="n">curseur</span><span class="p">):</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4"></a>    <span class="err">…</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="c1"># ---------------------------------------------------------------------------------</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_list_of_commands</span><span class="p">(</span><span class="n">sgbd_connector</span><span class="p">,</span> <span class="n">connexion</span><span class="p">,</span> <span class="n">sql_commands</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9"></a>                             <span class="n">suivi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="err">…</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11"></a>
-<a id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="c1"># initialisations</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13"></a>    <span class="n">curseur</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14"></a>    <span class="n">connexion</span><span class="o">.</span><span class="n">autocommit</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">with_transaction</span>
-<a id="__codelineno-4-15" name="__codelineno-4-15"></a>    <span class="n">erreurs</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-4-16" name="__codelineno-4-16"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-4-17" name="__codelineno-4-17"></a>        <span class="c1"># on demande un curseur</span>
-<a id="__codelineno-4-18" name="__codelineno-4-18"></a>        <span class="n">curseur</span> <span class="o">=</span> <span class="n">connexion</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<a id="__codelineno-4-19" name="__codelineno-4-19"></a>        <span class="c1"># exécution des sql_commands SQL contenues dans sql_commands</span>
-<a id="__codelineno-4-20" name="__codelineno-4-20"></a>        <span class="c1"># on les exécute une à une</span>
-<a id="__codelineno-4-21" name="__codelineno-4-21"></a>        <span class="k">for</span> <span class="n">command</span> <span class="ow">in</span> <span class="n">sql_commands</span><span class="p">:</span>
-<a id="__codelineno-4-22" name="__codelineno-4-22"></a>            <span class="c1"># on élimine les blancs de début et de fin de la commande courante</span>
-<a id="__codelineno-4-23" name="__codelineno-4-23"></a>            <span class="n">command</span> <span class="o">=</span> <span class="n">command</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-4-24" name="__codelineno-4-24"></a>            <span class="c1"># a-t-on une commande vide ou un commentaire ? Si oui, on passe à la commande suivante</span>
-<a id="__codelineno-4-25" name="__codelineno-4-25"></a>            <span class="k">if</span> <span class="n">command</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">command</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;#&quot;</span><span class="p">:</span>
-<a id="__codelineno-4-26" name="__codelineno-4-26"></a>                <span class="k">continue</span>
-<a id="__codelineno-4-27" name="__codelineno-4-27"></a>            <span class="c1"># exécution de la commande courante</span>
-<a id="__codelineno-4-28" name="__codelineno-4-28"></a>            <span class="n">error</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-4-29" name="__codelineno-4-29"></a>            <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-4-30" name="__codelineno-4-30"></a>                <span class="n">curseur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
-<a id="__codelineno-4-31" name="__codelineno-4-31"></a>            <span class="k">except</span> <span class="p">(</span><span class="n">sgbd_connector</span><span class="o">.</span><span class="n">InterfaceError</span><span class="p">,</span> <span class="n">sgbd_connector</span><span class="o">.</span><span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-4-32" name="__codelineno-4-32"></a>                <span class="n">error</span> <span class="o">=</span> <span class="n">erreur</span>
-<a id="__codelineno-4-33" name="__codelineno-4-33"></a>            <span class="c1"># y-a-t-il eu une erreur ?</span>
-<a id="__codelineno-4-34" name="__codelineno-4-34"></a>            <span class="err">…</span>
-<a id="__codelineno-4-35" name="__codelineno-4-35"></a>
-<a id="__codelineno-4-36" name="__codelineno-4-36"></a>
-<a id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="c1"># ---------------------------------------------------------------------------------</span>
-<a id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">execute_file_of_commands</span><span class="p">(</span><span class="n">sgbd_connector</span><span class="p">,</span> <span class="n">connexion</span><span class="p">,</span> <span class="n">sql_filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<a id="__codelineno-4-39" name="__codelineno-4-39"></a>                             <span class="n">suivi</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-4-40" name="__codelineno-4-40"></a>    <span class="err">…</span>
-<a id="__codelineno-4-41" name="__codelineno-4-41"></a>
-<a id="__codelineno-4-42" name="__codelineno-4-42"></a>    <span class="c1"># exploitation du fichier SQL</span>
-<a id="__codelineno-4-43" name="__codelineno-4-43"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-4-44" name="__codelineno-4-44"></a>        <span class="c1"># ouverture du fichier en lecture</span>
-<a id="__codelineno-4-45" name="__codelineno-4-45"></a>        <span class="n">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">sql_filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
-<a id="__codelineno-4-46" name="__codelineno-4-46"></a>        <span class="c1"># exploitation</span>
-<a id="__codelineno-4-47" name="__codelineno-4-47"></a>        <span class="k">return</span> <span class="n">execute_list_of_commands</span><span class="p">(</span><span class="n">sgbd_connector</span><span class="p">,</span> <span class="n">connexion</span><span class="p">,</span> <span class="n">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">(),</span> <span class="n">suivi</span><span class="p">,</span> <span class="n">arrêt</span><span class="p">,</span> <span class="n">with_transaction</span><span class="p">)</span>
-<a id="__codelineno-4-48" name="__codelineno-4-48"></a>    <span class="k">except</span> <span class="ne">BaseException</span> <span class="k">as</span> <span class="n">erreur</span><span class="p">:</span>
-<a id="__codelineno-4-49" name="__codelineno-4-49"></a>        <span class="c1"># on rend un tableau d&#39;erreurs</span>
-<a id="__codelineno-4-50" name="__codelineno-4-50"></a>        <span class="k">return</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Le fichier </span><span class="si">{</span><span class="n">sql_filename</span><span class="si">}</span><span class="s2"> n&#39;a pu être être exploité : </span><span class="si">{</span><span class="n">erreur</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
-<a id="__codelineno-4-51" name="__codelineno-4-51"></a>    <span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-4-52" name="__codelineno-4-52"></a>        <span class="k">pass</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li># ---------------------------------------------------------------------------------</li>
+<li></li>
+<li>def afficher_infos(curseur):</li>
+<li>…</li>
+<li></li>
+<li></li>
+<li># ---------------------------------------------------------------------------------</li>
+<li>def execute_list_of_commands(<mark>sgbd_connector</mark>, connexion, sql_commands: list,</li>
+<li>suivi: bool = False, arrêt: bool = True, with_transaction: bool = True):</li>
+<li>…</li>
+<li></li>
+<li># initialisations</li>
+<li>curseur = None</li>
+<li>connexion.autocommit = not with_transaction</li>
+<li>erreurs = <strong>[]</strong></li>
+<li>try:</li>
+<li># on demande un curseur</li>
+<li>curseur = connexion.cursor()</li>
+<li># exécution des sql_commands SQL contenues dans sql_commands</li>
+<li># on les exécute une à une</li>
+<li>for command in sql_commands:</li>
+<li># on élimine les blancs de début et de fin de la commande courante</li>
+<li>command = command.strip()</li>
+<li># a-t-on une commande vide ou un commentaire ? Si oui, on passe à la commande suivante</li>
+<li>if command == '' or command<strong>[0]</strong> == "#":</li>
+<li>continue</li>
+<li># exécution de la commande courante</li>
+<li>error = None</li>
+<li>try:</li>
+<li>curseur.execute(command)</li>
+<li>except (<mark>sgbd_connector</mark>.InterfaceError, <mark>sgbd_connector</mark>.DatabaseError) as erreur:</li>
+<li>error = erreur</li>
+<li># y-a-t-il eu une erreur ?</li>
+<li>…</li>
+<li></li>
+<li></li>
+<li># ---------------------------------------------------------------------------------</li>
+<li>def execute_file_of_commands(<mark>sgbd_connector</mark>, connexion, sql_filename: str,</li>
+<li>suivi: bool = False, arrêt: bool = True, with_transaction: bool = True):</li>
+<li>…</li>
+<li></li>
+<li># exploitation du fichier SQL</li>
+<li>try:</li>
+<li># ouverture du fichier en lecture</li>
+<li>file = open(sql_filename, "r")</li>
+<li># exploitation</li>
+<li>return execute_list_of_commands(<mark>sgbd_connector</mark>, connexion, file.readlines(), suivi, arrêt, with_transaction)</li>
+<li>except BaseException as erreur:</li>
+<li># on rend un tableau d'erreurs</li>
+<li>return <strong>[</strong><strong>f"Le fichier {sql_filename} n'a pu être être exploité : {erreur}"</strong><strong>]</strong></li>
+<li>finally:</li>
+<li>pass</li>
+</ul>
 <p>Le paramètre <strong>[sgbd_connector]</strong> a été utilisé ligne 31 pour préciser le type des exceptions interceptées.</p>
 <p>L’exécution du script <strong>[any_04]</strong> avec les paramètres <strong>[mysql false]</strong> donne les résultats suivants :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-5-10">10</a></span>
-<span class="normal"><a href="#__codelineno-5-11">11</a></span>
-<span class="normal"><a href="#__codelineno-5-12">12</a></span>
-<span class="normal"><a href="#__codelineno-5-13">13</a></span>
-<span class="normal"><a href="#__codelineno-5-14">14</a></span>
-<span class="normal"><a href="#__codelineno-5-15">15</a></span>
-<span class="normal"><a href="#__codelineno-5-16">16</a></span>
-<span class="normal"><a href="#__codelineno-5-17">17</a></span>
-<span class="normal"><a href="#__codelineno-5-18">18</a></span>
-<span class="normal"><a href="#__codelineno-5-19">19</a></span>
-<span class="normal"><a href="#__codelineno-5-20">20</a></span>
-<span class="normal"><a href="#__codelineno-5-21">21</a></span>
-<span class="normal"><a href="#__codelineno-5-22">22</a></span>
-<span class="normal"><a href="#__codelineno-5-23">23</a></span>
-<span class="normal"><a href="#__codelineno-5-24">24</a></span>
-<span class="normal"><a href="#__codelineno-5-25">25</a></span>
-<span class="normal"><a href="#__codelineno-5-26">26</a></span>
-<span class="normal"><a href="#__codelineno-5-27">27</a></span>
-<span class="normal"><a href="#__codelineno-5-28">28</a></span>
-<span class="normal"><a href="#__codelineno-5-29">29</a></span>
-<span class="normal"><a href="#__codelineno-5-30">30</a></span>
-<span class="normal"><a href="#__codelineno-5-31">31</a></span>
-<span class="normal"><a href="#__codelineno-5-32">32</a></span>
-<span class="normal"><a href="#__codelineno-5-33">33</a></span>
-<span class="normal"><a href="#__codelineno-5-34">34</a></span>
-<span class="normal"><a href="#__codelineno-5-35">35</a></span>
-<span class="normal"><a href="#__codelineno-5-36">36</a></span>
-<span class="normal"><a href="#__codelineno-5-37">37</a></span>
-<span class="normal"><a href="#__codelineno-5-38">38</a></span>
-<span class="normal"><a href="#__codelineno-5-39">39</a></span>
-<span class="normal"><a href="#__codelineno-5-40">40</a></span>
-<span class="normal"><a href="#__codelineno-5-41">41</a></span>
-<span class="normal"><a href="#__codelineno-5-42">42</a></span>
-<span class="normal"><a href="#__codelineno-5-43">43</a></span>
-<span class="normal"><a href="#__codelineno-5-44">44</a></span>
-<span class="normal"><a href="#__codelineno-5-45">45</a></span>
-<span class="normal"><a href="#__codelineno-5-46">46</a></span>
-<span class="normal"><a href="#__codelineno-5-47">47</a></span>
-<span class="normal"><a href="#__codelineno-5-48">48</a></span>
-<span class="normal"><a href="#__codelineno-5-49">49</a></span>
-<span class="normal"><a href="#__codelineno-5-50">50</a></span>
-<span class="normal"><a href="#__codelineno-5-51">51</a></span>
-<span class="normal"><a href="#__codelineno-5-52">52</a></span>
-<span class="normal"><a href="#__codelineno-5-53">53</a></span>
-<span class="normal"><a href="#__codelineno-5-54">54</a></span>
-<span class="normal"><a href="#__codelineno-5-55">55</a></span>
-<span class="normal"><a href="#__codelineno-5-56">56</a></span>
-<span class="normal"><a href="#__codelineno-5-57">57</a></span>
-<span class="normal"><a href="#__codelineno-5-58">58</a></span>
-<span class="normal"><a href="#__codelineno-5-59">59</a></span>
-<span class="normal"><a href="#__codelineno-5-60">60</a></span>
-<span class="normal"><a href="#__codelineno-5-61">61</a></span>
-<span class="normal"><a href="#__codelineno-5-62">62</a></span>
-<span class="normal"><a href="#__codelineno-5-63">63</a></span>
-<span class="normal"><a href="#__codelineno-5-64">64</a></span>
-<span class="normal"><a href="#__codelineno-5-65">65</a></span>
-<span class="normal"><a href="#__codelineno-5-66">66</a></span>
-<span class="normal"><a href="#__codelineno-5-67">67</a></span>
-<span class="normal"><a href="#__codelineno-5-68">68</a></span>
-<span class="normal"><a href="#__codelineno-5-69">69</a></span>
-<span class="normal"><a href="#__codelineno-5-70">70</a></span>
-<span class="normal"><a href="#__codelineno-5-71">71</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">anysgbd</span><span class="o">/</span><span class="n">any_04</span><span class="o">.</span><span class="n">py</span> <span class="n">mysql</span> <span class="n">false</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="o">--------------------------------------------------------------------</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">Exécution</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">SQL</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">databases</span>\<span class="n">anysgbd</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="n">commandes</span><span class="o">.</span><span class="n">sql</span> <span class="n">sans</span> <span class="n">transaction</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="o">--------------------------------------------------------------------</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">[</span><span class="n">drop</span> <span class="n">table</span> <span class="k">if</span> <span class="n">exists</span> <span class="n">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">0</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="p">[</span><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">primary</span> <span class="n">key</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="ow">not</span> <span class="n">null</span><span class="p">,</span> <span class="n">unique</span> <span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">0</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">,</span><span class="s1">&#39;Langevin&#39;</span><span class="p">,</span><span class="mi">48</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span><span class="s1">&#39;Lefur&#39;</span><span class="p">,</span><span class="mi">70</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="p">[</span><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15"></a><span class="o">*****************</span>
-<a id="__codelineno-5-16" name="__codelineno-5-16"></a><span class="p">(</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
-<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
-<a id="__codelineno-5-18" name="__codelineno-5-18"></a><span class="o">*****************</span>
-<a id="__codelineno-5-19" name="__codelineno-5-19"></a><span class="n">xx</span> <span class="p">:</span> <span class="n">Erreur</span> <span class="p">(</span><span class="mi">1064</span> <span class="p">(</span><span class="mi">42000</span><span class="p">):</span> <span class="n">You</span> <span class="n">have</span> <span class="n">an</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">SQL</span> <span class="n">syntax</span><span class="p">;</span> <span class="n">check</span> <span class="n">the</span> <span class="n">manual</span> <span class="n">that</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">your</span> <span class="n">MySQL</span> <span class="n">server</span> <span class="n">version</span> <span class="k">for</span> <span class="n">the</span> <span class="n">right</span> <span class="n">syntax</span> <span class="n">to</span> <span class="n">use</span> <span class="n">near</span> <span class="s1">&#39;xx&#39;</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-5-20" name="__codelineno-5-20"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">,</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span><span class="mi">35</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-21" name="__codelineno-5-21"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-22" name="__codelineno-5-22"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span><span class="mi">26</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-23" name="__codelineno-5-23"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-24" name="__codelineno-5-24"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;Paulette&#39;</span><span class="p">,</span><span class="s1">&#39;Girond&#39;</span><span class="p">,</span><span class="mi">56</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-25" name="__codelineno-5-25"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-26" name="__codelineno-5-26"></a><span class="p">[</span><span class="n">select</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-27" name="__codelineno-5-27"></a><span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
-<a id="__codelineno-5-28" name="__codelineno-5-28"></a><span class="o">*****************</span>
-<a id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="p">(</span><span class="s1">&#39;Paul&#39;</span><span class="p">,</span> <span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="mi">48</span><span class="p">)</span>
-<a id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="p">(</span><span class="s1">&#39;Sylvie&#39;</span><span class="p">,</span> <span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">)</span>
-<a id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="p">(</span><span class="s1">&#39;Pierre&#39;</span><span class="p">,</span> <span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
-<a id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="p">(</span><span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span> <span class="s1">&#39;Colou&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
-<a id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="p">(</span><span class="s1">&#39;Paulette&#39;</span><span class="p">,</span> <span class="s1">&#39;Girond&#39;</span><span class="p">,</span> <span class="mi">56</span><span class="p">)</span>
-<a id="__codelineno-5-34" name="__codelineno-5-34"></a><span class="o">*****************</span>
-<a id="__codelineno-5-35" name="__codelineno-5-35"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">order</span> <span class="n">by</span> <span class="n">nom</span> <span class="n">asc</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">desc</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span>
-<a id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="o">************</span>
-<a id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="p">(</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="p">(</span><span class="s1">&#39;Girond&#39;</span><span class="p">,</span> <span class="s1">&#39;Paulette&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-40" name="__codelineno-5-40"></a><span class="p">(</span><span class="s1">&#39;Langevin&#39;</span><span class="p">,</span> <span class="s1">&#39;Paul&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-41" name="__codelineno-5-41"></a><span class="p">(</span><span class="s1">&#39;Lefur&#39;</span><span class="p">,</span> <span class="s1">&#39;Sylvie&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-42" name="__codelineno-5-42"></a><span class="p">(</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">)</span>
-<a id="__codelineno-5-43" name="__codelineno-5-43"></a><span class="o">************</span>
-<a id="__codelineno-5-44" name="__codelineno-5-44"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">age</span> <span class="n">between</span> <span class="mi">20</span> <span class="ow">and</span> <span class="mi">40</span> <span class="n">order</span> <span class="n">by</span> <span class="n">age</span> <span class="n">desc</span><span class="p">,</span> <span class="n">nom</span> <span class="n">asc</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">asc</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-45" name="__codelineno-5-45"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
-<a id="__codelineno-5-46" name="__codelineno-5-46"></a><span class="o">*****************</span>
-<a id="__codelineno-5-47" name="__codelineno-5-47"></a><span class="p">(</span><span class="s1">&#39;Nicazou&#39;</span><span class="p">,</span> <span class="s1">&#39;Pierre&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">)</span>
-<a id="__codelineno-5-48" name="__codelineno-5-48"></a><span class="p">(</span><span class="s1">&#39;Colou&#39;</span><span class="p">,</span> <span class="s1">&#39;Geraldine&#39;</span><span class="p">,</span> <span class="mi">26</span><span class="p">)</span>
-<a id="__codelineno-5-49" name="__codelineno-5-49"></a><span class="o">*****************</span>
-<a id="__codelineno-5-50" name="__codelineno-5-50"></a><span class="p">[</span><span class="n">insert</span> <span class="n">into</span> <span class="n">personnes</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">nom</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span> <span class="n">values</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;Josette&#39;</span><span class="p">,</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">,</span><span class="mi">46</span><span class="p">)]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-51" name="__codelineno-5-51"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-52" name="__codelineno-5-52"></a><span class="p">[</span><span class="n">update</span> <span class="n">personnes</span> <span class="nb">set</span> <span class="n">age</span><span class="o">=</span><span class="mi">47</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-53" name="__codelineno-5-53"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-54" name="__codelineno-5-54"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-55" name="__codelineno-5-55"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
-<a id="__codelineno-5-56" name="__codelineno-5-56"></a><span class="o">*****************</span>
-<a id="__codelineno-5-57" name="__codelineno-5-57"></a><span class="p">(</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">,</span> <span class="s1">&#39;Josette&#39;</span><span class="p">,</span> <span class="mi">47</span><span class="p">)</span>
-<a id="__codelineno-5-58" name="__codelineno-5-58"></a><span class="o">*****************</span>
-<a id="__codelineno-5-59" name="__codelineno-5-59"></a><span class="p">[</span><span class="n">delete</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-60" name="__codelineno-5-60"></a><span class="n">nombre</span> <span class="n">de</span> <span class="n">lignes</span> <span class="n">modifiées</span> <span class="p">:</span> <span class="mi">1</span>
-<a id="__codelineno-5-61" name="__codelineno-5-61"></a><span class="p">[</span><span class="n">select</span> <span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">,</span><span class="n">age</span> <span class="kn">from</span><span class="w"> </span><span class="nn">personnes</span> <span class="n">where</span> <span class="n">nom</span><span class="o">=</span><span class="s1">&#39;Bruneau&#39;</span><span class="p">]</span> <span class="p">:</span> <span class="n">Exécution</span> <span class="n">réussie</span>
-<a id="__codelineno-5-62" name="__codelineno-5-62"></a><span class="n">nom</span><span class="p">,</span> <span class="n">prenom</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span>
-<a id="__codelineno-5-63" name="__codelineno-5-63"></a><span class="o">*****************</span>
-<a id="__codelineno-5-64" name="__codelineno-5-64"></a><span class="o">*****************</span>
-<a id="__codelineno-5-65" name="__codelineno-5-65"></a><span class="o">--------------------------------------------------------------------</span>
-<a id="__codelineno-5-66" name="__codelineno-5-66"></a><span class="n">Exécution</span> <span class="n">terminée</span>
-<a id="__codelineno-5-67" name="__codelineno-5-67"></a><span class="o">--------------------------------------------------------------------</span>
-<a id="__codelineno-5-68" name="__codelineno-5-68"></a><span class="n">Il</span> <span class="n">y</span> <span class="n">a</span> <span class="n">eu</span> <span class="mi">1</span> <span class="n">erreur</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<a id="__codelineno-5-69" name="__codelineno-5-69"></a><span class="n">xx</span> <span class="p">:</span> <span class="n">Erreur</span> <span class="p">(</span><span class="mi">1064</span> <span class="p">(</span><span class="mi">42000</span><span class="p">):</span> <span class="n">You</span> <span class="n">have</span> <span class="n">an</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">SQL</span> <span class="n">syntax</span><span class="p">;</span> <span class="n">check</span> <span class="n">the</span> <span class="n">manual</span> <span class="n">that</span> <span class="n">corresponds</span> <span class="n">to</span> <span class="n">your</span> <span class="n">MySQL</span> <span class="n">server</span> <span class="n">version</span> <span class="k">for</span> <span class="n">the</span> <span class="n">right</span> <span class="n">syntax</span> <span class="n">to</span> <span class="n">use</span> <span class="n">near</span> <span class="s1">&#39;xx&#39;</span> <span class="n">at</span> <span class="n">line</span> <span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-5-70" name="__codelineno-5-70"></a>
-<a id="__codelineno-5-71" name="__codelineno-5-71"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
-</code></pre></div></td></tr></table></div>
+<ul>
+<li>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/anysgbd/any_04.py mysql false</li>
+<li>--------------------------------------------------------------------</li>
+<li>Exécution du fichier SQL C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\databases\anysgbd/data/commandes.sql sans transaction</li>
+<li>--------------------------------------------------------------------</li>
+<li><strong>[drop table if exists personnes]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 0</li>
+<li><strong>[create table personnes (id int primary key, prenom varchar(30) not null, nom varchar(30) not null, age integer not null, unique (nom,prenom))]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 0</li>
+<li><strong>[insert into personnes(id, prenom, nom, age) values(1, 'Paul','Langevin',48)]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[insert into personnes(id, prenom, nom, age) values (2, 'Sylvie','Lefur',70)]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[select prenom, nom, age from personnes]</strong> : Exécution réussie</li>
+<li>prenom, nom, age,</li>
+<li>*****************</li>
+<li>('Paul', 'Langevin', 48)</li>
+<li>('Sylvie', 'Lefur', 70)</li>
+<li>*****************</li>
+<li>xx : Erreur (1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xx' at line 1)</li>
+<li><strong>[insert into personnes(id, prenom, nom, age) values (3, 'Pierre','Nicazou',35)]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[insert into personnes(id, prenom, nom, age) values (4, 'Geraldine','Colou',26)]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[insert into personnes(id, prenom, nom, age) values (5, 'Paulette','Girond',56)]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[select prenom, nom, age from personnes]</strong> : Exécution réussie</li>
+<li>prenom, nom, age,</li>
+<li>*****************</li>
+<li>('Paul', 'Langevin', 48)</li>
+<li>('Sylvie', 'Lefur', 70)</li>
+<li>('Pierre', 'Nicazou', 35)</li>
+<li>('Geraldine', 'Colou', 26)</li>
+<li>('Paulette', 'Girond', 56)</li>
+<li>*****************</li>
+<li><strong>[select nom,prenom from personnes order by nom asc, prenom desc]</strong> : Exécution réussie</li>
+<li>nom, prenom,</li>
+<li>************</li>
+<li>('Colou', 'Geraldine')</li>
+<li>('Girond', 'Paulette')</li>
+<li>('Langevin', 'Paul')</li>
+<li>('Lefur', 'Sylvie')</li>
+<li>('Nicazou', 'Pierre')</li>
+<li>************</li>
+<li><strong>[select nom,prenom,age from personnes where age between 20 and 40 order by age desc, nom asc, prenom asc]</strong> : Exécution réussie</li>
+<li>nom, prenom, age,</li>
+<li>*****************</li>
+<li>('Nicazou', 'Pierre', 35)</li>
+<li>('Colou', 'Geraldine', 26)</li>
+<li>*****************</li>
+<li><strong>[insert into personnes(id, prenom, nom, age) values(6, 'Josette','Bruneau',46)]</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[update personnes set age=47 where nom='Bruneau']</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[select nom,prenom,age from personnes where nom='Bruneau']</strong> : Exécution réussie</li>
+<li>nom, prenom, age,</li>
+<li>*****************</li>
+<li>('Bruneau', 'Josette', 47)</li>
+<li>*****************</li>
+<li><strong>[delete from personnes where nom='Bruneau']</strong> : Exécution réussie</li>
+<li>nombre de lignes modifiées : 1</li>
+<li><strong>[select nom,prenom,age from personnes where nom='Bruneau']</strong> : Exécution réussie</li>
+<li>nom, prenom, age,</li>
+<li>*****************</li>
+<li>*****************</li>
+<li>--------------------------------------------------------------------</li>
+<li>Exécution terminée</li>
+<li>--------------------------------------------------------------------</li>
+<li>Il y a eu 1 erreur(s)</li>
+<li>xx : Erreur (1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'xx' at line 1)</li>
+<li></li>
+<li>Process finished with exit code 0</li>
+</ul>
 
 
 
