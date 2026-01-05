@@ -1850,26 +1850,26 @@
 <span class="normal"><a href="#__codelineno-10-17">17</a></span>
 <span class="normal"><a href="#__codelineno-10-18">18</a></span>
 <span class="normal"><a href="#__codelineno-10-19">19</a></span>
-<span class="normal"><a href="#__codelineno-10-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="n">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">():</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">    </span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">():</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <a id="__codelineno-10-3" name="__codelineno-10-3"></a>
-<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">dossier</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">fichier</span><span class="w"> </span><span class="n">de</span><span class="w"> </span><span class="n">configuration</span>
-<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">    </span><span class="n">script_dir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">os</span><span class="p">.</span><span class="na">path</span><span class="p">.</span><span class="na">dirname</span><span class="p">(</span><span class="n">os</span><span class="p">.</span><span class="na">path</span><span class="p">.</span><span class="na">abspath</span><span class="p">(</span><span class="n">__file__</span><span class="p">))</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a>    <span class="c1"># dossier du fichier de configuration</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a>    <span class="n">script_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
 <a id="__codelineno-10-6" name="__codelineno-10-6"></a>
-<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">chemins</span><span class="w"> </span><span class="n">absolus</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">dossiers</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">mettre</span><span class="w"> </span><span class="n">dans</span><span class="w"> </span><span class="n">le</span><span class="w"> </span><span class="n">syspath</span>
-<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="w">    </span><span class="n">absolute_dependencies</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span>
-<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="w">        </span><span class="n">f</span><span class="s">&quot;{script_dir}/shared&quot;</span><span class="p">,</span>
-<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="w">        </span><span class="s">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span><span class="p">,</span>
-<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w">        </span><span class="s">&quot;C:/myprograms/Python38/lib&quot;</span><span class="p">,</span>
-<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">        </span><span class="s">&quot;C:/myprograms/Python38/DLLs&quot;</span>
-<a id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="w">    </span><span class="o">]</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="c1"># chemins absolus des dossiers à mettre dans le syspath</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="n">absolute_dependencies</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a>        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">script_dir</span><span class="si">}</span><span class="s2">/shared&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a>        <span class="s2">&quot;C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/venv/lib/site-packages&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a>        <span class="s2">&quot;C:/myprograms/Python38/lib&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a>        <span class="s2">&quot;C:/myprograms/Python38/DLLs&quot;</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>    <span class="p">]</span>
 <a id="__codelineno-10-14" name="__codelineno-10-14"></a>
-<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">mise</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">jour</span><span class="w"> </span><span class="n">du</span><span class="w"> </span><span class="n">syspath</span>
-<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">    </span><span class="n">from</span><span class="w"> </span><span class="n">myutils</span><span class="w"> </span><span class="kn">import</span><span class="w"> </span><span class="nn">set_syspath</span>
-<a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">    </span><span class="nf">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a>    <span class="c1"># mise à jour du syspath</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a>    <span class="n">set_syspath</span><span class="p">(</span><span class="n">absolute_dependencies</span><span class="p">)</span>
 <a id="__codelineno-10-18" name="__codelineno-10-18"></a>
-<a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">    </span><span class="err">#</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">retourne</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="n">config</span>
-<a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a>    <span class="c1"># on retourne la config</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a>    <span class="k">return</span> <span class="p">{}</span>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 9 : le dossier <strong>[shared]</strong> va être placé dans le Python Path ;</li>
