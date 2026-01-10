@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1545,18 +1541,18 @@
 <ul>
 <li><strong>[Liste des simulations]</strong> associé à l’URL <strong>[/lister-simulations]</strong> ;</li>
 <li><strong>[Fin de session]</strong> associé à l’URL <strong>[/fin-session]</strong> ;</li>
-<li><strong>[Valider]</strong> associé à l’URL (on ne la voit pas ci-dessus) <strong>[/calculer-impot]</strong> ;
-Lorsque la vue du calcul de l’impôt sera affichée, nous n’accepterons que les actions <strong>[/lister-simulations, /fin-session, /calculer-impot]</strong>. Si l’utilisateur tape une autre action dans son navigateur, une erreur sera déclarée. On fera ce type de vérification pour les quatre vues de l’application.</li>
+<li><strong>[Valider]</strong> associé à l’URL (on ne la voit pas ci-dessus) <strong>[/calculer-impot]</strong> ;</li>
 </ul>
+<p>Lorsque la vue du calcul de l’impôt sera affichée, nous n’accepterons que les actions <strong>[/lister-simulations, /fin-session, /calculer-impot]</strong>. Si l’utilisateur tape une autre action dans son navigateur, une erreur sera déclarée. On fera ce type de vérification pour les quatre vues de l’application.</p>
 <p>Nous nous proposons de résoudre le problème du rafraîchissement des pages de la façon suivante :</p>
 <ul>
 <li>nous allons distinguer deux types d’actions :</li>
 <li>les actions ADS (Action Do Something) modifiant l’état de l’application. Les actions ADS ont en général des paramètres dans l’URL ou le corps de la requête ;</li>
 <li>les actions ASV (Action Show View) affichant une vue sans modifier l’état de l’application. Il y aura autant d’actions ASV que de vues V. Les actions ASV n’ont aucun paramètre ;</li>
 <li>les actions ADS jusqu’à maintenant s’exécutaient puis se terminaient par l’affichage d’une vue V après avoir préparé le modèle M de celle-ci. Désormais, elles mettront le modèle M de la vue en session et demanderont au navigateur de se rediriger vers l’action ASV chargée d’afficher la vue V ;</li>
-<li>les vues V ne seront affichées qu’à l’issue d’une action ASV. Elles prendront leur modèle dans la session ;
-L’intérêt de cette méthode est que le navigateur affichera l’URL ASV dans son champ d’adresse. Le rafraîchissement de la page rejouera alors l’action ASV. Celle-ci ne modifie pas l’état de l’application et utilise un modèle en session. Donc la même page sera réaffichée sans effets de bord. Finalement, à cause des redirections, l’utilisateur ne verra que des URL d’actions ASV dans son navigateur et aura l’impression de naviguer de page en page ;</li>
+<li>les vues V ne seront affichées qu’à l’issue d’une action ASV. Elles prendront leur modèle dans la session ;</li>
 </ul>
+<p>L’intérêt de cette méthode est que le navigateur affichera l’URL ASV dans son champ d’adresse. Le rafraîchissement de la page rejouera alors l’action ASV. Celle-ci ne modifie pas l’état de l’application et utilise un modèle en session. Donc la même page sera réaffichée sans effets de bord. Finalement, à cause des redirections, l’utilisateur ne verra que des URL d’actions ASV dans son navigateur et aura l’impression de naviguer de page en page ;</p>
 <h2 id="352-implementation">35.2. Implémentation</h2>
 <p>Le dossier <strong>[impots/http-servers/10]</strong> est obtenu initialement par recopie du dossier <strong>[impots/http-servers/09]</strong>. Il est ensuite modifié.</p>
 <h3 id="3521-les-nouvelles-routes">35.2.1. Les nouvelles routes</h3>
@@ -1614,9 +1610,9 @@ L’intérêt de cette méthode est que le navigateur affichera l’URL ASV dans
 <li><strong>[/afficher-vue-authentification]</strong>, ligne 8, affiche la vue d’authentification ;</li>
 <li><strong>[/afficher-vue-calcul-impot]</strong>, ligne 2, affiche la vue du calcul de l’impôt ;</li>
 <li><strong>[/afficher-vue-liste-simulations]</strong>, ligne 14, affiche la vue des simulations ;</li>
-<li><strong>[/afficher-vue-liste-erreurs]</strong>, ligne 20, affiche la vue des erreurs inattendues ;
-On fait de même dans le fichier <strong>[routes_with_csrftoken]</strong> des routes sans jeton :</li>
+<li><strong>[/afficher-vue-liste-erreurs]</strong>, ligne 20, affiche la vue des erreurs inattendues ;</li>
 </ul>
+<p>On fait de même dans le fichier <strong>[routes_with_csrftoken]</strong> des routes sans jeton :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -1797,9 +1793,9 @@ On fait de même dans le fichier <strong>[routes_with_csrftoken]</strong> des ro
 <li><strong>[controllers]</strong> : la liste des contrôleurs C de l’application MVC ;</li>
 <li><strong>[ads_actions]</strong> : liste les actions ADS (Action Do Something) ;</li>
 <li><strong>[asv_actions]</strong> : liste les actions ASV (Action Show View) ;</li>
-<li><strong>[responses]</strong> : liste les classes des réponses HTTP de l’application ;
-Commençons par le plus simple, le fichier des réponses HTTP <strong>[responses]</strong> :</li>
+<li><strong>[responses]</strong> : liste les classes des réponses HTTP de l’application ;</li>
 </ul>
+<p>Commençons par le plus simple, le fichier des réponses HTTP <strong>[responses]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -2049,9 +2045,9 @@ Commençons par le plus simple, le fichier des réponses HTTP <strong>[responses
 <li>le fichier <strong>[asv_actions]</strong> rassemble les quatre nouvelles actions dont on rappelle le fonctionnement :</li>
 <li>elles n’ont aucun paramètre ;</li>
 <li>elles affichent une vue précise dont le modèle est en session ;</li>
-<li>la liste <strong>[asv]</strong> des lignes 6-35, associent une vue à chaque action ASV ;
-Le fichier <strong>[ads_actions]</strong> rassemble les actions ADS :</li>
+<li>la liste <strong>[asv]</strong> des lignes 6-35, associent une vue à chaque action ASV ;</li>
 </ul>
+<p>Le fichier <strong>[ads_actions]</strong> rassemble les actions ADS :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -2190,9 +2186,9 @@ Le fichier <strong>[ads_actions]</strong> rassemble les actions ADS :</li>
 <li>lignes 11-51 : la liste des actions ADS (Action Do Something). On retrouve toutes les actions des versions précédentes. Leur fonctionnement a cependant changé :</li>
 <li>elles n’affichent pas une vue V. Elles préparent seulement le modèle M de cette vue V ;</li>
 <li>elles demandent l’affichage de la vue V via une redirection vers l’action ASV associée à la vue V ;</li>
-<li>les actions ADS ne mènent pas toutes à une redirection vers une action ASV : lignes 12-18, l’action ADS <strong>[/fin-session]</strong> mène à une redirection vers l’action ADS <strong>[/init-session/html]</strong>. Pour distinguer les redirections ADS -&gt; ADS et ADS -&gt; ASV, on peut s’aider du modèle <strong>[model_for_view]</strong>. Celui-ci n’existe pas pour les redirections ADS -&gt; ADS ;
-Le fichier <strong>[main/config]</strong> qui rassemble toutes les configurations évolue comme suit :</li>
+<li>les actions ADS ne mènent pas toutes à une redirection vers une action ASV : lignes 12-18, l’action ADS <strong>[/fin-session]</strong> mène à une redirection vers l’action ADS <strong>[/init-session/html]</strong>. Pour distinguer les redirections ADS -&gt; ADS et ADS -&gt; ASV, on peut s’aider du modèle <strong>[model_for_view]</strong>. Celui-ci n’existe pas pour les redirections ADS -&gt; ADS ;</li>
 </ul>
+<p>Le fichier <strong>[main/config]</strong> qui rassemble toutes les configurations évolue comme suit :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
@@ -2317,39 +2313,39 @@ Le fichier <strong>[main/config]</strong> qui rassemble toutes les configuration
 </ul>
 <p><img src="images/1000000000000434000002F135E4756E.png" style="width:12.431cm;height:8.691cm;" alt="Image" /></p>
 <ul>
-<li>on voit que la vue d’authentification n’offre qu’une action, celle du bouton <strong>[Valider]</strong>. Cette action est <strong>[/authentifier-utilisateur]</strong> ;
-On a écrit :</li>
+<li>on voit que la vue d’authentification n’offre qu’une action, celle du bouton <strong>[Valider]</strong>. Cette action est <strong>[/authentifier-utilisateur]</strong> ;</li>
 </ul>
+<p>On a écrit :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
-<span class="normal"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>        <span class="c1"># actions possibles à partir de la vue</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2"></a>        <span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">,</span> <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1"></a>        # actions possibles à partir de la vue
+<a id="__codelineno-12-2" name="__codelineno-12-2"></a>        modèle[&#39;actions_possibles&#39;] = [&quot;afficher-vue-authentification&quot;, &quot;authentifier-utilisateur&quot;]
 </code></pre></div></td></tr></table></div>
 <p>Sur la vue ci-dessus, on voit que si l’utilisateur rafraîchit la vue, l’action <strong>[1]</strong> <strong>[/afficher-vue-authentification]</strong> va être rejouée. Il faut donc qu’elle soit autorisée. On n’aurait pu ne pas l’autoriser auquel cas l’utilisateur aurait une erreur à chaque fois qu’il rechargerait la page. On a estimé que ce n’était pas souhaitable.</p>
 <p>Les actions possibles sont mis dans le modèle de la vue. On sait que ce modèle va être mis en session.</p>
 <p>On fait cela pour chacune des quatre vues. Les actions possibles sont alors les suivantes :</p>
 <p><u><strong>Vue d’authentification</strong></u></p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-authentification&quot;</span><span class="p">,</span> <span class="s2">&quot;authentifier-utilisateur&quot;</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>modèle[&#39;actions_possibles&#39;] = [&quot;afficher-vue-authentification&quot;, &quot;authentifier-utilisateur&quot;]
 </code></pre></div></td></tr></table></div>
 <p><u><strong>Vue du calcul de l’impôt</strong></u></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
-<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="c1"># actions possibles à partir de la vue</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-calcul-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;calculer-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;lister-simulations&quot;</span><span class="p">,</span><span class="s2">&quot;fin-session&quot;</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-14-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a># actions possibles à partir de la vue
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>modèle[&#39;actions_possibles&#39;] = [&quot;afficher-vue-calcul-impot&quot;, &quot;calculer-impot&quot;, &quot;lister-simulations&quot;,&quot;fin-session&quot;]
 </code></pre></div></td></tr></table></div>
 <p><u><strong>Vue de la liste des simulations</strong></u></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
 <span class="normal"><a href="#__codelineno-15-2">2</a></span>
 <span class="normal"><a href="#__codelineno-15-3">3</a></span>
 <span class="normal"><a href="#__codelineno-15-4">4</a></span>
-<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="c1"># actions possibles à partir de la vue</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">actions_possibles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-liste-simulations&quot;</span><span class="p">,</span> <span class="s2">&quot;afficher-calcul-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;fin-session&quot;</span><span class="p">]</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;simulations&#39;</span><span class="p">])</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4"></a>  <span class="n">actions_possibles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;supprimer-simulation&quot;</span><span class="p">)</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">actions_possibles</span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1"></a># actions possibles à partir de la vue
+<a id="__codelineno-15-2" name="__codelineno-15-2"></a>actions_possibles = [&quot;afficher-vue-liste-simulations&quot;, &quot;afficher-calcul-impot&quot;, &quot;fin-session&quot;]
+<a id="__codelineno-15-3" name="__codelineno-15-3"></a>if len(modèle[&#39;simulations&#39;]) != 0:
+<a id="__codelineno-15-4" name="__codelineno-15-4"></a>  actions_possibles.append(&quot;supprimer-simulation&quot;)
+<a id="__codelineno-15-5" name="__codelineno-15-5"></a>modèle[&#39;actions_possibles&#39;] = actions_possibles
 </code></pre></div></td></tr></table></div>
 <p><u><strong>Vue de la liste des erreurs</strong></u></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
-<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="c1"># actions possibles à partir de la vue</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="n">modèle</span><span class="p">[</span><span class="s1">&#39;actions_possibles&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;afficher-vue-liste-erreurs&quot;</span><span class="p">,</span> <span class="s2">&quot;afficher-calcul-impot&quot;</span><span class="p">,</span> <span class="s2">&quot;lister-simulations&quot;</span><span class="p">,</span> <span class="s2">&quot;fin-session&quot;</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a># actions possibles à partir de la vue
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>modèle[&#39;actions_possibles&#39;] = [&quot;afficher-vue-liste-erreurs&quot;, &quot;afficher-calcul-impot&quot;, &quot;lister-simulations&quot;, &quot;fin-session&quot;]
 </code></pre></div></td></tr></table></div>
 <h3 id="3525-le-nouveau-controleur-principal">35.2.5. Le nouveau contrôleur principal</h3>
 <p><img src="images/100000000000020B00000246374424F9.png" style="width:6.04cm;height:6.73cm;" alt="Image" /></p>
@@ -2513,13 +2509,13 @@ On a écrit :</li>
 <a id="__codelineno-17-79" name="__codelineno-17-79"></a>        <span class="k">return</span> <span class="n">erreur</span><span class="p">,</span> <span class="n">résultat</span><span class="p">,</span> <span class="n">type_response1</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <strong>[</strong><strong><mark>MainController.check_action</mark></strong><strong>]</strong>  rend un tuple de trois éléments :</li>
+<li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <strong>[</strong><strong><mark style="background-color: #fff2cc">MainController.check_action</mark></strong><strong>]</strong>  rend un tuple de trois éléments :</li>
 <li><strong>[erreur]</strong> : True si une erreur a été détectée, False sinon ;</li>
 <li><strong>[résultat]</strong> : un résultat d’erreur si (erreur==True), None sinon ;</li>
 <li><strong>[type_response1]</strong> : le type (json, xml, html, None) de la session, type trouvé en session ;</li>
 <li>ligne 39 : aucune vérification n’est faite si l’action est l’action ASV <strong>[afficher-vue-liste-erreurs]</strong> qui va afficher la liste des erreurs. En effet, si une erreur était trouvée lors de cette action, on serait dirigé de nouveau vers l’action <strong>[/afficher-vue-liste-erreurs]</strong> et on entrerait dans une boucle infinie de redirections ;</li>
-<li>
-<p>la méthode statique <strong>[check_action]</strong> est la suivante :
+<li>la méthode statique <strong>[check_action]</strong> est la suivante :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-18-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-18-3"> 3</a></span>
@@ -2639,11 +2635,9 @@ On a écrit :</li>
 <a id="__codelineno-18-58" name="__codelineno-18-58"></a>
 <a id="__codelineno-18-59" name="__codelineno-18-59"></a>        <span class="c1"># résultat de la méthode</span>
 <a id="__codelineno-18-60" name="__codelineno-18-60"></a>        <span class="k">return</span> <span class="n">erreur</span><span class="p">,</span> <span class="n">résultat</span><span class="p">,</span> <span class="n">type_response1</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>ligne 2 : la méthode <strong>[check_action]</strong> fait plusieurs vérifications sur la validité de l’action en cours ;</p>
-</li>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>ligne 2 : la méthode <strong>[check_action]</strong> fait plusieurs vérifications sur la validité de l’action en cours ;</li>
 <li>lignes 6-26, 45-57 : les versions précédentes faisaient déjà ces vérifications ;</li>
 <li>lignes 28-42 : on ajoute une nouvelle vérification. On vérifie si l’action en cours est possible dans l’état actuel de l’application. Si l’action en cours n’est pas possible, on génère un état 151 (ligne 40) qui nous assure que l’action actuelle va être redirigée vers la vue des erreurs inattendues ;</li>
 </ul>
@@ -2822,9 +2816,9 @@ On a écrit :</li>
 <p>Faites les tests suivants avec un navigateur :</p>
 <ul>
 <li>utilisez normalement l’application. Vérifiez que les seules URL affichées par le navigateur sont des URL ASV <strong>[/afficher-vue-nom_de_la_vue]</strong> ;</li>
-<li>rafraîchissez les pages (F5) et constatez que la même page se réaffiche alors. Il n’y a aucun effet de bord ;
-Par ailleurs, utilisez le client <strong>[impots/http-clients/09]</strong>. Comme les modifications faites concernent uniquement les sessions HTML, les clients <strong>[main, main2, main3, Test1HttpClientDaoWithSession, Test2HttpClientDaoWithSession]</strong> doivent continuer à fonctionner.</li>
+<li>rafraîchissez les pages (F5) et constatez que la même page se réaffiche alors. Il n’y a aucun effet de bord ;</li>
 </ul>
+<p>Par ailleurs, utilisez le client <strong>[impots/http-clients/09]</strong>. Comme les modifications faites concernent uniquement les sessions HTML, les clients <strong>[main, main2, main3, Test1HttpClientDaoWithSession, Test2HttpClientDaoWithSession]</strong> doivent continuer à fonctionner.</p>
 <p>Maintenant voyons un cas d’action impossible. La vue suivante est affichée :</p>
 <p><img src="images/100000000000054800000309B0820BC0.png" style="width:15.62cm;height:8.97cm;" alt="Image" /></p>
 <p>A la place de <strong>[1]</strong>, on tape l’URL <strong>[/supprimer-simulation/1]</strong>. L’action <strong>[/supprimer-simulation]</strong> ne fait pas partie des actions proposées par la vue qui sont les actions 1-4. Elle va donc être refusée. La réponse du serveur est la suivante :</p>
@@ -2868,7 +2862,7 @@ Par ailleurs, utilisez le client <strong>[impots/http-clients/09]</strong>. Comm
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

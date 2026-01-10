@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1725,10 +1721,10 @@
 <h2 id="132-la-classe-baseentity">13.2. La classe [BaseEntity]</h2>
 <p>La classe <strong>[BaseEntity]</strong> sera la classe parent de la plupart des classes que nous créerons pour encapsuler des informations sur un objet. Dans la suite nous utiliserons principalement deux types de classes :</p>
 <ul>
-<li>des classes qui n’ont pour but que d’encapsuler au même endroit des informations sur un même objet. Celles-ci n’auront pas de comportements (méthodes) autres que des getters / setters et une fonction d’affichage (<strong>str</strong>). S’il y a N objets à gérer, ces classes sont instanciées N fois. <strong>[BaseEntity]</strong> sera la classe parent de ce type de classes ;</li>
-<li>des classes dont le rôle principal est d’encapsuler des méthodes et très peu d’informations. Ces classes ne seront instanciées qu’une fois (<strong>singleton</strong>). Leur rôle est d’implémenter les algorithmes d’une application ;
-La classe <strong>[BaseEntity]</strong> est la suivante :</li>
+<li>des classes qui n’ont pour but que d’encapsuler au même endroit des informations sur un même objet. Celles-ci n’auront pas de comportements (méthodes) autres que des getters / setters et une fonction d’affichage (__str__). S’il y a N objets à gérer, ces classes sont instanciées N fois. <strong>[BaseEntity]</strong> sera la classe parent de ce type de classes ;</li>
+<li>des classes dont le rôle principal est d’encapsuler des méthodes et très peu d’informations. Ces classes ne seront instanciées qu’une fois (<strong>singleton</strong>). Leur rôle est d’implémenter les algorithmes d’une application ;</li>
 </ul>
+<p>La classe <strong>[BaseEntity]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -1844,15 +1840,15 @@ La classe <strong>[BaseEntity]</strong> est la suivante :</li>
 <li>l’objectif de la classe <strong>[BaseEntity]</strong> est de faciliter les conversions Objet / Dictionnaire et Objet / jSON. On offre ainsi les méthodes suivantes :</li>
 <li><strong>[asdict]</strong> : rend le dictionnaire des propriétés de l’objet ;</li>
 <li><strong>[fromdict]</strong> : construit un objet à partir d’un dictionnaire ;</li>
-<li><strong>[asjson]</strong> : rend la chaîne jSON de l’objet comme le fait la fonction <strong>[<strong>str</strong>]</strong> ;</li>
+<li><strong>[asjson]</strong> : rend la chaîne jSON de l’objet comme le fait la fonction <strong>[__str__]</strong> ;</li>
 <li><strong>[fromjson]</strong> : construit un objet à partir de sa chaîne jSON ;</li>
 <li>la classe <strong>[BaseEntity]</strong> est destinée à être dérivée et non à être utilisée telle quelle ;</li>
 <li>lignes 22-25 : la classe <strong>[BaseEntity]</strong> n’a qu’une propiété, l’entier <strong>[id]</strong>. Cette propriété est l’identifiant de l’objet. Dans la pratique, il est souvent utile de pouvoir différentier les instances d’une même classe. Nous le ferons avec cette propriété, unique pour une instance. Par ailleurs, les objets proviennent souvent de bases de données où ils sont identifiés par une clé primaire, un entier généralement. Dans ces cas, <strong>[id]</strong> sera la clé primaire ;</li>
 <li>lignes 27-40 : le setter de la propriété <strong>[id]</strong>. On vérifie que c’est un entier &gt;=0. Si ce n’est pas le cas, une exception de type <strong>[MyException]</strong> est lancée (ligne 39) ;</li>
 <li>ligne 10 : <strong>[excluded_keys]</strong> est un attribut de classe et non d’instance. Ainsi on écrira <strong>[BaseEntity.excluded_keys]</strong>. Cet attribut de classe est une liste contenant les propriétés de classe qui ne participent pas aux conversions Objet / Dictionnaire et Objet / jSON ;</li>
-<li>lignes 12-16 : <strong>[get_allowed_keys]</strong> rend la liste des propriétés de la classe. Dans une conversion Dictionnaire -&gt; Objet ou jSON -&gt; Objet, on n’acceptera que les clés présentes dans cette liste. Chaque classe dérivant la classe <strong>[BaseEntity]</strong> aura à redéfinir cette liste ;
-Il faut comprendre ici que les propriétés et fonctions de la classe <strong>[BaseEntity]</strong> sont accessibles aux classes dérivées de <strong>[BaseEntity]</strong>. C’est le point important à comprendre.</li>
+<li>lignes 12-16 : <strong>[get_allowed_keys]</strong> rend la liste des propriétés de la classe. Dans une conversion Dictionnaire -&gt; Objet ou jSON -&gt; Objet, on n’acceptera que les clés présentes dans cette liste. Chaque classe dérivant la classe <strong>[BaseEntity]</strong> aura à redéfinir cette liste ;</li>
 </ul>
+<p>Il faut comprendre ici que les propriétés et fonctions de la classe <strong>[BaseEntity]</strong> sont accessibles aux classes dérivées de <strong>[BaseEntity]</strong>. C’est le point important à comprendre.</p>
 <p>Nous allons détailler le code de la classe <strong>[BaseEntity]</strong>. Il est assez avancé. Le lecteur débutant pourra se contenter de lire le rôle de chaque fonction sans s’apesantir sur son code.</p>
 <h3 id="1321-la-methode-baseentityfromdict">13.2.1. La méthode [BaseEntity.fromdict]</h3>
 <h4 id="13211-definition">13.2.1.1. Définition</h4>
@@ -2222,9 +2218,9 @@ Il faut comprendre ici que les propriétés et fonctions de la classe <strong>[B
 <li>la méthode <strong>[fromdict]</strong> est d’abord cherchée dans la classe <strong>[Enseignant]</strong>. <strong>Elle n’existe pas</strong> ;</li>
 <li>elle est ensuite cherchée dans la classe parent <strong>[Personne]</strong>. <strong>Elle n’existe pas</strong> ;</li>
 <li>elle est ensuite cherchée dans la classe parent <strong>[BaseEntity]</strong>. <strong>Elle existe</strong> ;</li>
-<li>ligne 11 : on affiche l’objet <strong>[Enseignant]</strong> ;
-Les résultats sont les suivants :</li>
+<li>ligne 11 : on affiche l’objet <strong>[Enseignant]</strong> ;</li>
 </ul>
+<p>Les résultats sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
 <span class="normal"><a href="#__codelineno-8-2">2</a></span>
 <span class="normal"><a href="#__codelineno-8-3">3</a></span>
@@ -2258,9 +2254,9 @@ Les résultats sont les suivants :</li>
 <a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="n">enseignant1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 10 : on crée un enseignant avec un prénom vide. Cela doit créer une exception car la classe <strong>[Personne]</strong> n’accepte pas des prénoms vides. Cet exemple montre la différence entre un dictionnaire et un objet. Ce dernier peut vérifier la validité de ses propriétés, pas le dictionnaire ;
-Les résultats sont les suivants :</li>
+<li>ligne 10 : on crée un enseignant avec un prénom vide. Cela doit créer une exception car la classe <strong>[Personne]</strong> n’accepte pas des prénoms vides. Cet exemple montre la différence entre un dictionnaire et un objet. Ce dernier peut vérifier la validité de ses propriétés, pas le dictionnaire ;</li>
 </ul>
+<p>Les résultats sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
@@ -2308,9 +2304,9 @@ Les résultats sont les suivants :</li>
 <a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="n">enseignant1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 10 : on crée un enseignant à partir d’un dictionnaire contenant une clé (sexe) qui n’appartient pas à la classe <strong>[Enseignant]</strong>. Une exception devrait alors être levée ;
-Les résultats sont les suivants :</li>
+<li>ligne 10 : on crée un enseignant à partir d’un dictionnaire contenant une clé (sexe) qui n’appartient pas à la classe <strong>[Enseignant]</strong>. Une exception devrait alors être levée ;</li>
 </ul>
+<p>Les résultats sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
 <span class="normal"><a href="#__codelineno-12-2">2</a></span>
 <span class="normal"><a href="#__codelineno-12-3">3</a></span>
@@ -2354,9 +2350,9 @@ Les résultats sont les suivants :</li>
 <a id="__codelineno-13-11" name="__codelineno-13-11"></a><span class="n">enseignant1</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 10 : on a utilisé le paramètre <strong>[silent=True]</strong> pour indiquer que si une clé du dictionnaire n’est pas une propriété de la classe <strong>[Enseignant]</strong>, elle doit simplement être ignorée. Dans ce cas, aucune exception ne sera lancée ;
-Les résultats sont les suivants :</li>
+<li>ligne 10 : on a utilisé le paramètre <strong>[silent=True]</strong> pour indiquer que si une clé du dictionnaire n’est pas une propriété de la classe <strong>[Enseignant]</strong>, elle doit simplement être ignorée. Dans ce cas, aucune exception ne sera lancée ;</li>
 </ul>
+<p>Les résultats sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
 <span class="normal"><a href="#__codelineno-14-2">2</a></span>
 <span class="normal"><a href="#__codelineno-14-3">3</a></span>
@@ -2403,19 +2399,19 @@ Les résultats sont les suivants :</li>
 <li>ligne 1 : la fonction <strong>[asdict]</strong> rend le dictionnaire des propriétés de l’objet ;</li>
 <li>ligne 1 : <strong>[included_keys]</strong> : la liste des clés à inclure dans le dictionnaire ;</li>
 <li>ligne 1 : <strong>[excluded_keys]</strong> : la liste des clés à exclure du dictionnaire ;</li>
-<li>ligne 3 : la propriété <strong>[self.<strong>dict</strong>]</strong> rend le dictionnaire des propriétés de l’objet. Les noms des propriétés sont les clés et leurs valeurs les valeurs du dictionnaire. Un objet peut contenir des références d’autres objets. Les noms des propriétés sont alors préfixées par le nom de la classe à laquelle elles appartiennent. C’est quelque chose qu’on ne veut pas. On veut les propriétés sans leur préfixe ;</li>
-<li>ligne 3 : il faut comprendre ici que si la fonction <strong>[asdict]</strong> s’exécute à l’intérieur d’une classe dérivée de <strong>[BaseEntity]</strong>, la propriété <strong>[self.<strong>dict</strong>]</strong> rend le dictionnaire des propriétés de <strong>l’objet dérivé</strong> ;</li>
+<li>ligne 3 : la propriété <strong>[self.__dict__]</strong> rend le dictionnaire des propriétés de l’objet. Les noms des propriétés sont les clés et leurs valeurs les valeurs du dictionnaire. Un objet peut contenir des références d’autres objets. Les noms des propriétés sont alors préfixées par le nom de la classe à laquelle elles appartiennent. C’est quelque chose qu’on ne veut pas. On veut les propriétés sans leur préfixe ;</li>
+<li>ligne 3 : il faut comprendre ici que si la fonction <strong>[asdict]</strong> s’exécute à l’intérieur d’une classe dérivée de <strong>[BaseEntity]</strong>, la propriété <strong>[self.__dict__]</strong> rend le dictionnaire des propriétés de <strong>l’objet dérivé</strong> ;</li>
 <li>ligne 5 : le dictionnaire que l’on va construire ;</li>
-<li>ligne 7 : on parcourt les valeurs de <strong>[self.<strong>dict</strong>]</strong> sous la forme (clé, valeur) ;</li>
+<li>ligne 7 : on parcourt les valeurs de <strong>[self.__dict__]</strong> sous la forme (clé, valeur) ;</li>
 <li>ligne 9 : si la clé courante appartient à la liste des clés à inclure, alors elle est ajoutée au dictionnaire <strong>[new_attributes]</strong> par la fonction <strong>[set_value]</strong> que nous allons prochainement décrire ;</li>
 <li>ligne 12 : si le paramètre <strong>[included_keys]</strong> n’est pas présent, alors le paramètre <strong>[excluded_keys]</strong> est exploité. Si la propriété ne fait pas partie des propriétés à exclure, alors elle est ajoutée au dictionnaire <strong>[new_attributes]</strong> ;</li>
 <li>ligne 12 : il y a plusieurs façons d’exclure une propriété du dictionnaire :</li>
 <li>elle a été définie au niveau de l’attribut de classe <strong>[excluded_keys]</strong> ;</li>
 <li>elle a été définie dans la liste <strong>[excluded_keys]</strong> passée à la fonction <strong>[asdict]</strong> ;</li>
 <li>le paramètre <strong>[included_keys]</strong> est présent et ne comprend pas la propriété ;</li>
-<li>ligne 15 : on rend le dictionnaire <strong>[new_attributes]</strong>
-La fonction <strong>[set_value]</strong> des lignes 10 et 13 est la suivante :</li>
+<li>ligne 15 : on rend le dictionnaire <strong>[new_attributes]</strong></li>
 </ul>
+<p>La fonction <strong>[set_value]</strong> des lignes 10 et 13 est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-16-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-16-3"> 3</a></span>
@@ -2449,9 +2445,9 @@ La fonction <strong>[set_value]</strong> des lignes 10 et 13 est la suivante :<
 <li>ligne 4 : on regarde si la clé est de la forme __Class_key. C’est la forme qu’elle a si elle appartient à un objet inclus dans l’objet principal. Dans ce cas, on ne veut garder que la chaîne <strong>[key]</strong> ;</li>
 <li>ligne 7 : on ne garde que la chaîne qui suit les deux derniers caractères soulignés de la chaîne ;</li>
 <li>ligne 8-10 : si la clé n’est pas de la forme __Class_key alors on la garde telle quelle ; </li>
-<li>lignes 11-14 : la valeur associée à la clé <strong>[newkey]</strong> est calculée par la méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong> ;
-La méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong> est la suivante :</li>
+<li>lignes 11-14 : la valeur associée à la clé <strong>[newkey]</strong> est calculée par la méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong> ;</li>
 </ul>
+<p>La méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
@@ -2491,9 +2487,9 @@ La méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><s
 <li>ligne 17 : si cette valeur est un type simple, elle reste inchangée ;</li>
 <li>lignes 5-6 : si cette valeur est de type BaseEntity, la valeur est remplacée par son dictionnaire. On a alors un appel récursif ;</li>
 <li>lignes 8-9 : si cette valeur est une liste, alors elle est remplacée par la valeur <strong>[</strong><strong>BaseEntity.list2list</strong><strong>]</strong> ;</li>
-<li>lignes 11-12 : si cette valeur est un dictionnaire, alors elle est remplacée par la valeur <strong>[</strong><strong>BaseEntity.dict2dict</strong><strong>]</strong> ;
-La méthode statique <strong>[</strong><strong>BaseEntity.list2list</strong><strong>]</strong> est la suivante :</li>
+<li>lignes 11-12 : si cette valeur est un dictionnaire, alors elle est remplacée par la valeur <strong>[</strong><strong>BaseEntity.dict2dict</strong><strong>]</strong> ;</li>
 </ul>
+<p>La méthode statique <strong>[</strong><strong>BaseEntity.list2list</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
 <span class="normal"><a href="#__codelineno-18-2">2</a></span>
 <span class="normal"><a href="#__codelineno-18-3">3</a></span>
@@ -2512,9 +2508,9 @@ La méthode statique <strong>[</strong><strong>BaseEntity.list2list</strong><str
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 2 : la méthode reçoit une liste et rend une liste ;</li>
-<li>lignes 5-6 : on remplace chaque valeur de la liste reçue en paramètre par la valeur rendue par la méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong>. On a donc là un appel récursif. La méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong> est appelée jusqu’à ce que son paramètre <strong>[value]</strong> soit un type simple (pas un type BaseEntity ou list ou dict) ;
-La méthode statique <strong>[</strong><strong>BaseEntity.dict2dict</strong><strong>]</strong> est la suivante :</li>
+<li>lignes 5-6 : on remplace chaque valeur de la liste reçue en paramètre par la valeur rendue par la méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong>. On a donc là un appel récursif. La méthode statique <strong>[</strong><strong>BaseEntity.check_value</strong><strong>]</strong> est appelée jusqu’à ce que son paramètre <strong>[value]</strong> soit un type simple (pas un type BaseEntity ou list ou dict) ;</li>
 </ul>
+<p>La méthode statique <strong>[</strong><strong>BaseEntity.dict2dict</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1">1</a></span>
 <span class="normal"><a href="#__codelineno-19-2">2</a></span>
 <span class="normal"><a href="#__codelineno-19-3">3</a></span>
@@ -2611,21 +2607,21 @@ La méthode statique <strong>[</strong><strong>BaseEntity.dict2dict</strong><str
 <span class="normal"><a href="#__codelineno-21-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-21-10">10</a></span>
 <span class="normal"><a href="#__codelineno-21-11">11</a></span>
-<span class="normal"><a href="#__codelineno-21-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">classes</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">asdict_01</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">dict</span><span class="s1">&#39;&gt;</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="p">{</span><span class="s1">&#39;_BaseEntity__id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;_Personne__nom&#39;</span><span class="p">:</span> <span class="s1">&#39;lourou&#39;</span><span class="p">,</span> <span class="s1">&#39;_Personne__prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;_Personne__âge&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">}</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;lourou&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">}</span>
-<a id="__codelineno-21-5" name="__codelineno-21-5"></a><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;lourou&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;paul&#39;</span><span class="p">}</span>
-<a id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;lourou&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">}</span>
-<a id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;abélard&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}</span>
-<a id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="p">{</span><span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;abélard&#39;</span><span class="p">}</span>
-<a id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="p">{</span><span class="s1">&#39;enseignants&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;lourou&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;abélard&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;béatrice&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}]}</span>
-<a id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="p">{</span><span class="s1">&#39;enseignants&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;lourou&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;abélard&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;béatrice&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}],</span> <span class="s1">&#39;matières&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;maths&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;lourou&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;paul&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span> <span class="s1">&#39;français&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;nom&#39;</span><span class="p">:</span> <span class="s1">&#39;abélard&#39;</span><span class="p">,</span> <span class="s1">&#39;prénom&#39;</span><span class="p">:</span> <span class="s1">&#39;béatrice&#39;</span><span class="p">,</span> <span class="s1">&#39;âge&#39;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}}}</span>
+<span class="normal"><a href="#__codelineno-21-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/classes/02/asdict_01.py
+<a id="__codelineno-21-2" name="__codelineno-21-2"></a>&lt;class &#39;dict&#39;&gt;
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>{&#39;_BaseEntity__id&#39;: 1, &#39;_Personne__nom&#39;: &#39;lourou&#39;, &#39;_Personne__prénom&#39;: &#39;paul&#39;, &#39;_Personne__âge&#39;: 56}
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>{&#39;id&#39;: 1, &#39;nom&#39;: &#39;lourou&#39;, &#39;prénom&#39;: &#39;paul&#39;, &#39;âge&#39;: 56}
+<a id="__codelineno-21-5" name="__codelineno-21-5"></a>{&#39;id&#39;: 1, &#39;nom&#39;: &#39;lourou&#39;, &#39;prénom&#39;: &#39;paul&#39;}
+<a id="__codelineno-21-6" name="__codelineno-21-6"></a>{&quot;id&quot;: 1, &quot;nom&quot;: &quot;lourou&quot;, &quot;âge&quot;: 56}
+<a id="__codelineno-21-7" name="__codelineno-21-7"></a>{&#39;id&#39;: 2, &#39;nom&#39;: &#39;abélard&#39;, &#39;âge&#39;: 57}
+<a id="__codelineno-21-8" name="__codelineno-21-8"></a>{&#39;nom&#39;: &#39;abélard&#39;}
+<a id="__codelineno-21-9" name="__codelineno-21-9"></a>{&#39;enseignants&#39;: [{&#39;id&#39;: 1, &#39;nom&#39;: &#39;lourou&#39;, &#39;prénom&#39;: &#39;paul&#39;, &#39;âge&#39;: 56}, {&#39;id&#39;: 2, &#39;nom&#39;: &#39;abélard&#39;, &#39;prénom&#39;: &#39;béatrice&#39;, &#39;âge&#39;: 57}]}
+<a id="__codelineno-21-10" name="__codelineno-21-10"></a>{&#39;enseignants&#39;: [{&#39;id&#39;: 1, &#39;nom&#39;: &#39;lourou&#39;, &#39;prénom&#39;: &#39;paul&#39;, &#39;âge&#39;: 56}, {&#39;id&#39;: 2, &#39;nom&#39;: &#39;abélard&#39;, &#39;prénom&#39;: &#39;béatrice&#39;, &#39;âge&#39;: 57}], &#39;matières&#39;: {&#39;maths&#39;: {&#39;id&#39;: 1, &#39;nom&#39;: &#39;lourou&#39;, &#39;prénom&#39;: &#39;paul&#39;, &#39;âge&#39;: 56}, &#39;français&#39;: {&#39;id&#39;: 2, &#39;nom&#39;: &#39;abélard&#39;, &#39;prénom&#39;: &#39;béatrice&#39;, &#39;âge&#39;: 57}}}
 <a id="__codelineno-21-11" name="__codelineno-21-11"></a>
-<a id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-21-12" name="__codelineno-21-12"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>la ligne 4 montre l’intérêt de la méthode <strong>[asdict]</strong> vis-à-vis de l’utilisation de la propriété <strong>[<strong>dict</strong>]</strong>. Les propriétés sont débarrassées du préfixe de leur classe. Cela se prête mieux à un affichage ;</li>
+<li>la ligne 4 montre l’intérêt de la méthode <strong>[asdict]</strong> vis-à-vis de l’utilisation de la propriété <strong>[__dict__]</strong>. Les propriétés sont débarrassées du préfixe de leur classe. Cela se prête mieux à un affichage ;</li>
 <li>il y a plusieurs façons d’utiliser la méthode <strong>[asdict]</strong> :</li>
 <li>on veut toutes les propriétés : on utilise la méthode <strong>[asdict]</strong> sans paramètres ;</li>
 <li>on ne veut que certaines propriétés :</li>
@@ -2641,9 +2637,9 @@ La méthode statique <strong>[</strong><strong>BaseEntity.dict2dict</strong><str
 <a id="__codelineno-22-3" name="__codelineno-22-3"></a>        <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">asdict</span><span class="p">(</span><span class="n">included_keys</span><span class="o">=</span><span class="n">included_keys</span><span class="p">,</span> <span class="n">excluded_keys</span><span class="o">=</span><span class="n">excluded_keys</span><span class="p">),</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 1 : les paramètres de la méthode <strong>[asjson]</strong> sont ceux de la méthode <strong>[asdict]</strong> ;
-Voici un exemple (asjson_01) utilisant cette méthode :</li>
+<li>ligne 1 : les paramètres de la méthode <strong>[asjson]</strong> sont ceux de la méthode <strong>[asdict]</strong> ;</li>
 </ul>
+<p>Voici un exemple (asjson_01) utilisant cette méthode :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
@@ -2710,18 +2706,18 @@ Voici un exemple (asjson_01) utilisant cette méthode :</li>
 <span class="normal"><a href="#__codelineno-24-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-24-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-24-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-24-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">classes</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">asjson_01</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2"></a><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">str</span><span class="s1">&#39;&gt;</span>
-<a id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;lourou&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">}</span>
-<a id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;lourou&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">}</span>
-<a id="__codelineno-24-5" name="__codelineno-24-5"></a><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;abélard&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}</span>
-<a id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="p">{</span><span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;abélard&quot;</span><span class="p">}</span>
-<a id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="p">{</span><span class="s2">&quot;enseignants&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;lourou&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;abélard&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;béatrice&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}]}</span>
-<a id="__codelineno-24-8" name="__codelineno-24-8"></a><span class="p">{</span><span class="s2">&quot;enseignants&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;lourou&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;abélard&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;béatrice&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}],</span> <span class="s2">&quot;matières&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;maths&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;lourou&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;paul&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">56</span><span class="p">},</span> <span class="s2">&quot;français&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;nom&quot;</span><span class="p">:</span> <span class="s2">&quot;abélard&quot;</span><span class="p">,</span> <span class="s2">&quot;prénom&quot;</span><span class="p">:</span> <span class="s2">&quot;béatrice&quot;</span><span class="p">,</span> <span class="s2">&quot;âge&quot;</span><span class="p">:</span> <span class="mi">57</span><span class="p">}}}</span>
+<span class="normal"><a href="#__codelineno-24-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/classes/02/asjson_01.py
+<a id="__codelineno-24-2" name="__codelineno-24-2"></a>&lt;class &#39;str&#39;&gt;
+<a id="__codelineno-24-3" name="__codelineno-24-3"></a>{&quot;id&quot;: 1, &quot;nom&quot;: &quot;lourou&quot;, &quot;prénom&quot;: &quot;paul&quot;}
+<a id="__codelineno-24-4" name="__codelineno-24-4"></a>{&quot;id&quot;: 1, &quot;nom&quot;: &quot;lourou&quot;, &quot;âge&quot;: 56}
+<a id="__codelineno-24-5" name="__codelineno-24-5"></a>{&quot;id&quot;: 2, &quot;nom&quot;: &quot;abélard&quot;, &quot;âge&quot;: 57}
+<a id="__codelineno-24-6" name="__codelineno-24-6"></a>{&quot;nom&quot;: &quot;abélard&quot;}
+<a id="__codelineno-24-7" name="__codelineno-24-7"></a>{&quot;enseignants&quot;: [{&quot;id&quot;: 1, &quot;nom&quot;: &quot;lourou&quot;, &quot;prénom&quot;: &quot;paul&quot;, &quot;âge&quot;: 56}, {&quot;id&quot;: 2, &quot;nom&quot;: &quot;abélard&quot;, &quot;prénom&quot;: &quot;béatrice&quot;, &quot;âge&quot;: 57}]}
+<a id="__codelineno-24-8" name="__codelineno-24-8"></a>{&quot;enseignants&quot;: [{&quot;id&quot;: 1, &quot;nom&quot;: &quot;lourou&quot;, &quot;prénom&quot;: &quot;paul&quot;, &quot;âge&quot;: 56}, {&quot;id&quot;: 2, &quot;nom&quot;: &quot;abélard&quot;, &quot;prénom&quot;: &quot;béatrice&quot;, &quot;âge&quot;: 57}], &quot;matières&quot;: {&quot;maths&quot;: {&quot;id&quot;: 1, &quot;nom&quot;: &quot;lourou&quot;, &quot;prénom&quot;: &quot;paul&quot;, &quot;âge&quot;: 56}, &quot;français&quot;: {&quot;id&quot;: 2, &quot;nom&quot;: &quot;abélard&quot;, &quot;prénom&quot;: &quot;béatrice&quot;, &quot;âge&quot;: 57}}}
 <a id="__codelineno-24-9" name="__codelineno-24-9"></a>
-<a id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-24-10" name="__codelineno-24-10"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
-<p>La méthode <strong>[BaseEntity.<strong>str</strong>]</strong> utilise la méthode <strong>[asjson]</strong> pour afficher l’identité de l’objet <strong>[BaseEntity]</strong> ou dérivé :</p>
+<p>La méthode <strong>[BaseEntity.__str__]</strong> utilise la méthode <strong>[asjson]</strong> pour afficher l’identité de l’objet <strong>[BaseEntity]</strong> ou dérivé :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-25-1">1</a></span>
 <span class="normal"><a href="#__codelineno-25-2">2</a></span>
 <span class="normal"><a href="#__codelineno-25-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="c1"># toString</span>
@@ -2740,9 +2736,9 @@ Voici un exemple (asjson_01) utilisant cette méthode :</li>
 <li>ligne 1 : la méthode admet deux paramètres :</li>
 <li><strong>[json_state]</strong> : le dictionnaire jSON qui va servir à initialiser l’objet <strong>[BaseEntity]</strong> ;</li>
 <li><strong>[silent]</strong> : pour indiquer si la présence dans le dictionnaire jSON d’une clé qui ne peut être acceptée comme propriété de l’objet <strong>[BaseEntity]</strong> provoque une exception (silent=False) ou est simplement ignorée (silent=True) ;</li>
-<li>ligne 3 : on commence par construire le dictionnaire Python image du dictionnaire jSON, puis on utilise la méthode <strong>[fromdict]</strong> pour initialiser l’objet <strong>[BaseEntity]</strong> à partir de ce dictionnaire Python ;
-Voici un exemple (fromjson_01) :</li>
+<li>ligne 3 : on commence par construire le dictionnaire Python image du dictionnaire jSON, puis on utilise la méthode <strong>[fromdict]</strong> pour initialiser l’objet <strong>[BaseEntity]</strong> à partir de ce dictionnaire Python ;</li>
 </ul>
+<p>Voici un exemple (fromjson_01) :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
@@ -2772,9 +2768,9 @@ Voici un exemple (fromjson_01) :</li>
 <ul>
 <li>ligne 11 : on crée la chaîne jSON d’un dictionnaire ;</li>
 <li>ligne 12 : un objet <strong>[Enseignant]</strong> est initialisé avec cette chaîne ;</li>
-<li>ligne 13 : l’enseignant est affiché ;
-Les résultats sont les suivants :</li>
+<li>ligne 13 : l’enseignant est affiché ;</li>
 </ul>
+<p>Les résultats sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span>
 <span class="normal"><a href="#__codelineno-28-2">2</a></span>
 <span class="normal"><a href="#__codelineno-28-3">3</a></span>
@@ -2952,21 +2948,21 @@ Les résultats sont les suivants :</li>
 <span class="normal"><a href="#__codelineno-30-10">10</a></span>
 <span class="normal"><a href="#__codelineno-30-11">11</a></span>
 <span class="normal"><a href="#__codelineno-30-12">12</a></span>
-<span class="normal"><a href="#__codelineno-30-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">classes</span><span class="o">/</span><span class="mi">02</span><span class="o">/</span><span class="n">main</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-30-2" name="__codelineno-30-2"></a><span class="p">{</span><span class="s1">&#39;_ChildEntity__att1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;att2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<a id="__codelineno-30-3" name="__codelineno-30-3"></a><span class="p">{</span><span class="s2">&quot;att1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;att2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<a id="__codelineno-30-4" name="__codelineno-30-4"></a><span class="n">MyException</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">la</span> <span class="n">clé</span> <span class="p">[</span><span class="n">att5</span><span class="p">]</span> <span class="n">n</span><span class="s1">&#39;est pas autorisée]</span>
-<a id="__codelineno-30-5" name="__codelineno-30-5"></a><span class="p">{</span><span class="s2">&quot;att1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;att2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;att3&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;att4&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<a id="__codelineno-30-6" name="__codelineno-30-6"></a><span class="p">{</span><span class="s2">&quot;att1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;att2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;att4&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<a id="__codelineno-30-7" name="__codelineno-30-7"></a><span class="p">{</span><span class="s1">&#39;att2&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;att4&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<a id="__codelineno-30-8" name="__codelineno-30-8"></a><span class="p">{</span><span class="s2">&quot;att1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;att4&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
-<a id="__codelineno-30-9" name="__codelineno-30-9"></a><span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;attribut [att1] attend une valeur dans l&#39;</span><span class="n">intervalle</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span> <span class="p">(</span><span class="mi">20</span><span class="p">)]</span>
-<a id="__codelineno-30-10" name="__codelineno-30-10"></a><span class="p">{</span><span class="s2">&quot;att1&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;att2&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;att4&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;att1&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;att2&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;att4&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}}</span>
-<a id="__codelineno-30-11" name="__codelineno-30-11"></a><span class="p">{</span><span class="s1">&#39;att1&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;att3&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">}</span>
+<span class="normal"><a href="#__codelineno-30-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/classes/02/main.py
+<a id="__codelineno-30-2" name="__codelineno-30-2"></a>{&#39;_ChildEntity__att1&#39;: 1, &#39;att2&#39;: 2}
+<a id="__codelineno-30-3" name="__codelineno-30-3"></a>{&quot;att1&quot;: 1, &quot;att2&quot;: 2}
+<a id="__codelineno-30-4" name="__codelineno-30-4"></a>MyException[2, la clé [att5] n&#39;est pas autorisée]
+<a id="__codelineno-30-5" name="__codelineno-30-5"></a>{&quot;att1&quot;: 1, &quot;att2&quot;: 2, &quot;att3&quot;: 3, &quot;att4&quot;: 4}
+<a id="__codelineno-30-6" name="__codelineno-30-6"></a>{&quot;att1&quot;: 1, &quot;att2&quot;: 2, &quot;att4&quot;: 4}
+<a id="__codelineno-30-7" name="__codelineno-30-7"></a>{&#39;att2&#39;: 2, &#39;att4&#39;: 4}
+<a id="__codelineno-30-8" name="__codelineno-30-8"></a>{&quot;att1&quot;: 1, &quot;att4&quot;: 4}
+<a id="__codelineno-30-9" name="__codelineno-30-9"></a>MyException[1, L&#39;attribut [att1] attend une valeur dans l&#39;intervalle [1,10] (20)]
+<a id="__codelineno-30-10" name="__codelineno-30-10"></a>{&quot;att1&quot;: 10, &quot;att2&quot;: 20, &quot;att4&quot;: {&quot;att1&quot;: 1, &quot;att2&quot;: 2, &quot;att4&quot;: 4}}
+<a id="__codelineno-30-11" name="__codelineno-30-11"></a>{&#39;att1&#39;: 1, &#39;att3&#39;: 3}
 <a id="__codelineno-30-12" name="__codelineno-30-12"></a>
-<a id="__codelineno-30-13" name="__codelineno-30-13"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-30-13" name="__codelineno-30-13"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
-<p>On prêtera attention à la ligne 2 des résultats : c’est la propriété <strong>[ChildEntity.<strong>dict</strong>]</strong> (ligne 38 du code) qui nous permet de connaître les noms des propriétés à mettre dans les listes <strong>[included_keys]</strong> et <strong>[excluded_keys]</strong>. On notera, toujours ligne 2 des résultats, que selon que la propriété est définie à l’intérieur de la classe par un getter / setter ou qu’elle a été créée comme on créerait la clé d’un dictionnaire, elle est ou pas préfixée par le nom de la classe <strong>[ChildEntity]</strong>.</p>
+<p>On prêtera attention à la ligne 2 des résultats : c’est la propriété <strong>[ChildEntity.__dict__]</strong> (ligne 38 du code) qui nous permet de connaître les noms des propriétés à mettre dans les listes <strong>[included_keys]</strong> et <strong>[excluded_keys]</strong>. On notera, toujours ligne 2 des résultats, que selon que la propriété est définie à l’intérieur de la classe par un getter / setter ou qu’elle a été créée comme on créerait la clé d’un dictionnaire, elle est ou pas préfixée par le nom de la classe <strong>[ChildEntity]</strong>.</p>
 
 
 
@@ -3006,7 +3002,7 @@ Les résultats sont les suivants :</li>
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

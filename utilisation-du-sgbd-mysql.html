@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1535,10 +1531,10 @@
 <li>un serveur web Apache. Nous l&#x27;utiliserons pour l&#x27;écriture de scripts web en Python ;</li>
 <li>le SGBD MySQL ;</li>
 <li>le langage de script PHP que nous n&#x27;utiliserons pas ;</li>
-<li>un serveur Redis implémentant un cache pour des applications web. Nous n&#x27;utiliserons ;
-Laragon peut être téléchargé (février 2020) à l&#x27;adresse suivante :</li>
+<li>un serveur Redis implémentant un cache pour des applications web. Nous n&#x27;utiliserons ;</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">[</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">laragon</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">laragon</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="p">)</span>
+<p>Laragon peut être téléchargé (février 2020) à l&#x27;adresse suivante :</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>[https://laragon.org/download/](https://laragon.org/download/)
 </code></pre></div></td></tr></table></div>
 <p><img src="images/1000000100000433000001A177BF5DDA.png" style="width:16.301cm;height:6.321cm;" alt="Image" /></p>
 <p><img src="images/1000000100000433000001A1CEE81769.png" style="width:16.44cm;height:6.37cm;" alt="Image" /></p>
@@ -1547,9 +1543,9 @@ Laragon peut être téléchargé (février 2020) à l&#x27;adresse suivante :</
 </ul>
 <p><img src="images/100000000000083D000003996FDD348B.png" style="width:13.951cm;height:6.091cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[6]</strong> le dossier d&#x27;installation de PHP (pas utilisé dans ce document) ;
-Le lancement de <strong>[Laragon]</strong> affiche la fenêtre suivante :</li>
+<li>en <strong>[6]</strong> le dossier d&#x27;installation de PHP (pas utilisé dans ce document) ;</li>
 </ul>
+<p>Le lancement de <strong>[Laragon]</strong> affiche la fenêtre suivante :</p>
 <p><img src="images/10000001000002C3000001D6D3D28280.png" style="width:11.951cm;height:7.94cm;" alt="Image" /></p>
 <ul>
 <li><strong>[1]</strong> : le menu principal de Laragon ;</li>
@@ -1591,9 +1587,9 @@ Le lancement de <strong>[Laragon]</strong> affiche la fenêtre suivante :</li>
 </ul>
 <p><img src="images/10000001000002C7000000F1D65E40FB.png" style="width:10.75cm;height:3.641cm;" alt="Image" /></p>
 <ul>
-<li>on a pour l’instant une base <strong>[dbpersonnes]</strong> <strong>[17]</strong> qui est vide <strong>[18]</strong> ;
-On crée un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <strong>[nobody]</strong> qui va avoir tous les droits sur la base de données <strong>[dbpersonnes]</strong> :</li>
+<li>on a pour l’instant une base <strong>[dbpersonnes]</strong> <strong>[17]</strong> qui est vide <strong>[18]</strong> ;</li>
 </ul>
+<p>On crée un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <strong>[nobody]</strong> qui va avoir tous les droits sur la base de données <strong>[dbpersonnes]</strong> :</p>
 <p><img src="images/100000010000035900000152D1575E1B.png" style="width:13.161cm;height:5.19cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[19]</strong>, on est positionnés sur la base <strong>[dbpersonnes]</strong> ;</li>
@@ -1613,13 +1609,11 @@ On crée un utilisateur <strong>[admpersonnes]</strong> avec le mot de passe <st
 <ul>
 <li>en <strong>[35]</strong>, phpMyAdmin indique que l’utilisateur a été créé ;</li>
 <li>en <strong>[36]</strong>, l’ordre SQL qui a été émis sur la base ;</li>
-<li>
-<p>en <strong>[37]</strong>, l’utilisateur <strong>[admpersonnes]</strong> a tous les droits sur la base de données <strong>[dbpersonnes]</strong> ;
-Désormais nous avons :</p>
-</li>
-<li>
-<p>une base de données MySQL <strong>[dbpersonnes]</strong> ;</p>
-</li>
+<li>en <strong>[37]</strong>, l’utilisateur <strong>[admpersonnes]</strong> a tous les droits sur la base de données <strong>[dbpersonnes]</strong> ;</li>
+</ul>
+<p>Désormais nous avons :</p>
+<ul>
+<li>une base de données MySQL <strong>[dbpersonnes]</strong> ;</li>
 <li>un utilisateur <strong>[admpersonnes/nobody]</strong> qui a tous les droits sur cette base de données ;</li>
 </ul>
 <h2 id="162-intallation-du-package-mysql-connector-python">16.2. Intallation du package [mysql-connector-python]</h2>
@@ -1630,23 +1624,21 @@ Désormais nous avons :</p>
 <p>Parce que tous les connecteurs de SGBD respectent tous la même interface, le script Python <strong>n&#x27;a normalement pas à être modifié</strong>. Dans la réalité, la plupart des SGBD ont un SQL propriétaire :</p>
 <ul>
 <li>ils respectent la norme SQL (Structured Query Language) ;</li>
-<li>mais l&#x27;étendent, car elle n&#x27;est pas suffisante, avec des extensions du langage propriétaires ;
-Aussi, est-il fréquent que lors d&#x27;un changement de SGBD il y ait des modifications de SQL à faire dans les scripts.</li>
+<li>mais l&#x27;étendent, car elle n&#x27;est pas suffisante, avec des extensions du langage propriétaires ;</li>
 </ul>
+<p>Aussi, est-il fréquent que lors d&#x27;un changement de SGBD il y ait des modifications de SQL à faire dans les scripts.</p>
 <p>Nativement, Python n&#x27;offre pas la possibilité de gérer une base MySQL. Il faut pour cela télécharger un package. Il en existe plusieurs. Nous allons utiliser ici le package <strong>[mysql-connector-python]</strong> qui est le connecteur Officiel d&#x27;Oracle, l&#x27;entreprise qui possède MySQL.</p>
 <p>L&#x27;installation du package se fera dans une fenêtre <strong>[Terminal]</strong> de Pycharm :</p>
 <p><img src="images/100000010000032C000000C6BC625476.png" style="width:12.45cm;height:3.031cm;" alt="Image" /></p>
 <ul>
-<li>
-<p>le dossier en <strong>[2]</strong> n&#x27;a pas d&#x27;importance pour ce qui va suivre ;
-Dans le terminal, on tape la commande <strong>[</strong><strong>pip search MySQL</strong><strong>]</strong> :</p>
-</li>
-<li>
-<p><strong>[</strong><strong>pip</strong><strong>]</strong> (Package Installer for Python) est l&#x27;outil d&#x27;installation des packages Python. L&#x27;outil <strong>[pip]</strong> se connecte au dépôt contenant les packages Python ;</p>
-</li>
-<li><strong>[</strong><strong>search MySQL</strong><strong>]</strong> : demande la liste des packages contenant le terme <strong>[MySQL]</strong> (la casse n&#x27;a pas d&#x27;importance) dans leur nom ;
-Les résultats de la commande sont les suivants :</li>
+<li>le dossier en <strong>[2]</strong> n&#x27;a pas d&#x27;importance pour ce qui va suivre ;</li>
 </ul>
+<p>Dans le terminal, on tape la commande <strong>[</strong><strong>pip search MySQL</strong><strong>]</strong> :</p>
+<ul>
+<li><strong>[</strong><strong>pip</strong><strong>]</strong> (Package Installer for Python) est l&#x27;outil d&#x27;installation des packages Python. L&#x27;outil <strong>[pip]</strong> se connecte au dépôt contenant les packages Python ;</li>
+<li><strong>[</strong><strong>search MySQL</strong><strong>]</strong> : demande la liste des packages contenant le terme <strong>[MySQL]</strong> (la casse n&#x27;a pas d&#x27;importance) dans leur nom ;</li>
+</ul>
+<p>Les résultats de la commande sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -1670,32 +1662,32 @@ Les résultats de la commande sont les suivants :</li>
 <span class="normal"><a href="#__codelineno-1-21">21</a></span>
 <span class="normal"><a href="#__codelineno-1-22">22</a></span>
 <span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.0.2</span><span class="p">)</span>                                                   <span class="o">-</span> <span class="n">Virtual</span> <span class="n">package</span> <span class="k">for</span> <span class="n">MySQL</span><span class="o">-</span><span class="n">python</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">jx</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">3.49.20042</span><span class="p">)</span>                                           <span class="o">-</span> <span class="n">jx</span><span class="o">-</span><span class="n">mysql</span> <span class="o">-</span> <span class="n">JSON</span> <span class="n">Expressions</span> <span class="k">for</span> <span class="n">MySQL</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">weibo</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>                                               <span class="o">-</span> <span class="n">insert</span> <span class="n">mysql</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">bits</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">1.0.3</span><span class="p">)</span>                                              <span class="o">-</span> <span class="n">BITS</span> <span class="n">MySQL</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">MySQL</span><span class="o">-</span><span class="n">python</span> <span class="p">(</span><span class="mf">1.2.5</span><span class="p">)</span>                                            <span class="o">-</span> <span class="n">Python</span> <span class="n">interface</span> <span class="n">to</span> <span class="n">MySQL</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">deployfish</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.2.13</span><span class="p">)</span>                                       <span class="o">-</span> <span class="n">Deployfish</span> <span class="n">MySQL</span> <span class="n">plugin</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">mtstat</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.7.3.3</span><span class="p">)</span>                                          <span class="o">-</span> <span class="n">MySQL</span> <span class="n">Plugins</span> <span class="k">for</span> <span class="n">mtstat</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">bottle</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.3.1</span><span class="p">)</span>                                            <span class="o">-</span> <span class="n">MySQL</span> <span class="n">integration</span> <span class="k">for</span> <span class="n">Bottle</span><span class="o">.</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">WintxDriver</span><span class="o">-</span><span class="n">MySQL</span> <span class="p">(</span><span class="mf">2.0.0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>                                     <span class="o">-</span> <span class="n">MySQL</span> <span class="n">support</span> <span class="k">for</span> <span class="n">Wintx</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">py</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>                                                  <span class="o">-</span> <span class="n">Operating</span> <span class="n">Mysql</span> <span class="k">for</span> <span class="n">Python</span><span class="o">.</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">mysql</span><span class="o">-</span><span class="n">utilities</span> <span class="p">(</span><span class="mf">1.4.3</span><span class="p">)</span>                                         <span class="o">-</span> <span class="n">MySQL</span> <span class="n">Utilities</span> <span class="mf">1.4.3</span> <span class="p">(</span><span class="n">part</span> <span class="n">of</span> <span class="n">MySQL</span> <span class="n">Workbench</span> <span class="n">Distribution</span> <span class="mf">6.0.0</span><span class="p">)</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="err">…</span><span class="o">.</span>                                        <span class="o">-</span> <span class="n">Tool</span> <span class="n">to</span> <span class="n">move</span> <span class="n">slices</span> <span class="n">of</span> <span class="n">data</span> <span class="kn">from</span><span class="w"> </span><span class="nn">one</span> <span class="n">MySQL</span> <span class="n">store</span> <span class="n">to</span> <span class="n">another</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">mysql</span><span class="o">-</span><span class="n">tracer</span> <span class="p">(</span><span class="mf">2.0.2</span><span class="p">)</span>                                            <span class="o">-</span> <span class="n">A</span> <span class="n">MySQL</span> <span class="n">client</span> <span class="n">to</span> <span class="n">run</span> <span class="n">queries</span><span class="p">,</span> <span class="n">write</span> <span class="n">execution</span> <span class="n">reports</span> <span class="ow">and</span> <span class="n">export</span> <span class="n">results</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">mysql</span><span class="o">-</span><span class="n">utils</span> <span class="p">(</span><span class="mf">0.0.2</span><span class="p">)</span>                                             <span class="o">-</span> <span class="n">A</span> <span class="n">simple</span> <span class="n">MySQL</span> <span class="n">library</span> <span class="n">including</span> <span class="n">a</span> <span class="nb">set</span> <span class="n">of</span> <span class="n">utility</span> <span class="n">APIs</span> <span class="k">for</span> <span class="n">Python</span> <span class="n">database</span> <span class="n">programming</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">repackaged</span> <span class="p">(</span><span class="mf">0.3.1</span><span class="p">)</span>                              <span class="o">-</span> <span class="n">MySQL</span> <span class="n">driver</span> <span class="n">written</span> <span class="ow">in</span> <span class="n">Python</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">dffml</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.0.5</span><span class="p">)</span>                                      <span class="o">-</span> <span class="n">DFFML</span> <span class="n">Source</span> <span class="k">for</span> <span class="n">MySQL</span> <span class="n">Protocol</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span> <span class="p">(</span><span class="mf">8.0.19</span><span class="p">)</span>                                 <span class="o">-</span> <span class="n">MySQL</span> <span class="n">driver</span> <span class="n">written</span> <span class="ow">in</span> <span class="n">Python</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a>  <span class="n">INSTALLED</span><span class="p">:</span> <span class="mf">8.0.19</span> <span class="p">(</span><span class="n">latest</span><span class="p">)</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">prometheus</span><span class="o">-</span><span class="n">mysql</span><span class="o">-</span><span class="n">exporter</span> <span class="p">(</span><span class="mf">0.2.0</span><span class="p">)</span>                               <span class="o">-</span> <span class="n">MySQL</span> <span class="n">query</span> <span class="n">Prometheus</span> <span class="n">exporter</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">backwork</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">mysql</span> <span class="p">(</span><span class="mf">0.3.0</span><span class="p">)</span>                                   <span class="o">-</span> <span class="n">Backwork</span> <span class="n">plug</span><span class="o">-</span><span class="ow">in</span> <span class="k">for</span> <span class="n">MySQL</span> <span class="n">backups</span><span class="o">.</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="n">django</span><span class="o">-</span><span class="n">mysql</span><span class="o">-</span><span class="n">manager</span> <span class="p">(</span><span class="mf">0.1.4</span><span class="p">)</span>                                    <span class="o">-</span> <span class="n">django</span><span class="o">-</span><span class="n">mysql</span><span class="o">-</span><span class="n">manager</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">Django</span> <span class="n">based</span> <span class="n">management</span> <span class="n">interface</span> <span class="k">for</span> <span class="n">MySQL</span> <span class="n">users</span> <span class="ow">and</span> <span class="n">databases</span><span class="o">.</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="err">…</span><span class="o">.</span>                                              <span class="o">-</span> <span class="n">mysql</span> <span class="n">operate</span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0.2</span><span class="p">)</span><span class="w">                                                   </span><span class="o">-</span><span class="w"> </span><span class="n">Virtual</span><span class="w"> </span><span class="kn">package</span><span class="w"> </span><span class="nn">for</span><span class="w"> </span><span class="n">MySQL</span><span class="o">-</span><span class="n">python</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">jx</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">3.49.20042</span><span class="p">)</span><span class="w">                                           </span><span class="o">-</span><span class="w"> </span><span class="n">jx</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">JSON</span><span class="w"> </span><span class="n">Expressions</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MySQL</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="n">weibo</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="w">                                               </span><span class="o">-</span><span class="w"> </span><span class="n">insert</span><span class="w"> </span><span class="n">mysql</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">bits</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0.3</span><span class="p">)</span><span class="w">                                              </span><span class="o">-</span><span class="w"> </span><span class="n">BITS</span><span class="w"> </span><span class="n">MySQL</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">MySQL</span><span class="o">-</span><span class="n">python</span><span class="w"> </span><span class="p">(</span><span class="mf">1.2.5</span><span class="p">)</span><span class="w">                                            </span><span class="o">-</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">to</span><span class="w"> </span><span class="n">MySQL</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">deployfish</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.2.13</span><span class="p">)</span><span class="w">                                       </span><span class="o">-</span><span class="w"> </span><span class="n">Deployfish</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">plugin</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">mtstat</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.7.3.3</span><span class="p">)</span><span class="w">                                          </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">Plugins</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">mtstat</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">bottle</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.3.1</span><span class="p">)</span><span class="w">                                            </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Bottle</span><span class="p">.</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">WintxDriver</span><span class="o">-</span><span class="n">MySQL</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0.0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w">                                     </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">support</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Wintx</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">py</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="w">                                                  </span><span class="o">-</span><span class="w"> </span><span class="n">Operating</span><span class="w"> </span><span class="n">Mysql</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Python</span><span class="p">.</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">mysql</span><span class="o">-</span><span class="n">utilities</span><span class="w"> </span><span class="p">(</span><span class="mf">1.4.3</span><span class="p">)</span><span class="w">                                         </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">Utilities</span><span class="w"> </span><span class="mf">1.4.3</span><span class="w"> </span><span class="p">(</span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">Workbench</span><span class="w"> </span><span class="n">Distribution</span><span class="w"> </span><span class="mf">6.0.0</span><span class="p">)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="err">…</span><span class="p">.</span><span class="w">                                        </span><span class="o">-</span><span class="w"> </span><span class="n">Tool</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">move</span><span class="w"> </span><span class="n">slices</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">another</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">mysql</span><span class="o">-</span><span class="n">tracer</span><span class="w"> </span><span class="p">(</span><span class="mf">2.0.2</span><span class="p">)</span><span class="w">                                            </span><span class="o">-</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">client</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">queries</span><span class="p">,</span><span class="w"> </span><span class="n">write</span><span class="w"> </span><span class="n">execution</span><span class="w"> </span><span class="n">reports</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">export</span><span class="w"> </span><span class="n">results</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="n">mysql</span><span class="o">-</span><span class="n">utils</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0.2</span><span class="p">)</span><span class="w">                                             </span><span class="o">-</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="n">simple</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">library</span><span class="w"> </span><span class="n">including</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">utility</span><span class="w"> </span><span class="n">APIs</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">Python</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">programming</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">repackaged</span><span class="w"> </span><span class="p">(</span><span class="mf">0.3.1</span><span class="p">)</span><span class="w">                              </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Python</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="n">dffml</span><span class="o">-</span><span class="n">source</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.0.5</span><span class="p">)</span><span class="w">                                      </span><span class="o">-</span><span class="w"> </span><span class="n">DFFML</span><span class="w"> </span><span class="n">Source</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">Protocol</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="w"> </span><span class="p">(</span><span class="mf">8.0.19</span><span class="p">)</span><span class="w">                                 </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">driver</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Python</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">  </span><span class="n">INSTALLED</span><span class="p">:</span><span class="w"> </span><span class="mf">8.0.19</span><span class="w"> </span><span class="p">(</span><span class="n">latest</span><span class="p">)</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="n">prometheus</span><span class="o">-</span><span class="n">mysql</span><span class="o">-</span><span class="n">exporter</span><span class="w"> </span><span class="p">(</span><span class="mf">0.2.0</span><span class="p">)</span><span class="w">                               </span><span class="o">-</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">Prometheus</span><span class="w"> </span><span class="n">exporter</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="n">backwork</span><span class="o">-</span><span class="n">backup</span><span class="o">-</span><span class="n">mysql</span><span class="w"> </span><span class="p">(</span><span class="mf">0.3.0</span><span class="p">)</span><span class="w">                                   </span><span class="o">-</span><span class="w"> </span><span class="n">Backwork</span><span class="w"> </span><span class="n">plug</span><span class="o">-</span><span class="n">in</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">backups</span><span class="p">.</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="n">django</span><span class="o">-</span><span class="n">mysql</span><span class="o">-</span><span class="n">manager</span><span class="w"> </span><span class="p">(</span><span class="mf">0.1.4</span><span class="p">)</span><span class="w">                                    </span><span class="o">-</span><span class="w"> </span><span class="n">django</span><span class="o">-</span><span class="n">mysql</span><span class="o">-</span><span class="n">manager</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">Django</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">management</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">for</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">databases</span><span class="p">.</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="err">…</span><span class="p">.</span><span class="w">                                              </span><span class="o">-</span><span class="w"> </span><span class="n">mysql</span><span class="w"> </span><span class="n">operate</span>
 <a id="__codelineno-1-23" name="__codelineno-1-23"></a>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">v</span><span class="o">-</span><span class="mi">01</span><span class="o">&gt;</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">v</span><span class="o">-</span><span class="mo">01</span><span class="o">&gt;</span>
 </code></pre></div></td></tr></table></div>
-<p>Ont été listés tous les modules dont le nom ou la description ont le mot clé MySQL. Celui que nous utiliserons (fév 2020) est <strong>[mysql-connector-python]</strong>, ligne 17. Pour l&#x27;installer, on tape dans le terminal la commande <strong>[</strong><strong>pip install -U mysql-connector-python</strong><strong>]</strong> :</p>
+<p>Ont été listés tous les modules dont le nom ou la description ont le mot clé <em>MySQL</em>. Celui que nous utiliserons (fév 2020) est <strong>[mysql-connector-python]</strong>, ligne 17. Pour l&#x27;installer, on tape dans le terminal la commande <strong>[</strong><strong>pip install -U mysql-connector-python</strong><strong>]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -1704,20 +1696,20 @@ Les résultats de la commande sont les suivants :</li>
 <span class="normal"><a href="#__codelineno-2-6">6</a></span>
 <span class="normal"><a href="#__codelineno-2-7">7</a></span>
 <span class="normal"><a href="#__codelineno-2-8">8</a></span>
-<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">v</span><span class="o">-</span><span class="mi">01</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Collecting</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3"></a>  <span class="n">Using</span> <span class="n">cached</span> <span class="n">mysql_connector_python</span><span class="o">-</span><span class="mf">8.0.19</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">355</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">,</span> <span class="n">skipping</span> <span class="n">upgrade</span><span class="p">:</span> <span class="n">protobuf</span><span class="o">==</span><span class="mf">3.6.1</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">myprograms</span>\<span class="n">python38</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span> <span class="p">(</span><span class="mf">3.6.1</span><span class="p">)</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">,</span> <span class="n">skipping</span> <span class="n">upgrade</span><span class="p">:</span> <span class="n">dnspython</span><span class="o">==</span><span class="mf">1.16.0</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">myprograms</span>\<span class="n">python38</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.16.0</span><span class="p">)</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">,</span> <span class="n">skipping</span> <span class="n">upgrade</span><span class="p">:</span> <span class="n">six</span><span class="o">&gt;=</span><span class="mf">1.9</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">users</span>\<span class="n">serge</span>\<span class="n">appdata</span>\<span class="n">roaming</span>\<span class="n">python</span>\<span class="n">python38</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">protobuf</span><span class="o">==</span><span class="mf">3.6.1</span><span class="o">-&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.14.0</span><span class="p">)</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">,</span> <span class="n">skipping</span> <span class="n">upgrade</span><span class="p">:</span> <span class="n">setuptools</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">myprograms</span>\<span class="n">python38</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">protobuf</span><span class="o">==</span><span class="mf">3.6.1</span><span class="o">-&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span> <span class="p">(</span><span class="mf">41.2.0</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="mf">8.0.19</span>
+<span class="normal"><a href="#__codelineno-2-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">v</span><span class="o">-</span><span class="mo">01</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="o">-</span><span class="n">U</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="n">Using</span><span class="w"> </span><span class="n">cached</span><span class="w"> </span><span class="n">mysql_connector_python</span><span class="o">-</span><span class="mf">8.0.19</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mi">355</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">,</span><span class="w"> </span><span class="n">skipping</span><span class="w"> </span><span class="n">upgrade</span><span class="p">:</span><span class="w"> </span><span class="n">protobuf</span><span class="o">==</span><span class="mf">3.6.1</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">myprograms</span><span class="err">\</span><span class="n">python38</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">3.6.1</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">,</span><span class="w"> </span><span class="n">skipping</span><span class="w"> </span><span class="n">upgrade</span><span class="p">:</span><span class="w"> </span><span class="n">dnspython</span><span class="o">==</span><span class="mf">1.16.0</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">myprograms</span><span class="err">\</span><span class="n">python38</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.16.0</span><span class="p">)</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">,</span><span class="w"> </span><span class="n">skipping</span><span class="w"> </span><span class="n">upgrade</span><span class="p">:</span><span class="w"> </span><span class="n">six</span><span class="o">&gt;=</span><span class="mf">1.9</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">users</span><span class="err">\</span><span class="n">serge</span><span class="err">\</span><span class="n">appdata</span><span class="err">\</span><span class="n">roaming</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">python38</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">protobuf</span><span class="o">==</span><span class="mf">3.6.1</span><span class="o">-&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.14.0</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">,</span><span class="w"> </span><span class="n">skipping</span><span class="w"> </span><span class="n">upgrade</span><span class="p">:</span><span class="w"> </span><span class="n">setuptools</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">myprograms</span><span class="err">\</span><span class="n">python38</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">protobuf</span><span class="o">==</span><span class="mf">3.6.1</span><span class="o">-&gt;</span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">41.2.0</span><span class="p">)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span><span class="o">-</span><span class="mf">8.0.19</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 1 : l&#x27;option <strong>[install -U]</strong> (U=upgrade) demande la version la plus récente des différents packages associés au package <strong>[mysql-connector-python]</strong> ;
-Pour connaître les packages installés dans l&#x27;environnement Python de notre macine, on tape la commande <strong>[</strong><strong>pip list</strong><strong>]</strong> :</li>
+<li>ligne 1 : l&#x27;option <strong>[install -U]</strong> (U=upgrade) demande la version la plus récente des différents packages associés au package <strong>[mysql-connector-python]</strong> ;</li>
 </ul>
+<p>Pour connaître les packages installés dans l&#x27;environnement Python de notre macine, on tape la commande <strong>[</strong><strong>pip list</strong><strong>]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -1735,29 +1727,29 @@ Pour connaître les packages installés dans l&#x27;environnement Python de notr
 <span class="normal"><a href="#__codelineno-3-15">15</a></span>
 <span class="normal"><a href="#__codelineno-3-16">16</a></span>
 <span class="normal"><a href="#__codelineno-3-17">17</a></span>
-<span class="normal"><a href="#__codelineno-3-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">v</span><span class="o">-</span><span class="mi">01</span><span class="o">&gt;</span><span class="n">pip</span> <span class="nb">list</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">Package</span>                <span class="n">Version</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="o">----------------------</span> <span class="o">----------</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">asgiref</span>                <span class="mf">3.2.3</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">astroid</span>                <span class="mf">2.3.3</span>
-<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">atomicwrites</span>           <span class="mf">1.3.0</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">attrs</span>                  <span class="mf">19.3.0</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">certifi</span>                <span class="mf">2019.11.28</span>
-<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="err">…</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">MarkupSafe</span>             <span class="mf">1.1.1</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">mccabe</span>                 <span class="mf">0.6.1</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">more</span><span class="o">-</span><span class="n">itertools</span>         <span class="mf">8.1.0</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span> <span class="mf">8.0.19</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">mysqlclient</span>            <span class="mf">1.4.6</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="n">packaging</span>              <span class="mf">20.0</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="n">pip</span>                    <span class="mf">20.0.1</span>
-<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="n">pipenv</span>                 <span class="mf">2018.11.26</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="err">…</span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>C:\Data\st-2020\dev\python\cours-2020\v-01&gt;pip list
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>Package                Version
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a>---------------------- ----------
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a>asgiref                3.2.3
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a>astroid                2.3.3
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a>atomicwrites           1.3.0
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a>attrs                  19.3.0
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a>certifi                2019.11.28
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a>…
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a>MarkupSafe             1.1.1
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a>mccabe                 0.6.1
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a>more-itertools         8.1.0
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a>mysql-connector-python 8.0.19
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a>mysqlclient            1.4.6
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>packaging              20.0
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a>pip                    20.0.1
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a>pipenv                 2018.11.26
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a>…
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 13 : on a bien le package <strong>[mysql-connector-python]</strong> ;
-Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong> afin de gérer une base de données MySQL, on ira sur le site du package |<a href="https://dev.mysql.com/doc/connector-python/en/">https://dev.mysql.com/doc/connector-python/en/</a>|. La suite présente une série d&#x27;exemples.</li>
+<li>ligne 13 : on a bien le package <strong>[mysql-connector-python]</strong> ;</li>
 </ul>
+<p>Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong> afin de gérer une base de données MySQL, on ira sur le site du package |<a href="https://dev.mysql.com/doc/connector-python/en/">https://dev.mysql.com/doc/connector-python/en/</a>|. La suite présente une série d&#x27;exemples.</p>
 <h2 id="163-script-mysql_01-connexion-a-une-base-mysql-1">16.3. script [mysql_01] : connexion à une base MySQL - 1</h2>
 <p>Le script <strong>[mysql_01]</strong> présente la première étape de l&#x27;utilisation d&#x27;une base de données. Il va nous permettre de vérifier qu&#x27;on est capables de se connecter à la base <strong>[dbpersonnes]</strong> créée précédemment.</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
@@ -1820,24 +1812,24 @@ Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong
 <li>ligne 9 : le nom de la base de données à laquelle on veut se connecter ;</li>
 <li>lignes 11-26 : le script va connecter (ligne 16) l&#x27;utilisateur <strong>[admpersonnes / nobody]</strong> à la base de données <strong>[dbpersonnes]</strong> ;</li>
 <li>lignes 20-26 : la connexion peut échouer. Aussi la fait-on dans un try / except / finally ;</li>
-<li>ligne 16 : la méthode connect du module <strong>[mysq.connector]</strong> admet différents paramètres nommés :</li>
-<li>user : utilisateur propriétaire de la connexion <strong>[admpersonnes]</strong> ;</li>
-<li>password : mot de passe de l&#x27;utilisateur <strong>[nobody]</strong> ;</li>
-<li>host : machine du SGBD MySQL <strong>[localhost]</strong> ;</li>
-<li>database : la base de données à laquelle on se connecte. Optionnel.</li>
+<li>ligne 16 : la méthode <em>connect</em> du module <strong>[mysq.connector]</strong> admet différents paramètres nommés :</li>
+<li><em>user</em> : utilisateur propriétaire de la connexion <strong>[admpersonnes]</strong> ;</li>
+<li><em>password</em> : mot de passe de l&#x27;utilisateur <strong>[nobody]</strong> ;</li>
+<li><em>host</em> : machine du SGBD MySQL <strong>[localhost]</strong> ;</li>
+<li><em>database</em> : la base de données à laquelle on se connecte. Optionnel.</li>
 <li>ligne 20 : si une exception est lancée, elle est de type <strong>[DatabaseError]</strong> ou <strong>[InterfaceError]</strong> ;</li>
-<li>lignes 23-26 : dans la clause <strong>[finally]</strong>, on ferme la connexion ;
-<strong>Résultats</strong></li>
+<li>lignes 23-26 : dans la clause <strong>[finally]</strong>, on ferme la connexion ;</li>
 </ul>
+<p><strong>Résultats</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">3</a></span>
 <span class="normal"><a href="#__codelineno-5-4">4</a></span>
-<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mysql_01</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">Connexion</span> <span class="n">au</span> <span class="n">SGBD</span> <span class="n">MySQL</span> <span class="n">en</span> <span class="n">cours</span><span class="o">...</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">Connexion</span> <span class="n">MySQL</span> <span class="n">réussie</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">localhost</span> <span class="n">sous</span> <span class="n">l</span><span class="s1">&#39;identité user=admpersonnes, passwd=nobody</span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/mysql/mysql_01.py
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a>Connexion au SGBD MySQL en cours...
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a>Connexion MySQL réussie à la base database=dbpersonnes, host=localhost sous l&#39;identité user=admpersonnes, passwd=nobody
 <a id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <h2 id="164-script-mysql_02-connexion-a-une-base-mysql-2">16.4. script [mysql_02] : connexion à une base MySQL - 2</h2>
 <p>Dans ce nouveau script, la connexion à la base est isolée dans une fonction :</p>
@@ -1926,22 +1918,22 @@ Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>lignes 6-19 : une fonction <strong>[connexion]</strong> qui tente de connecter puis de déconnecter un utilisateur à la base de données <strong>[dbpersonnes]</strong>. Affiche le résultat ;</li>
-<li>lignes 29-41 : programme principal – appelle deux fois la méthode connexion et affiche les éventuelles exceptions ;
-<strong>Résultats</strong></li>
+<li>lignes 29-41 : programme principal – appelle deux fois la méthode <em>connexion</em> et affiche les éventuelles exceptions ;</li>
 </ul>
+<p><strong>Résultats</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
 <span class="normal"><a href="#__codelineno-7-2">2</a></span>
 <span class="normal"><a href="#__codelineno-7-3">3</a></span>
 <span class="normal"><a href="#__codelineno-7-4">4</a></span>
 <span class="normal"><a href="#__codelineno-7-5">5</a></span>
 <span class="normal"><a href="#__codelineno-7-6">6</a></span>
-<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mysql_02</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">Connexion</span> <span class="n">MySQL</span> <span class="n">réussie</span> <span class="n">à</span> <span class="n">la</span> <span class="n">base</span> <span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span> <span class="n">host</span><span class="o">=</span><span class="n">localhost</span> <span class="n">sous</span> <span class="n">l</span><span class="s1">&#39;identité user=admpersonnes, passwd=nobody</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">Déconnexion</span> <span class="n">MySQL</span> <span class="n">réussie</span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">Scripts</span><span class="err">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mysql_02</span><span class="p">.</span><span class="n">py</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="n">Connexion</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">réussie</span><span class="w"> </span><span class="n">à</span><span class="w"> </span><span class="n">la</span><span class="w"> </span><span class="k">base</span><span class="w"> </span><span class="n">database</span><span class="o">=</span><span class="n">dbpersonnes</span><span class="p">,</span><span class="w"> </span><span class="n">host</span><span class="o">=</span><span class="n">localhost</span><span class="w"> </span><span class="n">sous</span><span class="w"> </span><span class="n">l</span><span class="err">&#39;</span><span class="n">identité</span><span class="w"> </span><span class="n">user</span><span class="o">=</span><span class="n">admpersonnes</span><span class="p">,</span><span class="w"> </span><span class="n">passwd</span><span class="o">=</span><span class="n">nobody</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="n">Déconnexion</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">réussie</span>
 <a id="__codelineno-7-4" name="__codelineno-7-4"></a>
-<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="mi">1045</span> <span class="p">(</span><span class="mi">28000</span><span class="p">):</span> <span class="n">Access</span> <span class="n">denied</span> <span class="k">for</span> <span class="n">user</span> <span class="s1">&#39;xx&#39;</span><span class="o">@</span><span class="s1">&#39;localhost&#39;</span> <span class="p">(</span><span class="n">using</span> <span class="n">password</span><span class="p">:</span> <span class="n">YES</span><span class="p">)</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="mi">1045</span><span class="w"> </span><span class="p">(</span><span class="mi">28000</span><span class="p">):</span><span class="w"> </span><span class="n">Access</span><span class="w"> </span><span class="n">denied</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="err">&#39;</span><span class="n">xx</span><span class="sc">&#39;@&#39;</span><span class="n">localhost</span><span class="err">&#39;</span><span class="w"> </span><span class="p">(</span><span class="k">using</span><span class="w"> </span><span class="nn">password</span><span class="p">:</span><span class="w"> </span><span class="n">YES</span><span class="p">)</span>
 <a id="__codelineno-7-6" name="__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">Process</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="165-script-mysql_03-creation-dune-table-mysql">16.5. script [mysql_03] : création d&#x27;une table MySQL</h2>
 <p>Maintenant qu&#x27;on sait créer une connexion avec un SGBD MySQL, on commence à émettre des ordres SQL sur cette connexion. Pour cela, nous allons nous connecter à la base créée <strong>[dbpersonnes]</strong> et utiliser la connexion pour créer une table dans la base.</p>
@@ -2079,8 +2071,8 @@ Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong> :</p>
 <ul>
-<li>ligne 9 : la fonction execute_sql exécute une requête SQL sur une connexion ouverte ;</li>
-<li>ligne 14 : les opérations SQL sur la connexion se font au travers d&#x27;un objet particulier appelé curseur ;</li>
+<li>ligne 9 : la fonction <em>execute_sql</em> exécute une requête SQL sur une connexion ouverte ;</li>
+<li>ligne 14 : les opérations SQL sur la connexion se font au travers d&#x27;un objet particulier appelé <em>curseur ;</em></li>
 <li>ligne 14 : obtention d&#x27;un curseur ;</li>
 <li>ligne 16 : exécution de la requête SQL ;</li>
 <li>lignes 17-20 : qu&#x27;il y ait erreur ou non, le curseur est fermé. Cela libère les ressources qui lui sont associées. Si exception il y a, alors elle n&#x27;est pas gérée ici. Elle va remonter au code appelant ;</li>
@@ -2097,16 +2089,16 @@ Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong
 <li>le paramètre <strong>[</strong><strong>unique(nom,prenom)</strong><strong>]</strong> s&#x27;appelle une <strong>contrainte</strong>. Ici la contrainte sur les lignes est que le tuple (nom, prenom) de la ligne doit être unique dans la table. Cela signifie qu&#x27;on peut repérer de façon unique dans la table, un individu dont on connaît les nom et prénom ;</li>
 <li>lignes 56-60 : exécution de l’ordre SQL ;</li>
 <li>lignes 61-63 : gestion de l’éventuelle exception ;</li>
-<li>lignes 64-66 : on se déconnecte de la base de données ;
-<strong>Résultats</strong></li>
+<li>lignes 64-66 : on se déconnecte de la base de données ;</li>
 </ul>
+<p><strong>Résultats</strong></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1">1</a></span>
 <span class="normal"><a href="#__codelineno-9-2">2</a></span>
 <span class="normal"><a href="#__codelineno-9-3">3</a></span>
-<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">databases</span><span class="o">/</span><span class="n">mysql</span><span class="o">/</span><span class="n">mysql_03</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="n">create</span> <span class="n">table</span> <span class="n">personnes</span> <span class="p">(</span><span class="nb">id</span> <span class="nb">int</span> <span class="n">PRIMARY</span> <span class="n">KEY</span><span class="p">,</span> <span class="n">prenom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">nom</span> <span class="n">varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">age</span> <span class="n">integer</span> <span class="n">NOT</span> <span class="n">NULL</span><span class="p">,</span> <span class="n">unique</span><span class="p">(</span><span class="n">nom</span><span class="p">,</span><span class="n">prenom</span><span class="p">))</span>  <span class="p">:</span> <span class="n">requête</span> <span class="n">réussie</span>
+<span class="normal"><a href="#__codelineno-9-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/mysql/mysql_03.py
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a>create table personnes (id int PRIMARY KEY, prenom varchar(30) NOT NULL, nom varchar(30) NOT NULL, age integer NOT NULL, unique(nom,prenom))  : requête réussie
 <a id="__codelineno-9-3" name="__codelineno-9-3"></a>
-<a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>Vérification avec <strong>[phpMyAdmin]</strong> :</p>
 <p><img src="images/100000000000057200000365E1BC6EAD.png" style="width:16.102cm;height:10.03cm;" alt="Image" /></p>
@@ -2287,9 +2279,9 @@ Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong
 <li>on lira les commentaires des lignes 31-38 pour connaître la signification des paramètres ;</li>
 <li>lignes 40-48 : on exploite le fichier texte <strong>[</strong><strong>sql_filename</strong><strong>]</strong> ;</li>
 <li>ligne 43 : ouverture du fichier ;</li>
-<li>ligne 34 : exécution de la fonction <strong>[</strong><strong>execute_list_of_commands</strong><strong>]</strong> qui exécute les commandes SQL qu&#x27;on lui passe dans une liste. Cette liste est ici constituée par la liste de toutes les lignes du fichier texte <strong>[</strong><strong>file.readlines()</strong><strong>]</strong> (ligne 45) ;
-La fonction <strong>[</strong><strong>execute_list_of_commands</strong><strong>]</strong> est la suivante :</li>
+<li>ligne 34 : exécution de la fonction <strong>[</strong><strong>execute_list_of_commands</strong><strong>]</strong> qui exécute les commandes SQL qu&#x27;on lui passe dans une liste. Cette liste est ici constituée par la liste de toutes les lignes du fichier texte <strong>[</strong><strong>file.readlines()</strong><strong>]</strong> (ligne 45) ;</li>
 </ul>
+<p>La fonction <strong>[</strong><strong>execute_list_of_commands</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
@@ -2440,9 +2432,9 @@ La fonction <strong>[</strong><strong>execute_list_of_commands</strong><strong>]
 <li>lignes 54-65 : la clause <strong>[finally]</strong> est exécutée dans tous les cas, qu&#x27;il y ait eu une exception ou pas ;</li>
 <li>lignes 56-57 : fermeture du curseur. Cela libère les ressources allouées à celui-ci ;</li>
 <li>lignes 59-65 : on traite le cas où le code appelant a demandé à ce que les commandes SQL soient exécutées dans une transaction ;</li>
-<li>ligne 60 : on regarde si la liste <strong>[erreurs]</strong> est vide, ce qui signifie qu&#x27;aucune exception n&#x27;a eu lieu. Dans ce cas, la transaction est validée (ligne 65), sinon elle est annulée (ligne 62) ;
-La fonction <strong>[</strong><strong>afficher_infos</strong><strong>]</strong> affiche le résultat d&#x27;une requête :</li>
+<li>ligne 60 : on regarde si la liste <strong>[erreurs]</strong> est vide, ce qui signifie qu&#x27;aucune exception n&#x27;a eu lieu. Dans ce cas, la transaction est validée (ligne 65), sinon elle est annulée (ligne 62) ;</li>
 </ul>
+<p>La fonction <strong>[</strong><strong>afficher_infos</strong><strong>]</strong> affiche le résultat d&#x27;une requête :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-13-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-13-3"> 3</a></span>
@@ -2513,9 +2505,9 @@ La fonction <strong>[</strong><strong>afficher_infos</strong><strong>]</strong> 
 <li>lignes 18-24 : on exploite le résultat du SELECT ;</li>
 <li>lignes 20, 24 : le résultat d&#x27;un SELECT s&#x27;exploite séquentiellement. Ce résultat est un ensemble de lignes. La ligne courante est obtenue par <strong>[</strong><strong>curseur</strong><strong>.fetchone()</strong><strong>]</strong> (ligne 19). On obtient alors un tuple ;</li>
 <li>lignes 27-30 :  si le curseur n&#x27;a pas le champ <strong>[description]</strong> alors il a exécuté un ordre de mise à jour  INSERT, UPDATE, DELETE. On peut alors savoir combien de lignes de la table ont été modifiées par l&#x27;exécution de cet ordre ;</li>
-<li>ligne 30 : <strong>[</strong><strong>curseur.rowcount</strong><strong>]</strong> est ce nombre ;
-Le script principal <strong>[mysql-04]</strong> utilise le module <strong>[</strong><strong>mysql_module</strong><strong>]</strong> que nous venons de décrire :</li>
+<li>ligne 30 : <strong>[</strong><strong>curseur.rowcount</strong><strong>]</strong> est ce nombre ;</li>
 </ul>
+<p>Le script principal <strong>[mysql-04]</strong> utilise le module <strong>[</strong><strong>mysql_module</strong><strong>]</strong> que nous venons de décrire :</p>
 <p><img src="images/10000000000001400000019646564AE6.png" style="width:3.701cm;height:4.68cm;" alt="Image" /></p>
 <p>Le fichier <strong>[config_04]</strong> configure le contexte d’exécution du script <strong>[mysql_04]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
@@ -2704,9 +2696,9 @@ Le script principal <strong>[mysql-04]</strong> utilise le module <strong>[</str
 <li>lignes 24-29 : calcul d&#x27;un texte affiché ligne 33 ;</li>
 <li>lignes 39-44 : on exécute les commandes du fichier <strong>[</strong><strong>./data/commandes.sql</strong><strong>]</strong> ;</li>
 <li>lignes 45-49 : s’il se produit une erreur à la connexion (ligne 40) ou non gérée par le script <strong>[</strong><strong>execute_file_of_commands</strong><strong>]</strong> on affiche l’erreur et on arrête tout ;</li>
-<li>lignes 55-62 : en cas d’exécution réussie, on affiche le nombre d’erreurs rencontrées dans l’exécution des commandes SQL ;
-<u><strong>Exécution n° 1</strong></u></li>
+<li>lignes 55-62 : en cas d’exécution réussie, on affiche le nombre d’erreurs rencontrées dans l’exécution des commandes SQL ;</li>
 </ul>
+<p><u><strong>Exécution n° 1</strong></u></p>
 <p>On fait d&#x27;abord une exécution sans transaction. Pour cela, on va créer une configuration d&#x27;exécution comme il a été fait dans le paragraphe |<a href="#_Le_script_principal_2"><u><u>configuration d’un contexte d’exécution</u></u></a>|:</p>
 <p><img src="images/10000000000005780000022925712BDD.png" style="width:16.181cm;height:6.391cm;" alt="Image" /></p>
 <ul>
@@ -2717,9 +2709,9 @@ Le script principal <strong>[mysql-04]</strong> utilise le module <strong>[</str
 <li><strong>[5]</strong> : nom de la configuration d&#x27;xécution ;</li>
 <li><strong>[6]</strong> : chemin du script à exécuter ;</li>
 <li><strong>[7]</strong>  : paramètres du script ;</li>
-<li><strong>[8]</strong> : dossier d’exécution ;
-Cette configuration correspond donc à une exécution du fichier SQL avec une transaction. Utiliser le bouton <strong>[Apply]</strong> pour valider la configuration.</li>
+<li><strong>[8]</strong> : dossier d’exécution ;</li>
 </ul>
+<p>Cette configuration correspond donc à une exécution du fichier SQL avec une transaction. Utiliser le bouton <strong>[Apply]</strong> pour valider la configuration.</p>
 <p>Nous créons de la même façon la configuration d&#x27;exécution <strong>[mysql mysql-04 without_transaction]</strong> :</p>
 <p><img src="images/1000000000000558000001E178FC5470.png" style="width:15.791cm;height:5.541cm;" alt="Image" /></p>
 <p>Cette configuration correspond donc à une exécution du fichier SQL sans transaction. Utiliser le bouton <strong>[Apply]</strong> pour valider la configuration.</p>
@@ -2870,9 +2862,9 @@ Cette configuration correspond donc à une exécution du fichier SQL avec une tr
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong> :</p>
 <ul>
-<li>ligne 19 : on voit qu&#x27;après l&#x27;erreur l&#x27;exécution des ordres SQL a continué, ceci parce que l&#x27;exécution s&#x27;est faite sans transaction et avec le paramètre <strong>[arrêt=False]</strong>. Tous les ordres SQL ont donc été exécutés. On devrait donc avoir une table <strong>[personnes]</strong> reflétant cette exécution ;
-Vérification avec phpMyAdmin :</li>
+<li>ligne 19 : on voit qu&#x27;après l&#x27;erreur l&#x27;exécution des ordres SQL a continué, ceci parce que l&#x27;exécution s&#x27;est faite sans transaction et avec le paramètre <strong>[arrêt=False]</strong>. Tous les ordres SQL ont donc été exécutés. On devrait donc avoir une table <strong>[personnes]</strong> reflétant cette exécution ;</li>
 </ul>
+<p>Vérification avec phpMyAdmin :</p>
 <p><img src="images/10000000000002BE00000254275E18A9.png" style="width:8.09cm;height:6.891cm;" alt="Image" /></p>
 <p><u><strong>Exécution n° 2</strong></u></p>
 <p>Nous exécutons maintenant la configuration <strong>[mysql mysql-04 with_transaction]</strong>. Les résultats sont les suivants :</p>
@@ -2930,9 +2922,9 @@ Vérification avec phpMyAdmin :</li>
 </code></pre></div></td></tr></table></div>
 <p><strong>Notes</strong> :</p>
 <ul>
-<li>ligne 19 : on voit qu&#x27;après l&#x27;erreur il n&#x27;y a plus d&#x27;exécution d&#x27;ordres SQL, ceci parce que l&#x27;exécution s&#x27;est faite dans une transaction et qu&#x27;à la 1re erreur rencontrée nous avons défait la transaction et arrêté l&#x27;exécution des ordres SQL. Ceci signifie que le résultat des ordres des lignes 9, 11, 13 a été défait. On devrait donc avoir une table <strong>[personnes]</strong> vide ;
-Vérifications avec phpMyAdmin :</li>
+<li>ligne 19 : on voit qu&#x27;après l&#x27;erreur il n&#x27;y a plus d&#x27;exécution d&#x27;ordres SQL, ceci parce que l&#x27;exécution s&#x27;est faite dans une transaction et qu&#x27;à la 1re erreur rencontrée nous avons défait la transaction et arrêté l&#x27;exécution des ordres SQL. Ceci signifie que le résultat des ordres des lignes 9, 11, 13 a été défait. On devrait donc avoir une table <strong>[personnes]</strong> vide ;</li>
 </ul>
+<p>Vérifications avec phpMyAdmin :</p>
 <p><img src="images/10000000000003F4000001B87E159F8E.png" style="width:11.69cm;height:5.081cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[5]</strong>, on voit que la table <strong>[personnes]</strong> <strong>[2]</strong> est vide ;</li>
@@ -3041,16 +3033,14 @@ Vérifications avec phpMyAdmin :</li>
 <li>ligne 27 : connexion à la base de données ;</li>
 <li>ligne 31 : suppression du contenu de la table <strong>[personnes]</strong> ;</li>
 <li>lignes 33-34 : insertion de personnes avec une requête paramétrée. Ligne 34, le 1er paramètre est l&#x27;ordre SQL à exécuter. Celui-ci est incomplet. Il contient des paramètres <strong>[%s]</strong> qui vont être remplacés un par un et dans l&#x27;ordre par les valeurs de la liste du second paramètre ;</li>
-<li>
-<p>ligne 36 : insertion de personnes avec cette fois une seule instruction <strong>[</strong><strong>curseur.executemany</strong><strong>]</strong>. Le second paramètre de <strong>[executemany]</strong> est alors une liste de listes ;
-L&#x27;intérêt des requêtes paramétrées réside en deux points :</p>
-</li>
-<li>
-<p>elles sont exécutées plus rapidement que des requêtes en &#x27;dur&#x27; qu&#x27;il faut analyser à chaque exécution. La requête paramétrée <strong>[executemany]</strong> n&#x27;est analysée qu&#x27;une fois. Ensuite elle est exécutée n fois sans être analysée de nouveau ;</p>
-</li>
-<li>les paramètres injectés dans la requête paramétrée sont vérifiés. S&#x27;ils contiennent des caractères réservés, comme l&#x27;apostrophe par exemple, ceux-ci sont &#x27;protégés&#x27; afin qu&#x27;ils n&#x27;interfèrent pas dans l&#x27;exécution de l&#x27;ordre SQL. C’est pour vérifier ce point qu’on a inclus des noms et prénoms avec apostrophes dans la liste (lignes 16 et 21) ;
-Les résultats obtenus dans phpMyAdmin sont les suivants :</li>
+<li>ligne 36 : insertion de personnes avec cette fois une seule instruction <strong>[</strong><strong>curseur.executemany</strong><strong>]</strong>. Le second paramètre de <strong>[executemany]</strong> est alors une liste de listes ;</li>
 </ul>
+<p>L&#x27;intérêt des requêtes paramétrées réside en deux points :</p>
+<ul>
+<li>elles sont exécutées plus rapidement que des requêtes en &#x27;dur&#x27; qu&#x27;il faut analyser à chaque exécution. La requête paramétrée <strong>[executemany]</strong> n&#x27;est analysée qu&#x27;une fois. Ensuite elle est exécutée n fois sans être analysée de nouveau ;</li>
+<li>les paramètres injectés dans la requête paramétrée sont vérifiés. S&#x27;ils contiennent des caractères réservés, comme l&#x27;apostrophe par exemple, ceux-ci sont &#x27;protégés&#x27; afin qu&#x27;ils n&#x27;interfèrent pas dans l&#x27;exécution de l&#x27;ordre SQL. C’est pour vérifier ce point qu’on a inclus des noms et prénoms avec apostrophes dans la liste (lignes 16 et 21) ;</li>
+</ul>
+<p>Les résultats obtenus dans phpMyAdmin sont les suivants :</p>
 <p><img src="images/1000000000000357000003570770DB41.png" style="width:9.861cm;height:9.88cm;" alt="Image" /></p>
 <ul>
 <li>on notera que les chaînes ayant une apostrophe, caractère réservé en SQL, ont été correctement insérées. La requête  paramétrée les a &#x27;protégées&#x27;. Sans requête paramétrée, il aurait fallu faire ce travail nous-mêmes ;</li>
@@ -3094,7 +3084,7 @@ Les résultats obtenus dans phpMyAdmin sont les suivants :</li>
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

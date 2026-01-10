@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1530,9 +1526,9 @@
 <ul>
 <li>on restructure certaines parties du code (refactoring) ;</li>
 <li>on gère la session différemment à l’aide du module <strong>[flask_session]</strong> ;</li>
-<li>on utilise des mots de passe cryptés dans le fichier de configuration ;
-La version 13 est obtenue initialement par recopie de la version 12 :</li>
+<li>on utilise des mots de passe cryptés dans le fichier de configuration ;</li>
 </ul>
+<p>La version 13 est obtenue initialement par recopie de la version 12 :</p>
 <p><img src="images/100000000000063B000001C274D580D2.png" style="width:18.4cm;height:5.211cm;" alt="Image" /></p>
 <p><img src="images/10000000000001BB0000018E64332B59.png" style="width:5.111cm;height:4.601cm;" alt="Image" /></p>
 <ul>
@@ -1549,9 +1545,9 @@ La version 13 est obtenue initialement par recopie de la version 12 :</li>
 <ul>
 <li><strong>[mvc]</strong> : pour paramétrer l’architecture MVC de l’application ;</li>
 <li><strong>[parameters]</strong> : qui va rassembler toutes les constantes de l’application ;</li>
-<li><strong>[syspath]</strong> : qui configure le Python Path de l’application ;
-Le fichier <strong>[syspath.py]</strong> est le suivant :</li>
+<li><strong>[syspath]</strong> : qui configure le Python Path de l’application ;</li>
 </ul>
+<p>Le fichier <strong>[syspath.py]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -1648,9 +1644,9 @@ Le fichier <strong>[syspath.py]</strong> est le suivant :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>le script <strong>[syspath]</strong> sert à configurer le Python Path de l’application (lignes 40-41) ;</li>
-<li>il rend deux informations utiles aux autres scripts de configuration (lignes 45-46) ;
-Le script <strong>[mvc]</strong> configure l’architecture MVC de l’application web jSON / XML / HTML :</li>
+<li>il rend deux informations utiles aux autres scripts de configuration (lignes 45-46) ;</li>
 </ul>
+<p>Le script <strong>[mvc]</strong> configure l’architecture MVC de l’application web jSON / XML / HTML :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">  1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">  2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">  3</a></span>
@@ -1885,9 +1881,9 @@ Le script <strong>[mvc]</strong> configure l’architecture MVC de l’applicati
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 1-101 : ce code est connu ;</li>
-<li>lignes 105-116 : on rend la configuration MVC de l’application ;
-Le script <strong>[parameters]</strong> rassemble les constantes de l’application :</li>
+<li>lignes 105-116 : on rend la configuration MVC de l’application ;</li>
 </ul>
+<p>Le script <strong>[parameters]</strong> rassemble les constantes de l’application :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -1974,9 +1970,9 @@ Le script <strong>[parameters]</strong> rassemble les constantes de l’applicat
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 13 : désormais les mots de passe des utilisateurs seront cryptés ;</li>
-<li>lignes 34-38 : la configuration d’un serveur <strong>[Redis]</strong> sur lequel nous reviendrons ;
-Avec ces nouveaux fichiers de configuration, le script <strong>[config]</strong> devient le suivant :</li>
+<li>lignes 34-38 : la configuration d’un serveur <strong>[Redis]</strong> sur lequel nous reviendrons ;</li>
 </ul>
+<p>Avec ces nouveaux fichiers de configuration, le script <strong>[config]</strong> devient le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -2243,37 +2239,37 @@ Avec ces nouveaux fichiers de configuration, le script <strong>[config]</strong>
 <p>Le module <strong>[flask_session]</strong> doit être installé dans un terminal PyCharm :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">2</a></span>
-<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">flask</span><span class="o">-</span><span class="n">session</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">Collecting</span> <span class="n">flask</span><span class="o">-</span><span class="n">session</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3"></a>  <span class="err">…</span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">flask</span><span class="o">-</span><span class="n">session</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">flask</span><span class="o">-</span><span class="n">session</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span><span class="err">…</span>
 </code></pre></div></td></tr></table></div>
 <p>Pour dialoguer avec le serveur Redis, il nous faut un client Redis. Celui nous sera fourni par le module <strong>[redis]</strong> que nous installons également :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
-<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">redis</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">Collecting</span> <span class="n">redis</span>
+<span class="normal"><a href="#__codelineno-6-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">redis</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">redis</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="err">…</span>
 </code></pre></div></td></tr></table></div>
 <h3 id="3322-le-serveur-redis">33.2.2. Le serveur Redis</h3>
 <p>Le serveur Redis va servir à stocker les sessions des utilisateurs. Le module <strong>[flask_session]</strong> fonctionne de la façon suivante :</p>
 <ul>
 <li>chaque utilisateur a un identifiant de session et c’est ça qui est envoyé au client et uniquement ça. Le client ne reçoit de cookie de session qu’une seule fois, à l’issue de sa première requête. Ce cookie contient l’identifiant de session de l’utilisateur qui ne changera plus au fil des requêtes du client. C’est pourquoi le serveur n’a pas à renvoyer de nouveau cookie de session ;</li>
-<li>précédemment le contenu de la session était envoyé au client. Ce ne sera donc plus le cas. Le contenu de la session de l’utilisateur sera stocké sur le serveur Redis ;
-Laragon vient avec un serveur Redis non activé par défaut. Il faut donc commencer par l’activer :</li>
+<li>précédemment le contenu de la session était envoyé au client. Ce ne sera donc plus le cas. Le contenu de la session de l’utilisateur sera stocké sur le serveur Redis ;</li>
 </ul>
+<p>Laragon vient avec un serveur Redis non activé par défaut. Il faut donc commencer par l’activer :</p>
 <p><img src="images/1000000100000362000001690D4428E3.png" style="width:14.59cm;height:6.081cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[3]</strong>, activer le serveur <strong>[Redis]</strong> ;</li>
-<li>en <strong>[4]</strong>, laisser le port <strong>[6379]</strong> que les clients Redis utilisent par défaut ;
-Les services Laragon sont automatiquement relancés après activation de Redis :</li>
+<li>en <strong>[4]</strong>, laisser le port <strong>[6379]</strong> que les clients Redis utilisent par défaut ;</li>
 </ul>
+<p>Les services Laragon sont automatiquement relancés après activation de Redis :</p>
 <p><img src="images/10000000000003E40000029211639DFF.png" style="width:11.51cm;height:7.591cm;" alt="Image" /></p>
 <p>Le serveur Redis peut être interrogé en mode commande. On ouvre un terminal Laragon <strong>[6]</strong> :</p>
 <p><img src="images/100000010000042A00000144CA0C4E67.png" style="width:17.541cm;height:5.321cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[1]</strong>, la commande <strong>[redis-cli]</strong> lance le client en mode commande du serveur Redis ;
-En juillet 2019, le client Redis peut utiliser 172 commandes pour dialoguer avec le serveur <strong>[https://redis.io/commands#list]</strong>. L’une d’elles <strong>[command count]</strong> <strong>[2]</strong>, affiche ce nombre <strong>[3]</strong>.</li>
+<li>en <strong>[1]</strong>, la commande <strong>[redis-cli]</strong> lance le client en mode commande du serveur Redis ;</li>
 </ul>
+<p>En juillet 2019, le client Redis peut utiliser 172 commandes pour dialoguer avec le serveur <strong>[https://redis.io/commands#list]</strong>. L’une d’elles <strong>[command count]</strong> <strong>[2]</strong>, affiche ce nombre <strong>[3]</strong>.</p>
 <p>L’écriture dans <strong>[Redis]</strong> se fait avec la commande Redis <strong>[set attribut valeur]</strong> <strong>[4]</strong>. La valeur peut ensuite être récupérée avec la commande <strong>[get attribut]</strong> <strong>[5]</strong>.</p>
 <p>Il peut être nécessaire de vider la mémoire de Redis. Cela se fait avec la commande <strong>[flushdb]</strong> <strong>[6]</strong>. Ensuite si on demande la valeur de l’attribut <strong>[titre]</strong> <strong>[7]</strong>, on obtient une référence <strong>[nil]</strong> <strong>[8]</strong> indiquant que l’attribut n’a pas été trouvé. On peut également utiliser la commande <strong>[exists]</strong> <strong>[9-10]</strong> pour vérifier l’existence d’un attribut.</p>
 <p>Pour quitter le client Redis, taper la commande <strong>[quit]</strong> <strong>[11]</strong>.</p>
@@ -2345,9 +2341,9 @@ En juillet 2019, le client Redis peut utiliser 172 commandes pour dialoguer avec
 <ul>
 <li>ligne 1 : les routes ont été externalisées dans le module <strong>[routes]</strong> ;</li>
 <li>ligne 3 : les routes ont besoin de connaître la configuration de l’exécution ;</li>
-<li>ligne 4 : on lance l’application Flask en lui passant le nom du script exécuté (<strong>main</strong>) ;
-Le script des routes est le suivant :</li>
+<li>ligne 4 : on lance l’application Flask en lui passant le nom du script exécuté (__main__) ;</li>
 </ul>
+<p>Le script des routes est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -2536,7 +2532,7 @@ Le script des routes est le suivant :</li>
 <li>lignes 82-84 : configuration du module <strong>[flask_session]</strong>. Celle-ci consiste à ajouter les clés <strong>[</strong><strong>SESSION_TYPE, SESSION_REDIS</strong><strong>]</strong> à la configuration <strong>[app.config]</strong> de l’application Flask <strong>[app]</strong> :</li>
 <li><strong>[SESSION_TYPE]</strong> : le type de la session. Il en existe plusieurs. Le type <strong>[redis]</strong> indique que <strong>[flask_session]</strong> utilise un serveur <strong>[redis]</strong> pour mémoriser les sessions des utilisateurs. A cause de cela, on doit définir la clé <strong>[SESSION_REDIS]</strong> qui doit être la référence d’un client Redis ;</li>
 <li>ligne 85 : la session <strong>[Flask-Session]</strong> est associée à l’application Flask ;</li>
-<li>lignes 86-89 : si le paramètre <strong>[name]</strong> de ligne 79 est la chaîne <strong>[<strong>main</strong>]</strong>, alors l’application Flask est lancée ;</li>
+<li>lignes 86-89 : si le paramètre <strong>[name]</strong> de ligne 79 est la chaîne <strong>[__main__]</strong>, alors l’application Flask est lancée ;</li>
 </ul>
 <h2 id="333-refactorisation-du-controleur-principal">33.3. Refactorisation du contrôleur principal</h2>
 <p>Le code autrefois dans la fonction <strong>[front_controller]</strong> du script <strong>[main]</strong> a été déplacé dans le contrôleur principal :</p>
@@ -2790,8 +2786,8 @@ Le script des routes est le suivant :</li>
 <p>Pour gérer des mots de passe cryptés nous allons utiliser le module <strong>[passlib]</strong> qu’on installe à partir d’un terminal Pycharm :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1">1</a></span>
 <span class="normal"><a href="#__codelineno-11-2">2</a></span>
-<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">passlib</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Collecting</span> <span class="n">passlib</span>
+<span class="normal"><a href="#__codelineno-11-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">passlib</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">passlib</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="err">…</span>
 </code></pre></div></td></tr></table></div>
 <p>Voici un exemple de script cryptant le mot de passe qu’on lui passe en paramètre :</p>
@@ -2841,14 +2837,14 @@ Le script des routes est le suivant :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 16 : on crypte le mot de passe passé en paramètre ;</li>
-<li>ligne 20 : on compare le mot de passe <strong>[password]</strong> passé en paramètre à sa version cryptée <strong>[hash]</strong>. La fonction <strong>[verify]</strong> crypte le mot de passe <strong>[password]</strong> et compare la chaîne cryptée obtenue à <strong>[hash]</strong>. Rend True si les deux chaînes sont égales ;
-Le script ci-dessus nous permet d’avoir la version cryptée du mot de passe <strong>[admin]</strong> :</li>
+<li>ligne 20 : on compare le mot de passe <strong>[password]</strong> passé en paramètre à sa version cryptée <strong>[hash]</strong>. La fonction <strong>[verify]</strong> crypte le mot de passe <strong>[password]</strong> et compare la chaîne cryptée obtenue à <strong>[hash]</strong>. Rend True si les deux chaînes sont égales ;</li>
 </ul>
+<p>Le script ci-dessus nous permet d’avoir la version cryptée du mot de passe <strong>[admin]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
 <span class="normal"><a href="#__codelineno-13-2">2</a></span>
-<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="n">http</span><span class="o">-</span><span class="n">servers</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="n">passlib</span><span class="o">/</span><span class="n">create_hashed_password</span><span class="o">.</span><span class="n">py</span> <span class="n">admin</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="n">version</span> <span class="n">cryptée</span> <span class="n">de</span> <span class="p">[</span><span class="n">admin</span><span class="p">]</span> <span class="o">=</span> <span class="err">$</span><span class="n">pbkdf2</span><span class="o">-</span><span class="n">sha256</span><span class="err">$</span><span class="mi">29000</span><span class="err">$</span><span class="n">fU9pTendO6c0ZoyR8r5Xqg</span><span class="err">$</span><span class="mi">5</span><span class="n">ZXywIUnbMfN2hPnBaefiuqWjEbmAY</span><span class="o">.</span><span class="n">Lu06i4dwcnek</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="kc">True</span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/08/passlib/create_hashed_password.py admin
+<a id="__codelineno-13-2" name="__codelineno-13-2"></a>version cryptée de [admin] = $pbkdf2-sha256$29000$fU9pTendO6c0ZoyR8r5Xqg$5ZXywIUnbMfN2hPnBaefiuqWjEbmAY.Lu06i4dwcnek
+<a id="__codelineno-13-3" name="__codelineno-13-3"></a>True
 </code></pre></div></td></tr></table></div>
 <p>Ligne 2, la valeur que nous mettons dans le script <strong>[parameters]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1">1</a></span>
@@ -2856,12 +2852,12 @@ Le script ci-dessus nous permet d’avoir la version cryptée du mot de passe <s
 <span class="normal"><a href="#__codelineno-14-3">3</a></span>
 <span class="normal"><a href="#__codelineno-14-4">4</a></span>
 <span class="normal"><a href="#__codelineno-14-5">5</a></span>
-<span class="normal"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>        <span class="s2">&quot;users&quot;</span><span class="p">:</span> <span class="p">[</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a>            <span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>                <span class="s2">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a>                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;$pbkdf2-sha256$29000$fU9pTendO6c0ZoyR8r5Xqg$5ZXywIUnbMfN2hPnBaefiuqWjEbmAY.Lu06i4dwcnek&quot;</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a>            <span class="p">}</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a>        <span class="p">],</span>
+<span class="normal"><a href="#__codelineno-14-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a>        &quot;users&quot;: [
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a>            {
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a>                &quot;login&quot;: &quot;admin&quot;,
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a>                &quot;password&quot;: &quot;$pbkdf2-sha256$29000$fU9pTendO6c0ZoyR8r5Xqg$5ZXywIUnbMfN2hPnBaefiuqWjEbmAY.Lu06i4dwcnek&quot;
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a>            }
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a>        ],
 </code></pre></div></td></tr></table></div>
 <p>Le contrôleur d’authentification <strong>[AuthentifierUtilisateurController]</strong> évolue de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
@@ -2936,7 +2932,7 @@ Le script ci-dessus nous permet d’avoir la version cryptée du mot de passe <s
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

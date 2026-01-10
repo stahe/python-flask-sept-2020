@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1568,9 +1564,9 @@
 <li>ligne 23 : le connecteur Python à utiliser ;</li>
 <li>ligne 25 : le module contenant des fonctions partagées ;</li>
 <li>lignes 26-30 : les identifiants de la connexion ;</li>
-<li>lignes 32-41 : les mêmes éléments pour une connexion au SGBD PostgreSQL ;
-Le script <strong>[any_04]</strong> qui exécute le fichier de commandes SQL <strong>[data/commandes.sql]</strong> est le suivant :</li>
+<li>lignes 32-41 : les mêmes éléments pour une connexion au SGBD PostgreSQL ;</li>
 </ul>
+<p>Le script <strong>[any_04]</strong> qui exécute le fichier de commandes SQL <strong>[data/commandes.sql]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
@@ -1727,17 +1723,17 @@ Le script <strong>[any_04]</strong> qui exécute le fichier de commandes SQL <st
 <li><strong>[with_transaction]</strong> : True si on veut exécuter le fichier de commandes SQL au sein d’une transaction, False sinon ;</li>
 <li>lignes 10-25 : les paramètres sont récupérés et vérifiés ;</li>
 <li>ligne 28 : la configuration du SGBD choisi ;</li>
-<li>ligne 30 : on importe le connecteur du SGBD choisi. On utilise pour cela la bibliothèque <strong>[importlib]</strong> (ligne 7) qui permet d’importer un module dont le nom est dans une variable. Le résultat de l’opération <strong>[</strong><strong>importlib</strong><strong>.import_module</strong><strong>]</strong> est un module. Ainsi après la ligne 30, tout se passe comme si l’instruction exécutée avait été :
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sgbd_connector</span>
-</code></pre></div></td></tr></table></div></li>
+<li>ligne 30 : on importe le connecteur du SGBD choisi. On utilise pour cela la bibliothèque <strong>[importlib]</strong> (ligne 7) qui permet d’importer un module dont le nom est dans une variable. Le résultat de l’opération <strong>[</strong><strong>importlib</strong><strong>.import_module</strong><strong>]</strong> est un module. Ainsi après la ligne 30, tout se passe comme si l’instruction exécutée avait été :</li>
 </ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sgbd_connector</span>
+</code></pre></div></td></tr></table></div>
 <p>Ceci va nous permettre d’écrire ligne 52 <strong>[</strong><strong>sgbd_connector.connect</strong><strong>]</strong> où on utilise la fonction <strong>[connect]</strong> du module <strong>[</strong><strong>sgbd_connector</strong><strong>]</strong>. Il faut se rappeler ici que <strong>[</strong><strong>sgbd_connector</strong><strong>]</strong> est soit <strong>[mysql.connector]</strong> ou <strong>[psycopg2]</strong>. Ces deux modules ont la fonction <strong>[connect]</strong>. De même, ligne 60, on peut écrire <strong>[</strong><strong>sgbd_connector.InterfaceError, sgbd_connector.DatabaseError</strong><strong>]</strong>.</p>
 <ul>
 <li>ligne 32 : on importe le module des fonctions utilisées par le script ;</li>
 <li>ligne 58 : on exécute la fonction <strong>[</strong><strong>execute_file_of_commands</strong><strong>]</strong> du module des fonctions utilisées par le script. Par rapport aux versions précédentes, la signature de cette fonction a un paramètre de plus, le premier. On passe à la fonction le connecteur Python <strong>[</strong><strong>sgbd_connector</strong><strong>]</strong> qu’elle doit utiliser ;</li>
-<li>en-dehors de ces points, le script <strong>[any_04]</strong> reste ce qu’il était dans les versions précédentes ;
-La bibliothèque de fonctions <strong>[any_module]</strong> est la suivante :</li>
+<li>en-dehors de ces points, le script <strong>[any_04]</strong> reste ce qu’il était dans les versions précédentes ;</li>
 </ul>
+<p>La bibliothèque de fonctions <strong>[any_module]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -2025,7 +2021,7 @@ La bibliothèque de fonctions <strong>[any_module]</strong> est la suivante :</
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

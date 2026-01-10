@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1570,9 +1566,9 @@
 <p>Dans la version 5 de notre exercice d’application, les données de l’administration fiscale étaient rangées dans une base de données. Cette version 5 comportait deux applications distinctes mais ayant des couches en commun :</p>
 <ul>
 <li>une application qui calculait l’impôt en mode |<a href="#_Application_2_:"><u><u>batch</u></u></a>| pour des contribuables enregistrés dans un fichier texte ;</li>
-<li>une application qui calculait l’impôt en mode |<a href="#_Application_3_:"><u><u>interactif</u></u></a>| pour des contribuables dont on saisissait les informations au clavier ;
-La version 5 de l’application de calcul de l’impôt par lots (mode batch) avait l’architecture suivante :</li>
+<li>une application qui calculait l’impôt en mode |<a href="#_Application_3_:"><u><u>interactif</u></u></a>| pour des contribuables dont on saisissait les informations au clavier ;</li>
 </ul>
+<p>La version 5 de l’application de calcul de l’impôt par lots (mode batch) avait l’architecture suivante :</p>
 <p><img src="images/100000000000041A00000306F9143924.png" style="width:12.12cm;height:8.94cm;" alt="Image" /></p>
 <p>Ultimement, la version web de cette application aura l’architecture suivante :</p>
 <p><img src="images/10000000000004090000050F8A8B031F.png" style="width:11.921cm;height:14.951cm;" alt="Image" /></p>
@@ -1582,16 +1578,14 @@ La version 5 de l’application de calcul de l’impôt par lots (mode batch) av
 <li>l’application initiale conserve son script principal <strong>[4]</strong> et sa couche <strong>[métier]</strong> <strong>[15]</strong>. Les couches <strong>[métier]</strong> <strong>[8]</strong> et <strong>[15]</strong> sont identiques;</li>
 <li>la communication client / serveur nécessite deux couches supplémentaires :</li>
 <li>la couche <strong>[web]</strong> <strong>[7]</strong> qui implémente l’application web ;</li>
-<li>
-<p>la couche <strong>[dao]</strong> <strong>[5]</strong> cliente de l’application web <strong>[7]</strong> ;
-Dans la version finale, le calcul de l’impôt par lots pourra se dérouler de deux façons :</p>
-</li>
-<li>
-<p>le calcul métier de l’impôt se fait par la couche <strong>[métier]</strong> du serveur. Le script <strong>[main]</strong> utilisera cette méthode ;</p>
-</li>
-<li>le calcul métier de l’impôt se fait par la couche <strong>[métier]</strong> du client. Le script <strong>[main2]</strong> utilisera cette méthode ;
-A partir de maintenant, nous allons développer plusieurs applications client / serveur du type ci-dessus, chacune illustrant une ou de nouvelles technologies de développement web.</li>
+<li>la couche <strong>[dao]</strong> <strong>[5]</strong> cliente de l’application web <strong>[7]</strong> ;</li>
 </ul>
+<p>Dans la version finale, le calcul de l’impôt par lots pourra se dérouler de deux façons :</p>
+<ul>
+<li>le calcul métier de l’impôt se fait par la couche <strong>[métier]</strong> du serveur. Le script <strong>[main]</strong> utilisera cette méthode ;</li>
+<li>le calcul métier de l’impôt se fait par la couche <strong>[métier]</strong> du client. Le script <strong>[main2]</strong> utilisera cette méthode ;</li>
+</ul>
+<p>A partir de maintenant, nous allons développer plusieurs applications client / serveur du type ci-dessus, chacune illustrant une ou de nouvelles technologies de développement web.</p>
 <h2 id="232-le-serveur-web-de-calcul-de-limpot">23.2. Le serveur web de calcul de l’impôt</h2>
 <h3 id="2321-version-1">23.2.1. Version 1</h3>
 <p><img src="images/1000000000000141000001709781F7CD.png" style="width:3.701cm;height:4.25cm;" alt="Image" /></p>
@@ -1602,25 +1596,23 @@ A partir de maintenant, nous allons développer plusieurs applications client / 
 <li><strong>[marié]</strong> (oui / non) pour indiquer si le contribuable est marié ;</li>
 <li><strong>[enfants]</strong> : le nombre d’enfants du contribuable ;</li>
 <li><strong>[salaire]</strong> : salaire annuel du contribuable ;</li>
-<li>en <strong>[2]</strong>, le serveur web renvoie une chaîne jSON qui donne le montant de l’impôt à payer avec avec ses différentes composantes ;
-L’architecture de l’application est la suivante :</li>
+<li>en <strong>[2]</strong>, le serveur web renvoie une chaîne jSON qui donne le montant de l’impôt à payer avec avec ses différentes composantes ;</li>
 </ul>
+<p>L’architecture de l’application est la suivante :</p>
 <p><img src="images/10000000000003E10000042233EC5DF0.png" style="width:11.471cm;height:12.21cm;" alt="Image" /></p>
 <ul>
 <li>le navigateur <strong>[1]</strong> interroge le serveur <strong>[2]</strong>. Le script <strong>[server_01]</strong> implémente la couche <strong>[web]</strong> <strong>[2]</strong> du serveur ;</li>
 <li>les couches <strong>[3-8]</strong> sont celles déjà utilisées dans la |<a href="#_Exercice_d'application_:"><u><u>version 5</u></u></a>| de l’application du calcul de l’impôt. Nous les reprenons telles-quelles ;</li>
 <li>la couche <strong>[métier]</strong> <strong>[3]</strong> est définie |<a href="#_La_couche_[métier]"><u><u>ici</u></u></a>| ;</li>
-<li>
-<p>la couche <strong>[dao]</strong> <strong>[4]</strong> est définie |<a href="#_La_couche_[dao]"><u><u>ici</u></u></a>| ;
-L’application web <strong>[server_01]</strong> est configurée à l’aide de trois scripts :</p>
-</li>
-<li>
-<p><strong>[config]</strong> qui configure la totalité de l’application ;</p>
-</li>
-<li><strong>[config_database]</strong> qui configure l’accès à la base de données. On travaillera avec les SGBD MySQL et PostgreSQL ;</li>
-<li><strong>[config_layers]</strong> qui configure les couches de l’application ;
-Le script <strong>[config]</strong> est le suivant :</li>
+<li>la couche <strong>[dao]</strong> <strong>[4]</strong> est définie |<a href="#_La_couche_[dao]"><u><u>ici</u></u></a>| ;</li>
 </ul>
+<p>L’application web <strong>[server_01]</strong> est configurée à l’aide de trois scripts :</p>
+<ul>
+<li><strong>[config]</strong> qui configure la totalité de l’application ;</li>
+<li><strong>[config_database]</strong> qui configure l’accès à la base de données. On travaillera avec les SGBD MySQL et PostgreSQL ;</li>
+<li><strong>[config_layers]</strong> qui configure les couches de l’application ;</li>
+</ul>
+<p>Le script <strong>[config]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
@@ -1730,12 +1722,12 @@ Le script <strong>[config]</strong> est le suivant :</li>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">return</span> <span class="n">config</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>la fonction <strong>[configure]</strong> reçoit un dictionnaire <strong>[config]</strong> en paramètre (ligne 1) et le rend comme résultat (ligne 54) après avoir enrichi son contenu. On aurait pu dire depuis longtemps qu’il n’était pas nécessaire de rendre le résultat <strong>[config]</strong>. En effet <strong>[config]</strong> est une référence de dictionnaire que le code appelant partage avec le code appelé. Le code appelant possède donc déjà cette référence (ligne 1) et il est inutile de la lui redonner (ligne 54). Ainsi écrire :
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="n">config</span><span class="o">=</span><span class="p">[</span><span class="n">module</span><span class="p">]</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></li>
+<li>la fonction <strong>[configure]</strong> reçoit un dictionnaire <strong>[config]</strong> en paramètre (ligne 1) et le rend comme résultat (ligne 54) après avoir enrichi son contenu. On aurait pu dire depuis longtemps qu’il n’était pas nécessaire de rendre le résultat <strong>[config]</strong>. En effet <strong>[config]</strong> est une référence de dictionnaire que le code appelant partage avec le code appelé. Le code appelant possède donc déjà cette référence (ligne 1) et il est inutile de la lui redonner (ligne 54). Ainsi écrire :</li>
 </ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>config=[module].configure(config) (1)
+</code></pre></div></td></tr></table></div>
 <p>est redondant. Il suffit d’écrire :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">[</span><span class="n">module</span><span class="p">]</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="n">config</span><span class="p">)</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>[module].configure(config) (2)
 </code></pre></div></td></tr></table></div>
 <p>Néanmoins, j’ai gardé le type (1) d’écriture parce que j’ai pensé qu’il montrait peut-être mieux, que le code appelé modifiait le dictionnaire <strong>[config]</strong>.</p>
 <ul>
@@ -1744,9 +1736,9 @@ Le script <strong>[config]</strong> est le suivant :</li>
 <li>lignes 33-40 : on ne va autoriser que certains utilisateurs à accéder à l’application. Ici on a une liste avec un unique utilisateur ;</li>
 <li>lignes 43-46 : c’est le script <strong>[config_database]</strong> qui construit la configuration de la base de données utilisée ;</li>
 <li>ligne 46 : la configuration construite par le script <strong>[config_database]</strong> est un dictionnaire qu’on range dans la configuration générale associé à la clé ‘database’ ;</li>
-<li>lignes 48-51 : le script <strong>[config_layers]</strong> instancie les couches de l’application web. Il rend un dictionnaire qu’on range dans la configuration générale associé à la clé ‘layers’ ;
-Le script <strong>[config_database]</strong> est celui déjà utilisé dans la |<a href="#_Le_fichier_de"><u><u>version 5</u></u></a>|. On le redonne pour mémoire :</li>
+<li>lignes 48-51 : le script <strong>[config_layers]</strong> instancie les couches de l’application web. Il rend un dictionnaire qu’on range dans la configuration générale associé à la clé ‘layers’ ;</li>
 </ul>
+<p>Le script <strong>[config_database]</strong> est celui déjà utilisé dans la |<a href="#_Le_fichier_de"><u><u>version 5</u></u></a>|. On le redonne pour mémoire :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -1893,9 +1885,9 @@ Le script <strong>[config_database]</strong> est celui déjà utilisé dans la |
 <ul>
 <li>ligne 6 : la couche <strong>[dao]</strong> est implémentée avec une base de données ;</li>
 <li><strong>[ImpotsDaoWithAdminDataInDatabase]</strong> a été définie |<a href="#_La_couche_[dao]"><u><u>ici</u></u></a>| ;</li>
-<li><strong>[ImpôtsMétier]</strong> a été définie |<a href="#_La_classe_[ImpôtsMétier]"><u><u>ici</u></u></a>| ;
-Le script principal <strong>[server_01]</strong> est le suivant :</li>
+<li><strong>[ImpôtsMétier]</strong> a été définie |<a href="#_La_classe_[ImpôtsMétier]"><u><u>ici</u></u></a>| ;</li>
 </ul>
+<p>Le script principal <strong>[server_01]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">  1</a></span>
 <span class="normal"><a href="#__codelineno-5-2">  2</a></span>
 <span class="normal"><a href="#__codelineno-5-3">  3</a></span>
@@ -2125,9 +2117,9 @@ Le script principal <strong>[server_01]</strong> est le suivant :</li>
 <li>ligne 66 : il ne faut pas oublier que les paramètres de l’URL et leurs valeurs sont des chaînes de caractères. La valeur du paramètre <strong>[enfants]</strong> est transformée en ‘int’ ;</li>
 <li>lignes 68-78 : pour le paramètre <strong>[salaire]</strong>, on fait les mêmes tests que pour le paramètre <strong>[enfants]</strong> ;</li>
 <li>lignes 81-83 : on vérifie qu’il n’y a pas de paramètres autres que <strong>[‘marié, ‘enfants’, ‘salaire’]</strong> dans l’URL ;</li>
-<li>lignes 85-89 : si après toutes ces vérifications, la liste <strong>[erreurs]</strong> n’est pas vide alors on envoie cette liste d’erreurs au client sous la forme d’une chaîne jSON  et le code de statut <strong>[400 Bad Request]</strong> ;
-Comme par la suite, nous aurons souvent l’occasion d’envoyer une chaîne jSON en réponse au client, les quelques lignes nécessaires à cet envoi ont été factorisées dans le module <strong>[myutils.py]</strong> que nous avons déjà utilisé :</li>
+<li>lignes 85-89 : si après toutes ces vérifications, la liste <strong>[erreurs]</strong> n’est pas vide alors on envoie cette liste d’erreurs au client sous la forme d’une chaîne jSON  et le code de statut <strong>[400 Bad Request]</strong> ;</li>
 </ul>
+<p>Comme par la suite, nous aurons souvent l’occasion d’envoyer une chaîne jSON en réponse au client, les quelques lignes nécessaires à cet envoi ont été factorisées dans le module <strong>[myutils.py]</strong> que nous avons déjà utilisé :</p>
 <p><img src="images/10000000000000E4000000AA2DDA30F6.png" style="width:2.631cm;height:1.96cm;" alt="Image" /></p>
 <p>Le script <strong>[myutils.py]</strong> devient le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
@@ -2180,9 +2172,9 @@ Comme par la suite, nous aurons souvent l’occasion d’envoyer une chaîne jSO
 <li><strong>[status_code]</strong> : le code de statut HTTP de la réponse ;</li>
 <li>ligne 18 : on fixe le corps jSON de la réponse ;</li>
 <li>ligne 20 : on ajoute l’entête HTTP qui dit au client web qu’il va recevoir du jSON ;</li>
-<li>ligne 22 : on envoie la réponse HTTP au code appelant. A charge pour lui de l’envoyer au client web ;
-Le fichier <strong>[<strong>init</strong>.py]</strong> évolue de la façon suivante :</li>
+<li>ligne 22 : on envoie la réponse HTTP au code appelant. A charge pour lui de l’envoyer au client web ;</li>
 </ul>
+<p>Le fichier <strong>[__init__.py]</strong> évolue de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">.myutils</span><span class="w"> </span><span class="kn">import</span> <span class="n">set_syspath</span><span class="p">,</span> <span class="n">json_response</span>
 </code></pre></div></td></tr></table></div>
 <p>La nouvelle version de <strong>[myutils]</strong> est installée parmi les modules de portée machine avec la commande <strong>[pip install .]</strong> dans un terminal Pycharm :</p>
@@ -2195,21 +2187,21 @@ Le fichier <strong>[<strong>init</strong>.py]</strong> évolue de la façon suiv
 <span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
 <span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
 <span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="o">.</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">Processing</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">packages</span>
-<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">Using</span> <span class="n">legacy</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="k">for</span> <span class="n">myutils</span><span class="p">,</span> <span class="n">since</span> <span class="n">package</span> <span class="s1">&#39;wheel&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">installed</span><span class="o">.</span>
-<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">myutils</span>
-<a id="__codelineno-8-5" name="__codelineno-8-5"></a>  <span class="n">Attempting</span> <span class="n">uninstall</span><span class="p">:</span> <span class="n">myutils</span>
-<a id="__codelineno-8-6" name="__codelineno-8-6"></a>    <span class="n">Found</span> <span class="n">existing</span> <span class="n">installation</span><span class="p">:</span> <span class="n">myutils</span> <span class="mf">0.1</span>
-<a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="n">Uninstalling</span> <span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span><span class="p">:</span>
-<a id="__codelineno-8-8" name="__codelineno-8-8"></a>      <span class="n">Successfully</span> <span class="n">uninstalled</span> <span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span>
-<a id="__codelineno-8-9" name="__codelineno-8-9"></a>    <span class="n">Running</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="k">for</span> <span class="n">myutils</span> <span class="o">...</span> <span class="n">done</span>
-<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">packages</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="p">.</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="n">Processing</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">packages</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="n">Using</span><span class="w"> </span><span class="n">legacy</span><span class="w"> </span><span class="n">setup</span><span class="p">.</span><span class="na">py</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">myutils</span><span class="p">,</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="kn">package</span><span class="w"> </span><span class="err">&#39;</span><span class="nn">wheel</span><span class="err">&#39;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">installed</span><span class="p">.</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">myutils</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span><span class="n">Attempting</span><span class="w"> </span><span class="n">uninstall</span><span class="p">:</span><span class="w"> </span><span class="n">myutils</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">    </span><span class="n">Found</span><span class="w"> </span><span class="n">existing</span><span class="w"> </span><span class="n">installation</span><span class="p">:</span><span class="w"> </span><span class="n">myutils</span><span class="w"> </span><span class="mf">0.1</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="w">    </span><span class="n">Uninstalling</span><span class="w"> </span><span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span><span class="p">:</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="w">      </span><span class="n">Successfully</span><span class="w"> </span><span class="n">uninstalled</span><span class="w"> </span><span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="w">    </span><span class="n">Running</span><span class="w"> </span><span class="n">setup</span><span class="p">.</span><span class="na">py</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">myutils</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="n">done</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">myutils</span><span class="o">-</span><span class="mf">0.1</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 1 : il faut être dans le dossier <strong>[packages]</strong> pour taper cette instruction ;
-Le code du script <strong>[server_01]</strong> se poursuit de la façon suivante :</li>
+<li>ligne 1 : il faut être dans le dossier <strong>[packages]</strong> pour taper cette instruction ;</li>
 </ul>
+<p>Le code du script <strong>[server_01]</strong> se poursuit de la façon suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
@@ -2240,9 +2232,9 @@ Le code du script <strong>[server_01]</strong> se poursuit de la façon suivante
 <li>ligne 10 : lorsqu’on est là, les paramètres attendus dans l’URL sont là et sont corrects ;</li>
 <li>ligne 10 : on crée l’objet <strong>[TaxPayer]</strong> qui modélise le contribuable ;</li>
 <li>ligne 11 : on demande à la couche <strong>[métier]</strong> de calculer l’impôt. On rappelle que les éléments calculés par la couche <strong>[métier]</strong> sont insérés dans l’objet <strong>[taxpayer]</strong> passé en paramètre ;</li>
-<li>ligne 13 : la réponse est envoyée au client web sous la forme d’une chaîne jSON. Celle-ci est la chaîne jSON d’un dictionnaire. Associé à la clé <strong>[result]</strong>, on y met le dictionnaire de l’objet <strong>[taxpayer]</strong>. On ne pouvait pas mettre l’objet <strong>[taxpayer]</strong> lui-même car celui-ci n’est pas sérialisable en jSON ;
-On crée deux configurations d’exécution, une pour MySQL, l’autre pour PostgreSQL :</li>
+<li>ligne 13 : la réponse est envoyée au client web sous la forme d’une chaîne jSON. Celle-ci est la chaîne jSON d’un dictionnaire. Associé à la clé <strong>[result]</strong>, on y met le dictionnaire de l’objet <strong>[taxpayer]</strong>. On ne pouvait pas mettre l’objet <strong>[taxpayer]</strong> lui-même car celui-ci n’est pas sérialisable en jSON ;</li>
 </ul>
+<p>On crée deux configurations d’exécution, une pour MySQL, l’autre pour PostgreSQL :</p>
 <p><img src="images/10000000000003D1000001DC0EF38F9B.png" style="width:11.27cm;height:5.49cm;" alt="Image" /></p>
 <p>Voici quelques exemples d’exécution (vous avez lancé l’application <strong>[server_01]</strong> et le SGBD utilisé puis vous demandez l’URL <a href="http://localhost:5000/"><u><u>http://localhost:5000/</u></u></a> avec un navigateur) :</p>
 <p><img src="images/10000000000005670000011B8C582729.png" style="width:15.971cm;height:3.271cm;" alt="Image" /></p>
@@ -2429,9 +2421,9 @@ On crée deux configurations d’exécution, une pour MySQL, l’autre pour Post
 <ul>
 <li>ligne 9 : la fonction <strong>[execute]</strong> reçoit deux paramètres :</li>
 <li><strong>[request]</strong> : la requête HTTP du client ;</li>
-<li><strong>[config]</strong> : le dictionnaire de configuration de l’application ;
-Le script <strong>[server_02]</strong> est le suivant :</li>
+<li><strong>[config]</strong> : le dictionnaire de configuration de l’application ;</li>
 </ul>
+<p>Le script <strong>[server_02]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
@@ -2530,9 +2522,9 @@ Le script <strong>[server_02]</strong> est le suivant :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 36-41 : le traitement de la route / ;</li>
-<li>ligne 39 : utilisation de la fonction <strong>[</strong><strong>IndexController</strong><strong>.execute</strong><strong>]</strong> ;
-Nous utiliserons désormais cette technique : chaque route sera traitée par un module qui lui sera propre.</li>
+<li>ligne 39 : utilisation de la fonction <strong>[</strong><strong>IndexController</strong><strong>.execute</strong><strong>]</strong> ;</li>
 </ul>
+<p>Nous utiliserons désormais cette technique : chaque route sera traitée par un module qui lui sera propre.</p>
 <p>Les résultats d’exécution sont les mêmes que pour la version 1.</p>
 <h3 id="2323-version-3">23.2.3. Version 3</h3>
 <p>La version 3 introduit la notion d’authentification.</p>
@@ -2675,9 +2667,9 @@ Nous utiliserons désormais cette technique : chaque route sera traitée par un
 <li>ligne 21 : on importe un gestionnaire d’authentification. Il existe divers types d’authentification auprès d’un serveur web. Celle que nous utilisons ici s’appelle <strong>[HTTP Basic]</strong>. Chaque type d’authentification suit un dialogue client / serveur précis ;</li>
 <li>ligne 33 : on crée une instance du gestionnaire d’authentification ;</li>
 <li>ligne 37 : l’annotation <strong>[</strong><strong>@auth.verify_password</strong><strong>]</strong> tague la fonction à exécuter lorsque le gestionnaire d’authentification veut vérifier les login / password transmis par le client selon le protocole <strong>[HTTP Basic]</strong> ;</li>
-<li>ligne 55 : l’annotation <strong>[</strong><strong>@auth.login_required</strong><strong>]</strong> tague une route pour laquelle le client web doit être authentifié. Si le client web n’a pas encore envoyé ses identifiants, le serveur web va automatiquement les lui demander selon le protocole HTTP basic ;
-Le module <strong>[flask_httpauth]</strong> doit être installé :</li>
+<li>ligne 55 : l’annotation <strong>[</strong><strong>@auth.login_required</strong><strong>]</strong> tague une route pour laquelle le client web doit être authentifié. Si le client web n’a pas encore envoyé ses identifiants, le serveur web va automatiquement les lui demander selon le protocole HTTP basic ;</li>
 </ul>
+<p>Le module <strong>[flask_httpauth]</strong> doit être installé :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
@@ -2689,27 +2681,27 @@ Le module <strong>[flask_httpauth]</strong> doit être installé :</li>
 <span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
 <span class="normal"><a href="#__codelineno-14-10">10</a></span>
 <span class="normal"><a href="#__codelineno-14-11">11</a></span>
-<span class="normal"><a href="#__codelineno-14-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">http</span><span class="o">-</span><span class="n">servers</span>\<span class="mi">01</span>\<span class="n">flask</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">flask_httpauth</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">Collecting</span> <span class="n">flask_httpauth</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3"></a>  <span class="n">Downloading</span> <span class="n">Flask_HTTPAuth</span><span class="o">-</span><span class="mf">4.1.0</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mf">5.8</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">Flask</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">flask_httpauth</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.1.2</span><span class="p">)</span>
-<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">itsdangerous</span><span class="o">&gt;=</span><span class="mf">0.24</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.1.0</span><span class="p">)</span>
-<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">click</span><span class="o">&gt;=</span><span class="mf">5.1</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span> <span class="p">(</span><span class="mf">7.1.2</span><span class="p">)</span>
-<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">Jinja2</span><span class="o">&gt;=</span><span class="mf">2.10.1</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span> <span class="p">(</span><span class="mf">2.11.2</span><span class="p">)</span>
-<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">Werkzeug</span><span class="o">&gt;=</span><span class="mf">0.15</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.0.1</span><span class="p">)</span>
-<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span><span class="p">:</span> <span class="n">MarkupSafe</span><span class="o">&gt;=</span><span class="mf">0.23</span> <span class="ow">in</span> <span class="n">c</span><span class="p">:</span>\<span class="n">data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span> <span class="p">(</span><span class="kn">from</span><span class="w"> </span><span class="nn">Jinja2</span><span class="o">&gt;=</span><span class="mf">2.10.1</span><span class="o">-&gt;</span><span class="n">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span> <span class="p">(</span><span class="mf">1.1.1</span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">impots</span><span class="err">\</span><span class="n">http</span><span class="o">-</span><span class="n">servers</span><span class="err">\</span><span class="mo">01</span><span class="err">\</span><span class="n">flask</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">flask_httpauth</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">flask_httpauth</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">Flask_HTTPAuth</span><span class="o">-</span><span class="mf">4.1.0</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mf">5.8</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">Flask</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">flask_httpauth</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.1.2</span><span class="p">)</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">itsdangerous</span><span class="o">&gt;=</span><span class="mf">0.24</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.1.0</span><span class="p">)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">click</span><span class="o">&gt;=</span><span class="mf">5.1</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">7.1.2</span><span class="p">)</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">Jinja2</span><span class="o">&gt;=</span><span class="mf">2.10.1</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">2.11.2</span><span class="p">)</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">Werkzeug</span><span class="o">&gt;=</span><span class="mf">0.15</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0.1</span><span class="p">)</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="n">Requirement</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">satisfied</span><span class="p">:</span><span class="w"> </span><span class="n">MarkupSafe</span><span class="o">&gt;=</span><span class="mf">0.23</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">c</span><span class="p">:</span><span class="err">\</span><span class="n">data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">venv</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="w"> </span><span class="p">(</span><span class="n">from</span><span class="w"> </span><span class="n">Jinja2</span><span class="o">&gt;=</span><span class="mf">2.10.1</span><span class="o">-&gt;</span><span class="n">Flask</span><span class="o">-&gt;</span><span class="n">flask_httpauth</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="mf">1.1.1</span>
 <a id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="p">)</span>
-<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">flask</span><span class="o">-</span><span class="n">httpauth</span>
-<a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">flask</span><span class="o">-</span><span class="n">httpauth</span><span class="o">-</span><span class="mf">4.1.0</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11"></a><span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">flask</span><span class="o">-</span><span class="n">httpauth</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12"></a><span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">flask</span><span class="o">-</span><span class="n">httpauth</span><span class="o">-</span><span class="mf">4.1.0</span>
 </code></pre></div></td></tr></table></div>
 <p>Voyons ce qui se passe avec la console Postman. Vous :</p>
 <ul>
 <li>créez une configuration d’exécution ;</li>
 <li>lancez l’application web ;</li>
 <li>lancez le SGBD de votre choix ;</li>
-<li>demandez l’URL <strong>[/]</strong> avec Postman ;
-Le dialogue client / serveur dans la console Postman est le suivant :</li>
+<li>demandez l’URL <strong>[/]</strong> avec Postman ;</li>
 </ul>
+<p>Le dialogue client / serveur dans la console Postman est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-15-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-15-3"> 3</a></span>
@@ -2746,9 +2738,9 @@ Le dialogue client / serveur dans la console Postman est le suivant :</li>
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 10 : le serveur répond que nous ne sommes pas autorisés à accéder à l’URL <strong>[/]</strong> ;</li>
-<li>ligne 13 : il nous indique le protocole d’authentification à utiliser, ici le protocole dit Authentification Basic ;
-Il est possible de configurer Postman pour qu’il envoie les identifiants de l’utilisateur selon le protocole Auth Basic :</li>
+<li>ligne 13 : il nous indique le protocole d’authentification à utiliser, ici le protocole dit Authentification Basic ;</li>
 </ul>
+<p>Il est possible de configurer Postman pour qu’il envoie les identifiants de l’utilisateur selon le protocole Auth Basic :</p>
 <p><img src="images/10000000000002AB000002667CD6689F.png" style="width:7.88cm;height:7.081cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[6-7]</strong> nous mettons les identifiants présents dans le script <strong>[config]</strong> :</li>
@@ -2759,12 +2751,12 @@ Il est possible de configurer Postman pour qu’il envoie les identifiants de l�
 <span class="normal"><a href="#__codelineno-16-3">3</a></span>
 <span class="normal"><a href="#__codelineno-16-4">4</a></span>
 <span class="normal"><a href="#__codelineno-16-5">5</a></span>
-<span class="normal"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>    <span class="n">config</span><span class="p">[</span><span class="s1">&#39;users&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2"></a>        <span class="p">{</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3"></a>            <span class="s2">&quot;login&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4"></a>            <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5"></a>        <span class="p">}</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    <span class="p">]</span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1"></a>    config[&#39;users&#39;] = [
+<a id="__codelineno-16-2" name="__codelineno-16-2"></a>        {
+<a id="__codelineno-16-3" name="__codelineno-16-3"></a>            &quot;login&quot;: &quot;admin&quot;,
+<a id="__codelineno-16-4" name="__codelineno-16-4"></a>            &quot;password&quot;: &quot;admin&quot;
+<a id="__codelineno-16-5" name="__codelineno-16-5"></a>        }
+<a id="__codelineno-16-6" name="__codelineno-16-6"></a>    ]
 </code></pre></div></td></tr></table></div>
 <p>Le dialogue client / serveur dans la console Postman devient le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
@@ -2803,21 +2795,21 @@ Il est possible de configurer Postman pour qu’il envoie les identifiants de l�
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>ligne 2 : le client Postman envoie sous forme codée les identifiants de l’utilisateur <strong>[admin / admin]</strong> ;</li>
-<li>ligne 17 : le serveur répond correctement. Il signale des erreurs car on n’a pas envoyé les paramètres <strong>[marié, enfants, salaire]</strong> (ligne 1) mais il ne signale pas d’erreur d’authentification ;
-Maintenant demandons l’URL / avec un navigateur (Firefox ci-dessous) :</li>
+<li>ligne 17 : le serveur répond correctement. Il signale des erreurs car on n’a pas envoyé les paramètres <strong>[marié, enfants, salaire]</strong> (ligne 1) mais il ne signale pas d’erreur d’authentification ;</li>
 </ul>
+<p>Maintenant demandons l’URL / avec un navigateur (Firefox ci-dessous) :</p>
 <p><img src="images/10000000000004730000018AC3848A39.png" style="width:13.14cm;height:4.541cm;" alt="Image" /></p>
 <ul>
-<li>comme avec Postman, Firefox a reçu la réponse HTTP du serveur avec les entêtes HTTP :
+<li>comme avec Postman, Firefox a reçu la réponse HTTP du serveur avec les entêtes HTTP :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-18-1">1</a></span>
 <span class="normal"><a href="#__codelineno-18-2">2</a></span>
 <span class="normal"><a href="#__codelineno-18-3">3</a></span>
-<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.0</span> <span class="mi">401</span> <span class="n">UNAUTHORIZED</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2"></a><span class="err">…</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="n">WWW</span><span class="o">-</span><span class="n">Authenticate</span><span class="p">:</span> <span class="n">Basic</span> <span class="n">realm</span><span class="o">=</span><span class="s2">&quot;Authentication Required&quot;</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="err">…</span>
-</code></pre></div></td></tr></table></div></li>
-</ul>
+<span class="normal"><a href="#__codelineno-18-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1"></a>HTTP/1.0 401 UNAUTHORIZED
+<a id="__codelineno-18-2" name="__codelineno-18-2"></a>…
+<a id="__codelineno-18-3" name="__codelineno-18-3"></a>WWW-Authenticate: Basic realm=&quot;Authentication Required&quot;
+<a id="__codelineno-18-4" name="__codelineno-18-4"></a>…
+</code></pre></div></td></tr></table></div>
 <p>Firefox comme d’autres navigateurs n’arrêtent pas le dialogue lorsqu’il reçoit ces entêtes. Il demandet à l’utilisateur les identifiants réclamés par le serveur. Il suffit ci-dessus de taper admin / admin pour recevoir la réponse du serveur :</p>
 <p><img src="images/10000000000002F70000015FADE1EFB4.png" style="width:8.771cm;height:4.051cm;" alt="Image" /></p>
 <h2 id="233-le-client-web-du-serveur-de-calcul-de-limpot">23.3. Le client web du serveur de calcul de l’impôt</h2>
@@ -2826,9 +2818,9 @@ Maintenant demandons l’URL / avec un navigateur (Firefox ci-dessous) :</li>
 <p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.06cm;height:11.51cm;" alt="Image" /></p>
 <ul>
 <li>le client web est formé des couches <strong>[1-2]</strong> ;</li>
-<li>le serveur web est formé des couches <strong>[3-9]</strong>. Il a été écrit dans le paragraphe précédent ;
-Il nous faut donc écrire les couches <strong>[1-2]</strong>.</li>
+<li>le serveur web est formé des couches <strong>[3-9]</strong>. Il a été écrit dans le paragraphe précédent ;</li>
 </ul>
+<p>Il nous faut donc écrire les couches <strong>[1-2]</strong>.</p>
 <p>La couche <strong>[dao]</strong> <strong>[2]</strong> doit savoir communiquer avec le serveur web <strong>[3]</strong>. Nous connaissons maintenant le protocole HTTP et nous pourrions écrire, avec le module <strong>[pycurl]</strong> déjà étudié par exemple, un script communiquant avec le serveur web <strong>[3]</strong>. Cependant il existe des modules spécialisés dans les dialogues HTTP client / serveur. Nous allons utiliser l’un d’entre-eux, le module <strong>[requests]</strong> :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-19-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-19-2"> 2</a></span>
@@ -2847,31 +2839,31 @@ Il nous faut donc écrire les couches <strong>[1-2]</strong>.</li>
 <span class="normal"><a href="#__codelineno-19-15">15</a></span>
 <span class="normal"><a href="#__codelineno-19-16">16</a></span>
 <span class="normal"><a href="#__codelineno-19-17">17</a></span>
-<span class="normal"><a href="#__codelineno-19-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">http</span><span class="o">-</span><span class="n">servers</span>\<span class="mi">01</span>\<span class="n">flask</span><span class="o">&gt;</span><span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">Collecting</span> <span class="n">requests</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3"></a>  <span class="n">Downloading</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.24.0</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">61</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4"></a>     <span class="o">||</span> <span class="mi">61</span> <span class="n">kB</span> <span class="mi">137</span> <span class="n">kB</span><span class="o">/</span><span class="n">s</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">Collecting</span> <span class="n">idna</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">2.5</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6"></a>  <span class="n">Downloading</span> <span class="n">idna</span><span class="o">-</span><span class="mf">2.10</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">58</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-19-7" name="__codelineno-19-7"></a>     <span class="o">||</span> <span class="mi">58</span> <span class="n">kB</span> <span class="mi">692</span> <span class="n">kB</span><span class="o">/</span><span class="n">s</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="n">Collecting</span> <span class="n">chardet</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">3.0.2</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9"></a>  <span class="n">Downloading</span> <span class="n">chardet</span><span class="o">-</span><span class="mf">3.0.4</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">133</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-19-10" name="__codelineno-19-10"></a>     <span class="o">||</span> <span class="mi">133</span> <span class="n">kB</span> <span class="mf">1.3</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="n">Collecting</span> <span class="n">urllib3</span><span class="o">!=</span><span class="mf">1.25.0</span><span class="p">,</span><span class="o">!=</span><span class="mf">1.25.1</span><span class="p">,</span><span class="o">&lt;</span><span class="mf">1.26</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">1.21.1</span>
-<a id="__codelineno-19-12" name="__codelineno-19-12"></a>  <span class="n">Downloading</span> <span class="n">urllib3</span><span class="o">-</span><span class="mf">1.25.9</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">126</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-19-13" name="__codelineno-19-13"></a>     <span class="o">||</span> <span class="mi">126</span> <span class="n">kB</span> <span class="mf">1.1</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
-<a id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="n">Collecting</span> <span class="n">certifi</span><span class="o">&gt;=</span><span class="mf">2017.4.17</span>
-<a id="__codelineno-19-15" name="__codelineno-19-15"></a>  <span class="n">Downloading</span> <span class="n">certifi</span><span class="o">-</span><span class="mf">2020.6.20</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span> <span class="p">(</span><span class="mi">156</span> <span class="n">kB</span><span class="p">)</span>
-<a id="__codelineno-19-16" name="__codelineno-19-16"></a>     <span class="o">||</span> <span class="mi">156</span> <span class="n">kB</span> <span class="mf">1.1</span> <span class="n">MB</span><span class="o">/</span><span class="n">s</span>
-<a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">idna</span><span class="p">,</span> <span class="n">chardet</span><span class="p">,</span> <span class="n">urllib3</span><span class="p">,</span> <span class="n">certifi</span><span class="p">,</span> <span class="n">requests</span>
-<a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="n">Successfully</span> <span class="n">installed</span> <span class="n">certifi</span><span class="o">-</span><span class="mf">2020.6.20</span> <span class="n">chardet</span><span class="o">-</span><span class="mf">3.0.4</span> <span class="n">idna</span><span class="o">-</span><span class="mf">2.10</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.24.0</span> <span class="n">urllib3</span><span class="o">-</span><span class="mf">1.25.9</span>
+<span class="normal"><a href="#__codelineno-19-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="p">(</span><span class="n">venv</span><span class="p">)</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="err">\</span><span class="n">Data</span><span class="err">\</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">dev</span><span class="err">\</span><span class="n">python</span><span class="err">\</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="err">\</span><span class="n">impots</span><span class="err">\</span><span class="n">http</span><span class="o">-</span><span class="n">servers</span><span class="err">\</span><span class="mo">01</span><span class="err">\</span><span class="n">flask</span><span class="o">&gt;</span><span class="n">pip</span><span class="w"> </span><span class="n">install</span><span class="w"> </span><span class="n">requests</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">requests</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">requests</span><span class="o">-</span><span class="mf">2.24.0</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mi">61</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="w">     </span><span class="o">||</span><span class="w"> </span><span class="mi">61</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="mi">137</span><span class="w"> </span><span class="n">kB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">idna</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">2.5</span>
+<a id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">idna</span><span class="o">-</span><span class="mf">2.10</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mi">58</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="w">     </span><span class="o">||</span><span class="w"> </span><span class="mi">58</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="mi">692</span><span class="w"> </span><span class="n">kB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">chardet</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">3.0.2</span>
+<a id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">chardet</span><span class="o">-</span><span class="mf">3.0.4</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mi">133</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="w">     </span><span class="o">||</span><span class="w"> </span><span class="mi">133</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="mf">1.3</span><span class="w"> </span><span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">urllib3</span><span class="o">!=</span><span class="mf">1.25.0</span><span class="p">,</span><span class="o">!=</span><span class="mf">1.25.1</span><span class="p">,</span><span class="o">&lt;</span><span class="mf">1.26</span><span class="p">,</span><span class="o">&gt;=</span><span class="mf">1.21.1</span>
+<a id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">urllib3</span><span class="o">-</span><span class="mf">1.25.9</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mi">126</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="w">     </span><span class="o">||</span><span class="w"> </span><span class="mi">126</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="n">Collecting</span><span class="w"> </span><span class="n">certifi</span><span class="o">&gt;=</span><span class="mf">2017.4.17</span>
+<a id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="w">  </span><span class="n">Downloading</span><span class="w"> </span><span class="n">certifi</span><span class="o">-</span><span class="mf">2020.6.20</span><span class="o">-</span><span class="n">py2</span><span class="p">.</span><span class="na">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="n">any</span><span class="p">.</span><span class="na">whl</span><span class="w"> </span><span class="p">(</span><span class="mi">156</span><span class="w"> </span><span class="n">kB</span><span class="p">)</span>
+<a id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="w">     </span><span class="o">||</span><span class="w"> </span><span class="mi">156</span><span class="w"> </span><span class="n">kB</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="n">MB</span><span class="o">/</span><span class="n">s</span>
+<a id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="n">Installing</span><span class="w"> </span><span class="n">collected</span><span class="w"> </span><span class="n">packages</span><span class="p">:</span><span class="w"> </span><span class="n">idna</span><span class="p">,</span><span class="w"> </span><span class="n">chardet</span><span class="p">,</span><span class="w"> </span><span class="n">urllib3</span><span class="p">,</span><span class="w"> </span><span class="n">certifi</span><span class="p">,</span><span class="w"> </span><span class="n">requests</span>
+<a id="__codelineno-19-18" name="__codelineno-19-18"></a><span class="n">Successfully</span><span class="w"> </span><span class="n">installed</span><span class="w"> </span><span class="n">certifi</span><span class="o">-</span><span class="mf">2020.6.20</span><span class="w"> </span><span class="n">chardet</span><span class="o">-</span><span class="mf">3.0.4</span><span class="w"> </span><span class="n">idna</span><span class="o">-</span><span class="mf">2.10</span><span class="w"> </span><span class="n">requests</span><span class="o">-</span><span class="mf">2.24.0</span><span class="w"> </span><span class="n">urllib3</span><span class="o">-</span><span class="mf">1.25.9</span>
 </code></pre></div></td></tr></table></div>
 <p>L’arborescence des scripts du client web est la suivante :</p>
 <p><img src="images/10000000000002060000022310C37CE5.png" style="width:5.991cm;height:6.331cm;" alt="Image" /></p>
 <p>Le script va implémenter l’application de calcul de l’impôt en mode batch décrite dès la |<a href="#_Version_1"><u><u>version 1</u></u></a>|. La dernière version de cette application est la |<a href="#_Application_2_:"><u><u>version 5</u></u></a>|. On rappelle son fonctionnement :</p>
 <ul>
-<li>
-<p>les contribuables dont on va calculer l’impôt sont rassemblés dans le fichier texte <strong>[taxpayersdata.txt]</strong> :
+<li>les contribuables dont on va calculer l’impôt sont rassemblés dans le fichier texte <strong>[taxpayersdata.txt]</strong> :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-20-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-20-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-20-3"> 3</a></span>
@@ -2888,41 +2880,43 @@ Il nous faut donc écrire les couches <strong>[1-2]</strong>.</li>
 <span class="normal"><a href="#__codelineno-20-14">14</a></span>
 <span class="normal"><a href="#__codelineno-20-15">15</a></span>
 <span class="normal"><a href="#__codelineno-20-16">16</a></span>
-<span class="normal"><a href="#__codelineno-20-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="c1"># données valides : id, marié, enfants, salaire</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="mi">1</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">55555</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="mi">2</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">50000</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="mi">3</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">50000</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="mi">4</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="mi">5</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="mi">6</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="mi">7</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="mi">8</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100000</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="mi">9</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">30000</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="mi">10</span><span class="p">,</span><span class="n">non</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200000</span>
-<a id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="mi">11</span><span class="p">,</span><span class="n">oui</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">200000</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="c1"># on crée des lignes erronées</span>
-<a id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="c1"># pas assez de valeurs</span>
-<a id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="mi">11</span><span class="p">,</span><span class="mi">12</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="c1"># des valeurs erronées</span>
-<a id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">x</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
+<span class="normal"><a href="#__codelineno-20-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1"></a># données valides : id, marié, enfants, salaire
+<a id="__codelineno-20-2" name="__codelineno-20-2"></a>1,oui,2,55555
+<a id="__codelineno-20-3" name="__codelineno-20-3"></a>2,oui,2,50000
+<a id="__codelineno-20-4" name="__codelineno-20-4"></a>3,oui,3,50000
+<a id="__codelineno-20-5" name="__codelineno-20-5"></a>4,non,2,100000
+<a id="__codelineno-20-6" name="__codelineno-20-6"></a>5,non,3,100000
+<a id="__codelineno-20-7" name="__codelineno-20-7"></a>6,oui,3,100000
+<a id="__codelineno-20-8" name="__codelineno-20-8"></a>7,oui,5,100000
+<a id="__codelineno-20-9" name="__codelineno-20-9"></a>8,non,0,100000
+<a id="__codelineno-20-10" name="__codelineno-20-10"></a>9,oui,2,30000
+<a id="__codelineno-20-11" name="__codelineno-20-11"></a>10,non,0,200000
+<a id="__codelineno-20-12" name="__codelineno-20-12"></a>11,oui,3,200000
+<a id="__codelineno-20-13" name="__codelineno-20-13"></a># on crée des lignes erronées
+<a id="__codelineno-20-14" name="__codelineno-20-14"></a># pas assez de valeurs
+<a id="__codelineno-20-15" name="__codelineno-20-15"></a>11,12
+<a id="__codelineno-20-16" name="__codelineno-20-16"></a># des valeurs erronées
+<a id="__codelineno-20-17" name="__codelineno-20-17"></a>x,x,x,x
+</code></pre></div></td></tr></table></div>
+<ul>
 <li>
 <p>les résultats vont dans deux fichiers :</p>
 </li>
 <li>
-<p>le fichier texte <strong>[errors.txt]</strong> rassemble les erreurs détectées dans le fichier des contribuables :
+<p>le fichier texte <strong>[errors.txt]</strong> rassemble les erreurs détectées dans le fichier des contribuables :</p>
+</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-21-1">1</a></span>
 <span class="normal"><a href="#__codelineno-21-2">2</a></span>
 <span class="normal"><a href="#__codelineno-21-3">3</a></span>
-<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="n">Analyse</span> <span class="n">du</span> <span class="n">fichier</span> <span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">impots</span>\<span class="n">http</span><span class="o">-</span><span class="n">clients</span>\<span class="mi">01</span>\<span class="n">main</span><span class="o">/../</span><span class="n">data</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">taxpayersdata</span><span class="o">.</span><span class="n">txt</span>
+<span class="normal"><a href="#__codelineno-21-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1"></a>Analyse du fichier C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-clients\01\main/../data/input/taxpayersdata.txt
 <a id="__codelineno-21-2" name="__codelineno-21-2"></a>
-<a id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="n">Ligne</span> <span class="mi">15</span><span class="p">,</span> <span class="ow">not</span> <span class="n">enough</span> <span class="n">values</span> <span class="n">to</span> <span class="n">unpack</span> <span class="p">(</span><span class="n">expected</span> <span class="mi">4</span><span class="p">,</span> <span class="n">got</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">Ligne</span> <span class="mi">17</span><span class="p">,</span> <span class="n">MyException</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">L</span><span class="s1">&#39;identifiant d&#39;</span><span class="n">une</span> <span class="n">entité</span> <span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="err">&#39;</span><span class="nc">TaxPayer</span><span class="o">.</span><span class="n">TaxPayer</span><span class="s1">&#39;&gt; doit être un entier &gt;=0]</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-<li>
-<p>le fichier jSON <strong>[résultats.json]</strong> rassemble les résultats des calculs de l’impôt des différents contribuables :
+<a id="__codelineno-21-3" name="__codelineno-21-3"></a>Ligne 15, not enough values to unpack (expected 4, got 2)
+<a id="__codelineno-21-4" name="__codelineno-21-4"></a>Ligne 17, MyException[1, L&#39;identifiant d&#39;une entité &lt;class &#39;TaxPayer.TaxPayer&#39;&gt; doit être un entier &gt;=0]
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>le fichier jSON <strong>[résultats.json]</strong> rassemble les résultats des calculs de l’impôt des différents contribuables :</li>
+</ul>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-22-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-22-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-22-3"> 3</a></span>
@@ -2947,42 +2941,40 @@ Il nous faut donc écrire les couches <strong>[1-2]</strong>.</li>
 <span class="normal"><a href="#__codelineno-22-22">22</a></span>
 <span class="normal"><a href="#__codelineno-22-23">23</a></span>
 <span class="normal"><a href="#__codelineno-22-24">24</a></span>
-<span class="normal"><a href="#__codelineno-22-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="p">[</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2"></a>  <span class="p">{</span>
-<a id="__codelineno-22-3" name="__codelineno-22-3"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-22-4" name="__codelineno-22-4"></a>    <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span>
-<a id="__codelineno-22-5" name="__codelineno-22-5"></a>    <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-22-6" name="__codelineno-22-6"></a>    <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">55555</span><span class="p">,</span>
-<a id="__codelineno-22-7" name="__codelineno-22-7"></a>    <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">2814</span><span class="p">,</span>
-<a id="__codelineno-22-8" name="__codelineno-22-8"></a>    <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-22-9" name="__codelineno-22-9"></a>    <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span>
-<a id="__codelineno-22-10" name="__codelineno-22-10"></a>    <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-22-11" name="__codelineno-22-11"></a>    <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span>
-<a id="__codelineno-22-12" name="__codelineno-22-12"></a>  <span class="p">},</span>
-<a id="__codelineno-22-13" name="__codelineno-22-13"></a>  <span class="p">{</span>
-<a id="__codelineno-22-14" name="__codelineno-22-14"></a>    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-22-15" name="__codelineno-22-15"></a>    <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span>
-<a id="__codelineno-22-16" name="__codelineno-22-16"></a>    <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-22-17" name="__codelineno-22-17"></a>    <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span>
-<a id="__codelineno-22-18" name="__codelineno-22-18"></a>    <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span>
-<a id="__codelineno-22-19" name="__codelineno-22-19"></a>    <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-22-20" name="__codelineno-22-20"></a>    <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span>
-<a id="__codelineno-22-21" name="__codelineno-22-21"></a>    <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span>
-<a id="__codelineno-22-22" name="__codelineno-22-22"></a>    <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">347</span>
-<a id="__codelineno-22-23" name="__codelineno-22-23"></a>  <span class="p">},</span>
-<a id="__codelineno-22-24" name="__codelineno-22-24"></a>  <span class="err">…</span>
-<a id="__codelineno-22-25" name="__codelineno-22-25"></a><span class="p">]</span>
-</code></pre></div></td></tr></table></div></p>
-</li>
-</ul>
+<span class="normal"><a href="#__codelineno-22-25">25</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1"></a>[
+<a id="__codelineno-22-2" name="__codelineno-22-2"></a>  {
+<a id="__codelineno-22-3" name="__codelineno-22-3"></a>    &quot;id&quot;: 0,
+<a id="__codelineno-22-4" name="__codelineno-22-4"></a>    &quot;marié&quot;: &quot;oui&quot;,
+<a id="__codelineno-22-5" name="__codelineno-22-5"></a>    &quot;enfants&quot;: 2,
+<a id="__codelineno-22-6" name="__codelineno-22-6"></a>    &quot;salaire&quot;: 55555,
+<a id="__codelineno-22-7" name="__codelineno-22-7"></a>    &quot;impôt&quot;: 2814,
+<a id="__codelineno-22-8" name="__codelineno-22-8"></a>    &quot;surcôte&quot;: 0,
+<a id="__codelineno-22-9" name="__codelineno-22-9"></a>    &quot;taux&quot;: 0.14,
+<a id="__codelineno-22-10" name="__codelineno-22-10"></a>    &quot;décôte&quot;: 0,
+<a id="__codelineno-22-11" name="__codelineno-22-11"></a>    &quot;réduction&quot;: 0
+<a id="__codelineno-22-12" name="__codelineno-22-12"></a>  },
+<a id="__codelineno-22-13" name="__codelineno-22-13"></a>  {
+<a id="__codelineno-22-14" name="__codelineno-22-14"></a>    &quot;id&quot;: 1,
+<a id="__codelineno-22-15" name="__codelineno-22-15"></a>    &quot;marié&quot;: &quot;oui&quot;,
+<a id="__codelineno-22-16" name="__codelineno-22-16"></a>    &quot;enfants&quot;: 2,
+<a id="__codelineno-22-17" name="__codelineno-22-17"></a>    &quot;salaire&quot;: 50000,
+<a id="__codelineno-22-18" name="__codelineno-22-18"></a>    &quot;impôt&quot;: 1384,
+<a id="__codelineno-22-19" name="__codelineno-22-19"></a>    &quot;surcôte&quot;: 0,
+<a id="__codelineno-22-20" name="__codelineno-22-20"></a>    &quot;taux&quot;: 0.14,
+<a id="__codelineno-22-21" name="__codelineno-22-21"></a>    &quot;décôte&quot;: 384,
+<a id="__codelineno-22-22" name="__codelineno-22-22"></a>    &quot;réduction&quot;: 347
+<a id="__codelineno-22-23" name="__codelineno-22-23"></a>  },
+<a id="__codelineno-22-24" name="__codelineno-22-24"></a>  …
+<a id="__codelineno-22-25" name="__codelineno-22-25"></a>]
+</code></pre></div></td></tr></table></div>
 <h3 id="2332-configuration-du-client-web">23.3.2. Configuration du client web</h3>
 <p><img src="images/10000000000001B2000001615BAEC91E.png" style="width:5.01cm;height:4.07cm;" alt="Image" /></p>
 <p>La configuration se fait à l’aide de deux scripts :</p>
 <ul>
 <li><strong>[config]</strong> qui assure la totalité de la configuration hors couches de l’architecture ;</li>
-<li><strong>[config_layers]</strong> qui assure la configuration des couches de l’architecture ;
-Le script <strong>[config]</strong> est le suivant :</li>
+<li><strong>[config_layers]</strong> qui assure la configuration des couches de l’architecture ;</li>
 </ul>
+<p>Le script <strong>[config]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-23-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-23-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-23-3"> 3</a></span>
@@ -3110,9 +3102,9 @@ Le script <strong>[config]</strong> est le suivant :</li>
 <li>ligne 44 : l’URL du service web ;</li>
 <li>ligne 45 : la clé <strong>[authBasic]</strong> vaut True si l’accès à l’URL nécessite une authentification de type Basic ;</li>
 <li>lignes 46-49 : les identifiants de l’utilisateur qui va s’authentifier si l’authentification est demandée ;</li>
-<li>lignes 56-57 : on instancie les couches, ici l’unique couche <strong>[dao]</strong> et on met les références des couches dans <strong>[config]</strong> associées à la clé <strong>[layers]</strong> ;
-Le script <strong>[config_layers]</strong> est le suivant :</li>
+<li>lignes 56-57 : on instancie les couches, ici l’unique couche <strong>[dao]</strong> et on met les références des couches dans <strong>[config]</strong> associées à la clé <strong>[layers]</strong> ;</li>
 </ul>
+<p>Le script <strong>[config_layers]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-24-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-24-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-24-3"> 3</a></span>
@@ -3211,20 +3203,28 @@ Le script <strong>[config_layers]</strong> est le suivant :</li>
 <p>Revenons sur l’architecture client / serveur utilisée :</p>
 <p><img src="images/10000000000003D1000002955314F81B.png" style="width:11.27cm;height:7.64cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[2, 6]</strong>, on voit que la couche <strong>[dao]</strong> a deux rôles :</li>
-<li>elle accède au système de fichiers à la fois pour lire les données des contribuables et écrire les résultats des calculs de l’impôt. Nous avons déjà une classe |<a href="#_La_classe_[AbstractImpôtsDao]"><u><u>AbstractImpôtsDao</u></u></a>| qui sait faire cela. Elle a été utilisée dès la |<a href="#_Version_3"><u><u>version 4</u></u></a>| ;</li>
-<li>elle dialogue avec le serveur web <strong>[3]</strong> ;
-Dans la |<a href="#_Le_script_principal_5"><u><u>version 5</u></u></a>|, le script principal <strong>[main]</strong> <strong>[1]</strong> dialoguait directement avec la couche <strong>[métier]</strong> <strong>[4]</strong>. On voudrait ne pas changer ce script. Pour cela, on va faire en sorte que la couche <strong>[dao]</strong> <strong>[2]</strong> implémente l’interface de la couche <strong>[métier]</strong> <strong>[4]</strong>. Ainsi le script principal <strong>[main]</strong> aura l’impression de dialoguer directement avec la couche <strong>[métier]</strong> <strong>[4]</strong> et pourra ignorer complètement que celle-ci se situe sur une autre machine.</li>
+<li>
+<p>en <strong>[2, 6]</strong>, on voit que la couche <strong>[dao]</strong> a deux rôles :</p>
+</li>
+<li>
+<p>elle accède au système de fichiers à la fois pour lire les données des contribuables et écrire les résultats des calculs de l’impôt. Nous avons déjà une classe |<a href="#_La_classe_[AbstractImpôtsDao]"><u><u>AbstractImpôtsDao</u></u></a>| qui sait faire cela. Elle a été utilisée dès la |<a href="#_Version_3"><u><u>version 4</u></u></a>| ;</p>
+</li>
+<li>elle dialogue avec le serveur web <strong>[3]</strong> ;</li>
 </ul>
+<p>Dans la |<a href="#_Le_script_principal_5"><u><u>version 5</u></u></a>|, le script principal <strong>[main]</strong> <strong>[1]</strong> dialoguait directement avec la couche <strong>[métier]</strong> <strong>[4]</strong>. On voudrait ne pas changer ce script. Pour cela, on va faire en sorte que la couche <strong>[dao]</strong> <strong>[2]</strong> implémente l’interface de la couche <strong>[métier]</strong> <strong>[4]</strong>. Ainsi le script principal <strong>[main]</strong> aura l’impression de dialoguer directement avec la couche <strong>[métier]</strong> <strong>[4]</strong> et pourra ignorer complètement que celle-ci se situe sur une autre machine.</p>
 <p>Une définition de la classe implémentant la couche <strong>[dao]</strong> <strong>[2]</strong> pourrait être celle-ci :</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">ImpôtsDaoWithHttpClient</span><span class="p">(</span><span class="n">AbstractImpôtsDao</span><span class="p">,</span> <span class="n">InterfaceImpôtsMétier</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-26-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1"></a>class ImpôtsDaoWithHttpClient(AbstractImpôtsDao, InterfaceImpôtsMétier):
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>la classe <strong>[ImpôtsDaoWithHttpClient]</strong> :</li>
-<li>hérite de la classe <strong>[AbstractImpôtsDao]</strong> ce qui va lui permettre de gérer le dialogue avec le système de fichiers <strong>[6]</strong> ;</li>
-<li>implémente l’interface <strong>[InterfaceImpôtsMétier]</strong> pour ne pas avoir à changer le script principal <strong>[main]</strong> de la |<a href="#_Le_script_principal_5"><u><u>version 5</u></u></a>| ;
-Le code complet de la classe <strong>[ImpôtsDaoWithHttpClient]</strong> est le suivant :</li>
+<li>
+<p>la classe <strong>[ImpôtsDaoWithHttpClient]</strong> :</p>
+</li>
+<li>
+<p>hérite de la classe <strong>[AbstractImpôtsDao]</strong> ce qui va lui permettre de gérer le dialogue avec le système de fichiers <strong>[6]</strong> ;</p>
+</li>
+<li>implémente l’interface <strong>[InterfaceImpôtsMétier]</strong> pour ne pas avoir à changer le script principal <strong>[main]</strong> de la |<a href="#_Le_script_principal_5"><u><u>version 5</u></u></a>| ;</li>
 </ul>
+<p>Le code complet de la classe <strong>[ImpôtsDaoWithHttpClient]</strong> est le suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-27-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-27-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-27-3"> 3</a></span>
@@ -3344,10 +3344,10 @@ Le code complet de la classe <strong>[ImpôtsDaoWithHttpClient]</strong> est le 
 <li>lignes 16-17 : la classe parent <strong>[</strong><strong>AbstractImpôtsDao</strong><strong>]</strong> est initialisée en lui passant, là également, la configuration de l’application. Elle y trouvera les noms des trois fichiers texte qu’elle a à gérer ;</li>
 <li>lignes 18-19 : on mémorise localement dans la classe les informations concernant le serveur web de calcul de l’impôt ;</li>
 <li>ligne 26 : la méthode <strong>[calculate_tax]</strong> reçoit en paramètre un objet de type |<a href="#_La_classe_[TaxPayer]"><u><u>Taxpayer</u></u></a>|. Pour respecter la signature de la méthode <strong>[InterfaceImpôtsMétier.calculate_tax]</strong>, elle reçoit également un paramètre <strong>[admindata]</strong> qui est censé encapsuler les données de l’administration fiscale. Côté client, on n’a pas ces données. Ce paramètre restera toujours à <strong>[None]</strong>. Cette contorsion fait dire que la classe <strong>[ImpôtsMétier]</strong> a été initialement mal écrite :</li>
-<li>la signature de <strong>[calculate_tax]</strong> aurait dû être simplement :
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">taxpayer</span><span class="p">:</span> <span class="n">TaxPayer</span><span class="p">)</span>
-</code></pre></div></td></tr></table></div></li>
+<li>la signature de <strong>[calculate_tax]</strong> aurait dû être simplement :</li>
 </ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-28-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1"></a><span class="k">def</span><span class="w"> </span><span class="nf">calculate_tax</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">taxpayer</span><span class="p">:</span> <span class="n">TaxPayer</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
 <p>et le paramètre <strong>[admindata : AdminData]</strong> aurait dû être passé au constructeur de la classe ;</p>
 <ul>
 <li>ligne 27 : le code de la méthode <strong>[calculate_tax]</strong> n’a pas été encapsulé dans un try / catch / finally. Cela veut dire que les éventuelles exceptions ne seront pas gérées et remonteront au code appelant, en l’occurrence le script <strong>[main]</strong>. Celui-ci arrête bien toutes les exceptions remontant de la couche <strong>[dao]</strong> ;</li>
@@ -3365,11 +3365,11 @@ Le code complet de la classe <strong>[ImpôtsDaoWithHttpClient]</strong> est le 
 <li>200 OK</li>
 <li>400 BAD REQUEST</li>
 <li>500 INTERNAL SERVER ERROR</li>
-<li>ligne 49 : notre serveur envoie toujours du jSON même en cas d’erreur. La fonction <strong>[response.json()]</strong> crée un dictionnaire à partir de la chaîne jSON reçue. Rappelons les deux formes possibles pour la chaîne jSON :
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;erreurs&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]&quot;</span><span class="p">,</span> <span class="s2">&quot;paramètre [marié] manquant&quot;</span><span class="p">,</span> <span class="s2">&quot;paramètre [enfants] manquant&quot;</span><span class="p">,</span> <span class="s2">&quot;paramètre [salaire] manquant&quot;</span><span class="p">]}}</span>
-</code></pre></div></td></tr></table></div></li>
+<li>ligne 49 : notre serveur envoie toujours du jSON même en cas d’erreur. La fonction <strong>[response.json()]</strong> crée un dictionnaire à partir de la chaîne jSON reçue. Rappelons les deux formes possibles pour la chaîne jSON :</li>
 </ul>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">42842</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">17283</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-29-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1"></a>{&quot;réponse&quot;: {&quot;erreurs&quot;: [&quot;Méthode GET requise avec les seuls paramètres [marié, enfants, salaire]&quot;, &quot;paramètre [marié] manquant&quot;, &quot;paramètre [enfants] manquant&quot;, &quot;paramètre [salaire] manquant&quot;]}}
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-30-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;id&quot;: 0, &quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 3, &quot;salaire&quot;: 200000, &quot;impôt&quot;: 42842, &quot;surcôte&quot;: 17283, &quot;taux&quot;: 0.41, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
 </code></pre></div></td></tr></table></div>
 <ul>
 <li>lignes 51-53 : si le code de statut n’est pas 200 alors on lance une exception avec les messages d’erreur encapsulés dans la réponse ;</li>
@@ -3379,21 +3379,21 @@ Le code complet de la classe <strong>[ImpôtsDaoWithHttpClient]</strong> est le 
 <p>Pour exécuter le client :</p>
 <ul>
 <li>lancer le serveur <strong>[server_03]</strong> avec le SGBD de votre choix ;</li>
-<li>exécuter le script <strong>[main]</strong> du client ;
-Les résultats seront trouvés dans le dossier <strong>[data/output]</strong>. Ce sont les mêmes que pour la version 5.</li>
+<li>exécuter le script <strong>[main]</strong> du client ;</li>
 </ul>
+<p>Les résultats seront trouvés dans le dossier <strong>[data/output]</strong>. Ce sont les mêmes que pour la version 5.</p>
 <h2 id="234-tests-de-la-couche-dao">23.4. Tests de la couche [dao]</h2>
 <p>Revenons à l’architecture de l’application client / serveur :</p>
 <p><img src="images/10000000000003CF000003C7638DD447.png" style="width:11.27cm;height:11.171cm;" alt="Image" /></p>
 <ul>
-<li>dans le client écrit, nous nous sommes débrouillés pour que la couche <strong>[dao]</strong> <strong>[1]</strong> offre la même interface que la couche <strong>[métier]</strong> <strong>[3]</strong>. Nous allons donc utiliser en <strong>[4]</strong>, la classe de tests |<a href="#_Tests_des_couches"><u><u>TestDaoMétier</u></u></a>| déjà étudiée pour tester la couche <strong>[métier]</strong> <strong>[3]</strong> ;
-La classe de test sera exécutée dans l’environnement suivant :</li>
+<li>dans le client écrit, nous nous sommes débrouillés pour que la couche <strong>[dao]</strong> <strong>[1]</strong> offre la même interface que la couche <strong>[métier]</strong> <strong>[3]</strong>. Nous allons donc utiliser en <strong>[4]</strong>, la classe de tests |<a href="#_Tests_des_couches"><u><u>TestDaoMétier</u></u></a>| déjà étudiée pour tester la couche <strong>[métier]</strong> <strong>[3]</strong> ;</li>
 </ul>
+<p>La classe de test sera exécutée dans l’environnement suivant :</p>
 <p><img src="images/10000000000001F50000020535068CC3.png" style="width:5.792cm;height:5.98cm;" alt="Image" /></p>
 <ul>
-<li>la configuration <strong>[2]</strong> est identique à la configuration <strong>[1]</strong> que nous venons d’étudier ;
-La classe de test <strong>[</strong><strong>TestHttpClientDao</strong><strong>]</strong> est la suivante :</li>
+<li>la configuration <strong>[2]</strong> est identique à la configuration <strong>[1]</strong> que nous venons d’étudier ;</li>
 </ul>
+<p>La classe de test <strong>[</strong><strong>TestHttpClientDao</strong><strong>]</strong> est la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-31-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-31-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-31-3"> 3</a></span>
@@ -3494,14 +3494,14 @@ La classe de test <strong>[</strong><strong>TestHttpClientDao</strong><strong>]<
 <ul>
 <li>lignes 40-41 : on configure l’environnement des tests ;</li>
 <li>ligne 44 : on récupère une référence sur la couche <strong>[dao]</strong> ;</li>
-<li>lignes 47-48 : on exécute les tests ;
-Pour exécuter les tests, on crée une |<a href="#configuration_execution"><u><u>configuration d’exécution</u></u></a>| :</li>
+<li>lignes 47-48 : on exécute les tests ;</li>
 </ul>
+<p>Pour exécuter les tests, on crée une |<a href="#configuration_execution"><u><u>configuration d’exécution</u></u></a>| :</p>
 <p><img src="images/1000000000000516000002BC49BFEEF5.png" style="width:15.011cm;height:8.071cm;" alt="Image" /></p>
 <ul>
-<li>on crée une configuration d’exécution pour un script console pas pour un test UnitTest ;
-Lorsqu’on exécute cette configuration, on obtient les résultats suivants :</li>
+<li>on crée une configuration d’exécution pour un script console pas pour un test UnitTest ;</li>
 </ul>
+<p>Lorsqu’on exécute cette configuration, on obtient les résultats suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-32-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-32-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-32-3"> 3</a></span>
@@ -3521,26 +3521,26 @@ Lorsqu’on exécute cette configuration, on obtient les résultats suivants :<
 <span class="normal"><a href="#__codelineno-32-17">17</a></span>
 <span class="normal"><a href="#__codelineno-32-18">18</a></span>
 <span class="normal"><a href="#__codelineno-32-19">19</a></span>
-<span class="normal"><a href="#__codelineno-32-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a><span class="n">C</span><span class="p">:</span>\<span class="n">Data</span>\<span class="n">st</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">dev</span>\<span class="n">python</span>\<span class="n">cours</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span>\<span class="n">venv</span>\<span class="n">Scripts</span>\<span class="n">python</span><span class="o">.</span><span class="n">exe</span> <span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">st</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">python</span><span class="o">/</span><span class="n">cours</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">python3</span><span class="o">-</span><span class="n">flask</span><span class="o">-</span><span class="mi">2020</span><span class="o">/</span><span class="n">impots</span><span class="o">/</span><span class="n">http</span><span class="o">-</span><span class="n">clients</span><span class="o">/</span><span class="mi">01</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">TestHttpClientDao</span><span class="o">.</span><span class="n">py</span>
-<a id="__codelineno-32-2" name="__codelineno-32-2"></a><span class="n">tests</span> <span class="n">en</span> <span class="n">cours</span><span class="o">...</span>
-<a id="__codelineno-32-3" name="__codelineno-32-3"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">55555</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">2814</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-4" name="__codelineno-32-4"></a><span class="o">....</span><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;non&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">64210</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">7498</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-5" name="__codelineno-32-5"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">42842</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">17283</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-6" name="__codelineno-32-6"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">1384</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">384</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">347</span><span class="p">}}}</span>
-<a id="__codelineno-32-7" name="__codelineno-32-7"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">720</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-8" name="__codelineno-32-8"></a><span class="o">...</span><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;non&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">19884</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">4480</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-9" name="__codelineno-32-9"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;non&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">16782</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">7176</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-10" name="__codelineno-32-10"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">9200</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">2180</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-11" name="__codelineno-32-11"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">4230</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.14</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-12" name="__codelineno-32-12"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;non&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">22986</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.41</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-13" name="__codelineno-32-13"></a><span class="o">....</span>
-<a id="__codelineno-32-14" name="__codelineno-32-14"></a><span class="p">{</span><span class="s2">&quot;réponse&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;result&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;marié&quot;</span><span class="p">:</span> <span class="s2">&quot;oui&quot;</span><span class="p">,</span> <span class="s2">&quot;enfants&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;salaire&quot;</span><span class="p">:</span> <span class="mi">30000</span><span class="p">,</span> <span class="s2">&quot;impôt&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;surcôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;taux&quot;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s2">&quot;décôte&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;réduction&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}}}</span>
-<a id="__codelineno-32-15" name="__codelineno-32-15"></a><span class="o">----------------------------------------------------------------------</span>
-<a id="__codelineno-32-16" name="__codelineno-32-16"></a><span class="n">Ran</span> <span class="mi">11</span> <span class="n">tests</span> <span class="ow">in</span> <span class="mf">0.130</span><span class="n">s</span>
+<span class="normal"><a href="#__codelineno-32-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1"></a>C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-clients/01/tests/TestHttpClientDao.py
+<a id="__codelineno-32-2" name="__codelineno-32-2"></a>tests en cours...
+<a id="__codelineno-32-3" name="__codelineno-32-3"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 2, &quot;salaire&quot;: 55555, &quot;impôt&quot;: 2814, &quot;surcôte&quot;: 0, &quot;taux&quot;: 0.14, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-4" name="__codelineno-32-4"></a>....{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;non&quot;, &quot;enfants&quot;: 0, &quot;salaire&quot;: 200000, &quot;impôt&quot;: 64210, &quot;surcôte&quot;: 7498, &quot;taux&quot;: 0.45, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-5" name="__codelineno-32-5"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 3, &quot;salaire&quot;: 200000, &quot;impôt&quot;: 42842, &quot;surcôte&quot;: 17283, &quot;taux&quot;: 0.41, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-6" name="__codelineno-32-6"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 2, &quot;salaire&quot;: 50000, &quot;impôt&quot;: 1384, &quot;surcôte&quot;: 0, &quot;taux&quot;: 0.14, &quot;décôte&quot;: 384, &quot;réduction&quot;: 347}}}
+<a id="__codelineno-32-7" name="__codelineno-32-7"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 3, &quot;salaire&quot;: 50000, &quot;impôt&quot;: 0, &quot;surcôte&quot;: 0, &quot;taux&quot;: 0.14, &quot;décôte&quot;: 720, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-8" name="__codelineno-32-8"></a>...{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;non&quot;, &quot;enfants&quot;: 2, &quot;salaire&quot;: 100000, &quot;impôt&quot;: 19884, &quot;surcôte&quot;: 4480, &quot;taux&quot;: 0.41, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-9" name="__codelineno-32-9"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;non&quot;, &quot;enfants&quot;: 3, &quot;salaire&quot;: 100000, &quot;impôt&quot;: 16782, &quot;surcôte&quot;: 7176, &quot;taux&quot;: 0.41, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-10" name="__codelineno-32-10"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 3, &quot;salaire&quot;: 100000, &quot;impôt&quot;: 9200, &quot;surcôte&quot;: 2180, &quot;taux&quot;: 0.3, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-11" name="__codelineno-32-11"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 5, &quot;salaire&quot;: 100000, &quot;impôt&quot;: 4230, &quot;surcôte&quot;: 0, &quot;taux&quot;: 0.14, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-12" name="__codelineno-32-12"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;non&quot;, &quot;enfants&quot;: 0, &quot;salaire&quot;: 100000, &quot;impôt&quot;: 22986, &quot;surcôte&quot;: 0, &quot;taux&quot;: 0.41, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-13" name="__codelineno-32-13"></a>....
+<a id="__codelineno-32-14" name="__codelineno-32-14"></a>{&quot;réponse&quot;: {&quot;result&quot;: {&quot;marié&quot;: &quot;oui&quot;, &quot;enfants&quot;: 2, &quot;salaire&quot;: 30000, &quot;impôt&quot;: 0, &quot;surcôte&quot;: 0, &quot;taux&quot;: 0.0, &quot;décôte&quot;: 0, &quot;réduction&quot;: 0}}}
+<a id="__codelineno-32-15" name="__codelineno-32-15"></a>----------------------------------------------------------------------
+<a id="__codelineno-32-16" name="__codelineno-32-16"></a>Ran 11 tests in 0.130s
 <a id="__codelineno-32-17" name="__codelineno-32-17"></a>
-<a id="__codelineno-32-18" name="__codelineno-32-18"></a><span class="n">OK</span>
+<a id="__codelineno-32-18" name="__codelineno-32-18"></a>OK
 <a id="__codelineno-32-19" name="__codelineno-32-19"></a>
-<a id="__codelineno-32-20" name="__codelineno-32-20"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
+<a id="__codelineno-32-20" name="__codelineno-32-20"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
 <p>Les 11 tests ont réussi.</p>
 
@@ -3582,7 +3582,7 @@ Lorsqu’on exécute cette configuration, on obtient les résultats suivants :<
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>

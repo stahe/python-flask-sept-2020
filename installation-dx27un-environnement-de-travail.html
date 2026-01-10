@@ -65,14 +65,10 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
-    // CORRECTION ICI : Utilisation de guillemets doubles pour entourer le titre qui contient une apostrophe
     var siteName = "Introduction au langage Python 3 et au framework web Flask par l'exemple";
-
     gtag('config', 'G-EBZC3JVJNR', {
         'page_title': siteName
     });
-    console.log("[GA Debug] page_title forced to: " + siteName);
   </script>
 
     
@@ -1501,9 +1497,9 @@
 <ul>
 <li><strong>[3-4]</strong> : deux interpréteurs Python interactifs ;</li>
 <li><strong>[5]</strong> : la documentation Python ;</li>
-<li><strong>[6]</strong> : la documentation des modules Python ;
-Nous n&#x27;utiliserons pas l&#x27;interpréteur Python interactif. Il faut simplement savoir que les scripts de ce document pourraient être exécutés avec cet interpréteur. Pratique pour tester le fonctionnement d&#x27;une fonctionnalité Python, il l&#x27;est peu pour des scripts devant être réutilisés. Voici un exemple avec l&#x27;option <strong>[4]</strong> ci-dessus :</li>
+<li><strong>[6]</strong> : la documentation des modules Python ;</li>
 </ul>
+<p>Nous n&#x27;utiliserons pas l&#x27;interpréteur Python interactif. Il faut simplement savoir que les scripts de ce document pourraient être exécutés avec cet interpréteur. Pratique pour tester le fonctionnement d&#x27;une fonctionnalité Python, il l&#x27;est peu pour des scripts devant être réutilisés. Voici un exemple avec l&#x27;option <strong>[4]</strong> ci-dessus :</p>
 <p><img src="images/10000001000002EE000000A76A8FB4DA.png" style="width:12.51cm;height:2.781cm;" alt="Image" /></p>
 <p>Le prompt &gt;&gt;&gt; permet d&#x27;émettre une instruction Python qui est immédiatement exécutée. Le code tapé ci-dessus a la signification suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
@@ -1521,12 +1517,12 @@ Nous n&#x27;utiliserons pas l&#x27;interpréteur Python interactif. Il faut simp
 <p><strong>Lignes</strong> :</p>
 <ul>
 <li>1 : initialisation d&#x27;une variable. En Python, on ne déclare pas le type des variables. Celles-ci ont automatiquement le type de la valeur qu&#x27;on leur affecte. Ce type peut changer au cours du temps ;</li>
-<li>2 : affichage du nom. &#x27;nom=%s&#x27; est un format d&#x27;affichage où %s est un paramètre formel désignant une chaîne de caractères. nom est le paramètre effectif qui sera affiché à la place de %s ;</li>
+<li>2 : affichage du nom. &#x27;<em>nom=%s</em>&#x27; est un format d&#x27;affichage où %s est un paramètre formel désignant une chaîne de caractères. <em>nom</em> est le paramètre effectif qui sera affiché à la place de %s ;</li>
 <li>3 : le résultat de l&#x27;affichage ;</li>
-<li>4 : l&#x27;affichage du type de la variable nom ;</li>
-<li>5 : la variable nom est ici de type class. Avec Python 2.7 elle aurait la valeur &lt;type &#x27;str&#x27;&gt; ;
-Maintenant, ouvrons une console Windows :</li>
+<li>4 : l&#x27;affichage du type de la variable <em>nom ;</em></li>
+<li>5 : la variable nom est ici de type <em>class</em>. Avec Python 2.7 elle aurait la valeur <em>&lt;type &#x27;str&#x27;&gt;</em> ;</li>
 </ul>
+<p>Maintenant, ouvrons une console Windows :</p>
 <p><img src="images/10000001000002D7000000A712A1A342.png" style="width:12.501cm;height:2.871cm;" alt="Image" /></p>
 <p>Le fait qu&#x27;on ait pu taper <strong>[python]</strong> en <strong>[1]</strong> et que l&#x27;exécutable <strong>[python.exe]</strong> ait été trouvé montre que celui-ci est dans le PATH de la machine Windows. C&#x27;est important car cela signifie que les outils de développement Python sauront trouver l&#x27;interpréteur Python. On peut le vérifier ainsi :</p>
 <p><img src="images/100000010000035C00000114979E9B73.png" style="width:14.59cm;height:4.68cm;" alt="Image" /></p>
@@ -1544,9 +1540,9 @@ Maintenant, ouvrons une console Windows :</li>
 <p><img src="images/100000010000020F000001480E9D9A15.png" style="width:10.66cm;height:6.631cm;" alt="Image" /></p>
 <p><img src="images/10000001000002DA000001C91CAD6A5A.png" style="width:15.011cm;height:9.39cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[2-4]</strong>, créez un nouveau projet ;
-L&#x27;IDE PyCharm présente le projet créé sous la forme suivante :</li>
+<li>en <strong>[2-4]</strong>, créez un nouveau projet ;</li>
 </ul>
+<p>L&#x27;IDE PyCharm présente le projet créé sous la forme suivante :</p>
 <p><img src="images/10000001000004270000010CDB6AFE68.png" style="width:17.961cm;height:4.522cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[2-3]</strong>, examinons les propriétés de l&#x27;IDE ;</li>
@@ -1560,38 +1556,44 @@ L&#x27;IDE PyCharm présente le projet créé sous la forme suivante :</li>
 <p><img src="images/1000000100000395000002918C1B3EA0.png" style="width:15.461cm;height:11.071cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[7]</strong>, l&#x27;interpréteur choisi ;</li>
-<li>en <strong>[8]</strong>, la liste des packages disponibles avec cet interpréteur. Les packages contiennent des modules que les scripts Python peuvent utiliser. Il existe des centaines de modules disponibles ;
-Commençons par créer un dossier dans lequel nous mettrons notre premier script Python :</li>
+<li>en <strong>[8]</strong>, la liste des packages disponibles avec cet interpréteur. Les packages contiennent des modules que les scripts Python peuvent utiliser. Il existe des centaines de modules disponibles ;</li>
 </ul>
+<p>Commençons par créer un dossier dans lequel nous mettrons notre premier script Python :</p>
 <p><img src="images/100000010000038D000000BC1D3ED036.png" style="width:15.481cm;height:3.2cm;" alt="Image" /></p>
 <ul>
 <li>cliquer droit sur le projet, puis <strong>[1-2]</strong> pour créer un dossier ;</li>
-<li>en <strong>[3]</strong>, tapez le nom du dossier : il sera créé dans le dossier du projet ;
-Puis créons un script Python :</li>
+<li>en <strong>[3]</strong>, tapez le nom du dossier : il sera créé dans le dossier du projet ;</li>
 </ul>
+<p>Puis créons un script Python :</p>
 <p><img src="images/100000010000042700000114912F2864.png" style="width:17.53cm;height:4.541cm;" alt="Image" /></p>
 <ul>
 <li>cliquer droit sur le dossier <strong>[bases]</strong>, puis <strong>[1-3]</strong> ;</li>
-<li>en <strong>[4-5]</strong>, indiquez le nom du script ;
-Écrivons notre premier script :</li>
+<li>en <strong>[4-5]</strong>, indiquez le nom du script ;</li>
 </ul>
+<p>Écrivons notre premier script :</p>
 <p><img src="images/10000001000004270000014D9BB810C4.png" style="width:17.521cm;height:5.481cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[3]</strong>, nous écrivons le script suivant :</li>
+<li>
+<p>en <strong>[3]</strong>, nous écrivons le script suivant :</p>
+<ul>
 <li>lignes 1, 3 : les commentaires commencent avec le signe # ;</li>
 <li>ligne 2 : initialisation d&#x27;une variable. Python ne déclare pas le type de ses variables ;</li>
-<li>ligne 4 : affichage écran. La syntaxe utilisée ici est <strong>[</strong><strong>format % données</strong><strong>]</strong> avec :</li>
+<li>ligne 4 : affichage écran. La syntaxe utilisée ici est <strong>[</strong><strong>format % données</strong><strong>]</strong> avec :<ul>
 <li><strong>format</strong> : nom=%s où %s désigne l&#x27;emplacement d&#x27;une chaîne de caractères. Celle-ci sera trouvée dans la partie <strong>[données]</strong> de l&#x27;expression ;</li>
 <li><strong>données</strong> : la valeur de la variable <strong>[nom]</strong> viendra remplacer le format %s dans la chaîne de format ;</li>
-<li>avec <strong>[4-5]</strong>, on reformate le code selon les recommandations de l&#x27;organisme gérant Python ;
-Le script est exécuté avec un clic droit sur le code <strong>[6]</strong> :</li>
 </ul>
+</li>
+<li>avec <strong>[4-5]</strong>, on reformate le code selon les recommandations de l&#x27;organisme gérant Python ;</li>
+</ul>
+</li>
+</ul>
+<p>Le script est exécuté avec un clic droit sur le code <strong>[6]</strong> :</p>
 <p><img src="images/1000000100000427000001BE8E4F10E3.png" style="width:17.521cm;height:7.351cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[7]</strong>, la commande exécutée ;</li>
-<li>en <strong>[8]</strong>, le résultat de l&#x27;exécution ;
-Pour exécuter le script du document, téléchargez le code à l&#x27;URL |<a href="https://tahe.developpez.com/tutoriels-cours/python-flask-2020/documents/python-flask-2020.rar"><u><u>https://tahe.developpez.com/tutoriels-cours/python-flask-2020/documents/python-flask-2020.rar</u></u></a>| puis dans PyCharm procédez comme suit :</li>
+<li>en <strong>[8]</strong>, le résultat de l&#x27;exécution ;</li>
 </ul>
+<p>Pour exécuter le script du document, téléchargez le code à l&#x27;URL |<a href="https://tahe.developpez.com/tutoriels-cours/python-flask-2020/documents/python-flask-2020.rar"><u><u>https://tahe.developpez.com/tutoriels-cours/python-flask-2020/documents/python-flask-2020.rar</u></u></a>| puis dans PyCharm procédez comme suit :</p>
 <p><img src="images/1000000100000427000002227C9915E7.png" style="width:17.53cm;height:9cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, ouverture d&#x27;un projet existant : désigner le dossier du code téléchargé ;</li>
@@ -1610,9 +1612,9 @@ Pour exécuter le script du document, téléchargez le code à l&#x27;URL |<a hr
 <li>par défaut, la case <strong>[1]</strong> est cochée. On la décoche pour que Pycharm n’ouvre pas par défaut le dernier projet ouvert mais nous laisse choisir celui qu’il faut ouvrir ;</li>
 <li>en <strong>[2]</strong>, on ne confirme pas la sortie de Pycharm lorsqu’on ferme la fenêtre de l’application ;</li>
 <li>en <strong>[3]</strong>, on ouvre les nouveaux projets dans une autre fenêtre ;</li>
-<li>en <strong>[4]</strong>, si on ferme Pycharm et qu’un programme est en cours d’exécution, celui-ci est arrêté ;
-Fermons maintenant Pycharm puis rouvrons-le :</li>
+<li>en <strong>[4]</strong>, si on ferme Pycharm et qu’un programme est en cours d’exécution, celui-ci est arrêté ;</li>
 </ul>
+<p>Fermons maintenant Pycharm puis rouvrons-le :</p>
 <p><img src="images/1000000100000427000001E41033E03A.png" style="width:17.521cm;height:7.97cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[1]</strong>, on crée un nouveau projet ;</li>
@@ -1638,21 +1640,17 @@ Fermons maintenant Pycharm puis rouvrons-le :</li>
 <ul>
 <li>en <strong>[1]</strong>, sélectionner l’onglet <strong>[Git]</strong> (en bas à gauche) ;</li>
 <li>en <strong>[2]</strong>, on voit qu’il y a 495 fichiers du projet qui ne sont pas versionnés par Git. Cela veut dire qu’ils ne feront pas partie des photos du projet, lors des commit ;</li>
-<li>
-<p>en <strong>[3]</strong>, le bouton du <strong>[commit]</strong> ou bouton de validation du projet. Comme il a été dit, Git prend alors une photo du projet et la stocke dans un dossier <strong>[.git]</strong> à la racine du projet (non affiché par Pycharm mais visible dans l’explorateur windows) ;
-Validons <strong>[3]</strong> le projet dans son état actuel.</p>
-</li>
-<li>
-<p>en <strong>[4]</strong>, la liste des fichiers non versionnés ;</p>
-</li>
+<li>en <strong>[3]</strong>, le bouton du <strong>[commit]</strong> ou bouton de validation du projet. Comme il a été dit, Git prend alors une photo du projet et la stocke dans un dossier <strong>[.git]</strong> à la racine du projet (non affiché par Pycharm mais visible dans l’explorateur windows) ;</li>
+</ul>
+<p>Validons <strong>[3]</strong> le projet dans son état actuel.</p>
+<ul>
+<li>en <strong>[4]</strong>, la liste des fichiers non versionnés ;</li>
 <li>en <strong>[5]</strong>, la totalité de ces fichiers non versionnés sont ceux de l’environnement virtuel <strong>[venv]</strong> ;</li>
-<li>
-<p>en <strong>[6]</strong>, tout commit doit s’accompagner d’un message. Le développeur met ici les modifications amenées par la version qui va être commitée vis-à-vis de la dernière version commitée ;
-Certains dossiers ou fichiers peuvent être ignorés par Git. Ils ne font alors jamais partie de la photo. En <strong>[5]</strong> ci-dessus, cliquons droit sur le dossier <strong>[venv]</strong>.</p>
-</li>
-<li>
-<p>en <strong>[1-3]</strong>, on indique que le dossier <strong>[venv]</strong> ne doit pas faire partie des photos de Git. La liste des dossiers et fichiers ignorés par Git sont mis dans un fichier appelé <strong>[.gitignore]</strong> <strong>[4]</strong> ;</p>
-</li>
+<li>en <strong>[6]</strong>, tout commit doit s’accompagner d’un message. Le développeur met ici les modifications amenées par la version qui va être commitée vis-à-vis de la dernière version commitée ;</li>
+</ul>
+<p>Certains dossiers ou fichiers peuvent être ignorés par Git. Ils ne font alors jamais partie de la photo. En <strong>[5]</strong> ci-dessus, cliquons droit sur le dossier <strong>[venv]</strong>.</p>
+<ul>
+<li>en <strong>[1-3]</strong>, on indique que le dossier <strong>[venv]</strong> ne doit pas faire partie des photos de Git. La liste des dossiers et fichiers ignorés par Git sont mis dans un fichier appelé <strong>[.gitignore]</strong> <strong>[4]</strong> ;</li>
 </ul>
 <p><img src="images/10000001000003E90000015483587B5D.png" style="width:16.431cm;height:5.58cm;" alt="Image" /></p>
 <p><img src="images/10000001000002FB000001A554AD0935.png" style="width:13.14cm;height:7.25cm;" alt="Image" /></p>
@@ -1664,9 +1662,9 @@ Certains dossiers ou fichiers peuvent être ignorés par Git. Ils ne font alors 
 </ul>
 <p><img src="images/10000001000001FE000000E3E5CB9794.png" style="width:10.411cm;height:4.631cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[8-9]</strong>, le contenu du fichier <strong>[.gitignore]</strong> : une seule ligne avec le nom du dossier <strong>[/venv]</strong> qui indique que son contenu doit être ignoré dans les photos ;
-Montrons maintenant à quoi peut nous servir Git. Tout d’abord, nous créons un dossier <strong>[git]</strong> (vous pouvez utiliser tout autre nom – il pourra être détruit à la fin de la démonstration) :</li>
+<li>en <strong>[8-9]</strong>, le contenu du fichier <strong>[.gitignore]</strong> : une seule ligne avec le nom du dossier <strong>[/venv]</strong> qui indique que son contenu doit être ignoré dans les photos ;</li>
 </ul>
+<p>Montrons maintenant à quoi peut nous servir Git. Tout d’abord, nous créons un dossier <strong>[git]</strong> (vous pouvez utiliser tout autre nom – il pourra être détruit à la fin de la démonstration) :</p>
 <p><img src="images/10000001000003FC0000017BCA5F0F69.png" style="width:17.511cm;height:6.501cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[1-5]</strong>, on crée un dossier <strong>[git]</strong> ;</li>
@@ -1694,9 +1692,9 @@ Montrons maintenant à quoi peut nous servir Git. Tout d’abord, nous créons u
 <li>en <strong>[1-2]</strong>, confirmation du commit ;</li>
 <li>en <strong>[3]</strong>, on sélectionne l’onglet <strong>[Log]</strong> ;</li>
 <li>en <strong>[4]</strong>, une vue des branches du projet. Ici, une seule branche appelée <strong>[master]</strong> ;</li>
-<li>en <strong>[5-6]</strong>, le commit qui vient d’être effectué ;
-Maintenant créons de la même façon un script <strong>[git_03]</strong> :</li>
+<li>en <strong>[5-6]</strong>, le commit qui vient d’être effectué ;</li>
 </ul>
+<p>Maintenant créons de la même façon un script <strong>[git_03]</strong> :</p>
 <p><img src="images/1000000100000263000000F02142A443.png" style="width:10.521cm;height:4.13cm;" alt="Image" /></p>
 <p>Modifions le script <strong>[git_02]</strong> et supprimons le script <strong>[git_01]</strong> :</p>
 <p><img src="images/10000001000001E9000000D8EEE4A16A.png" style="width:9.97cm;height:4.4cm;" alt="Image" /></p>
@@ -1715,9 +1713,9 @@ Maintenant créons de la même façon un script <strong>[git_03]</strong> :</li
 <p><img src="images/10000001000003C900000111F2715F90.png" style="width:16.451cm;height:4.631cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[6]</strong>, on a récupéré <strong>[git_01]</strong> qui avait été supprimé ;</li>
-<li>en <strong>[7-8]</strong>, on retrouve <strong>[git_02]</strong> dans son état original sans la modification qui avait été faite ;
- Maintenant, modifions <strong>[git_02]</strong> et ajoutons <strong>[git_03]</strong> <strong>[1-4]</strong> :</li>
+<li>en <strong>[7-8]</strong>, on retrouve <strong>[git_02]</strong> dans son état original sans la modification qui avait été faite ;</li>
 </ul>
+<p>Maintenant, modifions <strong>[git_02]</strong> et ajoutons <strong>[git_03]</strong> <strong>[1-4]</strong> :</p>
 <p><img src="images/10000000000006160000015FBBA841D4.png" style="width:17.961cm;height:4.051cm;" alt="Image" /></p>
 <p>Maintenant, refaisons l’opération de revenir au commit initial :</p>
 <p><img src="images/10000000000005C50000024052E9D443.png" style="width:17.07cm;height:6.651cm;" alt="Image" /></p>
@@ -1729,18 +1727,18 @@ Maintenant créons de la même façon un script <strong>[git_03]</strong> :</li
 
 <ul>
 <li>en <strong>[1]</strong>, le fichier <strong>[git_03]</strong> est toujours là ;</li>
-<li>en <strong>[2-3]</strong>, le fichier <strong>[git_02]</strong> a gardé ses modifications ;
-Difficile de dire ce qu’a fait ce <strong>[Revert Commit]</strong>. Maintenant committons la situation actuelle :</li>
+<li>en <strong>[2-3]</strong>, le fichier <strong>[git_02]</strong> a gardé ses modifications ;</li>
 </ul>
+<p>Difficile de dire ce qu’a fait ce <strong>[Revert Commit]</strong>. Maintenant committons la situation actuelle :</p>
 <p><img src="images/100000000000059C00000227B1896679.png" style="width:16.59cm;height:6.37cm;" alt="Image" /></p>
 <ul>
 <li>en <strong>[1-6]</strong>, le commit ;</li>
 </ul>
 <p><img src="images/100000000000047400000277A180AD71.png" style="width:13.14cm;height:7.302cm;" alt="Image" /></p>
 <ul>
-<li>en <strong>[9]</strong>, on voit le nouveau commit ;
-Maintenant, essayons de revenir au commit 1 comme il a déjà été fait :</li>
+<li>en <strong>[9]</strong>, on voit le nouveau commit ;</li>
 </ul>
+<p>Maintenant, essayons de revenir au commit 1 comme il a déjà été fait :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002AB000002172EBAEC02.png" style="display:inline-block; margin:4px;width:7.88cm;height:6.181cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000239000001AD423E9C95.png" style="display:inline-block; margin:4px;width:6.58cm;height:4.961cm;" /></td></tr></table>
 
 <ul>
@@ -1748,13 +1746,11 @@ Maintenant, essayons de revenir au commit 1 comme il a déjà été fait :</li>
 </ul>
 <p><img src="images/1000000000000356000001836041012A.png" style="width:9.871cm;height:4.47cm;" alt="Image" /></p>
 <ul>
-<li>
-<p>en <strong>[7-8]</strong>, on a cette fois bien perdu toutes les modifications faites depuis le 1er commit ;
-Dans la suite, nous ne reviendrons plus sur <strong>[Git]</strong>. Le lecteur pourra travailler de la façon suivante :</p>
-</li>
-<li>
-<p>il pourra suivre les exemples qui sont donnés soit en les tapant lui-même, soit en les récupérant sur le site du cours ;</p>
-</li>
+<li>en <strong>[7-8]</strong>, on a cette fois bien perdu toutes les modifications faites depuis le 1er commit ;</li>
+</ul>
+<p>Dans la suite, nous ne reviendrons plus sur <strong>[Git]</strong>. Le lecteur pourra travailler de la façon suivante :</p>
+<ul>
+<li>il pourra suivre les exemples qui sont donnés soit en les tapant lui-même, soit en les récupérant sur le site du cours ;</li>
 <li>à chaque fois qu’un exemple fonctionne, il pourra committer son projet ;</li>
 <li>lorsqu’il développe ses propres codes et qu’il est dans une impasse, il sait qu’il peut revenir à une situation stable, en revenant à un commit précédent ;</li>
 </ul>
@@ -1764,9 +1760,9 @@ Dans la suite, nous ne reviendrons plus sur <strong>[Git]</strong>. Le lecteur p
 <ul>
 <li>le nom d’un module (module_name) suit une convention appelée parfois <strong>[snake_case]</strong> : tout en minuscules comportant éventuellement des mots séparés par le caractère souligné. Cette convention <strong>[snake_case]</strong> s’applique aux noms de méthodes, de packages, de variables, de fonctions ;</li>
 <li>le nom d’une classe (ClassName) suit une convention appelée parfois <strong>[PascalCase]</strong> : une suite de mots collés avec chaque lettre de début de mot en majuscule ;</li>
-<li>les noms de constantes suivent la convention <strong>[SNAKE_CASE]</strong> : suite de mots en majuscules séparés par le caractère souligné ;
-Ces conventions ont été globalement suivies dans ce document. Néanmoins pour les modules définissant une classe, j’ai donné au module le même nom que la classe qu’il contient. Il suit donc la convention <strong>[PascalCase]</strong> au lieu de <strong>[snake_case]</strong>. Je voulais pouvoir repérer rapidement les modules de classes.</li>
+<li>les noms de constantes suivent la convention <strong>[SNAKE_CASE]</strong> : suite de mots en majuscules séparés par le caractère souligné ;</li>
 </ul>
+<p>Ces conventions ont été globalement suivies dans ce document. Néanmoins pour les modules définissant une classe, j’ai donné au module le même nom que la classe qu’il contient. Il suit donc la convention <strong>[PascalCase]</strong> au lieu de <strong>[snake_case]</strong>. Je voulais pouvoir repérer rapidement les modules de classes.</p>
 
 
 
@@ -1806,7 +1802,7 @@ Ces conventions ont été globalement suivies dans ce document. Néanmoins pour 
           https://tahe.developpez.com
         </a>
         <br>
-        Ce cours tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
         <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
         Partage dans les Mêmes Conditions 3.0 non transposé</em>.
       </div>
