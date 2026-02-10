@@ -1535,7 +1535,7 @@
 <p><a id="toc48549257"></a></p>
 <h1 id="31-clients-web-pour-les-services-json-et-xml-de-la-version-12">31. Clients web pour les services jSON et XML de la version 12</h1>
 <p>Nous allons écrire trois applications console clientes des services jSON et XML du serveur web que nous venons d’écrire. Nous reprenons l’architecture client / serveur de la version 11 :</p>
-<p><img src="images/10000000000003CF000004E84943F545.png" style="width:11.261cm;height:14.511cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF000004E84943F545.png" style="width:11.261cm;height:14.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000004E84943F545.png" /></p>
 <p>Nous écrirons trois scripts console :</p>
 <ul>
 <li>les scripts <strong>[main]</strong> et <strong>[main3]</strong> utiliseront la couche <strong>[métier]</strong> du serveur ;</li>
@@ -1544,7 +1544,7 @@
 <p><a id="toc48549258"></a></p>
 <h2 id="311-larborescence-des-scripts-des-clients">31.1. L’arborescence des scripts des clients</h2>
 <p>Le dossier <strong>[http-clients/07]</strong> est obtenu initialement par recopie du dossier <strong>[http-clients/06]</strong>. Il est ensuite modifié.</p>
-<p><img src="images/10000000000005AB000001A8BBA86335.png" style="width:16.751cm;height:4.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000005AB000001A8BBA86335.png" style="width:16.751cm;height:4.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005AB000001A8BBA86335.png" /></p>
 <ul>
 <li>en <strong>[1]</strong> : les données exploitées ou créées par le client ;</li>
 <li>en <strong>[2]</strong>, la configuration et les scripts console du client ;</li>
@@ -1553,8 +1553,8 @@
 </ul>
 <p><a id="toc48549259"></a></p>
 <h2 id="312-la-couche-dao-des-clients">31.2. La couche [dao] des clients</h2>
-<p><img src="images/100000000000031C000002E26779CBAC.png" style="width:9.201cm;height:8.531cm;" alt="Image" /></p>
-<p><img src="images/10000000000001F000000130004DC856.png" style="width:5.74cm;height:3.5cm;" alt="Image" /></p>
+<p><img src="images/100000000000031C000002E26779CBAC.png" style="width:9.201cm;height:8.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031C000002E26779CBAC.png" /></p>
+<p><img src="images/10000000000001F000000130004DC856.png" style="width:5.74cm;height:3.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F000000130004DC856.png" /></p>
 <p><a id="toc48549260"></a></p>
 <h3 id="3121-interface">31.2.1. Interface</h3>
 <p>La couche <strong>[dao]</strong> implémentera l’interface <strong>[</strong><strong>InterfaceImpôtsDaoWithHttpSession</strong><strong>]</strong> suivante :</p>
@@ -1964,7 +1964,7 @@
 
 <p><a id="toc48549263"></a></p>
 <h2 id="313-configuration-des-clients">31.3. Configuration des clients</h2>
-<p><img src="images/100000000000015200000132DC9186C1.png" style="width:3.901cm;height:3.53cm;" alt="Image" /></p>
+<p><img src="images/100000000000015200000132DC9186C1.png" style="width:3.901cm;height:3.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015200000132DC9186C1.png" /></p>
 <p>Les clients sont configurés par les fichiers <strong>[config]</strong> et <strong>[config_layers]</strong>. Le fichier <strong>[config]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -2269,7 +2269,7 @@
 <p>Ci-dessus, le parcours du thread <strong>[Thread-2]</strong>.</p>
 <p><a id="toc48549265"></a></p>
 <h2 id="315-le-client-main2">31.5. Le client [main2]</h2>
-<p><img src="images/1000000000000152000001320FFD0FE9.png" style="width:3.901cm;height:3.53cm;" alt="Image" /></p>
+<p><img src="images/1000000000000152000001320FFD0FE9.png" style="width:3.901cm;height:3.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000152000001320FFD0FE9.png" /></p>
 <p>Le client <strong>[main2]</strong> permet de tester les URL <strong>[/init-session, /authentifier-utilisateur, /get-admindata, /fin-session]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre json ou xml<span style="color:#000000"></span></span>
@@ -2372,7 +2372,7 @@
 <p><a id="toc48549266"></a></p>
 <h2 id="316-le-client-main3">31.6. Le client [main3]</h2>
 <p>Le client <strong>[main3]</strong> permet de tester les URL <strong>[/init-session, /calculer-impots, /get-simulations, /delete-simulation, /fin-session]</strong> :</p>
-<p><img src="images/1000000000000150000001310FF136AB.png" style="width:3.89cm;height:3.521cm;" alt="Image" /></p>
+<p><img src="images/1000000000000150000001310FF136AB.png" style="width:3.89cm;height:3.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000150000001310FF136AB.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre json ou xml<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> sys</span></span>
@@ -2480,7 +2480,7 @@
 </ul>
 <p><a id="toc48549267"></a></p>
 <h2 id="317-la-classe-de-test-test2httpclientdaowithsession">31.7. La classe de test [Test2HttpClientDaoWithSession]</h2>
-<p><img src="images/10000000000001F30000014473BE1068.png" style="width:5.762cm;height:3.74cm;" alt="Image" /></p>
+<p><img src="images/10000000000001F30000014473BE1068.png" style="width:5.762cm;height:3.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F30000014473BE1068.png" /></p>
 <p>La classe <strong>[Test2HttpClientDaoWithSession]</strong> teste la couche <strong>[dao]</strong> des clients de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">import</span> unittest</span>

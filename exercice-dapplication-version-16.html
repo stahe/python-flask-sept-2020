@@ -1496,13 +1496,13 @@
 <p><a id="exercicedapplication12"></a>
 <a id="toc48549334"></a></p>
 <h1 id="36-exercice-dapplication-version-16">36. Exercice d’application : version 16</h1>
-<p><img src="images/10000000000001100000012E4F46BBF8.png" style="width:3.14cm;height:3.492cm;" alt="Image" /></p>
+<p><img src="images/10000000000001100000012E4F46BBF8.png" style="width:3.14cm;height:3.492cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001100000012E4F46BBF8.png" /></p>
 <p><a id="toc48549335"></a></p>
 <h2 id="361-introduction">36.1. Introduction</h2>
 <p>Les URL de notre application sont pour l’instant de la forme <strong>[/action/param1/param2/…]</strong>. Nous voudrions pouvoir préfixer ces URL. Par exemple avec le préfixe <strong>[/do]</strong>, nous aurions des URL de la forme <strong>[</strong><strong>/do</strong><strong>/action/param1/param2/…]</strong>.</p>
 <p><a id="toc48549336"></a></p>
 <h2 id="362-la-nouvelle-configuration-des-routes">36.2. La nouvelle configuration des routes</h2>
-<p><img src="images/100000000000033F000001903ED52661.png" style="width:9.58cm;height:4.611cm;" alt="Image" /></p>
+<p><img src="images/100000000000033F000001903ED52661.png" style="width:9.58cm;height:4.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033F000001903ED52661.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, le calcul des routes va être modifié ;</li>
 <li>en <strong>[1]</strong>, le fichier <strong>[config]</strong> est modifié pour refléter ce changement ;</li>
@@ -1751,7 +1751,7 @@
 </ul>
 <p><a id="toc48549337"></a></p>
 <h2 id="363-les-nouveaux-controleurs">36.3. Les nouveaux contrôleurs</h2>
-<p><img src="images/1000000000000214000002728224C811.png" style="width:6.151cm;height:7.242cm;" alt="Image" /></p>
+<p><img src="images/1000000000000214000002728224C811.png" style="width:6.151cm;height:7.242cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000214000002728224C811.png" /></p>
 <p>Dans la version précédente, tous les contrôleurs obtenaient l’action en cours de traitement de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">    <span style="color:#0000ff">def</span> execute(self, request: LocalProxy, session: LocalProxy, config: dict) -&gt; (dict, int):</span>
@@ -1773,7 +1773,7 @@
 <p>On fait ça dans tous les contrôleurs.</p>
 <p><a id="toc48549338"></a></p>
 <h2 id="364-les-nouveaux-modeles">36.4. Les nouveaux modèles</h2>
-<p><img src="images/10000000000001A40000012C345863EA.png" style="width:4.841cm;height:3.462cm;" alt="Image" /></p>
+<p><img src="images/10000000000001A40000012C345863EA.png" style="width:4.841cm;height:3.462cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A40000012C345863EA.png" /></p>
 <p>Dans la version précédente, chaque classe de modèle générait un modèle de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> get_model_for_view(self, request: Request, session: LocalProxy, config: dict, résultat: dict) -&gt; dict:</span>
@@ -1819,7 +1819,7 @@
 
 <p><a id="toc48549339"></a></p>
 <h2 id="365-les-nouveaux-fragments">36.5. Les nouveaux fragments</h2>
-<p><img src="images/100000000000017B00000163077FE754.png" style="width:4.381cm;height:4.1cm;" alt="Image" /></p>
+<p><img src="images/100000000000017B00000163077FE754.png" style="width:4.381cm;height:4.1cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B00000163077FE754.png" /></p>
 <p>Tous les fragments contenant des URL doivent être modifiés.</p>
 <p><strong>Le fragment </strong><strong>[v-authentification]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -1887,7 +1887,7 @@
 
 <p><a id="toc48549340"></a></p>
 <h2 id="366-la-nouvelle-reponse-html">36.6. La nouvelle réponse HTML</h2>
-<p><img src="images/100000000000014C000000E8E20F0D10.png" style="width:3.841cm;height:2.68cm;" alt="Image" /></p>
+<p><img src="images/100000000000014C000000E8E20F0D10.png" style="width:3.841cm;height:2.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014C000000E8E20F0D10.png" /></p>
 <p>Dans la précédente version le code de la réponse HTML se terminait par une redirection :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">class</span> HtmlResponse(InterfaceResponse):</span>
@@ -1927,7 +1927,7 @@
 
 <p><a id="toc48549341"></a></p>
 <h2 id="367-tests">36.7. Tests</h2>
-<p><img src="images/100000000000018F0000015F12F2CE26.png" style="width:4.601cm;height:4.051cm;" alt="Image" /></p>
+<p><img src="images/100000000000018F0000015F12F2CE26.png" style="width:4.601cm;height:4.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F0000015F12F2CE26.png" /></p>
 <p>Mettons le préfixe suivant dans le fichier de configuration <strong>[parameters]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">…</span><span style="color:#000000"></span></span>
@@ -1942,13 +1942,13 @@
 </code></pre></div>
 
 <p>Lançons l’application puis demandons l’URL <strong>[http://localhost:5000</strong><strong>/do</strong><strong>]</strong>, la réponse est la suivante :</p>
-<p><img src="images/10000000000004740000029706EFC5D1.png" style="width:13.161cm;height:7.651cm;" alt="Image" /></p>
+<p><img src="images/10000000000004740000029706EFC5D1.png" style="width:13.161cm;height:7.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004740000029706EFC5D1.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le préfixe de l’URL ;</li>
 <li>en <strong>[2]</strong>, le jeton CSRF ;</li>
 </ul>
 <p>L’application peut être également testée avec les tests console de <strong>[http-clients/09]</strong> :</p>
-<p><img src="images/10000000000001BD000001DFD5ABF2D8.png" style="width:5.141cm;height:5.541cm;" alt="Image" /></p>
+<p><img src="images/10000000000001BD000001DFD5ABF2D8.png" style="width:5.141cm;height:5.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BD000001DFD5ABF2D8.png" /></p>
 <p>Dans les fichiers de configuration <strong>[1]</strong> et <strong>[2]</strong>, le préfixe des URL doit être inclus dans l’URL du serveur :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">        <span style="color:#a31515">&quot;server&quot;</span>: {</span>

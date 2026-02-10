@@ -1630,17 +1630,17 @@
 <a id="toc48549071"></a></p>
 <h1 id="19-utilisation-de-lorm-sqlalchemy">19. Utilisation de l’ORM SQLALCHEMY</h1>
 <p>Le chapitre précédent a montré que dans certains cas on pouvait écrire du code indépendant du SGBD utilisé avec l’architecture suivante :</p>
-<p><img src="images/10000000000003B4000000E6700B9C1D.png" style="width:10.951cm;height:2.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000003B4000000E6700B9C1D.png" style="width:10.951cm;height:2.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B4000000E6700B9C1D.png" /></p>
 <p>Dans ce chapitre nous allons utiliser l’ORM (Object Relational Mapper) <strong>[sqlalchemy]</strong> pour accéder aux SGBD de façon uniforme quelque soit le SGBD utilisé. Un ORM permet deux choses :</p>
 <ul>
 <li>il permet à un script de dialoguer avec le SGBD sans émettre d’ordres SQL ;</li>
 <li>il masque au script les particularités de chaque SGBD ;</li>
 </ul>
 <p>L’architecture devient la suivante :</p>
-<p><img src="images/10000000000004720000016D5DDF6324.png" style="width:13.151cm;height:4.22cm;" alt="Image" /></p>
+<p><img src="images/10000000000004720000016D5DDF6324.png" style="width:13.151cm;height:4.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004720000016D5DDF6324.png" /></p>
 <p>Le script est désormais séparé des connecteurs par l’ORM. Il dialogue avec l’ORM avec des classes et des méthodes. Il n’exécute pas de code SQL. C’est l’ORM qui le fait avec les connecteurs auxquels il est relié. Il cache au script les particularités de ces connecteurs. Aussi le code du script est-il insensible à un changement de connecteur (donc du SGBD) ;</p>
 <p>L’arborescence des scripts étudiés sera la suivante :</p>
-<p><img src="images/100000000000010100000175309D0E1A.png" style="width:2.971cm;height:4.301cm;" alt="Image" /></p>
+<p><img src="images/100000000000010100000175309D0E1A.png" style="width:2.971cm;height:4.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010100000175309D0E1A.png" /></p>
 <p><a id="toc48549072"></a></p>
 <h2 id="191-installation-de-lorm-sqlalchemy">19.1. Installation de l’ORM [sqlalchemy]</h2>
 <p>L’ORM <strong>[sqlalchemy]</strong> vient sous la forme d’un package python qu’il faut installer dans un terminal Python :</p>
@@ -1655,7 +1655,7 @@
 
 <p><a id="toc48549073"></a></p>
 <h2 id="192-scripts-01-les-bases">19.2. Scripts 01 : les bases</h2>
-<p><img src="images/10000000000004730000018C58EFD1D0.png" style="width:13.14cm;height:4.56cm;" alt="Image" /></p>
+<p><img src="images/10000000000004730000018C58EFD1D0.png" style="width:13.14cm;height:4.56cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004730000018C58EFD1D0.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, les scripts qui vont être étudiés. Ces scripts vont utiliser les classes de <strong>[2]</strong> : BaseEntity, MyException, Personne, Utils ;</li>
 </ul>
@@ -1801,7 +1801,7 @@
 <p><a id="toc48549076"></a></p>
 <h3 id="1923-le-script-main">19.2.3. Le script [main]</h3>
 <p>Le script <strong>[main]</strong> va manipuler la table <strong>[personnes]</strong> de la base MySQL <strong>[dbpersonnes]</strong> en s’interfaçant avec <strong>[sqlalchemy]</strong>. Pour comprendre la suite, il faut se rappeler l’architecture utilisée ici :</p>
-<p><img src="images/10000000000004720000016D5DDF6324.png" style="width:13.151cm;height:4.22cm;" alt="Image" /></p>
+<p><img src="images/10000000000004720000016D5DDF6324.png" style="width:13.151cm;height:4.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004720000016D5DDF6324.png" /></p>
 <p>Si <strong>[Database1]</strong> est la base <strong>[dbpersonnes]</strong>, on voit que la liaison entre le script et cette base passe par deux entités :</p>
 <ul>
 <li>le connecteur Python au SGBD MySQL ;</li>
@@ -1970,7 +1970,7 @@
 <li>lignes 6-7 : on notera l’ordre SQL qui a échoué. C’est un ordre INSERT paramétré : <strong>[sqlalchemy]</strong> a inséré les deux personnes avec un unique INSERT. On voit là qu’il a essayé d’optimiser les ordres SQL émis ;</li>
 </ul>
 <p>Maintenant allons-voir, avec phpMyAdmin, le contenu de la table <strong>[personnes]</strong> :</p>
-<p><img src="images/1000000000000475000001DB4297A5F6.png" style="width:13.151cm;height:5.49cm;" alt="Image" /></p>
+<p><img src="images/1000000000000475000001DB4297A5F6.png" style="width:13.151cm;height:5.49cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000475000001DB4297A5F6.png" /></p>
 <p>On voit en <strong>[6]</strong> que la table est vide. Il n’y a même pas la 1ère personne que le script avait mis dans la session. Ceci parce que celle-ci se déroulait dans une transaction et que celle-ci a été défaite dans la clause <strong>[except]</strong> du script <strong>[main]</strong>.</p>
 <p>Procédons maintenant à la modification suivante dans <strong>[main]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1980,12 +1980,12 @@
 </code></pre></div>
 
 <p>Après avoir ajouté une personne ligne 2, nous décommentons la ligne 3. L’opération <strong>[session.commit]</strong> va valider la transaction sous-jacente et une nouvelle transaction va démarrer. Après exécution, le contenu de la table <strong>[personnes]</strong> est le suivant :</p>
-<p><img src="images/10000000000005EB00000225B4EB43EE.png" style="width:17.521cm;height:6.351cm;" alt="Image" /></p>
+<p><img src="images/10000000000005EB00000225B4EB43EE.png" style="width:17.521cm;height:6.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005EB00000225B4EB43EE.png" /></p>
 <p>On voit en <strong>[6]</strong> que la 1ère insertion a été conservée. Cela vient du fait qu’elle a été faite au sein d’une transaction 1 et que l’erreur qui a suivi a été faite au sein d’une transaction 2.</p>
 <p><a id="scripts02"></a>
 <a id="toc48549077"></a></p>
 <h2 id="193-scripts-02-les-mappings-de-sqlalchemy">19.3. Scripts 02 : les mappings de [sqlalchemy]</h2>
-<p><img src="images/1000000000000137000001D285EAF188.png" style="width:3.59cm;height:5.381cm;" alt="Image" /></p>
+<p><img src="images/1000000000000137000001D285EAF188.png" style="width:3.59cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000137000001D285EAF188.png" /></p>
 <p>Les scripts 02 sont une variante des scripts 01. On essaie de faire le maximum de configurations dans <strong>[config.py]</strong>. On y configure maintenant l’environnement <strong>[sqlalchemy]</strong> de l’application :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -2144,9 +2144,9 @@
 </code></pre></div>
 
 <p>Dans phpMyAdmin, la table <strong>[personnes]</strong> est devenue la suivante :</p>
-<p><img src="images/100000000000038D0000026712C762DF.png" style="width:10.51cm;height:7.111cm;" alt="Image" /></p>
+<p><img src="images/100000000000038D0000026712C762DF.png" style="width:10.51cm;height:7.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D0000026712C762DF.png" /></p>
 <p>Maintenant, regardons la table <strong>[personnes]</strong> générée par <strong>[sqlalchemy]</strong> :</p>
-<p><img src="images/1000000000000557000002B211F50426.png" style="width:15.77cm;height:7.961cm;" alt="Image" /></p>
+<p><img src="images/1000000000000557000002B211F50426.png" style="width:15.77cm;height:7.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000557000002B211F50426.png" /></p>
 <ul>
 <li>en <strong>[6]</strong>, les types utilisés pour les différentes colonnes ;</li>
 <li>en <strong>[7]</strong>, on voit que la colonne <strong>[id]</strong> a l’attribut <strong>[AUTO_INCREMENT]</strong>. Cela signifie que lors de l’insertion d’une ligne dans la table, si cette ligne n’a pas de valeur pour la colonne <strong>[id]</strong>, celle-ci sera générée par MySQL de façon incrémentale : 1, 2, 3, … Cette propriété nous évite de nous préoccuper de la valeur de la clé primaire lorsque nous faisons une insertion dans la table : nous laissons MySQL la générer ;</li>
@@ -2155,7 +2155,7 @@
 </ul>
 <p><a id="toc48549078"></a></p>
 <h2 id="194-scripts-03-manipulation-des-entites-de-la-session-sqlalchemy">19.4. Scripts 03 : manipulation des entités de la session [sqlalchemy]</h2>
-<p><img src="images/1000000000000136000001BB2902EAD6.png" style="width:3.581cm;height:5.121cm;" alt="Image" /></p>
+<p><img src="images/1000000000000136000001BB2902EAD6.png" style="width:3.581cm;height:5.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000136000001BB2902EAD6.png" /></p>
 <p>Le fichier de configuration <strong>[config]</strong> est le même que dans l’exemple précédent. Dans le script <strong>[main]</strong> on fait les opérations classiques <strong>[INSERT, UPDATE, DELETE, SELECT]</strong> sur la table <strong>[personnes]</strong> à l’aide des méthodes de <strong>[sqlalchemy]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on configure l&#x27;application<span style="color:#000000"></span></span>
@@ -2330,10 +2330,10 @@
 <li>ligne 15 : la personne de nom « bruneau » ;</li>
 </ul>
 <p>Dans phpMyAdmin, le contenu de la table <strong>[personnes]</strong> à la fin de l’exécution est le suivant :</p>
-<p><img src="images/100000000000038D0000027A6C971FC8.png" style="width:10.51cm;height:7.331cm;" alt="Image" /></p>
+<p><img src="images/100000000000038D0000027A6C971FC8.png" style="width:10.51cm;height:7.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D0000027A6C971FC8.png" /></p>
 <p><a id="toc48549079"></a></p>
 <h2 id="195-scripts-04-utilisation-dune-base-postgresql">19.5. Scripts 04 : utilisation d’une base [PostgreSQL]</h2>
-<p><img src="images/1000000000000137000001BC55E511D0.png" style="width:3.59cm;height:5.121cm;" alt="Image" /></p>
+<p><img src="images/1000000000000137000001BC55E511D0.png" style="width:3.59cm;height:5.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000137000001BC55E511D0.png" /></p>
 <p>Le dossier <strong>[04]</strong> est une copie du dossier <strong>[03]</strong>. On change une unique chose, la chaîne de connexion dans le fichier <strong>[config]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span style="color:#000000">    </span># lien vers une base de données PostgreSQL</span>
@@ -2381,21 +2381,21 @@
 <a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="nx">Process</span><span class="w"> </span><span class="nx">finished</span><span class="w"> </span><span class="kd">with</span><span class="w"> </span><span class="nx">exit</span><span class="w"> </span><span class="nx">code</span><span class="w"> </span><span class="mf">0</span>
 </code></pre></div></td></tr></table></div>
 <p>Avec l’outil <strong>[pgAdmin]</strong> (cf. paragraphe |<a href="#_Administrer_PostgreSQL_avec"><u><span style="color: #0563c1">pgAdmin</span></u></a>|), la table <strong>[personnes]</strong> est dans l’état suivant :</p>
-<p><img src="images/1000000000000556000001EDD383D916.png" style="width:15.761cm;height:5.68cm;" alt="Image" /></p>
+<p><img src="images/1000000000000556000001EDD383D916.png" style="width:15.761cm;height:5.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000556000001EDD383D916.png" /></p>
 <p>La table <strong>[personnes]</strong> a été générée avec le code SQL suivant :</p>
-<p><img src="images/10000000000005E200000368429811FC.png" style="width:17.402cm;height:10.06cm;" alt="Image" /></p>
+<p><img src="images/10000000000005E200000368429811FC.png" style="width:17.402cm;height:10.06cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005E200000368429811FC.png" /></p>
 <ul>
 <li>en <strong>[4-5]</strong>, on voit que la colonne <strong>[id]</strong> est clé primaire. On voit également qu’elle a une valeur par défaut <strong>[mot clé DEFAULT]</strong> qui fait que si on insère une ligne sans clé primaire, celle-ci sera générée par le SGBD. C’est un fonctionnement fréquent : on laisse le SGBD générer les clés primaires ;</li>
 </ul>
 <p>Cette version 05 des scripts <strong>[sqlalchemy]</strong> montre bien la facilité de passer d’un SGBD à l’autre : il a suffi de changer la chaîne de connexion dans un script de configuration. Rien d’autre n’a changé. Si on compare les types des colonnes <strong>[id, nom, prenom, age]</strong> ci-dessus avec ceux de la table MySQL de l’exemple |<a href="#_Scripts_02_:"><u><span style="color: #0563c1">02</span></u></a>|, on voit qu’ils sont différents. <strong>[sqlalchemy]</strong> les adapte au SGBD utilisé. Cette facilité de s’adapter à un nouveau SGBD est une raison suffisante pour adopter <strong>[sqlalchemy]</strong> ou un autre ORM.</p>
 <p><a id="toc48549080"></a></p>
 <h2 id="196-scripts-05-exemple-complet">19.6. Scripts 05 : exemple complet</h2>
-<p><img src="images/10000000000001CF00000206C46293D1.png" style="width:5.34cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/10000000000001CF00000206C46293D1.png" style="width:5.34cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001CF00000206C46293D1.png" /></p>
 <p>L’exemple étudié est une reprise de celui étudié au paragraphe |<a href="#_Exemple_1"><u><span style="color: #0563c1">troiscouches-v01</span></u></a>|. Cet exemple présentait une architecture à trois couches <strong>[ui, métier, dao]</strong> qui manipulait des entités <strong>[Classe, Elève, Matière, Note]</strong>. Les entités étaient codées en dur dans une couche <strong>[dao]</strong>. Nous les mettons maintenant dans une base de données. Nous utiliserons deux SGBD : MySQL et PostgreSQL.</p>
 <p><a id="toc48549081"></a></p>
 <h3 id="1961-larchitecture-de-lapplication">19.6.1. L’architecture de l’application</h3>
 <p>L’architecture de l’application sera la suivante :</p>
-<p><img src="images/1000000000000472000002BF207099F8.png" style="width:13.151cm;height:8.111cm;" alt="Image" /></p>
+<p><img src="images/1000000000000472000002BF207099F8.png" style="width:13.151cm;height:8.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000002BF207099F8.png" /></p>
 <ul>
 <li>en <strong>[1-3]</strong>, on trouve les couches <strong>[ui, métier, dao]</strong> déjà présentes dans l’exemple |<a href="#_Exemple_1"><u><span style="color: #0563c1">troiscouches-v01</span></u></a>|. La couche <strong>[dao]</strong> communique désormais avec la couche <strong>[ORM]</strong> ;</li>
 <li>les couches <strong>[1-5]</strong> sont implémentées par du code Python ;</li>
@@ -2403,14 +2403,14 @@
 <p><a id="toc48549082"></a></p>
 <h3 id="1962-les-bases-de-donnees">19.6.2. Les bases de données</h3>
 <p>Nous construisons une base MySQL nommée <strong>[dbecole]</strong> propriété de l’utilisateur <strong>[admecole]</strong> ayant le mot de passe <strong>[mdpecole]</strong>. Pour cela nous suivons la procédure décrite au paragraphe |<a href="#_Création_d’une_base"><u><span style="color: #0563c1">création d&#x27;une base de données</span></u></a>| :</p>
-<p><img src="images/1000000000000473000001C3AB170B89.png" style="width:13.131cm;height:5.201cm;" alt="Image" /></p>
-<p><img src="images/10000000000005EA000001D05278D0D1.png" style="width:17.511cm;height:5.361cm;" alt="Image" /></p>
+<p><img src="images/1000000000000473000001C3AB170B89.png" style="width:13.131cm;height:5.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000473000001C3AB170B89.png" /></p>
+<p><img src="images/10000000000005EA000001D05278D0D1.png" style="width:17.511cm;height:5.361cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005EA000001D05278D0D1.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, la base <strong>[dbecole]</strong> sans tables <strong>[3]</strong> ;</li>
 <li>en <strong>[7]</strong>, l’utilisateur <strong>[admecole]</strong> a tous les privilèges sur cette base de données ;</li>
 </ul>
 <p>On fait de même avec le SGBD PostgreSQL. Nous construisons une base nommée <strong>[dbecole]</strong> propriété de l’utilisateur <strong>[admecole]</strong> ayant le mot de passe <strong>[mdpecole]</strong>. Pour cela nous suivons la procédure décrite au paragraphe |<a href="#_Administrer_PostgreSQL_avec"><u><span style="color: #0563c1">création d&#x27;une base de données</span></u></a>| :</p>
-<p><img src="images/10000000000004D8000003823AF5ED71.png" style="width:14.331cm;height:10.381cm;" alt="Image" /></p>
+<p><img src="images/10000000000004D8000003823AF5ED71.png" style="width:14.331cm;height:10.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004D8000003823AF5ED71.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, la base <strong>[dbecole]</strong> ;</li>
 <li>en <strong>[2]</strong>, l’utilisateur <strong>[admecole]</strong> ;</li>
@@ -2658,7 +2658,7 @@
 <p><a id="configuration"></a>
 <a id="toc48549084"></a></p>
 <h3 id="1964-configuration">19.6.4. Configuration</h3>
-<p><img src="images/1000000000000193000001C3ED33463B.png" style="width:4.65cm;height:5.201cm;" alt="Image" /></p>
+<p><img src="images/1000000000000193000001C3ED33463B.png" style="width:4.65cm;height:5.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000193000001C3ED33463B.png" /></p>
 <p>La configuration a été éclatée sur plusieurs fichiers :</p>
 <ul>
 <li>la configuration générale dans <strong>[config.py]</strong> : elle établit le Python Path de l’application et instancie les couches de l’architecture ;</li>
@@ -2929,10 +2929,10 @@
 </ul>
 <p><a id="toc48549085"></a></p>
 <h3 id="1965-la-couche-dao-1">19.6.5. La couche [dao] - 1</h3>
-<p><img src="images/1000000000000472000002BF608ECFE1.png" style="width:13.151cm;height:8.111cm;" alt="Image" /></p>
+<p><img src="images/1000000000000472000002BF608ECFE1.png" style="width:13.151cm;height:8.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000002BF608ECFE1.png" /></p>
 <p>Il faut comprendre ici que la couche <strong>[dao]</strong> <strong>[3]</strong> communique avec l’ORM <strong>[sqlalchemy]</strong> <strong>[4]</strong> configuré comme il a été décrit dans le paragraphe précédent. Des trois couches <strong>[ui, métier, dao]</strong> de l’application |<a href="#_Exemple_1"><u><span style="color: #0563c1">troiscouches v01</span></u></a>|, seule la couche <strong>[dao]</strong> doit être réécrite. Les couches <strong>[ui, métier]</strong> sont conservées.</p>
 <p>L’implémentation de la couche <strong>[dao]</strong> a été placée dans le dossier <strong>[services]</strong> :</p>
-<p><img src="images/10000000000001ED000000D5BBC1F406.png" style="width:5.261cm;height:2.271cm;" alt="Image" /></p>
+<p><img src="images/10000000000001ED000000D5BBC1F406.png" style="width:5.261cm;height:2.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001ED000000D5BBC1F406.png" /></p>
 <p><strong>[InterfaceDatabaseDao]</strong> est l’interface de la couche <strong>[dao]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> <span style="color:#6f008a">abc</span> <span style="color:#0000ff">import</span> <span style="color:#2b91af">ABC</span>, abstractmethod</span>
@@ -3138,7 +3138,7 @@
 </ul>
 <p><a id="toc48549086"></a></p>
 <h3 id="1966-initialisation-de-la-base-de-donnees">19.6.6. Initialisation de la base de données</h3>
-<p><img src="images/10000000000001C200000247D61944EA.png" style="width:4.672cm;height:6.061cm;" alt="Image" /></p>
+<p><img src="images/10000000000001C200000247D61944EA.png" style="width:4.672cm;height:6.061cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C200000247D61944EA.png" /></p>
 <p>Le script <strong>[main_init_database]</strong> initialise la base de données avec le contenu du script <strong>[data.py]</strong>. Son code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre mysql ou pgres<span style="color:#000000"></span></span>
@@ -3201,17 +3201,17 @@
 
 <p>La fonction <strong>[shutdown.execute]</strong> ferme la session <strong>[sqlalchemy]</strong> utilisée pour initialiser la base de données.</p>
 <p>Nous créons une 1ère configuration d’exécution (cf. |<a href="#configuration_execution"><u><span style="color: #0563c1">configuration d’exécution</span></u></a>|) pour exécuter <strong>[main_init_database]</strong> avec le SGBD MySQL :</p>
-<p><img src="images/10000000000005150000029F2F31BFB5.png" style="width:15.001cm;height:7.73cm;" alt="Image" /></p>
+<p><img src="images/10000000000005150000029F2F31BFB5.png" style="width:15.001cm;height:7.73cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005150000029F2F31BFB5.png" /></p>
 <p>Les résultats de l’exécution de cette configuration sont les suivants dans phpMyAdmin :</p>
-<p><img src="images/10000000000000E600000103F0FD84C6.png" style="width:2.661cm;height:2.991cm;" alt="Image" /></p>
-<p><img src="images/1000000000000558000001E2FA0311CB.png" style="width:15.781cm;height:5.571cm;" alt="Image" /></p>
-<p><img src="images/10000000000005540000028806783A84.png" style="width:15.761cm;height:7.481cm;" alt="Image" /></p>
+<p><img src="images/10000000000000E600000103F0FD84C6.png" style="width:2.661cm;height:2.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000E600000103F0FD84C6.png" /></p>
+<p><img src="images/1000000000000558000001E2FA0311CB.png" style="width:15.781cm;height:5.571cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000558000001E2FA0311CB.png" /></p>
+<p><img src="images/10000000000005540000028806783A84.png" style="width:15.761cm;height:7.481cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005540000028806783A84.png" /></p>
 <p>Pour le SGBD <strong>[PostgreSQL]</strong>, nous utilisons la configuration d’exécution suivante :</p>
-<p><img src="images/10000000000005160000027FDC5AF745.png" style="width:15.02cm;height:7.37cm;" alt="Image" /></p>
+<p><img src="images/10000000000005160000027FDC5AF745.png" style="width:15.02cm;height:7.37cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005160000027FDC5AF745.png" /></p>
 <p>A l’exécution, les résultats dans <strong>[pgAdmin]</strong> sont les suivants :</p>
-<p><img src="images/10000000000001EC000003E7CC385C46.png" style="width:5.68cm;height:11.531cm;" alt="Image" /></p>
-<p><img src="images/1000000000000558000002081B1AD338.png" style="width:15.77cm;height:6.01cm;" alt="Image" /></p>
-<p><img src="images/100000000000055700000262D912589F.png" style="width:15.781cm;height:7.032cm;" alt="Image" /></p>
+<p><img src="images/10000000000001EC000003E7CC385C46.png" style="width:5.68cm;height:11.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001EC000003E7CC385C46.png" /></p>
+<p><img src="images/1000000000000558000002081B1AD338.png" style="width:15.77cm;height:6.01cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000558000002081B1AD338.png" /></p>
+<p><img src="images/100000000000055700000262D912589F.png" style="width:15.781cm;height:7.032cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055700000262D912589F.png" /></p>
 <p>On notera la facilité avec laquelle on a pu changer de SGBD.</p>
 <p><a id="toc48549087"></a></p>
 <h3 id="1967-la-couche-dao-2">19.6.7. La couche [dao] – 2</h3>
@@ -3352,7 +3352,7 @@
 </ul>
 <p><a id="toc48549088"></a></p>
 <h3 id="1968-le-script-main_joined_queries">19.6.8. Le script [main_joined_queries]</h3>
-<p><img src="images/10000000000001B2000001A573DA45F8.png" style="width:4.511cm;height:4.37cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B2000001A573DA45F8.png" style="width:4.511cm;height:4.37cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B2000001A573DA45F8.png" /></p>
 <p>Le script <strong>[main_joined_queries]</strong> s’appelle ainsi parce qu’il vise à mettre en lumière les requêtes faites implicitement par <strong>[sqlalchemy]</strong> pour récupérer des informations appartenant à plusieurs tables. Ces requêtes cachées au programmeur sont faites à chaque fois qu’une propriété d’une entité a été associée à la fonction <strong>[relationship]</strong> dans le mapping de l’entité. Par exemple :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span style="color:#000000">    </span># mapping</span>
@@ -3468,7 +3468,7 @@
 
 <p>Les commentaires suffisent à comprendre le code.</p>
 <p>On crée une configuration d’exécution pour MySQL :</p>
-<p><img src="images/100000000000051500000242D9998CD0.png" style="width:15.011cm;height:6.691cm;" alt="Image" /></p>
+<p><img src="images/100000000000051500000242D9998CD0.png" style="width:15.011cm;height:6.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000051500000242D9998CD0.png" /></p>
 <p>Les résultats de l’exécution sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
@@ -3552,12 +3552,12 @@
 <p>Ainsi, lorsqu’on écrit <strong>[</strong><strong><span style="color: #000000">print(</span></strong><strong><span style="color: #a31515">f&quot;élève={élève}&quot;</span></strong><strong><span style="color: #000000">)</span></strong><strong>]</strong> ligne 26 du code, la ligne 1 ci-dessus nous dit que les propriétés <strong><span style="color: #000000">[</span></strong><strong><span style="color: #a31515">&#x27;_sa_instance_state&#x27;</span></strong><strong><span style="color: #000000">, </span></strong><strong><span style="color: #a31515">&#x27;notes&#x27;</span></strong><strong><span style="color: #000000">, </span></strong><strong><span style="color: #a31515">&#x27;classe&#x27;</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000"> ne seront pas affichées. C’est ce qu’on voit ligne 3 des résultats. Toutes les autres propriétés sont affichées. Ainsi, toujours ligne 3, on découvre une nouvelle propriété </span><strong><span style="color: #000000">[classe_id]</span></strong><span style="color: #000000"> qui n’existait initialement pas dans l’entité </span><strong><span style="color: #000000">[Elève]</span></strong><span style="color: #000000">. Cette propriété correspond directement à la colonne </span><strong><span style="color: #000000">[classe_id]</span></strong><span style="color: #000000"> de la table </span><strong><span style="color: #000000">[élèves]</span></strong><span style="color: #000000">. Ainsi </span><strong><span style="color: #000000">[sqlalchemy]</span></strong><span style="color: #000000"> a jouté les propriétés suivantes à l’entité </span><strong><span style="color: #000000">[Elève]</span></strong><span style="color: #000000"> : </span><strong><span style="color: #000000">[classe_id, _sa_instance_state, notes]</span></strong><span style="color: #000000">. Il faut en avoir conscience, notamment parce qu’elles ne doivent pas déjà exister dans l’entité mappée.</span></p>
 <p><span style="color: #000000">Les propriétés exclues du dictionnaire des entités sont importantes. Si par exemple, on n’exclut pas les propriétés </span><strong><span style="color: #000000">[notes, élève]</span></strong><span style="color: #000000"> de l’entité </span><strong><span style="color: #000000">[Elève]</span></strong><span style="color: #000000"> alors l’opération </span><strong>[</strong><strong><span style="color: #000000">print(</span></strong><strong><span style="color: #a31515">f&quot;élève={élève}&quot;</span></strong><strong><span style="color: #000000">)</span></strong><strong>]</strong> va les afficher et va donc, comme il vient d’être expliqué, provoquer des requêtes SQL implicites (lazy loading) pour récupérer les valeurs de ces propriétés. Si, comme ici, c’est une liste d’élèves qui est affichée, les opérations SQL implicites sont faites pour chaque élève. Cela peut être d’une part inutile et d’autre part sûrement coûteux en temps d’exécution.</p>
 <p>Pour exécuter le script avec une base PostgreSQL, on crée la configuration d’exécution suivante :</p>
-<p><img src="images/1000000000000512000002B1B10D945F.png" style="width:15.011cm;height:7.97cm;" alt="Image" /></p>
+<p><img src="images/1000000000000512000002B1B10D945F.png" style="width:15.011cm;height:7.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000512000002B1B10D945F.png" /></p>
 <p>L’exécution donne les mêmes résultats qu’avec MySQL.</p>
 <p><a id="toc48549089"></a></p>
 <h3 id="1969-le-script-main_stats_for_eleve">19.6.9. Le script [main_stats_for_élève]</h3>
 <p>Le script <strong>[main_stats_for_élève]</strong> est celui déjà utilisé dans l’application |<a href="#_Le_script_principal_3"><u><span style="color: #0563c1">troiscouches v01</span></u></a>]. Il s’appelait alors <strong>[main]</strong>. C’est une application console permettant d’obtenir certains indicateurs sur les notes d’un élève : <strong>[moyenne pondérée, min, max, liste]</strong>. Il s’insère dans l’architecture suivante :</p>
-<p><img src="images/1000000000000474000002D9C68CBE82.png" style="width:13.151cm;height:8.4cm;" alt="Image" /></p>
+<p><img src="images/1000000000000474000002D9C68CBE82.png" style="width:13.151cm;height:8.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D9C68CBE82.png" /></p>
 <p>Dans cette architecture en couches, seule la couche <strong>[dao]</strong> a été changée entre l’application |<a href="#_Exemple_1"><u><span style="color: #0563c1">troiscouches v01</span></u></a>| et celle-ci. Comme la nouvelle couche <strong>[dao]</strong> respecte l’interface <strong>[InterfaceDao]</strong> de l’ancienne couche <strong>[dao]</strong>, les couches <strong>[ui, métier]</strong> n’ont pas à être changées. On peut donc continuer à utiliser celles définies dans l’application |<a href="#_Exemple_1"><u><span style="color: #0563c1">troiscouches v01</span></u></a>|.</p>
 <p>Le script <strong>[main_stats_for_élève]</strong> implémente la couche <strong>[main]</strong> du schéma ci-dessus de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -3602,7 +3602,7 @@
 <li>ligne 24 : on lance le dialogue avec l’utilisateur à l’aide de l’unique méthode de la couche <strong>[ui]</strong> ;</li>
 </ul>
 <p>Une configuration d’exécution pour PostgreSQL serait la suivante :</p>
-<p><img src="images/10000000000003D0000001CF2F1C40A1.png" style="width:11.281cm;height:5.351cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D0000001CF2F1C40A1.png" style="width:11.281cm;height:5.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D0000001CF2F1C40A1.png" /></p>
 <p>Voici un exemple d’exécution avec cette configuration :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/databases/sqlalchemy/05/main/main_stats_for_élève.py pgres</span>

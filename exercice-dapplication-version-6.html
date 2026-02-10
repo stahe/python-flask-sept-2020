@@ -1572,9 +1572,9 @@
 <li>une application qui calculait l’impôt en mode |<a href="#_Application_3_:"><u><span style="color: #0563c1">interactif</span></u></a>| pour des contribuables dont on saisissait les informations au clavier ;</li>
 </ul>
 <p>La version 5 de l’application de calcul de l’impôt par lots (mode batch) avait l’architecture suivante :</p>
-<p><img src="images/100000000000041A00000306F9143924.png" style="width:12.12cm;height:8.94cm;" alt="Image" /></p>
+<p><img src="images/100000000000041A00000306F9143924.png" style="width:12.12cm;height:8.94cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000041A00000306F9143924.png" /></p>
 <p>Ultimement, la version web de cette application aura l’architecture suivante :</p>
-<p><img src="images/10000000000004090000050F8A8B031F.png" style="width:11.921cm;height:14.951cm;" alt="Image" /></p>
+<p><img src="images/10000000000004090000050F8A8B031F.png" style="width:11.921cm;height:14.951cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004090000050F8A8B031F.png" /></p>
 <ul>
 <li>le client web <strong>[1]</strong> s’adresse au serveur web <strong>[2]</strong> qui lui communique avec le SGBD <strong>[3]</strong> ;</li>
 <li>le serveur web <strong>[2]</strong> conserve les couches <strong>[métier]</strong> <strong>[8]</strong> et <strong>[dao]</strong> <strong>[9]</strong> de l’application initiale ;</li>
@@ -1595,9 +1595,9 @@
 <h2 id="232-le-serveur-web-de-calcul-de-limpot">23.2. Le serveur web de calcul de l’impôt</h2>
 <p><a id="toc48549170"></a></p>
 <h3 id="2321-version-1">23.2.1. Version 1</h3>
-<p><img src="images/1000000000000141000001709781F7CD.png" style="width:3.701cm;height:4.25cm;" alt="Image" /></p>
+<p><img src="images/1000000000000141000001709781F7CD.png" style="width:3.701cm;height:4.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000141000001709781F7CD.png" /></p>
 <p>Le script <strong>[server_01]</strong> est l’application web suivante :</p>
-<p><img src="images/100000000000058B00000090407B2D22.png" style="width:16.361cm;height:1.661cm;" alt="Image" /></p>
+<p><img src="images/100000000000058B00000090407B2D22.png" style="width:16.361cm;height:1.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058B00000090407B2D22.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, on utilise une URL paramétrée dans laquelle on passe trois valeurs :<ul>
 <li><strong>[marié]</strong> (oui / non) pour indiquer si le contribuable est marié ;</li>
@@ -1608,7 +1608,7 @@
 <li>en <strong>[2]</strong>, le serveur web renvoie une chaîne jSON qui donne le montant de l’impôt à payer avec avec ses différentes composantes ;</li>
 </ul>
 <p>L’architecture de l’application est la suivante :</p>
-<p><img src="images/10000000000003E10000042233EC5DF0.png" style="width:11.471cm;height:12.21cm;" alt="Image" /></p>
+<p><img src="images/10000000000003E10000042233EC5DF0.png" style="width:11.471cm;height:12.21cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E10000042233EC5DF0.png" /></p>
 <ul>
 <li>le navigateur <strong>[1]</strong> interroge le serveur <strong>[2]</strong>. Le script <strong>[server_01]</strong> implémente la couche <strong>[web]</strong> <strong>[2]</strong> du serveur ;</li>
 <li>les couches <strong>[3-8]</strong> sont celles déjà utilisées dans la |<a href="#_Exercice_d'application_:"><u><span style="color: #0563c1">version 5</span></u></a>| de l’application du calcul de l’impôt. Nous les reprenons telles-quelles ;<ul>
@@ -1923,7 +1923,7 @@
 <li>lignes 85-89 : si après toutes ces vérifications, la liste <strong>[erreurs]</strong> n’est pas vide alors on envoie cette liste d’erreurs au client sous la forme d’une chaîne jSON  et le code de statut <strong>[400 Bad Request]</strong> ;</li>
 </ul>
 <p>Comme par la suite, nous aurons souvent l’occasion d’envoyer une chaîne jSON en réponse au client, les quelques lignes nécessaires à cet envoi ont été factorisées dans le module <strong>[myutils.py]</strong> que nous avons déjà utilisé :</p>
-<p><img src="images/10000000000000E4000000AA2DDA30F6.png" style="width:2.631cm;height:1.96cm;" alt="Image" /></p>
+<p><img src="images/10000000000000E4000000AA2DDA30F6.png" style="width:2.631cm;height:1.96cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000E4000000AA2DDA30F6.png" /></p>
 <p>Le script <strong>[myutils.py]</strong> devient le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -2007,12 +2007,12 @@
 <li>ligne 13 : la réponse est envoyée au client web sous la forme d’une chaîne jSON. Celle-ci est la chaîne jSON d’un dictionnaire. Associé à la clé <strong>[result]</strong>, on y met le dictionnaire de l’objet <strong>[taxpayer]</strong>. On ne pouvait pas mettre l’objet <strong>[taxpayer]</strong> lui-même car celui-ci n’est pas sérialisable en jSON ;</li>
 </ul>
 <p>On crée deux configurations d’exécution, une pour MySQL, l’autre pour PostgreSQL :</p>
-<p><img src="images/10000000000003D1000001DC0EF38F9B.png" style="width:11.27cm;height:5.49cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D1000001DC0EF38F9B.png" style="width:11.27cm;height:5.49cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D1000001DC0EF38F9B.png" /></p>
 <p>Voici quelques exemples d’exécution (vous avez lancé l’application <strong>[server_01]</strong> et le SGBD utilisé puis vous demandez l’URL <a href="http://localhost:5000/"><u><span style="color: #0563c1">http://localhost:5000/</span></u></a> avec un navigateur) :</p>
-<p><img src="images/10000000000005670000011B8C582729.png" style="width:15.971cm;height:3.271cm;" alt="Image" /></p>
-<p><img src="images/10000000000005160000014CA6697955.png" style="width:15.041cm;height:3.83cm;" alt="Image" /></p>
+<p><img src="images/10000000000005670000011B8C582729.png" style="width:15.971cm;height:3.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005670000011B8C582729.png" /></p>
+<p><img src="images/10000000000005160000014CA6697955.png" style="width:15.041cm;height:3.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005160000014CA6697955.png" /></p>
 <p>Voici un exemple d’exécution dans la console de Postman :</p>
-<p><img src="images/1000000000000518000001542807413B.png" style="width:15.02cm;height:3.931cm;" alt="Image" /></p>
+<p><img src="images/1000000000000518000001542807413B.png" style="width:15.02cm;height:3.931cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000518000001542807413B.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="background-color:#fff2cc">GET /?mari%C3%A9=xx&amp;enfants=yy&amp;salaire=zz HTTP/1.1</span><span style="background-color:#fff2cc"></span></span>
 <span class="odt-code-line">User-Agent: PostmanRuntime/7.26.1</span>
@@ -2038,7 +2038,7 @@
 </ul>
 <p><a id="toc48549171"></a></p>
 <h3 id="2322-version-2">23.2.2. Version 2</h3>
-<p><img src="images/100000000000014000000170F726DD2A.png" style="width:3.693cm;height:4.245cm;" alt="Image" /></p>
+<p><img src="images/100000000000014000000170F726DD2A.png" style="width:3.693cm;height:4.245cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000014000000170F726DD2A.png" /></p>
 <p>La version 2 du serveur isole le traitement de l’URL dans le module <strong>[index_controller]</strong> <strong>[5]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># import des dépendances<span style="color:#000000"></span></span>
@@ -2306,11 +2306,11 @@
 <li>ligne 13 : il nous indique le protocole d’authentification à utiliser, ici le protocole dit Authentification Basic ;</li>
 </ul>
 <p>Il est possible de configurer Postman pour qu’il envoie les identifiants de l’utilisateur selon le protocole Auth Basic :</p>
-<p><img src="images/10000000000002AB000002667CD6689F.png" style="width:7.88cm;height:7.081cm;" alt="Image" /></p>
+<p><img src="images/10000000000002AB000002667CD6689F.png" style="width:7.88cm;height:7.081cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002AB000002667CD6689F.png" /></p>
 <ul>
 <li>en <strong>[6-7]</strong> nous mettons les identifiants présents dans le script <strong>[config]</strong> :</li>
 </ul>
-<p><img src="images/1000000000000473000001DDA6DEE7F3.png" style="width:13.14cm;height:5.52cm;" alt="Image" /></p>
+<p><img src="images/1000000000000473000001DDA6DEE7F3.png" style="width:13.14cm;height:5.52cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000473000001DDA6DEE7F3.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    <span style="color:#808080">config</span><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#a31515">&#x27;users&#x27;</span><span style="font-weight:bold">]</span> = <span style="font-weight:bold">[</span></span>
 <span class="odt-code-line"><span style="font-weight:bold">        {</span><span style="font-weight:bold"></span></span>
@@ -2346,7 +2346,7 @@
 <li>ligne 17 : le serveur répond correctement. Il signale des erreurs car on n’a pas envoyé les paramètres <strong>[marié, enfants, salaire]</strong> (ligne 1) mais il ne signale pas d’erreur d’authentification ;</li>
 </ul>
 <p>Maintenant demandons l’URL / avec un navigateur (Firefox ci-dessous) :</p>
-<p><img src="images/10000000000004730000018AC3848A39.png" style="width:13.14cm;height:4.541cm;" alt="Image" /></p>
+<p><img src="images/10000000000004730000018AC3848A39.png" style="width:13.14cm;height:4.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004730000018AC3848A39.png" /></p>
 <ul>
 <li>comme avec Postman, Firefox a reçu la réponse HTTP du serveur avec les entêtes HTTP :</li>
 </ul>
@@ -2358,13 +2358,13 @@
 </code></pre></div>
 
 <p>Firefox comme d’autres navigateurs n’arrêtent pas le dialogue lorsqu’il reçoit ces entêtes. Il demandet à l’utilisateur les identifiants réclamés par le serveur. Il suffit ci-dessus de taper admin / admin pour recevoir la réponse du serveur :</p>
-<p><img src="images/10000000000002F70000015FADE1EFB4.png" style="width:8.771cm;height:4.051cm;" alt="Image" /></p>
+<p><img src="images/10000000000002F70000015FADE1EFB4.png" style="width:8.771cm;height:4.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F70000015FADE1EFB4.png" /></p>
 <p><a id="toc48549173"></a></p>
 <h2 id="233-le-client-web-du-serveur-de-calcul-de-limpot">23.3. Le client web du serveur de calcul de l’impôt</h2>
 <p><a id="toc48549174"></a></p>
 <h3 id="2331-introduction">23.3.1. Introduction</h3>
 <p>Dans le paragraphe précédent, le client web du serveur de calcul de l’impôt était un navigateur. Dans cette partie, le client web sera un script console. L’architecture devient la suivante :</p>
-<p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.06cm;height:11.51cm;" alt="Image" /></p>
+<p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.06cm;height:11.51cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BE000003E50F9DB416.png" /></p>
 <ul>
 <li>le client web est formé des couches <strong>[1-2]</strong> ;</li>
 <li>le serveur web est formé des couches <strong>[3-9]</strong>. Il a été écrit dans le paragraphe précédent ;</li>
@@ -2393,7 +2393,7 @@
 </code></pre></div>
 
 <p>L’arborescence des scripts du client web est la suivante :</p>
-<p><img src="images/10000000000002060000022310C37CE5.png" style="width:5.991cm;height:6.331cm;" alt="Image" /></p>
+<p><img src="images/10000000000002060000022310C37CE5.png" style="width:5.991cm;height:6.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002060000022310C37CE5.png" /></p>
 <p>Le script va implémenter l’application de calcul de l’impôt en mode batch décrite dès la |<a href="#_Version_1"><u><span style="color: #0563c1">version 1</span></u></a>|. La dernière version de cette application est la |<a href="#_Application_2_:"><u><span style="color: #0563c1">version 5</span></u></a>|. On rappelle son fonctionnement :</p>
 <ul>
 <li>les contribuables dont on va calculer l’impôt sont rassemblés dans le fichier texte <strong>[taxpayersdata.txt]</strong> :</li>
@@ -2479,7 +2479,7 @@
 
 <p><a id="toc48549175"></a></p>
 <h3 id="2332-configuration-du-client-web">23.3.2. Configuration du client web</h3>
-<p><img src="images/10000000000001B2000001615BAEC91E.png" style="width:5.01cm;height:4.07cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B2000001615BAEC91E.png" style="width:5.01cm;height:4.07cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B2000001615BAEC91E.png" /></p>
 <p>La configuration se fait à l’aide de deux scripts :</p>
 <ul>
 <li><strong>[config]</strong> qui assure la totalité de la configuration hors couches de l’architecture ;</li>
@@ -2623,9 +2623,9 @@
 </ul>
 <p><a id="toc48549177"></a></p>
 <h3 id="2334-implementation-de-la-couche-dao">23.3.4. Implémentation de la couche [dao]</h3>
-<p><img src="images/100000000000021600000111FE33D106.png" style="width:6.181cm;height:3.151cm;" alt="Image" /></p>
+<p><img src="images/100000000000021600000111FE33D106.png" style="width:6.181cm;height:3.151cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021600000111FE33D106.png" /></p>
 <p>Revenons sur l’architecture client / serveur utilisée :</p>
-<p><img src="images/10000000000003D1000002955314F81B.png" style="width:11.27cm;height:7.64cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D1000002955314F81B.png" style="width:11.27cm;height:7.64cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D1000002955314F81B.png" /></p>
 <ul>
 <li>en <strong>[2, 6]</strong>, on voit que la couche <strong>[dao]</strong> a deux rôles :<ul>
 <li>elle accède au système de fichiers à la fois pour lire les données des contribuables et écrire les résultats des calculs de l’impôt. Nous avons déjà une classe |<a href="#_La_classe_[AbstractImpôtsDao]"><u><span style="color: #0563c1">AbstractImpôtsDao</span></u></a>| qui sait faire cela. Elle a été utilisée dès la |<a href="#_Version_3"><u><span style="color: #0563c1">version 4</span></u></a>| ;</li>
@@ -2770,12 +2770,12 @@
 <a id="toc48549179"></a></p>
 <h2 id="234-tests-de-la-couche-dao">23.4. Tests de la couche [dao]</h2>
 <p>Revenons à l’architecture de l’application client / serveur :</p>
-<p><img src="images/10000000000003CF000003C7638DD447.png" style="width:11.27cm;height:11.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF000003C7638DD447.png" style="width:11.27cm;height:11.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000003C7638DD447.png" /></p>
 <ul>
 <li>dans le client écrit, nous nous sommes débrouillés pour que la couche <strong>[dao]</strong> <strong>[1]</strong> offre la même interface que la couche <strong>[métier]</strong> <strong>[3]</strong>. Nous allons donc utiliser en <strong>[4]</strong>, la classe de tests |<a href="#_Tests_des_couches"><u><span style="color: #0563c1">TestDaoMétier</span></u></a>| déjà étudiée pour tester la couche <strong>[métier]</strong> <strong>[3]</strong> ;</li>
 </ul>
 <p>La classe de test sera exécutée dans l’environnement suivant :</p>
-<p><img src="images/10000000000001F50000020535068CC3.png" style="width:5.792cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/10000000000001F50000020535068CC3.png" style="width:5.792cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F50000020535068CC3.png" /></p>
 <ul>
 <li>la configuration <strong>[2]</strong> est identique à la configuration <strong>[1]</strong> que nous venons d’étudier ;</li>
 </ul>
@@ -2838,7 +2838,7 @@
 <li>lignes 47-48 : on exécute les tests ;</li>
 </ul>
 <p>Pour exécuter les tests, on crée une |<a href="#configuration_execution"><u><span style="color: #0563c1">configuration d’exécution</span></u></a>| :</p>
-<p><img src="images/1000000000000516000002BC49BFEEF5.png" style="width:15.011cm;height:8.071cm;" alt="Image" /></p>
+<p><img src="images/1000000000000516000002BC49BFEEF5.png" style="width:15.011cm;height:8.071cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000516000002BC49BFEEF5.png" /></p>
 <ul>
 <li>on crée une configuration d’exécution pour un script console pas pour un test UnitTest ;</li>
 </ul>

@@ -1550,7 +1550,7 @@
 <h2 id="291-introduction">29.1. Introduction</h2>
 <p>Dans les versions précédentes de l’application client / serveur de calcul de l’impôt, la couche <strong>[métier]</strong> qui implémente les règles métier de ce calcul était côté serveur. On se propose maintenant de la déplacer côté client. Quel est l’intérêt ? Du travail que faisait le serveur va être déplacé côté client. Si on pense à la situation d’un serveur interrogé par N clients, N calculs métier de l’impôt seront faits par les clients. Dans les versions précédentes, le serveur faisait ces N calculs métier. Parce qu’il ne fait plus le calcul métier, le serveur va répondre plus rapidement à ses clients et va alors pouvoir en servir davantage simultanément.</p>
 <p>L’architecture client / serveur devient la suivante :</p>
-<p><img src="images/10000000000003CF000004EDD095C42F.png" style="width:11.261cm;height:14.57cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF000004EDD095C42F.png" style="width:11.261cm;height:14.57cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000004EDD095C42F.png" /></p>
 <ul>
 <li>la couche <strong>[métier]</strong> <strong>[10]</strong> a été dupliquée <strong>[12]</strong> sur le client ;</li>
 <li>un nouveau script <strong>[main2]</strong> <strong>[11]</strong> a été ajouté au client ;</li>
@@ -1564,7 +1564,7 @@
 <p><a id="toc48549228"></a></p>
 <h2 id="292-le-serveur-web">29.2. Le serveur web</h2>
 <p>L’arborescence du serveur web sera la suivante :</p>
-<p><img src="images/1000000000000213000002CD6E21E5B2.png" style="width:5.52cm;height:7.451cm;" alt="Image" /></p>
+<p><img src="images/1000000000000213000002CD6E21E5B2.png" style="width:5.52cm;height:7.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000213000002CD6E21E5B2.png" /></p>
 <ul>
 <li>le dossier <strong>[http-servers/06]</strong> est initialement obtenu par recopie du dossier <strong>[http-servers/05]</strong>. On va en effet conserver l’acquis de la version 10 précédente. On va simplement lui ajouter une nouvelle fonctionnalité. Celle-ci est matérialisée par la présence d’un nouveau contrôleur <strong>[get_admindata_controller]</strong> <strong>[1]</strong>. L’autre contrôleur <strong>[calculate_tax_controller]</strong> n’est autre que l’ancien contrôleur <strong>[index_controller]</strong> qui a été renommé ;</li>
 </ul>
@@ -1727,7 +1727,7 @@
 <p><a id="toc48549232"></a></p>
 <h2 id="296-tests-postman">29.6. Tests Postman</h2>
 <p>On lance le serveur web, le SGBD et le serveur de mails <strong>[hMailServer]</strong>. Puis avec un client Postman, on fait le calcul de l’impôt de plusieurs contribuables :</p>
-<p><img src="images/10000000000003F7000002A033324B17.png" style="width:11.72cm;height:7.76cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F7000002A033324B17.png" style="width:11.72cm;height:7.76cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F7000002A033324B17.png" /></p>
 <p>Dans la console Postman, le dialogue client / serveur est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="background-color:#bdd6ee">POST /calculate-tax HTTP/1.1</span><span style="background-color:#bdd6ee"></span></span>
@@ -1766,7 +1766,7 @@
 </code></pre></div>
 
 <p>Maintenant demandons l’URL <strong>[/get-admindata]</strong> avec un GET :</p>
-<p><img src="images/10000000000002F9000000C1F96A179D.png" style="width:8.771cm;height:2.23cm;" alt="Image" /></p>
+<p><img src="images/10000000000002F9000000C1F96A179D.png" style="width:8.771cm;height:2.23cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F9000000C1F96A179D.png" /></p>
 <p>Le dialogue client / serveur dans la console Postman est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="background-color:#bdd6ee">GET /get-admindata HTTP/1.1</span><span style="background-color:#bdd6ee"></span></span>
@@ -1790,8 +1790,8 @@
 
 <p><a id="toc48549233"></a></p>
 <h2 id="297-le-client-web">29.7. Le client web</h2>
-<p><img src="images/10000000000004540000030D7699C9C1.png" style="width:12.81cm;height:9.021cm;" alt="Image" /></p>
-<p><img src="images/10000000000002450000026EC7BFAAF1.png" style="width:6.04cm;height:6.451cm;" alt="Image" /></p>
+<p><img src="images/10000000000004540000030D7699C9C1.png" style="width:12.81cm;height:9.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004540000030D7699C9C1.png" /></p>
+<p><img src="images/10000000000002450000026EC7BFAAF1.png" style="width:6.04cm;height:6.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002450000026EC7BFAAF1.png" /></p>
 <p>Le dossier <strong>[http-clients/06]</strong> est initialement obtenu par recopie du dossier <strong>[http-clients/05]</strong>. Le travail de modification consiste essentiellement à :</p>
 <ul>
 <li>modifier la configuration <strong>[config_layers]</strong> pour qu’elle intégre désormais une couche <strong>[métier]</strong>. Auparavant elle n’avait qu’une couche <strong>[dao]</strong> ;</li>
@@ -1854,7 +1854,7 @@
 </ul>
 <p><a id="toc48549235"></a></p>
 <h3 id="2972-implementation-de-la-couche-dao">29.7.2. Implémentation de la couche [dao]</h3>
-<p><img src="images/100000000000023B0000010ECF4FA858.png" style="width:5.931cm;height:2.811cm;" alt="Image" /></p>
+<p><img src="images/100000000000023B0000010ECF4FA858.png" style="width:5.931cm;height:2.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023B0000010ECF4FA858.png" /></p>
 <p>La couche <strong>[dao]</strong> présentera l’interface <strong>[</strong><strong>InterfaceImpôtsDaoWithHttpClient</strong><strong>]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> abc <span style="color:#0000ff">import</span> abstractmethod</span>

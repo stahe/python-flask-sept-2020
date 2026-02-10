@@ -1648,10 +1648,10 @@
 <a id="refheading382922423505"></a>
 <a id="toc48549037"></a></p>
 <h1 id="15-exercice-dapplication-version-4">15. Exercice d&#x27;application - version 4</h1>
-<p><img src="images/10000000000001B2000002EA4F206E66.png" style="width:5.01cm;height:8.61cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B2000002EA4F206E66.png" style="width:5.01cm;height:8.61cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B2000002EA4F206E66.png" /></p>
 <p>Nous reprenons ici l&#x27;exercice décrit au paragraphe |<a href="#_Exercice_d’application_:"><u><span style="color: #0563c1">Version 3</span></u></a>| et nous le traitons maintenant avec des classes et interfaces. Nous écrirons deux applications :</p>
 <p>L’application 1 sera la suivante :</p>
-<p><img src="images/100000010000025A000000D06120CF11.png" style="width:10.141cm;height:3.5cm;" alt="Image" /></p>
+<p><img src="images/100000010000025A000000D06120CF11.png" style="width:10.141cm;height:3.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000025A000000D06120CF11.png" /></p>
 <p>Un script principal <strong>[main]</strong> instanciera une couche <strong>[dao]</strong> et une couche <strong>[métier]</strong> :</p>
 <ul>
 <li>la couche <strong>[dao]</strong> aura pour rôle de gérer des données stockées dans des fichiers texte et ultérieurement dans une base de données ;</li>
@@ -1659,7 +1659,7 @@
 </ul>
 <p>Dans cette application, il n&#x27;y aura pas d&#x27;actions de la part d&#x27;un utilisateur : les données des contribuables seront trouvées dans un fichier texte dont on donnera le nom au module <strong>[main]</strong><strong>.</strong></p>
 <p>Dans l’application 2, c&#x27;est l&#x27;utilisateur qui tapera au clavier les données des contribuables. L&#x27;architecture évoluera alors de la façon suivante  :</p>
-<p><img src="images/1000000100000276000000B3ACA856C0.png" style="width:10.54cm;height:2.991cm;" alt="Image" /></p>
+<p><img src="images/1000000100000276000000B3ACA856C0.png" style="width:10.54cm;height:2.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000276000000B3ACA856C0.png" /></p>
 <ul>
 <li><strong>la couche </strong><strong>[dao]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bject) s&#x27;occupe de l&#x27;accès aux données externes</li>
 <li>la couche <strong>[métier]</strong> s&#x27;occupe des problèmes métier, ici le calcul de l&#x27;impôt. Elle ne s&#x27;occupe pas des données. Celles-ci peuvent avoir deux provenances :<ul>
@@ -1676,11 +1676,11 @@
 <a id="refheadingtoc647742267290417"></a></p>
 <h2 id="151-version-4-application-1">15.1. Version 4 – application 1</h2>
 <p>La version 4 calcule l&#x27;impôt d&#x27;une liste de contribuables placée dans un fichier texte. Elle a l&#x27;architecture suivante :</p>
-<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
+<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000257000000DA58BEF0ED.png" /></p>
 <p><a id="refheadingtoc77696559221927"></a>
 <a id="toc48549039"></a></p>
 <h3 id="1511-les-entites">15.1.1. Les entités</h3>
-<p><img src="images/1000000000000152000002069D0947DC.png" style="width:3.901cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/1000000000000152000002069D0947DC.png" style="width:3.901cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000152000002069D0947DC.png" /></p>
 <p>Les entités sont des classes de données. Leur rôle est d’encapsuler des données et d’offrir des getters / setters qui permettent de vérifier la validité de celles-ci. Les entités sont échangées par les couches. Une même entité peut partir de la couche <strong>[ui]</strong> pour aller jusqu’à la couche <strong>[dao]</strong> et vice-versa.</p>
 <p><a id="refheadingtoc2521912924280206"></a></p>
 <h4 id="15111-la-classe-impotserror">15.1.1.1. La classe [ImpôtsError]</h4>
@@ -1918,9 +1918,9 @@
 <p><a id="refheading93739200241464"></a>
 <a id="toc48549040"></a></p>
 <h3 id="1512-la-couche-dao">15.1.2. La couche [dao]</h3>
-<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
+<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000257000000DA58BEF0ED.png" /></p>
 <p>Nous allons réunir les implémentations des couches dans un dossier <strong>[</strong><strong>services</strong><strong>]</strong>. Ces classes implémenteront des interfaces définies dans le dossier <strong>[</strong><strong>interfaces</strong><strong>]</strong>.</p>
-<p><img src="images/100000000000023B00000216ED994750.png" style="width:6.58cm;height:6.181cm;" alt="Image" /></p>
+<p><img src="images/100000000000023B00000216ED994750.png" style="width:6.58cm;height:6.181cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023B00000216ED994750.png" /></p>
 <p><a id="linterfaceinterfaceimpotsdao"></a>
 <a id="refheadingtoc2521952924280206"></a></p>
 <h4 id="15121-linterface-interfaceimpotsdao">15.1.2.1. L&#x27;interface [InterfaceImpôtsDao]</h4>
@@ -2316,7 +2316,7 @@
 <a id="refheadingtoc2521992924280206"></a>
 <a id="toc48549041"></a></p>
 <h3 id="1513-la-couche-metier">15.1.3. La couche [métier]</h3>
-<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
+<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000257000000DA58BEF0ED.png" /></p>
 <p><a id="refheadingtoc2522012924280206"></a></p>
 <h4 id="15131-linterface-interfaceimpotsmetier">15.1.3.1. L&#x27;interface [InterfaceImpôtsMétier]</h4>
 <p>L&#x27;interface de la couche <strong>[métier]</strong> sera la suivante :</p>
@@ -2345,7 +2345,7 @@
 <a id="refheadingtoc2522032924280206"></a></p>
 <h4 id="15132-la-classe-impotsmetier">15.1.3.2. La classe [ImpôtsMétier]</h4>
 <p>La classe <strong>[ImpôtsMétier]</strong> implémente l&#x27;interface <strong>[InterfaceImpôtsMétier]</strong> de la façon suivante :</p>
-<p><img src="images/10000000000003DF0000039527DE6C80.png" style="width:11.45cm;height:10.6cm;" alt="Image" /></p>
+<p><img src="images/10000000000003DF0000039527DE6C80.png" style="width:11.45cm;height:10.6cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003DF0000039527DE6C80.png" /></p>
 <p>Les méthodes de la classe sont issues du module <strong>[impôts_module_02]</strong> du paragraphe |<a href="#_Le_module_[impots.v02.modules.impôt"><u><span style="color: #0563c1">Le module </span></u><u><span style="color: #0563c1"><strong>[impots.v02.modules.impôts_module_02]</strong></span></u></a>|. On a seulement limité les paramètres des méthodes à deux :</p>
 <ul>
 <li>taxpayer(id, marié, enfants, salaire, impôt, décôte, surcôte, réduction, taux) : l&#x27;objet représentant un contribuable et son impôt ;</li>
@@ -2417,7 +2417,7 @@
 <a id="refheadingtoc2522052924280206"></a>
 <a id="toc48549042"></a></p>
 <h3 id="1514-tests-des-couches-dao-et-metier">15.1.4. Tests des couches [dao] et [métier]</h3>
-<p><img src="images/1000000000000170000002065376CC8F.png" style="width:4.25cm;height:5.991cm;" alt="Image" /></p>
+<p><img src="images/1000000000000170000002065376CC8F.png" style="width:4.25cm;height:5.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000170000002065376CC8F.png" /></p>
 <ul>
 <li><strong>[TestDaoMétier]</strong> est la classe UnitTest de test des couches <strong>[dao]</strong> et <strong>[métier]</strong> ;</li>
 <li><strong>[config]</strong> est le fichier de configuration des tests ; </li>
@@ -2674,7 +2674,7 @@
 <li>ligne 29 : on vérifie le montant de l’impôt à l’euro près. Les tests ont en effet montré que les résultats obtenus par l’algorithme de ce document pouvaient différer des chiffres officiels au plus d’un montant de 1 euro ;</li>
 </ul>
 <p>L’exécution des tests donne les résultats suivants :</p>
-<p><img src="images/1000000000000260000002BB45DA0CBB.png" style="width:7.021cm;height:8.071cm;" alt="Image" /></p>
+<p><img src="images/1000000000000260000002BB45DA0CBB.png" style="width:7.021cm;height:8.071cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000260000002BB45DA0CBB.png" /></p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
@@ -2699,7 +2699,7 @@
 </code></pre></div></td></tr></table></div>
 <p><a id="toc48549043"></a></p>
 <h3 id="1515-script-principal">15.1.5. Script principal</h3>
-<p><img src="images/10000000000001B20000027E72AAE6FF.png" style="width:5.01cm;height:7.37cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B20000027E72AAE6FF.png" style="width:5.01cm;height:7.37cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B20000027E72AAE6FF.png" /></p>
 <p>Le script principal est configuré par le script <strong>[config]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -2858,9 +2858,9 @@
 <a id="toc48549044"></a></p>
 <h2 id="152-version-4-application-2">15.2. Version 4 – application 2</h2>
 <p>Dans cette version, c&#x27;est l&#x27;utilisateur au clavier qui donne la liste des contribuables. L&#x27;architecture de l&#x27;application sera la suivante :</p>
-<p><img src="images/1000000100000301000000E74B894567.png" style="width:10.381cm;height:3.111cm;" alt="Image" /></p>
+<p><img src="images/1000000100000301000000E74B894567.png" style="width:10.381cm;height:3.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000301000000E74B894567.png" /></p>
 <p>Un nouveau module apparaît : la couche <strong>[ui]</strong> (User Interface) qui va dialoguer avec l&#x27;utilisateur. Cette couche aura une interface et sera implémentée par une classe.</p>
-<p><img src="images/10000000000002350000034FDD3FB621.png" style="width:5.871cm;height:8.801cm;" alt="Image" /></p>
+<p><img src="images/10000000000002350000034FDD3FB621.png" style="width:5.871cm;height:8.801cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002350000034FDD3FB621.png" /></p>
 <p><a id="refheadingtoc2522072924280206"></a>
 <a id="toc48549045"></a></p>
 <h3 id="1521-linterface-interfaceimpotsui">15.2.1. L&#x27;interface [InterfaceImpôtsUi]</h3>

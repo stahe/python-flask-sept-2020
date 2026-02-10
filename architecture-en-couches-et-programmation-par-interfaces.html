@@ -1785,14 +1785,14 @@
 <a id="toc48549022"></a></p>
 <h2 id="141-introduction">14.1. Introduction</h2>
 <p>Nous nous proposons d&#x27;écrire une application permettant l&#x27;affichage des notes des élèves d&#x27;un collège. Cette application peut avoir une architecture multicouche :</p>
-<p><img src="images/1000000100000366000000ABD38E9B95.png" style="width:11.881cm;height:2.331cm;" alt="Image" /></p>
+<p><img src="images/1000000100000366000000ABD38E9B95.png" style="width:11.881cm;height:2.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000366000000ABD38E9B95.png" /></p>
 <ul>
 <li>la couche <strong>[</strong><strong>ui</strong><strong>]</strong> (<strong>U</strong>ser <strong>I</strong>nterface) est la couche en contact avec l&#x27;utilisateur de l&#x27;application ;</li>
 <li>la couche <strong>[</strong><strong>métier</strong><strong>]</strong> implémente les règles de gestion de l&#x27;application, tels que le calcul d&#x27;un salaire ou d&#x27;une facture. Cette couche utilise des données provenant de l&#x27;utilisateur via la couche <strong>[présentation]</strong> et du SGBD via la couche <strong>[dao]</strong> ;</li>
 <li>la couche <strong>[</strong><strong>dao</strong><strong>]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bjects) gère l&#x27;accès aux données du SGBD (Système de Gestion de Bases de Données).</li>
 </ul>
 <p>C&#x27;est l&#x27;architecture qui avait été utilisée dans le |<a href="https://tahe.developpez.com/tutoriels-cours/python-2012/"><u><span style="color: #0563c1">cours sur Python 2</span></u></a>|. On peut également introduire une variante :</p>
-<p><img src="images/100000010000036D00000113F6F5317B.png" style="width:11.69cm;height:3.661cm;" alt="Image" /></p>
+<p><img src="images/100000010000036D00000113F6F5317B.png" style="width:11.69cm;height:3.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000036D00000113F6F5317B.png" /></p>
 <p>Les différences vis à vis de la structure en couches précédente sont les suivantes :</p>
 <ul>
 <li>un script principal appelé <strong>[main]</strong> ci-dessus organise l&#x27;instanciation des couches ;</li>
@@ -1815,7 +1815,7 @@
 <li>la couche <strong>[ui]</strong> sera une application console qui affichera les résultats des élèves ;</li>
 </ul>
 <p>Le projet PyCharm de l&#x27;application est le suivant :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000128000002B0930A5206.png" style="display:inline-block; margin:4px;width:2.761cm;height:6.411cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000128000002B0930A5206.png" style="display:inline-block; margin:4px;width:2.761cm;height:6.411cm;" class="odt-zoomable" data-zoom-src="images/1000000100000128000002B0930A5206.png" /></td></tr></table>
 
 <p><strong>Note</strong> : les dossiers en bleu font partie des <strong>[Sources Root]</strong> du projet PyCharm.</p>
 <p><a id="lesentitesde"></a>
@@ -1823,7 +1823,7 @@
 <a id="refheading408981886864318"></a></p>
 <h3 id="1421-les-entites-de-lapplication">14.2.1. Les entités de l&#x27;application</h3>
 <p>On appellera entités, des classes dont le seul rôle est d&#x27;encapsuler des données. On pourrait pour ce faire utiliser des dictionnaires. L&#x27;intérêt de la classe est de permettre de tester la validité des données stockées dans l&#x27;objet et de fournir une méthode fournissant l&#x27;identité de l&#x27;objet sous la forme d&#x27;une chaîne de caractères.</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001230000011048549434.png" style="display:inline-block; margin:4px;width:3.361cm;height:3.14cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001230000011048549434.png" style="display:inline-block; margin:4px;width:3.361cm;height:3.14cm;" class="odt-zoomable" data-zoom-src="images/10000000000001230000011048549434.png" /></td></tr></table>
 
 <p><a id="refheadingtoc2521612924280206"></a></p>
 <h4 id="14211-lentite-classe">14.2.1.1. L&#x27;entité [Classe]</h4>
@@ -2096,7 +2096,7 @@
 <p><a id="refheadingtoc2521692924280206"></a>
 <a id="toc48549025"></a></p>
 <h3 id="1422-configuration-de-lapplication">14.2.2. Configuration de l’application</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012F00000195977BC3C4.png" style="display:inline-block; margin:4px;width:3.504cm;height:4.68cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012F00000195977BC3C4.png" style="display:inline-block; margin:4px;width:3.504cm;height:4.68cm;" class="odt-zoomable" data-zoom-src="images/100000000000012F00000195977BC3C4.png" /></td></tr></table>
 
 <p>Le fichier <strong>[config.py]</strong> configure l’environnement du script principal <strong>[main]</strong> (1) ainsi que celui des tests (2). Tous ces scripts ont une instruction <strong>[import config]</strong> en début de code. On rappelle que le dossier contenant le script objet de la commande <strong>[python script]</strong> fait automatiquement partie du Python Path.Si donc <strong>[config]</strong> est dans le même dossier que les scripts ayant l’instruction <strong>[import config]</strong>, il sera trouvé. Les fichiers <strong>[1]</strong> et <strong>[2]</strong> sont ici identiques. Ce pourrait ne pas être le cas.</p>
 <p>Le fichier <strong>[config.sys]</strong> est le suivant :</p>
@@ -2134,14 +2134,14 @@
 </ul>
 <p><a id="toc48549026"></a></p>
 <h3 id="1423-tests-des-entites">14.2.3. Tests des entités</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013000000164F1DEE7D5.png" style="display:inline-block; margin:4px;width:3.511cm;height:4.1cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000013000000164F1DEE7D5.png" style="display:inline-block; margin:4px;width:3.511cm;height:4.1cm;" class="odt-zoomable" data-zoom-src="images/100000000000013000000164F1DEE7D5.png" /></td></tr></table>
 
 <p>Nous allons ici écrire des tests exécutés par un outil appelé <strong>[unittest]</strong>. PyCharm vient avec plusieurs frameworks de test. Le choix de l’un d’eux se fait dans la configuration de PyCharm :</p>
-<p><img src="images/10000000000005F00000035C69A2DF22.png" style="width:17.551cm;height:9.921cm;" alt="Image" /></p>
+<p><img src="images/10000000000005F00000035C69A2DF22.png" style="width:17.551cm;height:9.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005F00000035C69A2DF22.png" /></p>
 <ul>
 <li>en <strong>[4]</strong>, plusieurs frameworks de test sont disponibles :</li>
 </ul>
-<p><img src="images/10000000000001FA0000014E58EC1FB3.png" style="width:5.841cm;height:3.851cm;" alt="Image" /></p>
+<p><img src="images/10000000000001FA0000014E58EC1FB3.png" style="width:5.841cm;height:3.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001FA0000014E58EC1FB3.png" /></p>
 <h4 id="14231-la-classe-de-tests-testbaseentity">14.2.3.1. La classe de tests [TestBaseEntity]</h4>
 <p>Le script de test <strong>[TestBaseEntity]</strong> sera le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2208,7 +2208,7 @@
 <li>lignes 33-42 : on fait de même avec la méthode <strong>[BaseEntity.fromdict]</strong> ;</li>
 </ul>
 <p>Il y a plusieurs façon d’exécuter les tests :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005CB00000286E288C9FB.png" style="display:inline-block; margin:4px;width:17.13cm;height:7.46cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005CB00000286E288C9FB.png" style="display:inline-block; margin:4px;width:17.13cm;height:7.46cm;" class="odt-zoomable" data-zoom-src="images/10000000000005CB00000286E288C9FB.png" /></td></tr></table>
 
 <ul>
 <li>en <strong>[1-2]</strong>, on exécute <strong>[TestBaseEntity]</strong> avec le framework <strong>[UnitTest]</strong> ;</li>
@@ -2256,7 +2256,7 @@
 <li>lignes 6-10 : on définit une fonction <strong>[setUp]</strong>. Cette fonction a un rôle particulier : elle est exécutée avant chaque fonction de test (test_note1, test_note2) ;</li>
 </ul>
 <p>Ceci fait, l’exécution de la classe <strong>[TestBaseEntity]</strong> donne les résultats suivants :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005EE000001C151CB179A.png" style="display:inline-block; margin:4px;width:17.551cm;height:5.19cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005EE000001C151CB179A.png" style="display:inline-block; margin:4px;width:17.551cm;height:5.19cm;" class="odt-zoomable" data-zoom-src="images/10000000000005EE000001C151CB179A.png" /></td></tr></table>
 
 <p>Cette fois-ci les deux méthodes de test ont été exécutées et les tests ont été réussis.</p>
 <p>Voyons ce qui se passe lorsqu’un test échoue. Modifions le code de <strong>[test_note1]</strong> de la façon suivante :</p>
@@ -2273,16 +2273,16 @@
 <li>ligne 2 : on vérifie que 1==2 ;</li>
 </ul>
 <p>Les résultats de l’exécution sont alors les suivants :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005F0000001CF3B807400.png" style="display:inline-block; margin:4px;width:17.53cm;height:5.351cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005F0000001CF3B807400.png" style="display:inline-block; margin:4px;width:17.53cm;height:5.351cm;" class="odt-zoomable" data-zoom-src="images/10000000000005F0000001CF3B807400.png" /></td></tr></table>
 
 <p>On peut connaître la cause de l’erreur en cliquant sur le test raté <strong>[2]</strong> :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004740000027069C2E74C.png" style="display:inline-block; margin:4px;width:13.151cm;height:7.212cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004740000027069C2E74C.png" style="display:inline-block; margin:4px;width:13.151cm;height:7.212cm;" class="odt-zoomable" data-zoom-src="images/10000000000004740000027069C2E74C.png" /></td></tr></table>
 
 <ul>
 <li>en <strong>[7-8]</strong>, la cause de l’erreur ;</li>
 </ul>
 <p>Une autre façon d’exécuter une classe de tests est de l’exécuter dans un terminal :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019400000341AD03E861.png" style="display:inline-block; margin:4px;width:4.661cm;height:9.61cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019400000341AD03E861.png" style="display:inline-block; margin:4px;width:4.661cm;height:9.61cm;" class="odt-zoomable" data-zoom-src="images/100000000000019400000341AD03E861.png" /></td></tr></table>
 
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\troiscouches\v01\tests&gt;<span style="background-color:#fff2cc">python -m unittest TestBaseEntity.py</span></span>
@@ -2564,7 +2564,7 @@
 </ul>
 <p><strong>Résultats</strong></p>
 <p>On exécute le script de test :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003EF000002CECA97401A.png" style="display:inline-block; margin:4px;width:8.656cm;height:6.171cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000003EF000002CECA97401A.png" style="display:inline-block; margin:4px;width:8.656cm;height:6.171cm;" class="odt-zoomable" data-zoom-src="images/10000000000003EF000002CECA97401A.png" /></td></tr></table>
 
 <p>Les résultats obtenus sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -2608,13 +2608,13 @@
 <p>Ici, tous les tests ont été réussis<a id="refheading409001886864318"></a></p>
 <p><a id="toc48549027"></a></p>
 <h3 id="1424-la-couche-dao">14.2.4. La couche [dao]</h3>
-<p><img src="images/1000000000000523000002CDB342C812.png" style="width:15.17cm;height:8.272cm;" alt="Image" /></p>
+<p><img src="images/1000000000000523000002CDB342C812.png" style="width:15.17cm;height:8.272cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000523000002CDB342C812.png" /></p>
 <p>La couche <strong>[dao]</strong> implémente l’interface <strong>[InterfaceDao]</strong> <strong>[1]</strong>. Celle-ci est implémentée par la classe <strong>[Dao]</strong> (2). Le script <strong>[tests_dao]</strong> (3) teste les méthodes de la couche <strong>[dao]</strong>.</p>
 <p><a id="interfaceinterfacedao"></a>
 <a id="refheadingtoc2521712924280206"></a></p>
 <h4 id="14241-interface-interfacedao">14.2.4.1. Interface [<span style="color: #2b91af">InterfaceDao</span>]</h4>
 <p>Une interface est un contrat passé entre code appelant et code appelé. C’est le code appelé qui offre l’interface :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038A000000E37692A18F.png" style="display:inline-block; margin:4px;width:11.951cm;height:2.991cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000038A000000E37692A18F.png" style="display:inline-block; margin:4px;width:11.951cm;height:2.991cm;" class="odt-zoomable" data-zoom-src="images/100000000000038A000000E37692A18F.png" /></td></tr></table>
 
 <ul>
 <li>le code appelant <strong>[1]</strong> ne connait pas l’implémentation du code appelé <strong>[3]</strong>. Il ne connaît que la façon de l’appeler. C’est l’interface <strong>[2]</strong> qui le lui indique. Celle-ci définit un certain nombre de méthodes / fonctions à utiliser pour interagir avec le code appelé. On appelle également API (Application Programming Interface) cette interface ;</li>
@@ -2787,7 +2787,7 @@
 
 <p>On voit qu&#x27;une erreur se produit dès l&#x27;instanciation de la classe <strong>[Dao]</strong> (ligne 3 ci-dessus). L&#x27;interpréteur Python 3 nous dit qu&#x27;il ne peut instancier la classe, ceci parce que nous n&#x27;avons pas défini les méthodes abstraites <strong>[get_classes, get_matières, get_notes, get_notes_for_élève_by_id, get_élève_by_id, get_élèves]</strong>.</p>
 <p>Pycharm a également la notion de classe abstraite et nous propose de définir les méhodes de celle-ci :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005B5000003042EF1D7AD.png" style="display:inline-block; margin:4px;width:16.89cm;height:8.921cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000005B5000003042EF1D7AD.png" style="display:inline-block; margin:4px;width:16.89cm;height:8.921cm;" class="odt-zoomable" data-zoom-src="images/10000000000005B5000003042EF1D7AD.png" /></td></tr></table>
 
 <ul>
 <li>en <strong>[1]</strong>, cliquer droit sur le code ;</li>
@@ -2961,7 +2961,7 @@
 <p><a id="refheading409021886864318"></a>
 <a id="toc48549028"></a></p>
 <h3 id="1425-la-couche-metier">14.2.5. La couche [métier]</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000250000000E5BCFA285A.png" style="display:inline-block; margin:4px;width:7.062cm;height:2.731cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019E0000029B19CC59FA.png" style="display:inline-block; margin:4px;width:4.31cm;height:6.921cm;" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000250000000E5BCFA285A.png" style="display:inline-block; margin:4px;width:7.062cm;height:2.731cm;" class="odt-zoomable" data-zoom-src="images/1000000100000250000000E5BCFA285A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019E0000029B19CC59FA.png" style="display:inline-block; margin:4px;width:4.31cm;height:6.921cm;" class="odt-zoomable" data-zoom-src="images/100000000000019E0000029B19CC59FA.png" /></td></tr></table>
 
 <ul>
 <li><strong>[InterfaceMétier]</strong> est l’interface de la couche <strong>[métier]</strong> ;</li>
@@ -3190,7 +3190,7 @@
 <p><a id="refheading409041886864318"></a>
 <a id="toc48549029"></a></p>
 <h3 id="1426-la-couche-ui">14.2.6. La couche [ui]</h3>
-<p><img src="images/100000000000053C00000277D270FF4C.png" style="width:15.47cm;height:7.28cm;" alt="Image" /></p>
+<p><img src="images/100000000000053C00000277D270FF4C.png" style="width:15.47cm;height:7.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000053C00000277D270FF4C.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, l’interface de la couche <strong>[ui]</strong> ;</li>
 <li>en <strong>[2]</strong>, l’implémentation de cette interface ;</li>
@@ -3343,11 +3343,11 @@
 <p><a id="toc48549031"></a></p>
 <h2 id="144-exemple-2">14.4. Exemple 2</h2>
 <p>Ce nouvel exemple d’architectures en couches vise à montrer l’intérêt de la programmation par interfaces. Celle-ci facilite la maintenance et le test des applications. Nous utiliserons de nouveau une architecture à trois couches :</p>
-<p><img src="images/1000000000000500000002996716F67B.png" style="width:14.78cm;height:7.681cm;" alt="Image" /></p>
+<p><img src="images/1000000000000500000002996716F67B.png" style="width:14.78cm;height:7.681cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000500000002996716F67B.png" /></p>
 <p>Chaque couche sera implémentée de deux façons différentes. Nous voulons montrer que l’on peut changer facilement l’implémentation d’une couche avec un impact minimal sur les autres.</p>
 <p><a id="toc48549032"></a></p>
 <h3 id="1441-la-couche-dao">14.4.1. La couche [dao]</h3>
-<p><img src="images/100000000000016C0000012C100849CE.png" style="width:3.791cm;height:3.121cm;" alt="Image" /></p>
+<p><img src="images/100000000000016C0000012C100849CE.png" style="width:3.791cm;height:3.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016C0000012C100849CE.png" /></p>
 <p>L’interface <strong>[InterfaceDao]</strong> est la suivante:</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -3389,7 +3389,7 @@
 
 <p><a id="toc48549033"></a></p>
 <h3 id="1442-la-couche-metier">14.4.2. La couche [métier]</h3>
-<p><img src="images/100000000000018C00000155E597C5F3.png" style="width:4.571cm;height:3.931cm;" alt="Image" /></p>
+<p><img src="images/100000000000018C00000155E597C5F3.png" style="width:4.571cm;height:3.931cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018C00000155E597C5F3.png" /></p>
 <p>L’interface <strong>[InterfaceMétier]</strong> est la suivante:</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -3479,7 +3479,7 @@
 
 <p><a id="toc48549034"></a></p>
 <h3 id="1443-la-couche-ui">14.4.3. La couche [ui]</h3>
-<p><img src="images/100000000000017C0000019674470E37.png" style="width:4.4cm;height:4.68cm;" alt="Image" /></p>
+<p><img src="images/100000000000017C0000019674470E37.png" style="width:4.4cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017C0000019674470E37.png" /></p>
 <p>L’interface <strong>[InterfaceUi]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -3561,7 +3561,7 @@
 </ul>
 <p><a id="toc48549035"></a></p>
 <h3 id="1444-les-fichiers-de-configuration">14.4.4. Les fichiers de configuration</h3>
-<p><img src="images/100000000000015500000175811D8558.png" style="width:3.931cm;height:4.301cm;" alt="Image" /></p>
+<p><img src="images/100000000000015500000175811D8558.png" style="width:3.931cm;height:4.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015500000175811D8558.png" /></p>
 <ul>
 <li>les fichiers <strong>[config1, config2]</strong> configurent l’application de deux façons différentes ;</li>
 <li>le fichier <strong>[main]</strong> est le script principal de l’application ;</li>
@@ -3659,7 +3659,7 @@
 <p><a id="lescriptprincipal2"></a>
 <a id="toc48549036"></a></p>
 <h3 id="1445-le-script-principal-main">14.4.5. Le script principal [main]</h3>
-<p><img src="images/100000000000015500000175811D8558.png" style="width:3.541cm;height:3.871cm;" alt="Image" /></p>
+<p><img src="images/100000000000015500000175811D8558.png" style="width:3.541cm;height:3.871cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015500000175811D8558.png" /></p>
 <p>Le script principal est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -3760,9 +3760,9 @@
 <li>ligne 5 : la propriété <strong>[MétierImpl1.dao]</strong> est de type <strong>[DaoImpl1]</strong> (ligne 2) ;</li>
 </ul>
 <p>Ce qu’on veut montrer ici, c’est que le script <strong>[main]</strong> n’a pas à se préoccuper des couches <strong>[métier]</strong> et <strong>[dao]</strong>. Il n’a à se préoccuper que de la couche <strong>[ui]</strong>, les liens entre cette couche et les autres ayant été faits par configuration.</p>
-<p><img src="images/1000000000000470000000BB574DD97C.png" style="width:13.14cm;height:2.162cm;" alt="Image" /></p>
+<p><img src="images/1000000000000470000000BB574DD97C.png" style="width:13.14cm;height:2.162cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000470000000BB574DD97C.png" /></p>
 <p>Pour passer le paramètre <strong>[config1]</strong> ou <strong>[config2]</strong> au script <strong>[main]</strong>, <a id="configurationexecution"></a>on procèdera de la façon suivante :</p>
-<p><img src="images/100000000000054B0000041FD56C07BD.png" style="width:15.65cm;height:12.172cm;" alt="Image" /></p>
+<p><img src="images/100000000000054B0000041FD56C07BD.png" style="width:15.65cm;height:12.172cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054B0000041FD56C07BD.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, on crée ce qu’on appelle une configuration d’exécution ;</li>
 <li>en <strong>[3]</strong>, on donne un nom à cette configuration pour pouvoir la retrouver ;</li>
@@ -3770,17 +3770,17 @@
 <li>en <strong>[5]</strong>, on met ici les paramètres à transmettre au script. On passe ici la chaîne <strong>[config1]</strong> pour demander au script d’utiliser la configuration n° 1 ;</li>
 <li>en <strong>[6]</strong>, on valide la configuration d’exécution ;</li>
 </ul>
-<p><img src="images/10000000000005700000019B53F48C66.png" style="width:16.091cm;height:4.74cm;" alt="Image" /></p>
+<p><img src="images/10000000000005700000019B53F48C66.png" style="width:16.091cm;height:4.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005700000019B53F48C66.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, on demande à voir les contextes d’exécution existants ;</li>
 <li>en <strong>[3]</strong>, on sélectionne le contexte d’exécution existant et on le duplique <strong>[4]</strong> ;</li>
 </ul>
-<p><img src="images/1000000100000427000000D6C304DEAC.png" style="width:17.971cm;height:3.611cm;" alt="Image" /></p>
+<p><img src="images/1000000100000427000000D6C304DEAC.png" style="width:17.971cm;height:3.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000427000000D6C304DEAC.png" /></p>
 <ul>
 <li>en <strong>[5]</strong>, le nom donné à la nouvelle configuration. Ce sera celle qui exécute le script <strong>[main]</strong> <strong>[6]</strong> en lui passant le paramètre <strong>[config2]</strong> <strong>[7]</strong> ;</li>
 </ul>
 <p>Les configurations d’exécution sont disponibles en haut à droite de la fenêtre PyCharm :</p>
-<p><img src="images/100000000000034A000001C92AAF8360.png" style="width:9.722cm;height:5.28cm;" alt="Image" /></p>
+<p><img src="images/100000000000034A000001C92AAF8360.png" style="width:9.722cm;height:5.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000034A000001C92AAF8360.png" /></p>
 <p>Il suffit de sélectionner <strong>[2]</strong> ou <strong>[3]</strong> puis d’appuyer sur <strong>[4]</strong> pour exécuter le script <strong>[main]</strong> avec l’un ou l’autre des paramètres <strong>[config1]</strong> ou <strong>[config2]</strong>.</p>
 <p>Avec <strong>[config1]</strong>, l’exécution de <strong>[main]</strong> donne les résultats suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">

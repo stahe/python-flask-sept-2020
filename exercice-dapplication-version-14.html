@@ -1547,7 +1547,7 @@
 <li>Alice lit le message de Malorie, son navigateur utilise la session ouverte d&#x27;Alice et ne demande pas d&#x27;authentification interactive. Il tente de récupérer le contenu de l&#x27;image. En faisant cela, le navigateur actionne le lien et supprime le message, il récupère une page web texte comme contenu pour l&#x27;image. Ne reconnaissant pas le type d&#x27;image associé, il n&#x27;affiche pas d&#x27;image et Alice ne sait pas que Malorie vient de lui faire supprimer un message contre son gré.</li>
 </ol>
 <p>Même expliqué comme ça, la technique du CSRF est  difficile à comprendre. Faisons un schéma :</p>
-<p><img src="images/10000000000003E50000024D46F14920.png" style="width:11.501cm;height:6.79cm;" alt="Image" /></p>
+<p><img src="images/10000000000003E50000024D46F14920.png" style="width:11.501cm;height:6.79cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E50000024D46F14920.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, Alice communique avec le forum (Site A). Ce forum maintient une session pour chaque utilisateur. Le navigateur d’Alice stocke localement ce cookie de session et le renvoie à chaque fois qu’il fait une nouvelle requête au site A ;</li>
 <li>en <strong>[3]</strong>, Malorie envoie un message à Alice. Celle-ci le lit avec son navigateur. Le message lu est au format HTML et contient un lien vers une image du site B. En fait ce lien est un lien vers un script Javascript qui s’exécute une fois arrivé sur le navigateur d’Alice ;</li>
@@ -1570,7 +1570,7 @@
 </ul>
 <p><a id="toc48549315"></a></p>
 <h2 id="342-configuration">34.2. Configuration</h2>
-<p><img src="images/1000000000000127000000E642E6C9B2.png" style="width:3.41cm;height:2.65cm;" alt="Image" /></p>
+<p><img src="images/1000000000000127000000E642E6C9B2.png" style="width:3.41cm;height:2.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000127000000E642E6C9B2.png" /></p>
 <p>Nous introduisons dans la configuration <strong>[parameters]</strong> de l’application deux booléens :</p>
 <ul>
 <li><strong>[with_redissession]</strong> : à True, l’application utilise une session Redis. A False, l’application utilise une session Flask normale ;</li>
@@ -1609,7 +1609,7 @@
 <p><a id="toc48549318"></a></p>
 <h3 id="3432-les-modeles-des-vues">34.3.2. Les modèles des vues</h3>
 <p>Nous introduisons une nouvelle classe dans les modèles :</p>
-<p><img src="images/10000000000001D4000001CE1812B1F9.png" style="width:5.411cm;height:5.34cm;" alt="Image" /></p>
+<p><img src="images/10000000000001D4000001CE1812B1F9.png" style="width:5.411cm;height:5.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D4000001CE1812B1F9.png" /></p>
 <p>La classe <strong>[</strong><strong>AbstractBaseModelForView</strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> abc <span style="color:#0000ff">import</span> abstractmethod</span>
@@ -1770,7 +1770,7 @@
 <p><a id="toc48549320"></a></p>
 <h3 id="3434-les-routes">34.3.4. Les routes</h3>
 <p>Il y a désormais deux types de routes, selon que celles-ci utilisent ou non un jeton CSRF :</p>
-<p><img src="images/100000000000018F00000106A63E3323.png" style="width:4.612cm;height:3.031cm;" alt="Image" /></p>
+<p><img src="images/100000000000018F00000106A63E3323.png" style="width:4.612cm;height:3.031cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F00000106A63E3323.png" /></p>
 <ul>
 <li><strong>[routes_without_csrftoken]</strong> sont les routes sans jeton CSRF. Ce sont les routes de la version précédente ;</li>
 <li><strong>[routes_with_csrftoken]</strong> sont les routes avec jeton CSRF.</li>
@@ -1934,21 +1934,21 @@
 <li>lance le serveur avec le paramètre <strong>[with_csrftoken]</strong> à <strong>[True]</strong> ;</li>
 <li>demande l’URL <strong>[http://localhost:5000]</strong> avec un navigateur ;</li>
 </ul>
-<p><img src="images/10000000000004710000029076ACA4C7.png" style="width:13.14cm;height:7.561cm;" alt="Image" /></p>
+<p><img src="images/10000000000004710000029076ACA4C7.png" style="width:13.14cm;height:7.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004710000029076ACA4C7.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le jeton CSRF ;</li>
 </ul>
 <p>Faisons des manipulations jusqu’à avoir une liste de simulations :</p>
-<p><img src="images/100000000000058E00000254BCAB1B42.png" style="width:16.431cm;height:6.891cm;" alt="Image" /></p>
+<p><img src="images/100000000000058E00000254BCAB1B42.png" style="width:16.431cm;height:6.891cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058E00000254BCAB1B42.png" /></p>
 <p>Maintenant, tapons à la main, l’URL <strong>[http://localhost:5000/supprimer-simulation/1/x]</strong> pour supprimer la simulation d’id=1. On met volontairement un jeton CSRF incorrect pour voir ce qui se passe. La réponse du serveur est la suivante :</p>
-<p><img src="images/100000000000058E0000021B39C49A61.png" style="width:16.41cm;height:6.22cm;" alt="Image" /></p>
+<p><img src="images/100000000000058E0000021B39C49A61.png" style="width:16.41cm;height:6.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058E0000021B39C49A61.png" /></p>
 <p><strong>Note 1</strong> : il n’est pas sûr que la méthode utilisée ici soit toujours suffisante pour contrer les attaques CSRF. Revenons au schéma de l’attaque :</p>
-<p><img src="images/10000000000003E50000024D46F14920.png" style="width:11.501cm;height:6.79cm;" alt="Image" /></p>
+<p><img src="images/10000000000003E50000024D46F14920.png" style="width:11.501cm;height:6.79cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E50000024D46F14920.png" /></p>
 <p>Si le script Javascript téléchargé en <strong>[5]</strong> est capable de lire l’historique du navigateur utilisé par Alice, il sera capable de récupérer les URL exécutées par le navigateur, des URL telles que <strong>[/cible/csrf_token]</strong>. Il pourra alors récupérer le jeton de session <strong>[csrf_token]</strong> et faire son attaque en <strong>[6-7]</strong>. Néanmoins, le navigateur autorise uniquement l’exploitation de l’historique de la fenêtre du navigateur dans laquelle s’exécute le script. Si donc Alice n’utilise pas la même fenêtre pour travailler avec le site A <strong>[1-2]</strong> et lire le message de Malorie <strong>[3]</strong>, l’attaque CSRF ne sera pas possible.</p>
 <p><a id="toc48549323"></a></p>
 <h2 id="345-clients-console">34.5. Clients console</h2>
 <p>Une autre façon de tester la version 14 de l’application est de reprendre les tests de la version 12 et de les adapter au nouveau serveur.</p>
-<p><img src="images/10000000000000E4000000E6E2289AB8.png" style="width:2.631cm;height:2.65cm;" alt="Image" /></p>
+<p><img src="images/10000000000000E4000000E6E2289AB8.png" style="width:2.631cm;height:2.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000E4000000E6E2289AB8.png" /></p>
 <p>Le dossier <strong>[impots/http-clients/09]</strong> est obtenu initialement par recopie du dossier <strong>[impots/http-clients/07]</strong>. Il est ensuite modifié.</p>
 <p>Revenons aux routes qui initialisent une session :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1984,15 +1984,15 @@
 <li>lignes 4-5 : on redirige le client (jSON, XML, HTML) vers la route <strong>[/init-session]</strong> ayant le jeton CSRF dans ses paramètres ;</li>
 </ul>
 <p>On peut essayer cette nouvelle route avec un navigateur :</p>
-<p><img src="images/10000000000003CF000000A47ACF6ACC.png" style="width:11.27cm;height:1.89cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF000000A47ACF6ACC.png" style="width:11.27cm;height:1.89cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000000A47ACF6ACC.png" /></p>
 <p>La réponse du serveur (configuré avec <strong>[with_csrftoken=True]</strong>) est la suivante :</p>
-<p><img src="images/100000000000063C000000A5FABB0D6C.png" style="width:18.432cm;height:1.9cm;" alt="Image" /></p>
+<p><img src="images/100000000000063C000000A5FABB0D6C.png" style="width:18.432cm;height:1.9cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000063C000000A5FABB0D6C.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le serveur a été redirigé vers la route <strong>[/init-session]</strong> avec jeton CSRF dans l’URL ;</li>
 <li>en <strong>[2]</strong>, le jeton CSRF est dans le dictionnaire jSON envoyé par le serveur associé à la clé <strong>[csrf_token]</strong> ;</li>
 </ul>
 <p>Revenons au code du client :</p>
-<p><img src="images/1000000000000119000001395F3D944C.png" style="width:3.241cm;height:3.62cm;" alt="Image" /></p>
+<p><img src="images/1000000000000119000001395F3D944C.png" style="width:3.241cm;height:3.62cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000119000001395F3D944C.png" /></p>
 <p>Nous modifions la configuration <strong>[config]</strong> de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-javascript">
 <span class="odt-code-line">   config.update({</span>
@@ -2047,7 +2047,7 @@
 </ul>
 <p>La route <strong>[</strong><strong>/init-session-without-csrftoken</strong><strong>]</strong> a été présentée. Elle permet à un client jSON / XML de démarrer une session avec le serveur sans posséder de jeton CSRF. Il trouvera ce jeton dans la réponse du serveur.</p>
 <p>Nous modifions ensuite la classe <strong>[</strong><strong><span style="color: #000000">ImpôtsDaoWithHttpSession</span></strong><strong>]</strong> implémentant la couche <strong>[dao]</strong> du client :</p>
-<p><img src="images/100000000000023A0000012AE88F5267.png" style="width:6.571cm;height:3.44cm;" alt="Image" /></p>
+<p><img src="images/100000000000023A0000012AE88F5267.png" style="width:6.571cm;height:3.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023A0000012AE88F5267.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> json</span></span>
@@ -2208,7 +2208,7 @@
 <li>les classes de test <strong>[Test1HttpClientDaoWithSession]</strong> et <strong>[Test2HttpClientDaoWithSession]</strong> ;</li>
 </ul>
 <p>en mettant successivement à True puis False, le paramètre de configuration <strong>[with_csrftoken]</strong>.</p>
-<p><img src="images/1000000000000239000002062A0C2A4E.png" style="width:6.571cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/1000000000000239000002062A0C2A4E.png" style="width:6.571cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000239000002062A0C2A4E.png" /></p>
 <p>Voici comme exemple les logs obtenus à l’exécution du client <strong>[main json]</strong> avec <strong>[with_csrftoken=True]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">2020-08-08 16:33:23.317903, MainThread : début du calcul de l&#x27;impôt des contribuables</span>

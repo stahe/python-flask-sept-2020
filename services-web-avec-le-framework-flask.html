@@ -1728,7 +1728,7 @@
 <p><a id="toc48549142"></a></p>
 <h2 id="221-introduction">22.1. Introduction</h2>
 <p><span style="color: #000000">Les scripts Python peuvent être exécutés par un serveur Web. Un tel script devient un programme serveur pouvant servir plusieurs clients. Du point de vue du client, appeler un service web revient à demander l&#x27;URL de ce service. Le client peut être écrit avec n&#x27;importe quel langage, notamment en Python. Dans ce dernier cas, on utilise alors les fonctions internet que nous venons de voir. Il nous faut par ailleurs savoir &quot;converser&quot; avec un service web, c&#x27;est à dire comprendre le protocole HTTP de communication entre un serveur Web et ses clients. C&#x27;était le but du paragraphe |<a href="#_Le_protocole_HTTP"><u><span style="color: #0563c1">le protocole HTTP</span></u></a>|. Les clients web décrits dans cette partie du cours nous ont permis de découvrir une partie du protocole HTTP.</span></p>
-<p><img src="images/10000000000004C0000000D8D0B12F00.png" style="width:14.011cm;height:2.5cm;" alt="Image" /></p>
+<p><img src="images/10000000000004C0000000D8D0B12F00.png" style="width:14.011cm;height:2.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004C0000000D8D0B12F00.png" /></p>
 <p>Dans leur version la plus simple, les échanges client / serveur sont les suivants :</p>
 <ul>
 <li>le client ouvre une connexion avec le port 80 du serveur web ;</li>
@@ -1738,7 +1738,7 @@
 </ul>
 <p>Le document peut être de nature diverse : un texte au format HTML, une image, une vidéo, ... Ce peut être un document existant (document statique) ou bien un document généré à la volée par un script (document dynamique). Dans ce dernier cas, on parle de programmation web. Le script de génération dynamique de documents peut être écrit dans divers langages : PHP, Python, Perl, Java, Ruby, C#, VB.net, ...</p>
 <p>Dans la suite, nous allons utiliser des scripts Python pour générer dynamiquement des documents texte.</p>
-<p><img src="images/1000000000000515000000F4B94EC5A2.png" style="width:15.011cm;height:2.821cm;" alt="Image" /></p>
+<p><img src="images/1000000000000515000000F4B94EC5A2.png" style="width:15.011cm;height:2.821cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000515000000F4B94EC5A2.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le client ouvre une connexion avec le serveur, demande un script Python, envoie ou non des paramètres à destination de ce script ;</li>
 <li>en <strong>[3]</strong>, le serveur web fait exécuter le script Python par l&#x27;interpréteur Python. Le script génère un document qui est envoyé au client <strong>[2]</strong><strong> ;</strong></li>
@@ -1785,9 +1785,9 @@
 </ul>
 <p><a id="toc48549143"></a></p>
 <h2 id="222-scripts-flask01-premiers-elements-de-programmation-web">22.2. scripts [flask/01] : premiers éléments de programmation web</h2>
-<p><img src="images/10000000000001BA0000029951F70989.png" style="width:4.601cm;height:6.921cm;" alt="Image" /></p>
+<p><img src="images/10000000000001BA0000029951F70989.png" style="width:4.601cm;height:6.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BA0000029951F70989.png" /></p>
 <p>Nos exemples seront exécutés dans l’architecture suivante :</p>
-<p><img src="images/10000000000003CE00000164CCB42750.png" style="width:11.261cm;height:4.111cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CE00000164CCB42750.png" style="width:11.261cm;height:4.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CE00000164CCB42750.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, un script Python sera exécuté comme l’est un script console classique ;</li>
 <li>en <strong>[2]</strong>, de façon transparente, un serveur web est instancié et attend des requêtes. En fait il n’acceptera qu’une unique URL ;</li>
@@ -1807,7 +1807,7 @@
 <li>une image ;</li>
 <li>un lien ;</li>
 </ul>
-<p><img src="images/100000000000033D00000324D3468915.png" style="width:9.561cm;height:9.27cm;" alt="Image" /></p>
+<p><img src="images/100000000000033D00000324D3468915.png" style="width:9.561cm;height:9.27cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033D00000324D3468915.png" /></p>
 <p>Un document HTML est encadré par les balises <strong>&lt;html&gt;…&lt;/html&gt;</strong>. Il est formé de deux parties :</p>
 <ul>
 <li><strong>&lt;head&gt;…&lt;/head&gt;</strong> : c&#x27;est la partie non affichable du document. Elle donne des renseignements au navigateur qui va afficher le document. On y trouve souvent la balise <strong>&lt;title&gt;…&lt;/title&gt;</strong> qui fixe le texte qui sera affiché dans la barre de titre du navigateur. On peut y trouver d&#x27;autres balises notamment des balises définissant les mots clés du document, mot clés utilisés ensuite par les moteurs de recherche. On peut trouver également dans cette partie des scripts, écrits le plus souvent en javascript ou vbscript et qui seront exécutés par le navigateur ;</li>
@@ -1891,7 +1891,7 @@
 <li><strong><em>[http://server/static/images/standard.jpg]</em></strong> pour obtenir l&#x27;image de fond <em>standard.jpg ;</em></li>
 </ul>
 <p>Le script <strong>[exemple_01]</strong> va nous permettre d’afficher la page statique <strong>[balises.html]</strong> précédente :</p>
-<p><img src="images/10000000000001750000026E22E6123F.png" style="width:4.301cm;height:7.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000001750000026E22E6123F.png" style="width:4.301cm;height:7.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001750000026E22E6123F.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le script <strong>[exemple_01]</strong> qui va être exécuté ;</li>
 <li>en <strong>[3]</strong>, le document HTML qui va être affiché par le script ;</li>
@@ -1955,7 +1955,7 @@
 </li>
 </ul>
 <p>Voici un exemple d’exécution :</p>
-<p><img src="images/10000000000002DA00000256CACE3193.png" style="width:8.422cm;height:6.91cm;" alt="Image" /></p>
+<p><img src="images/10000000000002DA00000256CACE3193.png" style="width:8.422cm;height:6.91cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002DA00000256CACE3193.png" /></p>
 <p>Les logs suivants apparaissent alors dans la console d’exécution :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/<span style="background-color:#bdd6ee">flask/01/main/exemple_01.py</span></span>
@@ -1975,11 +1975,11 @@
 <li>ligne 8 : l’URL où l’application web déployée <strong>[exemple_01]</strong> est disponible ;</li>
 </ul>
 <p>Avec un navigateur web demandons l’URL <strong>[</strong><strong><mark style="background-color: #bdd6ee">http://127.0.0.1:5000/</mark></strong><strong>]</strong> :</p>
-<p><img src="images/100000000000033C000003A564DC961D.png" style="width:9.542cm;height:10.76cm;" alt="Image" /></p>
+<p><img src="images/100000000000033C000003A564DC961D.png" style="width:9.542cm;height:10.76cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C000003A564DC961D.png" /></p>
 <p>On obtient bien le document <strong>[balises.html]</strong> attendu.</p>
 <p><a id="toc48549145"></a></p>
 <h3 id="2222-script-exemple_02-generer-un-document-html-dynamiquement">22.2.2. script [exemple_02] : générer un document HTML dynamiquement</h3>
-<p><img src="images/100000000000017D000001D207493827.png" style="width:4.391cm;height:5.381cm;" alt="Image" /></p>
+<p><img src="images/100000000000017D000001D207493827.png" style="width:4.391cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017D000001D207493827.png" /></p>
 <p>Le script <strong>[exemple_02]</strong> <strong>[1]</strong> va générer le document <strong>[exemple_02.html]</strong> <strong>[2]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!DOCTYPE<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -2040,11 +2040,11 @@
 </li>
 </ul>
 <p>Avant d’exécuter <strong>[exemple_02]</strong>, nous devons arrêter l’exécution de <strong>[exemple_01]</strong> :</p>
-<p><img src="images/100000000000035500000120DF568597.png" style="width:9.85cm;height:3.32cm;" alt="Image" /></p>
+<p><img src="images/100000000000035500000120DF568597.png" style="width:9.85cm;height:3.32cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035500000120DF568597.png" /></p>
 <p>Si lors de l’exécution d’un script 1, vous avez l’impression que c’est un script 2 qui s’exécute c’est probablement parce que celui-ci est toujours en exécution. Pour revenir à un état connu, vous pouvez arrêter tous les processus en cours d’exécution dans PyCharm (en haut et à droite dans fenêtre PyCharm) :</p>
-<p><img src="images/100000000000022B000001002425A870.png" style="width:6.421cm;height:2.961cm;" alt="Image" /></p>
+<p><img src="images/100000000000022B000001002425A870.png" style="width:6.421cm;height:2.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000022B000001002425A870.png" /></p>
 <p>Exécutons le script <strong>[exemple_02]</strong> :</p>
-<p><img src="images/100000000000027C0000024F12190A9C.png" style="width:7.351cm;height:6.831cm;" alt="Image" /></p>
+<p><img src="images/100000000000027C0000024F12190A9C.png" style="width:7.351cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000027C0000024F12190A9C.png" /></p>
 <p>Les logs console sont alors les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/flask/01/main/<span style="background-color:#bdd6ee">exemple_02</span>.py</span>
@@ -2059,14 +2059,14 @@
 
 <p>La ligne 8 indique le port de déploiement (5000) de l’application <strong>[exemple_02]</strong> (ligne 1) sur la machine <strong>[localhost]</strong>. Les lignes précédentes étant toujours les mêmes, nous ne les remontrerons plus.</p>
 <p>Avec un navigateur, nous demandons l’URL <strong>[</strong><strong><mark style="background-color: #bdd6ee">http://localhost:5000/</mark></strong><strong>]</strong> :</p>
-<p><img src="images/100000000000025F000001379F673CC6.png" style="width:7.01cm;height:3.581cm;" alt="Image" /></p>
+<p><img src="images/100000000000025F000001379F673CC6.png" style="width:7.01cm;height:3.581cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000025F000001379F673CC6.png" /></p>
 <ul>
 <li>l’expression {{page.title}} a produit <strong>[1]</strong> ;</li>
 <li>l’expression {{page.contents}} a produit <strong>[2]</strong> ;</li>
 </ul>
 <p><a id="toc48549146"></a></p>
 <h3 id="2223-script-exemple_03-utiliser-des-fragments-de-page">22.2.3. script [exemple_03] : utiliser des fragments de page</h3>
-<p><img src="images/100000000000015B000001AA291F543F.png" style="width:4.01cm;height:4.92cm;" alt="Image" /></p>
+<p><img src="images/100000000000015B000001AA291F543F.png" style="width:4.01cm;height:4.92cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015B000001AA291F543F.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le script <strong>[exemple_03.py]</strong> va générer le document dynamique <strong>[exemple_03.html]</strong> <strong>[2]</strong>. Celui-ci sera construit à partir des fragments de page <strong>[fragment_01.html, fragment_02.html]</strong> <strong>[3]</strong> ;</li>
 </ul>
@@ -2142,11 +2142,11 @@
 
 <p>Le code est analogue à celui de <strong>[exemple_02.py]</strong>. Ligne 16, on montre comment on peut référencer des documents présents dans des sous-dossiers de <strong>[template_folder]</strong> de la ligne 7.</p>
 <p>L’exécution du script <strong>[exemple_03.py]</strong> donne les résultats suivants dans le navigateur :</p>
-<p><img src="images/10000000000002BD0000013796E39F0B.png" style="width:8.09cm;height:3.601cm;" alt="Image" /></p>
+<p><img src="images/10000000000002BD0000013796E39F0B.png" style="width:8.09cm;height:3.601cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BD0000013796E39F0B.png" /></p>
 <p><a id="scriptsflask02"></a>
 <a id="toc48549147"></a></p>
 <h2 id="223-scripts-flask02-service-web-de-date-et-heure">22.3. scripts [flask/02] : service web de date et heure</h2>
-<p><img src="images/10000000000001B20000014487040A34.png" style="width:5.01cm;height:3.74cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B20000014487040A34.png" style="width:5.01cm;height:3.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B20000014487040A34.png" /></p>
 <p>Le document <strong>[date_time_server.html]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!DOCTYPE<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -2220,7 +2220,7 @@
 <li>ligne 35 : la réponse HTTP est envoyée au client ;</li>
 </ul>
 <p>L’exécution du script donne le résultat suivant dans un navigateur :</p>
-<p><img src="images/100000000000028900000130DB158B5F.png" style="width:7.511cm;height:3.511cm;" alt="Image" /></p>
+<p><img src="images/100000000000028900000130DB158B5F.png" style="width:7.511cm;height:3.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028900000130DB158B5F.png" /></p>
 <p>Les logs dans la console sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\flask\02\<span style="background-color:#bdd6ee">date_time_server.py</span></span>
@@ -2272,7 +2272,7 @@
 <p>Un client web pourrait n’être intéressé que par l’information <strong>[page.date_heure]</strong> de la ligne 8 et pas par l’habillage HTML qu’il y a autour. Le service web pourrait délivrer cette information comme une simple chaîne de caractères. Nous allons présenter ici des exemples de ce type de service web.</p>
 <p><a id="toc48549149"></a></p>
 <h3 id="2241-script-main_01">22.4.1. script [main_01]</h3>
-<p><img src="images/10000000000004DB000001DACF851B95.png" style="width:14.331cm;height:5.471cm;" alt="Image" /></p>
+<p><img src="images/10000000000004DB000001DACF851B95.png" style="width:14.331cm;height:5.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DB000001DACF851B95.png" /></p>
 <ul>
 <li><strong>[main_01]</strong> est le service web ;</li>
 <li><strong>[config]</strong> est le script de configuration de l’application web ;</li>
@@ -2367,13 +2367,13 @@
 </code></pre></div>
 
 <p>Lorsqu’on exécute le script web <strong>[main_01]</strong>, on obtient les résultats suivants dans un navigateur :</p>
-<p><img src="images/10000000000005A4000001099A9AA9EF.png" style="width:16.701cm;height:3.061cm;" alt="Image" /></p>
+<p><img src="images/10000000000005A4000001099A9AA9EF.png" style="width:16.701cm;height:3.061cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A4000001099A9AA9EF.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, la chaîne jSON reçue ;</li>
 <li>en <strong>[3-4]</strong>, on fait afficher le contenu du document reçu. On voit qu’il n’y a aucun habillage HTML, seulement la chaîne jSON ;</li>
 </ul>
 <p>Voyons maintenant le rôle de l’entête <strong>[Content-Type]</strong> envoyé au client par le service web. On met le navigateur en mode développeur (F12 en général) et on redemande la même URL. Ci-dessous une copie d’écran d’un navigateur Chrome :</p>
-<p><img src="images/1000000000000562000002AD6FAA7357.png" style="width:15.9cm;height:7.901cm;" alt="Image" /></p>
+<p><img src="images/1000000000000562000002AD6FAA7357.png" style="width:15.9cm;height:7.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000562000002AD6FAA7357.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, sélectionner l’onglet <strong>[Network]</strong> ;</li>
 <li>en <strong>[2, 4]</strong> : l’URL demandée par le navigateur ;</li>
@@ -2381,7 +2381,7 @@
 <li>en <strong>[5]</strong>, le code de statut de la réponse HTTP reçue ;</li>
 <li>en <strong>[6]</strong>, l’entête indiquant au client qu’il va recevoir un texte jSON. Cela permet au client de s’adapter à la réponse. Ainsi la police de caractères utilisée par Chrome pour afficher une réponse jSON ou une réponse texte basique n’est pas la même ;</li>
 </ul>
-<p><img src="images/1000000000000356000000E0A8767336.png" style="width:9.871cm;height:2.59cm;" alt="Image" /></p>
+<p><img src="images/1000000000000356000000E0A8767336.png" style="width:9.871cm;height:2.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000356000000E0A8767336.png" /></p>
 <ul>
 <li>en <strong>[8]</strong>, on sélectionne l’onglet <strong>[Response]</strong> pour avoir accès au document envoyé par le serveice web, ici une simple chaîne jSON ;</li>
 </ul>
@@ -2400,11 +2400,11 @@
 <p><strong>[Postman]</strong><strong> est un excellent outil pédagogique pour comprendre la communication client / serveur du protocole HTTP.</strong></p>
 <p><strong>[Postman]</strong> est disponible à l’URL <strong>[https://www.getpostman.com/downloads/]</strong>. Procédez à l’installation de votre version de <strong>[Postman]</strong>. Au cours de l’installation, on vous demandera de créer un compte : celui-ci sera inutile ici. Le compte <strong>[Postman]</strong> sert à synchroniser différents appareils afin que la configuration de l’un soit répliqué sur un autre. Rien de tout ceci n’est utile ici.</p>
 <p>Une fois installé, <strong>[Postman]</strong> présente l’interface suivante :</p>
-<p><img src="images/10000001000003C6000001933234FC0D.png" style="width:16.391cm;height:6.831cm;" alt="Image" /></p>
+<p><img src="images/10000001000003C6000001933234FC0D.png" style="width:16.391cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003C6000001933234FC0D.png" /></p>
 <ul>
 <li>en <strong>[2-3]</strong>, on a accès au paramétrage du produit ;</li>
 </ul>
-<p><img src="images/10000000000003D1000001C6516A9EF0.png" style="width:11.27cm;height:5.241cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D1000001C6516A9EF0.png" style="width:11.27cm;height:5.241cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D1000001C6516A9EF0.png" /></p>
 <ul>
 <li>en <strong>[6]</strong>, la version utilisée dans ce document ;</li>
 </ul>
@@ -2413,21 +2413,21 @@
 <li>noux exécutons le script <strong>[flask/03/main_01]</strong> ;</li>
 <li>puis nous demandons l’URL <strong>[</strong><strong><span style="color: #505050">http://localhost:5000/</span></strong><strong>]</strong> avec Postman ;</li>
 </ul>
-<p><img src="images/10000000000005900000019CB152F71C.png" style="width:16.421cm;height:4.762cm;" alt="Image" /></p>
+<p><img src="images/10000000000005900000019CB152F71C.png" style="width:16.421cm;height:4.762cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005900000019CB152F71C.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, on crée une requête ;</li>
 <li>en <strong>[2]</strong>, ce sera une requête HTTP GET ;</li>
 <li>en <strong>[3]</strong>, l’URL du service web interrogé ;</li>
 <li>en <strong>[4]</strong>, on envoie la requête au service web ;</li>
 </ul>
-<p><img src="images/100000000000055600000297F2FCFFBB.png" style="width:15.77cm;height:7.651cm;" alt="Image" /></p>
+<p><img src="images/100000000000055600000297F2FCFFBB.png" style="width:15.77cm;height:7.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055600000297F2FCFFBB.png" /></p>
 <ul>
 <li>en <strong>[5]</strong>, on sélectionne l’onglet <strong>[Body]</strong> qui affiche le document reçu ;</li>
 <li>en <strong>[6]</strong>, on sélectionne l’onglet <strong>[Pretty]</strong> qui affiche le document reçu avec une mise en forme appropriée, ici une forme appropriée à une chaîne jSON ;</li>
 <li>en <strong>[7]</strong>, le document jSON reçu ;</li>
 <li>en <strong>[8-9]</strong>, le document reçu sans mise en forme ;</li>
 </ul>
-<p><img src="images/100000000000047100000134D111797C.png" style="width:13.131cm;height:3.551cm;" alt="Image" /></p>
+<p><img src="images/100000000000047100000134D111797C.png" style="width:13.131cm;height:3.551cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047100000134D111797C.png" /></p>
 <ul>
 <li>en <strong>[10]</strong>, on affiche les entêtes HTTP reçus par Postman ;</li>
 <li>en <strong>[11]</strong>, le statut HTTP de la réponse reçue ;</li>
@@ -2435,9 +2435,9 @@
 <li>en <strong>[13]</strong>, l’entête <strong>[Content-type]</strong> qui a permis à Postman de savoir qu’il allait recevoir une chaîne jSON. Postman a utilisé cette information pour mettre en forme, d’une certaine façon, le document reçu ;</li>
 </ul>
 <p>Il y a une autre façon d’utiliser Postman. Elle consiste à utiliser la console Postman (Ctrl-Alt-C). Celle-ci permet de voir le dialogue client / serveur. Outre la séquence Ctrl-Alt-C, la console Postman est disponible via une icône en bas à gauche de la fenêtre principale de Postman :</p>
-<p><img src="images/10000000000001C7000001166D0BCD60.png" style="width:5.255cm;height:3.209cm;" alt="Image" /></p>
+<p><img src="images/10000000000001C7000001166D0BCD60.png" style="width:5.255cm;height:3.209cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C7000001166D0BCD60.png" /></p>
 <p>La console Postman mémorise les dialogues client / serveur qui ont lieu lorsqu’une requête Postman est exécutée :</p>
-<p><img src="images/1000000000000471000002F877167F67.png" style="width:13.14cm;height:8.781cm;" alt="Image" /></p>
+<p><img src="images/1000000000000471000002F877167F67.png" style="width:13.14cm;height:8.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000471000002F877167F67.png" /></p>
 <ul>
 <li>en <strong>[3]</strong>, la liste des requêtes faites par Postman depuis qu’il a été lancé. Les plus récentes sont en bas de la liste ;</li>
 <li>en <strong>[4]</strong>, la requête HTTP faite par Postman ;</li>
@@ -2445,7 +2445,7 @@
 <li>en <strong>[7]</strong>, on peut voir les logs en mode <strong>[raw]</strong>, ç-à-d sans artifice de présentation ;</li>
 </ul>
 <p>En mode <strong>[raw]</strong> la fenêtre de la console devient la suivante :</p>
-<p><img src="images/1000000000000475000001F5CC193074.png" style="width:13.151cm;height:5.792cm;" alt="Image" /></p>
+<p><img src="images/1000000000000475000001F5CC193074.png" style="width:13.151cm;height:5.792cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000475000001F5CC193074.png" /></p>
 <ul>
 <li>en <strong>[8]</strong>, la requête HTTP faite par Postman au serveur web ;</li>
 <li>en <strong>[9]</strong>, la réponse HTTP faite par le serveur web ;</li>
@@ -2489,7 +2489,7 @@
 </ul>
 <p><a id="toc48549151"></a></p>
 <h3 id="2243-script-main_02">22.4.3. script [main_02]</h3>
-<p><img src="images/10000000000001100000012C5A3D3274.png" style="width:3.151cm;height:3.47cm;" alt="Image" /></p>
+<p><img src="images/10000000000001100000012C5A3D3274.png" style="width:3.151cm;height:3.47cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001100000012C5A3D3274.png" /></p>
 <p>Le script web <strong>[main_02]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on configure l&#x27;application<span style="color:#000000"></span></span>
@@ -2535,7 +2535,7 @@
 </li>
 </ul>
 <p>Nous exécutons le script web <strong>[main_02]</strong> puis utilisons <strong>[Postman]</strong> pour l’interroger :</p>
-<p><img src="images/1000000000000591000002258E75C96F.png" style="width:16.431cm;height:6.34cm;" alt="Image" /></p>
+<p><img src="images/1000000000000591000002258E75C96F.png" style="width:16.431cm;height:6.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000591000002258E75C96F.png" /></p>
 <ul>
 <li>en <strong>[1-3]</strong>, on fait la requête au service web ;</li>
 <li>en <strong>[5]</strong>, le statut OK de la réponse ;</li>
@@ -2569,7 +2569,7 @@
 
 <p><a id="toc48549152"></a></p>
 <h3 id="2244-script-main_03">22.4.4. script [main_03]</h3>
-<p><img src="images/10000000000000D4000000E9B2521BDF.png" style="width:2.44cm;height:2.691cm;" alt="Image" /></p>
+<p><img src="images/10000000000000D4000000E9B2521BDF.png" style="width:2.44cm;height:2.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000D4000000E9B2521BDF.png" /></p>
 <p>Le script web <strong>[main_03]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on configure l&#x27;application<span style="color:#000000"></span></span>
@@ -2628,13 +2628,13 @@
 <li>ligne 36 : on envoie la réponse HTTP au client ;</li>
 </ul>
 <p>Nous lançons le service web <strong>[main_03]</strong> et nous utilisons Postman pour l’interroger :</p>
-<p><img src="images/100000000000047000000196AB227CD6.png" style="width:13.131cm;height:4.68cm;" alt="Image" /></p>
+<p><img src="images/100000000000047000000196AB227CD6.png" style="width:13.131cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047000000196AB227CD6.png" /></p>
 <ul>
 <li>en <strong>[1-3]</strong>, nous envoyons la requête ;</li>
 <li>en <strong>[4]</strong>, on obtient une réponse avec un code de statut <strong>[500 INTERNAL SERVER ERROR]</strong> ;</li>
 <li>en <strong>[5-7]</strong> : la réponse est un texte décrivant l’erreur qui s’est produite ;</li>
 </ul>
-<p><img src="images/10000000000004730000010EBBAEA7D2.png" style="width:13.131cm;height:3.121cm;" alt="Image" /></p>
+<p><img src="images/10000000000004730000010EBBAEA7D2.png" style="width:13.131cm;height:3.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004730000010EBBAEA7D2.png" /></p>
 <ul>
 <li>en <strong>[8-10]</strong>, les entêtes HTTP de la réponse du service web ;</li>
 </ul>
@@ -2670,7 +2670,7 @@
 <p><a id="scriptsflask04"></a>
 <a id="toc48549153"></a></p>
 <h2 id="225-scripts-flask04-informations-encapsulees-dans-la-requete">22.5. scripts [flask/04] : informations encapsulées dans la requête</h2>
-<p><img src="images/1000000000000129000000E646EF8C1E.png" style="width:3.432cm;height:2.661cm;" alt="Image" /></p>
+<p><img src="images/1000000000000129000000E646EF8C1E.png" style="width:3.432cm;height:2.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000129000000E646EF8C1E.png" /></p>
 <p>Le script <strong>[request_parameters.py]</strong> se propose de montrer que le service web a accès à diverses informations encapsulées dans la requête d’un client web. Le code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># import<span style="color:#000000"></span></span>
@@ -2730,7 +2730,7 @@
 <ul>
 <li>ligne 9 : nous introduisons un changement. Nous précisons quelles sont les verbes autorisés dans la requête du client. Postman en donne la liste :</li>
 </ul>
-<p><img src="images/100000000000011B0000030AF9D48BCD.png" style="width:3.26cm;height:8.97cm;" alt="Image" /></p>
+<p><img src="images/100000000000011B0000030AF9D48BCD.png" style="width:3.26cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000011B0000030AF9D48BCD.png" /></p>
 <p>Les deux premiers <strong>[GET, POST]</strong> sont les plus utilisés et seront également les seuls à être utilisés dans ce document. Pour en revenir à la ligne 9 du code, le paramètre <strong>[methods]</strong> contient la liste des méthodes de la liste ci-dessus autorisées par l’URL. En l’absence de ce paramètre, seule la méthode <strong>[GET]</strong> est autorisée. C’est ce qui s’est passé jusqu’à maintenant ;</p>
 <ul>
 <li>ligne 12 : nous allons construire le dictionnaire <strong>[request_data]</strong> ;</li>
@@ -2741,7 +2741,7 @@
 <li>ligne 46 : on envoie la réponse au client ;</li>
 </ul>
 <p>Avec le client Postman, nous envoyons la requête suivante au service web précédent :</p>
-<p><img src="images/1000000000000355000001279C3C2397.png" style="width:9.861cm;height:3.402cm;" alt="Image" /></p>
+<p><img src="images/1000000000000355000001279C3C2397.png" style="width:9.861cm;height:3.402cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000355000001279C3C2397.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, la requête envoyée ;</li>
 <li>en <strong>[2]</strong>, la requête est paramétrée. Les paramètres sont accolés à l’URL sous la forme <strong>[ ?param1=valeur1&amp;param2=valeur2]</strong>. Il y a deux façons de saisir ces paramètres dans Postman :<ul>
@@ -2752,7 +2752,7 @@
 </ul>
 <p>Les deux méthodes sont équivalentes ;</p>
 <p>Nous ajoutons d’autres paramètres à la requête :</p>
-<p><img src="images/10000000000003550000016362893FC7.png" style="width:9.842cm;height:4.089cm;" alt="Image" /></p>
+<p><img src="images/10000000000003550000016362893FC7.png" style="width:9.842cm;height:4.089cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003550000016362893FC7.png" /></p>
 <ul>
 <li>en <strong>[5-7]</strong>, nous ajoutons des paramètres dans le corps (=body) de le requête. Alors que les paramètres de l’URL sont visibles par l’utilisateur d’un navigateur web, ceux qui font partie du corps de la requête ne sont pas visibles. Le navigateur (ou Postman ici) les envoie au serveur après les entêtes HTTP. La requête du client web a alors la même structure que la réponse du serveur web : des entêtes HTTP suivis par un document. Cela va faire apparaître deux nouveaux entêtes HTTP dans la requête du client :<ul>
 <li><strong>[Content-Type]</strong> : le client dit au serveur quel type de document il envoie ;</li>
@@ -2762,15 +2762,15 @@
 <li>en <strong>[6]</strong>, le codage à employer pour les paramètres déclarés en <strong>[7]</strong>. Ceux-ci peuvent être codés de diverses façons. <strong>[x-www-form-urlencoded]</strong> est une méthode utilisée fréquemment par les navigateurs ;</li>
 </ul>
 <p>On peut voir la requête qui va être générée :</p>
-<p><img src="images/10000000000005C5000001E4CE668DE2.png" style="width:17.061cm;height:5.591cm;" alt="Image" /></p>
+<p><img src="images/10000000000005C5000001E4CE668DE2.png" style="width:17.061cm;height:5.591cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005C5000001E4CE668DE2.png" /></p>
 <p>La réponse à cette requête est la suivante :</p>
-<p><img src="images/100000000000029400000327DAF520BB.png" style="width:7.61cm;height:9.311cm;" alt="Image" /></p>
+<p><img src="images/100000000000029400000327DAF520BB.png" style="width:7.61cm;height:9.311cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029400000327DAF520BB.png" /></p>
 <ul>
 <li>en <strong>[1-5]</strong>, on a reçu une chaîne jSON <strong>[3]</strong> ;</li>
 <li>ce qui généralement intéresse le service web, ce sont les paramètres de l’URL <strong>[ ?param1=valeur1&amp;param2=valeur2]</strong> et ceux qui ont été transmis dans le corps de la requête (document). C’est comme ça, en général, que le client lui transmet des informations. On voit en <strong>[5]</strong> que les paramètres de l’URL sont disponibles dans <strong>[request.args]</strong> ;</li>
 </ul>
 <p>Le reste de la réponse est le suivant :</p>
-<p><img src="images/10000000000005A900000371BAFD4484.png" style="width:16.731cm;height:10.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000005A900000371BAFD4484.png" style="width:16.731cm;height:10.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A900000371BAFD4484.png" /></p>
 <ul>
 <li>en <strong>[9]</strong>, les attributs des paramètres mis dans le corps de la requête :<ul>
 <li><strong>[content_type]</strong> est le type du document accompagnant la requête. On a vu que ce document contenait des informations de type <strong>[param=valeur]</strong> encodées sous la forme <strong>[x-www-form-urlencoded]</strong>. Postman a donc généré un entête HTTP <strong>[Content-Type]</strong> indiquant la nature du document ;</li>
@@ -2940,7 +2940,7 @@
 <p>On peut se demander comment le serveur fait pour savoir qu&#x27;il a affaire à un nouveau client plutôt qu&#x27;à un client déjà venu. C&#x27;est la présence de l&#x27;en-tête HTTP <em>Cookie</em> dans les en-têtes HTTP du client qui le lui indique. Pour un nouveau client, cet en-tête est absent.</p>
 <p>L&#x27;ensemble des connexions d&#x27;un client donné est appelé une <strong>session</strong>.</p>
 <p>Le serveur peut maintenir d’autres types de mémoire :</p>
-<p><img src="images/10000000000003CF000001C54567FD75.png" style="width:11.261cm;height:5.22cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF000001C54567FD75.png" style="width:11.261cm;height:5.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000001C54567FD75.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, la mémoire de la requête est particulière. Elle est utilisée lorsque la demande du client web est traitée non pas par un service (ou application) mais par plusieurs. Pour passer des informations au service i+1, le service i peut enrichir la requête traitée (request) avec ces informations. C’est ce qu’on appelle la mémoire de niveau requête. Nous n’utiliserons pas ce type de mémoire dans ce document ;</li>
 <li>en <strong>[2, 4]</strong>, la mémoire de l’utilisateur que nous venons de décrire. Elle peut être implémentée localement <strong>[2]</strong> ou maintenue à l’aide du client <strong>[4]</strong> ;</li>
@@ -2948,7 +2948,7 @@
 </ul>
 <p><a id="toc48549156"></a></p>
 <h3 id="2262-script-session_scope_01">22.6.2. script [session_scope_01]</h3>
-<p><img src="images/1000000000000197000000E16061FCB8.png" style="width:4.702cm;height:2.59cm;" alt="Image" /></p>
+<p><img src="images/1000000000000197000000E16061FCB8.png" style="width:4.702cm;height:2.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000197000000E16061FCB8.png" /></p>
 <p>Les scripts <strong>[session_scope_xx]</strong> illustrent la gestion des mémoires utilisateurs.</p>
 <p>Le script <strong>[session_scope_01]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -3049,23 +3049,23 @@
 </code></pre></div>
 
 <p>Nous lançons le script <strong>[session_scope_01]</strong> puis avec Postman nous allons demander l’URL <strong>[/set-session]</strong>. Auparavant nous allons vérifier quelques éléments de la requête qui va être faite :</p>
-<p><img src="images/1000000000000536000000710D6491F8.png" style="width:15.391cm;height:1.301cm;" alt="Image" /></p>
+<p><img src="images/1000000000000536000000710D6491F8.png" style="width:15.391cm;height:1.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000536000000710D6491F8.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, accéder aux cookies de Postman ;</li>
 </ul>
-<p><img src="images/1000000000000489000001BCCF1162E9.png" style="width:13.39cm;height:5.13cm;" alt="Image" /></p>
+<p><img src="images/1000000000000489000001BCCF1162E9.png" style="width:13.39cm;height:5.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000489000001BCCF1162E9.png" /></p>
 <ul>
 <li>en <strong>[2-4]</strong>, on vérifie les cookies connus de Postman et on les supprime tous <strong>[4-5]</strong> ;</li>
 </ul>
 <p>Maintenant vérifions la requête HTTP qui va être générée :</p>
-<p><img src="images/1000000000000428000001A309EFEFCA.png" style="width:12.27cm;height:4.841cm;" alt="Image" /></p>
+<p><img src="images/1000000000000428000001A309EFEFCA.png" style="width:12.27cm;height:4.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000428000001A309EFEFCA.png" /></p>
 <ul>
 <li>en <strong>[9]</strong> : une partie des entêtes HTTP que Postman va mettre dans la requête à partir de la configuration que nous avons pu faire pour celle-ci. Cette vérification vous permet de vérifier que vous n’avez pas omis des paramètres ou au contraire laissé des paramètres inutiles ;</li>
 </ul>
 <p>Ceci fait, on peut exécuter la requête :</p>
-<p><img src="images/10000000000005E80000004D50276CC2.png" style="width:17.47cm;height:0.892cm;" alt="Image" /></p>
+<p><img src="images/10000000000005E80000004D50276CC2.png" style="width:17.47cm;height:0.892cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005E80000004D50276CC2.png" /></p>
 <p>Il y a différentes façons de vérifier le résultat. On peut déjà regarder la fenêtre principale :</p>
-<p><img src="images/100000000000055500000233D2CC752C.png" style="width:15.77cm;height:6.501cm;" alt="Image" /></p>
+<p><img src="images/100000000000055500000233D2CC752C.png" style="width:15.77cm;height:6.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055500000233D2CC752C.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, la requête faite au service web ;</li>
 <li>en <strong>[3-6]</strong>, les entêtes HTTP de la réponse ;</li>
@@ -3079,7 +3079,7 @@
 </li>
 </ul>
 <p>L’inconvénient de la fenêtre principale est qu’on n’a pas accès à la requête complète qui a amené à cette réponse. Ce qui est présenté dans cette fenêtre prête à confusion :</p>
-<p><img src="images/100000000000045600000222B4C97413.png" style="width:12.81cm;height:6.31cm;" alt="Image" /></p>
+<p><img src="images/100000000000045600000222B4C97413.png" style="width:12.81cm;height:6.31cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000045600000222B4C97413.png" /></p>
 <ul>
 <li>dans les entêtes HTTP <strong>[3-4]</strong> est présenté en <strong>[5]</strong> un cookie de session. On pourrait croire alors que Postman a mis dans la requête un cookie de session alors que ce n’est pas le cas. Les entêtes <strong>[3]</strong> représentent en fait les entêtes HTTP qui seront envoyés lors de la prochaine requête telle que celle-ci est actuellement configurée. Postman vient de recevoir un cookie de session qu’il renverra lors de la prochaine requête. C’est pourquoi on a <strong>[5]</strong> ;</li>
 </ul>
@@ -3140,7 +3140,7 @@
 </ul>
 <p><a id="toc48549157"></a></p>
 <h3 id="2263-script-session_scope_02">22.6.3. script [session_scope_02]</h3>
-<p><img src="images/100000000000019E000000E3A7F2CAD5.png" style="width:4.77cm;height:2.631cm;" alt="Image" /></p>
+<p><img src="images/100000000000019E000000E3A7F2CAD5.png" style="width:4.77cm;height:2.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019E000000E3A7F2CAD5.png" /></p>
 <p>Le script <strong>[session_02]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># dépendances<span style="color:#000000"></span></span>
@@ -3197,7 +3197,7 @@
 <li>ligne 35 : on envoie la réponse HTTP au client ;</li>
 </ul>
 <p>Exécutons ce script et interrogeons l’application web ainsi créée avec Postman après avoir supprimé tous les cookies du client Postman <strong>[1-3]</strong> :</p>
-<p><img src="images/1000000000000554000001C99B65D309.png" style="width:15.751cm;height:5.28cm;" alt="Image" /></p>
+<p><img src="images/1000000000000554000001C99B65D309.png" style="width:15.751cm;height:5.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000554000001C99B65D309.png" /></p>
 <p>Dans la console Postman, les échanges client / serveur sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">GET / HTTP/1.1</span>
@@ -3408,7 +3408,7 @@
 <p><a id="toc48549160"></a></p>
 <h3 id="2271-introduction">22.7.1. Introduction</h3>
 <p>Cette section vise à montrer comment gérer des informations de portée application, ç-à-d partagées par tous les utilisateurs. Ces informations sont typiquement des informations de configuration de l’application. Nous avons vu qu’une application web pouvait maintenir différents types de mémoire :</p>
-<p><img src="images/10000000000003CF000001C54567FD75.png" style="width:11.261cm;height:5.22cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF000001C54567FD75.png" style="width:11.261cm;height:5.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000001C54567FD75.png" /></p>
 <p>Nous nous intéressons ici à la mémoire de l’application <strong>[3]</strong>.</p>
 <p><a id="toc48549161"></a></p>
 <h3 id="2272-script-application_scope_01">22.7.2. script [application_scope_01]</h3>
@@ -3471,15 +3471,15 @@
 </code></pre></div>
 
 <p>Nous lançons cette application. Les logs dans la console PyCharm sont les suivants :</p>
-<p><img src="images/100000000000035400000178F614043D.png" style="width:9.85cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/100000000000035400000178F614043D.png" style="width:9.85cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035400000178F614043D.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, lancement initial de l’application ;</li>
 <li>en <strong>[2]</strong> parce qu’on a demandé le mode <strong>[Debug]</strong>, l’application est relancée en mode <strong>[Debug]</strong> ;</li>
 </ul>
 <p>Maintenant avec un navigateur (Chrome ci-dessous), on demande l’URL [<a href="http://127.0.0.1:5000/"><u><span style="color: #0563c1">http://127.0.0.1:5000/</span></u></a>] :</p>
-<p><img src="images/10000000000002190000015107212566.png" style="width:6.19cm;height:3.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000002190000015107212566.png" style="width:6.19cm;height:3.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002190000015107212566.png" /></p>
 <p>Maintenant avec un navigateur Firefox :</p>
-<p><img src="images/10000000000002BD00000133B8E0A113.png" style="width:8.081cm;height:3.541cm;" alt="Image" /></p>
+<p><img src="images/10000000000002BD00000133B8E0A113.png" style="width:8.081cm;height:3.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BD00000133B8E0A113.png" /></p>
 <p>Maintenant avec le client Postman :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
@@ -3518,14 +3518,14 @@
 <a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <p>Maintenant, on revient dans la console <strong>[Run]</strong> de Pycharm :</p>
-<p><img src="images/10000000000003D0000001EC8893BB2B.png" style="width:11.261cm;height:5.691cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D0000001EC8893BB2B.png" style="width:11.261cm;height:5.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D0000001EC8893BB2B.png" /></p>
 <ul>
 <li>les deux logs <strong>[1, 2]</strong> sont toujours là mais il n’y en a pas d’autres alors que l’on voit les trois requêtes reçues par le serveur web ;</li>
 </ul>
 <p>Pour être totalement sûrs que l’application n’est pas rechargée à chaque nouvelle requête, on peut mettre un compteur dans la configuration et l’incrémenter à chaque nouvelle requête. On verra alors que chaque client voit le compteur dans l’état où l’a laissé le précédent client. On rappelle cependant que les clients ne devraient pas modifier des données de portée application parce qu’elles sont partagées entre tous les clients et que dans un contexte où le serveur sert simultanément plusieurs clients sans garantie que la requête d’un client soit exécutée entièrement sans être interrompue, un client 1 qui a émis une requête 1 interrompue avant sa fin peut laisser les données partagées dans un état corrompu pour les clients suivants.</p>
 <p><a id="toc48549162"></a></p>
 <h3 id="2273-script-application_scope_02">22.7.3. script [application_scope_02]</h3>
-<p><img src="images/10000000000001370000013718162EC8.png" style="width:3.59cm;height:3.59cm;" alt="Image" /></p>
+<p><img src="images/10000000000001370000013718162EC8.png" style="width:3.59cm;height:3.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001370000013718162EC8.png" /></p>
 <p>Le script <strong>[application_scope_02]</strong> va faire ce qu’il ne faut pas faire : permettre aux clients de modifier des informations partagées avec les autres utilisateurs. On va partager un compteur entre les utilisateurs qui vont l’incrémenter. On va voir que chaque utilisateur voit les modifications apportées par les autres utilisateurs au compteur.</p>
 <p>Le script est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -3569,16 +3569,16 @@
 <li>lignes 23-26 : la chaîne jSON du dictionnaire est envoyée à chaque client ;</li>
 </ul>
 <p>On lance ce script. Puis on demande l’URL [<a href="http://127.0.0.1:5000/"><u><span style="color: #0563c1">http://127.0.0.1:5000/</span></u></a>] avec un premier navigateur :</p>
-<p><img src="images/1000000000000191000000B420109116.png" style="width:4.642cm;height:2.08cm;" alt="Image" /></p>
+<p><img src="images/1000000000000191000000B420109116.png" style="width:4.642cm;height:2.08cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000191000000B420109116.png" /></p>
 <p>On fait ensuite la même chose avec un second navigateur :</p>
-<p><img src="images/10000000000001E8000000E5A55E01AE.png" style="width:5.631cm;height:2.65cm;" alt="Image" /></p>
+<p><img src="images/10000000000001E8000000E5A55E01AE.png" style="width:5.631cm;height:2.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001E8000000E5A55E01AE.png" /></p>
 <p>Puis une troisième fois avec Postman :</p>
-<p><img src="images/100000000000023B000000DAD8605727.png" style="width:6.58cm;height:2.521cm;" alt="Image" /></p>
+<p><img src="images/100000000000023B000000DAD8605727.png" style="width:6.58cm;height:2.521cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023B000000DAD8605727.png" /></p>
 <p>On voit que chaque client récupère le compteur dans l’état où le client précédent l’a laissé. Ils ont donc bien accès à la même information.</p>
 <p><a id="toc48549163"></a></p>
 <h3 id="2274-script-application_scope_03">22.7.4. script [application_scope_03]</h3>
 <p>Le script <strong>[application_scope_03]</strong> montre pourquoi l’information partagée entre utilisateurs doit être en lecture seule.</p>
-<p><img src="images/100000000000013600000137C3593DCB.png" style="width:3.581cm;height:3.59cm;" alt="Image" /></p>
+<p><img src="images/100000000000013600000137C3593DCB.png" style="width:3.581cm;height:3.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013600000137C3593DCB.png" /></p>
 <p>Le script est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># dépendances<span style="color:#000000"></span></span>
@@ -3673,7 +3673,7 @@
 <p>On retiendra de cet exemple que le code d’une application web ne doit pas modifier la valeur d’informations partagées par les utilisateurs.</p>
 <p><a id="toc48549164"></a></p>
 <h2 id="228-scripts-flask07-gestion-des-routes">22.8. scripts [flask/07] : gestion des routes</h2>
-<p><img src="images/100000000000010300000130FE8A2D44.png" style="width:2.991cm;height:3.511cm;" alt="Image" /></p>
+<p><img src="images/100000000000010300000130FE8A2D44.png" style="width:2.991cm;height:3.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010300000130FE8A2D44.png" /></p>
 <p>Nous nous intéressons ici à la gestion des routes d’une application, ç-à-d les URL servies par l’application web.</p>
 <p><a id="toc48549165"></a></p>
 <h3 id="2281-script-main_01-routes-parametrees">22.8.1. script [main_01] : routes paramétrées</h3>
@@ -3760,11 +3760,11 @@
 <li>lignes 23-62 : d’autres routes paramétrées qui seront utilisées ultérieurement dans un exercice d’application ;</li>
 </ul>
 <p>On lance le script et on l’interroge avec le client Postman :</p>
-<p><img src="images/10000000000005AA000001F49B5D09CB.png" style="width:16.721cm;height:5.781cm;" alt="Image" /></p>
+<p><img src="images/10000000000005AA000001F49B5D09CB.png" style="width:16.721cm;height:5.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005AA000001F49B5D09CB.png" /></p>
 <p><a id="toc48549166"></a></p>
 <h3 id="2282-script-main_02-externalisation-des-routes">22.8.2. script [main_02] : externalisation des routes</h3>
 <p>Dans le script <strong>[main_01]</strong> précédent, le code peut devenir important s’il y a de nombreuses routes. Le script <strong>[main_02]</strong> montre comment externaliser les routes.</p>
-<p><img src="images/100000000000010300000130B409EAE7.png" style="width:2.991cm;height:3.511cm;" alt="Image" /></p>
+<p><img src="images/100000000000010300000130B409EAE7.png" style="width:2.991cm;height:3.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010300000130B409EAE7.png" /></p>
 <p>Le script <strong>[routes_02]</strong> rassemble les fonctions associées aux routes du script précédent :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> <span style="color:#6f008a">flask</span> <span style="color:#0000ff">import</span> make_response</span>

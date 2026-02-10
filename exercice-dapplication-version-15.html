@@ -1527,19 +1527,19 @@
 <p><a id="toc48549325"></a></p>
 <h2 id="351-introduction">35.1. Introduction</h2>
 <p>Cette version vise à résoudre des problèmes liés au rafraîchissement des pages de l’application dans le navigateur (F5). Prenons un exemple. L’utilisateur vient de suprimer la simulation d’id=3 :</p>
-<p><img src="images/10000000000005BF0000026D6053DA9E.png" style="width:16.971cm;height:7.171cm;" alt="Image" /></p>
+<p><img src="images/10000000000005BF0000026D6053DA9E.png" style="width:16.971cm;height:7.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005BF0000026D6053DA9E.png" /></p>
 <p>Après la suppression l’URL dans le navigateur est <strong>[/supprimer-simulation/3/…]</strong>. Si l’utilisateur rafraîchit la page (F5), l’URL <strong>[1]</strong> est rejouée. On demande donc de nouveau la suppression de la simulation d’id=3. Le résultat est alors le suivant :</p>
-<p><img src="images/10000000000004710000022510AE0224.png" style="width:13.14cm;height:6.34cm;" alt="Image" /></p>
+<p><img src="images/10000000000004710000022510AE0224.png" style="width:13.14cm;height:6.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004710000022510AE0224.png" /></p>
 <p>Voici un autre exemple. L’utilisateur vient de calculer un impôt :</p>
 <ul>
 <li>en <strong>[1]</strong>, l’URL <strong>[/calculer-impot]</strong> qui vient d’être interrogée avec un POST ;</li>
 </ul>
-<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" /></p>
+<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054A000003ADADB5C962.png" /></p>
 <p>Si l’utilisateur rafraîchit la page (F5), il obtient un message d’avertissement :</p>
-<p><img src="images/10000000000002D40000011C5B0E676C.png" style="width:8.351cm;height:3.282cm;" alt="Image" /></p>
+<p><img src="images/10000000000002D40000011C5B0E676C.png" style="width:8.351cm;height:3.282cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D40000011C5B0E676C.png" /></p>
 <p>L’opération de rafraîchissement de page rejoue la dernière requête exécutée par le navigateur, ici un <strong>[POST /calculer-impot]</strong>. Lorsqu’on demande à rejouer un POST, les navigateurs émettent un avertissement analogue à celui ci-dessus. Celui-ci avertit qu’il est en train de rejouer une action déjà faite. Supposons que ce POST ait effectué un achat, il serait malheureux de refaire celui-ci.</p>
 <p>Par ailleurs, nous allons limiter la possibilité de l’utilisateur de taper des URL dans son navigateur. Prenons par exemple l’une des vues précédentes :</p>
-<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" /></p>
+<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054A000003ADADB5C962.png" /></p>
 <p>Les liens offerts par cette page sont :</p>
 <ul>
 <li><strong>[Liste des simulations]</strong> associé à l’URL <strong>[/lister-simulations]</strong> ;</li>
@@ -1560,11 +1560,11 @@
 <p>L’intérêt de cette méthode est que le navigateur affichera l’URL ASV dans son champ d’adresse. Le rafraîchissement de la page rejouera alors l’action ASV. Celle-ci ne modifie pas l’état de l’application et utilise un modèle en session. Donc la même page sera réaffichée sans effets de bord. Finalement, à cause des redirections, l’utilisateur ne verra que des URL d’actions ASV dans son navigateur et aura l’impression de naviguer de page en page ;</p>
 <p><a id="toc48549326"></a></p>
 <h2 id="352-implementation">35.2. Implémentation</h2>
-<p><img src="images/100000000000013800000146F0CE2B83.png" style="width:3.601cm;height:3.77cm;" alt="Image" /></p>
+<p><img src="images/100000000000013800000146F0CE2B83.png" style="width:3.601cm;height:3.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013800000146F0CE2B83.png" /></p>
 <p>Le dossier <strong>[impots/http-servers/10]</strong> est obtenu initialement par recopie du dossier <strong>[impots/http-servers/09]</strong>. Il est ensuite modifié.</p>
 <p><a id="toc48549327"></a></p>
 <h3 id="3521-les-nouvelles-routes">35.2.1. Les nouvelles routes</h3>
-<p><img src="images/100000000000019B000001C6F398E1E6.png" style="width:4.751cm;height:5.25cm;" alt="Image" /></p>
+<p><img src="images/100000000000019B000001C6F398E1E6.png" style="width:4.751cm;height:5.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019B000001C6F398E1E6.png" /></p>
 <p>Dans les deux fichiers <strong>[routes_with_csrftoken]</strong> et <strong>[routes_without_csrftoken]</strong>, il nous faut créer les quatre routes des quatre actions ASV qui affichent les quatre vues. Les autres routes restent à l’identique.</p>
 <p>Dans <strong>[routes_with_csrftoken]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1630,7 +1630,7 @@
 
 <p><a id="toc48549328"></a></p>
 <h3 id="3522-les-nouveaux-controleurs">35.2.2. Les nouveaux contrôleurs</h3>
-<p><img src="images/100000000000021300000153E76C55DB.png" style="width:6.13cm;height:3.911cm;" alt="Image" /></p>
+<p><img src="images/100000000000021300000153E76C55DB.png" style="width:6.13cm;height:3.911cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021300000153E76C55DB.png" /></p>
 <p>Le contrôleur <strong>[</strong><strong>AfficherVueAuthentificationController</strong><strong>]</strong> exécute l’action ASV <strong>[/afficher-vue-authentification]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> flask_api <span style="color:#0000ff">import</span> status</span>
@@ -1985,7 +1985,7 @@
 
 <p><a id="toc48549330"></a></p>
 <h3 id="3524-les-nouveaux-modeles">35.2.4. Les nouveaux modèles</h3>
-<p><img src="images/10000000000001AC000001E163AC4D3B.png" style="width:4.95cm;height:5.541cm;" alt="Image" /></p>
+<p><img src="images/10000000000001AC000001E163AC4D3B.png" style="width:4.95cm;height:5.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AC000001E163AC4D3B.png" /></p>
 <p>Les modèles vont générer une nouvelle information. Prenons par exemple, le modèle de la vue d’authentification :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> flask <span style="color:#0000ff">import</span> Request</span>
@@ -2013,7 +2013,7 @@
 <ul>
 <li>la nouveauté est ligne 17 : chaque modèle va générer une liste d’actions possibles lorsque la vue V dont il est le modèle M va s’afficher. Pour connaître ces actions, il faut revenir à la vue V. Dans le cas de la vue d’authentification :</li>
 </ul>
-<p><img src="images/1000000000000434000002F135E4756E.png" style="width:12.431cm;height:8.691cm;" alt="Image" /></p>
+<p><img src="images/1000000000000434000002F135E4756E.png" style="width:12.431cm;height:8.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000434000002F135E4756E.png" /></p>
 <ul>
 <li>on voit que la vue d’authentification n’offre qu’une action, celle du bouton <strong>[Valider]</strong>. Cette action est <strong>[/authentifier-utilisateur]</strong> ;</li>
 </ul>
@@ -2054,7 +2054,7 @@
 
 <p><a id="toc48549331"></a></p>
 <h3 id="3525-le-nouveau-controleur-principal">35.2.5. Le nouveau contrôleur principal</h3>
-<p><img src="images/100000000000020B00000246374424F9.png" style="width:6.04cm;height:6.73cm;" alt="Image" /></p>
+<p><img src="images/100000000000020B00000246374424F9.png" style="width:6.04cm;height:6.73cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000020B00000246374424F9.png" /></p>
 <p>Le contrôleur <strong>[MainController]</strong> subit quelques modifications :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># import des dépendances<span style="color:#000000"></span></span>
@@ -2218,7 +2218,7 @@
 </ul>
 <p><a id="toc48549332"></a></p>
 <h3 id="3526-la-nouvelle-reponse-html">35.2.6. La nouvelle réponse HTML</h3>
-<p><img src="images/100000000000018F000000C50A5589CA.png" style="width:4.601cm;height:2.271cm;" alt="Image" /></p>
+<p><img src="images/100000000000018F000000C50A5589CA.png" style="width:4.601cm;height:2.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F000000C50A5589CA.png" /></p>
 <p>Les modifications en cours ne concernent que les sessions HTML. Les sessions jSON ou XML ne sont pas impactées. La classe <strong>[HtmlResponse]</strong> évolue de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># dépendances<span style="color:#000000"></span></span>
@@ -2323,9 +2323,9 @@
 </ul>
 <p>Par ailleurs, utilisez le client <strong>[impots/http-clients/09]</strong>. Comme les modifications faites concernent uniquement les sessions HTML, les clients <strong>[main, main2, main3, Test1HttpClientDaoWithSession, Test2HttpClientDaoWithSession]</strong> doivent continuer à fonctionner.</p>
 <p>Maintenant voyons un cas d’action impossible. La vue suivante est affichée :</p>
-<p><img src="images/100000000000054800000309B0820BC0.png" style="width:15.62cm;height:8.97cm;" alt="Image" /></p>
+<p><img src="images/100000000000054800000309B0820BC0.png" style="width:15.62cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054800000309B0820BC0.png" /></p>
 <p>A la place de <strong>[1]</strong>, on tape l’URL <strong>[/supprimer-simulation/1]</strong>. L’action <strong>[/supprimer-simulation]</strong> ne fait pas partie des actions proposées par la vue qui sont les actions 1-4. Elle va donc être refusée. La réponse du serveur est la suivante :</p>
-<p><img src="images/100000000000058D0000021D6D70A545.png" style="width:16.421cm;height:6.25cm;" alt="Image" /></p>
+<p><img src="images/100000000000058D0000021D6D70A545.png" style="width:16.421cm;height:6.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058D0000021D6D70A545.png" /></p>
 
 
 

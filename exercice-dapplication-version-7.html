@@ -1612,14 +1612,14 @@
 <li>le serveur enverra un mail à l’administrateur de l’application lorsqu’il rencontrera un problème qui l’empêchera de se lancer, typiquement un problème avec la base de données associée au serveur web ;</li>
 </ul>
 <p>L’architecture de l’application ne change pas :</p>
-<p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.082cm;height:11.531cm;" alt="Image" /></p>
+<p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.082cm;height:11.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BE000003E50F9DB416.png" /></p>
 <p>L’arborescence des scripts est la suivante :</p>
-<p><img src="images/1000000000000188000001CF823675AD.png" style="width:4.522cm;height:5.351cm;" alt="Image" /></p>
+<p><img src="images/1000000000000188000001CF823675AD.png" style="width:4.522cm;height:5.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000188000001CF823675AD.png" /></p>
 <p>Le dossier <strong>[http-servers/02]</strong> est d’abord obtenue par recopie du dossier <strong>[http-servers/01]</strong>. On y fait ensuite des modifications.</p>
 <p><a id="lesutilitaires"></a>
 <a id="toc48549182"></a></p>
 <h2 id="242-les-utilitaires">24.2. Les utilitaires</h2>
-<p><img src="images/100000000000018E000001473BCE220A.png" style="width:4.601cm;height:3.781cm;" alt="Image" /></p>
+<p><img src="images/100000000000018E000001473BCE220A.png" style="width:4.601cm;height:3.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018E000001473BCE220A.png" /></p>
 <p><a id="laclasselogger"></a>
 <a id="toc48549183"></a></p>
 <h3 id="2421-la-classe-logger">24.2.1. La classe [Logger]</h3>
@@ -1704,7 +1704,7 @@
 <p><a id="toc48549184"></a></p>
 <h3 id="2422-la-classe-sendadminmail">24.2.2. La classe [SendAdminMail]</h3>
 <p>La classe <strong>[SendAminMail]</strong> permet d’envoyer un message à l’administrateur de l’application lorsque celle-ci ‘plante’.</p>
-<p><img src="images/10000000000001820000019B2F5335EF.png" style="width:4.451cm;height:4.74cm;" alt="Image" /></p>
+<p><img src="images/10000000000001820000019B2F5335EF.png" style="width:4.451cm;height:4.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001820000019B2F5335EF.png" /></p>
 <p>La classe <strong>[SendAdminMail]</strong> est configurée dans le script <strong>[config]</strong> <strong>[2]</strong> de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#000000">        </span># config serveur SMTP</span>
@@ -2111,7 +2111,7 @@
 <p><a id="toc48549188"></a></p>
 <h3 id="2433-le-controleur-index_controller">24.3.3. Le contrôleur [index_controller]</h3>
 <p>Le contrôleur <strong>[index_controller]</strong> qui exécute les requêtes est celui de la version précédente :</p>
-<p><img src="images/100000000000017E000001F38548F1CF.png" style="width:4.41cm;height:5.762cm;" alt="Image" /></p>
+<p><img src="images/100000000000017E000001F38548F1CF.png" style="width:4.41cm;height:5.762cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017E000001F38548F1CF.png" /></p>
 <p><a id="toc48549189"></a></p>
 <h3 id="2434-execution">24.3.4. Exécution</h3>
 <p>On lance le serveur Flask, le serveur de mails |<a href="#_Installation_d’un_serveur"><u><span style="color: #0563c1">hMailServer</span></u></a>| ainsi que le lecteur de courrier |<a href="#_Installation_d'un_lecteur"><u><span style="color: #0563c1">Thunderbird</span></u></a>|. On ne lance pas le SGBD. Le serveur s’arrête avec les logs console suivants :</p>
@@ -2134,7 +2134,7 @@
 </code></pre></div>
 
 <p>Avec Thunderbird, on vérifie les mails de l’administrateur <strong>[guest@localhost.com]</strong> :</p>
-<p><img src="images/10000000000005540000028606FC64BC.png" style="width:15.77cm;height:7.46cm;" alt="Image" /></p>
+<p><img src="images/10000000000005540000028606FC64BC.png" style="width:15.77cm;height:7.46cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005540000028606FC64BC.png" /></p>
 <p>Puis on lance le SGBD et on demande l’URL [<a href="http://127.0.0.1:5000/?marié=oui&amp;enfants=3&amp;salaire=200000"><u><span style="color: #0563c1">http://127.0.0.1:5000/?mari%C3%A9=oui&amp;enfants=3&amp;salaire=200000</span></u></a>]. Les logs deviennent les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">2020-07-23 11:56:38.891753, MainThread : <span style="font-weight:bold">[serveur]</span> démarrage du serveur</span>
@@ -2151,7 +2151,7 @@
 </ul>
 <p><a id="toc48549190"></a></p>
 <h2 id="244-le-client-web">24.4. Le client web</h2>
-<p><img src="images/1000000000000207000002166A13AA26.png" style="width:6.002cm;height:6.171cm;" alt="Image" /></p>
+<p><img src="images/1000000000000207000002166A13AA26.png" style="width:6.002cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000207000002166A13AA26.png" /></p>
 <p>Le dossier <strong>[http-clients/02]</strong> est obtenu par recopie du dossier <strong>[http-clients/01]</strong>. On procède ensuite à quelques modifications.</p>
 <p><a id="toc48549191"></a></p>
 <h3 id="2441-la-configuration">24.4.1. La configuration</h3>
@@ -2545,9 +2545,9 @@
 <a id="toc48549195"></a></p>
 <h2 id="245-tests-de-la-couche-dao">24.5. Tests de la couche [dao]</h2>
 <p>Comme nous l’avons fait dans la |<a href="#_Tests_de_la"><u><span style="color: #0563c1">version précédente</span></u></a>| nous testons la couche <strong>[dao]</strong> du client. Le principe est exactement le même :</p>
-<p><img src="images/1000000000000390000003C89110DD1E.png" style="width:10.521cm;height:11.171cm;" alt="Image" /></p>
+<p><img src="images/1000000000000390000003C89110DD1E.png" style="width:10.521cm;height:11.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000390000003C89110DD1E.png" /></p>
 <p>La classe de test sera exécutée dans l’environnement suivant :</p>
-<p><img src="images/10000000000001AA000002066FDFF26C.png" style="width:4.911cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/10000000000001AA000002066FDFF26C.png" style="width:4.911cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000002066FDFF26C.png" /></p>
 <ul>
 <li>la configuration <strong>[2]</strong> est identique à la configuration <strong>[1]</strong> que nous venons d’étudier ;</li>
 </ul>

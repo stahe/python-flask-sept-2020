@@ -1385,10 +1385,10 @@
 <a id="toc48549070"></a></p>
 <h1 id="18-ecrire-du-code-independant-du-sgbd">18. Ecrire du code indépendant du SGBD</h1>
 <p>Nous avons vu précédemment que dans certains cas il était possible de migrer simplement du code Python écrit pour le SGBD MySQL vers du code écrit pour le SGBD PostgreSQL. Dans ce chapitre, nous montrons comment systématiser cette approche. L’architecture proposée devient la suivante :</p>
-<p><img src="images/10000000000003B4000000E6700B9C1D.png" style="width:10.951cm;height:2.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000003B4000000E6700B9C1D.png" style="width:10.951cm;height:2.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B4000000E6700B9C1D.png" /></p>
 <p>On souhaite que le choix du connecteur et donc du SGBD se fasse par configuration et ne nécessite pas de réécriture du script. On rappelle que cela n’est possible que dans les cas où le script n’utilise pas d’extensions propriétaires du SGBD.</p>
 <p>L’arborescence des scripts sera la suivante :</p>
-<p><img src="images/1000000000000168000001EBB3D4138F.png" style="width:4.16cm;height:5.661cm;" alt="Image" /></p>
+<p><img src="images/1000000000000168000001EBB3D4138F.png" style="width:4.16cm;height:5.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000168000001EBB3D4138F.png" /></p>
 <p>Les scripts <strong>[any_xx]</strong> reprennent les scripts déjà étudiés pour les SGBD MySQL et PostgreSQL. Nous n’allons pas tous les reprendre. Nous allons nous concentrer sur le script <strong>[any_04]</strong> qui est le plus complexe. On rappelle que ce script exécute les commandes SQL du fichier <strong>[data/commandes.sql]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># suppression de la table <span style="font-weight:bold">[personnes]</span></span>

@@ -1596,7 +1596,7 @@
 <p><a id="exercicedapplication"></a>
 <a id="toc48549090"></a></p>
 <h1 id="20-exercice-dapplication-version-5">20. Exercice d&#x27;application : version 5</h1>
-<p><img src="images/100000000000016E0000029AE558FCD0.png" style="width:3.811cm;height:6.921cm;" alt="Image" /></p>
+<p><img src="images/100000000000016E0000029AE558FCD0.png" style="width:3.811cm;height:6.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016E0000029AE558FCD0.png" /></p>
 <p>Nous allons développer trois applications :</p>
 <ul>
 <li>l’application 1 initialisera la base de données qui va venir remplacer le fichier <strong>[admindata.json]</strong> de la version 4 ;</li>
@@ -1606,11 +1606,11 @@
 <p><a id="toc48549091"></a></p>
 <h2 id="201-application-1-initialisation-de-la-base-de-donnees">20.1. Application 1 : initialisation de la base de données</h2>
 <p>L’application 1 aura l&#x27;architecture suivante :</p>
-<p><img src="images/1000000000000474000002D64D661730.png" style="width:13.14cm;height:8.37cm;" alt="Image" /></p>
+<p><img src="images/1000000000000474000002D64D661730.png" style="width:13.14cm;height:8.37cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D64D661730.png" /></p>
 <p>C&#x27;est une évolution de l&#x27;architecture de la version 4 (paragraphe |<a href="#_Exercice_d'application_-"><u><span style="color: #0563c1">Version 4</span></u></a>|) : les données fiscales seront trouvées dans une base de données au lieu d&#x27;être dans un fichier jSON. La couche <strong>[dao]</strong> va évoluer pour implémenter ce changement.</p>
 <p><a id="toc48549092"></a></p>
 <h3 id="2011-le-fichier-admindatajson">20.1.1. Le fichier [admindata.json]</h3>
-<p><img src="images/100000000000017B00000129792FF6BF.png" style="width:4.381cm;height:3.432cm;" alt="Image" /></p>
+<p><img src="images/100000000000017B00000129792FF6BF.png" style="width:4.381cm;height:3.432cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B00000129792FF6BF.png" /></p>
 <p>Le fichier <strong>[admindata.json]</strong> est celui qu’il était dans la version 4 :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">{</span>
@@ -1634,9 +1634,9 @@
 <p><a id="toc48549093"></a></p>
 <h3 id="2012-creation-des-bases-de-donnees">20.1.2. Création des bases de données</h3>
 <p>Comme il a été montré au paragraphe |<a href="#_Création_d’une_base"><u><span style="color: #0563c1">création d’une base de données MySQL</span></u></a>|, nous créons une base de données MySQL nommée <strong>[dbimpots-2019]</strong> propriété de l’utilisateur <strong>[admimpots]</strong> de mot de passe <strong>[mdpimpots]</strong>. Dans <strong>[phpMyAdmin]</strong> cela donne la chose suivante :</p>
-<p><img src="images/100000000000059B000001889F0F7712.png" style="width:16.581cm;height:4.53cm;" alt="Image" /></p>
+<p><img src="images/100000000000059B000001889F0F7712.png" style="width:16.581cm;height:4.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000059B000001889F0F7712.png" /></p>
 <p>De même, comme il a été montré au paragraphe |<a href="#_Administrer_PostgreSQL_avec"><u><span style="color: #0563c1">création d’une base de données PostgreSQL</span></u></a>|, nous créons une base de données PostgreSQL nommée <strong>[dbimpots-2019]</strong> propriété de l’utilisateur <strong>[admimpots]</strong> de mot de passe <strong>[mdpimpots]</strong>. Dans <strong>[pgAdmin]</strong> cela donne la chose suivante :</p>
-<p><img src="images/10000000000005540000021DD77E89EE.png" style="width:15.761cm;height:6.241cm;" alt="Image" /></p>
+<p><img src="images/10000000000005540000021DD77E89EE.png" style="width:15.761cm;height:6.241cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005540000021DD77E89EE.png" /></p>
 <p>Les bases sont créées mais pour l’instant elles n’ont aucune table. Celles-ci vont être construites par l’ORM <strong>[sqlalchemy]</strong>.</p>
 <p><a id="toc48549094"></a></p>
 <h3 id="2013-les-entitees-mappees-par-sqlalchemy">20.1.3. Les entitées mappées par [sqlalchemy]</h3>
@@ -1671,7 +1671,7 @@
 </code></pre></div>
 
 <p>Les entités qui seront mappées avec ces deux tables seront les suivantes :</p>
-<p><img src="images/100000000000013F0000014DF6407E52.png" style="width:3.68cm;height:3.841cm;" alt="Image" /></p>
+<p><img src="images/100000000000013F0000014DF6407E52.png" style="width:3.68cm;height:3.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013F0000014DF6407E52.png" /></p>
 <p>L’entité <strong>[Constantes]</strong> encapsule les constantes du dictionnaire <strong>[admindata.json]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> <span style="color:#6f008a">BaseEntity</span> <span style="color:#0000ff">import</span> BaseEntity</span>
@@ -1726,7 +1726,7 @@
 <li>lignes 10-12 : les propriétés de la classe ;</li>
 </ul>
 <p>Le mapping entre les entités <strong>[Constantes, Tranche]</strong> et les tables <strong>[constantes, tranches]</strong> sera le suivant :</p>
-<p><img src="images/10000000000001AB000002060FD6F2A5.png" style="width:4.43cm;height:5.381cm;" alt="Image" /></p>
+<p><img src="images/10000000000001AB000002060FD6F2A5.png" style="width:4.43cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#000000">…</span><span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#000000">    </span># la table des constantes</span>
@@ -1766,7 +1766,7 @@
 <a id="refheadingtoc822323439697744"></a>
 <a id="toc48549095"></a></p>
 <h3 id="2014-le-fichier-de-configuration-de-sqlalchemy">20.1.4. Le fichier de configuration de [sqlalchemy]</h3>
-<p><img src="images/10000000000001AB000002060FD6F2A5.png" style="width:4.43cm;height:5.381cm;" alt="Image" /></p>
+<p><img src="images/10000000000001AB000002060FD6F2A5.png" style="width:4.43cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AB000002060FD6F2A5.png" /></p>
 <p>Nous venons de détailler une partie de la configuration de <strong>[sqlalchemy]</strong>. Le fichier <strong>[config_database]</strong> dans sa totalité est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(<span style="color:#808080">config</span>: <span style="color:#2b91af">dict</span>) -&gt; <span style="color:#2b91af">dict</span>:</span>
@@ -1839,9 +1839,9 @@
 <p><a id="toc48549096"></a></p>
 <h3 id="2015-la-couche-dao">20.1.5. La couche [dao]</h3>
 <p>Revenons à l’architecture de l’application 1 à construire :</p>
-<p><img src="images/1000000000000474000002D64D661730.png" style="width:13.14cm;height:8.37cm;" alt="Image" /></p>
+<p><img src="images/1000000000000474000002D64D661730.png" style="width:13.14cm;height:8.37cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000474000002D64D661730.png" /></p>
 <p>La couche <strong>[dao]</strong> <strong>[1]</strong> doit lire le fichier <strong>[admindata.json]</strong> <strong>[2]</strong> et transférer son contenu dans une des bases <strong>[3, 4]</strong> ;</p>
-<p><img src="images/100000000000022F000001FDE6D0F33E.png" style="width:6.46cm;height:5.882cm;" alt="Image" /></p>
+<p><img src="images/100000000000022F000001FDE6D0F33E.png" style="width:6.46cm;height:5.882cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000022F000001FDE6D0F33E.png" /></p>
 <p>La couche <strong>[dao]</strong> présente l’interface <strong>[1]</strong> et est implémentée par la classe <strong>[2]</strong>.</p>
 <p>L’interface <strong>[</strong><strong><span style="color: #2b91af">InterfaceDao4TransferAdminData2Database</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1956,7 +1956,7 @@
 </ul>
 <p><a id="toc48549097"></a></p>
 <h3 id="2016-configuration-de-lapplication">20.1.6. Configuration de l’application</h3>
-<p><img src="images/1000000000000185000002053F5226B4.png" style="width:4.481cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/1000000000000185000002053F5226B4.png" style="width:4.481cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000185000002053F5226B4.png" /></p>
 <p>L’application est configurée par trois fichiers <strong>[1]</strong> :</p>
 <ul>
 <li><strong>[config]</strong> est le fichier de configuration générale. C’est lui qui configure l’application <strong>[main]</strong>. Il se fait aider par les deux autres fichiers :<ul>
@@ -2050,8 +2050,8 @@
 </ul>
 <p><a id="toc48549098"></a></p>
 <h3 id="2017-le-script-main-de-lapplication">20.1.7. Le script [main] de l’application</h3>
-<p><img src="images/100000000000018E000002054838D98A.png" style="width:4.141cm;height:5.381cm;" alt="Image" /></p>
-<p><img src="images/100000010000032E00000215935EB4C2.png" style="width:13.831cm;height:9.051cm;" alt="Image" /></p>
+<p><img src="images/100000000000018E000002054838D98A.png" style="width:4.141cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018E000002054838D98A.png" /></p>
+<p><img src="images/100000010000032E00000215935EB4C2.png" style="width:13.831cm;height:9.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032E00000215935EB4C2.png" /></p>
 <p>Le script principal <strong>[main]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre mysql ou pgres<span style="color:#000000"></span></span>
@@ -2097,43 +2097,43 @@
 <li>ligne 25 : on fait le transfert en base. Toutes les informations nécessaires à la méthode <strong>[</strong><strong><span style="color: #000000">transfer_admindata_in_database</span></strong><strong>]</strong> sont disponibles dans les propriétés de la couche <strong>[dao]</strong> de la ligne 20. C’est là qu’elle ira les chercher ;</li>
 </ul>
 <p>Après exécution avec la base MySQL, celle-ci contient les éléments suivants (phpMyAdmin) :</p>
-<p><img src="images/10000000000002560000042A6C088693.png" style="width:6.901cm;height:12.3cm;" alt="Image" /></p>
-<p><img src="images/10000001000003FC000001280C474C2E.png" style="width:17.521cm;height:5.081cm;" alt="Image" /></p>
-<p><img src="images/1000000100000239000001CAA30A3175.png" style="width:9.61cm;height:7.73cm;" alt="Image" /></p>
+<p><img src="images/10000000000002560000042A6C088693.png" style="width:6.901cm;height:12.3cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002560000042A6C088693.png" /></p>
+<p><img src="images/10000001000003FC000001280C474C2E.png" style="width:17.521cm;height:5.081cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003FC000001280C474C2E.png" /></p>
+<p><img src="images/1000000100000239000001CAA30A3175.png" style="width:9.61cm;height:7.73cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000239000001CAA30A3175.png" /></p>
 <p>Colonne <strong>[3]</strong>, on voit les valeurs attribuées par MySQL à la clé primaire <strong>[id]</strong>. La numérotation démarre à 1. La copie d’écran ci-dessus a été obtenue après plusieurs exécutions du script.</p>
-<p><img src="images/10000001000003FA000001298C303263.png" style="width:17.511cm;height:5.1cm;" alt="Image" /></p>
-<p><img src="images/100000010000039200000123B9CBAF12.png" style="width:15.47cm;height:4.92cm;" alt="Image" /></p>
+<p><img src="images/10000001000003FA000001298C303263.png" style="width:17.511cm;height:5.1cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003FA000001298C303263.png" /></p>
+<p><img src="images/100000010000039200000123B9CBAF12.png" style="width:15.47cm;height:4.92cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000039200000123B9CBAF12.png" /></p>
 <p>Avec la base PostgreSQL les résultats sont les suivants :</p>
-<p><img src="images/10000001000003DF0000016937D5EBBA.png" style="width:16.44cm;height:5.98cm;" alt="Image" /></p>
+<p><img src="images/10000001000003DF0000016937D5EBBA.png" style="width:16.44cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003DF0000016937D5EBBA.png" /></p>
 <ul>
 <li>on clique droit sur <strong>[1]</strong>, puis ensuite <strong>[2-3]</strong> ;</li>
 <li>en <strong>[4]</strong>, on a bien les données des tranches d’impôts ;</li>
 </ul>
 <p><span style="color: #000000">On refait la même chose pour la table des constantes </span><strong><span style="color: #000000">[tbconstantes]</span></strong><span style="color: #000000"> :</span></p>
-<p><img src="images/100000010000030C000000FE916880AF.png" style="width:13.151cm;height:4.28cm;" alt="Image" /></p>
-<p><img src="images/10000001000002F8000000FEB93CE4B7.png" style="width:13.131cm;height:4.381cm;" alt="Image" /></p>
-<p><img src="images/100000010000031F000000FC161A736A.png" style="width:13.821cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/100000010000030C000000FE916880AF.png" style="width:13.151cm;height:4.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000030C000000FE916880AF.png" /></p>
+<p><img src="images/10000001000002F8000000FEB93CE4B7.png" style="width:13.131cm;height:4.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002F8000000FEB93CE4B7.png" /></p>
+<p><img src="images/100000010000031F000000FC161A736A.png" style="width:13.821cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000031F000000FC161A736A.png" /></p>
 <p><a id="application2"></a>
 <a id="toc48549099"></a></p>
 <h2 id="202-application-2-calcul-de-limpot-en-mode-batch">20.2. Application 2 : calcul de l’impôt en mode batch</h2>
-<p><img src="images/10000000000001850000023E1A30A3E3.png" style="width:4.492cm;height:6.621cm;" alt="Image" /></p>
+<p><img src="images/10000000000001850000023E1A30A3E3.png" style="width:4.492cm;height:6.621cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001850000023E1A30A3E3.png" /></p>
 <p><a id="refheading399281881943603"></a>
 <a id="toc48549100"></a></p>
 <h3 id="2021-architecture">20.2.1. Architecture</h3>
 <p>L’application de calcul de l’impôt de la version 4 utilisait l&#x27;architecture suivante :</p>
-<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" /></p>
+<p><img src="images/1000000100000257000000DA58BEF0ED.png" style="width:10.12cm;height:3.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000257000000DA58BEF0ED.png" /></p>
 <p><span style="color: #000000">La couche </span><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">dao</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000"> implémente une interface </span><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">InterfaceImpôtsDao</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000">. Nous avons construit une classe implémentant cette interface :</span></p>
 <ul>
 <li><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">Imp</span></strong><strong><span style="color: #000000">ôtsDaoWithAdminDataInJsonFile</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000"> qui allait chercher les données fiscales dans un fichier jSON. C’était la version 3 ;</span></li>
 </ul>
 <p><span style="color: #000000">Nous allons implémenter l’interface </span><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">InterfaceImpôtsDao</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000"> par une nouvelle classe </span><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">ImpotsDaoWithTaxAdminDataInDatabase</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000"> qui ira chercher les données de l’administration fiscale dans une base de données. La couche </span><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">dao</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000">, comme précédemment, écrira les résultats dans un fichier jSON et trouvera les données des contribuables dans un fichier texte. Nous savons que si nous continuons à respecter l’interface </span><strong><span style="color: #000000">[InterfaceImpôtsDao]</span></strong><span style="color: #000000">, la couche </span><strong><span style="color: #000000">[</span></strong><strong><span style="color: #000000">métier</span></strong><strong><span style="color: #000000">]</span></strong><span style="color: #000000"> n’aura pas à être modifiée.</span></p>
 <p><span style="color: #000000">La nouvelle architecture sera la suivante :</span></p>
-<p><img src="images/10000000000003B5000002BD8D4E698A.png" style="width:10.951cm;height:8.09cm;" alt="Image" /></p>
+<p><img src="images/10000000000003B5000002BD8D4E698A.png" style="width:10.951cm;height:8.09cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B5000002BD8D4E698A.png" /></p>
 <p><a id="refheadingtoc900743955410047"></a></p>
 <p><a id="configurationdelapplication"></a>
 <a id="toc48549101"></a></p>
 <h3 id="2022-configuration-de-lapplication">20.2.2. Configuration de l’application</h3>
-<p><img src="images/100000000000019500000206ACE6D19A.png" style="width:4.201cm;height:5.381cm;" alt="Image" /></p>
+<p><img src="images/100000000000019500000206ACE6D19A.png" style="width:4.201cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019500000206ACE6D19A.png" /></p>
 <p>Le fichier de configuration <strong>[config_database]</strong> reste ce qu’il était dans l’application 1. La configuration <strong>[config]</strong> intègre des éléments nouveaux :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span style="color:#000000">    </span># étape 2 ------</span>
@@ -2272,8 +2272,8 @@
 <a id="toc48549103"></a></p>
 <h3 id="2024-test-de-la-couche-dao">20.2.4. Test de la couche [dao]</h3>
 <p>Dans la version 4 de cette application, nous avions construit une <a href="#_Tests_des_couches"><u><span style="color: #0563c1">classe de test</span></u></a> de la couche <strong>[métier]</strong>. Plus exactement, elle testait à la fois les couches <strong>[métier]</strong> et <strong>[dao]</strong>. Nous reprenons ce test pour vérifier que la couche <strong>[dao]</strong> fonctionne comme attendu. En effet, la couche <strong>[métier]</strong> elle ne change pas.</p>
-<p><img src="images/100000000000017E000001A74483DEE4.png" style="width:3.98cm;height:4.4cm;" alt="Image" /></p>
-<p><img src="images/100000000000047B00000345B54A307A.png" style="width:13.251cm;height:9.67cm;" alt="Image" /></p>
+<p><img src="images/100000000000017E000001A74483DEE4.png" style="width:3.98cm;height:4.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017E000001A74483DEE4.png" /></p>
+<p><img src="images/100000000000047B00000345B54A307A.png" style="width:13.251cm;height:9.67cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047B00000345B54A307A.png" /></p>
 <p>Le test <strong>[TestDaoMétier]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> </span>unittest</span>
@@ -2354,8 +2354,8 @@
 <li>les tests ont montré que la méthode <strong>[unittest</strong><strong><span style="color: #000000">.</span></strong><strong>main</strong><strong><span style="color: #000000">()</span></strong><strong>]</strong> de la ligne 66 n’ignorait pas le paramètre <strong>[mysql / pgres]</strong> reçu par le script mais lui donnait une signification autre. La ligne 63 fait en sorte que cette méthode n’ait plus aucun paramètre ;</li>
 </ul>
 <p>Nous créons deux <a href="#_Le_script_principal_2"><u><span style="color: #0563c1">configurations d’exécution</span></u></a> :</p>
-<p><img src="images/1000000000000517000002697CC32661.png" style="width:15.031cm;height:7.111cm;" alt="Image" /></p>
-<p><img src="images/1000000000000513000002406E8B8A1E.png" style="width:15.011cm;height:6.651cm;" alt="Image" /></p>
+<p><img src="images/1000000000000517000002697CC32661.png" style="width:15.031cm;height:7.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000517000002697CC32661.png" /></p>
+<p><img src="images/1000000000000513000002406E8B8A1E.png" style="width:15.011cm;height:6.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000513000002406E8B8A1E.png" /></p>
 <p>Si nous exécutons l’une de ces deux configurations, nous obtenons les résultats suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/v05/tests/<span style="background-color:#fff2cc">TestDaoMétier.py mysql</span></span>
@@ -2376,8 +2376,8 @@
 <p><a id="lescriptprincipal5"></a>
 <a id="toc48549104"></a></p>
 <h3 id="2025-le-script-principal">20.2.5. Le script principal</h3>
-<p><img src="images/10000000000001A1000002152583529E.png" style="width:4.34cm;height:5.55cm;" alt="Image" /></p>
-<p><img src="images/100000000000039F000002AD82466924.png" style="width:10.701cm;height:7.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000001A1000002152583529E.png" style="width:4.34cm;height:5.55cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A1000002152583529E.png" /></p>
+<p><img src="images/100000000000039F000002AD82466924.png" style="width:10.701cm;height:7.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000039F000002AD82466924.png" /></p>
 <p>Le script principal <strong>[main]</strong> est le même que dans la version 4 :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre mysql ou pgres<span style="color:#000000"></span></span>
@@ -2439,15 +2439,15 @@
 <li>lignes 38-40 : gestion de l&#x27;éventuelle erreur ;</li>
 </ul>
 <p><span style="color: #000000">Pour l’exécution du script, on crée deux |</span><a href="#_Le_script_principal_2"><u><span style="color: #0563c1">configurations d’exécution</span></u></a><span style="color: #000000">| :</span></p>
-<p><img src="images/10000000000003D2000001DC25ED70E5.png" style="width:11.27cm;height:5.501cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D2000001DC25ED70E5.png" style="width:11.27cm;height:5.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D2000001DC25ED70E5.png" /></p>
 <p><span style="color: #000000">Les résultats obtenus dans le fichier </span><strong><span style="color: #000000">[résultats.json]</span></strong><span style="color: #000000"> sont ceux de la version 4.</span></p>
-<p><img src="images/10000000000003D2000001D660C57B6C.png" style="width:11.27cm;height:5.441cm;" alt="Image" /></p>
+<p><img src="images/10000000000003D2000001D660C57B6C.png" style="width:11.27cm;height:5.441cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D2000001D660C57B6C.png" /></p>
 <p><a id="application3"></a>
 <a id="toc48549105"></a></p>
 <h2 id="203-application-3-calcul-de-limpot-en-mode-interactif">20.3. Application 3 : calcul de l’impôt en mode interactif</h2>
 <p>Nous introduisons maintenant l’application permettant de calculer l’impôt de façon interactive. C’est un portage de <a href="#_Version_4_–"><u><span style="color: #0563c1">l’application 2</span></u></a> de la version 4.</p>
-<p><img src="images/100000000000018500000205A7925E38.png" style="width:4.051cm;height:5.381cm;" alt="Image" /></p>
-<p><img src="images/1000000000000422000003317DC9988A.png" style="width:12.232cm;height:9.431cm;" alt="Image" /></p>
+<p><img src="images/100000000000018500000205A7925E38.png" style="width:4.051cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018500000205A7925E38.png" /></p>
+<p><img src="images/1000000000000422000003317DC9988A.png" style="width:12.232cm;height:9.431cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000422000003317DC9988A.png" /></p>
 <ul>
 <li>le script <strong>[main]</strong> lance le dialogue avec l’utilisateur avec la méthode <strong>[ui.run]</strong> de la couche <strong>[ui]</strong> ;</li>
 <li>la couche <strong>[ui]</strong> :<ul>

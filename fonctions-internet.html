@@ -1831,7 +1831,7 @@
 <a id="refheadingtoc2522432924280206"></a></p>
 <h1 id="21-fonctions-internet">21. Fonctions internet</h1>
 <p>Nous abordons maintenant les fonctions internet de Python qui nous permettent de faire de la programmation TCP / IP (<strong>T</strong>ransfer <strong>C</strong>ontrol <strong>P</strong>rotocol / <strong>I</strong>nternet <strong>P</strong>rotocol).</p>
-<p><img src="images/10000000000000D80000015987C8E4F7.png" style="width:2.5cm;height:3.991cm;" alt="Image" /></p>
+<p><img src="images/10000000000000D80000015987C8E4F7.png" style="width:2.5cm;height:3.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000D80000015987C8E4F7.png" /></p>
 <p><a id="refheading10403051168783983"></a>
 <a id="toc48549107"></a></p>
 <h2 id="211-les-bases-de-la-programmation-internet">21.1. Les bases de la programmation internet</h2>
@@ -1839,7 +1839,7 @@
 <a id="toc48549108"></a></p>
 <h3 id="2111-generalites">21.1.1. Généralités</h3>
 <p>Considérons la communication entre deux machines distantes A et B :</p>
-<p><img src="images/10000001000001FA000000E90533D8A3.png" style="width:6.891cm;height:3.17cm;" alt="Image" /></p>
+<p><img src="images/10000001000001FA000000E90533D8A3.png" style="width:6.891cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001FA000000E90533D8A3.png" /></p>
 <p>Lorsque une application <em>AppA</em> d&#x27;une machine A veut  communiquer avec une application <em>AppB</em> d&#x27;une machine B de l&#x27;Internet, elle doit connaître plusieurs choses :</p>
 <ul>
 <li>l&#x27;adresse IP (<strong>I</strong>nternet <strong>P</strong>rotocol) ou le nom de la machine B ;</li>
@@ -1942,7 +1942,7 @@
 <p><a id="refheadingtoc116171425309931"></a>
 <a id="toc48549115"></a></p>
 <h3 id="2122-utilitaires-tcp">21.2.2. Utilitaires TCP</h3>
-<p><img src="images/10000000000001A0000000E5A6BD6321.png" style="width:4.791cm;height:2.65cm;" alt="Image" /></p>
+<p><img src="images/10000000000001A0000000E5A6BD6321.png" style="width:4.791cm;height:2.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A0000000E5A6BD6321.png" /></p>
 <p>Dans les codes associés à ce document, on trouve deux utilitaires de communication TCP :</p>
 <ul>
 <li><strong>[RawTcpClient]</strong> permet de se connecter sur le port P d’un serveur S ;</li>
@@ -1973,7 +1973,7 @@
 <li>l’ensemble des échanges est logué dans un fichier texte portant le nom <strong>[serveur-port.txt]</strong> ;</li>
 </ul>
 <p>Voyons un exemple. On ouvre deux fenêtres terminal PyCharm et on se positionne dans chacune d’elles sur le dossier des utilitaires :</p>
-<p><img src="images/10000000000001D80000030A050B5718.png" style="width:5.46cm;height:8.97cm;" alt="Image" /></p>
+<p><img src="images/10000000000001D80000030A050B5718.png" style="width:5.46cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D80000030A050B5718.png" /></p>
 <p>Dans l’une des fenêtres on lance le serveur <strong>[RawTcpServer]</strong> sur le port 100 :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\<span style="background-color:#fff2cc">utilitaires</span>&gt;<span style="background-color:#fff2cc">RawTcpServer.exe 100</span></span>
@@ -2109,7 +2109,7 @@
 <li>ligne 6, le client a détecté la fin du service ;</li>
 </ul>
 <p>Deux fichiers de logs ont été créés, un pour le serveur, un autre pour le client :</p>
-<p><img src="images/10000000000001C70000013527E36BB1.png" style="width:5.261cm;height:3.571cm;" alt="Image" /></p>
+<p><img src="images/10000000000001C70000013527E36BB1.png" style="width:5.261cm;height:3.571cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C70000013527E36BB1.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, les logs du serveur : le nom du fichier est le nom du client sous la forme <strong>[machine-port]</strong>. Cela permet d’avoir des fichiers de logs différents pour des clients différents ;</li>
 <li>en <strong>[2]</strong>, les logs du client : le nom du fichier est le nom du serveur sous la forme <strong>[machine-port]</strong> ;</li>
@@ -2129,7 +2129,7 @@
 <p><a id="refheading399321881943603"></a>
 <a id="toc48549116"></a></p>
 <h2 id="213-obtenir-le-nom-ou-ladresse-ip-dune-machine-de-linternet">21.3. Obtenir le nom ou l&#x27;adresse IP d&#x27;une machine de l&#x27;Internet</h2>
-<p><img src="images/10000000000000F60000009B904B6DE3.png" style="width:2.841cm;height:1.791cm;" alt="Image" /></p>
+<p><img src="images/10000000000000F60000009B904B6DE3.png" style="width:2.841cm;height:1.791cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000F60000009B904B6DE3.png" /></p>
 <p>Les machines de l’internet sont identifiées par une adresse IP (IPv4 ou IPv6) et le plus souvent par un nom. Mais finalement seule l’adresse IP est utilisée par les protocoles de communication de l’internet. Il faut donc connaître l’adresse IP d’une machine identifiée par son nom.</p>
 <p>Le script <strong>[ip-01.py]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2230,7 +2230,7 @@
 </code></pre></div>
 
 <p>Puis avec un navigateur, nous demandons l’URL <strong>[http://localhost:100]</strong>, ç-a-d que nous disons que le serveur HTTP interrogé travaille sur le port 100 de la machine locale :</p>
-<p><img src="images/100000010000022B000000B3CC9E4C4F.png" style="width:9.381cm;height:3.021cm;" alt="Image" /></p>
+<p><img src="images/100000010000022B000000B3CC9E4C4F.png" style="width:9.381cm;height:3.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000022B000000B3CC9E4C4F.png" /></p>
 <p>Revenons sur la fenêtre du serveur :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\utilitaires&gt;RawTcpServer.exe 100</span>
@@ -2286,16 +2286,16 @@
 <h3 id="2142-exemple-2">21.4.2. Exemple 2</h3>
 <p>Maintenant que nous connaissons les commandes envoyées par un navigateur pour réclamer une URL, nous allons réclamer cette URL avec notre client TCP <strong>[RawTcpClient]</strong>. Le serveur Apache de Laragon (paragraphe |<a href="#_Installation_de_Laragon"><u><span style="color: #0563c1">Installation de Laragon</span></u></a>|) sera notre serveur web.</p>
 <p>Lançons Laragon puis le serveur web Apache :</p>
-<p><img src="images/10000001000002A3000001625A18E210.png" style="width:11.431cm;height:5.991cm;" alt="Image" /></p>
-<p><img src="images/10000001000002C3000000ACE307F335.png" style="width:11.941cm;height:2.901cm;" alt="Image" /></p>
+<p><img src="images/10000001000002A3000001625A18E210.png" style="width:11.431cm;height:5.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002A3000001625A18E210.png" /></p>
+<p><img src="images/10000001000002C3000000ACE307F335.png" style="width:11.941cm;height:2.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002C3000000ACE307F335.png" /></p>
 <p>Maintenant avec un navigateur, demandons l’URL <strong>[http://localhost:80]</strong>. Ici nous ne précisons que le serveur <strong>[localhost:80]</strong> et pas d’URL de document. Dans ce cas c’est l’URL / qui est demandée, ç-à-d la racine du serveur web :</p>
-<p><img src="images/10000001000002410000018DD566FA0E.png" style="width:9.741cm;height:6.7cm;" alt="Image" /></p>
+<p><img src="images/10000001000002410000018DD566FA0E.png" style="width:9.741cm;height:6.7cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002410000018DD566FA0E.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, l’URL demandée. On a tapé initialement <strong>[http://localhost:80]</strong> et le navigateur (Firefox ici) l’a transformée simplement en <strong>[localhost]</strong> car le protocole <strong>[http]</strong> est implicite lorsqu’aucun protocole n’est mentionné et le port <strong>[80]</strong> est implicite lorsque le port n’est pas précisé ;</li>
 <li>en <strong>[2]</strong>, la page racine / du serveur web interrogé ;</li>
 </ul>
 <p>Maintenant, visualisons le texte reçu par le navigateur :</p>
-<p><img src="images/10000001000001920000017587DD152E.png" style="width:6.741cm;height:6.25cm;" alt="Image" /></p>
+<p><img src="images/10000001000001920000017587DD152E.png" style="width:6.741cm;height:6.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001920000017587DD152E.png" /></p>
 <ul>
 <li>on clique droit sur la page reçue et on choisit l’option <strong>[2]</strong>. On obtient le code source suivant :</li>
 </ul>
@@ -2480,7 +2480,7 @@
 <li>lignes 14-82, le document HTML demandé ligne 4 ;</li>
 </ul>
 <p>Nous chargeons le fichier de logs <strong>[localhost-80.txt]</strong> :</p>
-<p><img src="images/100000000000016C0000019E18C10C23.png" style="width:4.211cm;height:4.781cm;" alt="Image" /></p>
+<p><img src="images/100000000000016C0000019E18C10C23.png" style="width:4.211cm;height:4.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016C0000019E18C10C23.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">--&gt; <span style="font-weight:bold">[GET / HTTP/1.1]</span></span>
 <span class="odt-code-line">--&gt; <span style="font-weight:bold">[Host: localhost:80]</span></span>
@@ -2570,7 +2570,7 @@
 <p><a id="refheadingtoc1357002222329424"></a>
 <a id="toc48549120"></a></p>
 <h3 id="2143-exemple-3">21.4.3. Exemple 3</h3>
-<p><img src="images/10000000000001340000014D64AA422E.png" style="width:3.56cm;height:3.841cm;" alt="Image" /></p>
+<p><img src="images/10000000000001340000014D64AA422E.png" style="width:3.56cm;height:3.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001340000014D64AA422E.png" /></p>
 <p>Le script <strong>[http/01/main.py]</strong> est un client HTTP configuré par le fichier <strong>[config.py]</strong>. Le contenu de celui-ci est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -2895,7 +2895,7 @@
 </ul>
 <p>De façon générale les codes 3xx, 4xx et 5xx d’un serveur HTTP sont des codes d’erreur.</p>
 <p>L&#x27;exécution a produit fichiers :</p>
-<p><img src="images/10000000000001FA0000019DB3A8B5DF.png" style="width:5.841cm;height:4.762cm;" alt="Image" /></p>
+<p><img src="images/10000000000001FA0000019DB3A8B5DF.png" style="width:5.841cm;height:4.762cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001FA0000019DB3A8B5DF.png" /></p>
 <p>Le fichier <strong>[output/localhost.HTML]</strong> reçu est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!DOCTYPE<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -2971,7 +2971,7 @@
 
 <p>Nous avons bien obtenu le même document qu’avec le navigateur Firefox.</p>
 <p>Le document <strong>[output/sergetahe_com.html]</strong> reçu est le suivant :</p>
-<p><img src="images/10000001000000E8000000775DC7BB4E.png" style="width:3.92cm;height:2.012cm;" alt="Image" /></p>
+<p><img src="images/10000001000000E8000000775DC7BB4E.png" style="width:3.92cm;height:2.012cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000E8000000775DC7BB4E.png" /></p>
 <p>La plupart des serveurs http envoient par morceaux leurs réponses aux requêtes qui leur sont faites. Chaque morceau envoyé est précédé d&#x27;une ligne indiquant le nombre d&#x27;octets du morceau qui suit. Cela permet au client de lire ce nombre exact d&#x27;octets pour avoir le morceau. Ici le 0 indique que le morceau qui suit a zéro octet. On rappelle que le serveur avait indiqué le document <strong>[http://sergetahe.com/]</strong> avait changé d&#x27;URL. Il n&#x27;a donc pas envoyé de document.</p>
 <p>Le document <strong>[output/tahe_developpez_com.html]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -3011,9 +3011,9 @@
 <p><a id="toc48549121"></a></p>
 <h3 id="2144-exemple-4">21.4.4. Exemple 4</h3>
 <p>Les exemples précédents nous ont montré que notre client HTTP était insuffisant. Nous allons maintenant présenter un outil appelé <strong>[curl]</strong> qui permet de récupérer des documents web en gérant les difficultés mentionnées : protocole HTTPS, document envoyé par morceaux, redirections… L’outil <strong>[curl]</strong> a été installé avec <a href="#_Installation_de_Laragon"><u><span style="color: #0563c1">Laragon</span></u></a> :</p>
-<p><img src="images/10000001000001D400000132261162F3.png" style="width:7.951cm;height:5.201cm;" alt="Image" /></p>
+<p><img src="images/10000001000001D400000132261162F3.png" style="width:7.951cm;height:5.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001D400000132261162F3.png" /></p>
 <p>Ouvrons un terminal PyCharm <strong>[1]</strong> :</p>
-<p><img src="images/10000000000004730000020E7F96F69A.png" style="width:13.14cm;height:6.061cm;" alt="Image" /></p>
+<p><img src="images/10000000000004730000020E7F96F69A.png" style="width:13.14cm;height:6.061cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004730000020E7F96F69A.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, l’accès aux terminaux de PyCharm ;</li>
 <li>en <strong>[2-3]</strong>, les terminaux déjà actifs ;</li>
@@ -3039,15 +3039,15 @@
 
 <p>Ligne 2, les dossiers du PATH séparés par des points-virgules. Dans cette liste n’apparaît pas de dossier lié à Laragon. Si on enquête un peu, on trouve qu’il y a un <strong>[curl]</strong> dans le dossier <strong>[c:\windows\system32]</strong>. C’est celui-ci qui a répondu auparavant.</p>
 <p>Si on veut utiliser l’outil <strong>[curl]</strong> livré avec Laragon, on pourra procéder comme suit :</p>
-<p><img src="images/1000000000000355000002339802FF5D.png" style="width:9.85cm;height:6.501cm;" alt="Image" /></p>
-<p><img src="images/1000000000000557000001A4753C0ABE.png" style="width:15.781cm;height:4.851cm;" alt="Image" /></p>
+<p><img src="images/1000000000000355000002339802FF5D.png" style="width:9.85cm;height:6.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000355000002339802FF5D.png" /></p>
+<p><img src="images/1000000000000557000001A4753C0ABE.png" style="width:15.781cm;height:4.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000557000001A4753C0ABE.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, le terminal Laragon ;</li>
 <li>en <strong>[3]</strong>, ce bouton permet de créer de nouveaux terminaux, chacun s’installant dans un onglet de la fenêtre ci-dessus ;</li>
 <li>en <strong>[4]</strong>, on demande le PATH du terminal Laragon ;</li>
 <li>on obtient quelque chose de très différent de ce qui avait été obtenu dans un terminal PyCharm. Ce PATH contient de nombreux dossiers créés lors de l’installation de Laragon. Le dossier contenant l’outil <strong>[curl]</strong> en fait partie :</li>
 </ul>
-<p><img src="images/100000000000041B0000014A3AB0BF24.png" style="width:12.112cm;height:3.811cm;" alt="Image" /></p>
+<p><img src="images/100000000000041B0000014A3AB0BF24.png" style="width:12.112cm;height:3.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000041B0000014A3AB0BF24.png" /></p>
 <p>Par la suite, utilisez le terminal de votre choix. Sachez simplement que lorsque vous voulez utiliser un outil amené par Laragon, le terminal Laragon est à préférer.</p>
 <p>La commande <strong>[curl --help]</strong> fait afficher toutes les options de configuration de <strong>[curl]</strong>. Il y en a plusieurs dizaines. Nous en utiliserons très peu. Pour demander une URL il suffit de taper la commande <strong>[curl URL]</strong>. Cette commande affichera sur la console le document demandé. Si on veut de plus les échanges HTTP entre le client et le serveur on écrira <strong>[curl --verbose URL]</strong>. Enfin pour enregistrer le document HTML demandé dans un fichier on écrira <strong>[curl --verbose --output fichier URL]</strong>.</p>
 <p>Pour éviter de polluer le système de fichiers de notre machine, déplaçons-nous à un autre endroit (j’utilise ici un terminal Laragon) :</p>
@@ -3337,9 +3337,9 @@
 <a id="toc48549122"></a></p>
 <h3 id="2145-exemple-5">21.4.5. Exemple 5</h3>
 <p>Python possède un module appelé <strong>[pyccurl]</strong> qui permet d’utiliser les capacités de l’outil <strong>[curl]</strong> dans un programme Python. Nous installons ce module :</p>
-<p><img src="images/100000000000055500000198AD4257EA.png" style="width:15.77cm;height:4.71cm;" alt="Image" /></p>
+<p><img src="images/100000000000055500000198AD4257EA.png" style="width:15.77cm;height:4.71cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055500000198AD4257EA.png" /></p>
 <p>Nous allons écrire un nouveau script <strong>[http/02/main.py]</strong> :</p>
-<p><img src="images/100000000000013A00000112A23438A9.png" style="width:3.631cm;height:3.16cm;" alt="Image" /></p>
+<p><img src="images/100000000000013A00000112A23438A9.png" style="width:3.631cm;height:3.16cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000013A00000112A23438A9.png" /></p>
 <p>Le fichier <strong>[http/02/config]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -3496,8 +3496,8 @@
 <li>lignes 54-60 : on crée le fichier HTML qui va stocker le document HTML reçu ;</li>
 <li>ligne 60 : le flux binaire <strong>[</strong><strong><span style="color: #000000">flux.getvalue()</span></strong><strong>]</strong> va être stocké comme une chaîne de caractères dans le fichier HTML. L&#x27;encodage de cette chaîne est précisé dans la méthode <strong>[</strong><strong><span style="color: #000000">decode(encoding)</span></strong><strong>]</strong>. Il faut donc connaître l&#x27;encodage du document envoyé par le serveur. Si on se trompe, l&#x27;opération de décodage du flux binaire va échouer. L&#x27;encodage est précisé dans le fichier de configuration de l’URL (ligne 12 par exemple). On aurait pu gérer dynamiquement cette information car le serveur l&#x27;envoie dans ces entêtes HTTP. Cela aurait été préférable. Pour garder un code simple, nous ne l&#x27;avons pas fait. Pour connaître le type d&#x27;encodage du document, il suffit de demander l&#x27;URL désirée avec un navigateur et regarder les entêtes HTTP envoyés par celui-ci en mode débogage du navigateur (F12) ou bien le document lui-même car celui-ci précise également l&#x27;encodage :</li>
 </ul>
-<p><img src="images/10000001000002B7000000C5271DE47D.png" style="width:11.93cm;height:3.38cm;" alt="Image" /></p>
-<p><img src="images/100000010000029C000000E77D8D42BF.png" style="width:11.431cm;height:3.95cm;" alt="Image" /></p>
+<p><img src="images/10000001000002B7000000C5271DE47D.png" style="width:11.93cm;height:3.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002B7000000C5271DE47D.png" /></p>
+<p><img src="images/100000010000029C000000E77D8D42BF.png" style="width:11.431cm;height:3.95cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000029C000000E77D8D42BF.png" /></p>
 <ul>
 <li>ligne 61-66 : les ressources allouées sont libérées ;</li>
 </ul>
@@ -3747,7 +3747,7 @@
 <a id="refheadingtoc95375381407536"></a></p>
 <h3 id="2152-creation-dune-adresse-gmail">21.5.2. Création d’une adresse [gmail]</h3>
 <p>Pour faire nos tests SMTP, nous aurons besoin d’une adresse mail à qui écrire. Nous allons créer pour cela une adresse Gmail [<a href="https://www.google.com/intl/fr/gmail/about/"><u><span style="color: #0563c1">https://www.google.com/intl/fr/gmail/about/</span></u></a>] :</p>
-<p><img src="images/1000000000000260000002E4CDEBD503.png" style="width:7.01cm;height:8.542cm;" alt="Image" /></p>
+<p><img src="images/1000000000000260000002E4CDEBD503.png" style="width:7.01cm;height:8.542cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000260000002E4CDEBD503.png" /></p>
 <p><strong>Note</strong> : Envoyez quelques mails à l&#x27;adresse que vous avez créée. Ne passez à la suite que lorsque vous êtes sûr que le compte créé est capable de recevoir des mails.</p>
 <p><a id="installationdunserveur"></a>
 <a id="toc48549127"></a>
@@ -3755,9 +3755,9 @@
 <h3 id="2153-installation-dun-serveur-smtp">21.5.3. Installation d’un serveur SMTP</h3>
 <p>Pour nos tests, nous installerons le serveur de mail <strong>[hMailServer]</strong> qui est à la fois un serveur SMTP permettant d’envoyer des mails, un serveur POP3 (Post Office Protocol) permettant de lire les mails stockés sur le serveur, un serveur IMAP (Internet Message Access Protocol) qui lui aussi permet de  lire les mails stockés sur le serveur mais va au-delà. Il permet notamment de gérer le stockage des mails sur le serveur.</p>
 <p>Le serveur de mail <strong>[hMailServer]</strong> est disponible à l’URL <strong>[https://www.hmailserver.com/]</strong> (mai 2019).</p>
-<p><img src="images/1000000100000396000001451FC20FFE.png" style="width:15.47cm;height:5.471cm;" alt="Image" /></p>
+<p><img src="images/1000000100000396000001451FC20FFE.png" style="width:15.47cm;height:5.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000396000001451FC20FFE.png" /></p>
 <p>Au cours de l’installation, certains renseignements vous seront demandés :</p>
-<p><img src="images/100000010000020A00000187F99E2ED0.png" style="width:8.76cm;height:6.561cm;" alt="Image" /></p>
+<p><img src="images/100000010000020A00000187F99E2ED0.png" style="width:8.76cm;height:6.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000020A00000187F99E2ED0.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, sélectionnez à la fois le serveur de mails et les outils pour l’administrer ;</li>
 <li>durant l’installation le mot de l’administrateur vous sera demandé : <strong>notez l</strong>e, car il vous sera nécessaire ;</li>
@@ -3766,12 +3766,12 @@
 <ul>
 <li>en <strong>[3]</strong>, on tape <strong>[services]</strong> dans la zone de saisie de la barre d’état ;</li>
 </ul>
-<p><img src="images/100000010000039900000245395C60BE.png" style="width:15.461cm;height:9.741cm;" alt="Image" /></p>
+<p><img src="images/100000010000039900000245395C60BE.png" style="width:15.461cm;height:9.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000039900000245395C60BE.png" /></p>
 <ul>
 <li>en <strong>[4-8]</strong>, on met le service en mode <strong>[manuel]</strong> (6), on le lance (7) ;</li>
 </ul>
 <p>Une fois démarré, le serveur <strong>[hMailServer]</strong> doit être configuré. Le serveur a été installé avec un programme d’administration <strong>[hMailServer Administrator]</strong> :</p>
-<p><img src="images/10000001000003C300000236F27F0FCB.png" style="width:16.431cm;height:9.651cm;" alt="Image" /></p>
+<p><img src="images/10000001000003C300000236F27F0FCB.png" style="width:16.431cm;height:9.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003C300000236F27F0FCB.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, dans la zone de saisie de la barre d’état, taper <strong>[hmailserver]</strong> ;</li>
 <li>en <strong>[3]</strong>, lancer l’administrateur ;</li>
@@ -3783,7 +3783,7 @@
 <li>arrêtez le serveur <strong>[hMailServer]</strong> ;</li>
 <li>ouvrez le fichier <strong>[&lt;hmailserver&gt;/bin/hmailserver.ini]</strong> où &lt;hmailserver&gt; est le dossier d&#x27;installation du serveur :</li>
 </ul>
-<p><img src="images/10000001000003180000015981780B38.png" style="width:14.742cm;height:6.421cm;" alt="Image" /></p>
+<p><img src="images/10000001000003180000015981780B38.png" style="width:14.742cm;height:6.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003180000015981780B38.png" /></p>
 <ul>
 <li>en <strong>[100]</strong>, enlevez le mot de passe de la ligne <strong>[AdministratorPassword]</strong>. Cela aura pour effet que l&#x27;administrateur n&#x27;aura plus de mot de passe. Tapez simplement <strong>[Entrée]</strong> lorsque celui-ci vous sera demandé ;</li>
 </ul>
@@ -3795,44 +3795,44 @@
 </code></pre></div>
 
 <p>Continuons la configuration du serveur :</p>
-<p><img src="images/10000000000004700000013BABC05ED4.png" style="width:13.131cm;height:3.641cm;" alt="Image" /></p>
+<p><img src="images/10000000000004700000013BABC05ED4.png" style="width:13.131cm;height:3.641cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004700000013BABC05ED4.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, ajoutez un domaine (s’il n’existe pas déjà) ;</li>
 </ul>
-<p><img src="images/10000000000002F7000002DAC92FD6C8.png" style="width:8.76cm;height:8.43cm;" alt="Image" /></p>
+<p><img src="images/10000000000002F7000002DAC92FD6C8.png" style="width:8.76cm;height:8.43cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F7000002DAC92FD6C8.png" /></p>
 <ul>
 <li>en <strong>[3]</strong>, on peut mettre à peu près n’importe quoi pour les tests que nous allons opérer. Dans la réalité, il faudrait mettre le nom d’un domaine existant ;</li>
 </ul>
-<p><img src="images/10000000000004FD000002843377431B.png" style="width:14.75cm;height:7.441cm;" alt="Image" /></p>
+<p><img src="images/10000000000004FD000002843377431B.png" style="width:14.75cm;height:7.441cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004FD000002843377431B.png" /></p>
 <p>Nous allons créer un compte utilisateur :</p>
 <ul>
 <li>cliquer droit sur <strong>[Accounts]</strong> (7) puis (8) pour ajouter un nouvel utilisateur ;</li>
 <li>dans l’onglet <strong>[General]</strong> (9), nous définissons un utilisateur <strong>[guest]</strong> (10) avec le mot de passe <strong>[guest]</strong> (11). Il aura l’adresse mail <strong>[guest@localhost]</strong> (10) ;</li>
 <li>en <strong>[12]</strong>, l’utilisateur <strong>[guest]</strong> est activé ;</li>
 </ul>
-<p><img src="images/100000000000036C0000013A11F2B9CF.png" style="width:10.111cm;height:3.62cm;" alt="Image" /></p>
+<p><img src="images/100000000000036C0000013A11F2B9CF.png" style="width:10.111cm;height:3.62cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000036C0000013A11F2B9CF.png" /></p>
 <ul>
 <li>en <strong>[13-14]</strong>, l’utilisateur créé ;</li>
 </ul>
-<p><img src="images/10000000000004460000033A7ACAA40B.png" style="width:12.63cm;height:9.531cm;" alt="Image" /></p>
+<p><img src="images/10000000000004460000033A7ACAA40B.png" style="width:12.63cm;height:9.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004460000033A7ACAA40B.png" /></p>
 <ul>
 <li>en <strong>[27]</strong> le port du service SMTP ;</li>
 <li>en <strong>[28]</strong>, ce service ne nécessite pas d’authentification ;</li>
 <li>en <strong>[30]</strong>, mettez le message de bienvenue que le serveur SMTP enverra à ses clients ;</li>
 </ul>
-<p><img src="images/1000000000000472000002582DCD75E2.png" style="width:13.14cm;height:6.921cm;" alt="Image" /></p>
+<p><img src="images/1000000000000472000002582DCD75E2.png" style="width:13.14cm;height:6.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000002582DCD75E2.png" /></p>
 <p>On fait de même avec le serveur POP3 :</p>
-<p><img src="images/10000000000003F300000213673E1A41.png" style="width:11.651cm;height:6.121cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F300000213673E1A41.png" style="width:11.651cm;height:6.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F300000213673E1A41.png" /></p>
 <p><a id="refheadingtoc3282243081319169"></a></p>
 <p>On refait la même chose pour le serveur IMAP :</p>
-<p><img src="images/10000000000004740000022177C01FA7.png" style="width:13.151cm;height:6.291cm;" alt="Image" /></p>
+<p><img src="images/10000000000004740000022177C01FA7.png" style="width:13.151cm;height:6.291cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004740000022177C01FA7.png" /></p>
 <p>Nous indiquons le domaine par défaut du serveur <strong>[hMailServer]</strong> (il peut y en avoir plusieurs) :</p>
-<p><img src="images/100000000000038D00000260826E0925.png" style="width:10.51cm;height:7.032cm;" alt="Image" /></p>
+<p><img src="images/100000000000038D00000260826E0925.png" style="width:10.51cm;height:7.032cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D00000260826E0925.png" /></p>
 <ul>
 <li>en <strong>[37]</strong>, indiquez que le domaine par défaut du serveur SMTP est celui que vous avez créé en <strong>[38]</strong> ;</li>
 </ul>
 <p>Après avoir sauvegardé cette configuration, vous pouvez la tester de la façon suivante. Ouvrez un terminal PyCharm dans le dossier des utilitaires :</p>
-<p><img src="images/10000000000001D3000002958C43B4AC.png" style="width:5.391cm;height:7.64cm;" alt="Image" /></p>
+<p><img src="images/10000000000001D3000002958C43B4AC.png" style="width:5.391cm;height:7.64cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D3000002958C43B4AC.png" /></p>
 <p>Puis tapez la commande suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\utilitaires&gt;RawTcpClient.exe localhost 25</span>
@@ -3886,21 +3886,21 @@
 <ul>
 <li>en <strong>[1]</strong> : téléchargez <strong>[thunderbird]</strong> puis installez-le ;</li>
 </ul>
-<p><img src="images/10000001000003D60000015D8D230377.png" style="width:16.421cm;height:5.83cm;" alt="Image" /></p>
+<p><img src="images/10000001000003D60000015D8D230377.png" style="width:16.421cm;height:5.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003D60000015D8D230377.png" /></p>
 <ul>
 <li>lancez le serveur de mail <strong>[hMailServer]</strong> s&#x27;il ne l&#x27;est pas déjà ;</li>
 <li>en <strong>[2-3]</strong> : une fois Thunderbird lancé,  nous allons créer un compte de messagerie pour l&#x27;utilisateur <strong>[guest@localhost]</strong> du serveur de mail <strong>[hMailServer]</strong> ;</li>
 </ul>
-<p><img src="images/10000000000002F9000001B9DAEB5A27.png" style="width:8.771cm;height:5.1cm;" alt="Image" /></p>
-<p><img src="images/1000000000000310000002109FB497DD.png" style="width:9.06cm;height:6.1cm;" alt="Image" /></p>
-<p><img src="images/1000000000000436000002049CB5FE0B.png" style="width:12.431cm;height:5.95cm;" alt="Image" /></p>
+<p><img src="images/10000000000002F9000001B9DAEB5A27.png" style="width:8.771cm;height:5.1cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F9000001B9DAEB5A27.png" /></p>
+<p><img src="images/1000000000000310000002109FB497DD.png" style="width:9.06cm;height:6.1cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000310000002109FB497DD.png" /></p>
+<p><img src="images/1000000000000436000002049CB5FE0B.png" style="width:12.431cm;height:5.95cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000436000002049CB5FE0B.png" /></p>
 <ul>
 <li>en <strong>[7-11]</strong> : le serveur POP3 qui va nous permettre de lire le courrier du serveur de mail <strong>[hMailServer]</strong> est à l&#x27;adresse <strong>[localhost]</strong> et officie sur le port 110 ;</li>
 <li>en <strong>[12-16]</strong> : le serveur SMTP qui va nous permettre d&#x27;envoyer du courrier de la part des utilisateurs du serveur de mail <strong>[hMailServer]</strong> est à l&#x27;adresse <strong>[localhost]</strong> et officie sur le port 25 ;</li>
 <li><strong>[18]</strong> : on peut tester la validation de cette configuration ;</li>
 </ul>
-<p><img src="images/100000000000035600000233F318A147.png" style="width:9.861cm;height:6.501cm;" alt="Image" /></p>
-<p><img src="images/100000000000038E000001A3DFA940FB.png" style="width:10.51cm;height:4.841cm;" alt="Image" /></p>
+<p><img src="images/100000000000035600000233F318A147.png" style="width:9.861cm;height:6.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035600000233F318A147.png" /></p>
+<p><img src="images/100000000000038E000001A3DFA940FB.png" style="width:10.51cm;height:4.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E000001A3DFA940FB.png" /></p>
 <ul>
 <li>en <strong>[26]</strong> : parce qu&#x27;on n&#x27;a pas de chiffrement SSL, Thunderbird nous avertit que notre configuration comporte des risques ;</li>
 <li>en <strong>[28]</strong> : le compte a été créé ;</li>
@@ -3910,7 +3910,7 @@
 <li>envoyer un mail à l&#x27;utilisateur <strong>[guest@localhost.com]</strong> (protocole SMTP) ;</li>
 <li>lire le courrier reçu par cet utilisateur (protocole POP3) ;</li>
 </ul>
-<p><img src="images/1000000000000513000001A4E9868A24.png" style="width:15.02cm;height:4.851cm;" alt="Image" /></p>
+<p><img src="images/1000000000000513000001A4E9868A24.png" style="width:15.02cm;height:4.851cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000513000001A4E9868A24.png" /></p>
 <ul>
 <li>en <strong>[3]</strong> : l&#x27;expéditeur ;</li>
 <li>en <strong>[4]</strong> : le destinataire ;</li>
@@ -3918,50 +3918,50 @@
 <li>en <strong>[6]</strong> : le contenu du mail ;</li>
 <li>en <strong>[7]</strong> : pour envoyer le mail ;</li>
 </ul>
-<p><img src="images/10000000000003FA0000020A702F0635.png" style="width:11.741cm;height:6.021cm;" alt="Image" /></p>
+<p><img src="images/10000000000003FA0000020A702F0635.png" style="width:11.741cm;height:6.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003FA0000020A702F0635.png" /></p>
 <ul>
 <li>en <strong>[8-9]</strong> : on relève le courrier de l&#x27;utilisateur <strong>[guest@localhost]</strong> ;</li>
 <li>en <strong>[10-15]</strong> : le message reçu ;</li>
 </ul>
 <p>Nous allons envoyer également du courrier à l&#x27;utilisateur <strong>[pymailparlexemple@gmail.com]</strong>. Créons-lui un compte dans Thunderbird pour lire le courrier qu&#x27;il recevra :</p>
-<p><img src="images/100000010000035C0000015BF8CF4408.png" style="width:11.711cm;height:4.721cm;" alt="Image" /></p>
-<p><img src="images/10000000000002F7000001FFE87A005F.png" style="width:8.771cm;height:5.901cm;" alt="Image" /></p>
+<p><img src="images/100000010000035C0000015BF8CF4408.png" style="width:11.711cm;height:4.721cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000035C0000015BF8CF4408.png" /></p>
+<p><img src="images/10000000000002F7000001FFE87A005F.png" style="width:8.771cm;height:5.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F7000001FFE87A005F.png" /></p>
 <ul>
 <li>en <strong>[4]</strong> : mettez ce que vous voulez ;</li>
 <li>en <strong>[5]</strong> : l&#x27;adresse est <strong>[pymailparlexemple@gmail.com]</strong> ;</li>
 <li>en <strong>[6]</strong> : tapez le mot de passe que vous avez donné à cet utilisateur lorsque vous l&#x27;avez créé ;</li>
 <li>en <strong>[7]</strong> : validez cette configuration ;</li>
 </ul>
-<p><img src="images/10000000000002F7000001FFEE979301.png" style="width:8.771cm;height:5.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000002F7000001FFEE979301.png" style="width:8.771cm;height:5.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F7000001FFEE979301.png" /></p>
 <ul>
 <li>en <strong>[8]</strong> : Thunderbird a récupéré les informations suivantes dans sa base de données ;</li>
 <li>en <strong>[9]</strong> : le protocole de lecture du courrier n&#x27;est plus POP3 mais IMAP. La principale différence entre les deux est que <strong>[POP3]</strong> ramène le courrier lu sur la machine locale où se trouve le lecteur de courrier et le supprime du serveur distant, alors que <strong>[IMAP]</strong> conserve le courrier sur le serveur distant ;</li>
 <li>en <strong>[10]</strong> : identification du serveur SMTP ;</li>
 <li>en <strong>[13]</strong> : pour avoir davantage d&#x27;informations sur les serveurs IMAP et SMTP, on passe en configuration manuelle ;</li>
 </ul>
-<p><img src="images/100000000000047100000204B3850357.png" style="width:13.131cm;height:5.95cm;" alt="Image" /></p>
+<p><img src="images/100000000000047100000204B3850357.png" style="width:13.131cm;height:5.95cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047100000204B3850357.png" /></p>
 <ul>
 <li>en <strong>[14-17]</strong> : les caractéristiques du serveur IMAP ;</li>
 <li>en <strong>[18-21]</strong> : les caractéristiques du serveur SMTP ;</li>
 <li>en <strong>[22]</strong> : on termine la configuration ;</li>
 </ul>
-<p><img src="images/10000000000003CF00000232CE1983EA.png" style="width:11.261cm;height:6.49cm;" alt="Image" /></p>
+<p><img src="images/10000000000003CF00000232CE1983EA.png" style="width:11.261cm;height:6.49cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF00000232CE1983EA.png" /></p>
 <ul>
 <li>en <strong>[23-24]</strong> : le nouveau compte Thunderbird ;</li>
 <li>en <strong>[26]</strong> : on écrit un nouveau message ;</li>
 </ul>
-<p><img src="images/1000000000000472000002322BB05469.png" style="width:13.151cm;height:6.501cm;" alt="Image" /></p>
+<p><img src="images/1000000000000472000002322BB05469.png" style="width:13.151cm;height:6.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000002322BB05469.png" /></p>
 <ul>
 <li>en <strong>[27]</strong> : l&#x27;expéditeur est <strong>[pymailparlexemple@gmail.com]</strong> ;</li>
 <li>en <strong>[28]</strong> : le destinataire est <strong>[pymailparlexemple@gmail.com]</strong> ;</li>
 <li>en <strong>[29-30]</strong> : le message ;</li>
 <li>en <strong>[31]</strong> : pour l&#x27;envoyer ;</li>
 </ul>
-<p><img src="images/100000000000033D000002044E96C583.png" style="width:9.561cm;height:5.972cm;" alt="Image" /></p>
+<p><img src="images/100000000000033D000002044E96C583.png" style="width:9.561cm;height:5.972cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033D000002044E96C583.png" /></p>
 <ul>
 <li>en <strong>[32]</strong> : on relève le courrier des différents comptes ;</li>
 </ul>
-<p><img src="images/10000000000005130000030D9609084C.png" style="width:15.02cm;height:9.021cm;" alt="Image" /></p>
+<p><img src="images/10000000000005130000030D9609084C.png" style="width:15.02cm;height:9.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005130000030D9609084C.png" /></p>
 <ul>
 <li>en <strong>[33-36]</strong> : le courrier reçu par l&#x27;utilisateur <strong>[pymailparlexemple@gmail.com]</strong></li>
 </ul>
@@ -3970,25 +3970,25 @@
 <li>un nouveau compte Gmail <strong>[pymail2parlexemple@gmail.com]</strong> ;</li>
 <li>un nouverau compte Thunderbird <strong>[pymail2parlexemple@gmail.com]</strong> pour relever les messages de l’utilisateur de même nom :</li>
 </ul>
-<p><img src="images/10000000000002DC0000030A140C6FF8.png" style="width:8.43cm;height:8.97cm;" alt="Image" /></p>
-<p><img src="images/10000000000005140000029F88008B07.png" style="width:15.02cm;height:7.741cm;" alt="Image" /></p>
+<p><img src="images/10000000000002DC0000030A140C6FF8.png" style="width:8.43cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002DC0000030A140C6FF8.png" /></p>
+<p><img src="images/10000000000005140000029F88008B07.png" style="width:15.02cm;height:7.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005140000029F88008B07.png" /></p>
 <p>Nous avons désormais les outils pour explorer les protocoles SMTP, POP3 et IMAP. Nous commençons par le protocole SMTP.</p>
 <p><a id="refheadingtoc1357142222329424"></a>
 <a id="toc48549129"></a></p>
 <h3 id="2155-le-protocole-smtp">21.5.5. Le protocole SMTP</h3>
-<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" /></p>
+<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
 <p>Nous allons découvrir le protocole SMTP en examinant les logs du serveur <strong>[hMailServer]</strong>. Pour cela, nous les activons avec l’outl <strong>[hmailServerAdministrator]</strong> :</p>
-<p><img src="images/10000000000001E00000010F6C6270EA.png" style="width:5.539cm;height:3.13cm;" alt="Image" /></p>
-<p><img src="images/100000000000030800000350369EC782.png" style="width:8.951cm;height:9.78cm;" alt="Image" /></p>
+<p><img src="images/10000000000001E00000010F6C6270EA.png" style="width:5.539cm;height:3.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001E00000010F6C6270EA.png" /></p>
+<p><img src="images/100000000000030800000350369EC782.png" style="width:8.951cm;height:9.78cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000030800000350369EC782.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, les logs sont activés ;</li>
 <li>en <strong>[3-5]</strong> : on les active pour les protocoles SMTP, POP3, IMAP ;</li>
 <li>en <strong>[7]</strong>, on demande à les voir ;</li>
 <li>en <strong>[8]</strong>, ouvre le fichier de logs avec un éditeur de texte quelconque ;</li>
 </ul>
-<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" /></p>
+<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
 <p>Dans l’exemple qui suit, le client sera <strong>[Thunderbird]</strong> et le serveur sera <strong>[hMailServer]</strong>. Avec Thunderbird, faites en sorte que l’utilisateur <strong>[guest@localhost.com]</strong> s’envoie un message à lui-même :</p>
-<p><img src="images/10000000000003F500000220AF6FEB49.png" style="width:11.681cm;height:6.271cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F500000220AF6FEB49.png" style="width:11.681cm;height:6.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F500000220AF6FEB49.png" /></p>
 <p>Les logs sont alors les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">&quot;SMTPD&quot;    5828    22    &quot;2020-07-07 10:02:54.263&quot;    &quot;127.0.0.1&quot;    &quot;<span style="background-color:#f7caac">SENT</span>: 220 Bienvenue sur le serveur SMTP localhost.com&quot;</span>
@@ -4022,9 +4022,9 @@
 <li>ligne 12 : le serveur lui répond ;</li>
 </ul>
 <p>Maintenant que nous connaissons le dialogue client / serveur du protocole SMTP, essayons de le reproduire avec notre client <strong>[RawTcpClient]</strong>. Nous utilisons un terminal PyCharm :</p>
-<p><img src="images/10000000000002190000034E550CCF2C.png" style="width:6.201cm;height:9.782cm;" alt="Image" /></p>
+<p><img src="images/10000000000002190000034E550CCF2C.png" style="width:6.201cm;height:9.782cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002190000034E550CCF2C.png" /></p>
 <p>Etudions un nouvel exemple :</p>
-<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" /></p>
+<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
 <ul>
 <li>le client A sera le client TCP générique <strong>[RawTcpClient]</strong> ;</li>
 <li>le serveur B sera le serveur de mails <strong>[hMailServer]</strong> ;</li>
@@ -4091,7 +4091,7 @@
 <li>en <strong>[25]</strong>, on constate que le serveur a fermé la connexion qui le liait au client ;</li>
 </ul>
 <p>Maintenant vérifions avec Thunderbird que l’utilisateur <strong>[guest@localhost.com]</strong> a bien reçu le message :</p>
-<p><img src="images/10000000000003F7000002E761A5914D.png" style="width:11.701cm;height:8.561cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F7000002E761A5914D.png" style="width:11.701cm;height:8.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F7000002E761A5914D.png" /></p>
 <ul>
 <li>en <strong>[1-6]</strong>, on voit  que l’utilisateur <strong>[guest@localhost.com]</strong> a bien reçu le message ;</li>
 </ul>
@@ -4125,7 +4125,7 @@
 <a id="toc48549130"></a></p>
 <h3 id="2156-scripts-smtp01-un-client-smtp-basique">21.5.6. scripts [smtp/01] : un client SMTP basique</h3>
 <p>Nous allons reproduire en Python ce que nous avons appris précédemment du protocole SMTP.</p>
-<p><img src="images/100000000000012800000166A0353B31.png" style="width:3.421cm;height:4.141cm;" alt="Image" /></p>
+<p><img src="images/100000000000012800000166A0353B31.png" style="width:3.421cm;height:4.141cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012800000166A0353B31.png" /></p>
 <p>Le fichier <strong>[smtp/01/config]</strong> configure l’application de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure() -&gt; <span style="color:#2b91af">dict</span>:</span>
@@ -4442,12 +4442,12 @@
 <li>lignes 32-46 : l’utilisation du serveur SMTP <strong>[smtp.gmail.com]</strong> pour envoyer un mail à <strong>[pymailparlexemple@gmail.com]</strong> ne se passe pas bien : en ligne 45, le serveur SMTP envoie un code d’erreur 530 avec un message d’erreur. Celui-ci indique que le client SMTP doit au préalable s’authentifier via une connexion sécurisée. Notre client ne l’a pas fait et est donc refusé ;</li>
 </ul>
 <p>Les résultats dans Thunderbird sont les suivants :</p>
-<p><img src="images/100000000000047200000262D27CE93C.png" style="width:13.151cm;height:7.051cm;" alt="Image" /></p>
+<p><img src="images/100000000000047200000262D27CE93C.png" style="width:13.151cm;height:7.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047200000262D27CE93C.png" /></p>
 <p><a id="scriptssmtp02"></a>
 <a id="toc48549131"></a>
 <a id="refheadingtoc1357182222329424"></a></p>
 <h3 id="2157-scripts-smtp02-un-lient-smtp-ecrit-avec-la-bibliotheque-smtplib">21.5.7. scripts [smtp/02] : un lient SMTP écrit avec la bibliothèque [smtplib]</h3>
-<p><img src="images/10000000000001260000015A7EFDE191.png" style="width:3.402cm;height:3.991cm;" alt="Image" /></p>
+<p><img src="images/10000000000001260000015A7EFDE191.png" style="width:3.402cm;height:3.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001260000015A7EFDE191.png" /></p>
 <p>Le client précédent souffre d&#x27;au moins deux insuffisances :</p>
 <ol>
 <li>il ne sait pas utiliser une connexion sécurisée si le serveur la réclame ;</li>
@@ -4590,7 +4590,7 @@
 <li>connectez-vous au compte Gmail <strong>[pymailparlexemple@gmail.com]</strong> ;</li>
 <li>modifiez la configuration suivante :</li>
 </ul>
-<p><img src="images/100000000000051500000250B9D47671.png" style="width:15.02cm;height:6.831cm;" alt="Image" /></p>
+<p><img src="images/100000000000051500000250B9D47671.png" style="width:15.02cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000051500000250B9D47671.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, autorisez les applications moins sécurisées à accéder au compte ;</li>
 </ul>
@@ -4680,12 +4680,12 @@
 <li>sinon on retouve les commandes connues du protocole SMTP ;</li>
 </ul>
 <p>Si on consulte le compte Gmail de l’utilisateur <strong>[pymail2parlexemple]</strong> on a la chose suivante :</p>
-<p><img src="images/10000000000004830000027B835BC393.png" style="width:13.36cm;height:7.351cm;" alt="Image" /></p>
+<p><img src="images/10000000000004830000027B835BC393.png" style="width:13.36cm;height:7.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004830000027B835BC393.png" /></p>
 <p><a id="refheadingtoc3282263081319169"></a>
 <a id="toc48549132"></a></p>
 <h3 id="2158-scripts-smtp03-gestion-des-fichiers-attaches">21.5.8. scripts [smtp/03] : gestion des fichiers attachés</h3>
 <p>Nous complétons le script <strong>[smtp/02/main]</strong> afin que le mail envoyé puisse avoir des fichiers attachés.</p>
-<p><img src="images/10000000000001D2000001EA1A87D15F.png" style="width:5.381cm;height:5.661cm;" alt="Image" /></p>
+<p><img src="images/10000000000001D2000001EA1A87D15F.png" style="width:5.381cm;height:5.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D2000001EA1A87D15F.png" /></p>
 <p>Le script <strong>[smtp/03/main]</strong> est configuré par le script <strong>[smtp/03/config]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">import<span style="color:#000000"> </span><span style="color:#6f008a">os</span></span>
@@ -4860,10 +4860,10 @@
 </ul>
 <p><strong>Résultats</strong></p>
 <p>Si on exécute le script <strong>[smtp/03/main]</strong> avec le fichier <strong>[smtp/02/config]</strong> déjà présenté, le compte <strong>[pymail2parlexemple@gmail.com]</strong> reçoit ceci :</p>
-<p><img src="images/1000000000000576000002294274C742.png" style="width:16.162cm;height:6.391cm;" alt="Image" /></p>
+<p><img src="images/1000000000000576000002294274C742.png" style="width:16.162cm;height:6.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000576000002294274C742.png" /></p>
 <p>On voit les fichiers attachés en <strong>[4, 9-11]</strong>.</p>
 <p>Montrons un exemple maintenant avec un mail attaché. Nous allons sauvegarder le mail reçu en <strong>[3]</strong> ci-dessus :</p>
-<p><img src="images/100000000000058F000002C6CA92EA2E.png" style="width:16.431cm;height:8.191cm;" alt="Image" /></p>
+<p><img src="images/100000000000058F000002C6CA92EA2E.png" style="width:16.431cm;height:8.191cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058F000002C6CA92EA2E.png" /></p>
 <p>Nous sauvegardons le mail sous le nom <strong>[mail attaché 1.eml]</strong> dans le dossier <strong>[smtp/03/attachments]</strong>.</p>
 <p>Nous modifions maintenant le fichier <strong>[smtp/03/config]</strong> de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -4910,7 +4910,7 @@
 <li>ligne 33, nous avons ajouté un attachement ;</li>
 </ul>
 <p>Maintenant nous exécutons de nouveau le script <strong>[smtp/03/main]</strong>. Cela donne le résultat suivant dans la boîte à lettres de l’utilisateur <strong>[pymail2parlexemple@gmail.com]</strong> :</p>
-<p><img src="images/100000000000055400000286866C36EC.png" style="width:15.77cm;height:7.46cm;" alt="Image" /></p>
+<p><img src="images/100000000000055400000286866C36EC.png" style="width:15.77cm;height:7.46cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055400000286866C36EC.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le mail reçu ;</li>
 <li>en <strong>[2]</strong> : le texte du message ;</li>
@@ -4938,7 +4938,7 @@
 <li>le protocole IMAP (Internet Message Access Protocol) protocole plus récent que POP3 et le plus utilisé actuellement ;</li>
 </ul>
 <p>Pour découvrir le protocole POP3, nous allons utiliser l’architecture suivante :</p>
-<p><img src="images/10000001000001F5000000DEBE03EC4B.png" style="width:8.49cm;height:3.761cm;" alt="Image" /></p>
+<p><img src="images/10000001000001F5000000DEBE03EC4B.png" style="width:8.49cm;height:3.761cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001F5000000DEBE03EC4B.png" /></p>
 <ul>
 <li><strong>[Serveur B]</strong> sera selon les cas :<ul>
 <li>un serveur POP3 local, implémenté par le serveur de mail <strong>[hMailServer]</strong> ;</li>
@@ -4961,11 +4961,11 @@
 <li>envoyer un mail à l’utilisateur <strong>[guest@localhost.com]</strong> ;</li>
 <li>lire la boîte à lettre de cet utilisateur ;</li>
 </ul>
-<p><img src="images/1000000000000356000001B978AD1FBC.png" style="width:9.85cm;height:5.091cm;" alt="Image" /></p>
-<p><img src="images/1000000000000356000001E2706CE8C1.png" style="width:9.85cm;height:5.561cm;" alt="Image" /></p>
+<p><img src="images/1000000000000356000001B978AD1FBC.png" style="width:9.85cm;height:5.091cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000356000001B978AD1FBC.png" /></p>
+<p><img src="images/1000000000000356000001E2706CE8C1.png" style="width:9.85cm;height:5.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000356000001E2706CE8C1.png" /></p>
 <p>En <strong>[3-6]</strong> ci-dessus, le message reçu par l’utilisateur <strong>[guest@localhost.com]</strong>.</p>
 <p>Nous examinons maintenant les logs du serveur <strong>[hMailServer]</strong>. Pour cela nous utilisons l’outil d’administration <strong>[hMailServer Administrator]</strong> :</p>
-<p><img src="images/10000000000002980000035A89FE4BF1.png" style="width:7.661cm;height:9.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000002980000035A89FE4BF1.png" style="width:7.661cm;height:9.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002980000035A89FE4BF1.png" /></p>
 <p>Les logs POP3 sont les suivants (les dernières lignes dans le fichier de logs du jour) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line">&quot;POP3D&quot;    35084    5    &quot;2020-07-08 14:19:46.392&quot;    &quot;127.0.0.1&quot;    &quot;<span style="background-color:#f7caac">SENT</span>: +OK Bienvenue sur le serveur POP3 localhost.com&quot;</span>
@@ -5012,7 +5012,7 @@
 <li>ligne 18 : le serveur va lui également fermer sa connexion avec le client mais auparavant il lui envoie un message d’au-revoir ;</li>
 </ul>
 <p>Nous allons reproduire maintenant des éléments du dialogue ci-dessus en utilisant le client <strong>[RawTcpClient]</strong> exécuté dans une fenêtre PyCharm :</p>
-<p><img src="images/10000000000001FC000002BAC1775AE8.png" style="width:5.871cm;height:8.071cm;" alt="Image" /></p>
+<p><img src="images/10000000000001FC000002BAC1775AE8.png" style="width:5.871cm;height:8.071cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001FC000002BAC1775AE8.png" /></p>
 <p>Le dialogue est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\utilitaires&gt;<span style="background-color:#fff2cc">RawTcpClient.exe localhost 110</span></span>
@@ -5085,7 +5085,7 @@
 <p><a id="refheadingtoc1357262222329424"></a>
 <a id="toc48549136"></a></p>
 <h3 id="2163-scripts-pop301-un-client-pop3-basique">21.6.3. scripts [pop3/01] : un client POP3 basique</h3>
-<p><img src="images/1000000000000143000001A3C17B9BCA.png" style="width:3.721cm;height:4.841cm;" alt="Image" /></p>
+<p><img src="images/1000000000000143000001A3C17B9BCA.png" style="width:3.721cm;height:4.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000143000001A3C17B9BCA.png" /></p>
 <p>Comme le procole POP3 a la même structure que le protocole SMTP, le script <strong>[pop3/01/main.py]</strong> est un portage du script <strong>[smtp/01/main.py]</strong>. Il aura le fichier de configuration <strong>[pop3/01/config.py]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure() -&gt; <span style="color:#2b91af">dict</span>:</span>
@@ -5345,7 +5345,7 @@
 </ul>
 <p><strong>Résultats</strong></p>
 <p>Prenons l&#x27;exemple précédent. Avec Thunderbird, nous avions envoyé le message suivant à l&#x27;utilisateur <strong>[guest@localhost]</strong> (il faut que le serveur hMailServer soit lancé) :</p>
-<p><img src="images/100000000000047300000283D01ECC0A.png" style="width:13.151cm;height:7.421cm;" alt="Image" /></p>
+<p><img src="images/100000000000047300000283D01ECC0A.png" style="width:13.151cm;height:7.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047300000283D01ECC0A.png" /></p>
 <p>A l’exécution, on obtient les résultats suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/inet/pop3/01/main.py</span>
@@ -5413,7 +5413,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="images/10000000000001B1000001EBDD5E2D9F.png" style="width:4.989cm;height:5.659cm;" alt="Image" /></p>
+<p><img src="images/10000000000001B1000001EBDD5E2D9F.png" style="width:4.989cm;height:5.659cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B1000001EBDD5E2D9F.png" /></p>
 <p>Le script <strong>[inet/pop3/02/main]</strong> <strong>[1]</strong> est configuré par le fichier <strong>[inet/pop3/02/config]</strong> <strong>[2]</strong> et utilise le module <strong>[inet/shared/mail_parser]</strong> <strong>[3]</strong>.</p>
 <p>Le fichier <strong>[pop3/02/config]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -5659,7 +5659,7 @@
 </li>
 </ul>
 <p>La fonction <strong>[save_message]</strong> fait partie du module <strong>[mail_parser]</strong> :</p>
-<p><img src="images/10000000000001310000017594E4CCCF.png" style="width:3.511cm;height:4.301cm;" alt="Image" /></p>
+<p><img src="images/10000000000001310000017594E4CCCF.png" style="width:3.511cm;height:4.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001310000017594E4CCCF.png" /></p>
 <p>Le module <strong>[mail_parser]</strong> a été importé aux lignes 6-7 de la fonction <strong>[readmails]</strong> ;</p>
 <p>Dans <strong>[mail_parser.py]</strong> la fonction <strong>[save_message]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -6209,22 +6209,22 @@
 </code></pre></div>
 
 <p>Le résultat est le suivant :</p>
-<p><img src="images/10000000000001F5000002CE4784B3CC.png" style="width:5.201cm;height:7.451cm;" alt="Image" /></p>
+<p><img src="images/10000000000001F5000002CE4784B3CC.png" style="width:5.201cm;height:7.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001F5000002CE4784B3CC.png" /></p>
 <p>Le message 1 est celui envoyé par Thunderbird :</p>
-<p><img src="images/10000000000005570000018A84E248A9.png" style="width:15.77cm;height:4.552cm;" alt="Image" /></p>
+<p><img src="images/10000000000005570000018A84E248A9.png" style="width:15.77cm;height:4.552cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005570000018A84E248A9.png" /></p>
 <ul>
 <li>en <strong>[5]</strong>, Thunderbird <strong>[3]</strong> utilise un <strong>[Transfer-Content-Encoding]</strong> de type <strong>[8bit]</strong> ;</li>
 <li>en <strong>[4]</strong> : le message est codé en UTF-8 ;</li>
 </ul>
 <p>Le message 2 est celui envoyé par em Client :</p>
-<p><img src="images/100000000000055700000172DDFC8D8D.png" style="width:15.791cm;height:4.271cm;" alt="Image" /></p>
-<p><img src="images/1000000000000390000001DEF94A03F0.png" style="width:10.521cm;height:5.52cm;" alt="Image" /></p>
+<p><img src="images/100000000000055700000172DDFC8D8D.png" style="width:15.791cm;height:4.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055700000172DDFC8D8D.png" /></p>
+<p><img src="images/1000000000000390000001DEF94A03F0.png" style="width:10.521cm;height:5.52cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000390000001DEF94A03F0.png" /></p>
 <p>On remarquera que <strong>[em Client]</strong> code les textes en utf-8 <strong>[4]</strong> et qu&#x27;il les transfère en <strong>[quoted-printable]</strong> <strong>[5]</strong>. Il a également envoyé une copie du message en HTML <strong>[7-8]</strong>. Tous les gestionnaires de mail testés ici peuvent faire cela. Il s’agit d’un paramètre de configuration.</p>
 <p>Le message 3 est celui envoyé par Gmail :</p>
-<p><img src="images/10000000000005580000016AFE1602C2.png" style="width:15.77cm;height:4.181cm;" alt="Image" /></p>
+<p><img src="images/10000000000005580000016AFE1602C2.png" style="width:15.77cm;height:4.181cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005580000016AFE1602C2.png" /></p>
 <p>On remarquera que Gmail code les textes en utf-8 <strong>[3]</strong> et qu&#x27;il les transfère en <strong>[quoted-printable]</strong> <strong>[4]</strong>. En <strong>[6]</strong>, la version HTML du message.</p>
 <p>Le message 4 est celui envoyé par Outlook :</p>
-<p><img src="images/10000000000005AA000001DF743EC6E8.png" style="width:16.721cm;height:5.531cm;" alt="Image" /></p>
+<p><img src="images/10000000000005AA000001DF743EC6E8.png" style="width:16.721cm;height:5.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005AA000001DF743EC6E8.png" /></p>
 <p>On remarquera que Outlook code les textes en iso-8859-1 <strong>[3]</strong> et qu&#x27;il les transfère en <strong>[quoted-printable]</strong> <strong>[4]</strong>.</p>
 <p>Les exemples précédents montrent deux choses :</p>
 <ul>
@@ -6279,7 +6279,7 @@
 <li>un mail contenant les mêmes deux fichiers attachés ;</li>
 </ul>
 <p>Une fois le mail envoyé, nous exécutons le script <strong>[pop3/02]</strong> pour lire la boîte mail de l’utilisateur <strong>[pymail2parlexemple@gmail.com]</strong>. Les résultats sont les suivants :</p>
-<p><img src="images/100000000000023800000236E1AB340F.png" style="width:5.912cm;height:5.89cm;" alt="Image" /></p>
+<p><img src="images/100000000000023800000236E1AB340F.png" style="width:5.912cm;height:5.89cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023800000236E1AB340F.png" /></p>
 <ul>
 <li>en <strong>[1]</strong> : le message avec ses deux fichiers attachés ;</li>
 <li>en <strong>[2]</strong> : le mail attaché lui-même avec ses deux fichiers attachés ;</li>
@@ -6298,7 +6298,7 @@
 <li>le protocole IMAP (Internet Message Access Protocol) protocole plus récent que POP3 et le plus utilisé actuellement ;</li>
 </ul>
 <p>Pour découvrir le protocole IMAP, nous allons utiliser l’architecture suivante :</p>
-<p><img src="images/1000000100000200000000DF4A08E6A0.png" style="width:8.76cm;height:3.811cm;" alt="Image" /></p>
+<p><img src="images/1000000100000200000000DF4A08E6A0.png" style="width:8.76cm;height:3.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000200000000DF4A08E6A0.png" /></p>
 <ul>
 <li><strong>[Serveur B]</strong> sera selon les cas :<ul>
 <li>un serveur IMAP local, implémenté par le serveur de mail <strong>[hMailServer]</strong> ;</li>
@@ -6313,32 +6313,32 @@
 <li>le client IMAP peut envoyer des commandes de création / modification / suppression de ces dossiers ;</li>
 </ul>
 <p>Voyons un exemple avec Thunderbird. Dans l&#x27;architecture suivante :</p>
-<p><img src="images/1000000100000200000000DEBF0B481C.png" style="width:8.771cm;height:3.8cm;" alt="Image" /></p>
+<p><img src="images/1000000100000200000000DEBF0B481C.png" style="width:8.771cm;height:3.8cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000200000000DEBF0B481C.png" /></p>
 <ul>
 <li>Thunderbird est le client A ;</li>
 <li><strong>[imap.gmail.com]</strong> est le serveur B (Gmail) ;</li>
 </ul>
 <p>Créons un dossier dans les mails de l&#x27;utilisateur <strong>[pymail2parlexemple@gmail.com]</strong> avec Thunderbird :</p>
-<p><img src="images/10000000000005580000030F25DAF49B.png" style="width:15.77cm;height:9.051cm;" alt="Image" /></p>
+<p><img src="images/10000000000005580000030F25DAF49B.png" style="width:15.77cm;height:9.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005580000030F25DAF49B.png" /></p>
 <ul>
 <li>en <strong>[1-6]</strong>, nous créons le dossier <strong>[dossier1]</strong> ;</li>
 </ul>
-<p><img src="images/10000000000003550000019513F04E21.png" style="width:9.861cm;height:4.68cm;" alt="Image" /></p>
+<p><img src="images/10000000000003550000019513F04E21.png" style="width:9.861cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003550000019513F04E21.png" /></p>
 <ul>
 <li>en <strong>[7-8]</strong>, nous déplaçons (avec la souris) tous les fichiers du dossier <strong>[Courrier entrant]</strong> dans le dossier <strong>[dossier1]</strong> ;</li>
 </ul>
 <p>Maintenant connectons-nous au site web de Gmail et identifions-nous comme l&#x27;utilisateur <strong>[pymail2parlexemple@gmail.com]</strong> :</p>
-<p><img src="images/1000000000000446000002861C598ABB.png" style="width:12.611cm;height:7.451cm;" alt="Image" /></p>
+<p><img src="images/1000000000000446000002861C598ABB.png" style="width:12.611cm;height:7.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000446000002861C598ABB.png" /></p>
 <ul>
 <li>en <strong>[2-3]</strong>, la boîte de réception est vide ;</li>
 <li>en <strong>[1]</strong>, le dossier <strong>[dossier1]</strong> qui a été créé ;</li>
 </ul>
-<p><img src="images/10000000000004E70000021A68326E10.png" style="width:14.481cm;height:6.211cm;" alt="Image" /></p>
+<p><img src="images/10000000000004E70000021A68326E10.png" style="width:14.481cm;height:6.211cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004E70000021A68326E10.png" /></p>
 <ul>
 <li>en <strong>[4-6]</strong> : les mails qui ont été déplacés dans le dossier <strong>[dossier1]</strong> ;</li>
 </ul>
 <p>Nous sommes là devant l&#x27;architecture suivante :</p>
-<p><img src="images/10000001000001F0000001045B25786D.png" style="width:8.471cm;height:4.44cm;" alt="Image" /></p>
+<p><img src="images/10000001000001F0000001045B25786D.png" style="width:8.471cm;height:4.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001F0000001045B25786D.png" /></p>
 <ul>
 <li>Client A est l&#x27;application Thunderbird ;</li>
 <li>Client C est l&#x27;application web de Gmail ;</li>
@@ -6352,7 +6352,7 @@
 <p><a id="refheadingtoc3282283081319169"></a>
 <a id="toc48549140"></a></p>
 <h3 id="2172-script-imapmain-client-imap-avec-le-module-imaplib">21.7.2. script [imap/main] : client IMAP avec le module [imaplib]</h3>
-<p><img src="images/1000000000000114000000E1ECECCBD2.png" style="width:3.181cm;height:2.601cm;" alt="Image" /></p>
+<p><img src="images/1000000000000114000000E1ECECCBD2.png" style="width:3.181cm;height:2.601cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000114000000E1ECECCBD2.png" /></p>
 <p>Le script <strong>[imap/main]</strong> est configuré par le script <strong>[imap/config]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">import<span style="color:#000000"> </span><span style="color:#6f008a">os</span></span>

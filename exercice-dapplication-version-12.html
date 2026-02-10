@@ -1631,7 +1631,7 @@
 <a id="toc42690105"></a></p>
 <h2 id="301-architecture-mvc">30.1. Architecture MVC</h2>
 <p>Nous allons implémenter le modèle d&#x27;architecture dit MVC (Modèle – Vue – Contrôleur) de la façon suivante :</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
 <p>Le traitement d&#x27;une demande d&#x27;un client se déroulera de la façon suivante :</p>
 <ul>
 <li>1 - demande</li>
@@ -1658,14 +1658,14 @@
 </li>
 </ul>
 <p>Maintenant, précisons le lien entre architecture web MVC et architecture en couches. Selon la définition qu&#x27;on donne au <strong>modèle</strong>, ces deux concepts sont liés ou non. Prenons une application web MVC à une couche :</p>
-<p><img src="images/10000001000002C0000000F3C259C5FB.png" style="width:11.941cm;height:4.121cm;" alt="Image" /></p>
+<p><img src="images/10000001000002C0000000F3C259C5FB.png" style="width:11.941cm;height:4.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002C0000000F3C259C5FB.png" /></p>
 <p>Ci-dessus, les <strong>[Contrôleur / Action]</strong> intègrent chacun une partie des couches <strong>[métier]</strong> et <strong>[dao]</strong>. Dans la couche <strong>[web]</strong> on a bien une architecture MVC mais l’ensemble de l’application n’a pas une architecture en couches. Ici il n’y a qu’une couche, la couche web, qui fait tout.</p>
 <p>Maintenant, considérons une architecture web multicouche :</p>
-<p><img src="images/10000000000004AF000000CE2A4AE434.png" style="width:13.821cm;height:2.38cm;" alt="Image" /></p>
+<p><img src="images/10000000000004AF000000CE2A4AE434.png" style="width:13.821cm;height:2.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004AF000000CE2A4AE434.png" /></p>
 <p>La couche <strong>[web]</strong> peut être implémentée sans suivre le modèle MVC. On a bien alors une architecture multicouche mais la couche web n&#x27;implémente pas le modèle MVC.</p>
 <p>Par exemple, dans le monde .NET la couche <strong>[web]</strong> ci-dessus peut être implémentée avec ASP.NET MVC et on a alors une architecture en couches avec une couche <strong>[web]</strong> de type MVC. Ceci fait, on peut remplacer cette couche ASP.NET MVC par une couche ASP.NET classique (WebForms) tout en gardant le reste (métier, DAO, Pilote) <strong>à l&#x27;identique</strong>.  On a alors une architecture en couches avec une couche <strong>[web]</strong> qui n&#x27;est plus de type MVC.</p>
 <p>Dans MVC, nous avons dit que le modèle M était celui de la vue V, c.a.d. l&#x27;ensemble des données affichées par la vue V. Une autre définition du modèle M de MVC est donnée :</p>
-<p><img src="images/10000000000004AD000000BE31C43437.png" style="width:13.821cm;height:2.192cm;" alt="Image" /></p>
+<p><img src="images/10000000000004AD000000BE31C43437.png" style="width:13.821cm;height:2.192cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004AD000000BE31C43437.png" /></p>
 <p>Beaucoup d&#x27;auteurs considèrent que ce qui est à droite de la couche <strong>[web]</strong> forme le modèle M du MVC. Pour éviter les ambigüités on peut parler :</p>
 <ul>
 <li>du <strong>modèle du domaine</strong> lorsqu&#x27;on désigne tout ce qui est à droite de la couche <strong>[web]</strong> ;</li>
@@ -1675,7 +1675,7 @@
 <p><a id="toc48549240"></a></p>
 <h2 id="302-architecture-de-lapplication-client-serveur">30.2. Architecture de l’application client / serveur</h2>
 <p>L’application web aura l’architecture suivante :</p>
-<p><img src="images/10000000000003BC0000053607429669.png" style="width:11.052cm;height:15.371cm;" alt="Image" /></p>
+<p><img src="images/10000000000003BC0000053607429669.png" style="width:11.052cm;height:15.371cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BC0000053607429669.png" /></p>
 <ul>
 <li>en <strong>[1]</strong> le serveur web aura deux types de clients :<ul>
 <li>en <strong>[2]</strong>, un client console qui échangera du jSON et du XML avec le serveur ;</li>
@@ -1695,20 +1695,20 @@
 </ul>
 <p><a id="toc48549241"></a></p>
 <h2 id="303-larborescence-du-code-du-serveur">30.3. L’arborescence du code du serveur</h2>
-<p><img src="images/100000000000052E00000191E4FCA526.png" style="width:15.301cm;height:4.631cm;" alt="Image" /></p>
+<p><img src="images/100000000000052E00000191E4FCA526.png" style="width:15.301cm;height:4.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052E00000191E4FCA526.png" /></p>
 <ul>
 <li>en <strong>[1 : le serveur web dans sa globalité ;</strong></li>
 <li><strong>en [2]</strong> : nous ignorerons pour l’instant les dossiers <strong>[static, templates, tests_views]</strong> qui concernent la version HTML du serveur. En-dehors de ce dossier nous trouverons le script principal <strong>[main]</strong> et sa configuration ;</li>
 <li>en <strong>[3]</strong>, les contrôleurs du serveur web. Ce seront des instances de classes ;</li>
 </ul>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017C00000179A4B96CF2.png" style="display:inline-block; margin:4px;width:4.381cm;height:4.351cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B2000001291DBA70C4.png" style="display:inline-block; margin:4px;width:5.01cm;height:3.432cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017C00000179A4B96CF2.png" style="display:inline-block; margin:4px;width:4.381cm;height:4.351cm;" class="odt-zoomable" data-zoom-src="images/100000000000017C00000179A4B96CF2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B2000001291DBA70C4.png" style="display:inline-block; margin:4px;width:5.01cm;height:3.432cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B2000001291DBA70C4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
 <li>en <strong>[4]</strong>, la réponse HTTP du serveur sera gérée par des classes ;</li>
 <li>en <strong>[5]</strong>, nous conservons le fichier de logs des serveurs précédents ;</li>
 </ul>
 <p>Lorsque nous construirons la version HTML du serveur, d’autres dossiers interviendront :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DB00000246F98D7DD7.png" style="display:inline-block; margin:4px;width:5.49cm;height:6.73cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001FA000001893C83F7F1.png" style="display:inline-block; margin:4px;width:5.841cm;height:4.541cm;" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DB00000246F98D7DD7.png" style="display:inline-block; margin:4px;width:5.49cm;height:6.73cm;" class="odt-zoomable" data-zoom-src="images/10000000000001DB00000246F98D7DD7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001FA000001893C83F7F1.png" style="display:inline-block; margin:4px;width:5.841cm;height:4.541cm;" class="odt-zoomable" data-zoom-src="images/10000000000001FA000001893C83F7F1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
 <li>en <strong>[6]</strong>, les éléments statiques de l’application HTML ;</li>
@@ -1726,13 +1726,13 @@
 <li>une fois que le serveur jSON aura été validé, nous passerons à l’ériture de l’application HTML ;</li>
 </ul>
 <p>La 1ère vue sera la vue d’authentification :</p>
-<p><img src="images/100000000000052F0000035AF3022D8F.png" style="width:15.331cm;height:9.921cm;" alt="Image" /></p>
+<p><img src="images/100000000000052F0000035AF3022D8F.png" style="width:15.331cm;height:9.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052F0000035AF3022D8F.png" /></p>
 <ul>
 <li>l’action qui mène à cette 1ère vue s’appellera <strong>[init-session]</strong> <strong>[1]</strong> ;</li>
 <li>le clic sur le bouton <strong>[Valider]</strong> va déclencher l’action <strong>[authentifier-utilisateur]</strong> avec deux paramètres postés <strong>[2-3]</strong> ;</li>
 </ul>
 <p>La vue du calcul de l’impôt :</p>
-<p><img src="images/100000000000050B00000373E5FBF2A5.png" style="width:14.922cm;height:10.201cm;" alt="Image" /></p>
+<p><img src="images/100000000000050B00000373E5FBF2A5.png" style="width:14.922cm;height:10.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050B00000373E5FBF2A5.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, l’action <strong>[authentifier-utilisateur]</strong> qui a amené à cette vue ;</li>
 <li>en <strong>[2]</strong>, le clic sur le bouton <strong>[Valider]</strong> déclenche l’exécution de l’action <strong>[calculer-impot]</strong> avec trois paramètres postés <strong>[2-5]</strong> ;</li>
@@ -1740,7 +1740,7 @@
 <li>le clic sur le lien <strong>[7]</strong> déclenche l’action <strong>[fin-session]</strong> sans paramètres ;</li>
 </ul>
 <p>La 3ième vue est celle des simulations faites par l’utilisateur authentifié :</p>
-<p><img src="images/100000000000052700000248AB35CBDA.png" style="width:15.221cm;height:6.751cm;" alt="Image" /></p>
+<p><img src="images/100000000000052700000248AB35CBDA.png" style="width:15.221cm;height:6.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052700000248AB35CBDA.png" /></p>
 <ul>
 <li>en <strong>[3]</strong>, l’action <strong>[lister-simulations]</strong> qui a amené à cette vue ;</li>
 <li>en <strong>[2]</strong>, un clic sur le lien <strong>[Supprimer]</strong> déclenche l’action <strong>[supprimer-simulation]</strong> avec un paramètre, le n° de la simulation à supprimer dans la liste ;</li>
@@ -1780,7 +1780,7 @@
 <p>Nous allons maintenant passer en revue les différents contrôleurs ou ce qui revient au même les différentes actions que ces contrôleurs traitent et qui rythment la vie de l’application web.</p>
 <p><a id="toc48549243"></a></p>
 <h2 id="305-configuration-du-serveur">30.5. Configuration du serveur</h2>
-<p><img src="images/100000000000015100000132D2E60F03.png" style="width:3.901cm;height:3.53cm;" alt="Image" /></p>
+<p><img src="images/100000000000015100000132D2E60F03.png" style="width:3.901cm;height:3.53cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015100000132D2E60F03.png" /></p>
 <p>La configuration de la base de données <strong>[config_database]</strong> ainsi que celle des couches du serveur <strong>[config_layers]</strong> sont identiques à celles des versions précédentes. Le fichier <strong>[config]</strong> voit apparaître de nouvelles informations :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -2014,7 +2014,7 @@
 </ul>
 <p><a id="toc48549244"></a></p>
 <h2 id="306-cheminement-dune-requete-client-au-sein-du-serveur">30.6. Cheminement d’une requête client au sein du serveur</h2>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
 <p>Nous allons suivre le cheminement d’une requête client arrivant sur le serveur jusqu’à la réponse HTTP envoyée en retour. Elle suit le cheminement du serveur MVC.</p>
 <p><a id="toc48549245"></a></p>
 <h3 id="3061-le-script-main">30.6.1. Le script [main]</h3>
@@ -2289,12 +2289,12 @@
 </ul>
 <p>Le travail de la fonction <strong>[front_controller]</strong> puis de la classe <strong>[MainController]</strong> est de faire le travail commun à toutes les requêtes :</p>
 <p>Dans le schéma ci-dessus, on en est toujours à la phase 1 du traitement de la requête. Le contrôleur principal <strong>[MainController]</strong> va poursuivre l’étape 1.</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
 <p><a id="toc48549246"></a></p>
 <h3 id="3062-le-controleur-principal-maincontroller">30.6.2. Le contrôleur principal [MainController]</h3>
 <p>Le contrôleur principal <strong>[MainController]</strong> continue le travail commencé par la fonction <strong>[front_controller]</strong> :</p>
 <p>Tous les contrôleurs implémentent l’interface <strong>[</strong><strong>InterfaceController</strong><strong>]</strong> <strong>[2]</strong> suivante :</p>
-<p><img src="images/10000000000001DE00000195484FCCBE.png" style="width:5.531cm;height:4.691cm;" alt="Image" /></p>
+<p><img src="images/10000000000001DE00000195484FCCBE.png" style="width:5.531cm;height:4.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DE00000195484FCCBE.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> abc <span style="color:#0000ff">import</span> ABC, abstractmethod</span>
 <span class="odt-code-line"></span>
@@ -2389,7 +2389,7 @@
 <p><a id="toc48549247"></a></p>
 <h2 id="307-traitement-specifique-a-une-action">30.7. Traitement spécifique à une action</h2>
 <p>Revenons à l’architecture MVC de l’application :</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
 <p>Nous en sommes toujours à l’étape 1 ci-dessus. S’il n’y a pas eu d’erreur, l’étape 2 va commencer. La requête a été transmise au contrôleur spécifique à l’action demandée par la requête. Supposons que cette action soit <strong>[/init-session]</strong> définie par la route :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># init-session<span style="color:#000000"></span></span>
@@ -2465,7 +2465,7 @@
 <p><a id="toc48549248"></a></p>
 <h2 id="308-elaboration-de-la-reponse-http-du-serveur">30.8. Elaboration de la réponse HTTP du serveur</h2>
 <p>Revenons à l’architecture MVC de l’application :</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" /></p>
+<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
 <p>Nous venons de voir les étapes 1 et 2. Nous avons rencontré trois codes d’état :</p>
 <ul>
 <li>700 : /init-session a réussi ;</li>
@@ -2551,7 +2551,7 @@
 </code></pre></div>
 
 <p>Les classes de réponses sont dans le dossier <strong>[responses]</strong> de l’arborescence du serveur :</p>
-<p><img src="images/100000000000017C00000179366F75BA.png" style="width:3.95cm;height:3.92cm;" alt="Image" /></p>
+<p><img src="images/100000000000017C00000179366F75BA.png" style="width:3.95cm;height:3.92cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017C00000179366F75BA.png" /></p>
 <p>Chaque classe de réponse implémente l’interface <strong>[InterfaceResponse]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> abc <span style="color:#0000ff">import</span> ABC, abstractmethod</span>
@@ -2613,7 +2613,7 @@
 </ul>
 <p><u><strong>Test 1</strong></u></p>
 <p>Nous montrons tout d’abord une requête invalide parce que la session n’a pas été initialisé :</p>
-<p><img src="images/10000000000002BE00000127F5FEAD9A.png" style="width:8.09cm;height:3.41cm;" alt="Image" /></p>
+<p><img src="images/10000000000002BE00000127F5FEAD9A.png" style="width:8.09cm;height:3.41cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE00000127F5FEAD9A.png" /></p>
 <ul>
 <li><strong>[1-2]</strong> : la requête <strong>[POST </strong><a href="http://localhost:5000/authentifier-utilisateur"><u><span style="color: #0563c1"><strong>http://localhost:5000/authentifier-utilisateur</strong></span></u></a><strong>]</strong><span style="color: #505050"> est une route valide :</span></li>
 </ul>
@@ -2627,7 +2627,7 @@
 
 <p>mais elle n’est acceptée que si la session a été initialisée auparavant avec l’action <strong>[/init-session]</strong>.</p>
 <p>Exécutons la requête et voyons le résultat envoyé par le serveur :</p>
-<p><img src="images/10000000000003F50000019B063287AC.png" style="width:11.69cm;height:4.74cm;" alt="Image" /></p>
+<p><img src="images/10000000000003F50000019B063287AC.png" style="width:11.69cm;height:4.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F50000019B063287AC.png" /></p>
 <ul>
 <li><strong>[1-2]</strong> : on a obtenu une réponse jSON. Lorsque le type de réponse n’a pas encore été fixé par le client, le serveur utilise le jSON pour répondre ;</li>
 <li><strong>[3-5]</strong> : le dictionnaire jSON de la réponse ;<ul>
@@ -2638,7 +2638,7 @@
 </li>
 </ul>
 <p>Maintenant initialisons une session avec un type de réponse incorrect :</p>
-<p><img src="images/100000000000033E0000019C4EE2189F.png" style="width:9.561cm;height:4.751cm;" alt="Image" /></p>
+<p><img src="images/100000000000033E0000019C4EE2189F.png" style="width:9.561cm;height:4.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033E0000019C4EE2189F.png" /></p>
 <ul>
 <li><strong>[1-2]</strong> est une route correcte :</li>
 </ul>
@@ -2652,15 +2652,15 @@
 
 <p>Elle va donc entrer dans le tunnel de traitement des requêtes du serveur MVC. Néanmoins elle devrait être refusée au cours de ce traitement parce que le type de session demandé est incorrect.</p>
 <p>La réponse est la suivante :</p>
-<p><img src="images/10000000000002F70000017D6FABDC42.png" style="width:8.771cm;height:4.4cm;" alt="Image" /></p>
+<p><img src="images/10000000000002F70000017D6FABDC42.png" style="width:8.771cm;height:4.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F70000017D6FABDC42.png" /></p>
 <ul>
 <li>en <strong>[4]</strong>, un code d’erreur <strong>[x01]</strong> ;</li>
 <li>en <strong>[5]</strong>, l’explication de l’erreur ;</li>
 </ul>
 <p>Maintenant, initialisons une session jSON :</p>
-<p><img src="images/10000000000002BB0000013B913DCD7D.png" style="width:8.081cm;height:3.641cm;" alt="Image" /></p>
+<p><img src="images/10000000000002BB0000013B913DCD7D.png" style="width:8.081cm;height:3.641cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BB0000013B913DCD7D.png" /></p>
 <p>La réponse est la suivante :</p>
-<p><img src="images/100000000000033C000001912F02645F.png" style="width:9.561cm;height:4.62cm;" alt="Image" /></p>
+<p><img src="images/100000000000033C000001912F02645F.png" style="width:9.561cm;height:4.62cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C000001912F02645F.png" /></p>
 <p>Maintenant, initialisons une session XML. La réponse jSON va être remplacée par une réponse XML générée par la classe <strong>[XmlResponse]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">import</span> xmltodict</span>
@@ -2688,9 +2688,9 @@
 
 <p>C’est du code que nous connaissons, celui de la fonction <strong>[xml_response]</strong> du module partagé <strong>[myutils]</strong>.</p>
 <p>Nous initialisons une session XML :</p>
-<p><img src="images/10000000000002BB00000139B7662CFA.png" style="width:8.09cm;height:3.611cm;" alt="Image" /></p>
+<p><img src="images/10000000000002BB00000139B7662CFA.png" style="width:8.09cm;height:3.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BB00000139B7662CFA.png" /></p>
 <p>Le résultat du serveur est alors le suivant :</p>
-<p><img src="images/100000000000038E000001753C4E8200.png" style="width:10.501cm;height:4.301cm;" alt="Image" /></p>
+<p><img src="images/100000000000038E000001753C4E8200.png" style="width:10.501cm;height:4.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E000001753C4E8200.png" /></p>
 <p>Nous obtenons la même réponse qu’en jSON mais cette fois-ci la réponse est habilllée en XML.</p>
 <p><a id="toc48549250"></a></p>
 <h2 id="3010-laction-authentifier-utilisateur">30.10. L’action [authentifier-utilisateur]</h2>
@@ -2814,29 +2814,29 @@
 </ul>
 <p>Voilà différents cas.</p>
 <p><u><strong>Cas 1 : POST sans paramètres postés</strong></u></p>
-<p><img src="images/100000000000038E0000015C77DFB95F.png" style="width:10.51cm;height:4.021cm;" alt="Image" /></p>
+<p><img src="images/100000000000038E0000015C77DFB95F.png" style="width:10.51cm;height:4.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E0000015C77DFB95F.png" /></p>
 <ul>
 <li>en <strong>[3-5]</strong>, le POST n’a pas de corps ;</li>
 </ul>
 <p>Le résultat de la requête est le suivant :</p>
-<p><img src="images/10000000000004BB0000012542DE0AB8.png" style="width:13.99cm;height:3.38cm;" alt="Image" /></p>
+<p><img src="images/10000000000004BB0000012542DE0AB8.png" style="width:13.99cm;height:3.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BB0000012542DE0AB8.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, on a eu une réponse HTTP 400 BAD REQUEST ;</li>
 <li>en <strong>[5]</strong>, on a eu un code d’erreur <strong>[201]</strong> ;</li>
 </ul>
 <p><u><strong>Cas 2 : POST avec identifiants erronés</strong></u></p>
-<p><img src="images/100000000000038E00000172CBD23596.png" style="width:10.51cm;height:4.261cm;" alt="Image" /></p>
+<p><img src="images/100000000000038E00000172CBD23596.png" style="width:10.51cm;height:4.261cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E00000172CBD23596.png" /></p>
 <ul>
 <li>en <strong>[6]</strong>, les identifiants sont erronés ;</li>
 </ul>
 <p>Le serveur envoie la réponse suivante :</p>
-<p><img src="images/10000000000004BE00000124AB53F412.png" style="width:14.031cm;height:3.372cm;" alt="Image" /></p>
+<p><img src="images/10000000000004BE00000124AB53F412.png" style="width:14.031cm;height:3.372cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BE00000124AB53F412.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, la réponse HTTP 401 UNAUTHORIZED ;</li>
 <li>en <strong>[5]</strong>, la réponse d’erreur ;</li>
 </ul>
 <p><u><strong>Cas 2 : POST avec identifiants corrects</strong></u></p>
-<p><img src="images/100000000000038D00000172C28B877D.png" style="width:10.51cm;height:4.261cm;" alt="Image" /></p>
+<p><img src="images/100000000000038D00000172C28B877D.png" style="width:10.51cm;height:4.261cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D00000172C28B877D.png" /></p>
 <ul>
 <li>en <strong>[6]</strong>, les identifiants sont corrects ;</li>
 </ul>
@@ -2844,7 +2844,7 @@
 <ul>
 <li>en <strong>[2]</strong>, un réponse HTTP 200 OK ;</li>
 </ul>
-<p><img src="images/10000000000004BF0000010257D437DE.png" style="width:14.011cm;height:2.98cm;" alt="Image" /></p>
+<p><img src="images/10000000000004BF0000010257D437DE.png" style="width:14.011cm;height:2.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BF0000010257D437DE.png" /></p>
 <ul>
 <li>en <strong>[5]</strong>, la réponse de réussite ;</li>
 </ul>
@@ -2988,28 +2988,28 @@
 </ul>
 <p>Faisons quelques tests : le serveur web, le SGBD, le serveur de mails, un client Postman sont lancés. </p>
 <p><u><strong>Cas 1 : faire un calcul d’impôt alors que la session n’est pas initialisée</strong></u></p>
-<p><img src="images/100000000000038E000001A92D814240.png" style="width:10.501cm;height:4.901cm;" alt="Image" /></p>
+<p><img src="images/100000000000038E000001A92D814240.png" style="width:10.501cm;height:4.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E000001A92D814240.png" /></p>
 <p>La réponse est la suivante :</p>
-<p><img src="images/1000000000000329000001327D6E0398.png" style="width:9.33cm;height:3.541cm;" alt="Image" /></p>
+<p><img src="images/1000000000000329000001327D6E0398.png" style="width:9.33cm;height:3.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000329000001327D6E0398.png" /></p>
 <p><u><strong>Cas 2 : faire un calcul d’impôt sans être authentifié</strong></u></p>
 <p>On lance tout d’abord une session jSON avec <strong>[/init-session/json]</strong>. Puis on fait la même requête que précédemment. La réponse est alors la suivante :</p>
-<p><img src="images/10000000000003290000012E50FAA0EC.png" style="width:9.351cm;height:3.492cm;" alt="Image" /></p>
+<p><img src="images/10000000000003290000012E50FAA0EC.png" style="width:9.351cm;height:3.492cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003290000012E50FAA0EC.png" /></p>
 <p><u><strong>Cas 3 : faire un calcul d’impôt avec des paramètres manquants</strong></u></p>
 <p>On initialise une session jSON, on s’authentifie puis on fait la requête suivante :</p>
-<p><img src="images/100000000000038D0000019EBD0BAABF.png" style="width:10.501cm;height:4.781cm;" alt="Image" /></p>
+<p><img src="images/100000000000038D0000019EBD0BAABF.png" style="width:10.501cm;height:4.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D0000019EBD0BAABF.png" /></p>
 <ul>
 <li>en <strong>[5]</strong>, il manque le paramètre <strong>[marié]</strong> ;</li>
 </ul>
 <p>La réponse est la suivante :</p>
 <p><u><strong>Cas 4 : faire un calcul d’impôt avec des paramètres erronés</strong></u> </p>
-<p><img src="images/100000000000038D000001366AEFA3B8.png" style="width:10.501cm;height:3.581cm;" alt="Image" /></p>
-<p><img src="images/10000000000003620000013C3EC6078A.png" style="width:10.011cm;height:3.65cm;" alt="Image" /></p>
+<p><img src="images/100000000000038D000001366AEFA3B8.png" style="width:10.501cm;height:3.581cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D000001366AEFA3B8.png" /></p>
+<p><img src="images/10000000000003620000013C3EC6078A.png" style="width:10.011cm;height:3.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003620000013C3EC6078A.png" /></p>
 <p>La réponse du serveur est la suivante :</p>
-<p><img src="images/10000000000003770000018073E147F7.png" style="width:9.201cm;height:3.991cm;" alt="Image" /></p>
+<p><img src="images/10000000000003770000018073E147F7.png" style="width:9.201cm;height:3.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003770000018073E147F7.png" /></p>
 <p><u><strong>Cas 4 : faire un calcul d’impôt avec des paramètres corrects</strong></u></p>
-<p><img src="images/100000000000031E00000178E67A7270.png" style="width:9.221cm;height:4.34cm;" alt="Image" /></p>
+<p><img src="images/100000000000031E00000178E67A7270.png" style="width:9.221cm;height:4.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031E00000178E67A7270.png" /></p>
 <p>La réponse du serveur est la suivante :</p>
-<p><img src="images/100000000000029900000214D5654E32.png" style="width:6.91cm;height:5.52cm;" alt="Image" /></p>
+<p><img src="images/100000000000029900000214D5654E32.png" style="width:6.91cm;height:5.52cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029900000214D5654E32.png" /></p>
 <p><a id="toc48549252"></a></p>
 <h2 id="3012-laction-lister-simulations">30.12. L’action [lister-simulations]</h2>
 <p>L’action <strong>[lister-simulations]</strong> permet à un utilisateur de connaître la liste des simulations qu’il a faites depuis le début de la session. Sa route est définie de la façon suivante dans le script <strong>[main]</strong> :</p>
@@ -3056,9 +3056,9 @@
 <ul>
 <li>en <strong>[3]</strong>, il n’y a aucun paramètre ;</li>
 </ul>
-<p><img src="images/1000000000000239000001260619ED31.png" style="width:6.571cm;height:3.391cm;" alt="Image" /></p>
+<p><img src="images/1000000000000239000001260619ED31.png" style="width:6.571cm;height:3.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000239000001260619ED31.png" /></p>
 <p>La réponse du serveur est la suivante :</p>
-<p><img src="images/10000000000002CB000003893204E1AE.png" style="width:8.261cm;height:10.461cm;" alt="Image" /></p>
+<p><img src="images/10000000000002CB000003893204E1AE.png" style="width:8.261cm;height:10.461cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002CB000003893204E1AE.png" /></p>
 <ul>
 <li>en <strong>[4]</strong>, la liste des simulations de l’utilisateur ;</li>
 </ul>
@@ -3122,16 +3122,16 @@
 <li>ligne 27 : on rend dans la réponse, la nouvelle liste de simulations ;</li>
 </ul>
 <p>Nous faisons un test de réussite et un test d’échec. On fait des simulations puis on demande la liste des simulations :</p>
-<p><img src="images/1000000000000275000003300966AC33.png" style="width:7.261cm;height:9.42cm;" alt="Image" /></p>
+<p><img src="images/1000000000000275000003300966AC33.png" style="width:7.261cm;height:9.42cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000275000003300966AC33.png" /></p>
 <ul>
 <li>les simulations ont ici les n°s 2 et 3 ;</li>
 </ul>
 <p>On demande à supprimer la simulation ayant le n° 3.</p>
-<p><img src="images/10000000000002D50000010FED9F04E5.png" style="width:8.362cm;height:3.13cm;" alt="Image" /></p>
+<p><img src="images/10000000000002D50000010FED9F04E5.png" style="width:8.362cm;height:3.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D50000010FED9F04E5.png" /></p>
 <p>La réponse est la suivante :</p>
 <p>Maintenant, recommençons la même opération (suppression de la simulation d’id=3). La réponse est alors la suivante :</p>
-<p><img src="images/10000000000002980000024D554EFBE6.png" style="width:7.67cm;height:6.801cm;" alt="Image" /></p>
-<p><img src="images/100000000000029A00000152C04454AD.png" style="width:7.681cm;height:3.901cm;" alt="Image" /></p>
+<p><img src="images/10000000000002980000024D554EFBE6.png" style="width:7.67cm;height:6.801cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002980000024D554EFBE6.png" /></p>
+<p><img src="images/100000000000029A00000152C04454AD.png" style="width:7.681cm;height:3.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029A00000152C04454AD.png" /></p>
 <p><a id="toc48549254"></a></p>
 <h2 id="3014-laction-fin-session">30.14. L’action [fin-session]</h2>
 <p>L’action <strong>[fin-session]</strong> permet à un utilisateur de terminer sa session de simulations. Sa route est définie de la façon suivante dans le script <strong>[main]</strong> :</p>
@@ -3271,9 +3271,9 @@
 </code></pre></div>
 
 <p>Prenons un client Postman et demandons l’URL <strong>[/get-admindata]</strong>, après avoir démarré une session jSON et s’être authentifié :</p>
-<p><img src="images/100000000000023900000100BCF35DE1.png" style="width:6.58cm;height:2.961cm;" alt="Image" /></p>
+<p><img src="images/100000000000023900000100BCF35DE1.png" style="width:6.58cm;height:2.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023900000100BCF35DE1.png" /></p>
 <p>La réponse du serveur est la suivante :</p>
-<p><img src="images/1000000000000370000003FA9C9E97FA.png" style="width:10.171cm;height:11.771cm;" alt="Image" /></p>
+<p><img src="images/1000000000000370000003FA9C9E97FA.png" style="width:10.171cm;height:11.771cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000370000003FA9C9E97FA.png" /></p>
 <p><a id="toc48549256"></a></p>
 <h2 id="3016-laction-calculer-impots">30.16. L’action [calculer-impots]</h2>
 <p>L’action <strong>[calculer-impots]</strong> calcule l’impôts d’une liste de contribuables trouvée dans le corps de la requête sous la forme d’une chaîne jSON. Nous connaissons déjà cette action : elle s’appelait <strong>[calculate_tax_in_bulk_mode]</strong> dans la version précédente.</p>
@@ -3420,13 +3420,13 @@
 <li>lignes 113-115 : la nouvelle liste des simulations ainsi que le n° de la dernière simulation faite sont remis en session ;</li>
 </ul>
 <p>Nous faisons le test Postman suivant, après avoir initialisé une session jSON et s’être authentifié :</p>
-<p><img src="images/10000000000005FE000001960B59FC7D.png" style="width:17.691cm;height:4.691cm;" alt="Image" /></p>
-<p><img src="images/10000000000003E70000020DD3E6731F.png" style="width:11.51cm;height:6.07cm;" alt="Image" /></p>
+<p><img src="images/10000000000005FE000001960B59FC7D.png" style="width:17.691cm;height:4.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005FE000001960B59FC7D.png" /></p>
+<p><img src="images/10000000000003E70000020DD3E6731F.png" style="width:11.51cm;height:6.07cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E70000020DD3E6731F.png" /></p>
 <p>La réponse du serveur est la suivante :</p>
-<p><img src="images/100000000000024A000002BBAEB19130.png" style="width:6.771cm;height:8.081cm;" alt="Image" /></p>
+<p><img src="images/100000000000024A000002BBAEB19130.png" style="width:6.771cm;height:8.081cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000024A000002BBAEB19130.png" /></p>
 <p>Si maintenant, on demande la liste des simulations :</p>
 <p>On remarquera que dans la liste résultat de <strong>[/calcul-impots]</strong>, les contribuables n’ont pas d’attribut <strong>[id]</strong> alors que dans la liste des simulations, chaque simulation a un n° qui l’identifie.</p>
-<p><img src="images/10000000000004FD0000032045FED02A.png" style="width:14.742cm;height:9.24cm;" alt="Image" /></p>
+<p><img src="images/10000000000004FD0000032045FED02A.png" style="width:14.742cm;height:9.24cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004FD0000032045FED02A.png" /></p>
 
 
 

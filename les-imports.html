@@ -1536,11 +1536,11 @@
 <a id="toc48548982"></a></p>
 <h1 id="9-les-imports">9. Les imports</h1>
 <p>L’erreur rencontrée dans la version 1 de l’exercice d’application nous amène à approfondir le rôle de l’instruction <strong>[import]</strong>.</p>
-<p><img src="images/10000001000000D10000012D19F95820.png" style="width:1.922cm;height:2.77cm;" alt="Image" /></p>
+<p><img src="images/10000001000000D10000012D19F95820.png" style="width:1.922cm;height:2.77cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000D10000012D19F95820.png" /></p>
 <p><a id="toc48548983"></a></p>
 <h2 id="91-scripts-import_01">9.1. Scripts [import_01]</h2>
 <p>Le script <strong>[imported]</strong> va être importé par différents scripts (appelés aussi modules) :</p>
-<p><img src="images/1000000100000165000001092EA5961C.png" style="width:3.29cm;height:2.44cm;" alt="Image" /></p>
+<p><img src="images/1000000100000165000001092EA5961C.png" style="width:3.29cm;height:2.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000165000001092EA5961C.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># module importé<span style="color:#000000"></span></span>
 <span class="odt-code-line"># cette instruction sera exécutée à chaque fois que le module sera importé<span style="color:#000000"></span></span>
@@ -1572,10 +1572,10 @@
 </ul>
 <p>Dans PyCharm, une erreur est signalée :</p>
 <p>En <strong>[1]</strong>, PyCharm indique qu’il ne connaît pas le module <strong>[imported]</strong>. En termes techniques, cela signifie que le dossier contenant le module <strong>[imported]</strong> n’est pas dans le Python Path de PyCharm. Le Python Path est l’ensemble des dossiers dans lesquels les modules importés sont cherchés. Pour résoudre ce problème, il suffit de déclarer <strong>[Sources root]</strong> le dossier dans lequel se trouve le module <strong>[imported]</strong>, ici le dossier <strong>[import/01]</strong> :</p>
-<p><img src="images/1000000000000383000000F22A24F5ED.png" style="width:8.37cm;height:2.251cm;" alt="Image" /></p>
-<p><img src="images/1000000000000216000002A7BAF59978.png" style="width:6.171cm;height:7.85cm;" alt="Image" /></p>
+<p><img src="images/1000000000000383000000F22A24F5ED.png" style="width:8.37cm;height:2.251cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000383000000F22A24F5ED.png" /></p>
+<p><img src="images/1000000000000216000002A7BAF59978.png" style="width:6.171cm;height:7.85cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000216000002A7BAF59978.png" /></p>
 <p>Après cette opération, le dossier <strong>[import/01]</strong> est mis dans le Python Path de Pycharm et l’erreur disparaît :</p>
-<p><img src="images/1000000000000375000000E9BB9A2FCE.png" style="width:10.21cm;height:2.691cm;" alt="Image" /></p>
+<p><img src="images/1000000000000375000000E9BB9A2FCE.png" style="width:10.21cm;height:2.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000375000000E9BB9A2FCE.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, le dossier <strong>[01]</strong> a changé de couleur ;</li>
 <li>en <strong>[2-3]</strong>, il n’y a plus d’erreur ;</li>
@@ -1652,7 +1652,7 @@
 <p>La ligne 3 montre qu’on peut importer un objet du module importé et lui donner un alias. Ici la variable <strong>[imported.x]</strong> devient la variable <strong>[main_04.y]</strong>. Les résultats sont les mêmes qu’auparavant.</p>
 <p><a id="toc48548984"></a></p>
 <h2 id="92-script-import_02">9.2. Script [import_02]</h2>
-<p><img src="images/10000001000001280000009E14A2DFDD.png" style="width:2.761cm;height:1.47cm;" alt="Image" /></p>
+<p><img src="images/10000001000001280000009E14A2DFDD.png" style="width:2.761cm;height:1.47cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001280000009E14A2DFDD.png" /></p>
 <p>Le module importé <strong>[module1.py]</strong> est ici le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># une fonction<span style="color:#000000"></span></span>
@@ -1683,7 +1683,7 @@
 <a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <p><strong>Note</strong> : Pour éviter que PyCharm ne signale une erreur sur l’importation de la ligne 2, il faut mettre le dossier contenant <strong>[module1]</strong> dans les <strong>[Sources Root]</strong> de PyCharm :</p>
-<p><img src="images/1000000000000130000000FE1D0C40DC.png" style="width:2.791cm;height:2.331cm;" alt="Image" /></p>
+<p><img src="images/1000000000000130000000FE1D0C40DC.png" style="width:2.791cm;height:2.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000130000000FE1D0C40DC.png" /></p>
 <p>En <strong>[1]</strong>, le dossier <strong>[02]</strong> mis dans les <strong>[Sources Root]</strong> est passé en bleu. On notera que l’erreur signalée n’empêche pas ici une exécution correcte des scripts. En effet, lors de l’exécution du script <strong>[main_0x]</strong>, le dossier du script est automatiquement mis dans le Python Path. Du coup <strong>[module1]</strong> est trouvé. Dorénavant, lorsque sur une copie d’écran un dossier est en bleu, c’est qu’il a été mis dans les <strong>[Sources Root]</strong> de PyCharm.</p>
 <p>Le script <strong>[main_02]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1700,7 +1700,7 @@
 <p>Les résultats sont identiques à ceux du script <strong>[main_01]</strong>.</p>
 <p><a id="toc48548985"></a></p>
 <h2 id="93-scripts-import_03">9.3. Scripts [import_03]</h2>
-<p><img src="images/1000000000000127000001374B92EB8C.png" style="width:2.71cm;height:2.86cm;" alt="Image" /></p>
+<p><img src="images/1000000000000127000001374B92EB8C.png" style="width:2.71cm;height:2.86cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000127000001374B92EB8C.png" /></p>
 <p><strong>Note</strong> : <strong>[03]</strong> est dans les <strong>[Sources Root]</strong> du projet.</p>
 <p>Les nouveaux scripts vont importer le module <strong>[module2]</strong> qui n’est pas dans le même dossier qu’eux.</p>
 <p>Le script <strong>[module2]</strong> est le suivant :</p>
@@ -1754,7 +1754,7 @@
 <p>Tous ces scripts fonctionnent aussi bien dans le contexte PyCharm que dans celui d’une console Python. La raison est que dans les deux cas, le dossier du script exécuté, ici le dossier <strong>[03]</strong> fait partie du Python Path. Du coup, le dossier <strong>[dir1/module2]</strong> est trouvé.</p>
 <p><a id="toc48548986"></a></p>
 <h2 id="94-scripts-import_04">9.4. Scripts [import_04]</h2>
-<p><img src="images/100000000000016A000001A351983500.png" style="width:3.32cm;height:3.841cm;" alt="Image" /></p>
+<p><img src="images/100000000000016A000001A351983500.png" style="width:3.32cm;height:3.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016A000001A351983500.png" /></p>
 <p>Ici, les dossiers <strong>[dir1]</strong> et <strong>[dir2]</strong> ont été mis dans les <strong>[Sources Root]</strong> du projet PyCharm.</p>
 <p>Le premier module importé est <strong>[module3]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1801,7 +1801,7 @@
 <a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">Process</span> <span class="n">finished</span> <span class="k">with</span> <span class="n">exit</span> <span class="n">code</span> <span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
 <p>Maintenant, exécutons <strong>[main_01]</strong> dans un terminal (console) Python :</p>
-<p><img src="images/1000000000000147000002CCB9B7E723.png" style="width:3.77cm;height:8.272cm;" alt="Image" /></p>
+<p><img src="images/1000000000000147000002CCB9B7E723.png" style="width:3.77cm;height:8.272cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000147000002CCB9B7E723.png" /></p>
 <p>Les résultats sont les suivants :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
 <span class="normal"><a href="#__codelineno-6-2">2</a></span>
@@ -1822,7 +1822,7 @@
 <p>On a donc un problème déjà rencontré : un script s’exécutant correctement dans PyCharm peut planter dans le contexte d’un terminal Python. C’est un problème récurrent qu’il va nous falloir résoudre.</p>
 <p><a id="toc48548987"></a></p>
 <h2 id="95-scripts-import_05">9.5. Scripts [import_05]</h2>
-<p><img src="images/100000000000018100000231B0B3CD88.png" style="width:3.59cm;height:5.231cm;" alt="Image" /></p>
+<p><img src="images/100000000000018100000231B0B3CD88.png" style="width:3.59cm;height:5.231cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018100000231B0B3CD88.png" /></p>
 <p><strong>Note</strong> : les dossiers <strong>[dir1]</strong> et <strong>[dir2]</strong> sont mis dans le Python Path. Remarquons déjà qu’il y a là un conflit : <strong>[module3]</strong> et <strong>[module4]</strong> seront trouvés à deux endroits du Python Path de PyCharm :</p>
 <ul>
 <li>dans <strong>[import/04/dir1]</strong> et <strong>[import/05/dir1]</strong> pour <strong>[module3]</strong> ;</li>
@@ -1945,7 +1945,7 @@
 <p>Néanmoins, mettre des noms absolus dans des scripts n’est pas une solution. Dès que le projet est transporté sur un autre site, il ne marche plus. Il nous faut trouver autre chose.</p>
 <p><a id="toc48548988"></a></p>
 <h2 id="96-scripts-import_06">9.6. Scripts [import_06]</h2>
-<p><img src="images/100000000000016F0000013E247ECD7F.png" style="width:3.432cm;height:2.971cm;" alt="Image" /></p>
+<p><img src="images/100000000000016F0000013E247ECD7F.png" style="width:3.432cm;height:2.971cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000016F0000013E247ECD7F.png" /></p>
 <p><strong>Note</strong> : les dossiers <strong>[06, dir1, dir2]</strong> ont été placés dans les <strong>[Sources Root]</strong> du projet PyCharm. Les dossiers <strong>[dir1, dir2]</strong> sont identiques à ceux des exemples précédents.</p>
 <p>Le fichier <strong>[config.json]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2131,7 +2131,7 @@
 <p><a id="installationdunmodule"></a>
 <a id="toc48548990"></a></p>
 <h3 id="971-installation-dun-module-de-portee-machine">9.7.1. Installation d’un module de portée machine</h3>
-<p><img src="images/1000000100000128000000D5D97F6A33.png" style="width:2.77cm;height:1.99cm;" alt="Image" /></p>
+<p><img src="images/1000000100000128000000D5D97F6A33.png" style="width:2.77cm;height:1.99cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000128000000D5D97F6A33.png" /></p>
 <p>Ci-dessus, nous créons un dossier <strong>[packages/myutils]</strong> dans le projet PyCharm (les noms n’importent pas).</p>
 <p>Le script <strong>[myutils.py]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2188,7 +2188,7 @@
 <li>lignes 7-8 : l’auteur du module ;</li>
 </ul>
 <p>Pour installer ce module avec une portée machine, on procède de la façon suivante :</p>
-<p><img src="images/100000010000024B0000027B839BBBD2.png" style="width:6.961cm;height:7.531cm;" alt="Image" /></p>
+<p><img src="images/100000010000024B0000027B839BBBD2.png" style="width:6.961cm;height:7.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000024B0000027B839BBBD2.png" /></p>
 <p>Puis dans le terminal Python, on tape la commande suivante <strong>[pip install .]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\packages&gt;<span style="background-color:#fff2cc">pip install .</span></span>
@@ -2206,7 +2206,7 @@
 <p>A partir de maintenant, tout script de la machine peut importer le module <strong>[myutils]</strong> sans que celui-ci soit dans les codes du projet.</p>
 <p><a id="toc48548991"></a></p>
 <h3 id="972-le-script-configpy">9.7.2. Le script [config.py]</h3>
-<p><img src="images/100000010000010D000000D3BDDE0700.png" style="width:3.56cm;height:2.791cm;" alt="Image" /></p>
+<p><img src="images/100000010000010D000000D3BDDE0700.png" style="width:3.56cm;height:2.791cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000010D000000D3BDDE0700.png" /></p>
 <p>Le script <strong>[config.py]</strong> assure la configuration de l’application :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
