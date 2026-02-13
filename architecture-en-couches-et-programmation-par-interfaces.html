@@ -1778,11 +1778,11 @@
 
 
 <p><a id="architectureencouches"></a>
-<a id="toc48549021"></a>
-<a id="refheading408941886864318"></a></p>
+<a id="refheading408941886864318"></a>
+<a id="toc48549021"></a></p>
 <h1 id="14-architecture-en-couches-et-programmation-par-interfaces">14. Architecture en couches et programmation par interfaces</h1>
-<p><a id="refheading408961886864318"></a>
-<a id="toc48549022"></a></p>
+<p><a id="toc48549022"></a>
+<a id="refheading408961886864318"></a></p>
 <h2 id="141-introduction">14.1. Introduction</h2>
 <p>Nous nous proposons d&#x27;écrire une application permettant l&#x27;affichage des notes des élèves d&#x27;un collège. Cette application peut avoir une architecture multicouche :</p>
 <p><img src="images/1000000100000366000000ABD38E9B95.png" style="width:11.881cm;height:2.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000366000000ABD38E9B95.png" /></p>
@@ -1819,8 +1819,8 @@
 
 <p><strong>Note</strong> : les dossiers en bleu font partie des <strong>[Sources Root]</strong> du projet PyCharm.</p>
 <p><a id="lesentitesde"></a>
-<a id="toc48549024"></a>
-<a id="refheading408981886864318"></a></p>
+<a id="refheading408981886864318"></a>
+<a id="toc48549024"></a></p>
 <h3 id="1421-les-entites-de-lapplication">14.2.1. Les entités de l&#x27;application</h3>
 <p>On appellera entités, des classes dont le seul rôle est d&#x27;encapsuler des données. On pourrait pour ce faire utiliser des dictionnaires. L&#x27;intérêt de la classe est de permettre de tester la validité des données stockées dans l&#x27;objet et de fournir une méthode fournissant l&#x27;identité de l&#x27;objet sous la forme d&#x27;une chaîne de caractères.</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001230000011048549434.png" style="display:inline-block; margin:4px;width:3.361cm;height:3.14cm;" class="odt-zoomable" data-zoom-src="images/10000000000001230000011048549434.png" /></td></tr></table>
@@ -2093,8 +2093,8 @@
 <li>lignes 12-20 : un objet <strong>[Note]</strong> est caractérisé par son n° <strong>[id]</strong>, la valeur de la note <strong>[valeur]</strong>, une référence <strong>[élève]</strong> sur <strong>l&#x27;élève</strong> qui a cette note, une référence sur la <strong>matière</strong> <strong>[matière]</strong> objet de la note ;</li>
 <li>lignes 22-75 : getters / setters des attributs de la classe ;</li>
 </ul>
-<p><a id="refheadingtoc2521692924280206"></a>
-<a id="toc48549025"></a></p>
+<p><a id="toc48549025"></a>
+<a id="refheadingtoc2521692924280206"></a></p>
 <h3 id="1422-configuration-de-lapplication">14.2.2. Configuration de l’application</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000012F00000195977BC3C4.png" style="display:inline-block; margin:4px;width:3.504cm;height:4.68cm;" class="odt-zoomable" data-zoom-src="images/100000000000012F00000195977BC3C4.png" /></td></tr></table>
 
@@ -2958,8 +2958,8 @@
 <li>la matière référencée par la note ;</li>
 </ul>
 <p>C’est la fonction <strong>[BaseEntity.asdict]</strong> qui produit ce résultat (cf. paragraphe <a href="#_La_classe_[BaseEntity]"><u><span style="color: #0563c1">lien</span></u></a>).</p>
-<p><a id="refheading409021886864318"></a>
-<a id="toc48549028"></a></p>
+<p><a id="toc48549028"></a>
+<a id="refheading409021886864318"></a></p>
 <h3 id="1425-la-couche-metier">14.2.5. La couche [métier]</h3>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000250000000E5BCFA285A.png" style="display:inline-block; margin:4px;width:7.062cm;height:2.731cm;" class="odt-zoomable" data-zoom-src="images/1000000100000250000000E5BCFA285A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019E0000029B19CC59FA.png" style="display:inline-block; margin:4px;width:4.31cm;height:6.921cm;" class="odt-zoomable" data-zoom-src="images/100000000000019E0000029B19CC59FA.png" /></td></tr></table>
 
@@ -3187,8 +3187,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading409041886864318"></a>
-<a id="toc48549029"></a></p>
+<p><a id="toc48549029"></a>
+<a id="refheading409041886864318"></a></p>
 <h3 id="1426-la-couche-ui">14.2.6. La couche [ui]</h3>
 <p><img src="images/100000000000053C00000277D270FF4C.png" style="width:15.47cm;height:7.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000053C00000277D270FF4C.png" /></p>
 <ul>
@@ -3286,8 +3286,8 @@
 <li>ligne 46 : on utilise la méthode <strong>[</strong><strong><span style="color: #000000">get_stats_for_élève</span></strong><strong>]</strong> de la couche <strong>[métier]</strong>. Celle-ci lance une exception si l’élève n’existe pas. Celle-ci est gérée aux lignes 47-48. On sait que les couches <strong>[dao]</strong> et <strong>[métier]</strong> lancent l’exception <strong>[MyException]</strong> ;</li>
 </ul>
 <p><a id="lescriptprincipal3"></a>
-<a id="toc48549030"></a>
-<a id="refheadingtoc2521872924280206"></a></p>
+<a id="refheadingtoc2521872924280206"></a>
+<a id="toc48549030"></a></p>
 <h2 id="143-le-script-principal-main">14.3. Le script principal [main]</h2>
 <p>Le script principal <strong>[main]</strong> est le suivant (main.py) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
