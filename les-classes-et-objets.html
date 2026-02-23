@@ -1527,14 +1527,14 @@
 
 
 <p><a id="lesclasseset"></a>
-<a id="toc48549002"></a>
-<a id="refheading382742423505"></a></p>
+<a id="refheading382742423505"></a>
+<a id="toc48549002"></a></p>
 <h1 id="12-les-classes-et-objets">12. Les classes et objets</h1>
 <p>La <strong>classe</strong> est le moule à partir duquel sont fabriqués des <strong>objets</strong>. On dit de l&#x27;objet que c&#x27;est l&#x27;<strong>instance</strong> d&#x27;une classe.</p>
 <p><img src="images/100000000000010E000001D257FE4F52.png" style="width:3.121cm;height:5.381cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000010E000001D257FE4F52.png" /></p>
 <p><strong>Note</strong> : le dossier <strong>[shared]</strong> a été placé dans les <strong>[Sources Root]</strong> du projet.</p>
-<p><a id="refheading382762423505"></a>
-<a id="toc48549003"></a></p>
+<p><a id="toc48549003"></a>
+<a id="refheading382762423505"></a></p>
 <h2 id="121-script-classes_01-une-classe-objet">12.1. script [classes_01] : une classe Objet</h2>
 <p>Le script <strong>[classes_01]</strong> montre une utilisation obsolète des classes :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1609,8 +1609,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading382782423505"></a>
-<a id="toc48549004"></a></p>
+<p><a id="toc48549004"></a>
+<a id="refheading382782423505"></a></p>
 <h2 id="122-script-classes_02-une-classe-personne">12.2. Script [classes_02] : une classe Personne</h2>
 <p>Le script <strong>[classes_02]</strong> montre que les attributs d&#x27;une classe sont publics : ils sont accessibles directement de l&#x27;extérieur de la classe. On a là encore une utilisation des classes déconseillée. On la donne néanmoins parce qu&#x27;on peut parfois trouver ce type de code (Python l&#x27;accepte) et il faut alors être capable de le comprendre.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1659,8 +1659,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading382802423505"></a>
-<a id="toc48549005"></a></p>
+<p><a id="toc48549005"></a>
+<a id="refheading382802423505"></a></p>
 <h2 id="123-script-classes_03-la-classe-personne-avec-un-constructeur">12.3. Script [classes_03] : la classe Personne avec un constructeur</h2>
 <p>Le script <strong>[classes_03]</strong> montre l&#x27;utilisation normale d&#x27;une classe :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1703,8 +1703,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading382822423505"></a>
-<a id="toc48549006"></a></p>
+<p><a id="toc48549006"></a>
+<a id="refheading382822423505"></a></p>
 <h2 id="124-script-classes_04-methode-statiques">12.4. Script [classes_04] : méthode statiques</h2>
 <p>Nous définissons dans le dossier <strong>[modules]</strong>, la classe <strong>[Utils]</strong> suivante (utils.py) :</p>
 <p><img src="images/100000000000011900000106A9D0BD48.png" style="width:3.241cm;height:3.031cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000011900000106A9D0BD48.png" /></p>
@@ -1793,8 +1793,8 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
-<p><a id="refheadingtoc2521592924280206"></a>
-<a id="toc48549007"></a></p>
+<p><a id="toc48549007"></a>
+<a id="refheadingtoc2521592924280206"></a></p>
 <h2 id="125-script-classes_05-controles-de-validite-des-attributs">12.5. Script [classes_05] : contrôles de validité des attributs</h2>
 <p>Le script <strong>[classes_05]</strong> introduit de nouvelles notions :</p>
 <ul>
@@ -1982,8 +1982,8 @@
 <li>lignes 7-8 : on voit que l&#x27;affectation <strong>[</strong><strong><span style="color: #000000">p.prénom = </span></strong><strong><span style="color: #a31515">&quot;Sébastien&quot;</span></strong><strong>]</strong> n&#x27;a pas changé la valeur de l&#x27;attribut <strong>[__prénom]</strong>, ligne 8 ;</li>
 </ul>
 <p>Que faut-il en déduire ? Que probablement, l&#x27;opération <strong>[</strong><strong><span style="color: #000000">p.__prénom = </span></strong><strong><span style="color: #a31515">&quot;Gaëlle&quot;</span></strong><strong>]</strong> a créé un attribut public <strong>[</strong><strong><span style="color: #000000">__prénom</span></strong><strong>]</strong> à la classe mais que celui-ci est différent de l&#x27;attribut privé <strong>[</strong><strong><span style="color: #000000">__prénom</span></strong><strong>]</strong> manipulé au sein de celle-ci ;</p>
-<p><a id="refheading382842423505"></a>
-<a id="toc48549008"></a></p>
+<p><a id="toc48549008"></a>
+<a id="refheading382842423505"></a></p>
 <h2 id="126-script-classes_06-ajout-dune-methode-dinitialisation-de-lobjet">12.6. Script [classes_06] : ajout d&#x27;une méthode d&#x27;initialisation de l&#x27;objet</h2>
 <p>Le script <strong>[classes_06]</strong> ajoute une méthode à la classe <strong>[Personne]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2090,8 +2090,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading382862423505"></a>
-<a id="toc48549009"></a></p>
+<p><a id="toc48549009"></a>
+<a id="refheading382862423505"></a></p>
 <h2 id="127-script-classes_07-une-liste-dobjets-personne">12.7. Script [classes_07] : une liste d&#x27;objets Personne</h2>
 <p>Nous mettons désormais les classes <strong>[MyException]</strong> et <strong>[Personne]</strong> dans un module pour pouvoir les utiliser sans avoir à recopier leur code :</p>
 <p><img src="images/100000000000015F00000148B85B5F11.png" style="width:4.051cm;height:3.791cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015F00000148B85B5F11.png" /></p>
@@ -2130,8 +2130,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading382882423505"></a>
-<a id="toc48549010"></a></p>
+<p><a id="toc48549010"></a>
+<a id="refheading382882423505"></a></p>
 <h2 id="128-script-classes_08-creation-dune-classe-derivee-de-la-classe-personne">12.8. Script [classes_08] : création d&#x27;une classe dérivée de la classe Personne</h2>
 <p>Nous définissons dans le module <strong>[myclasses]</strong>, la classe <strong>[Enseignant]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
@@ -2206,8 +2206,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="refheading382902423505"></a>
-<a id="toc48549011"></a></p>
+<p><a id="toc48549011"></a>
+<a id="refheading382902423505"></a></p>
 <h2 id="129-script-classes_09-seconde-classe-derivee-de-la-classe-personne">12.9. Script [classes_09] : seconde classe dérivée de la classe Personne</h2>
 <p>Le script <strong>[classes_09]</strong> introduit la classe <strong>[Etudiant]</strong> dérivée de la classe <strong>[Personne]</strong>. Celle-ci est définie de la façon suivante dans le module <strong>[myclasses]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">

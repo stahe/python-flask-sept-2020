@@ -1832,11 +1832,11 @@
 <li>une fois que le serveur jSON aura été validé, nous passerons à l’ériture de l’application HTML ;</li>
 </ul>
 <p>Nous avons un serveur jSON et XML opérationnel. On peut maintenant passer au serveur HTML. Nous allons voir que celui-ci reprend toute l’architecture développée pour le serveur jSON / XML et leur ajoute une gestion de vues HTML.</p>
-<p><a id="toc48549269"></a>
-<a id="toc42690917"></a>
-<a id="toc42690531"></a>
+<p><a id="refheadingtoc185731971629160"></a>
 <a id="toc42690145"></a>
-<a id="refheadingtoc185731971629160"></a></p>
+<a id="toc42690531"></a>
+<a id="toc42690917"></a>
+<a id="toc48549269"></a></p>
 <h2 id="321-architecture-mvc">32.1. Architecture MVC</h2>
 <p>Nous allons implémenter le modèle d&#x27;architecture dit MVC (Modèle – Vue – Contrôleur) de la façon suivante :</p>
 <p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
@@ -1995,18 +1995,18 @@
 <li>lignes 49-57 : certains états mènent à une vue via une redirection. C’est le cas de l’état 400 qui est celui de l’action <strong>[/fin-session]</strong> réussie. Il faut alors rediriger le client vers l’action <strong>[http://machine:port/chemin/init-session/html]</strong> ;</li>
 </ul>
 <p>Nous présentons maintenant les différentes vues.</p>
-<p><a id="refheadingtoc185733971629160"></a>
-<a id="toc48549273"></a>
-<a id="toc42690918"></a>
+<p><a id="toc42690146"></a>
 <a id="toc42690532"></a>
-<a id="toc42690146"></a></p>
+<a id="toc42690918"></a>
+<a id="toc48549273"></a>
+<a id="refheadingtoc185733971629160"></a></p>
 <h2 id="325-la-vue-dauthentification">32.5. La vue d’authentification</h2>
 <p><img src="images/10000000000001AD000001FE58FBD27D.png" style="width:4.95cm;height:5.882cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AD000001FE58FBD27D.png" /></p>
-<p><a id="refheadingtoc185735971629160"></a>
-<a id="toc48549274"></a>
-<a id="toc42690919"></a>
+<p><a id="toc42690147"></a>
 <a id="toc42690533"></a>
-<a id="toc42690147"></a></p>
+<a id="toc42690919"></a>
+<a id="toc48549274"></a>
+<a id="refheadingtoc185735971629160"></a></p>
 <h3 id="3251-presentation-de-la-vue">32.5.1. Présentation de la vue</h3>
 <p>La vue d’authentification est la suivante :</p>
 <p><img src="images/10000000000004F40000034B67C9D00B.png" style="width:14.651cm;height:9.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004F40000034B67C9D00B.png" /></p>
@@ -2087,13 +2087,13 @@
 <li><strong>[modèle.error]</strong> : pour afficher un message d’erreur ;</li>
 <li><strong>[modèle.erreurs]</strong> : une liste (au sens HTML du terme) de messages d’erreur ;</li>
 </ul>
-<p><a id="lefragmentv-bandeauphp"></a>
-<a id="lefragmentv-bandeauhtml"></a>
-<a id="toc48549275"></a>
-<a id="toc42690920"></a>
-<a id="toc42690534"></a>
+<p><a id="lefragmentv-bandeauhtml"></a>
+<a id="lefragmentv-bandeauphp"></a>
+<a id="refheadingtoc1533303476773583"></a>
 <a id="toc42690148"></a>
-<a id="refheadingtoc1533303476773583"></a></p>
+<a id="toc42690534"></a>
+<a id="toc42690920"></a>
+<a id="toc48549275"></a></p>
 <h3 id="3252-le-fragment-v-bandeauhtml">32.5.2. Le fragment [v-bandeau.html]</h3>
 <p>Le fragment <strong>[v-bandeau.html]</strong> affiche le bandeau supérieur de toutes les vues de l’application web :</p>
 <p><img src="images/1000000100000346000000B87F0E529F.png" style="width:11.411cm;height:2.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000346000000B87F0E529F.png" /></p>
@@ -2127,11 +2127,11 @@
 <ul>
 <li>lignes 7-11 : les 8 autres colonnes de la ligne (on rappelle qu’il y en a 12 au total) serviront à placer un texte (ligne 9) en gros caractères (&lt;h1&gt;, lignes 8-10) ;</li>
 </ul>
-<p><a id="refheadingtoc185737971629160"></a>
-<a id="toc48549276"></a>
-<a id="toc42690921"></a>
+<p><a id="toc42690149"></a>
 <a id="toc42690535"></a>
-<a id="toc42690149"></a></p>
+<a id="toc42690921"></a>
+<a id="toc48549276"></a>
+<a id="refheadingtoc185737971629160"></a></p>
 <h3 id="3253-le-fragment-v-authentificationhtml">32.5.3. Le fragment [v-authentification.html]</h3>
 <p>Le fragment <strong>[v-authentification.html]</strong> affiche le formulaire d’authentification de l’application web :</p>
 <p><img src="images/100000000000026800000129E13D08C5.png" style="width:7.122cm;height:3.432cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026800000129E13D08C5.png" /></p>
@@ -2225,11 +2225,11 @@
 <p><img src="images/10000001000000AB0000007F9B5E6B41.png" style="width:2.631cm;height:1.952cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000AB0000007F9B5E6B41.png" /></p>
 <p>Il nous reste à expliquer une dernière chose. Ligne 2, l’attribut <strong>[action=&quot;/authentifier-utilisateur&quot;]</strong> définit une URL incomplète (elle ne commence pas par http://machine:port/chemin). Dans notre exemple, toutes les URL de l’application sont de la forme <strong>[http://machine:port/chemin/action/param1/param2/..]</strong><strong> où </strong><strong>[</strong><strong>http://machine:port/chemin</strong><strong>]</strong><strong> est la </strong><strong>racine</strong><strong> des URL de </strong><strong>service. Dans </strong><strong>[action=&quot;/authentifier-utilisateur&quot;]</strong><strong> nous avons une URL </strong><strong>absolue</strong><strong> ç-à-d mesurée à partir de la racine des URL. L’URL complète du POST est donc </strong><strong>[</strong><strong>http://machine:port/chemin/authentifier-utilisateur</strong><strong>]</strong> et c’est ce qu’utilisera le navigateur.</p>
 <p>On retiendra que ce fragment utilise le modèle <strong>[modèle.login]</strong>.</p>
-<p><a id="refheadingtoc185739971629160"></a>
-<a id="toc48549277"></a>
-<a id="toc42690922"></a>
+<p><a id="toc42690150"></a>
 <a id="toc42690536"></a>
-<a id="toc42690150"></a></p>
+<a id="toc42690922"></a>
+<a id="toc48549277"></a>
+<a id="refheadingtoc185739971629160"></a></p>
 <h3 id="3254-tests-visuels">32.5.4. Tests visuels</h3>
 <p>On peut procéder aux tests des vues bien avant leur intégration dans l’application. Il s’agit ici de tester leur aspect visuel. Nous rassemblerons toutes les vues de test dans le dossier <strong>[tests_views]</strong> du projet :</p>
 <p><img src="images/1000000000000166000000A52B04C5B3.png" style="width:5.37cm;height:2.481cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000166000000A52B04C5B3.png" /></p>
@@ -2283,11 +2283,11 @@
 <p>Pour faire le test, on lance le script <strong>[tests_views/test_vue_authentification.py]</strong> et on demande l’URL <strong>[/localhost:5000/]</strong> :</p>
 <p>On poursuit ces tests visuels jusqu’à être satisfait du résultat.</p>
 <p><img src="images/10000000000004DE00000352D1ABD82F.png" style="width:14.371cm;height:9.82cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DE00000352D1ABD82F.png" /></p>
-<p><a id="refheadingtoc185741971629160"></a>
-<a id="toc48549278"></a>
-<a id="toc42690923"></a>
+<p><a id="toc42690151"></a>
 <a id="toc42690537"></a>
-<a id="toc42690151"></a></p>
+<a id="toc42690923"></a>
+<a id="toc48549278"></a>
+<a id="refheadingtoc185741971629160"></a></p>
 <h3 id="3255-calcul-du-modele-de-la-vue">32.5.5. Calcul du modèle de la vue</h3>
 <p>Une fois l’aspect visuel de la vue déterminé, on peut procéder au calcul du modèle de la vue en conditions réelles. Les modèles des vues seront générées par des classes rassemblées dans le dossier <strong>[models_for_views]</strong> :</p>
 <p><img src="images/10000000000001D60000016E73E0CB38.png" style="width:5.421cm;height:4.231cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D60000016E73E0CB38.png" /></p>
@@ -2544,11 +2544,11 @@
 <li>lignes 54-55 : on construit la réponse HTTP de la réponse avec un corps HTML ;</li>
 <li>lignes 56-57 : on rend la réponse HTTP avec son code de statut ;</li>
 </ul>
-<p><a id="refheadingtoc185743971629160"></a>
-<a id="toc48549280"></a>
-<a id="toc42690924"></a>
+<p><a id="toc42690152"></a>
 <a id="toc42690538"></a>
-<a id="toc42690152"></a></p>
+<a id="toc42690924"></a>
+<a id="toc48549280"></a>
+<a id="refheadingtoc185743971629160"></a></p>
 <h3 id="3257-tests-postman">32.5.7. Tests [Postman]</h3>
 <p>Nous allons exécuter des requêtes produidant les codes <strong>[700, 201]</strong> qui affichent la vue d’authentification :</p>
 <ul>
@@ -2584,29 +2584,29 @@
 <li>en <strong>[4]</strong>, un message d’erreur est affiché ;</li>
 <li>en <strong>[3]</strong>, l’utilisateur erroné a été réaffiché ;</li>
 </ul>
-<p><a id="refheadingtoc185745971629160"></a>
-<a id="toc48549281"></a>
-<a id="toc42690925"></a>
+<p><a id="toc42690153"></a>
 <a id="toc42690539"></a>
-<a id="toc42690153"></a></p>
+<a id="toc42690925"></a>
+<a id="toc48549281"></a>
+<a id="refheadingtoc185745971629160"></a></p>
 <h3 id="3258-conclusion">32.5.8. Conclusion</h3>
 <p>Nous avons pu tester la vue <strong>[vue-authentification.html]</strong> sans avoir écrit les autres vues. Cela a été possible parce que :</p>
 <ul>
 <li>tous les contrôleurs sont écrits ;</li>
 <li><strong>[Postman]</strong> nous permet d’émettre des requêtes vers le serveur sans avoir besoin de toutes les vues. Lorsqu’on écrit les contrôleurs, il faut être prêt à traiter des requêtes qu’aucune vue ne permettrait. On ne doit jamais se dire a priori « cette requête est impossible » . Il faut vérifier ;</li>
 </ul>
-<p><a id="refheadingtoc185747971629160"></a>
-<a id="toc48549282"></a>
-<a id="toc42690926"></a>
+<p><a id="toc42690154"></a>
 <a id="toc42690540"></a>
-<a id="toc42690154"></a></p>
+<a id="toc42690926"></a>
+<a id="toc48549282"></a>
+<a id="refheadingtoc185747971629160"></a></p>
 <h2 id="326-la-vue-de-calcul-de-limpot">32.6. La vue de calcul de l’impôt</h2>
 <p><img src="images/10000000000001AA000001C5856996CF.png" style="width:4.911cm;height:5.231cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000001C5856996CF.png" /></p>
-<p><a id="refheadingtoc185749971629160"></a>
-<a id="toc48549283"></a>
-<a id="toc42690927"></a>
+<p><a id="toc42690155"></a>
 <a id="toc42690541"></a>
-<a id="toc42690155"></a></p>
+<a id="toc42690927"></a>
+<a id="toc48549283"></a>
+<a id="refheadingtoc185749971629160"></a></p>
 <h3 id="3261-presentation-de-la-vue">32.6.1. Présentation de la vue</h3>
 <p>La vue de calcul de l’impôt est la suivante :</p>
 <p><img src="images/100000000000058F000002ED0FA4DBF4.png" style="width:16.421cm;height:8.64cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058F000002ED0FA4DBF4.png" /></p>
@@ -2693,11 +2693,11 @@
 <li>lignes 30-46 : si le calcul de l’impôt réussit <strong>[modèle.success=True]</strong>, alors le résultat du calcul de l’impôt est affiché dans un cadre vert (lignes 37-43). Ce cadre est dans la troisième ligne Bootstrap de la vue (ligne 32) et occupe neuf colonnes (ligne 36) à droite de trois colonnes vides (lignes 33-35). Ce cadre sera donc sous le formulaire de calcul de l’impôt ;</li>
 <li>lignes 48-61 : si le calcul de l’impôt échoue <strong>[modèle.error=True]</strong>, alors un message d’erreur est affiché dans un cadre rose (lignes 55-58). Ce cadre est dans la troisième ligne Bootstrap de la vue (ligne 50) et occupe neuf colonnes (ligne 54) à droite de trois colonnes vides (lignes 51-53). Ce cadre sera donc lui aussi sous le formulaire de calcul de l’impôt ;</li>
 </ul>
-<p><a id="refheadingtoc185751971629160"></a>
-<a id="toc48549284"></a>
-<a id="toc42690928"></a>
+<p><a id="toc42690156"></a>
 <a id="toc42690542"></a>
-<a id="toc42690156"></a></p>
+<a id="toc42690928"></a>
+<a id="toc48549284"></a>
+<a id="refheadingtoc185751971629160"></a></p>
 <h3 id="3262-le-fragment-v-calcul-impothtml">32.6.2. Le fragment [v-calcul-impot.html]</h3>
 <p>Le fragment <strong>[v-calcul-impot.html]</strong> affiche le formulaire de calcul de l’impôt de l’application web :</p>
 <p>Le code du fragment <strong>[v-calcul-impot.html]</strong> est le suivant :</p>
@@ -2804,13 +2804,13 @@
 <li>ligne 53 : le bouton de type <strong>[submit]</strong> qui déclenche le POST des valeurs saisies à l’URL <strong>[/calculer-impot]</strong> (ligne 2) ;</li>
 </ul>
 <p><img src="images/10000000000000710000005EBB2E0843.png" style="width:1.311cm;height:1.08cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000710000005EBB2E0843.png" /></p>
-<p><a id="lefragmentv-menuphp"></a>
-<a id="lefragmentv-menuhtml"></a>
-<a id="toc48549285"></a>
-<a id="toc42690929"></a>
-<a id="toc42690543"></a>
+<p><a id="lefragmentv-menuhtml"></a>
+<a id="lefragmentv-menuphp"></a>
+<a id="refheadingtoc1533323476773583"></a>
 <a id="toc42690157"></a>
-<a id="refheadingtoc1533323476773583"></a></p>
+<a id="toc42690543"></a>
+<a id="toc42690929"></a>
+<a id="toc48549285"></a></p>
 <h3 id="3263-le-fragment-v-menuhtml">32.6.3. Le fragment [v-menu.html]</h3>
 <p>Ce fragment affiche un menu à gauche du formulaire de calcul de l’impôt :</p>
 <p><img src="images/100000000000017C000001142B3219CB.png" style="width:4.391cm;height:3.181cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017C000001142B3219CB.png" /></p>
@@ -2844,11 +2844,11 @@
 <ul>
 <li>lignes 2, 7 : les classes CSS <strong>[nav, flex-column, nav-link]</strong> sont des classes Bootstrap qui donnent son apparence au menu ;</li>
 </ul>
-<p><a id="refheadingtoc185753971629160"></a>
-<a id="toc48549286"></a>
-<a id="toc42690930"></a>
+<p><a id="toc42690158"></a>
 <a id="toc42690544"></a>
-<a id="toc42690158"></a></p>
+<a id="toc42690930"></a>
+<a id="toc48549286"></a>
+<a id="refheadingtoc185753971629160"></a></p>
 <h3 id="3264-test-visuel">32.6.4. Test visuel</h3>
 <p>Nous rassemblons ces différents éléments dans le dossier <strong>[Tests]</strong> et nous créons un modèle de test pour la vue <strong>[vue-calcul-impot.html]</strong> :</p>
 <p><img src="images/100000000000018F000000AEA1F5B5FB.png" style="width:4.601cm;height:2.012cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F000000AEA1F5B5FB.png" /></p>
@@ -2905,11 +2905,11 @@
 <p>Lorsqu’on exécute le script de test <strong>[test_vue_calcul_impot]</strong>, on obtient le résultat suivant :</p>
 <p>On travaille sur cette vue jusqu’à ce que le résultat obtenu visuellement nous convienne. On peut ensuite passer à l’intégration de la vue dans l’application web en cours d’écriture.</p>
 <p><img src="images/100000000000058F000004020228DFE9.png" style="width:16.431cm;height:11.84cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058F000004020228DFE9.png" /></p>
-<p><a id="refheadingtoc185755971629160"></a>
-<a id="toc48549287"></a>
-<a id="toc42690931"></a>
+<p><a id="toc42690159"></a>
 <a id="toc42690545"></a>
-<a id="toc42690159"></a></p>
+<a id="toc42690931"></a>
+<a id="toc48549287"></a>
+<a id="refheadingtoc185755971629160"></a></p>
 <h3 id="3265-calcul-du-modele-de-la-vue">32.6.5. Calcul du modèle de la vue</h3>
 <p>Une fois l’aspect visuel de la vue déterminé, on peut procéder au calcul du modèle de la vue en conditions réelles. Rappelons les codes d’état qui mènent à cette vue. On les trouve dans le fichier de configuration :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -3004,11 +3004,11 @@
 <li>lignes 36-47 : cas de l’échec du calcul d’impôt ;</li>
 <li>lignes 49-52 : calcul des deux options du menu ;</li>
 </ul>
-<p><a id="refheadingtoc185757971629160"></a>
-<a id="toc48549288"></a>
-<a id="toc42690932"></a>
+<p><a id="toc42690160"></a>
 <a id="toc42690546"></a>
-<a id="toc42690160"></a></p>
+<a id="toc42690932"></a>
+<a id="toc48549288"></a>
+<a id="refheadingtoc185757971629160"></a></p>
 <h3 id="3266-tests-postman">32.6.6. Tests [Postman]</h3>
 <p>On initialise une session HTML avec la requête <strong>[init-session-html-700]</strong> puis on s’authentifie avec la requête <strong>[authentifier-utilisateur-200]</strong>. Puis nous utilisons la requête <strong>[calculer-impot-300]</strong> suivante :</p>
 <p>La réponse du serveur est la suivante :</p>
@@ -3038,18 +3038,18 @@
 <li><strong>[xx1]</strong> : pour des erreurs à afficher sur la page qui a provoqué l’erreur ;</li>
 <li><strong>[xx2]</strong> : pour des erreurs inattendues dans le cadre d’une utilisation normale de l’application ;</li>
 </ul>
-<p><a id="refheadingtoc185759971629160"></a>
-<a id="toc48549289"></a>
-<a id="toc42690933"></a>
+<p><a id="toc42690161"></a>
 <a id="toc42690547"></a>
-<a id="toc42690161"></a></p>
+<a id="toc42690933"></a>
+<a id="toc48549289"></a>
+<a id="refheadingtoc185759971629160"></a></p>
 <h2 id="327-la-vue-de-la-liste-des-simulations">32.7. La vue de la liste des simulations</h2>
 <p><img src="images/10000000000001760000018531656195.png" style="width:4.321cm;height:4.481cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001760000018531656195.png" /></p>
-<p><a id="refheadingtoc185761971629160"></a>
-<a id="toc48549290"></a>
-<a id="toc42690934"></a>
+<p><a id="toc42690162"></a>
 <a id="toc42690548"></a>
-<a id="toc42690162"></a></p>
+<a id="toc42690934"></a>
+<a id="toc48549290"></a>
+<a id="refheadingtoc185761971629160"></a></p>
 <h3 id="3271-presentation-de-la-vue">32.7.1. Présentation de la vue</h3>
 <p>La vue qui présente la liste des simulations est la suivante :</p>
 <p><img src="images/1000000000000473000001EEE8F5E474.png" style="width:13.151cm;height:5.7cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000473000001EEE8F5E474.png" /></p>
@@ -3183,11 +3183,11 @@
 <li>ligne 34 : la liste des simulations sera trouvée dans le modèle <strong>[modèle.simulations]</strong> qui est une liste de dictionnaires ;</li>
 <li>ligne 57 : un lien pour supprimer la simulation. L’URL utilise le n° de la simulation affichée dans la ligne ;</li>
 </ul>
-<p><a id="refheadingtoc185763971629160"></a>
-<a id="toc48549291"></a>
-<a id="toc42690935"></a>
+<p><a id="toc42690163"></a>
 <a id="toc42690549"></a>
-<a id="toc42690163"></a></p>
+<a id="toc42690935"></a>
+<a id="toc48549291"></a>
+<a id="refheadingtoc185763971629160"></a></p>
 <h3 id="3272-test-visuel">32.7.2. Test visuel</h3>
 <p>Nous créons un script de test pour la vue <strong>[vue-liste-simulations.html]</strong> :</p>
 <p>Le script <strong>[test_vue_liste_simulations]</strong> est le suivant :</p>
@@ -3249,11 +3249,11 @@
 <p>Affichons cette vue en exécutant ce script. On obtient le résultat suivant :</p>
 <p><img src="images/1000000000000472000001E0EDDB4227.png" style="width:13.14cm;height:5.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000001E0EDDB4227.png" /></p>
 <p>On travaille sur cette vue jusqu’à ce que le résultat obtenu visuellement nous convienne. On peut ensuite passer à l’intégration de la vue dans l’application web en cours d’écriture.</p>
-<p><a id="refheadingtoc185765971629160"></a>
-<a id="toc48549292"></a>
-<a id="toc42690936"></a>
+<p><a id="toc42690164"></a>
 <a id="toc42690550"></a>
-<a id="toc42690164"></a></p>
+<a id="toc42690936"></a>
+<a id="toc48549292"></a>
+<a id="refheadingtoc185765971629160"></a></p>
 <h3 id="3273-calcul-du-modele-de-la-vue">32.7.3. Calcul du modèle de la vue</h3>
 <p>Une fois l’aspect visuel de la vue déterminé, on peut procéder au calcul du modèle de la vue en conditions réelles. Rappelons les codes d’état qui mènent à cette vue. On les trouve dans le fichier de configuration :</p>
 <p><img src="images/10000000000001BB0000011328AF0953.png" style="width:5.121cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BB0000011328AF0953.png" /></p>
@@ -3304,11 +3304,11 @@
 <li>lignes 13 : les simulations à afficher sont trouvées dans <strong>[</strong><strong>résultat[</strong><strong><span style="color: #a31515">&quot;réponse&quot;</span></strong><strong>]</strong>] ;</li>
 <li>lignes 15-17 : les options du menu à afficher ;</li>
 </ul>
-<p><a id="refheadingtoc185767971629160"></a>
-<a id="toc48549293"></a>
-<a id="toc42690937"></a>
+<p><a id="toc42690165"></a>
 <a id="toc42690551"></a>
-<a id="toc42690165"></a></p>
+<a id="toc42690937"></a>
+<a id="toc48549293"></a>
+<a id="refheadingtoc185767971629160"></a></p>
 <h3 id="3274-tests-postman">32.7.4. Tests [Postman]</h3>
 <p>On</p>
 <ul>
@@ -3324,18 +3324,18 @@
 <p>Le résultat renvoyé est une liste de simulations avec une simulation en moins :</p>
 <p><img src="images/100000000000026E00000113514B4CA9.png" style="width:7.182cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026E00000113514B4CA9.png" /></p>
 <p><img src="images/1000000000000555000002B3D9EB2B5E.png" style="width:15.781cm;height:7.981cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000555000002B3D9EB2B5E.png" /></p>
-<p><a id="refheadingtoc185769971629160"></a>
-<a id="toc48549294"></a>
-<a id="toc42690938"></a>
+<p><a id="toc42690166"></a>
 <a id="toc42690552"></a>
-<a id="toc42690166"></a></p>
+<a id="toc42690938"></a>
+<a id="toc48549294"></a>
+<a id="refheadingtoc185769971629160"></a></p>
 <h2 id="328-la-vue-des-erreurs-inattendues">32.8. La vue des erreurs inattendues</h2>
 <p>On appelle ici, erreur inattendue, une erreur qui n’aurait pas dû se produire dans le cadre d’une utilisation normale de l’application web. Par exemple, le fait de demander un calcul d’impôt sans être authentifié. Rien n’empêche un utilisateur de taper directement l’URL <strong>[/calcul-impot]</strong> dans son navigateur. Par ailleurs, comme nous l’avons vu, il peut faire un POST sur l’URL <strong>[/calcul-impot]</strong> en n’envoyant pas les paramètres attendus. On a vu que notre application web savait répondre correctement à cette requête. On appellera, <strong>erreur inattendue</strong>, une erreur qui ne devrait pas se produire dans le cadre de l’application HTML. Si elle se produit, c’est que probablement quelqu’un essaie de ‘hacker’ l’application. Par souci de pédagogie, on a décidé d’afficher une vue d’erreurs pour ces cas. Dans la réalité, on pourrait réafficher la dernière page envoyée au client. Il suffit pour cela d’enregistrer en session, la dernière réponse HTML envoyée. En cas d’erreur inattendue, on renvoie cette réponse. Ainsi l’utilisateur aura l’impression que le serveur ne répond pas à ses erreurs puisque la page affichée ne change pas.</p>
-<p><a id="refheadingtoc185771971629160"></a>
-<a id="toc48549295"></a>
-<a id="toc42690939"></a>
+<p><a id="toc42690167"></a>
 <a id="toc42690553"></a>
-<a id="toc42690167"></a></p>
+<a id="toc42690939"></a>
+<a id="toc48549295"></a>
+<a id="refheadingtoc185771971629160"></a></p>
 <h3 id="3281-presentation-de-la-vue">32.8.1. Présentation de la vue</h3>
 <p><img src="images/10000000000001BA0000019C1B7C0433.png" style="width:5.111cm;height:4.762cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BA0000019C1B7C0433.png" /></p>
 <p>La vue qui présente les erreurs inattendues est la suivante :</p>
@@ -3397,11 +3397,11 @@
 <li><strong>[v-bandeau.html]</strong> : au paragraphe <a href="#_Le_fragment_[v-bandeau.php]"><u><span style="color: #0563c1">lien</span></u></a> ;</li>
 <li><strong>[v-menu.html]</strong> : au paragraphe <a href="#_Le_fragment_[v-menu.php]"><u><span style="color: #0563c1">lien</span></u></a> ;</li>
 </ul>
-<p><a id="refheadingtoc185773971629160"></a>
-<a id="toc48549296"></a>
-<a id="toc42690940"></a>
+<p><a id="toc42690168"></a>
 <a id="toc42690554"></a>
-<a id="toc42690168"></a></p>
+<a id="toc42690940"></a>
+<a id="toc48549296"></a>
+<a id="refheadingtoc185773971629160"></a></p>
 <h3 id="3282-test-visuel">32.8.2. Test visuel</h3>
 <p>Nous créons un script de test pour la vue <strong>[vue-erreurs.html]</strong> :</p>
 <p><img src="images/100000000000017C000000E47829F1F3.png" style="width:4.391cm;height:2.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017C000000E47829F1F3.png" /></p>
@@ -3444,11 +3444,11 @@
 <p>Exécutons ce script. On obtient le résultat suivant :</p>
 <p>On travaille sur cette vue jusqu’à ce que le résultat obtenu visuellement nous convienne. On peut ensuite passer à l’intégration de la vue dans l’application web en cours d’écriture.</p>
 <p><img src="images/1000000000000555000002A598BD1A27.png" style="width:15.77cm;height:7.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000555000002A598BD1A27.png" /></p>
-<p><a id="refheadingtoc185775971629160"></a>
-<a id="toc48549297"></a>
-<a id="toc42690941"></a>
+<p><a id="toc42690169"></a>
 <a id="toc42690555"></a>
-<a id="toc42690169"></a></p>
+<a id="toc42690941"></a>
+<a id="toc48549297"></a>
+<a id="refheadingtoc185775971629160"></a></p>
 <h3 id="3283-calcul-du-modele-de-la-vue">32.8.3. Calcul du modèle de la vue</h3>
 <p><img src="images/10000000000001BB0000010688D09B8D.png" style="width:5.111cm;height:3.031cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BB0000010688D09B8D.png" /></p>
 <p>Une fois l’aspect visuel de la vue déterminé, on peut procéder au calcul du modèle de la vue en conditions réelles. Rappelons les codes d’état qui mènent à cette vue. On les trouve dans le fichier de configuration :</p>
@@ -3533,11 +3533,11 @@
 <li>lignes 11-14 : calcul du modèle <strong>[modèle.erreurs]</strong> utilisé par la vue <strong>[vue-erreurs.html]</strong> ;</li>
 <li>lignes 16-197 : calcul du modèle <strong>[modèle.optionsMenu]</strong> utilisé par le fragment <strong>[v-menu.html]</strong> ;</li>
 </ul>
-<p><a id="refheadingtoc185777971629160"></a>
-<a id="toc48549298"></a>
-<a id="toc42690942"></a>
+<p><a id="toc42690170"></a>
 <a id="toc42690556"></a>
-<a id="toc42690170"></a></p>
+<a id="toc42690942"></a>
+<a id="toc48549298"></a>
+<a id="refheadingtoc185777971629160"></a></p>
 <h3 id="3284-tests-postman">32.8.4. Tests [Postman]</h3>
 <p>On fait :</p>
 <ul>
@@ -3546,11 +3546,11 @@
 </ul>
 <p>La réponse HTML est alors la suivante :</p>
 <p><img src="images/10000000000004A00000028C171E3A1A.png" style="width:12.322cm;height:6.79cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004A00000028C171E3A1A.png" /></p>
-<p><a id="refheadingtoc185779971629160"></a>
-<a id="toc48549299"></a>
-<a id="toc42690943"></a>
+<p><a id="toc42690171"></a>
 <a id="toc42690557"></a>
-<a id="toc42690171"></a></p>
+<a id="toc42690943"></a>
+<a id="toc48549299"></a>
+<a id="refheadingtoc185779971629160"></a></p>
 <h2 id="329-implementation-des-actions-du-menu-de-lapplication">32.9. Implémentation des actions du menu de l’application</h2>
 <p>Nous allons ici traiter de l’implémentation des actions du menu. Rappelons la signification des liens que nous avons rencontrés</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Vue</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Lien</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Cible</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Rôle</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;" rowspan="2"><p style="margin:0;"><b>Calcul de l’impôt</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Liste des simulations]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/lister-simulations]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Demander la liste des simulations</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Fin de session]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/fin-session]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Demander la fin de la session</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;" rowspan="2"><p style="margin:0;"><b>Liste des simulations</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Calcul de l’impôt]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/afficher-calcul-impot]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Afficher la vue du calcul d’impôt</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Fin de session]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/fin-session]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Demander la fin de la session</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;" rowspan="3"><p style="margin:0;"><b>Erreurs inattendues</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Calcul de l’impôt]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/afficher-calcul-impot]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Afficher la vue du calcul d’impôt</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Liste des simulations]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/lister-simulations]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Demander la liste des simulations</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[Fin de session]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>[/fin-session]</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Demander la fin de la session</p></td></tr></table>
@@ -3651,11 +3651,11 @@
 <li>ligne 6 : comme les autres contrôleurs secondaires, le nouveau contrôleur implémente l’interface <strong>[InterfaceController]</strong> ;</li>
 <li>ligne 13 : les changements de vue sont simples à implémenter : il suffit de rendre un code d’état associé à la vue cible, ici le code 800 comme il a été vu plus haut ;</li>
 </ul>
-<p><a id="toc48549301"></a>
-<a id="toc42690944"></a>
-<a id="toc42690558"></a>
+<p><a id="refheadingtoc185781971629160"></a>
 <a id="toc42690172"></a>
-<a id="refheadingtoc185781971629160"></a></p>
+<a id="toc42690558"></a>
+<a id="toc42690944"></a>
+<a id="toc48549301"></a></p>
 <h3 id="3292-laction-fin-session">32.9.2. L’action [/fin-session]</h3>
 <p>L’action <strong>[/fin-session]</strong> est particulière. Elle n’amène pas directement à une vue mais à une redirection. Rappelons que les redirections sont configurées dans la configuration <strong>[config]</strong> de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
