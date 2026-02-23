@@ -1827,16 +1827,16 @@
 
 
 <p><a id="fonctionsreseau"></a>
-<a id="refheadingtoc2522432924280206"></a>
-<a id="toc48549106"></a></p>
+<a id="toc48549106"></a>
+<a id="refheadingtoc2522432924280206"></a></p>
 <h1 id="21-fonctions-internet">21. Fonctions internet</h1>
 <p>Nous abordons maintenant les fonctions internet de Python qui nous permettent de faire de la programmation TCP / IP (<strong>T</strong>ransfer <strong>C</strong>ontrol <strong>P</strong>rotocol / <strong>I</strong>nternet <strong>P</strong>rotocol).</p>
 <p><img src="images/10000000000000D80000015987C8E4F7.png" style="width:2.5cm;height:3.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000D80000015987C8E4F7.png" /></p>
-<p><a id="toc48549107"></a>
-<a id="refheading10403051168783983"></a></p>
+<p><a id="refheading10403051168783983"></a>
+<a id="toc48549107"></a></p>
 <h2 id="211-les-bases-de-la-programmation-internet">21.1. Les bases de la programmation internet</h2>
-<p><a id="toc48549108"></a>
-<a id="refheading10403071168783983"></a></p>
+<p><a id="refheading10403071168783983"></a>
+<a id="toc48549108"></a></p>
 <h3 id="2111-generalites">21.1.1. Généralités</h3>
 <p>Considérons la communication entre deux machines distantes A et B :</p>
 <p><img src="images/10000001000001FA000000E90533D8A3.png" style="width:6.891cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001FA000000E90533D8A3.png" /></p>
@@ -1848,8 +1848,8 @@
 <li>le protocole de dialogue accepté par l&#x27;application <em>AppB</em>. En effet, les machines A et B vont se &quot;parler&quot;. Ce qu&#x27;elles vont dire va être encapsulé dans les protocoles TCP-IP. Néanmoins, lorsqu&#x27;au bout de la chaîne, l&#x27;application <em>AppB</em> va recevoir l&#x27;information envoyée par l&#x27;applicaton <em>AppA</em>, il faut qu&#x27;elle soit capable de l&#x27;interpréter. Ceci est analogue à la situation où deux personnes A et B communiquent par téléphone : leur dialogue est transporté par le téléphone. La parole va être codée sous forme de signaux par le téléphone A, transportée par des lignes téléphoniques, arriver au téléphone B pour y être décodée. La personne B entend alors des paroles. C&#x27;est là qu&#x27;intervient la notion de protocole de dialogue : si A parle français et que B ne comprend pas cette langue, A et B ne pourront dialoguer utilement ;</li>
 </ul>
 <p>Aussi les deux applications communicantes doivent-elles être d&#x27;accord sur le type de dialogue qu&#x27;elles vont adopter. Par exemple, le dialogue avec un service <em>ftp</em> n&#x27;est pas le même qu&#x27;avec un service <em>pop</em> : ces deux services n&#x27;acceptent pas les mêmes commandes.  Elles ont un protocole de dialogue différent ;</p>
-<p><a id="toc48549109"></a>
-<a id="refheading10403091168783983"></a></p>
+<p><a id="refheading10403091168783983"></a>
+<a id="toc48549109"></a></p>
 <h3 id="2112-les-caracteristiques-du-protocole-tcp">21.1.2. Les caractéristiques du protocole TCP</h3>
 <p>Nous n&#x27;étudierons ici que des communications réseau utilisant le protocole de transport TCP dont voici les principales caractéristiques :</p>
 <ul>
@@ -1861,12 +1861,12 @@
 <li>si au bout d&#x27;un certain temps, le protocole TCP ayant émis un segment ne reçoit pas d&#x27;accusé de réception, il retransmet le segment en question, garantissant ainsi la qualité du service d&#x27;acheminement de l&#x27;information ;</li>
 <li>le circuit virtuel établi entre les deux processus qui communiquent est <em>full-duplex</em> : cela signifie que l&#x27;information peut transiter dans les deux sens. Ainsi le processus destination peut envoyer des accusés de réception alors même que le processus source continue d&#x27;envoyer des informations. Cela permet par exemple au protocole TCP source d&#x27;envoyer plusieurs segments sans attendre d&#x27;accusé de réception. S&#x27;il réalise au bout d&#x27;un certain temps qu&#x27;il n&#x27;a pas reçu l&#x27;accusé de réception d&#x27;un certain segment n° <em>n</em>, il reprendra l&#x27;émission des segments à ce point ;</li>
 </ul>
-<p><a id="toc48549110"></a>
-<a id="refheading10403111168783983"></a></p>
+<p><a id="refheading10403111168783983"></a>
+<a id="toc48549110"></a></p>
 <h3 id="2113-la-relation-client-serveur">21.1.3. La relation client-serveur</h3>
 <p>Souvent, la communication sur Internet est dissymétrique : la machine A initie une connexion pour demander un service à la machine B : il précise qu&#x27;il veut ouvrir une connexion avec le service SB1 de la machine B. Celle-ci accepte ou refuse. Si elle accepte, la machine A peut envoyer ses demandes au service SB1. Celles-ci doivent se conformer au protocole de dialogue compris par le service SB1. Un dialogue demande-réponse s&#x27;instaure ainsi entre la machine A qu&#x27;on appelle machine <strong>cliente</strong> et la machine B qu&#x27;on appelle machine <strong>serveur</strong>. L&#x27;un des deux partenaires fermera la connexion.</p>
-<p><a id="toc48549111"></a>
-<a id="refheading10403131168783983"></a></p>
+<p><a id="refheading10403131168783983"></a>
+<a id="toc48549111"></a></p>
 <h3 id="2114-architecture-dun-client">21.1.4. Architecture d&#x27;un client</h3>
 <p>L&#x27;architecture d&#x27;un programme réseau demandant les services d&#x27;une application serveur sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
@@ -1889,8 +1889,8 @@
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>finsi
 <a id="__codelineno-0-10" name="__codelineno-0-10"></a>fermer la connexion
 </code></pre></div></td></tr></table></div>
-<p><a id="toc48549112"></a>
-<a id="refheading10403151168783983"></a></p>
+<p><a id="refheading10403151168783983"></a>
+<a id="toc48549112"></a></p>
 <h3 id="2115-architecture-dun-serveur">21.1.5. Architecture d&#x27;un serveur</h3>
 <p>L&#x27;architecture d&#x27;un programme offrant des services sera la suivante :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
@@ -1917,12 +1917,12 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5"></a>fin tant que
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>libérer le port de service
 </code></pre></div></td></tr></table></div>
-<p><a id="toc48549113"></a>
-<a id="refheading10403171168783983"></a>
+<p><a id="refheading10403171168783983"></a>
+<a id="toc48549113"></a>
 <a id="protocoles-communication-tcp"></a></p>
 <h2 id="212-decouvrir-les-protocoles-de-communication-de-linternet">21.2. Découvrir les protocoles de communication de l&#x27;internet</h2>
-<p><a id="toc48549114"></a>
-<a id="refheading10403191168783983"></a></p>
+<p><a id="refheading10403191168783983"></a>
+<a id="toc48549114"></a></p>
 <h3 id="2121-introduction">21.2.1. Introduction</h3>
 <p>Lorsqu&#x27;un client s&#x27;est connecté à un serveur, s&#x27;établit ensuite un dialogue entre-eux. La nature de celui-ci forme ce qu&#x27;on appelle le protocole de communication du serveur. Parmi les protocoles les plus courants de l&#x27;internet on trouve les suivants :</p>
 <ul>
@@ -1939,8 +1939,8 @@
 <li>envoyer au serveur les lignes de texte qu&#x27;un utilisateur saisirait au clavier ;</li>
 </ul>
 <p>alors on est capable de dialoguer avec un serveur TCP ayant un protocole à lignes de texte pour peu qu&#x27;on connaisse les règles de ce protocole.</p>
-<p><a id="toc48549115"></a>
-<a id="refheadingtoc116171425309931"></a></p>
+<p><a id="refheadingtoc116171425309931"></a>
+<a id="toc48549115"></a></p>
 <h3 id="2122-utilitaires-tcp">21.2.2. Utilitaires TCP</h3>
 <p><img src="images/10000000000001A0000000E5A6BD6321.png" style="width:4.791cm;height:2.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001A0000000E5A6BD6321.png" /></p>
 <p>Dans les codes associés à ce document, on trouve deux utilitaires de communication TCP :</p>
@@ -2126,8 +2126,8 @@
 <span class="odt-code-line">&lt;-- <span style="font-weight:bold">[hello from server]</span></span>
 </code></pre></div>
 
-<p><a id="toc48549116"></a>
-<a id="refheading399321881943603"></a></p>
+<p><a id="refheading399321881943603"></a>
+<a id="toc48549116"></a></p>
 <h2 id="213-obtenir-le-nom-ou-ladresse-ip-dune-machine-de-linternet">21.3. Obtenir le nom ou l&#x27;adresse IP d&#x27;une machine de l&#x27;Internet</h2>
 <p><img src="images/10000000000000F60000009B904B6DE3.png" style="width:2.841cm;height:1.791cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000000F60000009B904B6DE3.png" /></p>
 <p>Les machines de l’internet sont identifiées par une adresse IP (IPv4 ou IPv6) et le plus souvent par un nom. Mais finalement seule l’adresse IP est utilisée par les protocoles de communication de l’internet. Il faut donc connaître l’adresse IP d’une machine identifiée par son nom.</p>
@@ -2209,11 +2209,11 @@
 </code></pre></div>
 
 <p><a id="leprotocolehttp"></a>
-<a id="refheadingtoc113039843107739"></a>
-<a id="toc48549117"></a></p>
+<a id="toc48549117"></a>
+<a id="refheadingtoc113039843107739"></a></p>
 <h2 id="214-le-protocole-http-hypertext-transfer-protocol">21.4. Le protocole HTTP (HyperText Transfer Protocol)</h2>
-<p><a id="refheadingtoc1356962222329424"></a>
-<a id="toc48549118"></a></p>
+<p><a id="toc48549118"></a>
+<a id="refheadingtoc1356962222329424"></a></p>
 <h3 id="2141-exemple-1">21.4.1. Exemple 1</h3>
 <p>Lorsqu’un navigateur affiche une URL, il est le client d’un serveur web ou dit autrement d’un serveur HTTP. C’est lui qui prend l’initiative et il commence par envoyer un certain nombre de commandes au serveur. Pour ce premier exemple :</p>
 <ul>
@@ -2281,8 +2281,8 @@
 <span class="odt-code-line">server : fin du service</span>
 </code></pre></div>
 
-<p><a id="toc48549119"></a>
-<a id="refheadingtoc1356982222329424"></a></p>
+<p><a id="refheadingtoc1356982222329424"></a>
+<a id="toc48549119"></a></p>
 <h3 id="2142-exemple-2">21.4.2. Exemple 2</h3>
 <p>Maintenant que nous connaissons les commandes envoyées par un navigateur pour réclamer une URL, nous allons réclamer cette URL avec notre client TCP <strong>[RawTcpClient]</strong>. Le serveur Apache de Laragon (paragraphe |<a href="#_Installation_de_Laragon"><u><span style="color: #0563c1">Installation de Laragon</span></u></a>|) sera notre serveur web.</p>
 <p>Lançons Laragon puis le serveur web Apache :</p>
@@ -2567,8 +2567,8 @@
 <li>lignes 11-79 : le document HTML reçu. Dans l’exemple précédent, Firefox avait reçu le même ;</li>
 </ul>
 <p>Nous avons désormais les bases pour programmer un client TCP qui demanderait une URL.</p>
-<p><a id="toc48549120"></a>
-<a id="refheadingtoc1357002222329424"></a></p>
+<p><a id="refheadingtoc1357002222329424"></a>
+<a id="toc48549120"></a></p>
 <h3 id="2143-exemple-3">21.4.3. Exemple 3</h3>
 <p><img src="images/10000000000001340000014D64AA422E.png" style="width:3.56cm;height:3.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001340000014D64AA422E.png" /></p>
 <p>Le script <strong>[http/01/main.py]</strong> est un client HTTP configuré par le fichier <strong>[config.py]</strong>. Le contenu de celui-ci est le suivant :</p>
@@ -3333,8 +3333,8 @@
 <span class="odt-code-line">               2 Rép(s)  892 385 628 160 octets libres</span>
 </code></pre></div>
 
-<p><a id="toc48549122"></a>
-<a id="refheadingtoc112763843107739"></a></p>
+<p><a id="refheadingtoc112763843107739"></a>
+<a id="toc48549122"></a></p>
 <h3 id="2145-exemple-5">21.4.5. Exemple 5</h3>
 <p>Python possède un module appelé <strong>[pyccurl]</strong> qui permet d’utiliser les capacités de l’outil <strong>[curl]</strong> dans un programme Python. Nous installons ce module :</p>
 <p><img src="images/100000000000055500000198AD4257EA.png" style="width:15.77cm;height:4.71cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055500000198AD4257EA.png" /></p>
@@ -3722,15 +3722,15 @@
 </ul>
 </li>
 </ul>
-<p><a id="toc48549123"></a>
-<a id="refheadingtoc1357062222329424"></a></p>
+<p><a id="refheadingtoc1357062222329424"></a>
+<a id="toc48549123"></a></p>
 <h3 id="2146-conclusion">21.4.6. Conclusion</h3>
 <p>Nous avons, dans cette section, découvert le protocole HTTP et avons écrit un script <strong>[http/02/main.py]</strong> capable de télécharger une URL du web.</p>
-<p><a id="toc48549124"></a>
-<a id="refheadingtoc1357082222329424"></a></p>
+<p><a id="refheadingtoc1357082222329424"></a>
+<a id="toc48549124"></a></p>
 <h2 id="215-le-protocole-smtp-simple-mail-transfer-protocol">21.5. Le protocole SMTP (Simple Mail Transfer Protocol)</h2>
-<p><a id="refheadingtoc1357102222329424"></a>
-<a id="toc48549125"></a></p>
+<p><a id="toc48549125"></a>
+<a id="refheadingtoc1357102222329424"></a></p>
 <h3 id="2151-introduction">21.5.1. Introduction</h3>
 <p>Dans ce chapitre :</p>
 <ul>
@@ -3743,15 +3743,15 @@
 </li>
 </ul>
 <p><a id="creationduneadresse"></a>
-<a id="refheadingtoc95375381407536"></a>
-<a id="toc48549126"></a></p>
+<a id="toc48549126"></a>
+<a id="refheadingtoc95375381407536"></a></p>
 <h3 id="2152-creation-dune-adresse-gmail">21.5.2. Création d’une adresse [gmail]</h3>
 <p>Pour faire nos tests SMTP, nous aurons besoin d’une adresse mail à qui écrire. Nous allons créer pour cela une adresse Gmail [<a href="https://www.google.com/intl/fr/gmail/about/"><u><span style="color: #0563c1">https://www.google.com/intl/fr/gmail/about/</span></u></a>] :</p>
 <p><img src="images/1000000000000260000002E4CDEBD503.png" style="width:7.01cm;height:8.542cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000260000002E4CDEBD503.png" /></p>
 <p><strong>Note</strong> : Envoyez quelques mails à l&#x27;adresse que vous avez créée. Ne passez à la suite que lorsque vous êtes sûr que le compte créé est capable de recevoir des mails.</p>
 <p><a id="installationdunserveur"></a>
-<a id="refheadingtoc1357122222329424"></a>
-<a id="toc48549127"></a></p>
+<a id="toc48549127"></a>
+<a id="refheadingtoc1357122222329424"></a></p>
 <h3 id="2153-installation-dun-serveur-smtp">21.5.3. Installation d’un serveur SMTP</h3>
 <p>Pour nos tests, nous installerons le serveur de mail <strong>[hMailServer]</strong> qui est à la fois un serveur SMTP permettant d’envoyer des mails, un serveur POP3 (Post Office Protocol) permettant de lire les mails stockés sur le serveur, un serveur IMAP (Internet Message Access Protocol) qui lui aussi permet de  lire les mails stockés sur le serveur mais va au-delà. Il permet notamment de gérer le stockage des mails sur le serveur.</p>
 <p>Le serveur de mail <strong>[hMailServer]</strong> est disponible à l’URL <strong>[https://www.hmailserver.com/]</strong> (mai 2019).</p>
@@ -3973,8 +3973,8 @@
 <p><img src="images/10000000000002DC0000030A140C6FF8.png" style="width:8.43cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002DC0000030A140C6FF8.png" /></p>
 <p><img src="images/10000000000005140000029F88008B07.png" style="width:15.02cm;height:7.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005140000029F88008B07.png" /></p>
 <p>Nous avons désormais les outils pour explorer les protocoles SMTP, POP3 et IMAP. Nous commençons par le protocole SMTP.</p>
-<p><a id="toc48549129"></a>
-<a id="refheadingtoc1357142222329424"></a></p>
+<p><a id="refheadingtoc1357142222329424"></a>
+<a id="toc48549129"></a></p>
 <h3 id="2155-le-protocole-smtp">21.5.5. Le protocole SMTP</h3>
 <p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
 <p>Nous allons découvrir le protocole SMTP en examinant les logs du serveur <strong>[hMailServer]</strong>. Pour cela, nous les activons avec l’outl <strong>[hmailServerAdministrator]</strong> :</p>
@@ -4121,8 +4121,8 @@
 <li>ligne 15 : on est bloqués parce que le serveur SMTP nous demande de démarrer une connexion sécurisée ce qu’on ne sait pas faire. Contrairement à l’exemple précédent, le serveur <strong>[smtp.gmail.com]</strong> (ligne 1) demande une authentification. Il n’accepte comme clients que les utilisateurs enregistrés dans le domaine <strong>[gmail.com]</strong>. Cette authentification est sécurisée et a lieu au sein d’une connexion cryptée.</li>
 </ul>
 <p>Le premier exemple nous a donné les bases pour construire un client SMTP basique en Python. Le deuxième nous a montré que certains serveurs SMTP (la plupart en fait) nécessitent une authentification faite avec une connexion chiffrée.</p>
-<p><a id="toc48549130"></a>
-<a id="refheadingtoc1357162222329424"></a></p>
+<p><a id="refheadingtoc1357162222329424"></a>
+<a id="toc48549130"></a></p>
 <h3 id="2156-scripts-smtp01-un-client-smtp-basique">21.5.6. scripts [smtp/01] : un client SMTP basique</h3>
 <p>Nous allons reproduire en Python ce que nous avons appris précédemment du protocole SMTP.</p>
 <p><img src="images/100000000000012800000166A0353B31.png" style="width:3.421cm;height:4.141cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000012800000166A0353B31.png" /></p>
@@ -4444,8 +4444,8 @@
 <p>Les résultats dans Thunderbird sont les suivants :</p>
 <p><img src="images/100000000000047200000262D27CE93C.png" style="width:13.151cm;height:7.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047200000262D27CE93C.png" /></p>
 <p><a id="scriptssmtp02"></a>
-<a id="refheadingtoc1357182222329424"></a>
-<a id="toc48549131"></a></p>
+<a id="toc48549131"></a>
+<a id="refheadingtoc1357182222329424"></a></p>
 <h3 id="2157-scripts-smtp02-un-lient-smtp-ecrit-avec-la-bibliotheque-smtplib">21.5.7. scripts [smtp/02] : un lient SMTP écrit avec la bibliothèque [smtplib]</h3>
 <p><img src="images/10000000000001260000015A7EFDE191.png" style="width:3.402cm;height:3.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001260000015A7EFDE191.png" /></p>
 <p>Le client précédent souffre d&#x27;au moins deux insuffisances :</p>
@@ -4681,8 +4681,8 @@
 </ul>
 <p>Si on consulte le compte Gmail de l’utilisateur <strong>[pymail2parlexemple]</strong> on a la chose suivante :</p>
 <p><img src="images/10000000000004830000027B835BC393.png" style="width:13.36cm;height:7.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004830000027B835BC393.png" /></p>
-<p><a id="toc48549132"></a>
-<a id="refheadingtoc3282263081319169"></a></p>
+<p><a id="refheadingtoc3282263081319169"></a>
+<a id="toc48549132"></a></p>
 <h3 id="2158-scripts-smtp03-gestion-des-fichiers-attaches">21.5.8. scripts [smtp/03] : gestion des fichiers attachés</h3>
 <p>Nous complétons le script <strong>[smtp/02/main]</strong> afin que le mail envoyé puisse avoir des fichiers attachés.</p>
 <p><img src="images/10000000000001D2000001EA1A87D15F.png" style="width:5.381cm;height:5.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D2000001EA1A87D15F.png" /></p>
@@ -4926,11 +4926,11 @@
 </ul>
 </li>
 </ul>
-<p><a id="toc48549133"></a>
-<a id="refheadingtoc1357202222329424"></a></p>
+<p><a id="refheadingtoc1357202222329424"></a>
+<a id="toc48549133"></a></p>
 <h2 id="216-le-protocole-pop3">21.6. Le protocole POP3</h2>
-<p><a id="toc48549134"></a>
-<a id="refheadingtoc1357222222329424"></a></p>
+<p><a id="refheadingtoc1357222222329424"></a>
+<a id="toc48549134"></a></p>
 <h3 id="2161-introduction">21.6.1. Introduction</h3>
 <p>Pour lire les mails entreposés dans un serveur de mails, deux protocoles existent :</p>
 <ul>
@@ -4952,8 +4952,8 @@
 </ul>
 </li>
 </ul>
-<p><a id="toc48549135"></a>
-<a id="refheadingtoc1357242222329424"></a></p>
+<p><a id="refheadingtoc1357242222329424"></a>
+<a id="toc48549135"></a></p>
 <h3 id="2162-decouverte-du-protocole-pop3">21.6.2. Découverte du protocole POP3</h3>
 <p>Comme nous l’avons fait avec le protocole SMTP, nous allons découvrir le protocole POP3 à l’aide des logs du serveur de mails <strong>[hMailServer]</strong>. Il faut ici lancer ce serveur.</p>
 <p>Avec Thunderbird, nous allons :</p>
@@ -5082,8 +5082,8 @@
 </ul>
 </li>
 </ul>
-<p><a id="toc48549136"></a>
-<a id="refheadingtoc1357262222329424"></a></p>
+<p><a id="refheadingtoc1357262222329424"></a>
+<a id="toc48549136"></a></p>
 <h3 id="2163-scripts-pop301-un-client-pop3-basique">21.6.3. scripts [pop3/01] : un client POP3 basique</h3>
 <p><img src="images/1000000000000143000001A3C17B9BCA.png" style="width:3.721cm;height:4.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000143000001A3C17B9BCA.png" /></p>
 <p>Comme le procole POP3 a la même structure que le protocole SMTP, le script <strong>[pop3/01/main.py]</strong> est un portage du script <strong>[smtp/01/main.py]</strong>. Il aura le fichier de configuration <strong>[pop3/01/config.py]</strong> suivant :</p>
@@ -5397,10 +5397,10 @@
 <li>la possibilité de lire les pièces attachées à un message ;</li>
 </ol>
 <p>Nous allons implémenter ces deux possibilités avec un nouveau script qui sera cette fois plus complexe.</p>
-<p><a id="scriptspop302"></a>
-<a id="scriptpop3-02"></a>
-<a id="refheadingtoc1357282222329424"></a>
-<a id="toc48549137"></a></p>
+<p><a id="scriptpop3-02"></a>
+<a id="scriptspop302"></a>
+<a id="toc48549137"></a>
+<a id="refheadingtoc1357282222329424"></a></p>
 <h3 id="2164-scripts-pop302-client-pop3-avec-les-modules-poplib-et-email">21.6.4. scripts [pop3/02] : client POP3 avec les modules [poplib] et [email]</h3>
 <p>Nous allons écrire un client POP3 permettant de gérer les pièces attachées ainsi que la communication avec des serveurs sécurisés. Par ailleurs, nous sauvegarderons dans des fichiers, les messages et leurs pièces attachées.</p>
 <p>Nous allons utiliser deux modules Python :</p>
@@ -6286,11 +6286,11 @@
 </ul>
 <p><strong>Conclusion</strong></p>
 <p>Le module <strong>[mail_parser.py]</strong> est particulièrement complexe. Cela est dû à la complexité des mails eux-mêmes. Nous allons réutiliser ce module pour le protocole IMAP.</p>
-<p><a id="toc48549138"></a>
-<a id="refheadingtoc1357302222329424"></a></p>
+<p><a id="refheadingtoc1357302222329424"></a>
+<a id="toc48549138"></a></p>
 <h2 id="217-le-protocole-imap">21.7. Le protocole IMAP</h2>
-<p><a id="toc48549139"></a>
-<a id="refheadingtoc13572222223294241"></a></p>
+<p><a id="refheadingtoc13572222223294241"></a>
+<a id="toc48549139"></a></p>
 <h3 id="2171-introduction">21.7.1. Introduction</h3>
 <p>Pour lire les mails entreposés dans un serveur de mails, deux protocoles existent :</p>
 <ul>
@@ -6349,8 +6349,8 @@
 <li>créer le dossier <strong>[dossier1]</strong> ;</li>
 <li>transférer des messages dans ce dossier ;</li>
 </ul>
-<p><a id="toc48549140"></a>
-<a id="refheadingtoc3282283081319169"></a></p>
+<p><a id="refheadingtoc3282283081319169"></a>
+<a id="toc48549140"></a></p>
 <h3 id="2172-script-imapmain-client-imap-avec-le-module-imaplib">21.7.2. script [imap/main] : client IMAP avec le module [imaplib]</h3>
 <p><img src="images/1000000000000114000000E1ECECCBD2.png" style="width:3.181cm;height:2.601cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000114000000E1ECECCBD2.png" /></p>
 <p>Le script <strong>[imap/main]</strong> est configuré par le script <strong>[imap/config]</strong> suivant :</p>

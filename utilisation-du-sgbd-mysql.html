@@ -1522,18 +1522,18 @@
 
 
 <p><a id="utilisationdusgbd"></a>
-<a id="refheading382942423505"></a>
-<a id="toc48549048"></a></p>
+<a id="toc48549048"></a>
+<a id="refheading382942423505"></a></p>
 <h1 id="16-utilisation-du-sgbd-mysql">16. Utilisation du SGBD MySQL</h1>
 <p><img src="images/1000000000000168000001EB3E9DBFEB.png" style="width:3.731cm;height:5.091cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000168000001EB3E9DBFEB.png" /></p>
 <p><a id="intallationdusgbd"></a>
-<a id="refheading382982423505"></a>
-<a id="toc48549049"></a></p>
+<a id="toc48549049"></a>
+<a id="refheading382982423505"></a></p>
 <h2 id="161-intallation-du-sgbd-mysql">16.1. Intallation du SGBD MySQL</h2>
 <p>Pour disposer du SGBD MySQL, nous allons installer le logiciel Laragon.</p>
 <p><a id="installationdelaragon"></a>
-<a id="refheadingtoc45843531951845"></a>
-<a id="toc48549050"></a></p>
+<a id="toc48549050"></a>
+<a id="refheadingtoc45843531951845"></a></p>
 <h3 id="1611-installation-de-laragon">16.1.1. Installation de Laragon</h3>
 <p>Laragon est un package réunissant plusieurs logiciels :</p>
 <ul>
@@ -1565,8 +1565,8 @@
 <li><strong>[6]</strong> : le bouton <strong>[Root]</strong> ouvre un explorateur Windows positionné sur le dossier <strong>[&lt;laragon&gt;/www]</strong> qui est la racine du site web <strong>[http://localhost]</strong>. C’est là qu’il faut placer les applications web statiques gérées par le serveur Apache de Laragon ;</li>
 </ul>
 <p><a id="creationdunebase"></a>
-<a id="refheadingtoc837491549297239"></a>
-<a id="toc48549051"></a></p>
+<a id="toc48549051"></a>
+<a id="refheadingtoc837491549297239"></a></p>
 <h3 id="1612-creation-dune-base-de-donnees">16.1.2. Création d’une base de données</h3>
 <p>Nous montrons maintenant comment créer une base de données ainsi qu&#x27;un utilisateur MySQL avec l’outil Laragon.</p>
 <p><img src="images/10000001000002F50000027C80AAEFD6.png" style="width:11.281cm;height:9.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002F50000027C80AAEFD6.png" /></p>
@@ -1628,8 +1628,8 @@
 <li>une base de données MySQL <strong>[dbpersonnes]</strong> ;</li>
 <li>un utilisateur <strong>[admpersonnes/nobody]</strong> qui a tous les droits sur cette base de données ;</li>
 </ul>
-<p><a id="toc48549052"></a>
-<a id="refheading382962423505"></a></p>
+<p><a id="refheading382962423505"></a>
+<a id="toc48549052"></a></p>
 <h2 id="162-intallation-du-package-mysql-connector-python">16.2. Intallation du package [mysql-connector-python]</h2>
 <p>Nous allons écrire des scripts Python pour exploiter la base de données créée précédemment avec l&#x27;architecture suivante :</p>
 <p><img src="images/100000010000030B0000008320840B22.png" style="width:11.84cm;height:1.99cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000030B0000008320840B22.png" /></p>
@@ -1722,10 +1722,10 @@
 <li>ligne 13 : on a bien le package <strong>[mysql-connector-python]</strong> ;</li>
 </ul>
 <p>Pour savoir comment utiliser le package <strong>[mysql-connector-python]</strong> afin de gérer une base de données MySQL, on ira sur le site du package |<a href="https://dev.mysql.com/doc/connector-python/en/">https://dev.mysql.com/doc/connector-python/en/</a>|. La suite présente une série d&#x27;exemples.</p>
-<p><a id="scriptmysql01"></a>
-<a id="scriptmysql-01"></a>
-<a id="refheading383002423505"></a>
-<a id="toc48549053"></a></p>
+<p><a id="scriptmysql-01"></a>
+<a id="scriptmysql01"></a>
+<a id="toc48549053"></a>
+<a id="refheading383002423505"></a></p>
 <h2 id="163-script-mysql_01-connexion-a-une-base-mysql-1">16.3. script [mysql_01] : connexion à une base MySQL - 1</h2>
 <p>Le script <strong>[mysql_01]</strong> présente la première étape de l&#x27;utilisation d&#x27;une base de données. Il va nous permettre de vérifier qu&#x27;on est capables de se connecter à la base <strong>[dbpersonnes]</strong> créée précédemment.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1786,10 +1786,10 @@
 <a id="__codelineno-1-4" name="__codelineno-1-4"></a>
 <a id="__codelineno-1-5" name="__codelineno-1-5"></a>Process finished with exit code 0
 </code></pre></div></td></tr></table></div>
-<p><a id="scriptmysql02"></a>
-<a id="scriptmysql-02"></a>
-<a id="refheading383022423505"></a>
-<a id="toc48549054"></a></p>
+<p><a id="scriptmysql-02"></a>
+<a id="scriptmysql02"></a>
+<a id="toc48549054"></a>
+<a id="refheading383022423505"></a></p>
 <h2 id="164-script-mysql_02-connexion-a-une-base-mysql-2">16.4. script [mysql_02] : connexion à une base MySQL - 2</h2>
 <p>Dans ce nouveau script, la connexion à la base est isolée dans une fonction :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1856,10 +1856,10 @@
 <a id="__codelineno-2-6" name="__codelineno-2-6"></a>
 <a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">Process</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="mi">0</span>
 </code></pre></div></td></tr></table></div>
-<p><a id="scriptmysql03"></a>
-<a id="scriptmysql-03"></a>
-<a id="refheading383042423505"></a>
-<a id="toc48549055"></a></p>
+<p><a id="scriptmysql-03"></a>
+<a id="scriptmysql03"></a>
+<a id="toc48549055"></a>
+<a id="refheading383042423505"></a></p>
 <h2 id="165-script-mysql_03-creation-dune-table-mysql">16.5. script [mysql_03] : création d&#x27;une table MySQL</h2>
 <p>Maintenant qu&#x27;on sait créer une connexion avec un SGBD MySQL, on commence à émettre des ordres SQL sur cette connexion. Pour cela, nous allons nous connecter à la base créée <strong>[dbpersonnes]</strong> et utiliser la connexion pour créer une table dans la base.</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1969,10 +1969,10 @@
 <ul>
 <li>la base de données <strong>[dbpersonnes]</strong> <strong>[1]</strong> a une table <strong>[personnes]</strong> <strong>[2]</strong> qui a la structure <strong>[3-4]</strong>, la clé primaire <strong>[5]</strong> et la contrainte d’unicité <strong>[6]</strong> ;</li>
 </ul>
-<p><a id="scriptmysql04"></a>
-<a id="scriptmysql-04"></a>
-<a id="refheading383062423505"></a>
-<a id="toc48549056"></a></p>
+<p><a id="scriptmysql-04"></a>
+<a id="scriptmysql04"></a>
+<a id="toc48549056"></a>
+<a id="refheading383062423505"></a></p>
 <h2 id="166-script-mysql_04-execution-dun-fichier-dordres-sql">16.6. script [mysql_04] : exécution d&#x27;un fichier d&#x27;ordres SQL</h2>
 <p>Après avoir créé précédemment la table <strong>[personnes]</strong>, maintenant nous la remplissons puis l&#x27;exploitons à l&#x27;aide d&#x27;ordres SQL.</p>
 <p>Nous souhaitons exécuter les ordres SQL d&#x27;un fichier texte :</p>
@@ -2464,10 +2464,10 @@
 <ul>
 <li>en <strong>[5]</strong>, on voit que la table <strong>[personnes]</strong> <strong>[2]</strong> est vide ;</li>
 </ul>
-<p><a id="scriptmysql05"></a>
-<a id="scriptmysql-05"></a>
-<a id="refheading383082423505"></a>
-<a id="toc48549057"></a></p>
+<p><a id="scriptmysql-05"></a>
+<a id="scriptmysql05"></a>
+<a id="toc48549057"></a>
+<a id="refheading383082423505"></a></p>
 <h2 id="167-script-mysql_05-utilisation-de-requetes-parametrees">16.7. script [mysql_05] : utilisation de requêtes paramétrées</h2>
 <p>Le script  <strong>[mysql_05]</strong> introduit la notion de requêtes paramétrées :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">

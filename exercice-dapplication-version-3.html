@@ -1493,10 +1493,10 @@
   
 
 
-<p><a id="exercicedapplication"></a>
-<a id="version2"></a>
-<a id="refheadingtoc510331566649833"></a>
-<a id="toc48548994"></a></p>
+<p><a id="version2"></a>
+<a id="exercicedapplication"></a>
+<a id="toc48548994"></a>
+<a id="refheadingtoc510331566649833"></a></p>
 <h1 id="11-exercice-dapplication-version-3">11. Exercice d’application : version 3</h1>
 <p><img src="images/10000000000001C4000001A288384CA3.png" style="width:4.751cm;height:4.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C4000001A288384CA3.png" /></p>
 <p>Cette nouvelle version introduit deux changements :</p>
@@ -1594,8 +1594,8 @@
 <ul>
 <li>ligne 8 : on met le dossier <strong>[shared]</strong> dans le Python Path. Ce dossier contient le module <strong>[impôts_module_02]</strong> utilisé par le script principal ;</li>
 </ul>
-<p><a id="toc48548996"></a>
-<a id="refheadingtoc2521492924280206"></a></p>
+<p><a id="refheadingtoc2521492924280206"></a>
+<a id="toc48548996"></a></p>
 <h2 id="112-script-principal-mainpy">11.2. Script principal [main.py]</h2>
 <p>Le script principal de la version 3 est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1650,16 +1650,16 @@
 <li>ligne 7 : les fonctions de la version 3 sont trouvées dans le module <strong>[</strong><strong><span style="color: #6f008a">impots</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">modules</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">impôts_module_02</span></strong><strong>]</strong> ;</li>
 </ul>
 <p><a id="lemoduleimpotsv02modulesimpot"></a>
-<a id="refheadingtoc563792181887516"></a>
-<a id="toc48548997"></a></p>
+<a id="toc48548997"></a>
+<a id="refheadingtoc563792181887516"></a></p>
 <h2 id="113-le-module-impotsv02modulesimpots_module_02">11.3. Le module [impots<span style="color: #000000">.</span>v02<span style="color: #000000">.</span>modules<span style="color: #000000">.</span>impôts_module_02]</h2>
 <p>Le module <strong>[</strong><strong><span style="color: #6f008a">impots</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">v02</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">modules</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">impôts_module_02</span></strong><strong>]</strong> a la structure suivante :</p>
 <p><img src="images/10000000000005CD000001BF94176D17.png" style="width:17.14cm;height:5.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005CD000001BF94176D17.png" /></p>
 <ul>
 <li>on retrouve dans le module des fonctions déjà présentes dans le module utilisé par la version 1 avec cependant une différence. Lorsque le module de la version 2 reprend une fonction présente dans le module de la version 1, elle le fait avec un paramètre supplémentaire : <strong>[adminData]</strong> (lignes 29, 51, 77, 127). Ce paramètre représente le dictionnaire des données fiscales issues du fichier jSON <strong>[adminData.json]</strong>. Dans le module de la version 1, ces données n&#x27;avaient pas besoin d&#x27;être passées aux fonctions car elles étaient définies globalement à celles-ci ce qui faisait que les fonctions les connaissaient ;</li>
 </ul>
-<p><a id="toc48548998"></a>
-<a id="refheadingtoc2521512924280206"></a></p>
+<p><a id="refheadingtoc2521512924280206"></a>
+<a id="toc48548998"></a></p>
 <h2 id="114-lecture-des-donnees-de-ladministration-fiscale">11.4. Lecture des données de l&#x27;administration fiscale</h2>
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">get_admindata</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1685,8 +1685,8 @@
 <ul>
 <li>ligne 9 : on récupère le dictionnaire image du fichier jSON  lu ;</li>
 </ul>
-<p><a id="toc48548999"></a>
-<a id="refheadingtoc2521532924280206"></a></p>
+<p><a id="refheadingtoc2521532924280206"></a>
+<a id="toc48548999"></a></p>
 <h2 id="115-enregistrement-des-resultats">11.5. Enregistrement des résultats</h2>
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">record_results_in_json_file</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1709,8 +1709,8 @@
 <li>ligne 7 : on crée un fichier encodé en UTF-8 ;</li>
 <li>ligne 9 : on écrit la liste <strong>[results]</strong> dans le fichier jSON. Les caractères UTF-8 ne sont pas échappés (<span style="color: #000000">ensure_ascii=</span><span style="color: #0000ff">False</span>) ;</li>
 </ul>
-<p><a id="toc48549000"></a>
-<a id="refheadingtoc2521552924280206"></a></p>
+<p><a id="refheadingtoc2521552924280206"></a>
+<a id="toc48549000"></a></p>
 <h2 id="116-modification-des-fonctions">11.6. Modification des fonctions</h2>
 <p>Certaines fonctions reçoivent désormais un paramètre <strong>[</strong><strong><span style="color: #808080">admin_data</span></strong><strong>]</strong> supplémentaire. Cela modifie un peu leur écriture. Prenons par exemple la fonction <strong>[</strong><strong><span style="color: #000000">calcul_impôt</span></strong><strong>]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1768,8 +1768,8 @@
 <li>là où <strong>[calcul_impôt]</strong> utilise des constantes fiscales, elle passe désormais par le dictionnaire <strong>[admin_data]</strong> (lignes 19, 22) ;</li>
 </ul>
 <p>Toutes les fonctions recevant <strong>[admin_data]</strong> comme paramètre, subissent ces mêmes types de modifications.</p>
-<p><a id="toc48549001"></a>
-<a id="refheadingtoc2521572924280206"></a></p>
+<p><a id="refheadingtoc2521572924280206"></a>
+<a id="toc48549001"></a></p>
 <h2 id="117-resultats">11.7. Résultats</h2>
 <p>Les résultats obtenus sont ceux présentés au début du paragraphe 8.3.</p>
 

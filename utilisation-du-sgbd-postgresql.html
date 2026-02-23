@@ -1544,8 +1544,8 @@
 
 
 <p><a id="utilisationdusgbd1"></a>
-<a id="refheadingtoc2522132924280206"></a>
-<a id="toc48549058"></a></p>
+<a id="toc48549058"></a>
+<a id="refheadingtoc2522132924280206"></a></p>
 <h1 id="17-utilisation-du-sgbd-postgresql">17. Utilisation du SGBD PostgreSQL</h1>
 <p>Le SGBD PostgreSQL est librement disponible. Il est une alternative à la version &#x27;community&#x27; de MySQL.</p>
 <p>Nous l&#x27;utilisons ici pour montrer qu&#x27;il est assez simple de migrer des scripts Python / MySQL vers des scripts Python / PostgreSQL.</p>
@@ -1554,8 +1554,8 @@
 <p>Avec le SGBD PostgreSQL, elle sera la suivante :</p>
 <p><img src="images/10000001000003050000007CE8B4EDA2.png" style="width:11.851cm;height:1.9cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003050000007CE8B4EDA2.png" /></p>
 <p><a id="installationdu"></a>
-<a id="refheadingtoc822383439697744"></a>
-<a id="toc48549059"></a></p>
+<a id="toc48549059"></a>
+<a id="refheadingtoc822383439697744"></a></p>
 <h2 id="171-installation-du-sgbd-postgresql">17.1. Installation du  SGBD PostgreSQL</h2>
 <p>Les distributions du SGBD PostgreSQL sont disponibles à l’URL <strong>[https://www.postgresql.org/download/]</strong> (mai 2019). Nous montrons l’installation de la version pour Windows 64 bits :</p>
 <p><img src="images/10000001000003CD000000F6106EB3D0.png" style="width:16.431cm;height:4.141cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003CD000000F6106EB3D0.png" /></p>
@@ -1597,8 +1597,8 @@
 </ul>
 <p>Lorsque vous voudrez démarrer manuellement le SGBD, revenez à l’application <strong>[services]</strong>, cliquez droit sur le service <strong>[postgresql]</strong> (34) et lancez le (35).</p>
 <p><a id="administrerpostgresqlavec"></a>
-<a id="refheadingtoc900783955410047"></a>
-<a id="toc48549060"></a></p>
+<a id="toc48549060"></a>
+<a id="refheadingtoc900783955410047"></a></p>
 <h2 id="172-administrer-postgresql-avec-loutil-pgadmin">17.2. Administrer PostgreSQL avec l’outil [pgAdmin]</h2>
 <p>Lancez le service windows du SGBD PostgreSQL (paragraphe précédent). Puis de la même façon que vous avez lancé l’outil <strong>[services]</strong>, lancez l’outil <strong>[pgadmin]</strong> qui permet d’administrer le SGBD PostgreSQL <strong>[1-3]</strong> :</p>
 <p><img src="images/1000000100000348000001C74A4AB9A3.png" style="width:14.611cm;height:7.91cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000348000001C74A4AB9A3.png" /></p>
@@ -1630,8 +1630,8 @@
 <li>en <strong>[31]</strong>, après validation de l’assistant <strong>[Save]</strong>, la base <strong>[dbpersonnes]</strong> est créée ;</li>
 </ul>
 <p>Nous allons exploiter la base <strong>[dbpersonnes]</strong> avec des scripts Python.</p>
-<p><a id="refheadingtoc2522152924280206"></a>
-<a id="toc48549061"></a></p>
+<p><a id="toc48549061"></a>
+<a id="refheadingtoc2522152924280206"></a></p>
 <h2 id="173-installation-du-connecteur-python-du-sgbd-postgresql">17.3. Installation du connecteur Python du SGBD PostgreSQL</h2>
 <p><img src="images/10000001000003050000007CE8B4EDA2.png" style="width:11.851cm;height:1.9cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003050000007CE8B4EDA2.png" /></p>
 <p>Dans le schéma ci-dessus est représenté un connecteur faisant le lien entre les scripts Python et le SGBD PostgreSQL. Il en existe plusieurs. Nous installons le connecteur <strong>[psycopg2]</strong>. Cela se fait dans un terminal Python (peu importe le dossier dans lequel est ouvert ce terminal). Le connecteur est installé par la commande <strong>[pip install psycopg2]</strong> :</p>
@@ -1650,8 +1650,8 @@
 <ul>
 <li>le dossier <strong>[1]</strong> des scripts MySQL est dupliqué (Ctrl-C / Ctrl-V), puis les noms des fichiers sont changés mais par leur contenu ;</li>
 </ul>
-<p><a id="toc48549063"></a>
-<a id="refheadingtoc2522172924280206"></a></p>
+<p><a id="refheadingtoc2522172924280206"></a>
+<a id="toc48549063"></a></p>
 <h3 id="1741-module-pgres_module">17.4.1. module [pgres_module]</h3>
 <p>Ce module est la copie du module <strong>[mysql_module]</strong> (cf paragraphe |<u><span style="color: #0563c1">script </span></u><u><span style="color: #0563c1"><strong>[mysql-04]</strong></span></u><u><span style="color: #0563c1"> : exécution d&#x27;un fichier d&#x27;ordres SQL</span></u>|). On change les imports :</p>
 <p>Au lieu de :</p>
@@ -1692,8 +1692,8 @@
 </code></pre></div>
 
 <p>Sinon rien d’autre ne change.</p>
-<p><a id="toc48549064"></a>
-<a id="refheadingtoc2522192924280206"></a></p>
+<p><a id="refheadingtoc2522192924280206"></a>
+<a id="toc48549064"></a></p>
 <h3 id="1742-script-pgres_01">17.4.2. script [pgres_01]</h3>
 <p>Le script <strong>[pgres_01]</strong> est la copie du script <strong>[mysql_01]</strong> (cf paragraphe |<u><span style="color: #0563c1">script </span></u><u><span style="color: #0563c1"><strong>[mysql-01]</strong></span></u><u><span style="color: #0563c1"> : connexion à une base MySQL - 1</span></u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
@@ -1709,8 +1709,8 @@
 </code></pre></div>
 
 <p>Le reste ne change pas. Les résultats sont les mêmes qu&#x27;avec MySQL.</p>
-<p><a id="toc48549065"></a>
-<a id="refheadingtoc2522212924280206"></a></p>
+<p><a id="refheadingtoc2522212924280206"></a>
+<a id="toc48549065"></a></p>
 <h3 id="1743-script-pgres_02">17.4.3. script [pgres_02]</h3>
 <p>Le script <strong>[pgres_02]</strong> est la copie du script <strong>[mysql_02]</strong> (cf paragraphe |<u><span style="color: #0563c1">script </span></u><u><span style="color: #0563c1"><strong>[mysql-02]</strong></span></u><u><span style="color: #0563c1"> : connexion à une base MySQL - 2</span></u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
@@ -1803,8 +1803,8 @@
 <span class="odt-code-line">Process finished with exit code 0</span>
 </code></pre></div>
 
-<p><a id="toc48549066"></a>
-<a id="refheadingtoc2522232924280206"></a></p>
+<p><a id="refheadingtoc2522232924280206"></a>
+<a id="toc48549066"></a></p>
 <h3 id="1744-script-pgres_03">17.4.4. script [pgres_03]</h3>
 <p>Le script <strong>[pgres_03]</strong> est la copie du script <strong>[mysql_03]</strong> (cf paragraphe |<u><span style="color: #0563c1">script </span></u><u><span style="color: #0563c1"><strong>[mysql-03]</strong></span></u><u><span style="color: #0563c1"> : création d&#x27;une table MySQL</span></u>|). On y fait les modifications suivantes :</p>
 <p>Au lieu de :</p>
@@ -1839,8 +1839,8 @@
 
 <p>On peut vérifier la présence de la table <strong>[personnes]</strong> avec l&#x27;outil d&#x27;administration <strong>[pgAdmin]</strong> :</p>
 <p><img src="images/10000000000004DE0000046766E0BCA6.png" style="width:14.791cm;height:13.371cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DE0000046766E0BCA6.png" /></p>
-<p><a id="toc48549067"></a>
-<a id="refheadingtoc2522252924280206"></a></p>
+<p><a id="refheadingtoc2522252924280206"></a>
+<a id="toc48549067"></a></p>
 <h3 id="1745-script-pgres_04">17.4.5. script [pgres_04]</h3>
 <p>Le script <strong>[pgres_04]</strong> est une copie du script <strong>[mysql_04]</strong> (cf paragraphe |<u><span style="color: #0563c1">script </span></u><u><span style="color: #0563c1"><strong>[mysql-04]</strong></span></u><u><span style="color: #0563c1"> : exécution d&#x27;un fichier d&#x27;ordres SQL</span></u>|). Il utilise le module <strong>[</strong><strong><span style="color: #6f008a">pgres_module</span></strong><strong>]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1991,8 +1991,8 @@
 <li>MySQL ne défait pas les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On se retrouve avec une table <strong>[personnes]</strong> vide ;</li>
 <li>PostgreSQL défait les ordres <strong>[drop table]</strong> et <strong>[create table]</strong>. On retrouve la table dans l&#x27;état où elle était avant l&#x27;exécution du script avec transaction ;</li>
 </ul>
-<p><a id="toc48549068"></a>
-<a id="refheadingtoc2522272924280206"></a></p>
+<p><a id="refheadingtoc2522272924280206"></a>
+<a id="toc48549068"></a></p>
 <h3 id="1746-script-pgres_05">17.4.6. script [pgres_05]</h3>
 <p>Le script <strong>[pgres_05]</strong> est une copie du script <strong>[mysql_05]</strong> (cf paragraphe |<u><span style="color: #0563c1">script </span></u><u><span style="color: #0563c1"><strong>[mysql-05]</strong></span></u><u><span style="color: #0563c1"> : utilisation de requêtes paramétrées</span></u>|). Le script est modifié de la façon suivante :</p>
 <p>Au lieu de :</p>
@@ -2010,8 +2010,8 @@
 <p>Le reste ne change pas.</p>
 <p>Les résultats obtenus dans <strong>[pgAdmin]</strong> sont les suivants :</p>
 <p><img src="images/10000000000003F50000029C1102C03E.png" style="width:11.69cm;height:7.711cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F50000029C1102C03E.png" /></p>
-<p><a id="toc48549069"></a>
-<a id="refheadingtoc2522292924280206"></a></p>
+<p><a id="refheadingtoc2522292924280206"></a>
+<a id="toc48549069"></a></p>
 <h2 id="175-conclusion">17.5. Conclusion</h2>
 <p>Le portage des scripts MySQL vers des scripts PostgreSQL s&#x27;est réalisé plutôt facilement. C&#x27;est une exception. Les deux SGBD ne supportent pas les mêmes règles de nommage des objets SQL (bases, tables, colonnes, contraintes, types des données…), ont des extensions SQL incompatibles… Pour assurer un portage simple, il faut s&#x27;en tenir dans les deux cas à la norme SQL sans essayer d&#x27;utiliser les extensions propriétaires des SGBD. Cela se fait alors aux dépens des performances.</p>
 

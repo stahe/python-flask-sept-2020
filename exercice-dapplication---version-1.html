@@ -1666,12 +1666,12 @@
 
 
 <p><a id="exercicedapplication-"></a>
-<a id="refheading382662423505"></a>
-<a id="toc48548962"></a></p>
+<a id="toc48548962"></a>
+<a id="refheading382662423505"></a></p>
 <h1 id="8-exercice-dapplication-version-1">8. Exercice d&#x27;application – version 1</h1>
 <p><a id="leprobleme"></a>
-<a id="refheadingtoc2333623032778139"></a>
-<a id="toc48548963"></a></p>
+<a id="toc48548963"></a>
+<a id="refheadingtoc2333623032778139"></a></p>
 <h2 id="81-le-probleme">8.1. Le problème</h2>
 <p>Le tableau ci-dessus permet de calculer l’impôt dans le cas simplifié d&#x27;un contribuable n&#x27;ayant que son seul salaire à déclarer. Comme l’indique la note (1), l’impôt ainsi calculé est l’impôt avant trois mécanismes :</p>
 <ul>
@@ -1682,8 +1682,8 @@
 <p><img src="images/10000001000003180000010D0356A18F.png" style="width:13.14cm;height:4.462cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003180000010D0356A18F.png" /></p>
 <p>On se propose d&#x27;écrire un programme permettant de calculer l&#x27;impôt d&#x27;un contribuable dans le cas simplifié d&#x27;un contribuable n&#x27;ayant que son seul salaire à déclarer :</p>
 <p><a id="calculdelimpot"></a>
-<a id="refheadingtoc185625971629160"></a>
-<a id="toc48548964"></a></p>
+<a id="toc48548964"></a>
+<a id="refheadingtoc185625971629160"></a></p>
 <h3 id="811-calcul-de-limpot-brut">8.1.1. Calcul de l’impôt brut</h3>
 <p>L’impôt brut peut être calculé de la façon suivante :</p>
 <p>On calcule d’abord le nombre de parts du contribuable :</p>
@@ -1719,8 +1719,8 @@
 </code></pre></div>
 <p>ce qui donne l&#x27;impôt brut I=<strong>0.45*R – 20163,45*nbParts</strong>.</p>
 <p><a id="plafonnementduquotient"></a>
-<a id="refheadingtoc1594583098701287"></a>
-<a id="toc48548965"></a></p>
+<a id="toc48548965"></a>
+<a id="refheadingtoc1594583098701287"></a></p>
 <h3 id="812-plafonnement-du-quotient-familial">8.1.2. Plafonnement du quotient familial</h3>
 <p>Pour savoir si le plafonnement du quotient familial QF s’applique, on refait le calcul de l’impôt brut sans les enfants. Toujours pour le salarié marié avec deux enfants et un salaire annuel S de <strong>50000</strong> euros :</p>
 <p>Revenu imposable : <strong>R</strong>=0,9*S=45000</p>
@@ -1739,8 +1739,8 @@
 <li><strong>[impôt2]</strong> : est l’impôt brut calculé sans les enfants et diminué du gain maximal (ici 1551 euros par demi-part) lié aux enfants ;</li>
 </ul>
 <p><a id="calculdela"></a>
-<a id="refheadingtoc185627971629160"></a>
-<a id="toc48548966"></a></p>
+<a id="toc48548966"></a>
+<a id="refheadingtoc185627971629160"></a></p>
 <h3 id="813-calcul-de-la-decote">8.1.3. Calcul de la décote</h3>
 <p><img src="images/100000010000032A0000011264DC824C.png" style="width:13.851cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032A0000011264DC824C.png" /></p>
 <p>Toujours pour le salarié marié avec deux enfants et un salaire annuel S de <strong>50000</strong> euros :</p>
@@ -1749,8 +1749,8 @@
 <p><strong>décôte</strong>=1970-0,75*2115=383,75 arrondi à <strong>384</strong> euros.</p>
 <p><strong>Nouvel Impôt brut</strong>= 2115-384= <strong>1731</strong> euros</p>
 <p><a id="calculdela1"></a>
-<a id="refheadingtoc185629971629160"></a>
-<a id="toc48548967"></a></p>
+<a id="toc48548967"></a>
+<a id="refheadingtoc185629971629160"></a></p>
 <h3 id="814-calcul-de-la-reduction-dimpots">8.1.4. Calcul de la réduction d’impôts</h3>
 <p><img src="images/100000010000032A0000011687901CDA.png" style="width:13.831cm;height:4.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000032A0000011687901CDA.png" /></p>
 <p>Au-dessous d’un certain seuil, une réduction de 20 % est faite sur l’impôt brut issu des calculs précédents. En 2019, les seuils sont les suivants :</p>
@@ -1765,13 +1765,13 @@
 <li>il a donc droit à une réduction de 20 % de son impôt : 1731 * 0,2= 346,2 euros arrondi à 347 euros ;</li>
 <li>l’impôt brut du contribuable devient : 1731-347= <strong>1384</strong> euros ;</li>
 </ul>
-<p><a id="toc48548968"></a>
-<a id="refheadingtoc185631971629160"></a></p>
+<p><a id="refheadingtoc185631971629160"></a>
+<a id="toc48548968"></a></p>
 <h3 id="815-calcul-de-limpot-net">8.1.5. Calcul de l’impôt net</h3>
 <p>Notre calcul s’arrêtera là : l’impôt net à payer sera de <strong>1384</strong> euros. Dans la réalité, le contribuable peut bénéficier d’autres réductions notamment pour des dons à des organismes d’intérêt public ou général.</p>
 <p><a id="casdeshauts"></a>
-<a id="refheadingtoc185633971629160"></a>
-<a id="toc48548969"></a></p>
+<a id="toc48548969"></a>
+<a id="refheadingtoc185633971629160"></a></p>
 <h3 id="816-cas-des-hauts-revenus">8.1.6. Cas des hauts revenus</h3>
 <p>Notre exemple précédent correspond à la majorité des cas de salariés. Cependant le calcul de l’impôt est différent dans le cas des hauts revenus.</p>
 <p><a id="refheadingtoc185635971629160"></a></p>
@@ -1801,8 +1801,8 @@
 </ul>
 <p>Ce couple n’aura ni décote, ni réduction et son impôt final sera de <strong>9200</strong> euros.</p>
 <p><a id="chiffresofficiels"></a>
-<a id="refheadingtoc185639971629160"></a>
-<a id="toc48548970"></a></p>
+<a id="toc48548970"></a>
+<a id="refheadingtoc185639971629160"></a></p>
 <h3 id="817-chiffres-officiels">8.1.7. Chiffres officiels</h3>
 <p>Le calcul de l’impôt est complexe. Tout au long du document, les tests seront faits avec les exemples suivants. Les résultats sont ceux du simulateur de l’administration fiscale |<a href="https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/simplifie/index.htm"><u><span style="color: #0563c1">https://www3.impots.gouv.fr/simulateur/calcul_impot/2019/simplifie/index.htm</span></u></a><strong>|</strong> :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Contribuable</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats officiels</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Résultats de l’algorithme du document</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 2 enfants et des revenus annuels de 55555 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>2815</b> euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>2814</b> euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 2 enfants et des revenus annuels de 50000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>1385</b> euros</p><p style="margin:0;">Décote=720 euros</p><p style="margin:0;">Réduction=0 euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>1384</b> euros</p><p style="margin:0;">Décote=384 euros</p><p style="margin:0;">Réduction=347 euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 3 enfants et des revenus annuels de 50000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=384 euros</p><p style="margin:0;">Réduction=346 euros</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=720 euros</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire avec 2 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>19884</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>19884</b> euros</p><p style="margin:0;">Surcote=4480 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire avec 3 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>16782</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>16782</b> euros</p><p style="margin:0;">Surcote=7176 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 3 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>9200</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=30 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>9200</b> euros</p><p style="margin:0;">Surcote=2180 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=30 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 5 enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>4230</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=14 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>4230</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=14 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire sans enfants et des revenus annuels de 100000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>22986</b> euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b> 22986</b> euros</p><p style="margin:0;">Surcote=0 euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 2 enfants et des revenus annuels de 30000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=0 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>0</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=0 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Célibataire sans enfants et des revenus annuels de 200000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>64211</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=45 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b> 64210</b> euros</p><p style="margin:0;">Surcote=7498 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=45 %</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Couple avec 3 enfants et des revenus annuels de 200000 euros</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>42843</b> euro</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Impôt=<b>42842</b> euros</p><p style="margin:0;">Surcote=17283 euros</p><p style="margin:0;">décote=0 euro</p><p style="margin:0;">Réduction=0 euro</p><p style="margin:0;">Taux d’imposition=41 %</p></td></tr></table>
@@ -1820,13 +1820,13 @@
 </ul>
 <p>Nous allons développer plusieurs versions de l&#x27;application de calcul de l&#x27;impôt.</p>
 <p><a id="version1"></a>
-<a id="refheading398861881943603"></a>
-<a id="toc48548971"></a></p>
+<a id="toc48548971"></a>
+<a id="refheading398861881943603"></a></p>
 <h2 id="82-version-1">8.2. Version 1</h2>
 <p><img src="images/10000001000001E80000014EAC696D40.png" style="width:6.451cm;height:4.41cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001E80000014EAC696D40.png" /></p>
 <p><a id="lescriptprincipal"></a>
-<a id="refheadingtoc1882273931965946"></a>
-<a id="toc48548972"></a></p>
+<a id="toc48548972"></a>
+<a id="refheadingtoc1882273931965946"></a></p>
 <h3 id="821-le-script-principal">8.2.1. Le script principal</h3>
 <p>Nous présentons un premier programme où :</p>
 <ul>
@@ -1936,8 +1936,8 @@
 <li><strong>[</strong><strong><span style="color: #000000">record_results</span></strong><strong>]</strong> : pour enregistrer les résultats dans un fichier texte ;</li>
 </ul>
 <p>Toutes ces fonctions se trouvent dans le module <strong>[</strong><strong><span style="color: #6f008a">impots</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">modules</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">impôts_module_01</span></strong><strong>]</strong>.</p>
-<p><a id="toc48548973"></a>
-<a id="refheadingtoc2521312924280206"></a></p>
+<p><a id="refheadingtoc2521312924280206"></a>
+<a id="toc48548973"></a></p>
 <h3 id="822-le-module-impotsv01sharedimpots_module_01">8.2.2. Le module [impots<span style="color: #000000">.</span>v01<span style="color: #000000">.</span>shared<span style="color: #000000">.</span>impôts_module_01]</h3>
 <p>Les fonctions nécessaires au calcul de l&#x27;impôt ont été rassemblées dans le module <strong>[</strong><strong><span style="color: #6f008a">impots</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">v01</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">shared</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">impôts_module_01</span></strong><strong>]</strong> :</p>
 <p><img src="images/10000000000005A80000034C7B8390E7.png" style="width:16.74cm;height:9.76cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A80000034C7B8390E7.png" /></p>
@@ -1945,8 +1945,8 @@
 <li>en <strong>[1]</strong> : définition des constantes du calcul de l&#x27;impôt ;</li>
 <li>en <strong>[2]</strong> : la liste des fonctions du module ;</li>
 </ul>
-<p><a id="toc48548974"></a>
-<a id="refheadingtoc2521332924280206"></a></p>
+<p><a id="refheadingtoc2521332924280206"></a>
+<a id="toc48548974"></a></p>
 <h3 id="823-la-fonction-get_taxpayers_data">8.2.3. La fonction [<span style="color: #000000">get_taxpayers_data</span>]</h3>
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">get_taxpayers_data</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1992,8 +1992,8 @@
 <li>lignes 10-30 : on remarquera qu&#x27;on n&#x27;a pas mis de clause <strong>[catch]</strong> au <strong>[try]</strong> de la ligne 10. La clause <strong>[catch]</strong> n&#x27;est pas obligatoire. Ligne 27, on a mis une clause <strong>[finally]</strong> pour fermer le fichier texte dans tous les cas, erreur ou pas ;</li>
 <li>cette structure try / finally laisse échapper une éventuelle exception (il n&#x27;y a pas de catch). Cette exception va remonter au script principal <strong>[main]</strong> qui va arrêter et afficher l&#x27;exception (cf paragraphe |<u><span style="color: #0563c1">Le script principal</span></u>|). Ce mécanisme a été utilisé pour la plupart des fonctions du module ;</li>
 </ul>
-<p><a id="toc48548975"></a>
-<a id="refheadingtoc2521352924280206"></a></p>
+<p><a id="refheadingtoc2521352924280206"></a>
+<a id="toc48548975"></a></p>
 <h3 id="824-la-fonction-calcul_impot">8.2.4. La fonction [<span style="color: #000000">calcul_impôt</span>]</h3>
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">calcul_impôt</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2085,8 +2085,8 @@
 <li>lignes 62-64 : calcul d&#x27;une éventuelle réduction de l&#x27;impôt à payer (cf. paragraphe |<u><span style="color: #0563c1">Calcul de la réduction d’impôts</span></u>|) ;</li>
 </ul>
 <p>L&#x27;algorithme est assez complexe et nous ne le détaillerons pas plus que ce que disent les commentaires. L&#x27;algorithme implémente le mode de calcul de l&#x27;impôt tel que décrit au paragraphe |<a href="#_Le_problème"><u><span style="color: #0563c1">Le problème</span></u></a>|.</p>
-<p><a id="toc48548976"></a>
-<a id="refheadingtoc2521372924280206"></a></p>
+<p><a id="refheadingtoc2521372924280206"></a>
+<a id="toc48548976"></a></p>
 <h3 id="825-la-fonction-calcul_impot_2">8.2.5. La fonction [calcul_impôt_2]</h3>
 <p>La fonction <strong>[calcul_impôt]</strong> fait appel à la fonction <strong>[calcul_impôt_2]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2134,8 +2134,8 @@
 </code></pre></div>
 
 <p>Cet algorithme a été décrit au paragraphe 8.1.1.</p>
-<p><a id="toc48548977"></a>
-<a id="refheadingtoc2521392924280206"></a></p>
+<p><a id="refheadingtoc2521392924280206"></a>
+<a id="toc48548977"></a></p>
 <h3 id="826-la-fonction-get_decote">8.2.6. La fonction [get_décôte]</h3>
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">get_décôte</span></strong><strong>]</strong> implémente le calcul de l&#x27;éventuelle décote de l&#x27;impôt (paragraphe |<a href="#_Calcul_de_la"><u><span style="color: #0563c1">Calcul de la décôte</span></u></a>|) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2162,8 +2162,8 @@
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#6f008a">math</span><span style="color:#000000">.ceil(décôte)</span></span>
 </code></pre></div>
 
-<p><a id="toc48548978"></a>
-<a id="refheadingtoc2521412924280206"></a></p>
+<p><a id="refheadingtoc2521412924280206"></a>
+<a id="toc48548978"></a></p>
 <h3 id="827-la-fonction-get_reduction">8.2.7. La fonction [get_réduction]</h3>
 <p>La fonction <strong>[get_réduction]</strong> implémente le calcul de l&#x27;éventuelle réduction de l&#x27;impôt à payer (paragraphe |<a href="#_Calcul_de_la_1"><u><span style="color: #0563c1">Calcul de la réduction d’impôts</span></u></a>|) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2187,8 +2187,8 @@
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#6f008a">math</span><span style="color:#000000">.ceil(réduction)</span></span>
 </code></pre></div>
 
-<p><a id="toc48548979"></a>
-<a id="refheadingtoc2521432924280206"></a></p>
+<p><a id="refheadingtoc2521432924280206"></a>
+<a id="toc48548979"></a></p>
 <h3 id="828-la-fonction-get_revenu_imposable">8.2.8. La fonction [get_revenu_imposable]</h3>
 <p>La fonction <strong>[get_revenu_imposable]</strong> calcule le revenu imposable à partir du salaire annuel :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2212,8 +2212,8 @@
 <span class="odt-code-line"><span style="color:#000000">    </span><span style="color:#0000ff">return</span><span style="color:#000000"> </span><span style="color:#6f008a">math</span><span style="color:#000000">.floor(revenu_imposable)</span></span>
 </code></pre></div>
 
-<p><a id="toc48548980"></a>
-<a id="refheadingtoc2521452924280206"></a></p>
+<p><a id="refheadingtoc2521452924280206"></a>
+<a id="toc48548980"></a></p>
 <h3 id="829-la-fonction-record_results">8.2.9. La fonction [record_results]</h3>
 <p>La fonction <strong>[record_results]</strong> enregistre les résultats de calcul de l&#x27;impôt dans un fichier texte :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2238,8 +2238,8 @@
 <span class="odt-code-line">            résultats.close()</span>
 </code></pre></div>
 
-<p><a id="toc48548981"></a>
-<a id="refheadingtoc2521472924280206"></a></p>
+<p><a id="refheadingtoc2521472924280206"></a>
+<a id="toc48548981"></a></p>
 <h3 id="8210-les-resultats">8.2.10. Les résultats</h3>
 <p>Comme il a déjà été dit, avec le fichier des contribuables <strong>[taxpayersdata.txt]</strong> suivant :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
