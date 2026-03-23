@@ -1504,8 +1504,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 21 : on indique le dossier des utilitaires qui sont restés dans <strong>[http-servers/02]</strong> ;</li>
+  <li>ligne 21 : on indique le dossier des utilitaires qui sont restés dans <b>[http-servers/02]</b> ;
+  </li>
 </ul>
+
 <p>Le script principal <strong>[main]</strong> évolue de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># Home URL<span style="color:#000000"></span></span>
@@ -1546,8 +1548,10 @@
 </code></pre></div>
 
 <ul>
-<li>l’unique modification est ligne 23 : on envoie désormais une réponse XML ;</li>
+  <li>l’unique modification est ligne 23 : on envoie désormais une réponse XML ;
+  </li>
 </ul>
+
 <p>La fonction <strong>[xml_response]</strong> est définie dans le module <strong>[myutils]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> </span>xmltodict</span>
@@ -1562,14 +1566,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : la fonction <strong>[xml_response]</strong> reçoit en paramètres :<ul>
-<li>le dictionnaire <strong>[résultat]</strong> à transformer en XML ;</li>
-<li>le code de statut <strong>[status_code]</strong> à renvoyer au client web ;</li>
+  <li>ligne 3 : la fonction <b>[xml_response]</b> reçoit en paramètres :
+    <ul>
+      <li>le dictionnaire <b>[résultat]</b> à transformer en XML ;
+      </li>
+      <li>le code de statut <b>[status_code]</b> à renvoyer au client web ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 5 : on utilise la bibliothèque <b>[xmltodict]</b> pour produire la chaîne XML ;
+  </li>
+  <li>ligne 8 : on utilise l’entête <b>[Content-Type]</b> pour dire au client qu’on lui envoie du XML ;
+  </li>
 </ul>
-</li>
-<li>ligne 5 : on utilise la bibliothèque <strong>[xmltodict]</strong> pour produire la chaîne XML ;</li>
-<li>ligne 8 : on utilise l’entête <strong>[Content-Type]</strong> pour dire au client qu’on lui envoie du XML ;</li>
-</ul>
+
 <p>La fonction <strong>[xml_response]</strong> doit être importée dans le script <strong>[__init__.py]</strong> :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> .<span style="color:#6f008a">myutils</span> <span style="color:#0000ff">import</span> set_syspath, json_response, decode_flask_session, <span style="background-color:#fff2cc">xml_response</span></span>
@@ -1617,8 +1627,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 30 : la réponse HTTP <strong>[response]</strong> du serveur web est désormais une chaîne XML. Les logs montrent la nature de celle-ci :</li>
+  <li>ligne 30 : la réponse HTTP <b>[response]</b> du serveur web est désormais une chaîne XML. Les logs montrent la nature de celle-ci :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-xml">
 <span class="odt-code-line">2020-07-27 15:53:47.886283, Thread-2 : <span style="background-color:#bdd6ee">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span>
 <span class="odt-code-line">&lt;réponse&gt;&lt;result&gt;&lt;marié&gt;non&lt;/marié&gt;&lt;enfants&gt;2&lt;/enfants&gt;&lt;salaire&gt;100000&lt;/salaire&gt;&lt;impôt&gt;19884&lt;/impôt&gt;&lt;surcôte&gt;4480&lt;/surcôte&gt;&lt;taux&gt;0.41&lt;/taux&gt;&lt;décôte&gt;0&lt;/décôte&gt;&lt;réduction&gt;0&lt;/réduction&gt;&lt;/result&gt;&lt;/réponse&gt;</span>
@@ -1665,8 +1677,10 @@
 </code></pre></div>
 
 <ul>
-<li>le logueur continue à écrire le dictionnaire de la réponse et non la chaîne XML qui est envoyée au client. Ce n’est pas une erreur et c’est voulu ;</li>
+  <li>le logueur continue à écrire le dictionnaire de la réponse et non la chaîne XML qui est envoyée au client. Ce n’est pas une erreur et c’est voulu ;
+  </li>
 </ul>
+
 <p><a id="toc48549213"></a></p>
 <h3 id="2722-test-de-la-couche-dao-du-client">27.2.2. Test de la couche [dao] du client</h3>
 <p><img src="images/10000000000001D9000002077E8AE75A.png" style="width:5.46cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001D9000002077E8AE75A.png" /></p>

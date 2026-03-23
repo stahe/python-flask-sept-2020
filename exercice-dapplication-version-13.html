@@ -1526,30 +1526,45 @@
 <h1 id="33-exercice-dapplication-version-13">33. Exercice d’application : version 13</h1>
 <p>La version 13 modifie la version 12 sur les points suivants :</p>
 <ul>
-<li>on restructure certaines parties du code (refactoring) ;</li>
-<li>on gère la session différemment à l’aide du module <strong>[flask_session]</strong> ;</li>
-<li>on utilise des mots de passe cryptés dans le fichier de configuration ;</li>
+  <li>on restructure certaines parties du code (refactoring) ;
+  </li>
+  <li>on gère la session différemment à l’aide du module <b>[flask_session]</b> ;
+  </li>
+  <li>on utilise des mots de passe cryptés dans le fichier de configuration ;
+  </li>
 </ul>
+
 <p>La version 13 est obtenue initialement par recopie de la version 12 :</p>
 <p><img src="images/100000000000063B000001C274D580D2.png" style="width:18.4cm;height:5.211cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000063B000001C274D580D2.png" /></p>
 <p><img src="images/10000000000001BB0000018E64332B59.png" style="width:5.111cm;height:4.601cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BB0000018E64332B59.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, la configuration va être refactorisée. On la sort notamment du dossier <strong>[flask]</strong> ;</li>
-<li>en <strong>[2]</strong>, le script principal va être refactorisé. On le sort également du dossier <strong>[flask]</strong> ;</li>
-<li>en <strong>[3]</strong>, la configuration va être éclatée sur plusieurs fichiers ;</li>
-<li>en <strong>[4]</strong> : on va simplifier le script principal <strong>[main]</strong> en déportant du code sur d’autres fichiers ;</li>
-<li>en <strong>[5]</strong>, le contrôleur d’authentification va être modifié puisque désormais les mots de passe des utilisateurs seront cryptés ;</li>
-<li>en <strong>[6]</strong>, le contrôleur principal va intégrer du code précédemment présent dans le script principal <strong>[main]</strong> ;</li>
+  <li>en <b>[1]</b>, la configuration va être refactorisée. On la sort notamment du dossier <b>[flask]</b> ;
+  </li>
+  <li>en <b>[2]</b>, le script principal va être refactorisé. On le sort également du dossier <b>[flask]</b> ;
+  </li>
+  <li>en <b>[3]</b>, la configuration va être éclatée sur plusieurs fichiers ;
+  </li>
+  <li>en <b>[4]</b> : on va simplifier le script principal <b>[main]</b> en déportant du code sur d’autres fichiers ;
+  </li>
+  <li>en <b>[5]</b>, le contrôleur d’authentification va être modifié puisque désormais les mots de passe des utilisateurs seront cryptés ;
+  </li>
+  <li>en <b>[6]</b>, le contrôleur principal va intégrer du code précédemment présent dans le script principal <b>[main]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549304"></a></p>
 <h2 id="331-refactorisation-de-la-configuration-de-lapplication">33.1. Refactorisation de la configuration de l’application</h2>
 <p><img src="images/10000000000005BA00000152D171FD8C.png" style="width:16.949cm;height:3.911cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005BA00000152D171FD8C.png" /></p>
 <p>Trois nouveaux fichiers de configuration apparaissent :</p>
 <ul>
-<li><strong>[mvc]</strong> : pour paramétrer l’architecture MVC de l’application ;</li>
-<li><strong>[parameters]</strong> : qui va rassembler toutes les constantes de l’application ;</li>
-<li><strong>[syspath]</strong> : qui configure le Python Path de l’application ;</li>
+  <li><b>[mvc]</b> : pour paramétrer l’architecture MVC de l’application ;
+  </li>
+  <li><b>[parameters]</b> : qui va rassembler toutes les constantes de l’application ;
+  </li>
+  <li><b>[syspath]</b> : qui configure le Python Path de l’application ;
+  </li>
 </ul>
+
 <p>Le fichier <strong>[syspath.py]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1602,9 +1617,12 @@
 </code></pre></div>
 
 <ul>
-<li>le script <strong>[syspath]</strong> sert à configurer le Python Path de l’application (lignes 40-41) ;</li>
-<li>il rend deux informations utiles aux autres scripts de configuration (lignes 45-46) ;</li>
+  <li>le script <b>[syspath]</b> sert à configurer le Python Path de l’application (lignes 40-41) ;
+  </li>
+  <li>il rend deux informations utiles aux autres scripts de configuration (lignes 45-46) ;
+  </li>
 </ul>
+
 <p>Le script <strong>[mvc]</strong> configure l’architecture MVC de l’application web jSON / XML / HTML :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1726,9 +1744,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-101 : ce code est connu ;</li>
-<li>lignes 105-116 : on rend la configuration MVC de l’application ;</li>
+  <li>lignes 1-101 : ce code est connu ;
+  </li>
+  <li>lignes 105-116 : on rend la configuration MVC de l’application ;
+  </li>
 </ul>
+
 <p>Le script <strong>[parameters]</strong> rassemble les constantes de l’application :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1776,9 +1797,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : désormais les mots de passe des utilisateurs seront cryptés ;</li>
-<li>lignes 34-38 : la configuration d’un serveur <strong>[Redis]</strong> sur lequel nous reviendrons ;</li>
+  <li>ligne 13 : désormais les mots de passe des utilisateurs seront cryptés ;
+  </li>
+  <li>lignes 34-38 : la configuration d’un serveur <b>[Redis]</b> sur lequel nous reviendrons ;
+  </li>
 </ul>
+
 <p>Avec ces nouveaux fichiers de configuration, le script <strong>[config]</strong> devient le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1918,9 +1942,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 56-73 : on introduit un serveur Redis et son client ;</li>
-<li>lignes 102-104 : les routes de l’application ont été externalisées dans le script <strong>[routes]</strong> ;</li>
+  <li>lignes 56-73 : on introduit un serveur Redis et son client ;
+  </li>
+  <li>lignes 102-104 : les routes de l’application ont été externalisées dans le script <b>[routes]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549306"></a></p>
 <h3 id="3321-les-modules-flask_session-et-redis">33.2.1. Les modules [flask_session], et [redis]</h3>
 <p>Le serveur <strong>[Redis]</strong> va être utilisé pour mémoriser les sessions des utilisateurs. Nous allons utiliser le module <strong>[flask_session]</strong> pour gérer ces sessions. Ce module peut mémoriser les sessions des utilisateurs à plusieurs endroits. Redis est l’un de ceux-là et nous allons l’utiliser.</p>
@@ -1942,22 +1969,30 @@
 <h3 id="3322-le-serveur-redis">33.2.2. Le serveur Redis</h3>
 <p>Le serveur Redis va servir à stocker les sessions des utilisateurs. Le module <strong>[flask_session]</strong> fonctionne de la façon suivante :</p>
 <ul>
-<li>chaque utilisateur a un identifiant de session et c’est ça qui est envoyé au client et uniquement ça. Le client ne reçoit de cookie de session qu’une seule fois, à l’issue de sa première requête. Ce cookie contient l’identifiant de session de l’utilisateur qui ne changera plus au fil des requêtes du client. C’est pourquoi le serveur n’a pas à renvoyer de nouveau cookie de session ;</li>
-<li>précédemment le contenu de la session était envoyé au client. Ce ne sera donc plus le cas. Le contenu de la session de l’utilisateur sera stocké sur le serveur Redis ;</li>
+  <li>chaque utilisateur a un identifiant de session et c’est ça qui est envoyé au client et uniquement ça. Le client ne reçoit de cookie de session qu’une seule fois, à l’issue de sa première requête. Ce cookie contient l’identifiant de session de l’utilisateur qui ne changera plus au fil des requêtes du client. C’est pourquoi le serveur n’a pas à renvoyer de nouveau cookie de session ;
+  </li>
+  <li>précédemment le contenu de la session était envoyé au client. Ce ne sera donc plus le cas. Le contenu de la session de l’utilisateur sera stocké sur le serveur Redis ;
+  </li>
 </ul>
+
 <p>Laragon vient avec un serveur Redis non activé par défaut. Il faut donc commencer par l’activer :</p>
-<p><img src="images/1000000100000362000001690D4428E3.png" style="width:14.59cm;height:6.081cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000362000001690D4428E3.png" /></p>
+<p><img src="images/1000000100000362000001692AD27BEF.png" style="width:14.59cm;height:6.081cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000362000001692AD27BEF.png" /></p>
 <ul>
-<li>en <strong>[3]</strong>, activer le serveur <strong>[Redis]</strong> ;</li>
-<li>en <strong>[4]</strong>, laisser le port <strong>[6379]</strong> que les clients Redis utilisent par défaut ;</li>
+  <li>en <b>[3]</b>, activer le serveur <b>[Redis]</b> ;
+  </li>
+  <li>en <b>[4]</b>, laisser le port <b>[6379]</b> que les clients Redis utilisent par défaut ;
+  </li>
 </ul>
+
 <p>Les services Laragon sont automatiquement relancés après activation de Redis :</p>
 <p><img src="images/10000000000003E40000029211639DFF.png" style="width:11.51cm;height:7.591cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E40000029211639DFF.png" /></p>
 <p>Le serveur Redis peut être interrogé en mode commande. On ouvre un terminal Laragon <strong>[6]</strong> :</p>
-<p><img src="images/100000010000042A00000144CA0C4E67.png" style="width:17.541cm;height:5.321cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000042A00000144CA0C4E67.png" /></p>
+<p><img src="images/100000010000042A00000144D0385EF7.png" style="width:17.541cm;height:5.321cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000042A00000144D0385EF7.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, la commande <strong>[redis-cli]</strong> lance le client en mode commande du serveur Redis ;</li>
+  <li>en <b>[1]</b>, la commande <b>[redis-cli]</b> lance le client en mode commande du serveur Redis ;
+  </li>
 </ul>
+
 <p>En juillet 2019, le client Redis peut utiliser 172 commandes pour dialoguer avec le serveur <strong>[https://redis.io/commands#list]</strong>. L’une d’elles <strong>[command count]</strong> <strong>[2]</strong>, affiche ce nombre <strong>[3]</strong>.</p>
 <p>L’écriture dans <strong>[Redis]</strong> se fait avec la commande Redis <strong>[set attribut valeur]</strong> <strong>[4]</strong>. La valeur peut ensuite être récupérée avec la commande <strong>[get attribut]</strong> <strong>[5]</strong>.</p>
 <p>Il peut être nécessaire de vider la mémoire de Redis. Cela se fait avec la commande <strong>[flushdb]</strong> <strong>[6]</strong>. Ensuite si on demande la valeur de l’attribut <strong>[titre]</strong> <strong>[7]</strong>, on obtient une référence <strong>[nil]</strong> <strong>[8]</strong> indiquant que l’attribut n’a pas été trouvé. On peut également utiliser la commande <strong>[exists]</strong> <strong>[9-10]</strong> pour vérifier l’existence d’un attribut.</p>
@@ -1967,8 +2002,10 @@
 <p>On obtient l’interface suivante :</p>
 <p><img src="images/100000000000052F000002ED3DD2CE2D.png" style="width:15.331cm;height:8.64cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052F000002ED3DD2CE2D.png" /></p>
 <ul>
-<li>en <strong>[1-4]</strong>, l’une des sessions stockées sur le serveur Redis ;</li>
+  <li>en <b>[1-4]</b>, l’une des sessions stockées sur le serveur Redis ;
+  </li>
 </ul>
+
 <p><a id="toc48549308"></a></p>
 <h3 id="3323-gestion-du-serveur-redis-dans-le-script-principal-main">33.2.3. Gestion du serveur Redis dans le script principal [main]</h3>
 <p>Le script <strong>[main]</strong> vérifie la présence du serveur Redis de la façon suivante :</p>
@@ -1996,11 +2033,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : le constructeur de la classe <strong>[redis.Redis]</strong> construit un client du serveur Redis. Les caractéristiques de celui-ci (adresse, port) sont trouvées dans le script <strong>[parameters]</strong> ;</li>
-<li>ligne 8 : la méthode <strong>[ping]</strong> permet de vérifier la présence du serveur Redis ;</li>
-<li>lignes 9-17 : si le ping n’aboutit pas, alors on logue l’erreur et on arrête le serveur ;</li>
-<li>ligne 20 : la référence du client Redis est mise dans la configuration ;</li>
+  <li>ligne 4 : le constructeur de la classe <b>[redis.Redis]</b> construit un client du serveur Redis. Les caractéristiques de celui-ci (adresse, port) sont trouvées dans le script <b>[parameters]</b> ;
+  </li>
+  <li>ligne 8 : la méthode <b>[ping]</b> permet de vérifier la présence du serveur Redis ;
+  </li>
+  <li>lignes 9-17 : si le ping n’aboutit pas, alors on logue l’erreur et on arrête le serveur ;
+  </li>
+  <li>ligne 20 : la référence du client Redis est mise dans la configuration ;
+  </li>
 </ul>
+
 <p><a id="toc48549309"></a></p>
 <h3 id="3324-gestion-des-routes-dans-le-script-principal-main">33.2.4. Gestion des routes dans le script principal [main]</h3>
 <p>La gestion des routes dans <strong>[main]</strong> se limite aux lignes suivantes :</p>
@@ -2012,10 +2054,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : les routes ont été externalisées dans le module <strong>[routes]</strong> ;</li>
-<li>ligne 3 : les routes ont besoin de connaître la configuration de l’exécution ;</li>
-<li>ligne 4 : on lance l’application Flask en lui passant le nom du script exécuté (__main__) ;</li>
+  <li>ligne 1 : les routes ont été externalisées dans le module <b>[routes]</b> ;
+  </li>
+  <li>ligne 3 : les routes ont besoin de connaître la configuration de l’exécution ;
+  </li>
+  <li>ligne 4 : on lance l’application Flask en lui passant le nom du script exécuté (__main__) ;
+  </li>
 </ul>
+
 <p>Le script des routes est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># dépendances<span style="color:#000000"></span></span>
@@ -2110,17 +2156,28 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : l’application Flask est instanciée ;</li>
-<li>ligne 12 : la configuration de l’application n’est pas encore connue à l’écriture du script. Elle n’est connue qu’au moment de son exécution ;</li>
-<li>lignes 20-77 : les routes de l’application telles qu’elles étaient définies dans la version précédente. Ca ne change pas ;</li>
-<li>lignes 14-18 : toutes les routes se contentent d’appeler la fonction <strong>[front_controller]</strong>. Nous avons dépouillé celle-ci de son code initial. Elle se contente maintenant d’appeler le contrôleur principal de l’application web ;</li>
-<li>lignes 79-89 : <strong>[execute]</strong> est la fonction appelée par le script <strong>[main]</strong> pour lancer l’application web ;</li>
-<li>ligne 81 : le module <strong>[flask_session]</strong> utilise la clé secrète de Flask ;</li>
-<li>lignes 82-84 : configuration du module <strong>[flask_session]</strong>. Celle-ci consiste à ajouter les clés <strong>[</strong><strong>SESSION_TYPE, SESSION_REDIS</strong><strong>]</strong> à la configuration <strong>[app.config]</strong> de l’application Flask <strong>[app]</strong> :</li>
-<li><strong>[SESSION_TYPE]</strong> : le type de la session. Il en existe plusieurs. Le type <strong>[redis]</strong> indique que <strong>[flask_session]</strong> utilise un serveur <strong>[redis]</strong> pour mémoriser les sessions des utilisateurs. A cause de cela, on doit définir la clé <strong>[SESSION_REDIS]</strong> qui doit être la référence d’un client Redis ;</li>
-<li>ligne 85 : la session <strong>[Flask-Session]</strong> est associée à l’application Flask ;</li>
-<li>lignes 86-89 : si le paramètre <strong>[name]</strong> de ligne 79 est la chaîne <strong>[__main__]</strong>, alors l’application Flask est lancée ;</li>
+  <li>ligne 9 : l’application Flask est instanciée ;
+  </li>
+  <li>ligne 12 : la configuration de l’application n’est pas encore connue à l’écriture du script. Elle n’est connue qu’au moment de son exécution ;
+  </li>
+  <li>lignes 20-77 : les routes de l’application telles qu’elles étaient définies dans la version précédente. Ca ne change pas ;
+  </li>
+  <li>lignes 14-18 : toutes les routes se contentent d’appeler la fonction <b>[front_controller]</b>. Nous avons dépouillé celle-ci de son code initial. Elle se contente maintenant d’appeler le contrôleur principal de l’application web ;
+  </li>
+  <li>lignes 79-89 : <b>[execute]</b> est la fonction appelée par le script <b>[main]</b> pour lancer l’application web ;
+  </li>
+  <li>ligne 81 : le module <b>[flask_session]</b> utilise la clé secrète de Flask ;
+  </li>
+  <li>lignes 82-84 : configuration du module <b>[flask_session]</b>. Celle-ci consiste à ajouter les clés <b>[</b><b>SESSION_TYPE, SESSION_REDIS</b><b>]</b> à la configuration <b>[app.config]</b> de l’application Flask <b>[app]</b> :
+  </li>
+  <li><b>[SESSION_TYPE]</b> : le type de la session. Il en existe plusieurs. Le type <b>[redis]</b> indique que <b>[flask_session]</b> utilise un serveur <b>[redis]</b> pour mémoriser les sessions des utilisateurs. A cause de cela, on doit définir la clé <b>[SESSION_REDIS]</b> qui doit être la référence d’un client Redis ;
+  </li>
+  <li>ligne 85 : la session <b>[Flask-Session]</b> est associée à l’application Flask ;
+  </li>
+  <li>lignes 86-89 : si le paramètre <b>[name]</b> de ligne 79 est la chaîne <b>[__main__]</b>, alors l’application Flask est lancée ;
+  </li>
 </ul>
+
 <p><a id="toc48549310"></a></p>
 <h2 id="333-refactorisation-du-controleur-principal">33.3. Refactorisation du contrôleur principal</h2>
 <p>Le code autrefois dans la fonction <strong>[front_controller]</strong> du script <strong>[main]</strong> a été déplacé dans le contrôleur principal :</p>
@@ -2288,9 +2345,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 16 : on crypte le mot de passe passé en paramètre ;</li>
-<li>ligne 20 : on compare le mot de passe <strong>[password]</strong> passé en paramètre à sa version cryptée <strong>[hash]</strong>. La fonction <strong>[verify]</strong> crypte le mot de passe <strong>[password]</strong> et compare la chaîne cryptée obtenue à <strong>[hash]</strong>. Rend True si les deux chaînes sont égales ;</li>
+  <li>ligne 16 : on crypte le mot de passe passé en paramètre ;
+  </li>
+  <li>ligne 20 : on compare le mot de passe <b>[password]</b> passé en paramètre à sa version cryptée <b>[hash]</b>. La fonction <b>[verify]</b> crypte le mot de passe <b>[password]</b> et compare la chaîne cryptée obtenue à <b>[hash]</b>. Rend True si les deux chaînes sont égales ;
+  </li>
 </ul>
+
 <p>Le script ci-dessus nous permet d’avoir la version cryptée du mot de passe <strong>[admin]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-servers/08/passlib/<span style="background-color:#fff2cc">create_hashed_password.py</span><span style="background-color:#f7caac"> </span><span style="background-color:#fff2cc">admin</span></span>
@@ -2330,8 +2390,10 @@
 <p>Outre les tests avec un navigateur, on peut également utiliser les clients du dossier <strong>[http-servers/07]</strong> écrits pour la version 12. Ils doivent ‘marcher’ également pour la version 13 :</p>
 <p><img src="images/100000000000021A000002A91233C6E6.png" style="width:6.22cm;height:7.85cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021A000002A91233C6E6.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, les trois clients doivent fonctionner ;</li>
-<li>en <strong>[2]</strong>, les deux tests doivent fonctionner ;</li>
+  <li>en <b>[1]</b>, les trois clients doivent fonctionner ;
+  </li>
+  <li>en <b>[2]</b>, les deux tests doivent fonctionner ;
+  </li>
 </ul>
 
 

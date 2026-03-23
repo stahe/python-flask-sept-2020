@@ -1839,7 +1839,7 @@
 <a id="refheading10403071168783983"></a></p>
 <h3 id="2111-generalites">21.1.1. Généralités</h3>
 <p>Considérons la communication entre deux machines distantes A et B :</p>
-<p><img src="images/10000001000001FA000000E90533D8A3.png" style="width:6.891cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001FA000000E90533D8A3.png" /></p>
+<p><img src="images/10000001000001FA000000E91A417E3C.png" style="width:6.891cm;height:3.17cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001FA000000E91A417E3C.png" /></p>
 <p>Lorsque une application <em>AppA</em> d&#x27;une machine A veut  communiquer avec une application <em>AppB</em> d&#x27;une machine B de l&#x27;Internet, elle doit connaître plusieurs choses :</p>
 <ul>
 <li>l&#x27;adresse IP (<strong>I</strong>nternet <strong>P</strong>rotocol) ou le nom de la machine B ;</li>
@@ -1949,12 +1949,12 @@
 <li><strong>[RawTcpServer]</strong> permet de créer un serveur qui attend des clients sur un port P ;</li>
 </ul>
 <p>Ce sont deux programmes C# dont les codes sources vous sont donnés. Vous pouvez donc les modifier.</p>
-<p>Le serveur TCP <strong>[RawTcpServer]</strong> s’appelle avec la syntaxe <strong>[RawTcpServeur port]</strong><strong> </strong>pour créer un service TCP sur le port <strong>[port]</strong> de la machine locale (l’ordinateur sur lequel vous travaillez) :</p>
+<p>Le serveur TCP <strong>[RawTcpServer]</strong> s’appelle avec la syntaxe <strong>[RawTcpServeur port]</strong> pour créer un service TCP sur le port <strong>[port]</strong> de la machine locale (l’ordinateur sur lequel vous travaillez) :</p>
 <ul>
 <li>le serveur peut servir plusieurs clients simultanément ;</li>
 <li>le serveur exécute les commandes tapées par l’utilisateur tapées au clavier. Celles-ci sont les suivantes :<ul>
 <li><strong>list</strong> : liste les clients actuellement connectés au serveur. Ceux-ci sont affichés sous la forme <strong>[id=x-nom=y]</strong>. Le champ <strong>[id]</strong> sert à identifier les clients ;</li>
-<li><strong>send x </strong><strong>[texte]</strong> : envoie <strong>texte</strong> au client n° <strong>x</strong> (id=x). Les crochets <strong>[]</strong> ne sont pas envoyés. Ils sont nécessaires dans la commande. Ils servent à délimiter visuellement le texte envoyé au client ;</li>
+<li><strong>send x</strong> <strong>[texte]</strong> : envoie <strong>texte</strong> au client n° <strong>x</strong> (id=x). Les crochets <strong>[]</strong> ne sont pas envoyés. Ils sont nécessaires dans la commande. Ils servent à délimiter visuellement le texte envoyé au client ;</li>
 <li><strong>close x</strong> : ferme la connexion avec le client n° <strong>x</strong> ;</li>
 <li><strong>quit</strong> : ferme toutes les connexions et arrête le service ;</li>
 </ul>
@@ -1966,7 +1966,7 @@
 </ul>
 </li>
 </ul>
-<p>Le client TCP <strong>[RawTcpClient]</strong> s’appelle avec la syntaxe <strong>[RawTcpClient serveur port]</strong><strong> </strong>pour se connecter au port <strong>[port]</strong> du serveur <strong>[serveur]</strong> :</p>
+<p>Le client TCP <strong>[RawTcpClient]</strong> s’appelle avec la syntaxe <strong>[RawTcpClient serveur port]</strong> pour se connecter au port <strong>[port]</strong> du serveur <strong>[serveur]</strong> :</p>
 <ul>
 <li>les lignes tapées par l’utilisateur au clavier sont envoyées au serveur ;</li>
 <li>les lignes envoyées par le serveur sont affichées sur la console ;</li>
@@ -2230,7 +2230,7 @@
 </code></pre></div>
 
 <p>Puis avec un navigateur, nous demandons l’URL <strong>[http://localhost:100]</strong>, ç-a-d que nous disons que le serveur HTTP interrogé travaille sur le port 100 de la machine locale :</p>
-<p><img src="images/100000010000022B000000B3CC9E4C4F.png" style="width:9.381cm;height:3.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000022B000000B3CC9E4C4F.png" /></p>
+<p><img src="images/100000010000022B000000B3681FA42B.png" style="width:9.381cm;height:3.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000022B000000B3681FA42B.png" /></p>
 <p>Revenons sur la fenêtre du serveur :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\utilitaires&gt;RawTcpServer.exe 100</span>
@@ -2286,16 +2286,16 @@
 <h3 id="2142-exemple-2">21.4.2. Exemple 2</h3>
 <p>Maintenant que nous connaissons les commandes envoyées par un navigateur pour réclamer une URL, nous allons réclamer cette URL avec notre client TCP <strong>[RawTcpClient]</strong>. Le serveur Apache de Laragon (paragraphe |<a href="#_Installation_de_Laragon"><u><span style="color: #0563c1">Installation de Laragon</span></u></a>|) sera notre serveur web.</p>
 <p>Lançons Laragon puis le serveur web Apache :</p>
-<p><img src="images/10000001000002A3000001625A18E210.png" style="width:11.431cm;height:5.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002A3000001625A18E210.png" /></p>
-<p><img src="images/10000001000002C3000000ACE307F335.png" style="width:11.941cm;height:2.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002C3000000ACE307F335.png" /></p>
+<p><img src="images/10000001000002A30000016279F3458C.png" style="width:11.431cm;height:5.991cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002A30000016279F3458C.png" /></p>
+<p><img src="images/10000001000002C3000000AC3CE756DF.png" style="width:11.941cm;height:2.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002C3000000AC3CE756DF.png" /></p>
 <p>Maintenant avec un navigateur, demandons l’URL <strong>[http://localhost:80]</strong>. Ici nous ne précisons que le serveur <strong>[localhost:80]</strong> et pas d’URL de document. Dans ce cas c’est l’URL / qui est demandée, ç-à-d la racine du serveur web :</p>
-<p><img src="images/10000001000002410000018DD566FA0E.png" style="width:9.741cm;height:6.7cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002410000018DD566FA0E.png" /></p>
+<p><img src="images/10000001000002410000018DBBD9F71E.png" style="width:9.741cm;height:6.7cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002410000018DBBD9F71E.png" /></p>
 <ul>
 <li>en <strong>[1]</strong>, l’URL demandée. On a tapé initialement <strong>[http://localhost:80]</strong> et le navigateur (Firefox ici) l’a transformée simplement en <strong>[localhost]</strong> car le protocole <strong>[http]</strong> est implicite lorsqu’aucun protocole n’est mentionné et le port <strong>[80]</strong> est implicite lorsque le port n’est pas précisé ;</li>
 <li>en <strong>[2]</strong>, la page racine / du serveur web interrogé ;</li>
 </ul>
 <p>Maintenant, visualisons le texte reçu par le navigateur :</p>
-<p><img src="images/10000001000001920000017587DD152E.png" style="width:6.741cm;height:6.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001920000017587DD152E.png" /></p>
+<p><img src="images/100000010000019200000175E5722EEB.png" style="width:6.741cm;height:6.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000019200000175E5722EEB.png" /></p>
 <ul>
 <li>on clique droit sur la page reçue et on choisit l’option <strong>[2]</strong>. On obtient le code source suivant :</li>
 </ul>
@@ -2802,7 +2802,7 @@
 <li>ligne 78 : on lit une ligne envoyée par le serveur avec la méthode <strong>[readline]</strong>. On la débarrasse de ses espaces (blancs, marque de fin de ligne) de début et fin de ligne ;</li>
 <li>lignes 81-83 : si la ligne n&#x27;est pas vide et que le suivi a été demandé, la ligne reçue est affichée sur la console ;</li>
 <li>lignes 84-86 : si on a récupéré la ligne vide qui marque la fin des entêtes HTTP envoyés par le serveur alors on arrête la boucle de la ligne 76 ;</li>
-<li>lignes 90-95 : les lignes de texte de la réponse du serveur peuvent être lues ligne par ligne avec une boucle <em>while </em>et enregistrées dans le fichier texte <strong>[html]</strong>. Lorsque le serveur web a envoyé la totalité de la page qu&#x27;on lui a demandée, il ferme sa connexion avec le client. Côté client, cela sera détecté comme une fin de fichier et on sortira de la boucle des lignes 90-95 ;</li>
+<li>lignes 90-95 : les lignes de texte de la réponse du serveur peuvent être lues ligne par ligne avec une boucle <em>while</em> et enregistrées dans le fichier texte <strong>[html]</strong>. Lorsque le serveur web a envoyé la totalité de la page qu&#x27;on lui a demandée, il ferme sa connexion avec le client. Côté client, cela sera détecté comme une fin de fichier et on sortira de la boucle des lignes 90-95 ;</li>
 <li>lignes 96-102 : erreur ou pas, on libère toutes les ressources utilisées par le code ;</li>
 </ul>
 <p><strong>Résultats</strong> :</p>
@@ -2971,7 +2971,7 @@
 
 <p>Nous avons bien obtenu le même document qu’avec le navigateur Firefox.</p>
 <p>Le document <strong>[output/sergetahe_com.html]</strong> reçu est le suivant :</p>
-<p><img src="images/10000001000000E8000000775DC7BB4E.png" style="width:3.92cm;height:2.012cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000E8000000775DC7BB4E.png" /></p>
+<p><img src="images/10000001000000E800000077636B1542.png" style="width:3.92cm;height:2.012cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000000E800000077636B1542.png" /></p>
 <p>La plupart des serveurs http envoient par morceaux leurs réponses aux requêtes qui leur sont faites. Chaque morceau envoyé est précédé d&#x27;une ligne indiquant le nombre d&#x27;octets du morceau qui suit. Cela permet au client de lire ce nombre exact d&#x27;octets pour avoir le morceau. Ici le 0 indique que le morceau qui suit a zéro octet. On rappelle que le serveur avait indiqué le document <strong>[http://sergetahe.com/]</strong> avait changé d&#x27;URL. Il n&#x27;a donc pas envoyé de document.</p>
 <p>Le document <strong>[output/tahe_developpez_com.html]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
@@ -3011,7 +3011,7 @@
 <p><a id="toc48549121"></a></p>
 <h3 id="2144-exemple-4">21.4.4. Exemple 4</h3>
 <p>Les exemples précédents nous ont montré que notre client HTTP était insuffisant. Nous allons maintenant présenter un outil appelé <strong>[curl]</strong> qui permet de récupérer des documents web en gérant les difficultés mentionnées : protocole HTTPS, document envoyé par morceaux, redirections… L’outil <strong>[curl]</strong> a été installé avec <a href="#_Installation_de_Laragon"><u><span style="color: #0563c1">Laragon</span></u></a> :</p>
-<p><img src="images/10000001000001D400000132261162F3.png" style="width:7.951cm;height:5.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001D400000132261162F3.png" /></p>
+<p><img src="images/10000001000001D40000013242279C9F.png" style="width:7.951cm;height:5.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001D40000013242279C9F.png" /></p>
 <p>Ouvrons un terminal PyCharm <strong>[1]</strong> :</p>
 <p><img src="images/10000000000004730000020E7F96F69A.png" style="width:13.14cm;height:6.061cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004730000020E7F96F69A.png" /></p>
 <ul>
@@ -3492,12 +3492,12 @@
 <li>ligne 30 : instanciation du flux binaire qui va stocker les données reçues ;</li>
 <li>lignes 32-48 : le dictionnaire <strong>[options]</strong> va paramétrer la connexion <strong>[curl]</strong> au serveur. leur rôle est indiqué dans les commentaires ;</li>
 <li>lignes 49-51 : les options de la connexion sont transmises à la ressource <strong>[curl]</strong> ;</li>
-<li>ligne 53 : connexion à l’URL demandée avec les options définies. A cause de l’option <strong>[</strong><strong><span style="color: #000000">curl.WRITEDATA: flux</span></strong><strong>]</strong><strong> (ligne 36)</strong>, la fonction <strong>[</strong><strong><span style="color: #000000">curl.perform()</span></strong><strong>]</strong> va stocker les données reçues dans <strong>[flux]</strong> ;</li>
+<li>ligne 53 : connexion à l’URL demandée avec les options définies. A cause de l’option <strong>[</strong><strong><span style="color: #000000">curl.WRITEDATA: flux</span></strong><strong>]</strong> <strong>(ligne 36)</strong>, la fonction <strong>[</strong><strong><span style="color: #000000">curl.perform()</span></strong><strong>]</strong> va stocker les données reçues dans <strong>[flux]</strong> ;</li>
 <li>lignes 54-60 : on crée le fichier HTML qui va stocker le document HTML reçu ;</li>
 <li>ligne 60 : le flux binaire <strong>[</strong><strong><span style="color: #000000">flux.getvalue()</span></strong><strong>]</strong> va être stocké comme une chaîne de caractères dans le fichier HTML. L&#x27;encodage de cette chaîne est précisé dans la méthode <strong>[</strong><strong><span style="color: #000000">decode(encoding)</span></strong><strong>]</strong>. Il faut donc connaître l&#x27;encodage du document envoyé par le serveur. Si on se trompe, l&#x27;opération de décodage du flux binaire va échouer. L&#x27;encodage est précisé dans le fichier de configuration de l’URL (ligne 12 par exemple). On aurait pu gérer dynamiquement cette information car le serveur l&#x27;envoie dans ces entêtes HTTP. Cela aurait été préférable. Pour garder un code simple, nous ne l&#x27;avons pas fait. Pour connaître le type d&#x27;encodage du document, il suffit de demander l&#x27;URL désirée avec un navigateur et regarder les entêtes HTTP envoyés par celui-ci en mode débogage du navigateur (F12) ou bien le document lui-même car celui-ci précise également l&#x27;encodage :</li>
 </ul>
-<p><img src="images/10000001000002B7000000C5271DE47D.png" style="width:11.93cm;height:3.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002B7000000C5271DE47D.png" /></p>
-<p><img src="images/100000010000029C000000E77D8D42BF.png" style="width:11.431cm;height:3.95cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000029C000000E77D8D42BF.png" /></p>
+<p><img src="images/10000001000002B7000000C5A8D477AD.png" style="width:11.93cm;height:3.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002B7000000C5A8D477AD.png" /></p>
+<p><img src="images/100000010000029C000000E746B469CA.png" style="width:11.431cm;height:3.95cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000029C000000E746B469CA.png" /></p>
 <ul>
 <li>ligne 61-66 : les ressources allouées sont libérées ;</li>
 </ul>
@@ -3755,9 +3755,9 @@
 <h3 id="2153-installation-dun-serveur-smtp">21.5.3. Installation d’un serveur SMTP</h3>
 <p>Pour nos tests, nous installerons le serveur de mail <strong>[hMailServer]</strong> qui est à la fois un serveur SMTP permettant d’envoyer des mails, un serveur POP3 (Post Office Protocol) permettant de lire les mails stockés sur le serveur, un serveur IMAP (Internet Message Access Protocol) qui lui aussi permet de  lire les mails stockés sur le serveur mais va au-delà. Il permet notamment de gérer le stockage des mails sur le serveur.</p>
 <p>Le serveur de mail <strong>[hMailServer]</strong> est disponible à l’URL <strong>[https://www.hmailserver.com/]</strong> (mai 2019).</p>
-<p><img src="images/1000000100000396000001451FC20FFE.png" style="width:15.47cm;height:5.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000396000001451FC20FFE.png" /></p>
+<p><img src="images/100000010000039600000145B78B7923.png" style="width:15.47cm;height:5.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000039600000145B78B7923.png" /></p>
 <p>Au cours de l’installation, certains renseignements vous seront demandés :</p>
-<p><img src="images/100000010000020A00000187F99E2ED0.png" style="width:8.76cm;height:6.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000020A00000187F99E2ED0.png" /></p>
+<p><img src="images/100000010000020A0000018724FCF59D.png" style="width:8.76cm;height:6.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000020A0000018724FCF59D.png" /></p>
 <ul>
 <li>en <strong>[1-2]</strong>, sélectionnez à la fois le serveur de mails et les outils pour l’administrer ;</li>
 <li>durant l’installation le mot de l’administrateur vous sera demandé : <strong>notez l</strong>e, car il vous sera nécessaire ;</li>
@@ -3766,12 +3766,12 @@
 <ul>
 <li>en <strong>[3]</strong>, on tape <strong>[services]</strong> dans la zone de saisie de la barre d’état ;</li>
 </ul>
-<p><img src="images/100000010000039900000245395C60BE.png" style="width:15.461cm;height:9.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000039900000245395C60BE.png" /></p>
+<p><img src="images/100000010000039900000245F9AD9F19.png" style="width:15.461cm;height:9.741cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000039900000245F9AD9F19.png" /></p>
 <ul>
 <li>en <strong>[4-8]</strong>, on met le service en mode <strong>[manuel]</strong> (6), on le lance (7) ;</li>
 </ul>
 <p>Une fois démarré, le serveur <strong>[hMailServer]</strong> doit être configuré. Le serveur a été installé avec un programme d’administration <strong>[hMailServer Administrator]</strong> :</p>
-<p><img src="images/10000001000003C300000236F27F0FCB.png" style="width:16.431cm;height:9.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003C300000236F27F0FCB.png" /></p>
+<p><img src="images/10000001000003C300000236BD615C4E.png" style="width:16.431cm;height:9.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003C300000236BD615C4E.png" /></p>
 <ul>
 <li>en <strong>[2]</strong>, dans la zone de saisie de la barre d’état, taper <strong>[hmailserver]</strong> ;</li>
 <li>en <strong>[3]</strong>, lancer l’administrateur ;</li>
@@ -3783,7 +3783,7 @@
 <li>arrêtez le serveur <strong>[hMailServer]</strong> ;</li>
 <li>ouvrez le fichier <strong>[&lt;hmailserver&gt;/bin/hmailserver.ini]</strong> où &lt;hmailserver&gt; est le dossier d&#x27;installation du serveur :</li>
 </ul>
-<p><img src="images/10000001000003180000015981780B38.png" style="width:14.742cm;height:6.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003180000015981780B38.png" /></p>
+<p><img src="images/10000001000003180000015989C44A34.png" style="width:14.742cm;height:6.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003180000015989C44A34.png" /></p>
 <ul>
 <li>en <strong>[100]</strong>, enlevez le mot de passe de la ligne <strong>[AdministratorPassword]</strong>. Cela aura pour effet que l&#x27;administrateur n&#x27;aura plus de mot de passe. Tapez simplement <strong>[Entrée]</strong> lorsque celui-ci vous sera demandé ;</li>
 </ul>
@@ -3886,7 +3886,7 @@
 <ul>
 <li>en <strong>[1]</strong> : téléchargez <strong>[thunderbird]</strong> puis installez-le ;</li>
 </ul>
-<p><img src="images/10000001000003D60000015D8D230377.png" style="width:16.421cm;height:5.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003D60000015D8D230377.png" /></p>
+<p><img src="images/10000001000003D60000015D5BD4DB9D.png" style="width:16.421cm;height:5.83cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003D60000015D5BD4DB9D.png" /></p>
 <ul>
 <li>lancez le serveur de mail <strong>[hMailServer]</strong> s&#x27;il ne l&#x27;est pas déjà ;</li>
 <li>en <strong>[2-3]</strong> : une fois Thunderbird lancé,  nous allons créer un compte de messagerie pour l&#x27;utilisateur <strong>[guest@localhost]</strong> du serveur de mail <strong>[hMailServer]</strong> ;</li>
@@ -3924,7 +3924,7 @@
 <li>en <strong>[10-15]</strong> : le message reçu ;</li>
 </ul>
 <p>Nous allons envoyer également du courrier à l&#x27;utilisateur <strong>[pymailparlexemple@gmail.com]</strong>. Créons-lui un compte dans Thunderbird pour lire le courrier qu&#x27;il recevra :</p>
-<p><img src="images/100000010000035C0000015BF8CF4408.png" style="width:11.711cm;height:4.721cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000035C0000015BF8CF4408.png" /></p>
+<p><img src="images/100000010000035C0000015B21E23B41.png" style="width:11.711cm;height:4.721cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000035C0000015B21E23B41.png" /></p>
 <p><img src="images/10000000000002F7000001FFE87A005F.png" style="width:8.771cm;height:5.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F7000001FFE87A005F.png" /></p>
 <ul>
 <li>en <strong>[4]</strong> : mettez ce que vous voulez ;</li>
@@ -3976,7 +3976,7 @@
 <p><a id="toc48549129"></a>
 <a id="refheadingtoc1357142222329424"></a></p>
 <h3 id="2155-le-protocole-smtp">21.5.5. Le protocole SMTP</h3>
-<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
+<p><img src="images/1000000100000206000000DDB8B1A924.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DDB8B1A924.png" /></p>
 <p>Nous allons découvrir le protocole SMTP en examinant les logs du serveur <strong>[hMailServer]</strong>. Pour cela, nous les activons avec l’outl <strong>[hmailServerAdministrator]</strong> :</p>
 <p><img src="images/10000000000001E00000010F6C6270EA.png" style="width:5.539cm;height:3.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001E00000010F6C6270EA.png" /></p>
 <p><img src="images/100000000000030800000350369EC782.png" style="width:8.951cm;height:9.78cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000030800000350369EC782.png" /></p>
@@ -3986,7 +3986,7 @@
 <li>en <strong>[7]</strong>, on demande à les voir ;</li>
 <li>en <strong>[8]</strong>, ouvre le fichier de logs avec un éditeur de texte quelconque ;</li>
 </ul>
-<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
+<p><img src="images/1000000100000206000000DDB8B1A924.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DDB8B1A924.png" /></p>
 <p>Dans l’exemple qui suit, le client sera <strong>[Thunderbird]</strong> et le serveur sera <strong>[hMailServer]</strong>. Avec Thunderbird, faites en sorte que l’utilisateur <strong>[guest@localhost.com]</strong> s’envoie un message à lui-même :</p>
 <p><img src="images/10000000000003F500000220AF6FEB49.png" style="width:11.681cm;height:6.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F500000220AF6FEB49.png" /></p>
 <p>Les logs sont alors les suivants :</p>
@@ -4024,7 +4024,7 @@
 <p>Maintenant que nous connaissons le dialogue client / serveur du protocole SMTP, essayons de le reproduire avec notre client <strong>[RawTcpClient]</strong>. Nous utilisons un terminal PyCharm :</p>
 <p><img src="images/10000000000002190000034E550CCF2C.png" style="width:6.201cm;height:9.782cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002190000034E550CCF2C.png" /></p>
 <p>Etudions un nouvel exemple :</p>
-<p><img src="images/1000000100000206000000DD0A3D926A.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DD0A3D926A.png" /></p>
+<p><img src="images/1000000100000206000000DDB8B1A924.png" style="width:8.751cm;height:3.731cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000206000000DDB8B1A924.png" /></p>
 <ul>
 <li>le client A sera le client TCP générique <strong>[RawTcpClient]</strong> ;</li>
 <li>le serveur B sera le serveur de mails <strong>[hMailServer]</strong> ;</li>
@@ -4451,8 +4451,12 @@
 <p>Le client précédent souffre d&#x27;au moins deux insuffisances :</p>
 <ol>
 <li>il ne sait pas utiliser une connexion sécurisée si le serveur la réclame ;</li>
-<li>il ne sait pas joindre des attachements au message ;</li>
 </ol>
+<ol start="2">
+  <li>il ne sait pas joindre des attachements au message ;
+  </li>
+</ol>
+
 <p>Nous allons traiter la première insuffisance dans le script <strong>[smtp/02]</strong>. Dans notre nouveau script nous allons utiliser le module Python <strong>[smtplib]</strong>.</p>
 <p>Le script <strong>[smtp/02/main]</strong> utilisera le fichier de configuration jSON <strong>[smtp/02/config]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -4495,9 +4499,12 @@
 
 <p>On retrouve les mêmes rubriques que dans le fichier <strong>[smtp/01/config]</strong> avec deux rubriques supplémentaires lorsque el serveur SMTP demande une authentification :</p>
 <ul>
-<li><strong>ligne 31, </strong><strong>[user]</strong> : le nom de l’utilisateur qui authentifie la connexion ;</li>
-<li><strong>ligne 32, </strong><strong>[password]</strong> : son mot de passe ;</li>
+  <li><b>ligne 31, </b><b>[user]</b> : le nom de l’utilisateur qui authentifie la connexion ;
+  </li>
+  <li><b>ligne 32, </b><b>[password]</b> : son mot de passe ;
+  </li>
 </ul>
+
 <p>Ces deux rubriques ne sont présentes que si le serveur SMTP contacté exige une authentification. Celle-ci se fait alors au-travers d&#x27;une connexion sécurisée.</p>
 <p>Le code du script <strong>[smtp/02/main.py]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -4576,24 +4583,41 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 8-35 : seule la fonction <strong>[sendmail]</strong> est utilisée. Elle va désormais utiliser le module <strong>[smtplib]</strong> (ligne 2) ;</li>
-<li>ligne 16 : connexion au serveur SMTP ;</li>
-<li>ligne 18 : si <strong>[verbose=True]</strong>, les échanges client / serveur seront affichés sur la console ;</li>
-<li>lignes 20-24 : on fait l&#x27;éventuelle authentification si le serveur SMTP l&#x27;exige ;</li>
-<li>ligne 22 : l&#x27;authentification se fait au travers d&#x27;une connexion sécurisée ;</li>
-<li>ligne 24 : authentification ;</li>
-<li>lignes 26-33 : envoi du message. Le dialogue vu avec le script <strong>[smtp/01/main]</strong> va alors se dérouler. S&#x27;il y a eu authentification, il se déroulera au sein d&#x27;une connexion sécurisée ;</li>
-<li>ligne 35 : on termine le dialogue client / serveur ;</li>
+  <li>lignes 8-35 : seule la fonction <b>[sendmail]</b> est utilisée. Elle va désormais utiliser le module <b>[smtplib]</b> (ligne 2) ;
+  </li>
+  <li>ligne 16 : connexion au serveur SMTP ;
+  </li>
+  <li>ligne 18 : si <b>[verbose=True]</b>, les échanges client / serveur seront affichés sur la console ;
+  </li>
+  <li>lignes 20-24 : on fait l&#x27;éventuelle authentification si le serveur SMTP l&#x27;exige ;
+  </li>
+  <li>ligne 22 : l&#x27;authentification se fait au travers d&#x27;une connexion sécurisée ;
+  </li>
+  <li>ligne 24 : authentification ;
+  </li>
+  <li>lignes 26-33 : envoi du message. Le dialogue vu avec le script <b>[smtp/01/main]</b> va alors se dérouler. S&#x27;il y a eu authentification, il se déroulera au sein d&#x27;une connexion sécurisée ;
+  </li>
+  <li>ligne 35 : on termine le dialogue client / serveur ;
+  </li>
 </ul>
+
 <p>Avant d’exécuter le script <strong>[smtp/02/main]</strong>, vous devez modifier la configuration du compte Gmail <strong>[pymailparlexemple@gmail.com]</strong> :</p>
 <ul>
-<li>connectez-vous au compte Gmail <strong>[pymailparlexemple@gmail.com]</strong> ;</li>
-<li>modifiez la configuration suivante :</li>
+  <li>connectez-vous au compte Gmail <b>[pymailparlexemple@gmail.com]</b> ;
+  </li>
+  <li>modifiez la configuration suivante :
+
+<img src="images/100000000000051500000250B9D47671.png" style="width:15.02cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000051500000250B9D47671.png" />
+
+
+  </li>
 </ul>
-<p><img src="images/100000000000051500000250B9D47671.png" style="width:15.02cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000051500000250B9D47671.png" /></p>
+
 <ul>
-<li>en <strong>[2]</strong>, autorisez les applications moins sécurisées à accéder au compte ;</li>
+  <li>en <b>[2]</b>, autorisez les applications moins sécurisées à accéder au compte ;
+  </li>
 </ul>
+
 <p>Faites la même chose avec le second compte Gmail <strong>[pymail2parlexemple@gmail.com]</strong>.</p>
 <p><strong>Résultats</strong></p>
 <p>Lorsqu’on exécute le script <strong>[smtp/02/main]</strong> on obtient les résultats console suivants :</p>
@@ -4676,9 +4700,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 40 : le client <strong>[smtplib]</strong> commence le dialogue pour établir une liaison cryptée avec le serveur SMTP, ce qu’on n’avait pas su faire dans le script <strong>[smtp/main/01]</strong> ;</li>
-<li>sinon on retouve les commandes connues du protocole SMTP ;</li>
+  <li>ligne 40 : le client <b>[smtplib]</b> commence le dialogue pour établir une liaison cryptée avec le serveur SMTP, ce qu’on n’avait pas su faire dans le script <b>[smtp/main/01]</b> ;
+  </li>
+  <li>sinon on retouve les commandes connues du protocole SMTP ;
+  </li>
 </ul>
+
 <p>Si on consulte le compte Gmail de l’utilisateur <strong>[pymail2parlexemple]</strong> on a la chose suivante :</p>
 <p><img src="images/10000000000004830000027B835BC393.png" style="width:13.36cm;height:7.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004830000027B835BC393.png" /></p>
 <p><a id="toc48549132"></a>
@@ -4821,43 +4848,74 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 18-32 : la fonction <strong>[sendmail]</strong> reste ce qu&#x27;elle était lorsqu&#x27;il n&#x27;y avait pas d&#x27;attachements ;</li>
-<li>ligne 35 : le code qui suit est tiré d&#x27;une documentation officielle de Python ;</li>
-<li>ligne 36 : le message qui va être envoyé va comprendre plusieurs parties : du texte et des fichiers attachés. On appelle cela un message <strong>[Multipart]</strong> ;</li>
-<li>lignes 37-40 : on trouve dans le message <strong>[Multipart]</strong> les champs habituels de tout mail ;</li>
-<li>ligne 42 : les différentes parties du message <strong>[Multipart]</strong> <strong>[msg]</strong> sont attachées au message par la méthode <strong>[msg.attach]</strong><strong> (ligne 81)</strong>. Les parties attachées peuvent être de toute nature. Celles-ci sont caractérisées par un type MIME. Le type MIME d&#x27;un texte ordinaire est le type <strong>[MIMEText]</strong> ;</li>
-<li>lignes 44-81 : on va attacher au message <strong>[msg Multipart]</strong> tous les attachements du message à envoyer (ligne 81) ;</li>
-<li>ligne 44 : <strong>[path]</strong> représente le chemin absolu du fichier à attacher ;</li>
-<li>ligne 47 : pour trouver le type MIME à utiliser pour la partie à attacher, on va utiliser le suffixe (.docx, .php…) du fichier à attacher. La méthode <strong>[</strong><strong><span style="color: #6f008a">mimetypes</span></strong><strong><span style="color: #000000">.guess_type</span></strong><strong>]</strong> fait ce travail. Elle rend deux informations :<ul>
-<li><strong>[ctype]</strong> : le type MIME du fichier ;</li>
-<li><strong>[encoding]</strong> : une information sur son encodage ;</li>
+  <li>lignes 18-32 : la fonction <b>[sendmail]</b> reste ce qu&#x27;elle était lorsqu&#x27;il n&#x27;y avait pas d&#x27;attachements ;
+  </li>
+  <li>ligne 35 : le code qui suit est tiré d&#x27;une documentation officielle de Python ;
+  </li>
+  <li>ligne 36 : le message qui va être envoyé va comprendre plusieurs parties : du texte et des fichiers attachés. On appelle cela un message <b>[Multipart]</b> ;
+  </li>
+  <li>lignes 37-40 : on trouve dans le message <b>[Multipart]</b> les champs habituels de tout mail ;
+  </li>
+  <li>ligne 42 : les différentes parties du message <b>[Multipart]</b> <b>[msg]</b> sont attachées au message par la méthode <b>[msg.attach]</b><b> (ligne 81)</b>. Les parties attachées peuvent être de toute nature. Celles-ci sont caractérisées par un type MIME. Le type MIME d&#x27;un texte ordinaire est le type <b>[MIMEText]</b> ;
+  </li>
+  <li>lignes 44-81 : on va attacher au message <b>[msg Multipart]</b> tous les attachements du message à envoyer (ligne 81) ;
+  </li>
+  <li>ligne 44 : <b>[path]</b> représente le chemin absolu du fichier à attacher ;
+  </li>
+  <li>ligne 47 : pour trouver le type MIME à utiliser pour la partie à attacher, on va utiliser le suffixe (.docx, .php…) du fichier à attacher. La méthode <b>[</b><b><span style="color: #6f008a">mimetypes</span></b><b><span style="color: #000000">.guess_type</span></b><b>]</b> fait ce travail. Elle rend deux informations :
+    <ul>
+      <li><b>[ctype]</b> : le type MIME du fichier ;
+      </li>
+      <li><b>[encoding]</b> : une information sur son encodage ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 49-52 : au cas où on ne peut pas déterminer le type MIME du fichier, on dit que c&#x27;est un fichier binaire (ligne 52) ;
+  </li>
+  <li>ligne 54 : le type MIME d’un fichier se décompose en type principal / type secondaire, par exemple <b>[application/pdf]</b>. On sépare ces deux éléments ;
+  </li>
+  <li>lignes 56-76 : on traite différents cas selon la valeur du type MIME principal. Par exemple, dans le cas <b>[application/pdf]</b> d&#x27;un fichier PDF, on va exécuter les lignes 70-76 :
+    <ul>
+      <li>lignes 56-59 : le cas où le fichier attaché est un fichier texte. Dans ce cas on crée un élément de  type <b>[MIMEText]</b> de contenu <b>[fp.read]</b> ;
+      </li>
+      <li>lignes 60-62 : le cas où le fichier contient une image. Dans ce cas on crée un élément de  type <b>[MIMEImage]</b> de contenu <b>[fp.read]</b> ;
+      </li>
+      <li>lignes 63-65 : le cas où le fichier est un fichier audio. Dans ce cas on crée un élément de  type <b>[MIMEAudio]</b> de contenu <b>[fp.read]</b> ;
+      </li>
+      <li>lignes 66-69 : le cas où le fichier est un mail. Dans ce cas on crée un élément de  type <b>[MIMEMessage]</b> (ligne 69) de contenu <b>[</b><b><span style="color: #6f008a">email</span></b><b><span style="color: #000000">.message_from_bytes(fp.read())</span></b><b>]</b>. Contrairement aux cas précédents où le contenu de l’élément MIME était le contenu binaire du fichier associé, ici le contenu de l’élément MIMEMessage est de type <b>[email.message.Message]</b> ;
+      </li>
+      <li>lignes 70-76 : les autres cas. Cela comprend par exemple les fichiers Word et PDF de notre exemple ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 72 : le fichier à attacher est ouvert en mode binaire (rb=read binary) ;
+  </li>
+  <li>ligne 74 : <b>[fp.read]</b> lit la totalité du fichier binaire ;
+  </li>
+  <li>lignes 72-74 : la structure <b>[with open(…) as file]</b> fait deux choses :
+    <ul>
+      <li>elle ouvre le fichier et lui donne le descripteur <b>[file]</b> ;
+      </li>
+      <li>elle assure qu&#x27;à la sortie du <b>[with]</b>, erreur ou pas, le descripteur <b>[file]</b> sera fermé. C&#x27;est donc une alternative à la structure <b>[try file=open(…)/ finally]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 73 : on crée un nouvel élément <b>[part]</b> à incorporer au message Multipart. On utilise ici la classe <b>[MIMEBase]</b> et on passe au constructeur les éléments <b>[maintype, subtype]</b> déterminés ligne 54 ;
+  </li>
+  <li>ligne 74 : l’élement à incorporer dans le message Multipart doit avoir un contenu. Celui-ci peut être initialisé avec la méthode <b>[</b><b><span style="color: #000000">set_payload</span></b><b>]</b> ;
+  </li>
+  <li>lignes 75-76 : les fichiers attachés doivent subir un encodage 7 bits. En effet, historiquement certains serveurs SMTP ne supportaient que des caractères codés sur 7 bits. Ici c’est le codage appelé ‘Base64’ qui est utilisé ;
+  </li>
+  <li>ligne 77 : à partir de cette ligne, le traitement est comment à tous les types MIME que nous avons créés aux lignes 56-76 <b>[MIMEMessage, MIMEImage, MIMEAudio, MIMEBase, MIMEText]</b> ; 
+  </li>
+  <li>ligne 79 : l’élément à ajouter dans le message Multipart a un entête le décrivant. On indique ici que l’élément ajouté correspond à un fichier attaché. Le nom de ce fichier est le troisième paramètre passé à la méthode <b>[add_header]</b>. Le nom de ce fichier est souvent utilisé par les lecteurs de courrier pour enregistrer, sous ce nom, le fichier attaché dans le système de fichiers du lecteur. On a pour l’instant travaillé avec le nom absolu du fichie attaché. Ici on passe simplement son nom sans son chemin (ligne 78) ;
+  </li>
+  <li>ligne 81 : le binaire du fichier est incorporé dans le message <b>[msg Multipart]</b> ;
+  </li>
+  <li>ligne 83 : lorsque tous les parties du message ont été attachées au <b>[msg Multipart]</b>, celui-ci est envoyé ;
+  </li>
 </ul>
-</li>
-<li>lignes 49-52 : au cas où on ne peut pas déterminer le type MIME du fichier, on dit que c&#x27;est un fichier binaire (ligne 52) ;</li>
-<li>ligne 54 : le type MIME d’un fichier se décompose en type principal / type secondaire, par exemple <strong>[application/pdf]</strong>. On sépare ces deux éléments ;</li>
-<li>lignes 56-76 : on traite différents cas selon la valeur du type MIME principal. Par exemple, dans le cas <strong>[application/pdf]</strong> d&#x27;un fichier PDF, on va exécuter les lignes 70-76 :<ul>
-<li>lignes 56-59 : le cas où le fichier attaché est un fichier texte. Dans ce cas on crée un élément de  type <strong>[MIMEText]</strong> de contenu <strong>[fp.read]</strong> ;</li>
-<li>lignes 60-62 : le cas où le fichier contient une image. Dans ce cas on crée un élément de  type <strong>[MIMEImage]</strong> de contenu <strong>[fp.read]</strong> ;</li>
-<li>lignes 63-65 : le cas où le fichier est un fichier audio. Dans ce cas on crée un élément de  type <strong>[MIMEAudio]</strong> de contenu <strong>[fp.read]</strong> ;</li>
-<li>lignes 66-69 : le cas où le fichier est un mail. Dans ce cas on crée un élément de  type <strong>[MIMEMessage]</strong> (ligne 69) de contenu <strong>[</strong><strong><span style="color: #6f008a">email</span></strong><strong><span style="color: #000000">.message_from_bytes(fp.read())</span></strong><strong>]</strong>. Contrairement aux cas précédents où le contenu de l’élément MIME était le contenu binaire du fichier associé, ici le contenu de l’élément MIMEMessage est de type <strong>[email.message.Message]</strong> ;</li>
-<li>lignes 70-76 : les autres cas. Cela comprend par exemple les fichiers Word et PDF de notre exemple ;</li>
-</ul>
-</li>
-<li>ligne 72 : le fichier à attacher est ouvert en mode binaire (rb=read binary) ;</li>
-<li>ligne 74 : <strong>[fp.read]</strong> lit la totalité du fichier binaire ;</li>
-<li>lignes 72-74 : la structure <strong>[with open(…) as file]</strong> fait deux choses :<ul>
-<li>elle ouvre le fichier et lui donne le descripteur <strong>[file]</strong> ;</li>
-<li>elle assure qu&#x27;à la sortie du <strong>[with]</strong>, erreur ou pas, le descripteur <strong>[file]</strong> sera fermé. C&#x27;est donc une alternative à la structure <strong>[try file=open(…)/ finally]</strong> ;</li>
-</ul>
-</li>
-<li>ligne 73 : on crée un nouvel élément <strong>[part]</strong> à incorporer au message Multipart. On utilise ici la classe <strong>[MIMEBase]</strong> et on passe au constructeur les éléments <strong>[maintype, subtype]</strong> déterminés ligne 54 ;</li>
-<li>ligne 74 : l’élement à incorporer dans le message Multipart doit avoir un contenu. Celui-ci peut être initialisé avec la méthode <strong>[</strong><strong><span style="color: #000000">set_payload</span></strong><strong>]</strong> ;</li>
-<li>lignes 75-76 : les fichiers attachés doivent subir un encodage 7 bits. En effet, historiquement certains serveurs SMTP ne supportaient que des caractères codés sur 7 bits. Ici c’est le codage appelé ‘Base64’ qui est utilisé ;</li>
-<li>ligne 77 : à partir de cette ligne, le traitement est comment à tous les types MIME que nous avons créés aux lignes 56-76 <strong>[MIMEMessage, MIMEImage, MIMEAudio, MIMEBase, MIMEText]</strong> ; </li>
-<li>ligne 79 : l’élément à ajouter dans le message Multipart a un entête le décrivant. On indique ici que l’élément ajouté correspond à un fichier attaché. Le nom de ce fichier est le troisième paramètre passé à la méthode <strong>[add_header]</strong>. Le nom de ce fichier est souvent utilisé par les lecteurs de courrier pour enregistrer, sous ce nom, le fichier attaché dans le système de fichiers du lecteur. On a pour l’instant travaillé avec le nom absolu du fichie attaché. Ici on passe simplement son nom sans son chemin (ligne 78) ;</li>
-<li>ligne 81 : le binaire du fichier est incorporé dans le message <strong>[msg Multipart]</strong> ;</li>
-<li>ligne 83 : lorsque tous les parties du message ont été attachées au <strong>[msg Multipart]</strong>, celui-ci est envoyé ;</li>
-</ul>
+
 <p><strong>Résultats</strong></p>
 <p>Si on exécute le script <strong>[smtp/03/main]</strong> avec le fichier <strong>[smtp/02/config]</strong> déjà présenté, le compte <strong>[pymail2parlexemple@gmail.com]</strong> reçoit ceci :</p>
 <p><img src="images/1000000000000576000002294274C742.png" style="width:16.162cm;height:6.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000576000002294274C742.png" /></p>
@@ -4907,25 +4965,37 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 33, nous avons ajouté un attachement ;</li>
+  <li>ligne 33, nous avons ajouté un attachement ;
+  </li>
 </ul>
+
 <p>Maintenant nous exécutons de nouveau le script <strong>[smtp/03/main]</strong>. Cela donne le résultat suivant dans la boîte à lettres de l’utilisateur <strong>[pymail2parlexemple@gmail.com]</strong> :</p>
 <p><img src="images/100000000000055400000286866C36EC.png" style="width:15.77cm;height:7.46cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055400000286866C36EC.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le mail reçu ;</li>
-<li>en <strong>[2]</strong> : le texte du message ;</li>
-<li>en <strong>[3]</strong> : le texte du mail attaché ;</li>
-<li>en <strong>[4]</strong> : Thunderbird a trouvé 5 pièces jointes :<ul>
-<li><strong>[fichier attaché.docx]</strong> ;</li>
-<li><strong>[fichier attaché.pdf]</strong> ;</li>
-<li><strong>[mail attaché 1.eml]</strong>. Cette pièce jointe est elle-même un mail contenant deux pièces jointes :<ul>
-<li><strong>[fichier attaché.docx]</strong> ;</li>
-<li><strong>[fichier attaché.pdf]</strong> ;</li>
+  <li>en <b>[1]</b>, le mail reçu ;
+  </li>
+  <li>en <b>[2]</b> : le texte du message ;
+  </li>
+  <li>en <b>[3]</b> : le texte du mail attaché ;
+  </li>
+  <li>en <b>[4]</b> : Thunderbird a trouvé 5 pièces jointes :
+    <ul>
+      <li><b>[fichier attaché.docx]</b> ;
+      </li>
+      <li><b>[fichier attaché.pdf]</b> ;
+      </li>
+      <li><b>[mail attaché 1.eml]</b>. Cette pièce jointe est elle-même un mail contenant deux pièces jointes :
+        <ul>
+          <li><b>[fichier attaché.docx]</b> ;
+          </li>
+          <li><b>[fichier attaché.pdf]</b> ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <p><a id="toc48549133"></a>
 <a id="refheadingtoc1357202222329424"></a></p>
 <h2 id="216-le-protocole-pop3">21.6. Le protocole POP3</h2>
@@ -4934,33 +5004,47 @@
 <h3 id="2161-introduction">21.6.1. Introduction</h3>
 <p>Pour lire les mails entreposés dans un serveur de mails, deux protocoles existent :</p>
 <ul>
-<li>le protocole POP3 (Post Office Protocol) historiquement le 1er protocole mais peu utilisé maintenant ;</li>
-<li>le protocole IMAP (Internet Message Access Protocol) protocole plus récent que POP3 et le plus utilisé actuellement ;</li>
+  <li>le protocole POP3 (Post Office Protocol) historiquement le 1er protocole mais peu utilisé maintenant ;
+  </li>
+  <li>le protocole IMAP (Internet Message Access Protocol) protocole plus récent que POP3 et le plus utilisé actuellement ;
+  </li>
 </ul>
+
 <p>Pour découvrir le protocole POP3, nous allons utiliser l’architecture suivante :</p>
-<p><img src="images/10000001000001F5000000DEBE03EC4B.png" style="width:8.49cm;height:3.761cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001F5000000DEBE03EC4B.png" /></p>
+<p><img src="images/10000001000001F5000000DE65BB5BDD.png" style="width:8.49cm;height:3.761cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001F5000000DE65BB5BDD.png" /></p>
 <ul>
-<li><strong>[Serveur B]</strong> sera selon les cas :<ul>
-<li>un serveur POP3 local, implémenté par le serveur de mail <strong>[hMailServer]</strong> ;</li>
-<li>le serveur <strong>[</strong><strong><span style="color: #a31515">pop.gmail.com</span></strong><strong>]</strong> qui est le serveur POP3 du gestionnaire de mails <strong>[gmail.com]</strong> ;</li>
+  <li><b>[Serveur B]</b> sera selon les cas :
+    <ul>
+      <li>un serveur POP3 local, implémenté par le serveur de mail <b>[hMailServer]</b> ;
+      </li>
+      <li>le serveur <b>[</b><b><span style="color: #a31515">pop.gmail.com</span></b><b>]</b> qui est le serveur POP3 du gestionnaire de mails <b>[gmail.com]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li><b>[Client A]</b> sera un client POP3 de diverses formes :
+    <ul>
+      <li>le client <b>[RawTcpClient]</b> pour découvrir le protocole POP3 ;
+      </li>
+      <li>un script Python rejouant le protocole POP3 du client <b>[RawTcpClient]</b> ;
+      </li>
+      <li>un script Python utilisant des modules Python permettant de gérer les pièces attachées ainsi que l&#x27;utilisation d’une connexion chiffrée et authentifiée lorsque le serveur POP3 l&#x27;exige ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li><strong>[Client A]</strong> sera un client POP3 de diverses formes :<ul>
-<li>le client <strong>[RawTcpClient]</strong> pour découvrir le protocole POP3 ;</li>
-<li>un script Python rejouant le protocole POP3 du client <strong>[RawTcpClient]</strong> ;</li>
-<li>un script Python utilisant des modules Python permettant de gérer les pièces attachées ainsi que l&#x27;utilisation d’une connexion chiffrée et authentifiée lorsque le serveur POP3 l&#x27;exige ;</li>
-</ul>
-</li>
-</ul>
+
 <p><a id="toc48549135"></a>
 <a id="refheadingtoc1357242222329424"></a></p>
 <h3 id="2162-decouverte-du-protocole-pop3">21.6.2. Découverte du protocole POP3</h3>
 <p>Comme nous l’avons fait avec le protocole SMTP, nous allons découvrir le protocole POP3 à l’aide des logs du serveur de mails <strong>[hMailServer]</strong>. Il faut ici lancer ce serveur.</p>
 <p>Avec Thunderbird, nous allons :</p>
 <ul>
-<li>envoyer un mail à l’utilisateur <strong>[guest@localhost.com]</strong> ;</li>
-<li>lire la boîte à lettre de cet utilisateur ;</li>
+  <li>envoyer un mail à l’utilisateur <b>[guest@localhost.com]</b> ;
+  </li>
+  <li>lire la boîte à lettre de cet utilisateur ;
+  </li>
 </ul>
+
 <p><img src="images/1000000000000356000001B978AD1FBC.png" style="width:9.85cm;height:5.091cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000356000001B978AD1FBC.png" /></p>
 <p><img src="images/1000000000000356000001E2706CE8C1.png" style="width:9.85cm;height:5.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000356000001E2706CE8C1.png" /></p>
 <p>En <strong>[3-6]</strong> ci-dessus, le message reçu par l’utilisateur <strong>[guest@localhost.com]</strong>.</p>
@@ -4989,28 +5073,48 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : le serveur POP3 envoie un message de bienvenue au client (Thunderbird) qui vient de se connecter ;</li>
-<li>ligne 2 : le client envoie la commande <strong>[CAPA]</strong> (capabilities) pour demander la listes des commandes qu’il peut utiliser ;</li>
-<li>ligne 3 : le serveur lui répond qu’il peut utiliser les commandes <strong>[USER, UIDL, TOP]</strong>. Le serveur POP commence ses réponses par <strong>[+OK]</strong> ou <strong>[-ERR]</strong> pour indiquer qu’il a réussi ou échoué à exécuter la commande du client ;</li>
-<li>ligne 4 : le client envoie la commande <strong>[USER guest]</strong> pour indiquer qu’il veut consulter la boîte à lettres de l’utilisateur <strong>[guest]</strong> ;</li>
-<li>ligne 5 : le serveur lui répond <strong>[+OK]</strong> et demande le mote de passe de <strong>[guest]</strong> ;</li>
-<li>ligne 6 : le client envoie la commande <strong>[PASS password]</strong> pour envoyer le mot de passe de l’utilisateur <strong>[guest]</strong>. Ici le mot de passe est en clair car le serveur POP3 n’a pas imposé de connexion sécurisée. Nous verrons que ce sera différent avec le serveur POP3 de Gmail ;</li>
-<li>ligne 7 : le serveur a validé l’ensemble login / mot de passe. Il indique qu’il bloque la boîte à lettres de l’utilisateur <strong>[guest]</strong> ;</li>
-<li>ligne 8 : le client lui envoie la commande <strong>[STAT]</strong> qui demande des informations sur la boîte à lettres ;</li>
-<li>ligne 9 : le serveur lui répond qu’il y a un message de 612 octets. De façon générale, il répond qu’il y a N messages et donne la taille totale de ces messages ;</li>
-<li>ligne 10 : le client envoie la commande <strong>[LIST]</strong>. Cette commande demande la liste des messages ;</li>
-<li>ligne 11 : le serveur lui envoie la liste des messages sous la forme suivante :<ul>
-<li>une ligne récapitulative avec le nombre de messages et leur taille totale ;</li>
-<li>une ligne par message indiquant le n° du message et sa taille ;</li>
+  <li>ligne 1 : le serveur POP3 envoie un message de bienvenue au client (Thunderbird) qui vient de se connecter ;
+  </li>
+  <li>ligne 2 : le client envoie la commande <b>[CAPA]</b> (capabilities) pour demander la listes des commandes qu’il peut utiliser ;
+  </li>
+  <li>ligne 3 : le serveur lui répond qu’il peut utiliser les commandes <b>[USER, UIDL, TOP]</b>. Le serveur POP commence ses réponses par <b>[+OK]</b> ou <b>[-ERR]</b> pour indiquer qu’il a réussi ou échoué à exécuter la commande du client ;
+  </li>
+  <li>ligne 4 : le client envoie la commande <b>[USER guest]</b> pour indiquer qu’il veut consulter la boîte à lettres de l’utilisateur <b>[guest]</b> ;
+  </li>
+  <li>ligne 5 : le serveur lui répond <b>[+OK]</b> et demande le mote de passe de <b>[guest]</b> ;
+  </li>
+  <li>ligne 6 : le client envoie la commande <b>[PASS password]</b> pour envoyer le mot de passe de l’utilisateur <b>[guest]</b>. Ici le mot de passe est en clair car le serveur POP3 n’a pas imposé de connexion sécurisée. Nous verrons que ce sera différent avec le serveur POP3 de Gmail ;
+  </li>
+  <li>ligne 7 : le serveur a validé l’ensemble login / mot de passe. Il indique qu’il bloque la boîte à lettres de l’utilisateur <b>[guest]</b> ;
+  </li>
+  <li>ligne 8 : le client lui envoie la commande <b>[STAT]</b> qui demande des informations sur la boîte à lettres ;
+  </li>
+  <li>ligne 9 : le serveur lui répond qu’il y a un message de 612 octets. De façon générale, il répond qu’il y a N messages et donne la taille totale de ces messages ;
+  </li>
+  <li>ligne 10 : le client envoie la commande <b>[LIST]</b>. Cette commande demande la liste des messages ;
+  </li>
+  <li>ligne 11 : le serveur lui envoie la liste des messages sous la forme suivante :
+    <ul>
+      <li>une ligne récapitulative avec le nombre de messages et leur taille totale ;
+      </li>
+      <li>une ligne par message indiquant le n° du message et sa taille ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 13 : le client envoie la commande <b>[UIDL]</b> qui demande la liste des messages avec leurs identifiants. En effet, chaque message est repéré par un n° unique au sein du service de mails ;
+  </li>
+  <li>ligne 14 : la réponse du serveur. On voit ainsi que le message n° 1 dans la liste a l’identifiant 42 ;
+  </li>
+  <li>ligne 15 : le client envoie la commande <b>[RETR 1]</b> qui demande à ce qu’on lui transfère le message n° 1 de la liste ;
+  </li>
+  <li>ligne 16 : le serveur POP3 le fait ;
+  </li>
+  <li>ligne 17 : le client envoie la commande <b>[QUIT]</b> pour indiquer qu’il va se déconnecter du serveur POP3 ;
+  </li>
+  <li>ligne 18 : le serveur va lui également fermer sa connexion avec le client mais auparavant il lui envoie un message d’au-revoir ;
+  </li>
 </ul>
-</li>
-<li>ligne 13 : le client envoie la commande <strong>[UIDL]</strong> qui demande la liste des messages avec leurs identifiants. En effet, chaque message est repéré par un n° unique au sein du service de mails ;</li>
-<li>ligne 14 : la réponse du serveur. On voit ainsi que le message n° 1 dans la liste a l’identifiant 42 ;</li>
-<li>ligne 15 : le client envoie la commande <strong>[RETR 1]</strong> qui demande à ce qu’on lui transfère le message n° 1 de la liste ;</li>
-<li>ligne 16 : le serveur POP3 le fait ;</li>
-<li>ligne 17 : le client envoie la commande <strong>[QUIT]</strong> pour indiquer qu’il va se déconnecter du serveur POP3 ;</li>
-<li>ligne 18 : le serveur va lui également fermer sa connexion avec le client mais auparavant il lui envoie un message d’au-revoir ;</li>
-</ul>
+
 <p>Nous allons reproduire maintenant des éléments du dialogue ci-dessus en utilisant le client <strong>[RawTcpClient]</strong> exécuté dans une fenêtre PyCharm :</p>
 <p><img src="images/10000000000001FC000002BAC1775AE8.png" style="width:5.871cm;height:8.071cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001FC000002BAC1775AE8.png" /></p>
 <p>Le dialogue est le suivant :</p>
@@ -5053,35 +5157,58 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : on ouvre une connexion avec le port 110 de la machine <strong>[localhost]</strong>. C’est là qu’opère le service POP3 de <strong>[hMailServer]</strong> ;</li>
-<li>aux lignes 5, 7, 9, 13, 34, nous utilisons les commandes <strong>[USER, PASS, LIST, RETR, QUIT]</strong> ;</li>
-<li>ligne 4 : le message de bienvenue du serveur POP3 ;</li>
-<li>ligne 5 : on indique qu’on veut accéder à la boîte à lettres de l’utilisateur <strong>[guest]</strong> ;</li>
-<li>ligne 7 : on envoie le mot de passe de l’utilisateur <strong>[guest]</strong> en clair ;</li>
-<li>ligne 9 : on demande la liste des messages de la boîte à lettres ;</li>
-<li>ligne 13 : on demande le message n° 1 ;</li>
-<li>lignes 14-33 : le serveur POP3 envoie le message n° 1 ;</li>
-<li>ligne 34 : on termine la session ;</li>
+  <li>ligne 1 : on ouvre une connexion avec le port 110 de la machine <b>[localhost]</b>. C’est là qu’opère le service POP3 de <b>[hMailServer]</b> ;
+  </li>
+  <li>aux lignes 5, 7, 9, 13, 34, nous utilisons les commandes <b>[USER, PASS, LIST, RETR, QUIT]</b> ;
+  </li>
+  <li>ligne 4 : le message de bienvenue du serveur POP3 ;
+  </li>
+  <li>ligne 5 : on indique qu’on veut accéder à la boîte à lettres de l’utilisateur <b>[guest]</b> ;
+  </li>
+  <li>ligne 7 : on envoie le mot de passe de l’utilisateur <b>[guest]</b> en clair ;
+  </li>
+  <li>ligne 9 : on demande la liste des messages de la boîte à lettres ;
+  </li>
+  <li>ligne 13 : on demande le message n° 1 ;
+  </li>
+  <li>lignes 14-33 : le serveur POP3 envoie le message n° 1 ;
+  </li>
+  <li>ligne 34 : on termine la session ;
+  </li>
 </ul>
+
 <p>Voici un résumé de quelques commandes courantes acceptées par un serveur POP3 :</p>
 <ul>
-<li>la commande <strong>[USER]</strong> sert à définir l’utilisateur dont on veut lire la boîte mail ;</li>
-<li>la commande <strong>[PASS]</strong> sert à définir son mot de passe ;</li>
-<li>la commande <strong>[LIST]</strong> demande la liste des messages présents dans la boîte à lettres de l’utilisateur ;</li>
-<li>la commande <strong>[RETR]</strong> demande à voir le message dont on passe le n° ;</li>
-<li>la commande <strong>[DELE]</strong> demande la suppression du message dont on passe le n° ;</li>
-<li>la commande <strong>[QUIT]</strong> indique au serveur qu’on a terminé ;</li>
+  <li>la commande <b>[USER]</b> sert à définir l’utilisateur dont on veut lire la boîte mail ;
+  </li>
+  <li>la commande <b>[PASS]</b> sert à définir son mot de passe ;
+  </li>
+  <li>la commande <b>[LIST]</b> demande la liste des messages présents dans la boîte à lettres de l’utilisateur ;
+  </li>
+  <li>la commande <b>[RETR]</b> demande à voir le message dont on passe le n° ;
+  </li>
+  <li>la commande <b>[DELE]</b> demande la suppression du message dont on passe le n° ;
+  </li>
+  <li>la commande <b>[QUIT]</b> indique au serveur qu’on a terminé ;
+  </li>
 </ul>
+
 <p>La réponse du serveur peut prendre plusieurs formes :</p>
 <ul>
-<li>une ligne unique commençant par <strong>[+OK]</strong> pour indiquer que la commande précédente du client a réussi ;</li>
-<li>une ligne unique commençant par <strong>[-ERR]</strong> pour indiquer que la commande précédente du client a échoué ;</li>
-<li>plusieurs lignes où :<ul>
-<li>la 1re ligne commence par <strong>[+OK]</strong> ;</li>
-<li>la dernière ligne est constituée d’un unique point ;</li>
+  <li>une ligne unique commençant par <b>[+OK]</b> pour indiquer que la commande précédente du client a réussi ;
+  </li>
+  <li>une ligne unique commençant par <b>[-ERR]</b> pour indiquer que la commande précédente du client a échoué ;
+  </li>
+  <li>plusieurs lignes où :
+    <ul>
+      <li>la 1re ligne commence par <b>[+OK]</b> ;
+      </li>
+      <li>la dernière ligne est constituée d’un unique point ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="toc48549136"></a>
 <a id="refheadingtoc1357262222329424"></a></p>
 <h3 id="2163-scripts-pop301-un-client-pop3-basique">21.6.3. scripts [pop3/01] : un client POP3 basique</h3>
@@ -5119,15 +5246,24 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3-24 : la liste des boîtes à lettres à consulter. Ici il n’y en a qu’une ;</li>
-<li>lignes 4-12 : significations des éléments du dictionnaire définissant chacune des boîtes à lettres ;</li>
-<li>ligne 15 : le serveur POP3 interrogé est le serveur local <strong>[hMailServer]</strong> ;</li>
-<li>lignes 17-18 : on veut lire la boîte à lettres de l’utilisateur <strong>[guest@localhost]</strong> ;</li>
-<li>ligne 19 : on lira au plus 10 mails ;</li>
-<li>ligne 20 : le client aura un délai d&#x27;attente d&#x27;une réponse du serveur d’au plus 1 seconde ;</li>
-<li>ligne 21 : le type d&#x27;encodage des messages lus  ;</li>
-<li>ligne 22 : on ne supprimera pas les messages téléchargés ;</li>
+  <li>lignes 3-24 : la liste des boîtes à lettres à consulter. Ici il n’y en a qu’une ;
+  </li>
+  <li>lignes 4-12 : significations des éléments du dictionnaire définissant chacune des boîtes à lettres ;
+  </li>
+  <li>ligne 15 : le serveur POP3 interrogé est le serveur local <b>[hMailServer]</b> ;
+  </li>
+  <li>lignes 17-18 : on veut lire la boîte à lettres de l’utilisateur <b>[guest@localhost]</b> ;
+  </li>
+  <li>ligne 19 : on lira au plus 10 mails ;
+  </li>
+  <li>ligne 20 : le client aura un délai d&#x27;attente d&#x27;une réponse du serveur d’au plus 1 seconde ;
+  </li>
+  <li>ligne 21 : le type d&#x27;encodage des messages lus  ;
+  </li>
+  <li>ligne 22 : on ne supprimera pas les messages téléchargés ;
+  </li>
 </ul>
+
 <p>Le script <strong>[pop3/01/main.py]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -5206,8 +5342,10 @@
 <p><strong>Commentaires</strong></p>
 <p>Comme nous l’avons dit, <strong>[pop3/01/main.py]</strong> est un portage du script <strong>[smtp/01/main.py]</strong> que nous avons déjà commenté. Nous ne commenterons que les principales différences :</p>
 <ul>
-<li>ligne 64 : la fonction <strong>[readmails]</strong> est chargée de lire les mails d&#x27;une boîte aux lettres. Les informations pour se connecter à cette boîte à lettres sont dans le dictionnaire <strong>[mailbox]</strong>. Le second paramètre <strong>[True]</strong> est le paramètre <strong>[Verbose]</strong> qui demande ici un suivi des échanges client / serveur ;</li>
+  <li>ligne 64 : la fonction <b>[readmails]</b> est chargée de lire les mails d&#x27;une boîte aux lettres. Les informations pour se connecter à cette boîte à lettres sont dans le dictionnaire <b>[mailbox]</b>. Le second paramètre <b>[True]</b> est le paramètre <b>[Verbose]</b> qui demande ici un suivi des échanges client / serveur ;
+  </li>
 </ul>
+
 <p>La fonction <strong>[readmails]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># -----------------------------------------------------------------------<span style="color:#000000"></span></span>
@@ -5267,20 +5405,32 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 8-14 : on récupère les informations de configuration de la boîte à lettres à consulter ;</li>
-<li>lignes 19-20 : ouverture d’une connexion avec le serveur POP3 ;</li>
-<li>lignes 26-27 : lecture du message de bienvenue envoyé par le serveur ;</li>
-<li>lignes 28-29 : on envoie la commande <strong>[USER]</strong> pour identifier l’utilisateur dont on veut les mails ;</li>
-<li>lignes 30-31 : on envoie la commande <strong>[PASS]</strong> pour donner le mot de passe de cet utilisateur ;</li>
-<li>lignes 32-33 : on envoie la commande <strong>[LIST]</strong> pour savoir combien il y a de mails dans la boîte à lettres de cet utilisateur. La fonction <strong>[sendCommand]</strong> renvoie la première ligne de la réponse du serveur. Dans celle-ci le serveur indique combien il y a de messages dans la boîte à lettres ;</li>
-<li>lignes 34-36 : on récupère le nombre de messages dans la 1re ligne de la réponse ;</li>
-<li>lignes 39-46 : on boucle sur chacun des messages. Pour chacun d’eux on émet deux commandes :<ul>
-<li>RETR i : pour récupérer le message n° i (lignes 40-41) ;</li>
-<li>DELE i : pour le supprimer si la configuration demande que les messages lus soient supprimés du serveur (lignes 43-44) ;</li>
+  <li>lignes 8-14 : on récupère les informations de configuration de la boîte à lettres à consulter ;
+  </li>
+  <li>lignes 19-20 : ouverture d’une connexion avec le serveur POP3 ;
+  </li>
+  <li>lignes 26-27 : lecture du message de bienvenue envoyé par le serveur ;
+  </li>
+  <li>lignes 28-29 : on envoie la commande <b>[USER]</b> pour identifier l’utilisateur dont on veut les mails ;
+  </li>
+  <li>lignes 30-31 : on envoie la commande <b>[PASS]</b> pour donner le mot de passe de cet utilisateur ;
+  </li>
+  <li>lignes 32-33 : on envoie la commande <b>[LIST]</b> pour savoir combien il y a de mails dans la boîte à lettres de cet utilisateur. La fonction <b>[sendCommand]</b> renvoie la première ligne de la réponse du serveur. Dans celle-ci le serveur indique combien il y a de messages dans la boîte à lettres ;
+  </li>
+  <li>lignes 34-36 : on récupère le nombre de messages dans la 1re ligne de la réponse ;
+  </li>
+  <li>lignes 39-46 : on boucle sur chacun des messages. Pour chacun d’eux on émet deux commandes :
+    <ul>
+      <li>RETR i : pour récupérer le message n° i (lignes 40-41) ;
+      </li>
+      <li>DELE i : pour le supprimer si la configuration demande que les messages lus soient supprimés du serveur (lignes 43-44) ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 47-48 : on envoie la commande <b>[QUIT]</b> pour dire au serveur qu’on a terminé ;
+  </li>
 </ul>
-</li>
-<li>lignes 47-48 : on envoie la commande <strong>[QUIT]</strong> pour dire au serveur qu’on a terminé ;</li>
-</ul>
+
 <p>La fonction <strong>[send_command]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># --------------------------------------------------------------------------<span style="color:#000000"></span></span>
@@ -5334,15 +5484,24 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 13-18 : la commande <strong>[command]</strong> n&#x27;est envoyée au serveur POP3 que si elle est non vide. Ce cas est nécessaire pour lire le message de bienvenue du serveur POP3 qu&#x27;il envoie alors même que le client n&#x27;a pas encore envoyé de commandes ;</li>
-<li>lignes 19-21 : on lit la socket comme si elle était un fichier texte. Cela va nous permettre d&#x27;utiliser la méthode <strong>[readline]</strong> (ligne 24) et de lire ainsi le message ligne par ligne. On utilise la clé <strong>[encoding]</strong> du dictionnaire <strong>[mailbox]</strong> pour indiquer le codage des lignes qui vont être lues ;</li>
-<li>ligne 24 : on lit la 1re ligne de la réponse ;</li>
-<li>lignes 28-32 : on gère le cas d&#x27;une éventuelle erreur. Celles-ci sont du type <strong>[-ERR invalid password, -ERR mailbox unknown, -ERR unable to lock mailbox…]</strong> ;</li>
-<li>ligne 32 : on lance une exception avec le message de l&#x27;erreur ;</li>
-<li>ligne 35 : seules les commandes <strong>[list, retr]</strong> peuvent avoir des réponses à plusieurs lignes ;</li>
-<li>lignes 36-45 : dans le cas d&#x27;une réponse à plusieurs lignes, on affiche toutes les lignes reçues (lignes 42-43) jusqu&#x27;à recevoir la dernière ligne (ligne 45) ;</li>
-<li>ligne 46 : on rend la 1re ligne lue car dans le cas de la commande <strong>[LIST]</strong>, elle comporte le nombre de messages présents dans la boîte à lettres ;</li>
+  <li>lignes 13-18 : la commande <b>[command]</b> n&#x27;est envoyée au serveur POP3 que si elle est non vide. Ce cas est nécessaire pour lire le message de bienvenue du serveur POP3 qu&#x27;il envoie alors même que le client n&#x27;a pas encore envoyé de commandes ;
+  </li>
+  <li>lignes 19-21 : on lit la socket comme si elle était un fichier texte. Cela va nous permettre d&#x27;utiliser la méthode <b>[readline]</b> (ligne 24) et de lire ainsi le message ligne par ligne. On utilise la clé <b>[encoding]</b> du dictionnaire <b>[mailbox]</b> pour indiquer le codage des lignes qui vont être lues ;
+  </li>
+  <li>ligne 24 : on lit la 1re ligne de la réponse ;
+  </li>
+  <li>lignes 28-32 : on gère le cas d&#x27;une éventuelle erreur. Celles-ci sont du type <b>[-ERR invalid password, -ERR mailbox unknown, -ERR unable to lock mailbox…]</b> ;
+  </li>
+  <li>ligne 32 : on lance une exception avec le message de l&#x27;erreur ;
+  </li>
+  <li>ligne 35 : seules les commandes <b>[list, retr]</b> peuvent avoir des réponses à plusieurs lignes ;
+  </li>
+  <li>lignes 36-45 : dans le cas d&#x27;une réponse à plusieurs lignes, on affiche toutes les lignes reçues (lignes 42-43) jusqu&#x27;à recevoir la dernière ligne (ligne 45) ;
+  </li>
+  <li>ligne 46 : on rend la 1re ligne lue car dans le cas de la commande <b>[LIST]</b>, elle comporte le nombre de messages présents dans la boîte à lettres ;
+  </li>
 </ul>
+
 <p><strong>Résultats</strong></p>
 <p>Prenons l&#x27;exemple précédent. Avec Thunderbird, nous avions envoyé le message suivant à l&#x27;utilisateur <strong>[guest@localhost]</strong> (il faut que le serveur hMailServer soit lancé) :</p>
 <p><img src="images/100000000000047300000283D01ECC0A.png" style="width:13.151cm;height:7.421cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047300000283D01ECC0A.png" /></p>
@@ -5389,13 +5548,18 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 15-31 : on récupère correctement le message envoyé à <strong>[guest@localhost]</strong>.</li>
+  <li>lignes 15-31 : on récupère correctement le message envoyé à <b>[guest@localhost]</b>.
+  </li>
 </ul>
+
 <p>Nous avons là un client POP3 basique auquel il manque certaines capacités :</p>
 <ol>
-<li>la possibilité de dialoguer avec un serveur POP3 sécurisé ;</li>
-<li>la possibilité de lire les pièces attachées à un message ;</li>
+  <li>la possibilité de dialoguer avec un serveur POP3 sécurisé ;
+  </li>
+  <li>la possibilité de lire les pièces attachées à un message ;
+  </li>
 </ol>
+
 <p>Nous allons implémenter ces deux possibilités avec un nouveau script qui sera cette fois plus complexe.</p>
 <p><a id="scriptspop302"></a>
 <a id="scriptpop3-02"></a>
@@ -5405,14 +5569,20 @@
 <p>Nous allons écrire un client POP3 permettant de gérer les pièces attachées ainsi que la communication avec des serveurs sécurisés. Par ailleurs, nous sauvegarderons dans des fichiers, les messages et leurs pièces attachées.</p>
 <p>Nous allons utiliser deux modules Python :</p>
 <ul>
-<li><strong>[poplib]</strong> : qui va assurer le protocole POP3 ;</li>
-<li><strong>[email]</strong> : qui regroupe de nombreux sous-modules qui vont nous permettre d&#x27;analyser les messages reçus. Chaque message est une chaîne de caractères structurée dans laquelle on peut retrouver :<ul>
-<li>les entêtes du message <strong>[From, To, Subject, Return-Path…]</strong> ;</li>
-<li>le message dans ses versions texte et éventuellement HTML ;</li>
-<li>les pièces attachées ;</li>
+  <li><b>[poplib]</b> : qui va assurer le protocole POP3 ;
+  </li>
+  <li><b>[email]</b> : qui regroupe de nombreux sous-modules qui vont nous permettre d&#x27;analyser les messages reçus. Chaque message est une chaîne de caractères structurée dans laquelle on peut retrouver :
+    <ul>
+      <li>les entêtes du message <b>[From, To, Subject, Return-Path…]</b> ;
+      </li>
+      <li>le message dans ses versions texte et éventuellement HTML ;
+      </li>
+      <li>les pièces attachées ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><img src="images/10000000000001B1000001EBDD5E2D9F.png" style="width:4.989cm;height:5.659cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001B1000001EBDD5E2D9F.png" /></p>
 <p>Le script <strong>[inet/pop3/02/main]</strong> <strong>[1]</strong> est configuré par le fichier <strong>[inet/pop3/02/config]</strong> <strong>[2]</strong> et utilise le module <strong>[inet/shared/mail_parser]</strong> <strong>[3]</strong>.</p>
 <p>Le fichier <strong>[pop3/02/config]</strong> est le suivant :</p>
@@ -5468,14 +5638,22 @@
 <p>Le fichier définit la liste des boîtes à lettres à consulter et fixe le Python Path de l’application.</p>
 <p>Il n’y a ici qu’une unique boîte à lettres :</p>
 <ul>
-<li>lignes 22-23 : l&#x27;utilisateur dont on veut lire les mails ;</li>
-<li>lignes 20-21 : le nom et le port du serveur POP3 qui stocke les mails de cet utilisateur ;</li>
-<li>ligne 24 : le nombre maximum de mails à récupérer. En effet, si vous essayez ce script sur votre propre boîte mail, vous ne voudrez sans doute pas récupérer les centaines de mails qui s&#x27;y trouvent ;</li>
-<li>ligne 25 : booléen qui indique si après la lecture d&#x27;un mail, on doit supprimer celui-ci (delete=True) ;</li>
-<li>ligne 26 : l’attribut <strong>[ssl]</strong> à True signifie que le serveur POP3 défini aux lignes 20-21 utilise une connexion cryptée ;</li>
-<li>ligne 27 : le temps d&#x27;attente maximal des réponses du serveur exprimé en secondes ;</li>
-<li>ligne 28 : le dossier dans lequel ranger les mails lus. Il sera créé s&#x27;il n&#x27;existe pas. On a ici un nom relatif. A l&#x27;exécution, il sera relatif au dossier à partir duquel vous lancez le script. Avec <strong>[Pycharm]</strong>, ce dossier sera celui du script <strong>[pop3/02]</strong> ;</li>
+  <li>lignes 22-23 : l&#x27;utilisateur dont on veut lire les mails ;
+  </li>
+  <li>lignes 20-21 : le nom et le port du serveur POP3 qui stocke les mails de cet utilisateur ;
+  </li>
+  <li>ligne 24 : le nombre maximum de mails à récupérer. En effet, si vous essayez ce script sur votre propre boîte mail, vous ne voudrez sans doute pas récupérer les centaines de mails qui s&#x27;y trouvent ;
+  </li>
+  <li>ligne 25 : booléen qui indique si après la lecture d&#x27;un mail, on doit supprimer celui-ci (delete=True) ;
+  </li>
+  <li>ligne 26 : l’attribut <b>[ssl]</b> à True signifie que le serveur POP3 défini aux lignes 20-21 utilise une connexion cryptée ;
+  </li>
+  <li>ligne 27 : le temps d&#x27;attente maximal des réponses du serveur exprimé en secondes ;
+  </li>
+  <li>ligne 28 : le dossier dans lequel ranger les mails lus. Il sera créé s&#x27;il n&#x27;existe pas. On a ici un nom relatif. A l&#x27;exécution, il sera relatif au dossier à partir duquel vous lancez le script. Avec <b>[Pycharm]</b>, ce dossier sera celui du script <b>[pop3/02]</b> ;
+  </li>
 </ul>
+
 <p>Le script <strong>[pop3/02/main]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -5517,8 +5695,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 17-36 : la partie <strong>[main]</strong> du script est analogue à celle du script <strong>[pop3/01]</strong> ;</li>
+  <li>lignes 17-36 : la partie <b>[main]</b> du script est analogue à celle du script <b>[pop3/01]</b> ;
+  </li>
 </ul>
+
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">readmails</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># lecture d&#x27;une boîte mail<span style="color:#000000"></span></span>
@@ -5616,48 +5796,79 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 6-7 : on importe la fonction <strong>[mail_parser.save_message]</strong> utilisée ligne 80 ; </li>
-<li>le code de la fonction est encapsulée dans un try (ligne 22)/ finally (ligne 88). Ainsi toutes les exceptions remontent au code principal qui les arrêtent et les affichent ;</li>
-<li>lignes 11-18 : on récupère les informations de configuration de la boîte à lettres ;</li>
-<li>lignes 23-33 : tous les messages seront stockés dans le dossier <strong>[output/user]</strong> où <strong>[output]</strong> et <strong>[user]</strong> sont définis dans la configuration. On crée donc successivement les dossiers <strong>[output]</strong> puis <strong>[output/user]</strong>. Pour créer ce dernier, on le supprime d&#x27;abord ligne 31. <strong>[shutil]</strong> est un module qu&#x27;il faut importer. <strong>[shutil.rmtree(dir)]</strong> supprime le dossier <strong>[dir]</strong> et tout ce qu&#x27;il contient ;</li>
-<li>pour toutes les opérations sur les fichiers système on utilise le module <strong>[os]</strong> qu&#x27;il faut également importer ;</li>
-<li>lignes 34-38 : on ouvre une connexion avec le serveur POP3. Si le serveur est sécurisé, on utilise la classe <strong>[poplib.POP3_SSL]</strong> sinon la classe <strong>[poplib.POP3]</strong>. L&#x27;attribut <strong>[ssl]</strong> utilisé ligne 35 provient de la configuration de la boîte à lettres ;</li>
-<li>ligne 45 : on fixe un niveau de logs :<ul>
-<li>0 : pas de logs ;</li>
-<li>1 : les commandes émises par le client POP3 sont loguées ;</li>
-<li>2 : logs détaillés. On voit également ce que reçoit le client POP3 ;</li>
+  <li>lignes 6-7 : on importe la fonction <b>[mail_parser.save_message]</b> utilisée ligne 80 ; 
+  </li>
+  <li>le code de la fonction est encapsulée dans un try (ligne 22)/ finally (ligne 88). Ainsi toutes les exceptions remontent au code principal qui les arrêtent et les affichent ;
+  </li>
+  <li>lignes 11-18 : on récupère les informations de configuration de la boîte à lettres ;
+  </li>
+  <li>lignes 23-33 : tous les messages seront stockés dans le dossier <b>[output/user]</b> où <b>[output]</b> et <b>[user]</b> sont définis dans la configuration. On crée donc successivement les dossiers <b>[output]</b> puis <b>[output/user]</b>. Pour créer ce dernier, on le supprime d&#x27;abord ligne 31. <b>[shutil]</b> est un module qu&#x27;il faut importer. <b>[shutil.rmtree(dir)]</b> supprime le dossier <b>[dir]</b> et tout ce qu&#x27;il contient ;
+  </li>
+  <li>pour toutes les opérations sur les fichiers système on utilise le module <b>[os]</b> qu&#x27;il faut également importer ;
+  </li>
+  <li>lignes 34-38 : on ouvre une connexion avec le serveur POP3. Si le serveur est sécurisé, on utilise la classe <b>[poplib.POP3_SSL]</b> sinon la classe <b>[poplib.POP3]</b>. L&#x27;attribut <b>[ssl]</b> utilisé ligne 35 provient de la configuration de la boîte à lettres ;
+  </li>
+  <li>ligne 45 : on fixe un niveau de logs :
+    <ul>
+      <li>0 : pas de logs ;
+      </li>
+      <li>1 : les commandes émises par le client POP3 sont loguées ;
+      </li>
+      <li>2 : logs détaillés. On voit également ce que reçoit le client POP3 ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 47 : après la connexion, leserveur POP3 envoie un message de bienvenue. On lit celui-ci ;
+  </li>
+  <li>lignes 48-49 : commande USER du protocole POP3 ;
+  </li>
+  <li>lignes 50-51 : commande PASS du protocole POP3 ;
+  </li>
+  <li>lignes 52-53 : commande LIST du protocole POP3. La réponse est un tuple (response, <b>[&#x27;mesg_num octets&#x27;…]</b>, octets), par exemple liste=(b&#x27;+OK 3 messages (3859 octets)&#x27;, <b>[b&#x27;1 584&#x27;, b&#x27;2 550&#x27;, b&#x27;3 2725&#x27;]</b>, 22). On voit que les deux premiers éléments du tuple sont des bytes (préfixe b). liste<b>[1]</b> est un tableau où chaque élément est une suite d&#x27;octets contenant deux informations : le n° du message et sa taille en octets ;
+  </li>
+  <li>ligne 56 : de ce qui précède on déduit que le nombre de messages dans la boîte à lettres peut être obtenu par <b>[len[liste1]</b>] ;
+  </li>
+  <li>lignes 59-84 : on boucle sur chacun des messages. On s&#x27;arrête lorsque tous ont été lus ou qu&#x27;on a atteint le nombre maximal de mails fixé par configuration ;
+  </li>
+  <li>ligne 61 : élément courant du tableau liste<b>[1]</b>, donc quelque chose comme b&#x27;1 584&#x27;, une suite d&#x27;octets ;
+  </li>
+  <li>ligne 63 : on passe de la suite d&#x27;octets à une chaîne de caractères. On a maintenant la chaîne &#x27;1 584&#x27; ;
+  </li>
+  <li>ligne 66 : on récupère le n° du message, ici la chaîne &#x27;1&#x27; ;
+  </li>
+  <li>ligne 68 : on émet la commande POP3 RETR num. On récupère une réponse du genre :
+  </li>
 </ul>
-</li>
-<li>ligne 47 : après la connexion, leserveur POP3 envoie un message de bienvenue. On lit celui-ci ;</li>
-<li>lignes 48-49 : commande USER du protocole POP3 ;</li>
-<li>lignes 50-51 : commande PASS du protocole POP3 ;</li>
-<li>lignes 52-53 : commande LIST du protocole POP3. La réponse est un tuple (response, <strong>[&#x27;mesg_num octets&#x27;…]</strong>, octets), par exemple liste=(b&#x27;+OK 3 messages (3859 octets)&#x27;, <strong>[b&#x27;1 584&#x27;, b&#x27;2 550&#x27;, b&#x27;3 2725&#x27;]</strong>, 22). On voit que les deux premiers éléments du tuple sont des bytes (préfixe b). liste<strong>[1]</strong> est un tableau où chaque élément est une suite d&#x27;octets contenant deux informations : le n° du message et sa taille en octets ;</li>
-<li>ligne 56 : de ce qui précède on déduit que le nombre de messages dans la boîte à lettres peut être obtenu par <strong>[len[liste1]</strong>] ;</li>
-<li>lignes 59-84 : on boucle sur chacun des messages. On s&#x27;arrête lorsque tous ont été lus ou qu&#x27;on a atteint le nombre maximal de mails fixé par configuration ;</li>
-<li>ligne 61 : élément courant du tableau liste<strong>[1]</strong>, donc quelque chose comme b&#x27;1 584&#x27;, une suite d&#x27;octets ;</li>
-<li>ligne 63 : on passe de la suite d&#x27;octets à une chaîne de caractères. On a maintenant la chaîne &#x27;1 584&#x27; ;</li>
-<li>ligne 66 : on récupère le n° du message, ici la chaîne &#x27;1&#x27; ;</li>
-<li>ligne 68 : on émet la commande POP3 RETR num. On récupère une réponse du genre :</li>
-</ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="font-weight:bold">[message=(b&#x27;+OK 584 octets&#x27;, [b&#x27;</span><span style="font-weight:bold;background-color:#ffdbb6">Return-Path</span><span style="font-weight:bold">: guest@localhost&#x27;, b&#x27;</span><span style="font-weight:bold;background-color:#ffdbb6">Received</span><span style="font-weight:bold">: from [127.0.0.1]</span> (localhost <span style="font-weight:bold">[127.0.0.1]</span>)&#x27;, b&#x27;\tby DESKTOP-528I5CU with ESMTPA&#x27;, b&#x27;\t; Tue, 17 Mar 2020 09:41:50 +0100&#x27;, b&#x27;<span style="background-color:#ffdbb6">To</span>: guest@localhost&#x27;, <span style="background-color:#ffdbb6">b&#x27;From</span>: &quot;guest@localhost&quot; &lt;guest@localhost&gt;&#x27;, <span style="background-color:#ffdbb6">b&#x27;Subject</span>: test&#x27;, b&#x27;<span style="background-color:#ffdbb6">Message-ID</span>: &lt;2572d0f0-5b7c-2c31-5a70-c628293d5709@localhost&gt;&#x27;, <span style="background-color:#ffdbb6">b&#x27;Date</span>: Tue, 17 Mar 2020 09:41:48 +0100&#x27;, b&#x27;<span style="background-color:#ffdbb6">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101&#x27;, b&#x27; Thunderbird/68.6.0&#x27;, b&#x27;MIME-Version: 1.0&#x27;, b&#x27;<span style="background-color:#ffdbb6">Content-Type</span>: text/plain; <span style="background-color:#ffdbb6">charset=utf-8</span>; format=flowed&#x27;, b&#x27;<span style="background-color:#ffdbb6">Content-Transfer-Encoding</span>: 8bit&#x27;, b&#x27;<span style="background-color:#ffdbb6">Content-Language</span>: fr&#x27;, b&#x27;&#x27;, b&#x27;<span style="background-color:#ffdbb6">h\xc3\xa9l\xc3\xa8ne est all\xc3\xa9e au march\xc3\xa9 acheter des l\xc3\xa9gumes.</span>&#x27;, b&#x27;&#x27;], 614)]</span>
 </code></pre></div>
 
 <ul>
-<li>(suite)<ul>
-<li>message est un tuple de trois éléments ;</li>
-<li>message<strong>[1]</strong> est un tableau de lignes. Chaque ligne est une suite d&#x27;octets (préfixe b). Le message complet est formé par cet ensemble de lignes ;</li>
-<li><strong>[Return-Path, Received, To, Subject, Message-ID, Content-Type, Content-Transfer-Encoding, Content-Language]</strong> sont les entêtes du message. Chacun donne une information sur le message reçu. Ces informations vont permettre de récupérer le corps du message (avant-dernier élément du tableau message<strong>[1]</strong>) ;</li>
+  <li>(suite)
+    <ul>
+      <li>message est un tuple de trois éléments ;
+      </li>
+      <li>message<b>[1]</b> est un tableau de lignes. Chaque ligne est une suite d&#x27;octets (préfixe b). Le message complet est formé par cet ensemble de lignes ;
+      </li>
+      <li><b>[Return-Path, Received, To, Subject, Message-ID, Content-Type, Content-Transfer-Encoding, Content-Language]</b> sont les entêtes du message. Chacun donne une information sur le message reçu. Ces informations vont permettre de récupérer le corps du message (avant-dernier élément du tableau message<b>[1]</b>) ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 71-73 : on crée la chaîne <b>[strMessage]</b> formée de toutes les lignes du message. On a maintenant le message sous forme d&#x27;une chaîne de caractères. Ce message peut contenir d&#x27;autres messages ainsi que des pièces attachées. Car les pièces attachées le sont sous la forme d&#x27;une chaîne de caractères. Donc un point à retenir, c&#x27;est qu&#x27;un mail est au départ une chaîne de caractères et c&#x27;est cette chaîne de caractères qu&#x27;il faut analyser pour en extraire les pièces attachées, les éventuels autres messages encapsulés et bien sûr le corps du message, ce qu&#x27;a écrit l&#x27;expéditeur ;
+  </li>
+  <li>lignes 74-78 : on va ranger le corps du message et les pièces attachées message dans le dossier <b>[dir3]</b> ;
+  </li>
+  <li>lignes 79-80 : on va déléguer l&#x27;analyse du message à une fonction <b>[save_message]</b> :
+    <ul>
+      <li>le 1er paramètre est <b>[dir3]</b>, le dossier dans lequel le contenu du message doit être rangé ;
+      </li>
+      <li>le second paramètre est un type <b>[email.message.Message]</b>. Cet objet a les méthodes pour récupérer les différentes parties du message (corps, pièces attachées) ainsi que tous ses entêtes. Il faut importer le module <b>[email]</b> pour disposer de cet objet. La fonction <b>[</b><b><span style="color: #6f008a">email</span></b><b><span style="color: #000000">.message_from_string</span></b><b>]</b> permet de construire un objet <b>[email.message.Message]</b> à partir de la chaîne de caractères du message ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>lignes 71-73 : on crée la chaîne <strong>[strMessage]</strong> formée de toutes les lignes du message. On a maintenant le message sous forme d&#x27;une chaîne de caractères. Ce message peut contenir d&#x27;autres messages ainsi que des pièces attachées. Car les pièces attachées le sont sous la forme d&#x27;une chaîne de caractères. Donc un point à retenir, c&#x27;est qu&#x27;un mail est au départ une chaîne de caractères et c&#x27;est cette chaîne de caractères qu&#x27;il faut analyser pour en extraire les pièces attachées, les éventuels autres messages encapsulés et bien sûr le corps du message, ce qu&#x27;a écrit l&#x27;expéditeur ;</li>
-<li>lignes 74-78 : on va ranger le corps du message et les pièces attachées message dans le dossier <strong>[dir3]</strong> ;</li>
-<li>lignes 79-80 : on va déléguer l&#x27;analyse du message à une fonction <strong>[save_message]</strong> :<ul>
-<li>le 1er paramètre est <strong>[dir3]</strong>, le dossier dans lequel le contenu du message doit être rangé ;</li>
-<li>le second paramètre est un type <strong>[email.message.Message]</strong>. Cet objet a les méthodes pour récupérer les différentes parties du message (corps, pièces attachées) ainsi que tous ses entêtes. Il faut importer le module <strong>[email]</strong> pour disposer de cet objet. La fonction <strong>[</strong><strong><span style="color: #6f008a">email</span></strong><strong><span style="color: #000000">.message_from_string</span></strong><strong>]</strong> permet de construire un objet <strong>[email.message.Message]</strong> à partir de la chaîne de caractères du message ;</li>
-</ul>
-</li>
-</ul>
+
 <p>La fonction <strong>[save_message]</strong> fait partie du module <strong>[mail_parser]</strong> :</p>
 <p><img src="images/10000000000001310000017594E4CCCF.png" style="width:3.511cm;height:4.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001310000017594E4CCCF.png" /></p>
 <p>Le module <strong>[mail_parser]</strong> a été importé aux lignes 6-7 de la fonction <strong>[readmails]</strong> ;</p>
@@ -5706,41 +5917,68 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>ligne 12 : la fonction reçoit au plus trois paramètres :</li>
-<li><strong>[output]</strong> : le dossier où enregistrer le message (2ième paramètre) ;</li>
-<li><strong>[email_message]</strong> : un message de type <strong>[email.message.Message]</strong>. Ce type est un type structuré. Il contient le texte du mail ainsi que tous les fichiers attachés et offre des méthodes pour récupérer ses différents éléments ;</li>
-<li><strong>[irfc822]</strong> : ce paramètre est utilisé pour numéroter les mails encapsulés dans <strong>[email_message]</strong><strong> ;</strong></li>
-<li>ligne 18 : l&#x27;objet <strong>[email_message]</strong> est mis dans <strong>[part]</strong>. Le type <strong>[email.message.Message]</strong> contient des parties <strong>[part]</strong> (corps du message, pièces attachées, mails encapsulés) qui ont également le type <strong>[email.message.Message]</strong>. Chaque partie <strong>[part]</strong> peut avoir des sous-parties. Ainsi le type <strong>[email.message.Message]</strong> est un arbre d&#x27;éléments de type <strong>[email.message.Message]</strong> :<ul>
-<li><strong>[part.ismultipart()]</strong> vaut <strong>[True]</strong> si la partie <strong>[part]</strong> contient des sous-parties. Celles-ci sont alors disponibles via <strong>[part.get_payload()]</strong> ;</li>
-<li>lorsque <strong>[part.ismultipart()]</strong> vaut <strong>[False]</strong>, c&#x27;est qu&#x27;on est arrivé à une feuille de l&#x27;arbre du message initial : il peut s&#x27;agir :<ul>
-<li>du corps du message sous la forme d&#x27;un texte normal ;</li>
-<li>du corps du message sous la forme d&#x27;un texte HTML ;</li>
-<li>d&#x27;une pièce attachée (à l&#x27;exception d&#x27;un message encapsulé pour lequel <strong>[part.ismultipart()]</strong> vaut <strong>[True]</strong>) ;</li>
+  <li>ligne 12 : la fonction reçoit au plus trois paramètres :
+  </li>
+  <li><b>[output]</b> : le dossier où enregistrer le message (2ième paramètre) ;
+  </li>
+  <li><b>[email_message]</b> : un message de type <b>[email.message.Message]</b>. Ce type est un type structuré. Il contient le texte du mail ainsi que tous les fichiers attachés et offre des méthodes pour récupérer ses différents éléments ;
+  </li>
+  <li><b>[irfc822]</b> : ce paramètre est utilisé pour numéroter les mails encapsulés dans <b>[email_message]</b><b> ;</b>
+  </li>
+  <li>ligne 18 : l&#x27;objet <b>[email_message]</b> est mis dans <b>[part]</b>. Le type <b>[email.message.Message]</b> contient des parties <b>[part]</b> (corps du message, pièces attachées, mails encapsulés) qui ont également le type <b>[email.message.Message]</b>. Chaque partie <b>[part]</b> peut avoir des sous-parties. Ainsi le type <b>[email.message.Message]</b> est un arbre d&#x27;éléments de type <b>[email.message.Message]</b> :
+    <ul>
+      <li><b>[part.ismultipart()]</b> vaut <b>[True]</b> si la partie <b>[part]</b> contient des sous-parties. Celles-ci sont alors disponibles via <b>[part.get_payload()]</b> ;
+      </li>
+      <li>lorsque <b>[part.ismultipart()]</b> vaut <b>[False]</b>, c&#x27;est qu&#x27;on est arrivé à une feuille de l&#x27;arbre du message initial : il peut s&#x27;agir :
+        <ul>
+          <li>du corps du message sous la forme d&#x27;un texte normal ;
+          </li>
+          <li>du corps du message sous la forme d&#x27;un texte HTML ;
+          </li>
+          <li>d&#x27;une pièce attachée (à l&#x27;exception d&#x27;un message encapsulé pour lequel <b>[part.ismultipart()]</b> vaut <b>[True]</b>) ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>de par la nature en arbre du paramètre <b>[email.message.Message]</b>, la fonction <b>[save_message]</b> sera appelée de façon récursive. La récursivité cesse lorsqu&#x27;on atteint les feuilles de l&#x27;arbre, ç-à-d une partie <b>[part]</b> pour laquelle <b>[part.ismultipart()]</b> vaut <b>[False]</b> ;
+  </li>
+  <li>ligne 21 : nous demandons à voir les clés (ou entêtes) du message couramment analysé (qui de par la récursivité peut être une sous-partie du message initial) ;
+  </li>
+  <li>lignes 23-35 : on veut enregistrer les entêtes :
+    <ul>
+      <li><b>[From]</b> : l&#x27;expéditeur du message ;
+      </li>
+      <li><b>[To]</b> : le destinataire du message ;
+      </li>
+      <li><b>[Subject]</b> : le sujet du message ;
+      </li>
+      <li><b>[Return-Path]</b> : le destinataire à qui on doit répondre si on veut répondre. En effet, cette information n&#x27;est pas toujours dans le <b>[From]</b> ;
+      </li>
+      <li><b>[User-Agent]</b> : le client POP3 qui dialogue avec le serveur POP3 ;
+      </li>
+      <li><b>[Date]</b> : date d&#x27;envoi du mail ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 23 : seule l&#x27;une des parties d&#x27;un message contient ces entêtes. Pour les autres parties, le code des lignes 23-35 sera ignoré ;
+  </li>
+  <li>lignes 25-30 : on crée une liste avec les six entêtes ;
+  </li>
+  <li>ligne 25 : analysons le 1er entête :
+    <ul>
+      <li><b>[part.get(key)]</b> permet d&#x27;avoir l&#x27;entête associé à la clé <b>[key]</b> ;
+      </li>
+      <li>cet entête peut être encodé. Si cet encodage n&#x27;est pas utf-8, on décode l&#x27;entête pour le réencoder en utf-8 à l’aide de la fonction <b>[decode_header]</b> ;
+      </li>
+      <li>le 1er entête sera de la forme <b>[From: pymail2lexemple@gmail.com]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 31-35 : on sauve les entêtes dans le fichier <b>[output/headers.txt]</b> ;
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-<li>de par la nature en arbre du paramètre <strong>[email.message.Message]</strong>, la fonction <strong>[save_message]</strong> sera appelée de façon récursive. La récursivité cesse lorsqu&#x27;on atteint les feuilles de l&#x27;arbre, ç-à-d une partie <strong>[part]</strong> pour laquelle <strong>[part.ismultipart()]</strong> vaut <strong>[False]</strong> ;</li>
-<li>ligne 21 : nous demandons à voir les clés (ou entêtes) du message couramment analysé (qui de par la récursivité peut être une sous-partie du message initial) ;</li>
-<li>lignes 23-35 : on veut enregistrer les entêtes :<ul>
-<li><strong>[From]</strong> : l&#x27;expéditeur du message ;</li>
-<li><strong>[To]</strong> : le destinataire du message ;</li>
-<li><strong>[Subject]</strong> : le sujet du message ;</li>
-<li><strong>[Return-Path]</strong> : le destinataire à qui on doit répondre si on veut répondre. En effet, cette information n&#x27;est pas toujours dans le <strong>[From]</strong> ;</li>
-<li><strong>[User-Agent]</strong> : le client POP3 qui dialogue avec le serveur POP3 ;</li>
-<li><strong>[Date]</strong> : date d&#x27;envoi du mail ;</li>
-</ul>
-</li>
-<li>ligne 23 : seule l&#x27;une des parties d&#x27;un message contient ces entêtes. Pour les autres parties, le code des lignes 23-35 sera ignoré ;</li>
-<li>lignes 25-30 : on crée une liste avec les six entêtes ;</li>
-<li>ligne 25 : analysons le 1er entête :<ul>
-<li><strong>[part.get(key)]</strong> permet d&#x27;avoir l&#x27;entête associé à la clé <strong>[key]</strong> ;</li>
-<li>cet entête peut être encodé. Si cet encodage n&#x27;est pas utf-8, on décode l&#x27;entête pour le réencoder en utf-8 à l’aide de la fonction <strong>[decode_header]</strong> ;</li>
-<li>le 1er entête sera de la forme <strong>[From: pymail2lexemple@gmail.com]</strong> ;</li>
-</ul>
-</li>
-<li>lignes 31-35 : on sauve les entêtes dans le fichier <strong>[output/headers.txt]</strong> ;</li>
-</ul>
+
 <p>La fonction <strong>[decode_header]</strong> est la suivante (toujours dans <strong>[mail_parser.py]</strong>) :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># décodage de headers<span style="color:#000000"></span></span>
@@ -5761,20 +5999,30 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>ligne 4 : on décode l&#x27;entête :<ul>
-<li>il faut importer le module <strong>[email.header]</strong> ;</li>
-<li>on obtient une liste de tuples <strong>[(header1,encoding1) , (header2, encoding2)…]</strong> ;</li>
-<li>pour les entêtes <strong>[From, To, Subject, Return-Path, Date]</strong> la liste n&#x27;aura qu&#x27;un élément ;</li>
-<li>ligne 8 : on récupère l&#x27;entête unique et son encodage :<ul>
-<li>si <strong>[encoding==None]</strong> alors <strong>[header]</strong> est l&#x27;entête sous la forme d&#x27;une chaîne de caractères ;</li>
-<li>sinon, <strong>[header]</strong> est une suite d&#x27;octets représentant l&#x27;entête encodé ;</li>
+  <li>ligne 4 : on décode l&#x27;entête :
+    <ul>
+      <li>il faut importer le module <b>[email.header]</b> ;
+      </li>
+      <li>on obtient une liste de tuples <b>[(header1,encoding1) , (header2, encoding2)…]</b> ;
+      </li>
+      <li>pour les entêtes <b>[From, To, Subject, Return-Path, Date]</b> la liste n&#x27;aura qu&#x27;un élément ;
+      </li>
+      <li>ligne 8 : on récupère l&#x27;entête unique et son encodage :
+        <ul>
+          <li>si <b>[encoding==None]</b> alors <b>[header]</b> est l&#x27;entête sous la forme d&#x27;une chaîne de caractères ;
+          </li>
+          <li>sinon, <b>[header]</b> est une suite d&#x27;octets représentant l&#x27;entête encodé ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>lignes 10-11 : s&#x27;il n&#x27;y avait pas d&#x27;encodage, alors on rend l&#x27;entête ;
+  </li>
+  <li>lignes 12-14 : s&#x27;il y avait un encodage, alors on décode,  dans une chaîne de caractères, la suite d&#x27;octets qu&#x27;on a récupérée et on rend celle-ci ;
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-<li>lignes 10-11 : s&#x27;il n&#x27;y avait pas d&#x27;encodage, alors on rend l&#x27;entête ;</li>
-<li>lignes 12-14 : s&#x27;il y avait un encodage, alors on décode,  dans une chaîne de caractères, la suite d&#x27;octets qu&#x27;on a récupérée et on rend celle-ci ;</li>
-</ul>
+
 <p>Revenons à la fonction <strong>[save_message]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># sauvegarde d&#x27;un message de type email.message.Message<span style="color:#000000"></span></span>
@@ -5830,17 +6078,26 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 1-26 : on a traité les entêtes du message initial ;</li>
-<li>lignes 28-31 : les parties d&#x27;un message de type <strong>[email.message.Message]</strong> ont un type principal et un sous-type. On les récupère ;</li>
-<li>lignes 32-35 : si la partie traitée a le type <strong>[text/plain]</strong> alors on est arrivés à une feuille de l&#x27;arbre du message initial. C&#x27;est le texte qu&#x27;a écrit l&#x27;expéditeur dans son message ;</li>
-<li>ligne 35 : ce texte est écrit dans un fichier :<ul>
-<li>le 1er paramètre <strong>[output]</strong> est le dossier dans lequel le texte doit être sauvegardé ;</li>
-<li>le second paramètre est la partie du message qui contient le texte à sauvegarder ;</li>
-<li>le troisième paramètre vaut 0 pour sauvegarder un texte normal, 1 pour un texte HTML ;</li>
+  <li>lignes 1-26 : on a traité les entêtes du message initial ;
+  </li>
+  <li>lignes 28-31 : les parties d&#x27;un message de type <b>[email.message.Message]</b> ont un type principal et un sous-type. On les récupère ;
+  </li>
+  <li>lignes 32-35 : si la partie traitée a le type <b>[text/plain]</b> alors on est arrivés à une feuille de l&#x27;arbre du message initial. C&#x27;est le texte qu&#x27;a écrit l&#x27;expéditeur dans son message ;
+  </li>
+  <li>ligne 35 : ce texte est écrit dans un fichier :
+    <ul>
+      <li>le 1er paramètre <b>[output]</b> est le dossier dans lequel le texte doit être sauvegardé ;
+      </li>
+      <li>le second paramètre est la partie du message qui contient le texte à sauvegarder ;
+      </li>
+      <li>le troisième paramètre vaut 0 pour sauvegarder un texte normal, 1 pour un texte HTML ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 37-40 : si la partie a le type <b>[text/html]</b> alors on est également arrivés à une feuille de l&#x27;arbre du message initial. C&#x27;est le texte qu&#x27;a écrit l&#x27;expéditeur dans son message, cette fois-ci au format HTML. Les gestionnaires de courrier ne proposent pas tous ce format ;
+  </li>
 </ul>
-</li>
-<li>lignes 37-40 : si la partie a le type <strong>[text/html]</strong> alors on est également arrivés à une feuille de l&#x27;arbre du message initial. C&#x27;est le texte qu&#x27;a écrit l&#x27;expéditeur dans son message, cette fois-ci au format HTML. Les gestionnaires de courrier ne proposent pas tous ce format ;</li>
-</ul>
+
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">save_textmessage</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># sauvegarde d&#x27;un message texte<span style="color:#000000"></span></span>
@@ -5884,31 +6141,48 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>comme les entêtes, le texte du message peut être encodé. Il peut y avoir deux encodages :<ul>
-<li>l&#x27;encodage initial du texte (utf-8, iso-8859-1…). C&#x27;est l&#x27;encodage utilisé par le gestionnaire de courrier qui a envoyé le message. Il est connu avec l&#x27;entête <strong>[Content-Type]</strong> du message reçu ;</li>
-<li>un second encodage qu&#x27;a pu subir le texte précédent pour être envoyé. Il est connu avec l&#x27;entête <strong>[Transfer-Content-Encoding]</strong> du message reçu ;</li>
+  <li>comme les entêtes, le texte du message peut être encodé. Il peut y avoir deux encodages :
+    <ul>
+      <li>l&#x27;encodage initial du texte (utf-8, iso-8859-1…). C&#x27;est l&#x27;encodage utilisé par le gestionnaire de courrier qui a envoyé le message. Il est connu avec l&#x27;entête <b>[Content-Type]</b> du message reçu ;
+      </li>
+      <li>un second encodage qu&#x27;a pu subir le texte précédent pour être envoyé. Il est connu avec l&#x27;entête <b>[Transfer-Content-Encoding]</b> du message reçu ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 6 : l&#x27;encodage initial du texte ;
+  </li>
+  <li>ligne 11 : le second encodage que le texte a subi pour son transfert vers le destinataire ;
+  </li>
+  <li>lignes 9, 13 : ces deux informations sont mises dans la liste <b>[headers]</b>. Elles seront rajoutées aux informations du fichier <b>[headers.txt]</b> qui enregistre certains entêtes du message ;
+  </li>
+  <li>ligne 20 : <b>[</b><b><span style="color: #6f008a">email</span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a">contentmanager</span></b><b><span style="color: #000000">.raw_data_manager.get_content</span></b><b>]</b> permet d&#x27;avoir le message avec son encodage initial 1. On s&#x27;est débarrassé de l&#x27;encodage 2. Seulement l&#x27;objet <b>[</b><b><span style="color: #6f008a">email</span></b><b><span style="color: #000000">.</span></b><b><span style="color: #6f008a">contentmanager</span></b><b><span style="color: #000000">.raw_data_manager</span></b><b>]</b> ne gère que deux types de <b>[Transfer-Content-Encoding]</b> :
+    <ul>
+      <li><b>[quoted-printable]</b> ;
+      </li>
+      <li><b>[base64]</b> ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>ligne 6 : l&#x27;encodage initial du texte ;</li>
-<li>ligne 11 : le second encodage que le texte a subi pour son transfert vers le destinataire ;</li>
-<li>lignes 9, 13 : ces deux informations sont mises dans la liste <strong>[headers]</strong>. Elles seront rajoutées aux informations du fichier <strong>[headers.txt]</strong> qui enregistre certains entêtes du message ;</li>
-<li>ligne 20 : <strong>[</strong><strong><span style="color: #6f008a">email</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">contentmanager</span></strong><strong><span style="color: #000000">.raw_data_manager.get_content</span></strong><strong>]</strong> permet d&#x27;avoir le message avec son encodage initial 1. On s&#x27;est débarrassé de l&#x27;encodage 2. Seulement l&#x27;objet <strong>[</strong><strong><span style="color: #6f008a">email</span></strong><strong><span style="color: #000000">.</span></strong><strong><span style="color: #6f008a">contentmanager</span></strong><strong><span style="color: #000000">.raw_data_manager</span></strong><strong>]</strong> ne gère que deux types de <strong>[Transfer-Content-Encoding]</strong> :<ul>
-<li><strong>[quoted-printable]</strong> ;</li>
-<li><strong>[base64]</strong> ;</li>
-</ul>
-</li>
-</ul>
+
 <p>Il ignore les autres. Or Thunderbird par exemple utilise le <strong>[Transfer-Content-Encoding]</strong> nommé &quot;8bit&quot;. Cet encodage est  ignoré et les messages avec des caractères accentués sont dénaturés. Le message peut alors être obtenu par la méthode <strong>[</strong><strong><span style="color: #808080">part</span></strong><strong><span style="color: #000000">.get_payload()</span></strong><strong>]</strong> (lignes 15-17) ;</p>
 <ul>
-<li>ligne 21 : lorsqu&#x27;on est là, on a le message débarrassé de son encodage de transfert, donc le message tel qu&#x27;il a été écrit par l&#x27;expéditeur ;</li>
-<li>lignes 22-37 : on est dans le cas où on doit sauvegarder un message texte ;<ul>
-<li>lignes 24-28 : on sauvegarde les deux entêtes construits lignes 9, 13 dans le fichier <strong>[headers.txt]</strong>. Celui-ci existe déjà et contient des entêtes. Aussi utilise-t-on le mode &quot;a&quot; (ligne 25) pour ouvrir ce fichier. &quot;a&quot; signifie &quot;append&quot; et les nouveaux entêtes sont ajoutés (en fin de fichier) au contenu existant du fichier <strong>[headers.txt]</strong> ;</li>
-<li>ligne 30 : le nom du fichier dans lequel sauvegarder le message texte ;</li>
-<li>ligne 33 : le nom du fichier dans lequel sauvegarder le message HTML ;</li>
-<li>lignes 34-37 : on sauvegarde le texte utf-8 dans un fichier ;</li>
+  <li>ligne 21 : lorsqu&#x27;on est là, on a le message débarrassé de son encodage de transfert, donc le message tel qu&#x27;il a été écrit par l&#x27;expéditeur ;
+  </li>
+  <li>lignes 22-37 : on est dans le cas où on doit sauvegarder un message texte ;
+    <ul>
+      <li>lignes 24-28 : on sauvegarde les deux entêtes construits lignes 9, 13 dans le fichier <b>[headers.txt]</b>. Celui-ci existe déjà et contient des entêtes. Aussi utilise-t-on le mode &quot;a&quot; (ligne 25) pour ouvrir ce fichier. &quot;a&quot; signifie &quot;append&quot; et les nouveaux entêtes sont ajoutés (en fin de fichier) au contenu existant du fichier <b>[headers.txt]</b> ;
+      </li>
+      <li>ligne 30 : le nom du fichier dans lequel sauvegarder le message texte ;
+      </li>
+      <li>ligne 33 : le nom du fichier dans lequel sauvegarder le message HTML ;
+      </li>
+      <li>lignes 34-37 : on sauvegarde le texte utf-8 dans un fichier ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Revenons à la fonction <strong>[save_message]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># sauvegarde d&#x27;un message de type email.message.Message<span style="color:#000000"></span></span>
@@ -5986,18 +6260,26 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 33-40 : nous avons traité deux cas possibles d&#x27;un message à une extrémité de l&#x27;arbre du message initial (pas de sous-parties). Il nous reste encore deux cas à traiter :<ul>
-<li>lignes 43-62 : le cas où la partie analysée contient elle-même des sous-parties (part.ismultipart()==True) ;</li>
-<li>lignes 63-68 : pour les cas restants, on ne traite que le cas où la partie analysée est un attachement ;</li>
+  <li>lignes 33-40 : nous avons traité deux cas possibles d&#x27;un message à une extrémité de l&#x27;arbre du message initial (pas de sous-parties). Il nous reste encore deux cas à traiter :
+    <ul>
+      <li>lignes 43-62 : le cas où la partie analysée contient elle-même des sous-parties (part.ismultipart()==True) ;
+      </li>
+      <li>lignes 63-68 : pour les cas restants, on ne traite que le cas où la partie analysée est un attachement ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Nous traitons ce dernier cas. Nous sommes là encore à une extrémité du message initial (pas de sous-parties). Nous avons déjà rencontré deux cas de cette espèce : les types <strong>text/plain</strong> et <strong>text/html</strong>. Nous traitons maintenant le cas du fichier attaché.</p>
 <ul>
-<li>ligne 66 : l&#x27;attachement est repéré par la clé <strong>[Content-Disposition]</strong> ;</li>
-<li>ligne 67 : si cette clé existe et que celle-ci commence par la chaîne <strong>[attachment]</strong>, alors on a affaire à une pièce attachée au message ;</li>
-<li>ligne 68 : l&#x27;attachement est sauvegardé dans le dossier <strong>[output]</strong> ;</li>
+  <li>ligne 66 : l&#x27;attachement est repéré par la clé <b>[Content-Disposition]</b> ;
+  </li>
+  <li>ligne 67 : si cette clé existe et que celle-ci commence par la chaîne <b>[attachment]</b>, alors on a affaire à une pièce attachée au message ;
+  </li>
+  <li>ligne 68 : l&#x27;attachement est sauvegardé dans le dossier <b>[output]</b> ;
+  </li>
 </ul>
+
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">save_attachment</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># sauvegarde d&#x27;un attachement<span style="color:#000000"></span></span>
@@ -6014,11 +6296,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : si <strong>[part]</strong> est un attachement, alors le nom du fichier attaché est obtenu par <strong>[part.get_filename]</strong>. On ne garde que le nom du fichier pas son chemin ;</li>
-<li>ligne 8 : les noms des fichiers sont généralement encodés et ce de la même façon que les entêtes du message. Aussi utilise-t-on la fonction <strong>[decode_header]</strong> pour le décoder ;</li>
-<li>ligne 11 : le contenu du fichier attaché est pour l&#x27;instant une chaîne de caractères produite par l&#x27;encodage (souvent base64) en texte du contenu initial du fichier. Pour obtenir ce contenu initial on utilise la fonction <strong>[</strong><strong><span style="color: #808080">part</span></strong><strong><span style="color: #000000">.get_payload(decode=</span></strong><strong><span style="color: #0000ff">True</span></strong><strong><span style="color: #000000">)</span></strong><strong>]</strong>. Le paramètre <strong>[</strong><strong><span style="color: #000000">decode=</span></strong><strong><span style="color: #0000ff">True</span></strong><strong>]</strong> indique que le contenu de la pièce attachée doit être décodé. On obtient alors une suite d&#x27;octets ;</li>
-<li>ligne 10 : cette suite d&#x27;octets est sauvegardée dans le fichier <strong>[output/filename]</strong>. Le mode &quot;wb&quot; d&#x27;ouverture du fichier signifie <em>write binary</em> ;</li>
+  <li>ligne 4 : si <b>[part]</b> est un attachement, alors le nom du fichier attaché est obtenu par <b>[part.get_filename]</b>. On ne garde que le nom du fichier pas son chemin ;
+  </li>
+  <li>ligne 8 : les noms des fichiers sont généralement encodés et ce de la même façon que les entêtes du message. Aussi utilise-t-on la fonction <b>[decode_header]</b> pour le décoder ;
+  </li>
+  <li>ligne 11 : le contenu du fichier attaché est pour l&#x27;instant une chaîne de caractères produite par l&#x27;encodage (souvent base64) en texte du contenu initial du fichier. Pour obtenir ce contenu initial on utilise la fonction <b>[</b><b><span style="color: #808080">part</span></b><b><span style="color: #000000">.get_payload(decode=</span></b><b><span style="color: #0000ff">True</span></b><b><span style="color: #000000">)</span></b><b>]</b>. Le paramètre <b>[</b><b><span style="color: #000000">decode=</span></b><b><span style="color: #0000ff">True</span></b><b>]</b> indique que le contenu de la pièce attachée doit être décodé. On obtient alors une suite d&#x27;octets ;
+  </li>
+  <li>ligne 10 : cette suite d&#x27;octets est sauvegardée dans le fichier <b>[output/filename]</b>. Le mode &quot;wb&quot; d&#x27;ouverture du fichier signifie <i>write binary</i> ;
+  </li>
 </ul>
+
 <p>Revenons au code de la fonction <strong>[save_message]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> save_message(<span style="color:#808080">output</span>: <span style="color:#2b91af">str</span>, <span style="color:#808080">email_message</span>: <span style="color:#6f008a">email</span>.<span style="color:#6f008a">message</span>.<span style="color:#2b91af">Message</span>, <span style="color:#808080">irfc822</span>=0) -&gt; <span style="color:#2b91af">int</span>:</span>
@@ -6094,9 +6381,12 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>nous avons traité les cas des terminaisons de l&#x27;arbre du message initial : les parties <strong>[text/plain, text/html et Content-Disposition=attachment;…]</strong> Il nous reste à traiter le cas où la partie analysée est un conteneur de parties, ç-à-d qu&#x27;elle contient des sous-parties <strong>[part.is_multipart()==True]</strong>, ligne 41. Pour arriver aux terminaisons de l&#x27;arbre du message, il faut donc analyser ces sous-parties ;</li>
-<li>ligne 43 : on traite de façon particulière le cas où la partie analysée a un type <strong>[message/rfc822]</strong>. C&#x27;est le type d&#x27;un mail. C&#x27;est donc le cas où un mail a comme pièce attachée un autre mail ;</li>
+  <li>nous avons traité les cas des terminaisons de l&#x27;arbre du message initial : les parties <b>[text/plain, text/html et Content-Disposition=attachment;…]</b> Il nous reste à traiter le cas où la partie analysée est un conteneur de parties, ç-à-d qu&#x27;elle contient des sous-parties <b>[part.is_multipart()==True]</b>, ligne 41. Pour arriver aux terminaisons de l&#x27;arbre du message, il faut donc analyser ces sous-parties ;
+  </li>
+  <li>ligne 43 : on traite de façon particulière le cas où la partie analysée a un type <b>[message/rfc822]</b>. C&#x27;est le type d&#x27;un mail. C&#x27;est donc le cas où un mail a comme pièce attachée un autre mail ;
+  </li>
 </ul>
+
 <p>Le code est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span style="color:#000000">    </span># si le message est un conteneur de parties</span>
@@ -6125,38 +6415,61 @@
 </code></pre></div>
 
 <ul>
-<li>la différence entre une partie <strong>[message/rfc822]</strong> et les autres parties multipart est que le dossier de sauvegarde change ;<ul>
-<li>lignes 6-8 : pour la partie <strong>[message/rfc822]</strong>, le dossier de sauvegarde devient celui de la ligne 7 <strong>[output/rfc822_x]</strong> où x est le n° du mail attaché, 1 pour le premier, 2 pour le deuxième… ;</li>
-<li>ligne 21 : pour les autres parties multipart, le dossier de sauvegarde continue à être le dossier <strong>[output]</strong> du message initial. On ne change pas de dossier ;</li>
+  <li>la différence entre une partie <b>[message/rfc822]</b> et les autres parties multipart est que le dossier de sauvegarde change ;
+    <ul>
+      <li>lignes 6-8 : pour la partie <b>[message/rfc822]</b>, le dossier de sauvegarde devient celui de la ligne 7 <b>[output/rfc822_x]</b> où x est le n° du mail attaché, 1 pour le premier, 2 pour le deuxième… ;
+      </li>
+      <li>ligne 21 : pour les autres parties multipart, le dossier de sauvegarde continue à être le dossier <b>[output]</b> du message initial. On ne change pas de dossier ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 10-12 : chaque sous-partie est sauvegardée par un appel récursif à <b>[save_message]</b>. Le 3e paramètre est l&#x27;indice de numérotation des mails encapsulés dans <b>[subpart]</b>. Au départ cet indice vaut 0 ;
+  </li>
+  <li>ligne 21 : même explication que pour la ligne 12, mais la valeur du 3e paramètre <b>[irfc822]</b> change. Si dans la boucle des lignes 18-21, il y a plusieurs mails encapsulés, ils doivent être rangés dans des dossiers <b>[…/rfc822-1…/rfc822_2…]</b>. Donc le 3e paramètre de la fonction <b>[save_message]</b> doit avoir successivement les valeurs, 1, 2, 3… Pour ce faire, <b>[save_message]</b> rend la valeur de <b>[irfc822]</b> (ligne 21).
+  </li>
 </ul>
-</li>
-<li>lignes 10-12 : chaque sous-partie est sauvegardée par un appel récursif à <strong>[save_message]</strong>. Le 3e paramètre est l&#x27;indice de numérotation des mails encapsulés dans <strong>[subpart]</strong>. Au départ cet indice vaut 0 ;</li>
-<li>ligne 21 : même explication que pour la ligne 12, mais la valeur du 3e paramètre <strong>[irfc822]</strong> change. Si dans la boucle des lignes 18-21, il y a plusieurs mails encapsulés, ils doivent être rangés dans des dossiers <strong>[…/rfc822-1…/rfc822_2…]</strong>. Donc le 3e paramètre de la fonction <strong>[save_message]</strong> doit avoir successivement les valeurs, 1, 2, 3… Pour ce faire, <strong>[save_message]</strong> rend la valeur de <strong>[irfc822]</strong> (ligne 21).</li>
-</ul>
+
 <p><mark style="background-color: #fff2cc">Prenons un exemple et supposons que la liste des sous-parties de la ligne 18 soit </mark><strong><mark style="background-color: #fff2cc">[subpart1, subpart2, subpart3, subpart4, subpart5]</mark></strong><mark style="background-color: #fff2cc"> et que </mark><strong><mark style="background-color: #fff2cc">[subpart1, subpart3, subpart5]</mark></strong><mark style="background-color: #fff2cc"> soient des mails attachés, </mark><strong><mark style="background-color: #fff2cc">[subpart2]</mark></strong><mark style="background-color: #fff2cc"> une partie text/plain et </mark><strong><mark style="background-color: #fff2cc">[subpart4]</mark></strong><mark style="background-color: #fff2cc"> un attachement, et qu&#x27;on n&#x27;a pas encore rencontré de mail attaché dans le message </mark><strong><mark style="background-color: #fff2cc">[irfc822=0]</mark></strong><mark style="background-color: #fff2cc">. Dans ce cas :</mark></p>
 <ul>
-<li><mark style="background-color: #ffd8ce">(suite)</mark><ul>
-<li><strong><mark style="background-color: #fff2cc">[subpart1]</mark></strong><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark style="background-color: #fff2cc">[saveMessage]</mark></strong><mark style="background-color: #fff2cc"> est exécutée avec irfc822=0 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart1]</mark></strong><mark style="background-color: #fff2cc"> est un mail attaché, donc irfc822 passe à 1 (ligne 6 du code). Un dossier </mark><strong><mark style="background-color: #fff2cc">[output/irfc822_1]</mark></strong><mark style="background-color: #fff2cc"> est créé. La valeur rendue par </mark><strong><mark style="background-color: #fff2cc">[saveMessage(ouput,subpart1,0)]</mark></strong><mark style="background-color: #fff2cc"> est donc 1 (ligne 23) ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart2]</mark></strong><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark style="background-color: #fff2cc">[saveMessage]</mark></strong><mark style="background-color: #fff2cc"> est exécutée avec irfc822=1 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart2]</mark></strong><mark style="background-color: #fff2cc"> n&#x27;est pas un mail attaché. Donc irfc822 reste à 1. C&#x27;est la valeur récupérée ligne 21 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart3]</mark></strong><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark style="background-color: #fff2cc">[save_message]</mark></strong><mark style="background-color: #fff2cc"> est exécutée avec irfc822=1 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart3]</mark></strong><mark style="background-color: #fff2cc"> est un mail attaché, donc irfc822 passe à 2 (ligne 6 du code).  Un dossier </mark><strong><mark style="background-color: #fff2cc">[output/irfc822_2]</mark></strong><mark style="background-color: #fff2cc"> est créé. La valeur rendue par </mark><strong><mark style="background-color: #fff2cc">[save_message(ouput,subpart1,1)]</mark></strong><mark style="background-color: #fff2cc"> est donc 2 (ligne 21) ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart4]</mark></strong><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark style="background-color: #fff2cc">[save_message]</mark></strong><mark style="background-color: #fff2cc"> est exécutée avec irfc822=2 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart4]</mark></strong><mark style="background-color: #fff2cc"> n&#x27;est pas un mail attaché. Donc irfc822 reste à 2. C&#x27;est la valeur récupérée ligne 21 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart5]</mark></strong><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><strong><mark style="background-color: #fff2cc">[save_message]</mark></strong><mark style="background-color: #fff2cc"> est exécutée avec irfc822=2 ;</mark></li>
-<li><strong><mark style="background-color: #fff2cc">[subpart5]</mark></strong><mark style="background-color: #fff2cc"> est un mail attaché, donc irfc822 passe à 3 (ligne 6 du code). Un dossier </mark><strong><mark style="background-color: #fff2cc">[output/irfc822_3]</mark></strong><mark style="background-color: #fff2cc"> est créé.  La valeur rendue par </mark><strong><mark style="background-color: #fff2cc">[save_message(ouput,subpart1,2)]</mark></strong><mark style="background-color: #fff2cc"> est donc 3 (ligne 21) ;</mark></li>
+  <li><mark style="background-color: #ffd8ce">(suite)</mark>
+    <ul>
+      <li><b><mark style="background-color: #fff2cc">[subpart1]</mark></b><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><b><mark style="background-color: #fff2cc">[saveMessage]</mark></b><mark style="background-color: #fff2cc"> est exécutée avec irfc822=0 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart1]</mark></b><mark style="background-color: #fff2cc"> est un mail attaché, donc irfc822 passe à 1 (ligne 6 du code). Un dossier </mark><b><mark style="background-color: #fff2cc">[output/irfc822_1]</mark></b><mark style="background-color: #fff2cc"> est créé. La valeur rendue par </mark><b><mark style="background-color: #fff2cc">[saveMessage(ouput,subpart1,0)]</mark></b><mark style="background-color: #fff2cc"> est donc 1 (ligne 23) ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart2]</mark></b><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><b><mark style="background-color: #fff2cc">[saveMessage]</mark></b><mark style="background-color: #fff2cc"> est exécutée avec irfc822=1 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart2]</mark></b><mark style="background-color: #fff2cc"> n&#x27;est pas un mail attaché. Donc irfc822 reste à 1. C&#x27;est la valeur récupérée ligne 21 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart3]</mark></b><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><b><mark style="background-color: #fff2cc">[save_message]</mark></b><mark style="background-color: #fff2cc"> est exécutée avec irfc822=1 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart3]</mark></b><mark style="background-color: #fff2cc"> est un mail attaché, donc irfc822 passe à 2 (ligne 6 du code).  Un dossier </mark><b><mark style="background-color: #fff2cc">[output/irfc822_2]</mark></b><mark style="background-color: #fff2cc"> est créé. La valeur rendue par </mark><b><mark style="background-color: #fff2cc">[save_message(ouput,subpart1,1)]</mark></b><mark style="background-color: #fff2cc"> est donc 2 (ligne 21) ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart4]</mark></b><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><b><mark style="background-color: #fff2cc">[save_message]</mark></b><mark style="background-color: #fff2cc"> est exécutée avec irfc822=2 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart4]</mark></b><mark style="background-color: #fff2cc"> n&#x27;est pas un mail attaché. Donc irfc822 reste à 2. C&#x27;est la valeur récupérée ligne 21 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart5]</mark></b><mark style="background-color: #fff2cc"> est sauvegardé par la ligne 21 : la fonction </mark><b><mark style="background-color: #fff2cc">[save_message]</mark></b><mark style="background-color: #fff2cc"> est exécutée avec irfc822=2 ;</mark>
+      </li>
+      <li><b><mark style="background-color: #fff2cc">[subpart5]</mark></b><mark style="background-color: #fff2cc"> est un mail attaché, donc irfc822 passe à 3 (ligne 6 du code). Un dossier </mark><b><mark style="background-color: #fff2cc">[output/irfc822_3]</mark></b><mark style="background-color: #fff2cc"> est créé.  La valeur rendue par </mark><b><mark style="background-color: #fff2cc">[save_message(ouput,subpart1,2)]</mark></b><mark style="background-color: #fff2cc"> est donc 3 (ligne 21) ;</mark>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><strong>Exemples d&#x27;exécution</strong></p>
 <p>Nous envoyons 4 mails à <strong>[pymail2parlexemple@gmail.com]</strong> à partir de : <strong>[Gmail, Outlook, em Client, Thunderbird]</strong></p>
 <ul>
-<li><strong>[Gmail]</strong> : [<a href="https://mail.google.com/">https://mail.google.com/</a>] ;</li>
-<li><strong>[Outlook]</strong> : [<a href="https://outlook.live.com/owa/">https://outlook.live.com/owa/</a>] ;</li>
-<li><strong>[em Client]</strong> : [<a href="https://www.emclient.com/">https://www.emclient.com/</a>] ;</li>
-<li><strong>[Mozilla Thunderbird]</strong> : <strong>[https://www.thunderbird.net/fr/]</strong> ;</li>
+  <li><b>[Gmail]</b> : [<a href="https://mail.google.com/">https://mail.google.com/</a>] ;
+  </li>
+  <li><b>[Outlook]</b> : [<a href="https://outlook.live.com/owa/">https://outlook.live.com/owa/</a>] ;
+  </li>
+  <li><b>[em Client]</b> : [<a href="https://www.emclient.com/">https://www.emclient.com/</a>] ;
+  </li>
+  <li><b>[Mozilla Thunderbird]</b> : <b>[https://www.thunderbird.net/fr/]</b> ;
+  </li>
 </ul>
+
 <p>Tous les mails auront le sujet <strong>[hélène va au marché]</strong> et comme texte <strong>[acheter des légumes]</strong>. On veut tester comment sont récupérés les caractères accentués.</p>
 <p>Nous les lisons avec le script <strong>[pop3/02/main]</strong> configuré avec le fichier <strong>[pop3/02/config]</strong> suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -6213,9 +6526,12 @@
 <p>Le message 1 est celui envoyé par Thunderbird :</p>
 <p><img src="images/10000000000005570000018A84E248A9.png" style="width:15.77cm;height:4.552cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005570000018A84E248A9.png" /></p>
 <ul>
-<li>en <strong>[5]</strong>, Thunderbird <strong>[3]</strong> utilise un <strong>[Transfer-Content-Encoding]</strong> de type <strong>[8bit]</strong> ;</li>
-<li>en <strong>[4]</strong> : le message est codé en UTF-8 ;</li>
+  <li>en <b>[5]</b>, Thunderbird <b>[3]</b> utilise un <b>[Transfer-Content-Encoding]</b> de type <b>[8bit]</b> ;
+  </li>
+  <li>en <b>[4]</b> : le message est codé en UTF-8 ;
+  </li>
 </ul>
+
 <p>Le message 2 est celui envoyé par em Client :</p>
 <p><img src="images/100000000000055700000172DDFC8D8D.png" style="width:15.791cm;height:4.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055700000172DDFC8D8D.png" /></p>
 <p><img src="images/1000000000000390000001DEF94A03F0.png" style="width:10.521cm;height:5.52cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000390000001DEF94A03F0.png" /></p>
@@ -6228,9 +6544,12 @@
 <p>On remarquera que Outlook code les textes en iso-8859-1 <strong>[3]</strong> et qu&#x27;il les transfère en <strong>[quoted-printable]</strong> <strong>[4]</strong>.</p>
 <p>Les exemples précédents montrent deux choses :</p>
 <ul>
-<li>notre client <strong>[pop3/02]</strong> a été fonctionnel ;</li>
-<li>les gestionnaires de courriers ont des façons différentes d&#x27;envoyer un mail ;</li>
+  <li>notre client <b>[pop3/02]</b> a été fonctionnel ;
+  </li>
+  <li>les gestionnaires de courriers ont des façons différentes d&#x27;envoyer un mail ;
+  </li>
 </ul>
+
 <p>Voyons maintenant les fichiers attachés. Avec Thunderbird, nous vidons la boîte mail de l&#x27;utilisateur <strong>[pymail2parlexemple@gmail.com]</strong><strong>.</strong> Puis nous utilisons le script <strong>[smtp/03/main]</strong> pour envoyer un mail avec la configuration <strong>[smtp/03/config]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">import<span style="color:#000000"> </span><span style="color:#6f008a">os</span></span>
@@ -6273,17 +6592,25 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 31-33 : nous attachons au mail :</li>
-<li>un fichier Word ;</li>
-<li>un fichier PDF ;</li>
-<li>un mail contenant les mêmes deux fichiers attachés ;</li>
+  <li>lignes 31-33 : nous attachons au mail :
+  </li>
+  <li>un fichier Word ;
+  </li>
+  <li>un fichier PDF ;
+  </li>
+  <li>un mail contenant les mêmes deux fichiers attachés ;
+  </li>
 </ul>
+
 <p>Une fois le mail envoyé, nous exécutons le script <strong>[pop3/02]</strong> pour lire la boîte mail de l’utilisateur <strong>[pymail2parlexemple@gmail.com]</strong>. Les résultats sont les suivants :</p>
 <p><img src="images/100000000000023800000236E1AB340F.png" style="width:5.912cm;height:5.89cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023800000236E1AB340F.png" /></p>
 <ul>
-<li>en <strong>[1]</strong> : le message avec ses deux fichiers attachés ;</li>
-<li>en <strong>[2]</strong> : le mail attaché lui-même avec ses deux fichiers attachés ;</li>
+  <li>en <b>[1]</b> : le message avec ses deux fichiers attachés ;
+  </li>
+  <li>en <b>[2]</b> : le mail attaché lui-même avec ses deux fichiers attachés ;
+  </li>
 </ul>
+
 <p><strong>Conclusion</strong></p>
 <p>Le module <strong>[mail_parser.py]</strong> est particulièrement complexe. Cela est dû à la complexité des mails eux-mêmes. Nous allons réutiliser ce module pour le protocole IMAP.</p>
 <p><a id="toc48549138"></a>
@@ -6294,61 +6621,91 @@
 <h3 id="2171-introduction">21.7.1. Introduction</h3>
 <p>Pour lire les mails entreposés dans un serveur de mails, deux protocoles existent :</p>
 <ul>
-<li>le protocole POP3 (Post Office Protocol) historiquement le 1er protocole mais peu utilisé maintenant ;</li>
-<li>le protocole IMAP (Internet Message Access Protocol) protocole plus récent que POP3 et le plus utilisé actuellement ;</li>
+  <li>le protocole POP3 (Post Office Protocol) historiquement le 1er protocole mais peu utilisé maintenant ;
+  </li>
+  <li>le protocole IMAP (Internet Message Access Protocol) protocole plus récent que POP3 et le plus utilisé actuellement ;
+  </li>
 </ul>
+
 <p>Pour découvrir le protocole IMAP, nous allons utiliser l’architecture suivante :</p>
-<p><img src="images/1000000100000200000000DF4A08E6A0.png" style="width:8.76cm;height:3.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000200000000DF4A08E6A0.png" /></p>
+<p><img src="images/1000000100000200000000DF1D1E8A50.png" style="width:8.76cm;height:3.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000200000000DF1D1E8A50.png" /></p>
 <ul>
-<li><strong>[Serveur B]</strong> sera selon les cas :<ul>
-<li>un serveur IMAP local, implémenté par le serveur de mail <strong>[hMailServer]</strong> ;</li>
-<li>le serveur <strong>[</strong><strong><span style="color: #a31515">imap.gmail.com:993</span></strong><strong>]</strong> qui est le serveur IMAP du gestionnaire de mails <strong>[Gmail]</strong> ;</li>
+  <li><b>[Serveur B]</b> sera selon les cas :
+    <ul>
+      <li>un serveur IMAP local, implémenté par le serveur de mail <b>[hMailServer]</b> ;
+      </li>
+      <li>le serveur <b>[</b><b><span style="color: #a31515">imap.gmail.com:993</span></b><b>]</b> qui est le serveur IMAP du gestionnaire de mails <b>[Gmail]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li><b>[Client A]</b> sera un script Python utilisant des modules Python permettant de gérer les pièces attachées ainsi que l&#x27;utilisation d’une connexion chiffrée et authentifiée lorsque le serveur IMAP l&#x27;exige ;
+  </li>
 </ul>
-</li>
-<li><strong>[Client A]</strong> sera un script Python utilisant des modules Python permettant de gérer les pièces attachées ainsi que l&#x27;utilisation d’une connexion chiffrée et authentifiée lorsque le serveur IMAP l&#x27;exige ;</li>
-</ul>
+
 <p>Le protocole IMAP va au-delà du protocole POP3 :</p>
 <ul>
-<li>les mails sont conservés sur le serveur IMAP et peuvent être organisés en dossiers ;</li>
-<li>le client IMAP peut envoyer des commandes de création / modification / suppression de ces dossiers ;</li>
+  <li>les mails sont conservés sur le serveur IMAP et peuvent être organisés en dossiers ;
+  </li>
+  <li>le client IMAP peut envoyer des commandes de création / modification / suppression de ces dossiers ;
+  </li>
 </ul>
+
 <p>Voyons un exemple avec Thunderbird. Dans l&#x27;architecture suivante :</p>
-<p><img src="images/1000000100000200000000DEBF0B481C.png" style="width:8.771cm;height:3.8cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000200000000DEBF0B481C.png" /></p>
+<p><img src="images/1000000100000200000000DE5F85963F.png" style="width:8.771cm;height:3.8cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000200000000DE5F85963F.png" /></p>
 <ul>
-<li>Thunderbird est le client A ;</li>
-<li><strong>[imap.gmail.com]</strong> est le serveur B (Gmail) ;</li>
+  <li>Thunderbird est le client A ;
+  </li>
+  <li><b>[imap.gmail.com]</b> est le serveur B (Gmail) ;
+  </li>
 </ul>
+
 <p>Créons un dossier dans les mails de l&#x27;utilisateur <strong>[pymail2parlexemple@gmail.com]</strong> avec Thunderbird :</p>
 <p><img src="images/10000000000005580000030F25DAF49B.png" style="width:15.77cm;height:9.051cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005580000030F25DAF49B.png" /></p>
 <ul>
-<li>en <strong>[1-6]</strong>, nous créons le dossier <strong>[dossier1]</strong> ;</li>
+  <li>en <b>[1-6]</b>, nous créons le dossier <b>[dossier1]</b> ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000003550000019513F04E21.png" style="width:9.861cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003550000019513F04E21.png" /></p>
 <ul>
-<li>en <strong>[7-8]</strong>, nous déplaçons (avec la souris) tous les fichiers du dossier <strong>[Courrier entrant]</strong> dans le dossier <strong>[dossier1]</strong> ;</li>
+  <li>en <b>[7-8]</b>, nous déplaçons (avec la souris) tous les fichiers du dossier <b>[Courrier entrant]</b> dans le dossier <b>[dossier1]</b> ;
+  </li>
 </ul>
+
 <p>Maintenant connectons-nous au site web de Gmail et identifions-nous comme l&#x27;utilisateur <strong>[pymail2parlexemple@gmail.com]</strong> :</p>
 <p><img src="images/1000000000000446000002861C598ABB.png" style="width:12.611cm;height:7.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000446000002861C598ABB.png" /></p>
 <ul>
-<li>en <strong>[2-3]</strong>, la boîte de réception est vide ;</li>
-<li>en <strong>[1]</strong>, le dossier <strong>[dossier1]</strong> qui a été créé ;</li>
+  <li>en <b>[2-3]</b>, la boîte de réception est vide ;
+  </li>
+  <li>en <b>[1]</b>, le dossier <b>[dossier1]</b> qui a été créé ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000004E70000021A68326E10.png" style="width:14.481cm;height:6.211cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004E70000021A68326E10.png" /></p>
 <ul>
-<li>en <strong>[4-6]</strong> : les mails qui ont été déplacés dans le dossier <strong>[dossier1]</strong> ;</li>
+  <li>en <b>[4-6]</b> : les mails qui ont été déplacés dans le dossier <b>[dossier1]</b> ;
+  </li>
 </ul>
+
 <p>Nous sommes là devant l&#x27;architecture suivante :</p>
-<p><img src="images/10000001000001F0000001045B25786D.png" style="width:8.471cm;height:4.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001F0000001045B25786D.png" /></p>
+<p><img src="images/10000001000001F000000104EFB7394A.png" style="width:8.471cm;height:4.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000001F000000104EFB7394A.png" /></p>
 <ul>
-<li>Client A est l&#x27;application Thunderbird ;</li>
-<li>Client C est l&#x27;application web de Gmail ;</li>
-<li>Serveur B est le serveur IMAP de Gmail ;</li>
+  <li>Client A est l&#x27;application Thunderbird ;
+  </li>
+  <li>Client C est l&#x27;application web de Gmail ;
+  </li>
+  <li>Serveur B est le serveur IMAP de Gmail ;
+  </li>
 </ul>
+
 <p>L&#x27;arbre des dossiers de l&#x27;utilisateur est maintenu par le serveur IMAP. Ensuite tous les clients IMAP se synchronisent sur lui pour présenter à l&#x27;utilisateur les dossiers de son compte. Ici Thunderbird a envoyé plusieurs commandes pour  :</p>
 <ul>
-<li>créer le dossier <strong>[dossier1]</strong> ;</li>
-<li>transférer des messages dans ce dossier ;</li>
+  <li>créer le dossier <b>[dossier1]</b> ;
+  </li>
+  <li>transférer des messages dans ce dossier ;
+  </li>
 </ul>
+
 <p><a id="toc48549140"></a>
 <a id="refheadingtoc3282283081319169"></a></p>
 <h3 id="2172-script-imapmain-client-imap-avec-le-module-imaplib">21.7.2. script [imap/main] : client IMAP avec le module [imaplib]</h3>
@@ -6404,15 +6761,24 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 8-29 :  la clé <strong>[mailboxes]</strong> est associée à la liste des boîtes à lettres à consulter ;</li>
-<li>ligne 20 : le serveur IMAP ;</li>
-<li>ligne 21 : son port de service ;</li>
-<li>lignes 22-23 : l&#x27;utilisateur dont on veut lire les mails ;</li>
-<li>ligne 24 : le nombre maximum de mails qu&#x27;on veut lire ;</li>
-<li>ligne 25 : indique s’il faut établir une liaison sécurisée avec le serveur IMAP (True) ou pas (False) ;</li>
-<li>ligne 26 : le délai d&#x27;attente maximum d&#x27;attente d&#x27;une réponse du serveur ;</li>
-<li>ligne 27 : dossier de sauvegarde des mails lus ;</li>
+  <li>lignes 8-29 :  la clé <b>[mailboxes]</b> est associée à la liste des boîtes à lettres à consulter ;
+  </li>
+  <li>ligne 20 : le serveur IMAP ;
+  </li>
+  <li>ligne 21 : son port de service ;
+  </li>
+  <li>lignes 22-23 : l&#x27;utilisateur dont on veut lire les mails ;
+  </li>
+  <li>ligne 24 : le nombre maximum de mails qu&#x27;on veut lire ;
+  </li>
+  <li>ligne 25 : indique s’il faut établir une liaison sécurisée avec le serveur IMAP (True) ou pas (False) ;
+  </li>
+  <li>ligne 26 : le délai d&#x27;attente maximum d&#x27;attente d&#x27;une réponse du serveur ;
+  </li>
+  <li>ligne 27 : dossier de sauvegarde des mails lus ;
+  </li>
 </ul>
+
 <p>Le script <strong>[imap/main]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -6455,8 +6821,10 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 14-36 : nous retrouvons la démarche déjà rencontrée dans le script |<a href="#_scripts_[pop3/02]_:"><u><span style="color: #0563c1">pop3/02/main</span></u></a>| ;</li>
+  <li>lignes 14-36 : nous retrouvons la démarche déjà rencontrée dans le script |<a href="#_scripts_[pop3/02]_:"><u><span style="color: #0563c1">pop3/02/main</span></u></a>| ;
+  </li>
 </ul>
+
 <p>La fonction <strong>[readmails]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> readmails(<span style="color:#808080">mailbox</span>: <span style="color:#2b91af">dict</span>):</span>
@@ -6547,19 +6915,30 @@
 
 <p><strong>Commentaires</strong></p>
 <ul>
-<li>lignes 7-15 : on récupère les éléments de la configuration ;</li>
-<li>lignes 19, 79 : le code est contrôlé par un try / finally. On n&#x27;intercepte donc pas les exceptions (absence de la clause except) qui vont alors remonter au code appelant qui les arrête et les affiche ;</li>
-<li>lignes 23-30 : on crée le dossier de sauvegarde des mails ;</li>
-<li>lignes 31-35 : on se connecte au serveur IMAP. La classe utilisée est différente selon qu&#x27;on a affaire à un serveur IMAP sécurisé (IMAP4_SSL) ou pas (IMAP4) ;</li>
-<li>lignes 36-38 : on fixe le timeout des communications client / serveur ;</li>
-<li>lignes 39-40 : on s&#x27;authentifie auprès du serveur IMAP ;</li>
-<li>lignes 41-42 : on a vu que la boîte mail d&#x27;un utilisateur IMAP pouvait être organisée en dossiers. Le dossier <strong>[INBOX]</strong> est celle du courrier entrant. Pour sélectionner le dossier <strong>[dossier1]</strong> on écrirait <strong>[</strong><strong><span style="color: #000000">imapResource.select(</span></strong><strong><span style="color: #a31515">&#x27;dossier1&#x27;</span></strong><strong><span style="color: #000000">)</span></strong><strong>]</strong> ;</li>
-<li>lignes 43-45 : on demande la liste de tous les messages trouvés dans <strong>[INBOX]</strong> :<ul>
-<li>le 1er paramètre de <strong>[</strong><strong><span style="color: #000000">imapResource.search</span></strong><strong>]</strong> est un type d&#x27;encodage. <strong>[None]</strong> signifie &quot;pas de filtre sur l&#x27;encodage&quot; ;</li>
-<li>le 2e paramètre est un critère. Il y a différentes façons d&#x27;exprimer celui-ci. Le critère <strong>[ALL]</strong> signifie qu&#x27;on veut tous les messages du dossier ;</li>
+  <li>lignes 7-15 : on récupère les éléments de la configuration ;
+  </li>
+  <li>lignes 19, 79 : le code est contrôlé par un try / finally. On n&#x27;intercepte donc pas les exceptions (absence de la clause except) qui vont alors remonter au code appelant qui les arrête et les affiche ;
+  </li>
+  <li>lignes 23-30 : on crée le dossier de sauvegarde des mails ;
+  </li>
+  <li>lignes 31-35 : on se connecte au serveur IMAP. La classe utilisée est différente selon qu&#x27;on a affaire à un serveur IMAP sécurisé (IMAP4_SSL) ou pas (IMAP4) ;
+  </li>
+  <li>lignes 36-38 : on fixe le timeout des communications client / serveur ;
+  </li>
+  <li>lignes 39-40 : on s&#x27;authentifie auprès du serveur IMAP ;
+  </li>
+  <li>lignes 41-42 : on a vu que la boîte mail d&#x27;un utilisateur IMAP pouvait être organisée en dossiers. Le dossier <b>[INBOX]</b> est celle du courrier entrant. Pour sélectionner le dossier <b>[dossier1]</b> on écrirait <b>[</b><b><span style="color: #000000">imapResource.select(</span></b><b><span style="color: #a31515">&#x27;dossier1&#x27;</span></b><b><span style="color: #000000">)</span></b><b>]</b> ;
+  </li>
+  <li>lignes 43-45 : on demande la liste de tous les messages trouvés dans <b>[INBOX]</b> :
+    <ul>
+      <li>le 1er paramètre de <b>[</b><b><span style="color: #000000">imapResource.search</span></b><b>]</b> est un type d&#x27;encodage. <b>[None]</b> signifie &quot;pas de filtre sur l&#x27;encodage&quot; ;
+      </li>
+      <li>le 2e paramètre est un critère. Il y a différentes façons d&#x27;exprimer celui-ci. Le critère <b>[ALL]</b> signifie qu&#x27;on veut tous les messages du dossier ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Le résultat de <strong>[</strong><strong><span style="color: #000000">imapResource.search</span></strong><strong>]</strong> ressemble à ceci :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">typ=OK, data=<span style="font-weight:bold">[b&#x27;1 2&#x27;]</span></span>
@@ -6567,15 +6946,22 @@
 
 <p><strong>[data]</strong> est une liste qui contient les n°s des messages obtenus. Ceux-ci sont en binaire. Ci-dessus, deux messages ont été trouvés dans le dossier <strong>[INBOX]</strong> ;</p>
 <ul>
-<li>ligne 49 : on récupère les n°s des messages. Ci-dessus on aura la liste <strong>[b&#x27;1&#x27; b&#x27;2&#x27;]</strong>, une liste de numéros codés en binaire ;</li>
-<li>lignes 53-78 : on va boucler pour lire les messages du dossier <strong>[INBOX]</strong> ;</li>
-<li>lignes 54-55 : n° du message ;</li>
-<li>lignes 58-59 : le message n° <strong>[num]</strong> est demandé au serveur IMAP ;<ul>
-<li>le 1er paramètre est le n° du message désiré ;</li>
-<li>le second paramètre est une chaîne &quot;(part1)(part2)…&quot; où <strong>[parti]</strong> est le nom d&#x27;une partie du message. Je n&#x27;ai pas approfondi ce point. Le nom (RFC822) désigne la totalité du mail ;</li>
+  <li>ligne 49 : on récupère les n°s des messages. Ci-dessus on aura la liste <b>[b&#x27;1&#x27; b&#x27;2&#x27;]</b>, une liste de numéros codés en binaire ;
+  </li>
+  <li>lignes 53-78 : on va boucler pour lire les messages du dossier <b>[INBOX]</b> ;
+  </li>
+  <li>lignes 54-55 : n° du message ;
+  </li>
+  <li>lignes 58-59 : le message n° <b>[num]</b> est demandé au serveur IMAP ;
+    <ul>
+      <li>le 1er paramètre est le n° du message désiré ;
+      </li>
+      <li>le second paramètre est une chaîne &quot;(part1)(part2)…&quot; où <b>[parti]</b> est le nom d&#x27;une partie du message. Je n&#x27;ai pas approfondi ce point. Le nom (RFC822) désigne la totalité du mail ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>On reçoit quelque chose de la forme suivante :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">type=OK, <span style="background-color:#ffff00">data</span>=<span style="font-weight:bold">[(b&#x27;1 (RFC822 {614}&#x27;, b&#x27;</span><span style="font-weight:bold;background-color:#ffdbb6">Return-Path</span><span style="font-weight:bold">: guest@localhost\r\n</span><span style="font-weight:bold;background-color:#ffdbb6">Received</span><span style="font-weight:bold">: from [127.0.0.1]</span> (localhost <span style="font-weight:bold">[127.0.0.1]</span>)\r\n\tby DESKTOP-528I5CU with ESMTPA\r\n\t; Tue, 17 Mar 2020 09:41:50 +0100\r\n<span style="background-color:#ffdbb6">To</span>: guest@localhost\r\n<span style="background-color:#ffdbb6">From</span>: &quot;guest@localhost&quot; &lt;guest@localhost&gt;\r\n<span style="background-color:#ffdbb6">Subject</span>: test\r\nMessage-ID: &lt;2572d0f0-5b7c-2c31-5a70-c628293d5709@localhost&gt;\r\n<span style="background-color:#ffdbb6">Date</span>: Tue, 17 Mar 2020 09:41:48 +0100\r\n<span style="background-color:#ffdbb6">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101\r\n Thunderbird/68.6.0\r\n<span style="background-color:#ffdbb6">MIME-Version</span>: 1.0\r\n<span style="background-color:#ffdbb6">Content-Type</span>: text/plain; charset=utf-8; format=flowed\r\n<span style="background-color:#ffdbb6">Content-Transfer-Encoding</span>: 8bit\r\n<span style="background-color:#ffdbb6">Content-Language</span>: fr\r\n\r\nh\xc3\xa9l\xc3\xa8ne est all\xc3\xa9e au march\xc3\xa9 acheter des l\xc3\xa9gumes.\r\n\r\n&#x27;), b&#x27;)&#x27;]</span>
@@ -6593,16 +6979,24 @@
 <p>Le second élément de ce tuple est une chaîne binaire représentant la totalité du message demandé. On reconnaît ci-dessus, des éléments déjà présentés lors de l&#x27;étude du module <strong>[mail_parser]</strong>.</p>
 <p>data<strong>[0]</strong> représente un tuple à deux éléments. data<strong>[0][1]</strong> représente les lignes du message sous une forme binaire.</p>
 <ul>
-<li>ligne 68 : la fonction <strong>[</strong><strong><span style="color: #6f008a">email</span></strong><strong><span style="color: #000000">.message_from_bytes(data2[0</span></strong><strong>]</strong><strong><span style="color: #000000">[1]</span></strong><span style="color: #000000">)</span>] construit un objet de type <strong>[email.message.Message]</strong> à partir des lignes du message. Le type <strong>[email.message.Message]</strong> est le type du paramètre du module <strong>[mail_parser]</strong> que nous avons écrit précédemment ;</li>
-<li>lignes 69-73 : nous créons le dossier de sauvegarde du message n° <strong>[num]</strong> ;</li>
-<li>ligne 75 : nous faisons appel à la fonction <strong>[save_message]</strong> du module <strong>[mail_parser]</strong> de la ligne 5. Cette fonction a été décrite au paragraphe |<a href="#_script_[pop3-02]_:"><u><span style="color: #0563c1">pop3/02/main</span></u></a>| ;</li>
-<li>lignes 76-78 : on reboucle pour traiter le message suivant ;</li>
-<li>lignes 79-84 : qu&#x27;il y ait eu erreur ou pas :<ul>
-<li>ligne 82 : on clôt la connexion avec le dossier interrogé ;</li>
-<li>ligne 84 : on se déconnecte du serveur IMAP ;</li>
+  <li>ligne 68 : la fonction <b>[</b><b><span style="color: #6f008a">email</span></b><b><span style="color: #000000">.message_from_bytes(data2[0</span></b><b>]</b><b><span style="color: #000000">[1]</span></b><span style="color: #000000">)</span>] construit un objet de type <b>[email.message.Message]</b> à partir des lignes du message. Le type <b>[email.message.Message]</b> est le type du paramètre du module <b>[mail_parser]</b> que nous avons écrit précédemment ;
+  </li>
+  <li>lignes 69-73 : nous créons le dossier de sauvegarde du message n° <b>[num]</b> ;
+  </li>
+  <li>ligne 75 : nous faisons appel à la fonction <b>[save_message]</b> du module <b>[mail_parser]</b> de la ligne 5. Cette fonction a été décrite au paragraphe |<a href="#_script_[pop3-02]_:"><u><span style="color: #0563c1">pop3/02/main</span></u></a>| ;
+  </li>
+  <li>lignes 76-78 : on reboucle pour traiter le message suivant ;
+  </li>
+  <li>lignes 79-84 : qu&#x27;il y ait eu erreur ou pas :
+    <ul>
+      <li>ligne 82 : on clôt la connexion avec le dossier interrogé ;
+      </li>
+      <li>ligne 84 : on se déconnecte du serveur IMAP ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Les résultats obtenus sont identiques à ceux obtenus avec le script <strong>[pop3/02/main]</strong>. C&#x27;est normal puisque c&#x27;est le même parseur de mail <strong>[mail_parser]</strong> qui est utilisé.</p>
 
 

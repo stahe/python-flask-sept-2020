@@ -1606,11 +1606,16 @@
 <h2 id="241-introduction">24.1. Introduction</h2>
 <p>La version 7 de l’application de calcul de l’impôt est identique à la version 6 aux détails près suivants : </p>
 <ul>
-<li>le client web va lancer simultanément plusieurs requêtes HTTP. Dans la version précédente ces requêtes étaient lancées séquentiellement. Le serveur ne traitait alors à tout moment qu’une unique requête ;</li>
-<li>le serveur sera multi-threadé : il pourra traiter plusieurs requêtes simultanément ;</li>
-<li>pour suivre l’exécution de ces requêtes, on va doter le serveur web d’un logueur avec lequel on loguera dans un fichier texte les moments importants du traitement des requêtes ;</li>
-<li>le serveur enverra un mail à l’administrateur de l’application lorsqu’il rencontrera un problème qui l’empêchera de se lancer, typiquement un problème avec la base de données associée au serveur web ;</li>
+  <li>le client web va lancer simultanément plusieurs requêtes HTTP. Dans la version précédente ces requêtes étaient lancées séquentiellement. Le serveur ne traitait alors à tout moment qu’une unique requête ;
+  </li>
+  <li>le serveur sera multi-threadé : il pourra traiter plusieurs requêtes simultanément ;
+  </li>
+  <li>pour suivre l’exécution de ces requêtes, on va doter le serveur web d’un logueur avec lequel on loguera dans un fichier texte les moments importants du traitement des requêtes ;
+  </li>
+  <li>le serveur enverra un mail à l’administrateur de l’application lorsqu’il rencontrera un problème qui l’empêchera de se lancer, typiquement un problème avec la base de données associée au serveur web ;
+  </li>
 </ul>
+
 <p>L’architecture de l’application ne change pas :</p>
 <p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.082cm;height:11.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BE000003E50F9DB416.png" /></p>
 <p>L’arborescence des scripts est la suivante :</p>
@@ -1673,31 +1678,58 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 10-11 : on définit un attribut de classe. Un attribut de classe est une propriété partagée par toutes les instances de la classe. On la référence par la notation <strong>[Classe.attribut_de_classe]</strong> (lignes 30, 39). L’attribut de classe <strong>[verrou]</strong> sera un objet de synchronisation pour tous les threads exécutant le code des lignes 31-36 ;</li>
-<li>lignes 14-19 : le constructeur reçoit le nom absolu du fichier de logs. Ce fichier est alors ouvert et le descripteur de fichier récupéré est mémorisé dans la classe ;</li>
-<li>ligne 17 : le fichier de logs est ouvert en mode ‘append’ (a). Chaque ligne écrite le sera à la fin du fichier ;</li>
-<li>lignes 22-39 : la méthode <strong>[write]</strong> permet d’écrire dans le fichier de logs un message passé en paramètre. A celui-ci sont accolées deux informations :<ul>
-<li>ligne 24 : la date du jour ;</li>
-<li>ligne 25 : l’heure du moment ;</li>
-<li>ligne 27 : le nom du thread qui écrit le log. Il ne faut pas oublier ici qu’une application web sert plusieurs utilisateurs à la fois. Toute requête se voit attribuer un thread pour l’exécuter. Si ce thread est mis en pause, typiquement pour une opération d’ entrée / sortie (réseau, fichiers, base de données), alors le processeur sera donné à un autre thread. A cause de ces interruptions possibles, on ne peut pas être sûrs qu’un thread va réussir à écrire une ligne dans le fichier de logs sans être interrompu. On risque alors de voir des logs de deux threads différents se mélanger. Le risque est faible, peut-être même nul, mais on a néanmoins décidé de montrer comment synchroniser l’accès de deux threads à une ressource commune, ici le fichier de logs ;</li>
+  <li>lignes 10-11 : on définit un attribut de classe. Un attribut de classe est une propriété partagée par toutes les instances de la classe. On la référence par la notation <b>[Classe.attribut_de_classe]</b> (lignes 30, 39). L’attribut de classe <b>[verrou]</b> sera un objet de synchronisation pour tous les threads exécutant le code des lignes 31-36 ;
+  </li>
+  <li>lignes 14-19 : le constructeur reçoit le nom absolu du fichier de logs. Ce fichier est alors ouvert et le descripteur de fichier récupéré est mémorisé dans la classe ;
+  </li>
+  <li>ligne 17 : le fichier de logs est ouvert en mode ‘append’ (a). Chaque ligne écrite le sera à la fin du fichier ;
+  </li>
+  <li>lignes 22-39 : la méthode <b>[write]</b> permet d’écrire dans le fichier de logs un message passé en paramètre. A celui-ci sont accolées deux informations :
+    <ul>
+      <li>ligne 24 : la date du jour ;
+      </li>
+      <li>ligne 25 : l’heure du moment ;
+      </li>
+      <li>ligne 27 : le nom du thread qui écrit le log. Il ne faut pas oublier ici qu’une application web sert plusieurs utilisateurs à la fois. Toute requête se voit attribuer un thread pour l’exécuter. Si ce thread est mis en pause, typiquement pour une opération d’ entrée / sortie (réseau, fichiers, base de données), alors le processeur sera donné à un autre thread. A cause de ces interruptions possibles, on ne peut pas être sûrs qu’un thread va réussir à écrire une ligne dans le fichier de logs sans être interrompu. On risque alors de voir des logs de deux threads différents se mélanger. Le risque est faible, peut-être même nul, mais on a néanmoins décidé de montrer comment synchroniser l’accès de deux threads à une ressource commune, ici le fichier de logs ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 30 : avant d’écrire, le thread demande la clé de la porte d’entrée. La clé demandée est celle créée ligne 11. Elle est effectivement unique : un attribut de classe est unique pour toutes les instances de la classe ;
+    <ul>
+      <li>au temps T1, un thread Thread1 obtient la clé. Il peut alors exécuter la ligne 33 ;
+      </li>
+      <li>au temps T2, le thread Thread1 est mis en pause avant même d’avoir terminé l’écriture du log ;
+      </li>
+      <li>au temps T3, le thread Thread2 qui a obtenu le processeur doit lui aussi écrire un log. Il arrive ainsi à la ligne 30 où il demande la clé de la porte d’entrée. On lui répond qu’un autre thread l’a déjà. Il est alors automatiquement mis en pause. Il en sera ainsi de tous les threads qui demanderont cette clé ;
+      </li>
+      <li>au temps T4, le thread Thread1 qui avait été mis en pause retrouve le processeur. Il termine alors l’écriture du log ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 32-36 : l’écriture dans le fichier de logs se fait en deux temps :
+  </li>
+  <li>ligne 33 : le descripteur de fichier obtenu ligne 17 travaille avec un buffer. L’opération <b>[write]</b> de la ligne 33 écrit dans ce buffer mais pas directement dans le fichier. Le buffer est ensuite vidé dans le fichier dans certaines conditions :
+    <ol>
+        <ol>
+            <ul>
+              <li>le buffer est plein ;
+              </li>
+              <li>le descripteur de fichier subit une opération <b>[close]</b> ou <b>[flush]</b> ;
+              </li>
+            </ul>
+        </ol>
+    </ol>
+  </li>
+  <li>ligne 36 : on force l’écriture de la ligne de log dans le fichier. On fait cela parce qu’on veut voir s’intercaler entre eux les logs des différents threads. Si on ne fait pas ça, les logs d’un thread seront tous écrits en même temps lors de la fermeture du descripteur, ligne 45. Il serait alors beaucoup plus difficile de voir que certains threads ont été arrêtés : il faudrait regarder les heures dans les logs ;
+  </li>
+  <li>ligne 39 : le thread Thread1 rend la clé qu’on lui avait donnée. Elle va pouvoir être donnée à un autre thread ;
+  </li>
+  <li>ligne 22 : la méthode <b>[write]</b> est donc synchronisée : un seul thread à la fois écrit dans le fichier de logs. La clé du dispositif est la ligne 30 : quoiqu’il arrive, seul un thread récupère la clé de passage à la ligne suivante. Il la garde tant qu’il ne la rend pas (ligne 39) ;
+  </li>
+  <li>lignes 41-45 : la méthode <b>[close]</b> permet de libérer les ressources allouées au descripteur du fichier de logs ;
+  </li>
 </ul>
-</li>
-<li>ligne 30 : avant d’écrire, le thread demande la clé de la porte d’entrée. La clé demandée est celle créée ligne 11. Elle est effectivement unique : un attribut de classe est unique pour toutes les instances de la classe ;<ul>
-<li>au temps T1, un thread Thread1 obtient la clé. Il peut alors exécuter la ligne 33 ;</li>
-<li>au temps T2, le thread Thread1 est mis en pause avant même d’avoir terminé l’écriture du log ;</li>
-<li>au temps T3, le thread Thread2 qui a obtenu le processeur doit lui aussi écrire un log. Il arrive ainsi à la ligne 30 où il demande la clé de la porte d’entrée. On lui répond qu’un autre thread l’a déjà. Il est alors automatiquement mis en pause. Il en sera ainsi de tous les threads qui demanderont cette clé ;</li>
-<li>au temps T4, le thread Thread1 qui avait été mis en pause retrouve le processeur. Il termine alors l’écriture du log ;</li>
-</ul>
-</li>
-<li>lignes 32-36 : l’écriture dans le fichier de logs se fait en deux temps :</li>
-<li>ligne 33 : le descripteur de fichier obtenu ligne 17 travaille avec un buffer. L’opération <strong>[write]</strong> de la ligne 33 écrit dans ce buffer mais pas directement dans le fichier. Le buffer est ensuite vidé dans le fichier dans certaines conditions :
-            - le buffer est plein ;
-            - le descripteur de fichier subit une opération <strong>[close]</strong> ou <strong>[flush]</strong> ;</li>
-<li>ligne 36 : on force l’écriture de la ligne de log dans le fichier. On fait cela parce qu’on veut voir s’intercaler entre eux les logs des différents threads. Si on ne fait pas ça, les logs d’un thread seront tous écrits en même temps lors de la fermeture du descripteur, ligne 45. Il serait alors beaucoup plus difficile de voir que certains threads ont été arrêtés : il faudrait regarder les heures dans les logs ;</li>
-<li>ligne 39 : le thread Thread1 rend la clé qu’on lui avait donnée. Elle va pouvoir être donnée à un autre thread ;</li>
-<li>ligne 22 : la méthode <strong>[write]</strong> est donc synchronisée : un seul thread à la fois écrit dans le fichier de logs. La clé du dispositif est la ligne 30 : quoiqu’il arrive, seul un thread récupère la clé de passage à la ligne suivante. Il la garde tant qu’il ne la rend pas (ligne 39) ;</li>
-<li>lignes 41-45 : la méthode <strong>[close]</strong> permet de libérer les ressources allouées au descripteur du fichier de logs ;</li>
-</ul>
+
 <p>Les logs écrits dans le fichier de logs auront l’allure suivante :</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>2020-07-22 20:03:52.992152, Thread-2 : …
 </code></pre></div>
@@ -1782,9 +1814,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 24-54 : on retrouve le code déjà étudié dans l’exemple |<a href="#_scripts_[smtp/02]_:"><u><span style="color: #0563c1">smtp/02</span></u></a>| ;</li>
-<li>ligne 20 : on récupère la référence d’un logueur. Celui-ci est utilisé aux lignes 45 et 49 ;</li>
+  <li>lignes 24-54 : on retrouve le code déjà étudié dans l’exemple |<a href="#_scripts_[smtp/02]_:"><u><span style="color: #0563c1">smtp/02</span></u></a>| ;
+  </li>
+  <li>ligne 20 : on récupère la référence d’un logueur. Celui-ci est utilisé aux lignes 45 et 49 ;
+  </li>
 </ul>
+
 <p><a id="toc48549185"></a></p>
 <h2 id="243-le-serveur-web">24.3. Le serveur web</h2>
 <p><a id="configuration1"></a>
@@ -1874,10 +1909,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 40-66 : on ajoute dans le dictionnaire de configuration du serveur, les éléments concernant le logueur (ligne 49) et celles concernant l’envoi d’un mail d’alerte à l’administrateur de l’application (lignes 51-63) ;</li>
-<li>ligne 65 : pour mieux voir les threads en action on va imposer à certains de s’arrêter. <strong>[sleep_time]</strong> est la durée de l’arrêt exprimée en secondes ;</li>
-<li>lignes 27-28 : on notera qu’on utilise le contrôleur <strong>[index_controller]</strong> de la version 6 précédente ;</li>
+  <li>lignes 40-66 : on ajoute dans le dictionnaire de configuration du serveur, les éléments concernant le logueur (ligne 49) et celles concernant l’envoi d’un mail d’alerte à l’administrateur de l’application (lignes 51-63) ;
+  </li>
+  <li>ligne 65 : pour mieux voir les threads en action on va imposer à certains de s’arrêter. <b>[sleep_time]</b> est la durée de l’arrêt exprimée en secondes ;
+  </li>
+  <li>lignes 27-28 : on notera qu’on utilise le contrôleur <b>[index_controller]</b> de la version 6 précédente ;
+  </li>
 </ul>
+
 <p><a id="toc48549187"></a></p>
 <h3 id="2432-le-script-principal-main">24.3.2. Le script principal [main]</h3>
 <p>Le script principal <strong>[main]</strong> est le suivant :<a id="hlk46322996"></a></p>
@@ -2007,27 +2046,50 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-10 : le script attend un paramètre <strong>[mysql / pgres]</strong> qui lui indique le SGBD à utiliser ;</li>
-<li>lignes 12-14 : l’application est configurée (Python Path, couches, base de données) ;</li>
-<li>lignes 16-28 : les dépendances nécessaires à l’application ;</li>
-<li>lignes 30-43 : gestion de l’authentification ;</li>
-<li>lignes 46-51 : une fonction qui envoie un mail à l’administrateur de l’application ;</li>
-<li>la fonction attend deux paramètres :
-        - config : un dictionnaire ayant les clés <strong>[adminMail]</strong> et <strong>[logger]</strong> ;
-        - le message à envoyer ;<ul>
-<li>lignes 49-50 : on prépare la configuration de l’envoi ;</li>
-<li>on envoie le mail ;</li>
+  <li>lignes 1-10 : le script attend un paramètre <b>[mysql / pgres]</b> qui lui indique le SGBD à utiliser ;
+  </li>
+  <li>lignes 12-14 : l’application est configurée (Python Path, couches, base de données) ;
+  </li>
+  <li>lignes 16-28 : les dépendances nécessaires à l’application ;
+  </li>
+  <li>lignes 30-43 : gestion de l’authentification ;
+  </li>
+  <li>lignes 46-51 : une fonction qui envoie un mail à l’administrateur de l’application ;
+  </li>
+  <li>la fonction attend deux paramètres :
+    <ol>
+        <ul>
+          <li>config : un dictionnaire ayant les clés <b>[adminMail]</b> et <b>[logger]</b> ;
+          </li>
+          <li>le message à envoyer ;
+          </li>
+        </ul>
+    </ol>
+    <ul>
+      <li>lignes 49-50 : on prépare la configuration de l’envoi ;
+      </li>
+      <li>on envoie le mail ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 54-74 : on vérifie la présence du fichier de logs ;
+  </li>
+  <li>ligne 70-74 : si on n’a pas réussi à ouvrir le fichier de logs, on envoie un mail à l’administrateur et on s’arrête ;
+  </li>
+  <li>lignes 76-79 : on logue le démarrage du serveur ;
+  </li>
+  <li>lignes 81-98 : on va chercher les données de l’administration fiscale en base de données ;
+  </li>
+  <li>lignes 88-98 : si on n’a pas réussi à obtenir ces données, on logue l’erreur aussi bien sur la console que dans le fichier de logs ;
+  </li>
+  <li>lignes 100-101 : le thread principal ne fera plus de logs (les threads créés n’utiliseront pas le même descripteur de fichier) ;
+  </li>
+  <li>lignes 103-105 : si on n’a pas pu se connecter à la base de données, on s’arrête ;
+  </li>
+  <li>ligne 122 : on lance le serveur en mode multithreadé ;
+  </li>
 </ul>
-</li>
-<li>lignes 54-74 : on vérifie la présence du fichier de logs ;</li>
-<li>ligne 70-74 : si on n’a pas réussi à ouvrir le fichier de logs, on envoie un mail à l’administrateur et on s’arrête ;</li>
-<li>lignes 76-79 : on logue le démarrage du serveur ;</li>
-<li>lignes 81-98 : on va chercher les données de l’administration fiscale en base de données ;</li>
-<li>lignes 88-98 : si on n’a pas réussi à obtenir ces données, on logue l’erreur aussi bien sur la console que dans le fichier de logs ;</li>
-<li>lignes 100-101 : le thread principal ne fera plus de logs (les threads créés n’utiliseront pas le même descripteur de fichier) ;</li>
-<li>lignes 103-105 : si on n’a pas pu se connecter à la base de données, on s’arrête ;</li>
-<li>ligne 122 : on lance le serveur en mode multithreadé ;</li>
-</ul>
+
 <p>La fonction <strong>[index]</strong> (ligne 114) est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># Home URL<span style="color:#000000"></span></span>
@@ -2081,33 +2143,56 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : la fonction exécutée lorsqu’un utilisateur demande l’URL /. Parce que le serveur est multi-threadé (ligne 112), un thread va être créé pour exécuter la fonction. Ce thread peut à tout moment être interrompu et mis en pause pour reprendre son exécution un peu plus tard. Il faut toujours se souvenir de ce point lorsque le code accède à une ressource partagée par tous les threads. Une telle ressource est ici le fichier de logs : tous les threads écrivent dedans ;</li>
-<li>ligne 8 : on crée une instance de logueur. Donc tous les threads auront une instance différence du logueur. Néanmoins tous ces logueurs pointent sur le même fichier de logs. Il est quand même important de noter que lorsqu’un thread ferme son logueur, cela n’a pas d’incidence sur les logueurs des autres threads ;</li>
-<li>lignes 9-12 : on mémorise le logueur dans le dictionnaire <strong>[config]</strong> de l’application associé à une clé portant le nom du thread. Ainsi s’il y a n threads exécutés simultanément, on aura la création de n entrées dans le dictionnaire <strong>[config]</strong>. <strong>[config]</strong> est une ressource partagée entre tous les threads. Il peut donc y avoir un besoin de synchronisation. J’ai fait ici une hypothèse. J’ai supposé que si deux threads créaient simultanément leur entrée dans le fichier <strong>[config]</strong> et que l’un d’eux était interrompu par l’autre, cela n’avait pas d’incidence. Celui interrompu pouvait ultérieurement terminer la création de l’entrée. Si l’expérience montrait que cette hypothèse était fausse, il faudrait synchroniser l’accès à la ligne 12 ;</li>
-<li>ligne 10 : on met le logueur dans un dictionnaire ;</li>
-<li>ligne 11 : <strong>[</strong><strong><span style="color: #6f008a">threading</span></strong><strong><span style="color: #000000">.current_thread()</span></strong><strong>]</strong> est le thread qui exécute cette ligne, donc le thread qui exécute la fonction <strong>[index]</strong>. On note son nom. Chaque thread a un nom unique ;</li>
-<li>ligne 12 : on mémorise la configuration du thread. A partir de maintenant, nous procèderons toujours ainsi : s’il y a des informations qui ne peuvent être partagées entre les threads, elles seront mises quand même dans la configuration générale, mais associées au nom du thread ;</li>
-<li>ligne 14 : on logue la requête qu’on est en train d’exécuter ;</li>
-<li>lignes 15-24 : de façon aléatoire on met certains threads en pause afin qu’ils laissent le processeur à un autre thread ;<ul>
-<li>ligne 16 : on récupère la durée de la pause (en secondes) dans la configuration ;</li>
-<li>ligne 17 : il n’y a pause que si la durée de pause est différente de 0 ;</li>
-<li>ligne 19 : un nombre entier aléatoire dans l’intervalle <strong>[0, 1]</strong>. Donc seules les valeurs 0 et 1 sont possibles ;</li>
-<li>ligne 20 : la pause du thread ne se fait que si le nombre aléatoire est 1 ;</li>
-<li>ligne 22 : on logue le fait que le thread va être interrompu ;</li>
-<li>ligne 24 : on interrompt le thread pendant <strong>[</strong><strong><span style="color: #000000">sleep_time</span></strong><strong>]</strong> secondes ;</li>
+  <li>ligne 4 : la fonction exécutée lorsqu’un utilisateur demande l’URL /. Parce que le serveur est multi-threadé (ligne 112), un thread va être créé pour exécuter la fonction. Ce thread peut à tout moment être interrompu et mis en pause pour reprendre son exécution un peu plus tard. Il faut toujours se souvenir de ce point lorsque le code accède à une ressource partagée par tous les threads. Une telle ressource est ici le fichier de logs : tous les threads écrivent dedans ;
+  </li>
+  <li>ligne 8 : on crée une instance de logueur. Donc tous les threads auront une instance différence du logueur. Néanmoins tous ces logueurs pointent sur le même fichier de logs. Il est quand même important de noter que lorsqu’un thread ferme son logueur, cela n’a pas d’incidence sur les logueurs des autres threads ;
+  </li>
+  <li>lignes 9-12 : on mémorise le logueur dans le dictionnaire <b>[config]</b> de l’application associé à une clé portant le nom du thread. Ainsi s’il y a n threads exécutés simultanément, on aura la création de n entrées dans le dictionnaire <b>[config]</b>. <b>[config]</b> est une ressource partagée entre tous les threads. Il peut donc y avoir un besoin de synchronisation. J’ai fait ici une hypothèse. J’ai supposé que si deux threads créaient simultanément leur entrée dans le fichier <b>[config]</b> et que l’un d’eux était interrompu par l’autre, cela n’avait pas d’incidence. Celui interrompu pouvait ultérieurement terminer la création de l’entrée. Si l’expérience montrait que cette hypothèse était fausse, il faudrait synchroniser l’accès à la ligne 12 ;
+  </li>
+  <li>ligne 10 : on met le logueur dans un dictionnaire ;
+  </li>
+  <li>ligne 11 : <b>[</b><b><span style="color: #6f008a">threading</span></b><b><span style="color: #000000">.current_thread()</span></b><b>]</b> est le thread qui exécute cette ligne, donc le thread qui exécute la fonction <b>[index]</b>. On note son nom. Chaque thread a un nom unique ;
+  </li>
+  <li>ligne 12 : on mémorise la configuration du thread. A partir de maintenant, nous procèderons toujours ainsi : s’il y a des informations qui ne peuvent être partagées entre les threads, elles seront mises quand même dans la configuration générale, mais associées au nom du thread ;
+  </li>
+  <li>ligne 14 : on logue la requête qu’on est en train d’exécuter ;
+  </li>
+  <li>lignes 15-24 : de façon aléatoire on met certains threads en pause afin qu’ils laissent le processeur à un autre thread ;
+    <ul>
+      <li>ligne 16 : on récupère la durée de la pause (en secondes) dans la configuration ;
+      </li>
+      <li>ligne 17 : il n’y a pause que si la durée de pause est différente de 0 ;
+      </li>
+      <li>ligne 19 : un nombre entier aléatoire dans l’intervalle <b>[0, 1]</b>. Donc seules les valeurs 0 et 1 sont possibles ;
+      </li>
+      <li>ligne 20 : la pause du thread ne se fait que si le nombre aléatoire est 1 ;
+      </li>
+      <li>ligne 22 : on logue le fait que le thread va être interrompu ;
+      </li>
+      <li>ligne 24 : on interrompt le thread pendant <b>[</b><b><span style="color: #000000">sleep_time</span></b><b>]</b> secondes ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 26 : lorsque le thread se réveille, il fait exécuter la requête par le module <b>[index_controller]</b> ;
+  </li>
+  <li>lignes 28-32 : si cette exécution provoque une erreur de type <b>[500 INTERNAL SERVER ERROR]</b>, on envoie un mail à l’administrateur ;
+    <ul>
+      <li>lignes 30-31 : on configure le dictionnaire <b>[config_mail]</b> qu’on va passer à la classe <b>[SendAdminMail]</b> ;
+      </li>
+      <li>ligne 32 : le message envoyé à l’administrateur est la chaîne jSON du résultat qui va être envoyé au client ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 33-34 : on logue la réponse qu’on va envoyer au client (ligne 36) ;
+  </li>
+  <li>lignes 37-44 : traitement d’une éventuelle exception ;
+  </li>
+  <li>lignes 39-40 : si le logueur existe on logue l’erreur qui s’est produite ;
+  </li>
+  <li>lignes 47-48 : on ferme le logueur s’il existe. Au final, le thread crée un logueur au début de la requête et le ferme lorsque celle-ci a été traitée ;
+  </li>
 </ul>
-</li>
-<li>ligne 26 : lorsque le thread se réveille, il fait exécuter la requête par le module <strong>[index_controller]</strong> ;</li>
-<li>lignes 28-32 : si cette exécution provoque une erreur de type <strong>[500 INTERNAL SERVER ERROR]</strong>, on envoie un mail à l’administrateur ;<ul>
-<li>lignes 30-31 : on configure le dictionnaire <strong>[config_mail]</strong> qu’on va passer à la classe <strong>[SendAdminMail]</strong> ;</li>
-<li>ligne 32 : le message envoyé à l’administrateur est la chaîne jSON du résultat qui va être envoyé au client ;</li>
-</ul>
-</li>
-<li>lignes 33-34 : on logue la réponse qu’on va envoyer au client (ligne 36) ;</li>
-<li>lignes 37-44 : traitement d’une éventuelle exception ;</li>
-<li>lignes 39-40 : si le logueur existe on logue l’erreur qui s’est produite ;</li>
-<li>lignes 47-48 : on ferme le logueur s’il existe. Au final, le thread crée un logueur au début de la requête et le ferme lorsque celle-ci a été traitée ;</li>
-</ul>
+
 <p><a id="toc48549188"></a></p>
 <h3 id="2433-le-controleur-index_controller">24.3.3. Le contrôleur [index_controller]</h3>
 <p>Le contrôleur <strong>[index_controller]</strong> qui exécute les requêtes est celui de la version précédente :</p>
@@ -2146,9 +2231,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-4 : on rappelle qu’il y a deux démarrages du serveur parce que le mode <strong>[Debug=True]</strong> provoque un second démarrage ;</li>
-<li>lignes 5-6 : les logs nous donnent une idée du temps d’exécution d’une requête, ici 2,293 millisecondes ;</li>
+  <li>lignes 1-4 : on rappelle qu’il y a deux démarrages du serveur parce que le mode <b>[Debug=True]</b> provoque un second démarrage ;
+  </li>
+  <li>lignes 5-6 : les logs nous donnent une idée du temps d’exécution d’une requête, ici 2,293 millisecondes ;
+  </li>
 </ul>
+
 <p><a id="toc48549190"></a></p>
 <h2 id="244-le-client-web">24.4. Le client web</h2>
 <p><img src="images/1000000000000207000002166A13AA26.png" style="width:6.002cm;height:6.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000207000002166A13AA26.png" /></p>
@@ -2230,10 +2318,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 31-32 : on va utiliser le même logueur |<a href="#_La_classe_[Logger]"><u><span style="color: #0563c1">Logger</span></u></a>| que celui utilisé pour le serveur ;</li>
-<li>ligne 49 : le chemin absolu du fichier de logs ;</li>
-<li>ligne 60 : le mode <strong>[debug=True]</strong> sert à écrire les réponses du serveur web dans le fichier de logs ;</li>
+  <li>lignes 31-32 : on va utiliser le même logueur |<a href="#_La_classe_[Logger]"><u><span style="color: #0563c1">Logger</span></u></a>| que celui utilisé pour le serveur ;
+  </li>
+  <li>ligne 49 : le chemin absolu du fichier de logs ;
+  </li>
+  <li>ligne 60 : le mode <b>[debug=True]</b> sert à écrire les réponses du serveur web dans le fichier de logs ;
+  </li>
 </ul>
+
 <p><a id="toc48549192"></a></p>
 <h3 id="2442-la-couche-dao">24.4.2. La couche [dao]</h3>
 <p>Le code de la classe <strong>[</strong><strong><span style="color: #2b91af">ImpôtsDaoWithHttpClient</span></strong><strong>]</strong> évolue légèrement :</p>
@@ -2283,12 +2375,18 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 17 : on mémorise la configuration générale. On verra ultérieurement que lorsque le constructeur de la classe <strong>[</strong><strong><span style="color: #2b91af">ImpôtsDaoWithHttpClient</span></strong><strong>]</strong> s’exécute, le dictionnaire <strong>[config]</strong> ne contient pas encore la clé <strong>[logger]</strong> utilisée ligne 37. C’est pour cette raison qu’on ne peut pas initialiser <strong>[self.__logger]</strong> (ligne 23) dans le constructeur ;</li>
-<li>ligne 21 : on a ajouté dans la configuration une clé <strong>[debug]</strong> qui contrôle le log des lignes 33-39 ;</li>
-<li>ligne 34 : si on est en mode <strong>[debug]</strong> ;</li>
-<li>lignes 36-37 : initialisation éventuelle de la propriété <strong>[self.__logger]</strong>. Lorsque la méthode <strong>[calculate_tax]</strong> est utilisée, la clé <strong>[logger]</strong> fait partie du dictionnaire <strong>[config]</strong> ;</li>
-<li>ligne 39 : on logue le document texte associé à la réponse HTTP du serveur ;</li>
+  <li>lignes 17 : on mémorise la configuration générale. On verra ultérieurement que lorsque le constructeur de la classe <b>[</b><b><span style="color: #2b91af">ImpôtsDaoWithHttpClient</span></b><b>]</b> s’exécute, le dictionnaire <b>[config]</b> ne contient pas encore la clé <b>[logger]</b> utilisée ligne 37. C’est pour cette raison qu’on ne peut pas initialiser <b>[self.__logger]</b> (ligne 23) dans le constructeur ;
+  </li>
+  <li>ligne 21 : on a ajouté dans la configuration une clé <b>[debug]</b> qui contrôle le log des lignes 33-39 ;
+  </li>
+  <li>ligne 34 : si on est en mode <b>[debug]</b> ;
+  </li>
+  <li>lignes 36-37 : initialisation éventuelle de la propriété <b>[self.__logger]</b>. Lorsque la méthode <b>[calculate_tax]</b> est utilisée, la clé <b>[logger]</b> fait partie du dictionnaire <b>[config]</b> ;
+  </li>
+  <li>ligne 39 : on logue le document texte associé à la réponse HTTP du serveur ;
+  </li>
 </ul>
+
 <p>La couche <strong>[dao]</strong> va être exécutée simultanément par plusieurs threads. Or ici on crée un unique exemplaire de cette couche (cf. config_layers). Il faut donc vérifier que le code n’implique pas l’accès en écriture à des données partagées, typiquement les propriétés de la classe <strong>[</strong><strong><span style="color: #2b91af">ImpôtsDaoWithHttpClient</span></strong><strong>]</strong> qui implémente la couche <strong>[dao]</strong>. Or ci-dessus la ligne 37 modifie une propriété de l’instance de classe. Ici ça ne porte pas à conséquence car tous les threads partagent le même logueur. Si cela n’avait pas été le cas, l’accès à la ligne 37 aurait du être synchronisé.</p>
 <p><a id="toc48549193"></a></p>
 <h3 id="2443-le-script-principal">24.4.3. Le script principal</h3>
@@ -2365,48 +2463,78 @@
 </code></pre></div>
 
 <ul>
-<li>le script principal se distingue de celui du client précédent par le fait qu’il va générer plusieurs threads d’exécution pour effectuer les requêtes au serveur. Le client de la version 6 faisait toutes ses requêtes séquentiellement. La requête n° i n’était faite qu’une fois la réponse à la requête n° <strong>[i-1]</strong> reçue. Ici on veut voir comment le serveur va se comporter lorsqu’il reçoit plusieurs requêtes simultanées. Pour cela nous avons besoin des threads ;</li>
-<li>ligne 21 : les threads générés vont être mis dans une liste. Il faut comprendre que le script <strong>[main]</strong> est lui aussi exécuté par un thread qui s’appelle <strong>[MainThread]</strong>. Ce thread principal va créer d’autres threads qui seront chargés de calculer l’impôt d’un ou plusieurs contribuables ;</li>
-<li>ligne 26 : on crée un logueur. Celui-ci sera partagé par tous les threads ;</li>
-<li>ligne 32 : on récupère tous les contribuables dont il faut calculer l’impôt ;</li>
-<li>lignes 39-51 : on va répartir ces contribuables sur plusieurs threads ;</li>
-<li>lignes 40-41 : chaque thread va traiter de 1 à 4 contribuables. Ce nombre est fixé de façon aléatoire ;<ul>
-<li><strong>[</strong><strong><span style="color: #6f008a">random</span></strong><strong><span style="color: #000000">.randint(1, 4)</span></strong><strong>]</strong> donne aléatoirement un nombre dans la liste <strong>[1, 2, 3, 4]</strong> ;</li>
-<li>le thread ne peut avoir plus de <strong>[l-i]</strong> contribuables où <strong>[l-i]</strong> représente le nombre de contribuables à qui on n’a pas encore attribué de thread ;</li>
-<li>on prend donc le min des deux valeurs ;</li>
+  <li>le script principal se distingue de celui du client précédent par le fait qu’il va générer plusieurs threads d’exécution pour effectuer les requêtes au serveur. Le client de la version 6 faisait toutes ses requêtes séquentiellement. La requête n° i n’était faite qu’une fois la réponse à la requête n° <b>[i-1]</b> reçue. Ici on veut voir comment le serveur va se comporter lorsqu’il reçoit plusieurs requêtes simultanées. Pour cela nous avons besoin des threads ;
+  </li>
+  <li>ligne 21 : les threads générés vont être mis dans une liste. Il faut comprendre que le script <b>[main]</b> est lui aussi exécuté par un thread qui s’appelle <b>[MainThread]</b>. Ce thread principal va créer d’autres threads qui seront chargés de calculer l’impôt d’un ou plusieurs contribuables ;
+  </li>
+  <li>ligne 26 : on crée un logueur. Celui-ci sera partagé par tous les threads ;
+  </li>
+  <li>ligne 32 : on récupère tous les contribuables dont il faut calculer l’impôt ;
+  </li>
+  <li>lignes 39-51 : on va répartir ces contribuables sur plusieurs threads ;
+  </li>
+  <li>lignes 40-41 : chaque thread va traiter de 1 à 4 contribuables. Ce nombre est fixé de façon aléatoire ;
+    <ul>
+      <li><b>[</b><b><span style="color: #6f008a">random</span></b><b><span style="color: #000000">.randint(1, 4)</span></b><b>]</b> donne aléatoirement un nombre dans la liste <b>[1, 2, 3, 4]</b> ;
+      </li>
+      <li>le thread ne peut avoir plus de <b>[l-i]</b> contribuables où <b>[l-i]</b> représente le nombre de contribuables à qui on n’a pas encore attribué de thread ;
+      </li>
+      <li>on prend donc le min des deux valeurs ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 43 : une fois que <b>[nb_taxpayers]</b>, le nombre de contribuables traités par le thread, est connu, on prend ceux-ci dans la liste des contribuables :
+    <ul>
+      <li><b>[slice(10,12)]</b> est l’ensemble des indices <b>[10, 11, 12]</b> ;
+      </li>
+      <li><b>[taxpayers[slice(10,12)]</b>] est la liste <b>[taxpayers[10]</b>, taxpayers<b>[11]</b>, taxpayers<b>[12]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 45 : on incrémente la valeur de i qui contrôle la boucle de la ligne 39 ;
+  </li>
+  <li>ligne 47 : on crée un thread :
+    <ul>
+      <li><b>[</b><b><span style="color: #000000">target=thread_function</span></b><b>]</b> fixe la fonction qu’exécutera le thread. C’est la fonction des lignes 16-17. Elle attend trois paramètres ;
+      </li>
+      <li><b>[ags]</b> est la liste des trois paramètres attendus par la fonction <b>[</b><b><span style="color: #000000">thread_function</span></b><b>]</b> ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>ligne 43 : une fois que <strong>[nb_taxpayers]</strong>, le nombre de contribuables traités par le thread, est connu, on prend ceux-ci dans la liste des contribuables :<ul>
-<li><strong>[slice(10,12)]</strong> est l’ensemble des indices <strong>[10, 11, 12]</strong> ;</li>
-<li><strong>[taxpayers[slice(10,12)]</strong>] est la liste <strong>[taxpayers[10]</strong>, taxpayers<strong>[11]</strong>, taxpayers<strong>[12]</strong> ;</li>
-</ul>
-</li>
-<li>ligne 45 : on incrémente la valeur de i qui contrôle la boucle de la ligne 39 ;</li>
-<li>ligne 47 : on crée un thread :<ul>
-<li><strong>[</strong><strong><span style="color: #000000">target=thread_function</span></strong><strong>]</strong> fixe la fonction qu’exécutera le thread. C’est la fonction des lignes 16-17. Elle attend trois paramètres ;</li>
-<li><strong>[ags]</strong> est la liste des trois paramètres attendus par la fonction <strong>[</strong><strong><span style="color: #000000">thread_function</span></strong><strong>]</strong> ;</li>
-</ul>
-</li>
-</ul>
+
 <p>Créer un thread ne l’exécute pas. Ca crée un objet et c’est tout ;</p>
 <ul>
-<li>lignes 48-49 : le thread qui vient d’être créé est ajouté à la liste des threads créés par le thread principal ;</li>
-<li>ligne 51 : le thread est lancé. Il va alors être exécuté en parallèle des autres threads actifs. Ici, il va exécuter la fonction <strong>[</strong><strong><span style="color: #000000">thread_function</span></strong><strong>]</strong> avec les arguments qu’on lui a donnés ;</li>
-<li>lignes 53-54 : le thread principal attend chacun des threads qu’il a lancés. Prenons un exemple :<ul>
-<li>le thread principal a lancé trois threads <strong>[th1, th2, th3]</strong> ;</li>
-<li>le thread principal se met en attente de chacun des threads (lignes 53-54) dans l’ordre de la boucle for : <strong>[th1, th2, th3]</strong> ;</li>
-<li>supposons que les threads se terminent dans l’ordre <strong>[th2, th1, th3]</strong> ;</li>
-<li>le thread principal attend la fin de th1. Lorsque th2 se termine, il ne se passe rien ;</li>
-<li>lorsque th1 se termine, le thread principal se met en attente de th2. Or celui-ci est terminé. Le thread principal passe alors au thread suivant et attend th3 ;</li>
-<li>lorsque th3 se termine, le thread principal a terminé son attente et passe alors à l’exécution de la ligne 57 ;</li>
+  <li>lignes 48-49 : le thread qui vient d’être créé est ajouté à la liste des threads créés par le thread principal ;
+  </li>
+  <li>ligne 51 : le thread est lancé. Il va alors être exécuté en parallèle des autres threads actifs. Ici, il va exécuter la fonction <b>[</b><b><span style="color: #000000">thread_function</span></b><b>]</b> avec les arguments qu’on lui a donnés ;
+  </li>
+  <li>lignes 53-54 : le thread principal attend chacun des threads qu’il a lancés. Prenons un exemple :
+    <ul>
+      <li>le thread principal a lancé trois threads <b>[th1, th2, th3]</b> ;
+      </li>
+      <li>le thread principal se met en attente de chacun des threads (lignes 53-54) dans l’ordre de la boucle for : <b>[th1, th2, th3]</b> ;
+      </li>
+      <li>supposons que les threads se terminent dans l’ordre <b>[th2, th1, th3]</b> ;
+      </li>
+      <li>le thread principal attend la fin de th1. Lorsque th2 se termine, il ne se passe rien ;
+      </li>
+      <li>lorsque th1 se termine, le thread principal se met en attente de th2. Or celui-ci est terminé. Le thread principal passe alors au thread suivant et attend th3 ;
+      </li>
+      <li>lorsque th3 se termine, le thread principal a terminé son attente et passe alors à l’exécution de la ligne 57 ;
+      </li>
+    </ul>
+  </li>
+  <li>la ligne 57 écrit les résultats obtenus dans le fichier des résultats. On a là un bon exemple des références d’objets :
+    <ul>
+      <li>ligne 43 : la liste <b>[thread_payers]</b> associée à un thread contient des copies des références d’objets contenus dans la liste <b>[taxpayers]</b> ;
+      </li>
+      <li>on sait que le calcul de l’impôt va modifier les objets pointés par les références de la liste <b>[thread_payers]</b>. Ces objets vont se voir enrichis des résultats du calcul de l’impôt. Néanmoins les références elles ne sont pas modifiées. Donc les références de la liste initiale <b>[taxpayers]</b> ‘voient’ ou ‘pointent sur’ les objets modifiés ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>la ligne 57 écrit les résultats obtenus dans le fichier des résultats. On a là un bon exemple des références d’objets :<ul>
-<li>ligne 43 : la liste <strong>[thread_payers]</strong> associée à un thread contient des copies des références d’objets contenus dans la liste <strong>[taxpayers]</strong> ;</li>
-<li>on sait que le calcul de l’impôt va modifier les objets pointés par les références de la liste <strong>[thread_payers]</strong>. Ces objets vont se voir enrichis des résultats du calcul de l’impôt. Néanmoins les références elles ne sont pas modifiées. Donc les références de la liste initiale <strong>[taxpayers]</strong> ‘voient’ ou ‘pointent sur’ les objets modifiés ;</li>
-</ul>
-</li>
-</ul>
+
 <p>La fonction <strong>[</strong><strong><span style="color: #000000">thread_function</span></strong><strong>]</strong> exécutée par les threads est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># exécution de la couche <span style="font-weight:bold">[dao]</span> dans un thread</span>
@@ -2428,22 +2556,34 @@
 </code></pre></div>
 
 <ul>
-<li>les fonctions exécutées simultanément par plusieurs threads sont souvent délicates à écrire : on doit toujours vérifier que le code n’essaie pas de modifier une donnée partagée entre threads. Lorsque ce dernier cas se produit, il faut mettre en place un accès synchronisé à la donnée partagée qui va être modifiée ;</li>
-<li>ligne 3 : la fonction reçoit trois paramètres :<ul>
-<li><strong>[dao]</strong> : une référence sur la couche <strong>[dao]</strong>. Cette donnée est partagée ;</li>
-<li><strong>[logger]</strong> : une référence sur le logueur. Cette donnée est partagée ;</li>
-<li><strong>[taxpayers]</strong> : une liste de contribuables. Cette donnée n’est pas partagée : chaque thread gère une liste différente ;</li>
+  <li>les fonctions exécutées simultanément par plusieurs threads sont souvent délicates à écrire : on doit toujours vérifier que le code n’essaie pas de modifier une donnée partagée entre threads. Lorsque ce dernier cas se produit, il faut mettre en place un accès synchronisé à la donnée partagée qui va être modifiée ;
+  </li>
+  <li>ligne 3 : la fonction reçoit trois paramètres :
+    <ul>
+      <li><b>[dao]</b> : une référence sur la couche <b>[dao]</b>. Cette donnée est partagée ;
+      </li>
+      <li><b>[logger]</b> : une référence sur le logueur. Cette donnée est partagée ;
+      </li>
+      <li><b>[taxpayers]</b> : une liste de contribuables. Cette donnée n’est pas partagée : chaque thread gère une liste différente ;
+      </li>
+    </ul>
+  </li>
+  <li>examinons les deux références <b>[dao, logger]</b> :
+    <ul>
+      <li>on a vu que l’objet pointé par la référence <b>[dao]</b> avait une référence <b>[self.__logger]</b> qui était modifiée par les threads mais pour y mettre une valeur commune à tous les threads ;
+      </li>
+      <li>la référence <b>[logger]</b> pointe sur un descripteur de fichier. On a vu qu’il pouvait y avoir un problème lors de l’écriture des logs dans le fichier. Pour cette raison l’écriture dans le fichier a été synchronisée ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 5-6 : on logue le nom du thread et le nombre de contribuables qu’il doit gérer ;
+  </li>
+  <li>lignes 8-14 : calcul de l’impôt des contribuables ;
+  </li>
+  <li>ligne 16 : on logue la fin du thread ;
+  </li>
 </ul>
-</li>
-<li>examinons les deux références <strong>[dao, logger]</strong> :<ul>
-<li>on a vu que l’objet pointé par la référence <strong>[dao]</strong> avait une référence <strong>[self.__logger]</strong> qui était modifiée par les threads mais pour y mettre une valeur commune à tous les threads ;</li>
-<li>la référence <strong>[logger]</strong> pointe sur un descripteur de fichier. On a vu qu’il pouvait y avoir un problème lors de l’écriture des logs dans le fichier. Pour cette raison l’écriture dans le fichier a été synchronisée ;</li>
-</ul>
-</li>
-<li>lignes 5-6 : on logue le nom du thread et le nombre de contribuables qu’il doit gérer ;</li>
-<li>lignes 8-14 : calcul de l’impôt des contribuables ;</li>
-<li>ligne 16 : on logue la fin du thread ;</li>
-</ul>
+
 <p><a id="toc48549194"></a></p>
 <h3 id="2444-execution">24.4.4. Exécution</h3>
 <p>Lançons le serveur web comme dans le paragraphe précédent (serveur web, SGBD, hMailServer, Thunderbird), puis exécutons le script <strong>[main]</strong> du client. Dans les fichiers <strong>[data/output/errors.txt, data/output/résultats.json]</strong> on a les mêmes résultats que dans la version précédente. Dans le fichier <strong>[data/logs/logs.txt]</strong>, on a les logs suivants :</p>
@@ -2494,13 +2634,18 @@
 </code></pre></div>
 
 <ul>
-<li>ces logs montrent que cinq threads ont été lancés pour calculer l’impôt de 11 contribuables. Ces cinq threads ont lancé des requêtes simultanées au serveur de calcul de l’impôt. Il faut comprendre comment ça marche :<ul>
-<li>le thread <strong>[Thread-1]</strong> est lancé le premier. Lorsqu’il a le processeur, il avance dans le code jusqu’à envoyer sa requête HTTP. Comme il doit attendre le résultat de celle-ci, il est automatiquement mis en attente. Il perd alors le processeur et un autre thread obtient celui-ci ;</li>
-<li>lignes 1-10 : le même processus se répète pour chacun des 5 threads. Ainsi les 5 threads sont lancés avant même que le thread <strong>[Thread-1]</strong> ait reçu sa réponse ligne 11 ;</li>
+  <li>ces logs montrent que cinq threads ont été lancés pour calculer l’impôt de 11 contribuables. Ces cinq threads ont lancé des requêtes simultanées au serveur de calcul de l’impôt. Il faut comprendre comment ça marche :
+    <ul>
+      <li>le thread <b>[Thread-1]</b> est lancé le premier. Lorsqu’il a le processeur, il avance dans le code jusqu’à envoyer sa requête HTTP. Comme il doit attendre le résultat de celle-ci, il est automatiquement mis en attente. Il perd alors le processeur et un autre thread obtient celui-ci ;
+      </li>
+      <li>lignes 1-10 : le même processus se répète pour chacun des 5 threads. Ainsi les 5 threads sont lancés avant même que le thread <b>[Thread-1]</b> ait reçu sa réponse ligne 11 ;
+      </li>
+    </ul>
+  </li>
+  <li>les threads ne se terminent pas dans l’ordre où ils ont été lancés. Ainsi c’est le thread <b>[Thread-3]</b> qui termine le premier, ligne 23 ;
+  </li>
 </ul>
-</li>
-<li>les threads ne se terminent pas dans l’ordre où ils ont été lancés. Ainsi c’est le thread <strong>[Thread-3]</strong> qui termine le premier, ligne 23 ;</li>
-</ul>
+
 <p>Côté serveur, les logs dans le fichier <strong>[data/logs/logs.txt]</strong> sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">2020-07-24 10:05:01.692980, MainThread : <span style="font-weight:bold">[serveur]</span> démarrage du serveur</span>
@@ -2538,9 +2683,12 @@
 </code></pre></div>
 
 <ul>
-<li>on voit que 11 threads ont traité les 11 contribuables ;</li>
-<li>certains threads ont été mis en attente (lignes 6, 8, 12, 14, 20, 22) et d’autres pas (lignes 9, 23, 25, 29, 31) ;</li>
+  <li>on voit que 11 threads ont traité les 11 contribuables ;
+  </li>
+  <li>certains threads ont été mis en attente (lignes 6, 8, 12, 14, 20, 22) et d’autres pas (lignes 9, 23, 25, 29, 31) ;
+  </li>
 </ul>
+
 <p><a id="testsdela1"></a>
 <a id="toc48549195"></a></p>
 <h2 id="245-tests-de-la-couche-dao">24.5. Tests de la couche [dao]</h2>
@@ -2549,8 +2697,10 @@
 <p>La classe de test sera exécutée dans l’environnement suivant :</p>
 <p><img src="images/10000000000001AA000002066FDFF26C.png" style="width:4.911cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000002066FDFF26C.png" /></p>
 <ul>
-<li>la configuration <strong>[2]</strong> est identique à la configuration <strong>[1]</strong> que nous venons d’étudier ;</li>
+  <li>la configuration <b>[2]</b> est identique à la configuration <b>[1]</b> que nous venons d’étudier ;
+  </li>
 </ul>
+
 <p>La classe de test <strong>[</strong><strong><span style="color: #2b91af">TestHttpClientDao</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> </span>unittest</span>
@@ -2595,10 +2745,14 @@
 </code></pre></div>
 
 <ul>
-<li>on crée une |<a href="#_Tests_de_la"><u><span style="color: #0563c1">configuration d’exécution</span></u></a>| pour ce test ;</li>
-<li>on lance le serveur web avec tout son environnement ;</li>
-<li>on exécute le test ;</li>
+  <li>on crée une |<a href="#_Tests_de_la"><u><span style="color: #0563c1">configuration d’exécution</span></u></a>| pour ce test ;
+  </li>
+  <li>on lance le serveur web avec tout son environnement ;
+  </li>
+  <li>on exécute le test ;
+  </li>
 </ul>
+
 <p>Les résultats sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/http-clients/02/tests/TestHttpClientDao.py</span>

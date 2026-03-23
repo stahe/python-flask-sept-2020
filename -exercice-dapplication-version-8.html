@@ -1630,9 +1630,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 17 : on va réécrire un contrôleur pour la fonction <strong>[index]</strong> qui traite l’URL / ;</li>
-<li>ligne 21 : on utilise les utilitaires de la |<a href="#_Les_utilitaires"><u><span style="color: #0563c1">version précédente</span></u></a>| ;</li>
+  <li>ligne 17 : on va réécrire un contrôleur pour la fonction <b>[index]</b> qui traite l’URL / ;
+  </li>
+  <li>ligne 21 : on utilise les utilitaires de la |<a href="#_Les_utilitaires"><u><span style="color: #0563c1">version précédente</span></u></a>| ;
+  </li>
 </ul>
+
 <p><a id="toc48549200"></a></p>
 <h3 id="2522-le-script-principal-main">25.2.2. Le script principal [main]</h3>
 <p>Le nouveau script <strong>[main]</strong> amène quelques modifications au script principal <strong>[main]</strong> de la version précédente :</p>
@@ -1644,8 +1647,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : on crée une clé secrète pour l’application. On sait que celle-ci est nécessaire pour gérer les sessions ;</li>
+  <li>ligne 4 : on crée une clé secrète pour l’application. On sait que celle-ci est nécessaire pour gérer les sessions ;
+  </li>
 </ul>
+
 <p>Ensuite, les données fiscale ne sont plus demandées dans le code de <strong>[main]</strong>. Les lignes suivantes sont supprimées :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># récupération des données de l&#x27;administration fiscale<span style="color:#000000"></span></span>
@@ -1742,28 +1747,44 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 14 : le contrôleur reçoit la session courante du client web ;</li>
-<li>lignes 35-38 : si le client a une session, alors celle-ci contient deux clés :<ul>
-<li><strong>[client_id]</strong> : un n° de client (ligne 37) ;</li>
-<li><strong>[admindata]</strong> : les données de l’administration fiscale sous le forme d’un dictionnaire (ligne 38) ;</li>
+  <li>ligne 14 : le contrôleur reçoit la session courante du client web ;
+  </li>
+  <li>lignes 35-38 : si le client a une session, alors celle-ci contient deux clés :
+    <ul>
+      <li><b>[client_id]</b> : un n° de client (ligne 37) ;
+      </li>
+      <li><b>[admindata]</b> : les données de l’administration fiscale sous le forme d’un dictionnaire (ligne 38) ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 35 : on regarde si la session a une des deux clés attendues ;
+  </li>
+  <li>lignes 42-51 : cas où la session du client n’a pas encore été initialisée ;
+    <ul>
+      <li>ligne 43 : on récupère les données de l’administration fiscale auprès de la couche <b>[dao]</b> ;
+      </li>
+      <li>ligne 45 : ces données sont mises dans la session sous la forme d’un dictionnaire ;
+      </li>
+      <li>ligne 48 : on affecte un n° aléatoire au client. Ce n° sera différent pour chaque client ;
+      </li>
+      <li>ligne 49 : ce n° est mis en session ;
+      </li>
+      <li>ligne 51 : on logue le fait que les données de l’administration fiscale ont été obtenues par la couche <b>[dao]</b>. Les accès à la couche <b>[dao]</b> sont en général coûteux. C’est pourquoi il faut les limiter. L’idée ici est d’obtenir une fois les données fiscales auprès de la couche <b>[dao]</b>, de les mettre en session et d’aller les chercher là lors des requêtes ultérieures du même client. On rappelle que ce n’est pas la meilleure solution. Les données fiscales de l’administration étant les mêmes pour tous les clients, leur place est dans un objet de portée application ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 35-40 : cas où la session du client a été initialisée lors d’une précédente requête ;
+    <ul>
+      <li>ligne 37 : on récupère le n° du client dans la session ;
+      </li>
+      <li>ligne 38 : on récupère les données fiscales de l’administration dans la session ;
+      </li>
+      <li>ligne 40 : on logue le fait que le client a obtenu les données fiscales de l’administration dans la session ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>ligne 35 : on regarde si la session a une des deux clés attendues ;</li>
-<li>lignes 42-51 : cas où la session du client n’a pas encore été initialisée ;<ul>
-<li>ligne 43 : on récupère les données de l’administration fiscale auprès de la couche <strong>[dao]</strong> ;</li>
-<li>ligne 45 : ces données sont mises dans la session sous la forme d’un dictionnaire ;</li>
-<li>ligne 48 : on affecte un n° aléatoire au client. Ce n° sera différent pour chaque client ;</li>
-<li>ligne 49 : ce n° est mis en session ;</li>
-<li>ligne 51 : on logue le fait que les données de l’administration fiscale ont été obtenues par la couche <strong>[dao]</strong>. Les accès à la couche <strong>[dao]</strong> sont en général coûteux. C’est pourquoi il faut les limiter. L’idée ici est d’obtenir une fois les données fiscales auprès de la couche <strong>[dao]</strong>, de les mettre en session et d’aller les chercher là lors des requêtes ultérieures du même client. On rappelle que ce n’est pas la meilleure solution. Les données fiscales de l’administration étant les mêmes pour tous les clients, leur place est dans un objet de portée application ;</li>
-</ul>
-</li>
-<li>lignes 35-40 : cas où la session du client a été initialisée lors d’une précédente requête ;<ul>
-<li>ligne 37 : on récupère le n° du client dans la session ;</li>
-<li>ligne 38 : on récupère les données fiscales de l’administration dans la session ;</li>
-<li>ligne 40 : on logue le fait que le client a obtenu les données fiscales de l’administration dans la session ;</li>
-</ul>
-</li>
-</ul>
+
 <p><a id="toc48549202"></a></p>
 <h2 id="253-le-client-web">25.3. Le client web</h2>
 <p><img src="images/1000000000000208000001F24E91AAF1.png" style="width:6.01cm;height:5.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000208000001F24E91AAF1.png" /></p>
@@ -1862,26 +1883,38 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 30 : la couche <strong>[dao]</strong> va gérer un dictionnaire de cookies ;</li>
-<li>ligne 58 : la propriété <strong>[response.cookies]</strong> est un dictionnaire rassemblant les cookies envoyés par le serveur dans les entêtes HTTP <strong>[Set-Cookie]</strong> ;</li>
-<li>ligne 59 : ces cookies sont mémorisés dans la couche <strong>[dao]</strong>. Ils seront renvoyés au serveur lors des requêtes ultérieures du même client ;</li>
-<li>lignes 60-68 : bien que ce ne soit pas indispensable on récupère le cookie de session. Dans le dictionnaire des cookies envoyés par le serveur, le cookie de session est associé à la clé <strong>[session]</strong> ;</li>
-<li>lignes 62-68 : on décode le cookie de session pour le loguer ;</li>
-<li>ligne 68 : nous reviendrons ultérieurement sur la fonction <strong>[</strong><strong><span style="color: #a31515">decode_flask_session</span></strong><strong>]</strong> qui décode le cookie de session ;</li>
-<li>lignes 52 et 57 : à chaque requête du même client, les cookies envoyés par le serveur lui sont renvoyés. C’est de cette façon que la session Flask est maintenue entre le client et le serveur ;</li>
+  <li>ligne 30 : la couche <b>[dao]</b> va gérer un dictionnaire de cookies ;
+  </li>
+  <li>ligne 58 : la propriété <b>[response.cookies]</b> est un dictionnaire rassemblant les cookies envoyés par le serveur dans les entêtes HTTP <b>[Set-Cookie]</b> ;
+  </li>
+  <li>ligne 59 : ces cookies sont mémorisés dans la couche <b>[dao]</b>. Ils seront renvoyés au serveur lors des requêtes ultérieures du même client ;
+  </li>
+  <li>lignes 60-68 : bien que ce ne soit pas indispensable on récupère le cookie de session. Dans le dictionnaire des cookies envoyés par le serveur, le cookie de session est associé à la clé <b>[session]</b> ;
+  </li>
+  <li>lignes 62-68 : on décode le cookie de session pour le loguer ;
+  </li>
+  <li>ligne 68 : nous reviendrons ultérieurement sur la fonction <b>[</b><b><span style="color: #a31515">decode_flask_session</span></b><b>]</b> qui décode le cookie de session ;
+  </li>
+  <li>lignes 52 et 57 : à chaque requête du même client, les cookies envoyés par le serveur lui sont renvoyés. C’est de cette façon que la session Flask est maintenue entre le client et le serveur ;
+  </li>
 </ul>
+
 <p>Il faut se souvenir maintenant que la couche <strong>[dao]</strong> va être exécutée simultanément par plusieurs threads. Il faut donc regarder toutes les propriétés de l’instance de classe et voir si l’accès simultané à ces propriétés pose problème. Ici nous avons ajouté la propriété <strong>[self.__cookies]</strong>, ligne 30. Cette propriété est modifiée à la ligne 59. On a donc un accès en écriture à une donnée partagée par tous les threads. Or cet accès pose problème : chaque thread représentant un client donné a son propre cookie de session. En effet, dedans il y a un n° de client (=thread) unique pour chaque client. Si on ne fait rien, le thread T2 peut écraser les cookies du thread T1.</p>
 <p>On a déjà vu une méthode pour gérer ce problème : on peut créer dans le fichier <strong>[config]</strong> passé en paramètre au constructeur (ligne 17), des clés différentes pour chaque thread. On peut par exemple utiliser comme clé le nom du thread :</p>
 <ul>
-<li>ligne 59, on pourrait écrire :</li>
+  <li>ligne 59, on pourrait écrire :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">config<span style="font-weight:bold">[thread_name][‘cookies’]</span>=cookies</span>
 </code></pre></div>
 
 <ul>
-<li>ligne 52, on pourrait alors écrire :</li>
+  <li>ligne 52, on pourrait alors écrire :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">cookies=config<span style="font-weight:bold">[thread_name][‘cookies’]</span></span>
 </code></pre></div>
@@ -1915,10 +1948,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : l’URL où j’ai trouvé cette fonction ;</li>
-<li>ligne 1 : le paramètre <strong>[cookie]</strong> est la chaîne de caractères associée à la clé <strong>[session]</strong> dans le dictionnaire des cookies reçus par un client web ;</li>
-<li>lignes 3-16 : je ne commenterai pas ce code que je ne maîtrise pas ;</li>
+  <li>ligne 2 : l’URL où j’ai trouvé cette fonction ;
+  </li>
+  <li>ligne 1 : le paramètre <b>[cookie]</b> est la chaîne de caractères associée à la clé <b>[session]</b> dans le dictionnaire des cookies reçus par un client web ;
+  </li>
+  <li>lignes 3-16 : je ne commenterai pas ce code que je ne maîtrise pas ;
+  </li>
 </ul>
+
 <p>On ajoute une nouvelle importation dans le fichier <strong>[__init__.py]</strong> :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> .<span style="color:#6f008a">myutils</span> <span style="color:#0000ff">import</span> set_syspath, json_response, <span style="background-color:#fff2cc">decode_flask_session</span></span>
@@ -1939,8 +1976,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : il faut être dans le dossier <strong>[packages]</strong> pour taper cette instruction ;</li>
+  <li>ligne 1 : il faut être dans le dossier <b>[packages]</b> pour taper cette instruction ;
+  </li>
 </ul>
+
 <h4 id="25313-la-classe-impotsdaowithhttpsessionfactory">25.3.1.3. La classe [ImpôtsDaoWithHttpSessionFactory]</h4>
 <p>La classe <strong>[</strong><strong><span style="color: #2b91af">ImpôtsDaoWithHttpSessionFactory</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1959,8 +1998,10 @@
 </code></pre></div>
 
 <ul>
-<li>la classe <strong>[</strong><strong><span style="color: #2b91af">ImpôtsDaoWithHttpSessionFactory</span></strong><strong>]</strong> permet de créer une nouvelle implémentation de la couche <strong>[dao]</strong> avec la méthode <strong>[</strong><strong><span style="color: #000000">new_instance</span></strong><strong>]</strong> des lignes 10-12 ;</li>
+  <li>la classe <b>[</b><b><span style="color: #2b91af">ImpôtsDaoWithHttpSessionFactory</span></b><b>]</b> permet de créer une nouvelle implémentation de la couche <b>[dao]</b> avec la méthode <b>[</b><b><span style="color: #000000">new_instance</span></b><b>]</b> des lignes 10-12 ;
+  </li>
 </ul>
+
 <p><a id="toc48549204"></a></p>
 <h3 id="2532-la-configuration">25.3.2. La configuration</h3>
 <p>Le script <strong>[config_layers]</strong> qui configure les couches du client web est modifié de la façon suivante :</p>
@@ -1979,9 +2020,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 5-6 : au lieu d’instancier une couche <strong>[dao]</strong> unique comme c’était fait précédemment, on instancie une ‘factory’ de cette couche (factory=usine de production d’objets, ici la couche <strong>[dao]</strong>) ;</li>
-<li>lignes 9-11 : on rend la configuration des couches ;</li>
+  <li>lignes 5-6 : au lieu d’instancier une couche <b>[dao]</b> unique comme c’était fait précédemment, on instancie une ‘factory’ de cette couche (factory=usine de production d’objets, ici la couche <b>[dao]</b>) ;
+  </li>
+  <li>lignes 9-11 : on rend la configuration des couches ;
+  </li>
 </ul>
+
 <p><a id="toc48549205"></a></p>
 <h3 id="2533-le-script-principal-du-client">25.3.3. Le script principal du client</h3>
 <p>Le script <strong>[main]</strong> évolue de la façon suivante par rapport à celui de la version précédente :</p>
@@ -2038,8 +2082,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 29-30 : chaque thread a sa couche <strong>[dao]</strong> ;</li>
+  <li>lignes 29-30 : chaque thread a sa couche <b>[dao]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549206"></a></p>
 <h3 id="2534-execution-du-client">25.3.4. Exécution du client</h3>
 <p>Le serveur web est lancé, le SGBD est lancé, le serveur de mails <strong>[hMailServer]</strong> est lancé. Puis on lance le script <strong>[main]</strong> du client web. Les logs de l’exécution dans <strong>[data/logs/logs.txt]</strong> sont alors les suivants :</p>
@@ -2098,17 +2144,28 @@
 </code></pre></div>
 
 <ul>
-<li>on a au total 6 threads donc 6 clients (lignes 1, 3, 4, 6, 8, 9) qui interrogent simultanément le serveur de calcul de l’impôt ;</li>
-<li>nous allons suivre le thread <strong>[Thread-4]</strong> qui gère 3 contribuables (ligne 6). Il va faire séquentiellement trois requêtes au serveur de calcul de l’impôt ;</li>
-<li>ligne 10 : la 1ère requête de <strong>[Thread-4]</strong> ;</li>
-<li>ligne 13 : <strong>[Thread-4]</strong> a reçu la réponse à sa 1ère requête. Dedans elle trouve un cookie de session dans lequel il y a le n° <strong>[</strong><strong><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></strong><strong>]</strong> que lui a attribué le serveur ;</li>
-<li>ligne 14 : l’impôt du 1er contribuable ;</li>
-<li>ligne 16 : <strong>[Thread-4]</strong> fait une requête pour le 2ième contribuable ;</li>
-<li>ligne 43 : <strong>[Thread-4]</strong> reçoit l’impôt du 2ième contribuable ;</li>
-<li>ligne 45 : <strong>[Thread-4]</strong> fait une requête pour le 3ième contribuable ;</li>
-<li>ligne 49 : <strong>[Thread-4]</strong> reçoit l’impôt du 3ième contribuable ;</li>
-<li>ligne 51 : <strong>[Thread-4]</strong> a terminé son travail ;</li>
+  <li>on a au total 6 threads donc 6 clients (lignes 1, 3, 4, 6, 8, 9) qui interrogent simultanément le serveur de calcul de l’impôt ;
+  </li>
+  <li>nous allons suivre le thread <b>[Thread-4]</b> qui gère 3 contribuables (ligne 6). Il va faire séquentiellement trois requêtes au serveur de calcul de l’impôt ;
+  </li>
+  <li>ligne 10 : la 1ère requête de <b>[Thread-4]</b> ;
+  </li>
+  <li>ligne 13 : <b>[Thread-4]</b> a reçu la réponse à sa 1ère requête. Dedans elle trouve un cookie de session dans lequel il y a le n° <b>[</b><b><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></b><b>]</b> que lui a attribué le serveur ;
+  </li>
+  <li>ligne 14 : l’impôt du 1er contribuable ;
+  </li>
+  <li>ligne 16 : <b>[Thread-4]</b> fait une requête pour le 2ième contribuable ;
+  </li>
+  <li>ligne 43 : <b>[Thread-4]</b> reçoit l’impôt du 2ième contribuable ;
+  </li>
+  <li>ligne 45 : <b>[Thread-4]</b> fait une requête pour le 3ième contribuable ;
+  </li>
+  <li>ligne 49 : <b>[Thread-4]</b> reçoit l’impôt du 3ième contribuable ;
+  </li>
+  <li>ligne 51 : <b>[Thread-4]</b> a terminé son travail ;
+  </li>
 </ul>
+
 <p>Maintenant, regardons comment les 3 requêtes de <strong>[Thread-4]</strong> ont été traitées côté serveur. On va pouvoir le suivre dans les logs du serveur grâce à son n° de client <strong>[</strong><strong><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></strong><strong>]</strong>.</p>
 <p>Les logs <strong>[data/logs/logs.txt]</strong> côté serveur sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
@@ -2158,10 +2215,14 @@
 </code></pre></div>
 
 <ul>
-<li>on trouve le client <strong>[</strong><strong><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></strong><strong>]</strong> pour la 1ère fois en ligne 14 : pour calculer l’impôt, le serveur a dû aller chercher en base les données de l’administration fiscale ;</li>
-<li>puis on retrouve le client <strong>[</strong><strong><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></strong><strong>]</strong> en ligne 36. Cette fois-ci, le serveur trouve les données de l’administration fiscale en session, ce qui lui évite un accès, possiblement coûteux, à la couche <strong>[dao]</strong> ;</li>
-<li>on retrouve le client <strong>[</strong><strong><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></strong><strong>]</strong> une 3ième fois en ligne 42, où là encore le serveur utilise la session du client ;</li>
+  <li>on trouve le client <b>[</b><b><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></b><b>]</b> pour la 1ère fois en ligne 14 : pour calculer l’impôt, le serveur a dû aller chercher en base les données de l’administration fiscale ;
+  </li>
+  <li>puis on retrouve le client <b>[</b><b><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></b><b>]</b> en ligne 36. Cette fois-ci, le serveur trouve les données de l’administration fiscale en session, ce qui lui évite un accès, possiblement coûteux, à la couche <b>[dao]</b> ;
+  </li>
+  <li>on retrouve le client <b>[</b><b><mark style="background-color: #fff2cc">fa3c83b82761c83e13217967</mark></b><b>]</b> une 3ième fois en ligne 42, où là encore le serveur utilise la session du client ;
+  </li>
 </ul>
+
 <p>Cet exemple montre bien l’intérêt de la session pour un client : on y met des données partagées par toutes les requêtes de ce client et qui sont coûteuses à acquérir.</p>
 <p>Côté client, les résultats dans le fichier <strong>[data/output/résultats.json]</strong> sont les mêmes que pour les versions précédentes.</p>
 <p><a id="toc48549207"></a></p>
@@ -2171,8 +2232,10 @@
 <p>La classe de test sera exécutée dans l’environnement suivant :</p>
 <p><img src="images/10000000000001AA000001F423CB28F2.png" style="width:4.911cm;height:5.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001AA000001F423CB28F2.png" /></p>
 <ul>
-<li>la configuration <strong>[2]</strong> est identique à la configuration <strong>[1]</strong> que nous venons d’étudier ;</li>
+  <li>la configuration <b>[2]</b> est identique à la configuration <b>[1]</b> que nous venons d’étudier ;
+  </li>
 </ul>
+
 <p>La classe de test <strong>[</strong><strong><span style="color: #2b91af">TestHttpClientDao</span></strong><strong>]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> </span>unittest</span>
@@ -2218,10 +2281,14 @@
 </code></pre></div>
 
 <ul>
-<li>on crée une |<a href="#_Tests_de_la"><u><span style="color: #0563c1">configuration d’exécution</span></u></a>| pour ce test ;</li>
-<li>on lance le serveur web avec tout son environnement ;</li>
-<li>on exécute le test ;</li>
+  <li>on crée une |<a href="#_Tests_de_la"><u><span style="color: #0563c1">configuration d’exécution</span></u></a>| pour ce test ;
+  </li>
+  <li>on lance le serveur web avec tout son environnement ;
+  </li>
+  <li>on exécute le test ;
+  </li>
 </ul>
+
 <p>Les résultats sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/impots/<span style="background-color:#bdd6ee">http-clients/03/tests/TestHttpClientDao</span>.py</span>

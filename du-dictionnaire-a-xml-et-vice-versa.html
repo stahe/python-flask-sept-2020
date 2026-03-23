@@ -1384,9 +1384,12 @@
 <h1 id="26-du-dictionnaire-a-xml-et-vice-versa">26. Du dictionnaire à XML et vice-versa</h1>
 <p>Nous nous proposons ici de découvrir le module <strong>[xml2dict]</strong> qui permet de transformer :</p>
 <ul>
-<li>une chaîne XML en dictionnaire :</li>
-<li>un dictionnaire en chaîne XML ;</li>
+  <li>une chaîne XML en dictionnaire :
+  </li>
+  <li>un dictionnaire en chaîne XML ;
+  </li>
 </ul>
+
 <p>Avant l’avènement du jSON, la réponse des services web était souvent du XML (eXtended Markup Language). Par ailleurs, le protocole de ces services web était souvent SOAP (Simple Object Process Protocol). SOAP est un protocole qui s’appuie sur le protocole HTTP du web. Actuellement (2020), les services web sont plutôt de type REST (Representational State Transfer). Les services web que nous avons étudiés ne sont d’aucun de ces types mais sont définitivement plus proches de REST que de SOAP. Néanmoins je préfère dire qu’ils sont de type ‘libre’ ou ‘inconnu’ car ils ne respectent pas toutes les règles du REST.</p>
 <p>Nous allons montrer combien il est facile de transformer nos architectures client / serveur jSON en architectures client / serveur XML. Il suffit d’utiliser le module <strong>[xmltodict]</strong>.</p>
 <p>Nous commençons par l’installer dans un terminal Python :</p>
@@ -1451,13 +1454,20 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 14-25 : la fonction <strong>[transform]</strong> reçoit un texte à écrire <strong>[message]</strong> et un dictionnaire <strong>[dictionary]</strong> ;</li>
-<li>ligne 16 : affichage du message ;</li>
-<li>ligne 17 : on affiche le dictionnaire reçu ;</li>
-<li>lignes 19-20 : ce dictionnaire est transformé en chaîne XML et celle-ci est affichée. La méthode qui sait faire cela est <strong>[xmltodict.unparse]</strong> ;</li>
-<li>lignes 21-23 : la chaîne XML précédente est transformée en dictionnaire et celui-ci est affiché. La méthode qui sait faire cela est <strong>[xmltodict.parse]</strong>. Cette méthode ne produit pas un dictionnaire de type <strong>[dict]</strong> mais de type <strong>[OrderedDict]</strong> (ligne 1) ;</li>
-<li>lignes 24-25 : on transforme le type <strong>[OrderedDict]</strong> obtenu en type <strong>[dict]</strong> à l’aide de la méthode (non encore écrite) <strong>[</strong><strong><span style="color: #a31515"><mark style="background-color: #bdd6ee">ordereddict2dict</mark></span></strong><strong>]</strong>. Cette méthode travaille de façon récursive. Si certaines valeurs du dictionnaire sont de type <strong>[OrderedDict, list]</strong>, les valeurs de ces collections sont examinées pour savoir si elles-aussi sont de type <strong>[OrderedDict]</strong>. Si c’est le cas, elles sont transformées en type <strong>[dict]</strong>. On remarquera que la méthode <strong>[xmltodict.parse]</strong> ne produit aucun dictionnaire de type <strong>[dict]</strong> ;</li>
+  <li>lignes 14-25 : la fonction <b>[transform]</b> reçoit un texte à écrire <b>[message]</b> et un dictionnaire <b>[dictionary]</b> ;
+  </li>
+  <li>ligne 16 : affichage du message ;
+  </li>
+  <li>ligne 17 : on affiche le dictionnaire reçu ;
+  </li>
+  <li>lignes 19-20 : ce dictionnaire est transformé en chaîne XML et celle-ci est affichée. La méthode qui sait faire cela est <b>[xmltodict.unparse]</b> ;
+  </li>
+  <li>lignes 21-23 : la chaîne XML précédente est transformée en dictionnaire et celui-ci est affiché. La méthode qui sait faire cela est <b>[xmltodict.parse]</b>. Cette méthode ne produit pas un dictionnaire de type <b>[dict]</b> mais de type <b>[OrderedDict]</b> (ligne 1) ;
+  </li>
+  <li>lignes 24-25 : on transforme le type <b>[OrderedDict]</b> obtenu en type <b>[dict]</b> à l’aide de la méthode (non encore écrite) <b>[</b><b><span style="color: #a31515"><mark style="background-color: #bdd6ee">ordereddict2dict</mark></span></b><b>]</b>. Cette méthode travaille de façon récursive. Si certaines valeurs du dictionnaire sont de type <b>[OrderedDict, list]</b>, les valeurs de ces collections sont examinées pour savoir si elles-aussi sont de type <b>[OrderedDict]</b>. Si c’est le cas, elles sont transformées en type <b>[dict]</b>. On remarquera que la méthode <b>[xmltodict.parse]</b> ne produit aucun dictionnaire de type <b>[dict]</b> ;
+  </li>
 </ul>
+
 <p>Avant d’examiner les fonctions manquantes, examinons les résultats pour voir ce qui est cherché :</p>
 <p>Le test 1 (lignes 28-29) produit les résultats suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
@@ -1470,11 +1480,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : le dictionnaire testé. Il faut noter un point important : la méthode <strong>[xml2dict.unparse]</strong> exisge que le dictionnaire soit de la forme {‘clé’ : valeur} où <strong>[valeur]</strong> peut être ensuite un dictionnaire, une liste, un type simple ;</li>
-<li>lignes 3-4 : la chaîne XML issue du dictionnaire. Elle est précédée de l’entête <strong>[&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;\n]</strong> qui est normalement la 1ère ligne d’un fichier XML ;</li>
-<li>ligne 5 : le type <strong>[OrderedDict]</strong> obtenu par la méthode <strong>[xml2dict.parse]</strong> recevant pour paramètre la chaîne XML précédente ;</li>
-<li>ligne 6 : le dictionnaire de type <strong>[dict]</strong> obtenu en appliquant la méthode <strong>[ordereddict2dict]</strong> au type précédent. On retrouve le dictionnaire d’origine de la ligne 2 ;</li>
+  <li>ligne 2 : le dictionnaire testé. Il faut noter un point important : la méthode <b>[xml2dict.unparse]</b> exisge que le dictionnaire soit de la forme {‘clé’ : valeur} où <b>[valeur]</b> peut être ensuite un dictionnaire, une liste, un type simple ;
+  </li>
+  <li>lignes 3-4 : la chaîne XML issue du dictionnaire. Elle est précédée de l’entête <b>[&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;\n]</b> qui est normalement la 1ère ligne d’un fichier XML ;
+  </li>
+  <li>ligne 5 : le type <b>[OrderedDict]</b> obtenu par la méthode <b>[xml2dict.parse]</b> recevant pour paramètre la chaîne XML précédente ;
+  </li>
+  <li>ligne 6 : le dictionnaire de type <b>[dict]</b> obtenu en appliquant la méthode <b>[ordereddict2dict]</b> au type précédent. On retrouve le dictionnaire d’origine de la ligne 2 ;
+  </li>
 </ul>
+
 <p>Tous les autres tests sont construits sur le même schéma et devraient vous permettre de comprendre comment passer d’un dictionnaire à une chaîne XML puis de cette chaîne XML au dictionnaire d’origine.</p>
 <p>Les autres tests donnent les résultats suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-xml">
@@ -1524,16 +1539,22 @@
 </code></pre></div>
 
 <ul>
-<li>les lignes 23 et 27 montrent un point important :<ul>
-<li>ligne 23 : les valeurs associées aux clés du dictionnaire <strong>[result]</strong> sont des nombres ;</li>
-<li>ligne 26 : les valeurs associées aux clés du dictionnaire <strong>[ordereddict_dictionary1]</strong> sont des chaînes de caractères. C’est une faiblesse de la bibliothèque <strong>[xmltodict]</strong>. Sa méthode <strong>[parse]</strong> ne produit que des chaînes de caractères. Cela peut se comprendre aisément :<ul>
-<li>ligne 25 : la chaîne XML à partir de laquelle est produit le dictionnaire. Dans cette chaîne, il n’y a aucune indication du type des données encapsulées dans les balises XML. <strong>[xmltodict.parse]</strong> fait ce qu’il y a de plus logique : elle laisse tout en chaîne de caractères dans le dictionnaire produit. On trouve d’autres bibliothèques similaires à <strong>[xmltodict]</strong> où le type des données encapsulées est indiqué dans les balises. On pourrait trouver par exemple la balise <strong>[&lt;enfants </strong><strong><mark style="background-color: #bdd6ee">type=’int’</mark></strong><strong>&gt;2&lt;/enfants&gt;]</strong> ;</li>
-<li>la conséquence de ceci est que lorsqu’on exploite un dictionnaire produit par le module <strong>[xmltodict]</strong> on doit connaître le type des données qu’il encapsule pour pouvoir passer du type ‘str’ au type réel de la donnée ;</li>
+  <li>les lignes 23 et 27 montrent un point important :
+    <ul>
+      <li>ligne 23 : les valeurs associées aux clés du dictionnaire <b>[result]</b> sont des nombres ;
+      </li>
+      <li>ligne 26 : les valeurs associées aux clés du dictionnaire <b>[ordereddict_dictionary1]</b> sont des chaînes de caractères. C’est une faiblesse de la bibliothèque <b>[xmltodict]</b>. Sa méthode <b>[parse]</b> ne produit que des chaînes de caractères. Cela peut se comprendre aisément :
+        <ul>
+          <li>ligne 25 : la chaîne XML à partir de laquelle est produit le dictionnaire. Dans cette chaîne, il n’y a aucune indication du type des données encapsulées dans les balises XML. <b>[xmltodict.parse]</b> fait ce qu’il y a de plus logique : elle laisse tout en chaîne de caractères dans le dictionnaire produit. On trouve d’autres bibliothèques similaires à <b>[xmltodict]</b> où le type des données encapsulées est indiqué dans les balises. On pourrait trouver par exemple la balise <b>[&lt;enfants </b><b><mark style="background-color: #bdd6ee">type=’int’</mark></b><b>&gt;2&lt;/enfants&gt;]</b> ;
+          </li>
+          <li>la conséquence de ceci est que lorsqu’on exploite un dictionnaire produit par le module <b>[xmltodict]</b> on doit connaître le type des données qu’il encapsule pour pouvoir passer du type ‘str’ au type réel de la donnée ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <p>Attardons-nous maintenant sur la méthode <strong>[ordereddict2dict]</strong> qui transforme un type <strong>[OrderedDict]</strong> en type <strong>[dict]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># xmltodict.parse pour passer du XML au dictionnaire. Le dictionnaire doit avoir une racine<span style="color:#000000"></span></span>
@@ -1576,23 +1597,36 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 30 : la fonction <strong>[</strong><strong><span style="color: #000000">ordereddict2dict</span></strong><strong>]</strong> reçoit un type <strong>[</strong><strong><span style="color: #2b91af">OrderedDict</span></strong><strong>]</strong> comme paramètre ;</li>
-<li>ligne 32 : le dictionnaire de type <strong>[dict]</strong> qui sera rendu ligne 37 par la fonction ;</li>
-<li>ligne 33 : on explore tous les tuples (clé, valeur) du dictionnaire <strong>[</strong><strong><span style="color: #808080">ordered_dictionary</span></strong><strong>]</strong> ;</li>
-<li>ligne 35 : dans le nouveau dictionnaire, la clé <strong>[key]</strong> est gardée mais la valeur associée n’est pas <strong>[value]</strong> mais <strong>[check(value)]</strong>. La fonction <strong>[check(value)]</strong> est chargée de trouver, si <strong>[value]</strong> est une collection, tous les éléments de type <strong>[OrderedDict]</strong> et de les transformer en type <strong>[dict]</strong> ;</li>
+  <li>ligne 30 : la fonction <b>[</b><b><span style="color: #000000">ordereddict2dict</span></b><b>]</b> reçoit un type <b>[</b><b><span style="color: #2b91af">OrderedDict</span></b><b>]</b> comme paramètre ;
+  </li>
+  <li>ligne 32 : le dictionnaire de type <b>[dict]</b> qui sera rendu ligne 37 par la fonction ;
+  </li>
+  <li>ligne 33 : on explore tous les tuples (clé, valeur) du dictionnaire <b>[</b><b><span style="color: #808080">ordered_dictionary</span></b><b>]</b> ;
+  </li>
+  <li>ligne 35 : dans le nouveau dictionnaire, la clé <b>[key]</b> est gardée mais la valeur associée n’est pas <b>[value]</b> mais <b>[check(value)]</b>. La fonction <b>[check(value)]</b> est chargée de trouver, si <b>[value]</b> est une collection, tous les éléments de type <b>[OrderedDict]</b> et de les transformer en type <b>[dict]</b> ;
+  </li>
 </ul>
+
 <p>La méthode <strong>[check]</strong> est définie aux lignes 5-16 :</p>
 <ul>
-<li>ligne 5 : on ne connaît pas le type de <strong>[value]</strong>, aussi n’a-t-on pu écrire <strong>[value : type]</strong> ;</li>
-<li>lignes 7-8 : si <strong>[value]</strong> est de type <strong>[OrderedDict]</strong> alors on appelle de façon récursive la fonction <strong>[ordereddict2dict]</strong> qu’on vient de commenter ;</li>
-<li>lignes 9-11 : un autre cas possible est que <strong>[value]</strong> soit une liste. Dans ce cas, ligne 11, on appelle la fonction <strong>[list2list]</strong> des 19-27 ;</li>
-<li>lignes 12-14 : le dernier cas est que <strong>[value]</strong> n’est pas une collection mais un type simple. La fonction <strong>[check]</strong>, comme les fonctions <strong>[ordereddict2dict]</strong> et <strong>[list2list]</strong> sont récursives. On sait qu’alors il faut toujours prévoir le cas où la récursion s’arrête. Les lignes 12-14 sont ce cas ;</li>
-<li>ligne 16 : la fonction <strong>[check]</strong> appelée récursivement ou pas produit une valeur <strong>[valeur2]</strong> qui doit remplacer le paramètre <strong>[value]</strong> de la ligne 5 ;</li>
+  <li>ligne 5 : on ne connaît pas le type de <b>[value]</b>, aussi n’a-t-on pu écrire <b>[value : type]</b> ;
+  </li>
+  <li>lignes 7-8 : si <b>[value]</b> est de type <b>[OrderedDict]</b> alors on appelle de façon récursive la fonction <b>[ordereddict2dict]</b> qu’on vient de commenter ;
+  </li>
+  <li>lignes 9-11 : un autre cas possible est que <b>[value]</b> soit une liste. Dans ce cas, ligne 11, on appelle la fonction <b>[list2list]</b> des 19-27 ;
+  </li>
+  <li>lignes 12-14 : le dernier cas est que <b>[value]</b> n’est pas une collection mais un type simple. La fonction <b>[check]</b>, comme les fonctions <b>[ordereddict2dict]</b> et <b>[list2list]</b> sont récursives. On sait qu’alors il faut toujours prévoir le cas où la récursion s’arrête. Les lignes 12-14 sont ce cas ;
+  </li>
+  <li>ligne 16 : la fonction <b>[check]</b> appelée récursivement ou pas produit une valeur <b>[valeur2]</b> qui doit remplacer le paramètre <b>[value]</b> de la ligne 5 ;
+  </li>
 </ul>
+
 <p>La méthode <strong>[list2list]</strong> définie aux lignes 19-27 exploite une liste passée en paramètre. Elle va l’explorer et remplacer toute valeur de type <strong>[OrderedDict]</strong> trouvée dedans en un type <strong>[dict]</strong>.</p>
 <ul>
-<li>ligne 21 : la nouvelle liste que va créer la fonction ;</li>
-<li>lignes 23-25 : toutes les valeurs <strong>[value]</strong> de la liste sont explorées et remplacées par la valeur <strong>[check(value)]</strong>. Cette valeur <strong>[value]</strong> peut elle-même contenir des éléments de type <strong>[list]</strong> ou <strong>[OrderedDict]</strong>. Ils seront traités correctement par la fonction récursive <strong>[check]</strong> ;</li>
+  <li>ligne 21 : la nouvelle liste que va créer la fonction ;
+  </li>
+  <li>lignes 23-25 : toutes les valeurs <b>[value]</b> de la liste sont explorées et remplacées par la valeur <b>[check(value)]</b>. Cette valeur <b>[value]</b> peut elle-même contenir des éléments de type <b>[list]</b> ou <b>[OrderedDict]</b>. Ils seront traités correctement par la fonction récursive <b>[check]</b> ;
+  </li>
 </ul>
 
 

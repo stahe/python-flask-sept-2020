@@ -1504,9 +1504,12 @@
 <h2 id="362-la-nouvelle-configuration-des-routes">36.2. La nouvelle configuration des routes</h2>
 <p><img src="images/100000000000033F000001903ED52661.png" style="width:9.58cm;height:4.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033F000001903ED52661.png" /></p>
 <ul>
-<li>en <strong>[2]</strong>, le calcul des routes va être modifié ;</li>
-<li>en <strong>[1]</strong>, le fichier <strong>[config]</strong> est modifié pour refléter ce changement ;</li>
+  <li>en <b>[2]</b>, le calcul des routes va être modifié ;
+  </li>
+  <li>en <b>[1]</b>, le fichier <b>[config]</b> est modifié pour refléter ce changement ;
+  </li>
 </ul>
+
 <p>La configuration <strong>[config]</strong> devient la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1554,8 +1557,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 37-39 : le module <strong>[routes]</strong> (ligne 38) s’occupe de configurer les routes (ligne 39) ;</li>
+  <li>lignes 37-39 : le module <b>[routes]</b> (ligne 38) s’occupe de configurer les routes (ligne 39) ;
+  </li>
 </ul>
+
 <p>Le fichier des routes sans jeton CSRF <strong>[configs/routes_without_csrftoken]</strong> évolue de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># dépendances<span style="color:#000000"></span></span>
@@ -1738,17 +1743,26 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 6-8 : l’application Flask est créée et mise dans la configuration ;</li>
-<li>lignes 10-14 : on importe le fichier de routes qui convient à la situation. On se rappelle que le fichier importé est en fait dépourvu de routes. Il ne contient que les fonctions associées à celles-ci ;</li>
-<li>ligne 17 : les fonctions associées aux routes ont besoin de connaître la configuration de l’application ;</li>
-<li>ligne 20 : on note le préfixe des URL. Celui-ci peut être vide ;</li>
-<li>lignes 22-27 : les routes avec jeton CSRF ont un paramètre supplémentaire que celles qui n’en ont pas. Pour gérer cette différence, on utilise la variable <strong>[csrftoken_param]</strong> :<ul>
-<li>elle contient la chaîne vide s’il n’y a pas de jeton CSRF dans les routes ;</li>
-<li>elle contient la chaîne <strong>[/&lt;string:csrf_token&gt;]</strong> s’il y a un jeton CSRF ;</li>
+  <li>lignes 6-8 : l’application Flask est créée et mise dans la configuration ;
+  </li>
+  <li>lignes 10-14 : on importe le fichier de routes qui convient à la situation. On se rappelle que le fichier importé est en fait dépourvu de routes. Il ne contient que les fonctions associées à celles-ci ;
+  </li>
+  <li>ligne 17 : les fonctions associées aux routes ont besoin de connaître la configuration de l’application ;
+  </li>
+  <li>ligne 20 : on note le préfixe des URL. Celui-ci peut être vide ;
+  </li>
+  <li>lignes 22-27 : les routes avec jeton CSRF ont un paramètre supplémentaire que celles qui n’en ont pas. Pour gérer cette différence, on utilise la variable <b>[csrftoken_param]</b> :
+    <ul>
+      <li>elle contient la chaîne vide s’il n’y a pas de jeton CSRF dans les routes ;
+      </li>
+      <li>elle contient la chaîne <b>[/&lt;string:csrf_token&gt;]</b> s’il y a un jeton CSRF ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 29-96 : chaque route de l’application est associée à une fonction du fichier des routes importé lignes 10-14 ;
+  </li>
 </ul>
-</li>
-<li>lignes 29-96 : chaque route de l’application est associée à une fonction du fichier des routes importé lignes 10-14 ;</li>
-</ul>
+
 <p><a id="toc48549337"></a></p>
 <h2 id="363-les-nouveaux-controleurs">36.3. Les nouveaux contrôleurs</h2>
 <p><img src="images/1000000000000214000002728224C811.png" style="width:6.151cm;height:7.242cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000214000002728224C811.png" /></p>
@@ -1821,7 +1835,7 @@
 <h2 id="365-les-nouveaux-fragments">36.5. Les nouveaux fragments</h2>
 <p><img src="images/100000000000017B00000163077FE754.png" style="width:4.381cm;height:4.1cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B00000163077FE754.png" /></p>
 <p>Tous les fragments contenant des URL doivent être modifiés.</p>
-<p><strong>Le fragment </strong><strong>[v-authentification]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-authentification]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- formulaire HTML - on poste ses valeurs avec l&#x27;action <span style="font-weight:bold">[authentifier-utilisateur]</span> --&gt;</span>
 <span class="odt-code-line"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.prefix_url}}</span><span style="color:#0000ff">/authentifier-utilisateur{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span></span>
@@ -1835,7 +1849,7 @@
 <span class="odt-code-line"><span style="color:#800000">&lt;/form&gt;</span><span style="color:#000000"></span></span>
 </code></pre></div>
 
-<p><strong>Le fragment </strong><strong>[v-calcul-impot]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-calcul-impot]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- formulaire HTML posté --&gt;<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.prefix_url}}</span><span style="color:#0000ff">/calculer-impot{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span></span>
@@ -1845,7 +1859,7 @@
 <span class="odt-code-line"><span style="color:#800000">&lt;/form&gt;</span><span style="color:#800000"></span></span>
 </code></pre></div>
 
-<p><strong>Le fragment </strong><strong>[v-liste-simulations]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-liste-simulations]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">…</span>
 <span class="odt-code-line"></span>
@@ -1874,7 +1888,7 @@
 <span class="odt-code-line">{% endif %}</span>
 </code></pre></div>
 
-<p><strong>Le fragment </strong><strong>[v-menu]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-menu]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- menu Bootstrap --&gt;<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#800000">&lt;nav</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;nav flex-column&quot;</span><span style="color:#800000">&gt;</span></span>
@@ -1944,9 +1958,12 @@
 <p>Lançons l’application puis demandons l’URL <strong>[http://localhost:5000</strong><strong>/do</strong><strong>]</strong>, la réponse est la suivante :</p>
 <p><img src="images/10000000000004740000029706EFC5D1.png" style="width:13.161cm;height:7.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004740000029706EFC5D1.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le préfixe de l’URL ;</li>
-<li>en <strong>[2]</strong>, le jeton CSRF ;</li>
+  <li>en <b>[1]</b>, le préfixe de l’URL ;
+  </li>
+  <li>en <b>[2]</b>, le jeton CSRF ;
+  </li>
 </ul>
+
 <p>L’application peut être également testée avec les tests console de <strong>[http-clients/09]</strong> :</p>
 <p><img src="images/10000000000001BD000001DFD5ABF2D8.png" style="width:5.141cm;height:5.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BD000001DFD5ABF2D8.png" /></p>
 <p>Dans les fichiers de configuration <strong>[1]</strong> et <strong>[2]</strong>, le préfixe des URL doit être inclus dans l’URL du serveur :</p>
@@ -1964,8 +1981,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : l’URL du serveur inclut désormais le préfixe des URL ;</li>
+  <li> ligne 3 : l’URL du serveur inclut désormais le préfixe des URL ;
+  </li>
 </ul>
+
 <p>Cette modification faite, tous les tests console doivent fonctionner.</p>
 
 

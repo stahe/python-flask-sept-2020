@@ -1539,43 +1539,64 @@
 <p><a id="toc48549314"></a></p>
 <h2 id="341-introduction">34.1. Introduction</h2>
 <p>CSRF (Cross Site Request Forgery) est une technique de vol de session. Elle est expliquée ainsi dans Wikipedia (<a href="https://fr.wikipedia.org/wiki/Cross-site_request_forgery"><u><span style="color: #0563c1">https://fr.wikipedia.org/wiki/Cross-site_request_forgery</span></u></a>):</p>
-<p>Supposons qu&#x27;Alice soit l&#x27;administratrice d&#x27;un forum et qu&#x27;elle soit connectée à celui-ci par un système de sessions. Malorie est un membre de ce même forum, elle veut supprimer un des messages du forum. Comme elle n&#x27;a pas les droits nécessaires avec son compte, elle utilise celui d&#x27;Alice grâce à une attaque de type CSRF.</p>
+<div style="margin:0 0 0.75em 0; background-color:#fff2cc; padding:0.35em 0.6em">Supposons qu&#x27;Alice soit l&#x27;administratrice d&#x27;un forum et qu&#x27;elle soit connectée à celui-ci par un système de sessions. Malorie est un membre de ce même forum, elle veut supprimer un des messages du forum. Comme elle n&#x27;a pas les droits nécessaires avec son compte, elle utilise celui d&#x27;Alice grâce à une attaque de type CSRF.</div>
+
 <ol>
-<li>Malorie arrive à connaitre le lien qui permet de supprimer le message en question.</li>
-<li>Malorie envoie un message à Alice contenant une pseudo-image à afficher (qui est en fait un script). L&#x27;URL de l&#x27;image est le lien vers le script permettant de supprimer le message désiré.</li>
-<li>Alice doit avoir une session ouverte dans son navigateur pour le site visé par Malorie. C&#x27;est une condition requise pour que l&#x27;attaque réussisse de façon silencieuse sans requérir une demande d&#x27;authentification qui alerterait Alice. Cette session doit disposer des droits requis pour exécuter la requête destructrice de Malorie. Il n&#x27;est pas nécessaire qu&#x27;un onglet du navigateur soit ouvert sur le site cible ni même que le navigateur soit démarré. Il suffit que la session soit active.</li>
-<li>Alice lit le message de Malorie, son navigateur utilise la session ouverte d&#x27;Alice et ne demande pas d&#x27;authentification interactive. Il tente de récupérer le contenu de l&#x27;image. En faisant cela, le navigateur actionne le lien et supprime le message, il récupère une page web texte comme contenu pour l&#x27;image. Ne reconnaissant pas le type d&#x27;image associé, il n&#x27;affiche pas d&#x27;image et Alice ne sait pas que Malorie vient de lui faire supprimer un message contre son gré.</li>
+  <li><div style="margin:0; background-color:#fff2cc; padding:0.35em 0.6em">Malorie arrive à connaitre le lien qui permet de supprimer le message en question.</div>
+  </li>
+  <li><div style="margin:0; background-color:#fff2cc; padding:0.35em 0.6em">Malorie envoie un message à Alice contenant une pseudo-image à afficher (qui est en fait un script). L&#x27;URL de l&#x27;image est le lien vers le script permettant de supprimer le message désiré.</div>
+  </li>
+  <li><div style="margin:0; background-color:#fff2cc; padding:0.35em 0.6em">Alice doit avoir une session ouverte dans son navigateur pour le site visé par Malorie. C&#x27;est une condition requise pour que l&#x27;attaque réussisse de façon silencieuse sans requérir une demande d&#x27;authentification qui alerterait Alice. Cette session doit disposer des droits requis pour exécuter la requête destructrice de Malorie. Il n&#x27;est pas nécessaire qu&#x27;un onglet du navigateur soit ouvert sur le site cible ni même que le navigateur soit démarré. Il suffit que la session soit active.</div>
+  </li>
+  <li><div style="margin:0; background-color:#fff2cc; padding:0.35em 0.6em">Alice lit le message de Malorie, son navigateur utilise la session ouverte d&#x27;Alice et ne demande pas d&#x27;authentification interactive. Il tente de récupérer le contenu de l&#x27;image. En faisant cela, le navigateur actionne le lien et supprime le message, il récupère une page web texte comme contenu pour l&#x27;image. Ne reconnaissant pas le type d&#x27;image associé, il n&#x27;affiche pas d&#x27;image et Alice ne sait pas que Malorie vient de lui faire supprimer un message contre son gré.</div>
+  </li>
 </ol>
+
 <p>Même expliqué comme ça, la technique du CSRF est  difficile à comprendre. Faisons un schéma :</p>
 <p><img src="images/10000000000003E50000024D46F14920.png" style="width:11.501cm;height:6.79cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E50000024D46F14920.png" /></p>
 <ul>
-<li>en <strong>[1-2]</strong>, Alice communique avec le forum (Site A). Ce forum maintient une session pour chaque utilisateur. Le navigateur d’Alice stocke localement ce cookie de session et le renvoie à chaque fois qu’il fait une nouvelle requête au site A ;</li>
-<li>en <strong>[3]</strong>, Malorie envoie un message à Alice. Celle-ci le lit avec son navigateur. Le message lu est au format HTML et contient un lien vers une image du site B. En fait ce lien est un lien vers un script Javascript qui s’exécute une fois arrivé sur le navigateur d’Alice ;</li>
-<li>ce script Javascript réalise alors une requête vers le site A. Le navigateur d’Alice envoie alors automatiquement la requête avec le cookie de session stocké localement. C’est ici que se produit l’attaque : Malorie a réussi à interroger le site A avec les droits (session) de Alice. Ensuite, peu importe ce qui se passe, l’attaque a eu lieu ;</li>
+  <li>en <b>[1-2]</b>, Alice communique avec le forum (Site A). Ce forum maintient une session pour chaque utilisateur. Le navigateur d’Alice stocke localement ce cookie de session et le renvoie à chaque fois qu’il fait une nouvelle requête au site A ;
+  </li>
+  <li>en <b>[3]</b>, Malorie envoie un message à Alice. Celle-ci le lit avec son navigateur. Le message lu est au format HTML et contient un lien vers une image du site B. En fait ce lien est un lien vers un script Javascript qui s’exécute une fois arrivé sur le navigateur d’Alice ;
+  </li>
+  <li>ce script Javascript réalise alors une requête vers le site A. Le navigateur d’Alice envoie alors automatiquement la requête avec le cookie de session stocké localement. C’est ici que se produit l’attaque : Malorie a réussi à interroger le site A avec les droits (session) de Alice. Ensuite, peu importe ce qui se passe, l’attaque a eu lieu ;
+  </li>
 </ul>
+
 <p>Pour contrer ce type d’attaque, le site A peut procéder de la façon suivante :</p>
 <ul>
-<li>à chaque échange <strong>[1-2]</strong> avec Alice, le site A envoie une clé, appelée par la suite token (jeton) CSRF, qu’Alice doit lui renvoyer lors de la requête suivante. Ainsi Alice doit envoyer à chaque requête deux informations :<ul>
-<li>le cookie de session ;</li>
-<li>le token CSRF reçu lors de la réponse à sa dernière requête au site A ;</li>
+  <li>à chaque échange <b>[1-2]</b> avec Alice, le site A envoie une clé, appelée par la suite token (jeton) CSRF, qu’Alice doit lui renvoyer lors de la requête suivante. Ainsi Alice doit envoyer à chaque requête deux informations :
+    <ul>
+      <li>le cookie de session ;
+      </li>
+      <li>le token CSRF reçu lors de la réponse à sa dernière requête au site A ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>La protection est là : si le navigateur renvoie automatiquement au site A le cookie de session, il ne le fait pas pour le token CSRF. Pour cette raison, l’échange 6-7 fait par le script d’attaque sera refusé car la requête 6 n’aura pas envoyé le jeton CSRF ;</p>
 <p>Le site A peut envoyer à Alice le jeton CSRF de diverses façons pour une application HTML :</p>
 <ul>
-<li>il peut à chaque requête envoyer une page HTML où tous les liens auront le jeton CSRF, par exemple <strong>[http://siteA/chemin/csrf_token]</strong>. Lors de la requête suivante, Alice cliquant sur l’un de ces liens, le site A n’aura qu’à récupérer le jeton CSRF dans l’URL de la requête et vérifier qu’il est correct. C’est ce qui sera fait ici ;</li>
-<li>il peut, pour les pages HTML contenant un formulaire, envoyer celui-ci avec un champ caché <strong>[input type=’hidden’]</strong> contenant le jeton CSRF. Celui-ci sera alors posté automatiquement avec le formulaire lorsqu’Alice validera la page. Le site A récupèrera le jeton CSRF dans le corps (body) de la requête ;</li>
-<li>d’autres techniques sont envisageables ;</li>
+  <li>il peut à chaque requête envoyer une page HTML où tous les liens auront le jeton CSRF, par exemple <b>[http://siteA/chemin/csrf_token]</b>. Lors de la requête suivante, Alice cliquant sur l’un de ces liens, le site A n’aura qu’à récupérer le jeton CSRF dans l’URL de la requête et vérifier qu’il est correct. C’est ce qui sera fait ici ;
+  </li>
+  <li>il peut, pour les pages HTML contenant un formulaire, envoyer celui-ci avec un champ caché <b>[input type=’hidden’]</b> contenant le jeton CSRF. Celui-ci sera alors posté automatiquement avec le formulaire lorsqu’Alice validera la page. Le site A récupèrera le jeton CSRF dans le corps (body) de la requête ;
+  </li>
+  <li>d’autres techniques sont envisageables ;
+  </li>
 </ul>
+
 <p><a id="toc48549315"></a></p>
 <h2 id="342-configuration">34.2. Configuration</h2>
 <p><img src="images/1000000000000127000000E642E6C9B2.png" style="width:3.41cm;height:2.65cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000127000000E642E6C9B2.png" /></p>
 <p>Nous introduisons dans la configuration <strong>[parameters]</strong> de l’application deux booléens :</p>
 <ul>
-<li><strong>[with_redissession]</strong> : à True, l’application utilise une session Redis. A False, l’application utilise une session Flask normale ;</li>
-<li><strong>[with_csrftoken]</strong> : à True, les URL de l’application contiennent un jeton CSRF ;</li>
+  <li><b>[with_redissession]</b> : à True, l’application utilise une session Redis. A False, l’application utilise une session Flask normale ;
+  </li>
+  <li><b>[with_csrftoken]</b> : à True, les URL de l’application contiennent un jeton CSRF ;
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">        </span># durée pause thread en secondes</span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#a31515">&quot;sleep_time&quot;</span><span style="color:#000000">: </span><span style="color:#098658">0</span><span style="color:#000000">,</span></span>
@@ -1635,10 +1656,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : la classe <strong>[</strong><strong>AbstractBaseModelForView</strong><strong>]</strong> implémente l’interface <strong>[</strong><strong><mark style="background-color: #fff2cc">InterfaceModelForView</mark></strong><strong>]</strong> implémentée par les classes des modèles ;</li>
-<li>lignes 11-13 : la méthode <strong>[</strong><strong><mark style="background-color: #fff2cc">get_model_for_view</mark></strong><strong>]</strong> n’est pas implémentée ;</li>
-<li>lignes 15-20 : la méthode <strong>[</strong><strong><mark style="background-color: #fff2cc">get_csrftoken</mark></strong><strong>]</strong> génère le jeton CSRF si l’application a été configurée pour les utiliser. Selon les cas, la fonction rend un jeton précédé du signe / sinon une chaîne vide. La fonction <strong>[generate_csrf]</strong> a la particularité de toujours générer la même valeur pour une requête client donnée. Le traitement d’une requête implique l’exécution de différentes fonctions. Utiliser <strong>[generate_csrf]</strong> dans celles-ci génère toujours la même valeur. Lors de la requête suivante, en revanche, un nouveau jeton CSRF est généré ;</li>
+  <li>ligne 9 : la classe <b>[</b><b>AbstractBaseModelForView</b><b>]</b> implémente l’interface <b>[</b><b><mark style="background-color: #fff2cc">InterfaceModelForView</mark></b><b>]</b> implémentée par les classes des modèles ;
+  </li>
+  <li>lignes 11-13 : la méthode <b>[</b><b><mark style="background-color: #fff2cc">get_model_for_view</mark></b><b>]</b> n’est pas implémentée ;
+  </li>
+  <li>lignes 15-20 : la méthode <b>[</b><b><mark style="background-color: #fff2cc">get_csrftoken</mark></b><b>]</b> génère le jeton CSRF si l’application a été configurée pour les utiliser. Selon les cas, la fonction rend un jeton précédé du signe / sinon une chaîne vide. La fonction <b>[generate_csrf]</b> a la particularité de toujours générer la même valeur pour une requête client donnée. Le traitement d’une requête implique l’exécution de différentes fonctions. Utiliser <b>[generate_csrf]</b> dans celles-ci génère toujours la même valeur. Lors de la requête suivante, en revanche, un nouveau jeton CSRF est généré ;
+  </li>
 </ul>
+
 <p>Tous les modèles M de vue V inclueront le jeton CSRF de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">class</span> ModelForAuthentificationView(<span style="background-color:#fff2cc">AbstractBaseModelForView</span>):</span>
@@ -1656,13 +1681,16 @@
 </code></pre></div>
 
 <ul>
-<li>chaque classe de modèle étend la classe de base <strong>[</strong><strong><mark style="background-color: #fff2cc">AbstractBaseModelForView</mark></strong><strong>]</strong> ;</li>
-<li>ligne 8 : le jeton CSRF est demandé à la classe parent. On obtient soit la chaîne vide, soit une chaîne du genre <strong>[</strong><strong><span style="color: #ff0000">/</span></strong><strong>Ijk4NjQ2ZDdjZjI0ZDJiYTVjZTZjYmFhZGNjMjE3Y2U5M2I3ODI0NzYi.Xy5Okg.n-kSR_nslkndfT7AFVy2UDtdb8c]</strong> ;</li>
+  <li>chaque classe de modèle étend la classe de base <b>[</b><b><mark style="background-color: #fff2cc">AbstractBaseModelForView</mark></b><b>]</b> ;
+  </li>
+  <li>ligne 8 : le jeton CSRF est demandé à la classe parent. On obtient soit la chaîne vide, soit une chaîne du genre <b>[</b><b><span style="color: #ff0000">/</span></b><b>Ijk4NjQ2ZDdjZjI0ZDJiYTVjZTZjYmFhZGNjMjE3Y2U5M2I3ODI0NzYi.Xy5Okg.n-kSR_nslkndfT7AFVy2UDtdb8c]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549319"></a></p>
 <h3 id="3433-les-vues">34.3.3. Les vues</h3>
 <p>De ce qu’on vient de voir, toutes les vues V auront dans leur modèle M le jeton CSRF. Elles pourront donc l’utiliser dans les liens qu’elles contiennent. Prenons quelques exemples :</p>
-<p><u><strong>Le fragment d’authentification</strong></u><strong> </strong><strong>[v_authentification.html]</strong></p>
+<p><u><strong>Le fragment d’authentification</strong></u> <strong>[v_authentification.html]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- formulaire HTML - on poste ses valeurs avec l&#x27;action <span style="font-weight:bold">[authentifier-utilisateur]</span> --&gt;</span>
 <span class="odt-code-line"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;/authentifier-utilisateur</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.csrf_token}}</span><span style="color:#0000ff">&quot;</span><span style="color:#800000">&gt;</span></span>
@@ -1677,8 +1705,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : d’après ce qui vient d’être vu, l’URL de l’attribut <strong>[action]</strong> sera :</li>
+  <li>ligne 2 : d’après ce qui vient d’être vu, l’URL de l’attribut <b>[action]</b> sera :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="font-weight:bold">[</span><span style="font-weight:bold;color:#0000ff">/authentifier-utilisateur</span><span style="font-weight:bold;color:#ff0000">/</span><span style="font-weight:bold">Ijk4NjQ2ZDdjZjI0ZDJiYTVjZTZjYmFhZGNjMjE3Y2U5M2I3ODI0NzYi.Xy5Okg.n-kSR_nslkndfT7AFVy2UDtdb8c]</span></span>
 </code></pre></div>
@@ -1772,9 +1802,12 @@
 <p>Il y a désormais deux types de routes, selon que celles-ci utilisent ou non un jeton CSRF :</p>
 <p><img src="images/100000000000018F00000106A63E3323.png" style="width:4.612cm;height:3.031cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F00000106A63E3323.png" /></p>
 <ul>
-<li><strong>[routes_without_csrftoken]</strong> sont les routes sans jeton CSRF. Ce sont les routes de la version précédente ;</li>
-<li><strong>[routes_with_csrftoken]</strong> sont les routes avec jeton CSRF.</li>
+  <li><b>[routes_without_csrftoken]</b> sont les routes sans jeton CSRF. Ce sont les routes de la version précédente ;
+  </li>
+  <li><b>[routes_with_csrftoken]</b> sont les routes avec jeton CSRF.
+  </li>
 </ul>
+
 <p>Dans <strong>[routes_with_csrftoken]</strong>, les routes ont désormais un paramètre supplémentaire, le jeton CSRF :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># le front controller<span style="color:#000000"></span></span>
@@ -1868,8 +1901,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 9-13 : choix des routes selon que l’application utilise ou non des jetons CSRF ;</li>
+  <li>lignes 9-13 : choix des routes selon que l’application utilise ou non des jetons CSRF ;
+  </li>
 </ul>
+
 <p><a id="toc48549321"></a></p>
 <h3 id="3435-le-controleur-maincontroller">34.3.5. Le contrôleur [MainController]</h3>
 <p>A chaque requête, le serveur doit vérifier la présence du jeton CSRF. Nous ferons cela dans le contrôleur principal <strong>[MainController]</strong> qui voit passer toutes les requêtes :</p>
@@ -1922,22 +1957,31 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 20 : on récupère le jeton CSRF dans l’URL de la requête du type <strong>[http://machine :port/chemin/action/param1/param2/…/csrf_token]</strong>. Le jeton de session est toujours le dernier élément de l’URL ;</li>
-<li>ligne 23 : la validité du jeton CSRF récupéré dans l’URL avec le jeton CSRF de la session est vérifiée. S’il n’est pas valide, la fonction <strong>[validate_csrf]</strong> lance une exception de type <strong>[ValidationError]</strong> (ligne 27) ;</li>
-<li>ligne 41 : le jeton CSRF est mis dans le résultat envoyé au client. Les clients jSON et XML en auront besoin. En effet, ces clients ne reçoivent pas de pages HTML avec le jeton CSRF dans les liens contenus dans les pages. Ils le recevront donc dans le résultat jSON ou XML envoyé par le serveur ;</li>
+  <li>ligne 20 : on récupère le jeton CSRF dans l’URL de la requête du type <b>[http://machine :port/chemin/action/param1/param2/…/csrf_token]</b>. Le jeton de session est toujours le dernier élément de l’URL ;
+  </li>
+  <li>ligne 23 : la validité du jeton CSRF récupéré dans l’URL avec le jeton CSRF de la session est vérifiée. S’il n’est pas valide, la fonction <b>[validate_csrf]</b> lance une exception de type <b>[ValidationError]</b> (ligne 27) ;
+  </li>
+  <li>ligne 41 : le jeton CSRF est mis dans le résultat envoyé au client. Les clients jSON et XML en auront besoin. En effet, ces clients ne reçoivent pas de pages HTML avec le jeton CSRF dans les liens contenus dans les pages. Ils le recevront donc dans le résultat jSON ou XML envoyé par le serveur ;
+  </li>
 </ul>
+
 <p><strong>Note</strong> : la fonction <strong>[validate_csrf]</strong> de la ligne 23 ne vérifie pas une concordance stricte. Le jeton CSRF est mémorisé dans la session avec la clé <strong>[csrf_token]</strong>. Les test semblent montrer qu’un jeton CSRF est valide s’il a été généré au cours de la session. Ainsi si manuellement, dans l’URL affichée dans le navigateur, par exemple (/lister-simulations/xyz), vous remplacez le jeton <strong>[xyz]</strong> CSRF par un autre <strong>[abc]</strong> déjà reçu lors d’une précédente action, l’action <strong>[/lister-simulations]</strong> va réussir ;</p>
 <p><a id="toc48549322"></a></p>
 <h2 id="344-tests-avec-un-navigateur">34.4. Tests avec un navigateur</h2>
 <p>On :</p>
 <ul>
-<li>lance le serveur avec le paramètre <strong>[with_csrftoken]</strong> à <strong>[True]</strong> ;</li>
-<li>demande l’URL <strong>[http://localhost:5000]</strong> avec un navigateur ;</li>
+  <li>lance le serveur avec le paramètre <b>[with_csrftoken]</b> à <b>[True]</b> ;
+  </li>
+  <li>demande l’URL <b>[http://localhost:5000]</b> avec un navigateur ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000004710000029076ACA4C7.png" style="width:13.14cm;height:7.561cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004710000029076ACA4C7.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le jeton CSRF ;</li>
+  <li>en <b>[1]</b>, le jeton CSRF ;
+  </li>
 </ul>
+
 <p>Faisons des manipulations jusqu’à avoir une liste de simulations :</p>
 <p><img src="images/100000000000058E00000254BCAB1B42.png" style="width:16.431cm;height:6.891cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000058E00000254BCAB1B42.png" /></p>
 <p>Maintenant, tapons à la main, l’URL <strong>[http://localhost:5000/supprimer-simulation/1/x]</strong> pour supprimer la simulation d’id=1. On met volontairement un jeton CSRF incorrect pour voir ce qui se passe. La réponse du serveur est la suivante :</p>
@@ -1967,9 +2011,12 @@
 
 <p>Aucune de ces routes ne convient pour initialiser une session jSON ou XML :</p>
 <ul>
-<li>lignes 2-5 : la route <strong>[/]</strong> initialise une session HTML ;</li>
-<li>lignes 8-11 : la route <strong>[/init-session]</strong> nécessite un jeton CSRF qu’on ne connaît pas ;</li>
+  <li>lignes 2-5 : la route <b>[/]</b> initialise une session HTML ;
+  </li>
+  <li>lignes 8-11 : la route <b>[/init-session]</b> nécessite un jeton CSRF qu’on ne connaît pas ;
+  </li>
 </ul>
+
 <p>Nous décidons d’ajouter une nouvelle route au serveur :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># <a id="initsessionwithoutcsrftoken"></a>init-session-without-csrftoken<span style="color:#000000"></span></span>
@@ -1980,17 +2027,23 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : la nouvelle route. Elle n’attend pas de jeton CSRF. On est ainsi revenu à la route <strong>[/init-session]</strong> de la version précédente ;</li>
-<li>lignes 4-5 : on redirige le client (jSON, XML, HTML) vers la route <strong>[/init-session]</strong> ayant le jeton CSRF dans ses paramètres ;</li>
+  <li>ligne 2 : la nouvelle route. Elle n’attend pas de jeton CSRF. On est ainsi revenu à la route <b>[/init-session]</b> de la version précédente ;
+  </li>
+  <li>lignes 4-5 : on redirige le client (jSON, XML, HTML) vers la route <b>[/init-session]</b> ayant le jeton CSRF dans ses paramètres ;
+  </li>
 </ul>
+
 <p>On peut essayer cette nouvelle route avec un navigateur :</p>
 <p><img src="images/10000000000003CF000000A47ACF6ACC.png" style="width:11.27cm;height:1.89cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000000A47ACF6ACC.png" /></p>
 <p>La réponse du serveur (configuré avec <strong>[with_csrftoken=True]</strong>) est la suivante :</p>
 <p><img src="images/100000000000063C000000A5FABB0D6C.png" style="width:18.432cm;height:1.9cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000063C000000A5FABB0D6C.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le serveur a été redirigé vers la route <strong>[/init-session]</strong> avec jeton CSRF dans l’URL ;</li>
-<li>en <strong>[2]</strong>, le jeton CSRF est dans le dictionnaire jSON envoyé par le serveur associé à la clé <strong>[csrf_token]</strong> ;</li>
+  <li>en <b>[1]</b>, le serveur a été redirigé vers la route <b>[/init-session]</b> avec jeton CSRF dans l’URL ;
+  </li>
+  <li>en <b>[2]</b>, le jeton CSRF est dans le dictionnaire jSON envoyé par le serveur associé à la clé <b>[csrf_token]</b> ;
+  </li>
 </ul>
+
 <p>Revenons au code du client :</p>
 <p><img src="images/1000000000000119000001395F3D944C.png" style="width:3.241cm;height:3.62cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000119000001395F3D944C.png" /></p>
 <p>Nous modifions la configuration <strong>[config]</strong> de la façon suivante :</p>
@@ -2038,13 +2091,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 31 : un booléen indiquera au client si le serveur auquel il s’adresse travaille ou non avec des jetons CSRF ;</li>
-<li>lignes 37-40 : on fixe l’URL de service de l’action <strong>[init-session]</strong> :<ul>
-<li>si le serveur utilise des jetons CSRF alors l’URL de service est <strong>[</strong><strong>/init-session-without-csrftoken</strong><strong>]</strong> ;</li>
-<li>sinon l’URL de service est <strong>[</strong><strong>/init-session</strong><strong>]</strong> ;</li>
+  <li>ligne 31 : un booléen indiquera au client si le serveur auquel il s’adresse travaille ou non avec des jetons CSRF ;
+  </li>
+  <li>lignes 37-40 : on fixe l’URL de service de l’action <b>[init-session]</b> :
+    <ul>
+      <li>si le serveur utilise des jetons CSRF alors l’URL de service est <b>[</b><b>/init-session-without-csrftoken</b><b>]</b> ;
+      </li>
+      <li>sinon l’URL de service est <b>[</b><b>/init-session</b><b>]</b> ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>La route <strong>[</strong><strong>/init-session-without-csrftoken</strong><strong>]</strong> a été présentée. Elle permet à un client jSON / XML de démarrer une session avec le serveur sans posséder de jeton CSRF. Il trouvera ce jeton dans la réponse du serveur.</p>
 <p>Nous modifions ensuite la classe <strong>[</strong><strong><span style="color: #000000">ImpôtsDaoWithHttpSession</span></strong><strong>]</strong> implémentant la couche <strong>[dao]</strong> du client :</p>
 <p><img src="images/100000000000023A0000012AE88F5267.png" style="width:6.571cm;height:3.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023A0000012AE88F5267.png" /></p>
@@ -2159,32 +2217,47 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 38-92 : la gestion du jeton CSRF se passe principalement dans la méthode <strong>[get_response]</strong> ;</li>
-<li>ligne 60 : le point important est le paramètre <strong>[allow_redirects=True]</strong>. C’est sa valeur par défaut mais on a tenu à le mettre en relief ;</li>
+  <li>lignes 38-92 : la gestion du jeton CSRF se passe principalement dans la méthode <b>[get_response]</b> ;
+  </li>
+  <li>ligne 60 : le point important est le paramètre <b>[allow_redirects=True]</b>. C’est sa valeur par défaut mais on a tenu à le mettre en relief ;
+  </li>
 </ul>
+
 <p>Lorsqu’on est en mode <strong>[with_csrftoken=True]</strong> :</p>
 <ul>
-<li>les clients commencent leur dialogue avec le serveur par l’appel à la route <strong>[/init-session_without_csftoken/type_response]</strong> ;</li>
-<li>le serveur répond à cette requête par une redirection vers la route <strong>[/init-session/type_response/csrf_token]</strong> ;</li>
-<li>à cause du paramètre <strong>[allow_redirects=True]</strong>, cette redirection va être suivie par le client <strong>[requests]</strong> ;</li>
-<li>le jeton CSRF sera trouvé dans le résultat récupéré aux lignes 72 et 74 associé à la clé <strong>[csrf_token]</strong> ;</li>
+  <li>les clients commencent leur dialogue avec le serveur par l’appel à la route <b>[/init-session_without_csftoken/type_response]</b> ;
+  </li>
+  <li>le serveur répond à cette requête par une redirection vers la route <b>[/init-session/type_response/csrf_token]</b> ;
+  </li>
+  <li>à cause du paramètre <b>[allow_redirects=True]</b>, cette redirection va être suivie par le client <b>[requests]</b> ;
+  </li>
+  <li>le jeton CSRF sera trouvé dans le résultat récupéré aux lignes 72 et 74 associé à la clé <b>[csrf_token]</b> ;
+  </li>
 </ul>
+
 <p>Lorsqu’on est en mode <strong>[with_csrftoken=False]</strong> :</p>
 <ul>
-<li>
-<p>(suite)</p>
+  <li>(suite)
+    <ul>
+      <li>les clients commencent leur dialogue avec le serveur par l’appel à la route <b>[/init-session /type_response]</b> ;
+      </li>
+      <li>le serveur répond à cette requête par une redirection vers la route <b>[/init-session/type_response]</b> ;
+      </li>
+      <li>à cause du paramètre <b>[allow_redirects=True]</b>, cette redirection va être suivie par le client <b>[requests]</b> ;
+      </li>
+      <li>il n’y a pas de jeton CSRF à récupérer aux lignes 81-82. La propriété <b>[self.__csrf_token]</b> reste alors toujours à None (ligne 36) ;
+      </li>
+    </ul>
+  </li>
+</ul>
+
 <ul>
-<li>les clients commencent leur dialogue avec le serveur par l’appel à la route <strong>[/init-session /type_response]</strong> ;</li>
-<li>le serveur répond à cette requête par une redirection vers la route <strong>[/init-session/type_response]</strong> ;</li>
-<li>à cause du paramètre <strong>[allow_redirects=True]</strong>, cette redirection va être suivie par le client <strong>[requests]</strong> ;</li>
-<li>il n’y a pas de jeton CSRF à récupérer aux lignes 81-82. La propriété <strong>[self.__csrf_token]</strong> reste alors toujours à None (ligne 36) ;</li>
+  <li>lignes 51-52 : pour toutes les requêtes suivantes, le jeton CSRF, s’il existe, est ajouté à la route initiale ;
+  </li>
+  <li>lignes 81-82 : le nouveau jeton que génère le serveur à chaque nouvelle requête du client est mémorisé localement pour être renvoyé ligne 52 à la requête suivante ;
+  </li>
 </ul>
-</li>
-<li>
-<p>lignes 51-52 : pour toutes les requêtes suivantes, le jeton CSRF, s’il existe, est ajouté à la route initiale ;</p>
-</li>
-<li>lignes 81-82 : le nouveau jeton que génère le serveur à chaque nouvelle requête du client est mémorisé localement pour être renvoyé ligne 52 à la requête suivante ;</li>
-</ul>
+
 <p>Par ailleurs, la méthode <strong>[init_session]</strong> évolue un peu :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">    <span style="color:#0000ff">def</span> init_session(self, session_type: str):</span>
@@ -2204,9 +2277,12 @@
 <p>Il faut se rappeler ici qu’on a créé une route <strong>[/init-session-without-csrftoken/&lt;type-response&gt;]</strong> pour initialiser le dialogue client / serveur sans jeton CSRF. Or nous avons vu que la méthode <strong>[get_response]</strong> appelée ligne 12 du code ajoute systématiquement à la fin de l’URL de service le jeton CSRF mémorisé dans <strong>[</strong><strong><span style="color: #0000ff"><mark style="background-color: #fff2cc">self</mark></span></strong><strong><mark style="background-color: #fff2cc">.__csrf_token</mark></strong><strong>]</strong>. C’est pourquoi ligne 6 du code on supprime ce jeton CSRF s’il existait.</p>
 <p>C’est tout. Pour les tests, on exécutera :</p>
 <ul>
-<li>les clients console <strong>[main, main2, main3]</strong> ;</li>
-<li>les classes de test <strong>[Test1HttpClientDaoWithSession]</strong> et <strong>[Test2HttpClientDaoWithSession]</strong> ;</li>
+  <li>les clients console <b>[main, main2, main3]</b> ;
+  </li>
+  <li>les classes de test <b>[Test1HttpClientDaoWithSession]</b> et <b>[Test2HttpClientDaoWithSession]</b> ;
+  </li>
 </ul>
+
 <p>en mettant successivement à True puis False, le paramètre de configuration <strong>[with_csrftoken]</strong>.</p>
 <p><img src="images/1000000000000239000002062A0C2A4E.png" style="width:6.571cm;height:5.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000239000002062A0C2A4E.png" /></p>
 <p>Voici comme exemple les logs obtenus à l’exécution du client <strong>[main json]</strong> avec <strong>[with_csrftoken=True]</strong> :</p>

@@ -1552,29 +1552,40 @@
 <p>L’architecture client / serveur devient la suivante :</p>
 <p><img src="images/10000000000003CF000004EDD095C42F.png" style="width:11.261cm;height:14.57cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000004EDD095C42F.png" /></p>
 <ul>
-<li>la couche <strong>[métier]</strong> <strong>[10]</strong> a été dupliquée <strong>[12]</strong> sur le client ;</li>
-<li>un nouveau script <strong>[main2]</strong> <strong>[11]</strong> a été ajouté au client ;</li>
+  <li>la couche <b>[métier]</b> <b>[10]</b> a été dupliquée <b>[12]</b> sur le client ;
+  </li>
+  <li>un nouveau script <b>[main2]</b> <b>[11]</b> a été ajouté au client ;
+  </li>
 </ul>
+
 <p>Le client web aura deux façon de calculer l’imppôt de la liste de contribuables trouvée en <strong>[3]</strong> :</p>
 <ul>
-<li>utiliser la méthode de la version précédente. Il utilise la couche <strong>[métier]</strong> <strong>[10]</strong> du serveur. Le script <strong>[main]</strong> utilisera cette méthode ;</li>
-<li>se contenter de demander au serveur les données de l’administration fiscale <strong>[2-4]</strong> puis utiliser la couche <strong>[métier]</strong> <strong>[12]</strong> locale au client ;</li>
+  <li>utiliser la méthode de la version précédente. Il utilise la couche <b>[métier]</b> <b>[10]</b> du serveur. Le script <b>[main]</b> utilisera cette méthode ;
+  </li>
+  <li>se contenter de demander au serveur les données de l’administration fiscale <b>[2-4]</b> puis utiliser la couche <b>[métier]</b> <b>[12]</b> locale au client ;
+  </li>
 </ul>
+
 <p>Nous comparerons les performances des deux méthodes.</p>
 <p><a id="toc48549228"></a></p>
 <h2 id="292-le-serveur-web">29.2. Le serveur web</h2>
 <p>L’arborescence du serveur web sera la suivante :</p>
 <p><img src="images/1000000000000213000002CD6E21E5B2.png" style="width:5.52cm;height:7.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000213000002CD6E21E5B2.png" /></p>
 <ul>
-<li>le dossier <strong>[http-servers/06]</strong> est initialement obtenu par recopie du dossier <strong>[http-servers/05]</strong>. On va en effet conserver l’acquis de la version 10 précédente. On va simplement lui ajouter une nouvelle fonctionnalité. Celle-ci est matérialisée par la présence d’un nouveau contrôleur <strong>[get_admindata_controller]</strong> <strong>[1]</strong>. L’autre contrôleur <strong>[calculate_tax_controller]</strong> n’est autre que l’ancien contrôleur <strong>[index_controller]</strong> qui a été renommé ;</li>
+  <li>le dossier <b>[http-servers/06]</b> est initialement obtenu par recopie du dossier <b>[http-servers/05]</b>. On va en effet conserver l’acquis de la version 10 précédente. On va simplement lui ajouter une nouvelle fonctionnalité. Celle-ci est matérialisée par la présence d’un nouveau contrôleur <b>[get_admindata_controller]</b> <b>[1]</b>. L’autre contrôleur <b>[calculate_tax_controller]</b> n’est autre que l’ancien contrôleur <b>[index_controller]</b> qui a été renommé ;
+  </li>
 </ul>
+
 <p><a id="toc48549229"></a></p>
 <h2 id="293-configuration">29.3. Configuration</h2>
 <p>Le serveur offrira deux URL de service :</p>
 <ul>
-<li><strong>[/calculate-tax]</strong> pour calculer l’impôt d’une liste de contribuables passée dans le corps d’un POST. Elle correspond donc à l’URL <strong>[/]</strong> de la version 10 précédente ;</li>
-<li><strong>[/get-admindata]</strong> délivre la chaîne jSON des données de l’administration fiscale ;</li>
+  <li><b>[/calculate-tax]</b> pour calculer l’impôt d’une liste de contribuables passée dans le corps d’un POST. Elle correspond donc à l’URL <b>[/]</b> de la version 10 précédente ;
+  </li>
+  <li><b>[/get-admindata]</b> délivre la chaîne jSON des données de l’administration fiscale ;
+  </li>
 </ul>
+
 <p>La configuration <strong>[config]</strong> associe chacune de ces URL au contrôleur qui la traite :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#000000">    </span># dictionnaire des contrôleurs de l&#x27;application web</span>
@@ -1696,17 +1707,26 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 88-93 : la fonction <strong>[calculate_tax]</strong> traite l’URL <strong>[/calculate-tax]</strong> ;</li>
-<li>lignes 95-100 : la fonction <strong>[get_admindata]</strong> traite l’URL <strong>[/get-admindata]</strong> ;</li>
-<li>ces deux fonctions ne font rien par elles-mêmes. Elles passent immédiatement la main au contrôleur principal <strong>[main_controller]</strong> des lignes 37-86 ;</li>
-<li>lignes 37-86 : le contrôleur principal <strong>[main_controller]</strong> n’est rien d’autre que la fonction <strong>[index]</strong> de la version précédente à un détail près : là où la fonction <strong>[index]</strong> ne traitait qu’une unique URL, ici <strong>[main_controller]</strong> traite deux URL. Il lui faut donc faire traiter celles-ci par l’un des deux contrôleurs <strong>[calculate_tax_controller, get_admin,data_controller]</strong> ;</li>
-<li>lignes 39-40 : on récupère l’action demandée <strong>[calculate_tax]</strong> ou <strong>[get_admindata]</strong>. Cette information est dans le chemin de l’URL <strong>[request.path]</strong>. Selon les cas, <strong>[request.path]</strong> vaut <strong>[/get-admindata]</strong> ou <strong>[/calculate_tax]</strong>. Le split de la ligne 40 va donner deux éléments :<ul>
-<li>la chaîne vide pour la partie qui précède le / ;</li>
-<li>le nom de l’action demandée pour la partie qui suit le / ;</li>
+  <li>lignes 88-93 : la fonction <b>[calculate_tax]</b> traite l’URL <b>[/calculate-tax]</b> ;
+  </li>
+  <li>lignes 95-100 : la fonction <b>[get_admindata]</b> traite l’URL <b>[/get-admindata]</b> ;
+  </li>
+  <li>ces deux fonctions ne font rien par elles-mêmes. Elles passent immédiatement la main au contrôleur principal <b>[main_controller]</b> des lignes 37-86 ;
+  </li>
+  <li>lignes 37-86 : le contrôleur principal <b>[main_controller]</b> n’est rien d’autre que la fonction <b>[index]</b> de la version précédente à un détail près : là où la fonction <b>[index]</b> ne traitait qu’une unique URL, ici <b>[main_controller]</b> traite deux URL. Il lui faut donc faire traiter celles-ci par l’un des deux contrôleurs <b>[calculate_tax_controller, get_admin,data_controller]</b> ;
+  </li>
+  <li>lignes 39-40 : on récupère l’action demandée <b>[calculate_tax]</b> ou <b>[get_admindata]</b>. Cette information est dans le chemin de l’URL <b>[request.path]</b>. Selon les cas, <b>[request.path]</b> vaut <b>[/get-admindata]</b> ou <b>[/calculate_tax]</b>. Le split de la ligne 40 va donner deux éléments :
+    <ul>
+      <li>la chaîne vide pour la partie qui précède le / ;
+      </li>
+      <li>le nom de l’action demandée pour la partie qui suit le / ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 62-63 : une fois l’action de l’URL récupérée, on sait quel contrôleur utiliser pour traiter l’URL. Cette informations sont dans la configuration <b>[config]</b> ;
+  </li>
 </ul>
-</li>
-<li>lignes 62-63 : une fois l’action de l’URL récupérée, on sait quel contrôleur utiliser pour traiter l’URL. Cette informations sont dans la configuration <strong>[config]</strong> ;</li>
-</ul>
+
 <p><a id="toc48549231"></a></p>
 <h2 id="295-les-controleurs">29.5. Les contrôleurs</h2>
 <p>Le contrôleur <strong>[calculate_tax_controller]</strong> n’est autre que le contrôleur <strong>[index_controller]</strong> de la version précédente.</p>
@@ -1721,9 +1741,12 @@
 </code></pre></div>
 
 <ul>
-<li>l’URL <strong>[/get-admindata]</strong> doit rendre la chaîne jSON des données de l’administration fiscale ;</li>
-<li>ligne 6 : celles-ci ont été récupérées par le script principal <strong>[main]</strong> et mises dans le dictionnaire <strong>[config]</strong> sous la forme d’un objet <strong>[AdminData]</strong>. On rend le dictionnaire de cet objet ;</li>
+  <li>l’URL <b>[/get-admindata]</b> doit rendre la chaîne jSON des données de l’administration fiscale ;
+  </li>
+  <li>ligne 6 : celles-ci ont été récupérées par le script principal <b>[main]</b> et mises dans le dictionnaire <b>[config]</b> sous la forme d’un objet <b>[AdminData]</b>. On rend le dictionnaire de cet objet ;
+  </li>
 </ul>
+
 <p><a id="toc48549232"></a></p>
 <h2 id="296-tests-postman">29.6. Tests Postman</h2>
 <p>On lance le serveur web, le SGBD et le serveur de mails <strong>[hMailServer]</strong>. Puis avec un client Postman, on fait le calcul de l’impôt de plusieurs contribuables :</p>
@@ -1794,16 +1817,22 @@
 <p><img src="images/10000000000002450000026EC7BFAAF1.png" style="width:6.04cm;height:6.451cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002450000026EC7BFAAF1.png" /></p>
 <p>Le dossier <strong>[http-clients/06]</strong> est initialement obtenu par recopie du dossier <strong>[http-clients/05]</strong>. Le travail de modification consiste essentiellement à :</p>
 <ul>
-<li>modifier la configuration <strong>[config_layers]</strong> pour qu’elle intégre désormais une couche <strong>[métier]</strong>. Auparavant elle n’avait qu’une couche <strong>[dao]</strong> ;</li>
-<li>ajouter une nouvelle méthode à la couche <strong>[dao]</strong> ;</li>
-<li>écrire un script <strong>[main2]</strong> qui s’appuiera sur la couche <strong>[métier]</strong> du client pour calculer l’impôt des contribuables ;</li>
+  <li>modifier la configuration <b>[config_layers]</b> pour qu’elle intégre désormais une couche <b>[métier]</b>. Auparavant elle n’avait qu’une couche <b>[dao]</b> ;
+  </li>
+  <li>ajouter une nouvelle méthode à la couche <b>[dao]</b> ;
+  </li>
+  <li>écrire un script <b>[main2]</b> qui s’appuiera sur la couche <b>[métier]</b> du client pour calculer l’impôt des contribuables ;
+  </li>
 </ul>
+
 <p><a id="toc48549234"></a></p>
 <h3 id="2971-configuration-des-couches-du-client">29.7.1. Configuration des couches du client</h3>
 <p>La configuration des couches intervient en deux points :</p>
 <ul>
-<li>dans la configuration <strong>[config]</strong> qui doit inclure dans les dépendances du client le dossier contenant l’implémentation de la couche <strong>[métier]</strong>. Ce dossier était déjà inclus dans les dépendances :</li>
+  <li>dans la configuration <b>[config]</b> qui doit inclure dans les dépendances du client le dossier contenant l’implémentation de la couche <b>[métier]</b>. Ce dossier était déjà inclus dans les dépendances :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">absolute_dependencies = <span style="font-weight:bold">[</span></span>
 <span class="odt-code-line"><span style="font-weight:bold">        </span><span style="font-weight:bold;color:#008000"># dossiers du projet</span></span>
@@ -1849,9 +1878,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 4-6 : instanciation de la couche <strong>[métier]</strong> ;</li>
-<li>lignes 13-16 : la couche <strong>[métier]</strong> est rendue dans le dictionnaire des couches ;</li>
+  <li>lignes 4-6 : instanciation de la couche <b>[métier]</b> ;
+  </li>
+  <li>lignes 13-16 : la couche <b>[métier]</b> est rendue dans le dictionnaire des couches ;
+  </li>
 </ul>
+
 <p><a id="toc48549235"></a></p>
 <h3 id="2972-implementation-de-la-couche-dao">29.7.2. Implémentation de la couche [dao]</h3>
 <p><img src="images/100000000000023B0000010ECF4FA858.png" style="width:5.931cm;height:2.811cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000023B0000010ECF4FA858.png" /></p>
@@ -1870,9 +1902,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : l’interface <strong>[</strong><strong>InterfaceImpôtsDaoWithHttpClient</strong><strong>]</strong> hérite de la classe abstraite <strong>[AbstractImpôtsDao]</strong> qui gère l’accès au système de fichiers du client. On rappelle qu’elle a une méthode abstraite <strong>[get_admindata]</strong> ;</li>
-<li>lignes 7-10 : la méthode <strong>[</strong><strong>calculate_tax_in_bulk_mode</strong><strong>]</strong> que nous avons définie dans la version précédente permet le calcul de l’impôt d’une liste de contribuables ;</li>
+  <li>ligne 5 : l’interface <b>[</b><b>InterfaceImpôtsDaoWithHttpClient</b><b>]</b> hérite de la classe abstraite <b>[AbstractImpôtsDao]</b> qui gère l’accès au système de fichiers du client. On rappelle qu’elle a une méthode abstraite <b>[get_admindata]</b> ;
+  </li>
+  <li>lignes 7-10 : la méthode <b>[</b><b>calculate_tax_in_bulk_mode</b><b>]</b> que nous avons définie dans la version précédente permet le calcul de l’impôt d’une liste de contribuables ;
+  </li>
 </ul>
+
 <p>Cette interface est implémentée par la classe <strong>[</strong><strong><span style="color: #000000">ImpôtsDaoWithHttpClient</span></strong><strong>]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -1946,11 +1981,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : la classe <strong>[</strong><strong><span style="color: #000000">ImpôtsDaoWithHttpClient</span></strong><strong>]</strong> implémente l’interface <strong>[</strong><strong><span style="color: #000000">InterfaceImpôtsDaoWithHttpClient</span></strong><strong>]</strong>. Elle dérive donc de la classe <strong>[AbstractImpôtsDao]</strong> ;</li>
-<li>lignes 65-66 : la méthode <strong>[</strong><strong><span style="color: #000000">calculate_tax_in_bulk_mode</span></strong><strong>]</strong> étudiée dans la version précédente ;</li>
-<li>lignes 29-62 : la méthode <strong>[get_admindata]</strong> que la classe parent <strong>[AbstractImpôtsDao]</strong> a déclarée abstraite. Elle est donc implémentée dans la classe fille ;</li>
-<li>lignes 33-35 : on détermine l’URL du service web que la méthode <strong>[get-admindata]</strong> doit interroger. Ces URL de service sont définies dans la configuration <strong>[config]</strong> du client :</li>
+  <li>ligne 13 : la classe <b>[</b><b><span style="color: #000000">ImpôtsDaoWithHttpClient</span></b><b>]</b> implémente l’interface <b>[</b><b><span style="color: #000000">InterfaceImpôtsDaoWithHttpClient</span></b><b>]</b>. Elle dérive donc de la classe <b>[AbstractImpôtsDao]</b> ;
+  </li>
+  <li>lignes 65-66 : la méthode <b>[</b><b><span style="color: #000000">calculate_tax_in_bulk_mode</span></b><b>]</b> étudiée dans la version précédente ;
+  </li>
+  <li>lignes 29-62 : la méthode <b>[get_admindata]</b> que la classe parent <b>[AbstractImpôtsDao]</b> a déclarée abstraite. Elle est donc implémentée dans la classe fille ;
+  </li>
+  <li>lignes 33-35 : on détermine l’URL du service web que la méthode <b>[get-admindata]</b> doit interroger. Ces URL de service sont définies dans la configuration <b>[config]</b> du client :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">       </span># le serveur de calcul de l&#x27;impôt</span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#a31515">&quot;server&quot;</span><span style="color:#000000">: {</span></span>
@@ -1968,16 +2008,24 @@
 </code></pre></div>
 
 <ul>
-<li>(suite)<ul>
-<li>lignes 9-12 : les deux URL du serveur web ;</li>
+  <li>(suite)
+    <ul>
+      <li>lignes 9-12 : les deux URL du serveur web ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 37-44 : l’URL de service est interrogée de façon synchrone ;
+  </li>
+  <li>lignes 46-42 : si la configuration le demande, la réponse du serevur est loguée ;
+  </li>
+  <li>ligne 57 : on sait que le serveur a envoyé une chaîne jSON d’un dictionnaire ;
+  </li>
+  <li>lignes 58-60 : si le statut HTTP de la réponse n’est pas 200, alors on lance une exception ;
+  </li>
+  <li>lignes 61-62 : on rend l’objet <b>[AdminData]</b> encapsulant les données de l’administration fiscale envoyées par le serveur ;
+  </li>
 </ul>
-</li>
-<li>lignes 37-44 : l’URL de service est interrogée de façon synchrone ;</li>
-<li>lignes 46-42 : si la configuration le demande, la réponse du serevur est loguée ;</li>
-<li>ligne 57 : on sait que le serveur a envoyé une chaîne jSON d’un dictionnaire ;</li>
-<li>lignes 58-60 : si le statut HTTP de la réponse n’est pas 200, alors on lance une exception ;</li>
-<li>lignes 61-62 : on rend l’objet <strong>[AdminData]</strong> encapsulant les données de l’administration fiscale envoyées par le serveur ;</li>
-</ul>
+
 <p><a id="toc48549236"></a></p>
 <h2 id="298-les-scripts-main-main2">29.8. Les scripts [main, main2]</h2>
 <p>Le script <strong>[main]</strong> est celui de la version précédente. Il utilise la méthode <strong>[</strong><strong><span style="color: #000000">calculate_tax_in_bulk_mode</span></strong><strong>]</strong> de la couche <strong>[dao]</strong> et utilise donc la couche <strong>[métier]</strong> du serveur ;</p>
@@ -2031,28 +2079,39 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 26-27 : on récupère les données de l’administration fiscale auprès du serveur ;</li>
-<li>lignes 28-31 : ensuite le calcul de l’impôt des contribuables est fait localement ;</li>
+  <li>lignes 26-27 : on récupère les données de l’administration fiscale auprès du serveur ;
+  </li>
+  <li>lignes 28-31 : ensuite le calcul de l’impôt des contribuables est fait localement ;
+  </li>
 </ul>
+
 <p><a id="toc48549237"></a></p>
 <h2 id="299-tests-du-client">29.9. Tests du client</h2>
 <p>Dans chacun des scripts <strong>[main, main2]</strong> on logue le début et la fin du script. On pourra ainsi calculer la durée d’exécution du script. Faisons quelques pronostics :</p>
 <ul>
-<li>le script <strong>[main]</strong> de la version précédente :<ul>
-<li>crée N threads qui s’exécutent simultanément ;</li>
-<li>chaque thread traite un lot de contribuables dont il fait calculer l’impôt via une unique requête au serveur ;</li>
-<li>parce que les N threads s’exécutent simultanément, la requête N+1 est lancée avant que la requête N ait reçu sa réponse. Ainsi les N requêtes coûtent plus cher qu’une unique requête mais probablement pas beaucoup plus. Il y a par ailleurs 11 (le nombre de contribuables) calculs métier sur le serveur ;</li>
+  <li>le script <b>[main]</b> de la version précédente :
+    <ul>
+      <li>crée N threads qui s’exécutent simultanément ;
+      </li>
+      <li>chaque thread traite un lot de contribuables dont il fait calculer l’impôt via une unique requête au serveur ;
+      </li>
+      <li>parce que les N threads s’exécutent simultanément, la requête N+1 est lancée avant que la requête N ait reçu sa réponse. Ainsi les N requêtes coûtent plus cher qu’une unique requête mais probablement pas beaucoup plus. Il y a par ailleurs 11 (le nombre de contribuables) calculs métier sur le serveur ;
+      </li>
+    </ul>
+  </li>
+  <li>le script <b>[main2]</b> de cette version :
+    <ul>
+      <li>fait une unique requête au serveur ;
+      </li>
+      <li>fait 11 calculs métier localement sur le client ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>le script <strong>[main2]</strong> de cette version :<ul>
-<li>fait une unique requête au serveur ;</li>
-<li>fait 11 calculs métier localement sur le client ;</li>
-</ul>
-</li>
-</ul>
+
 <p>Les calculs métier auront la même durée que ce soit sur le serveur ou le client. La différence va alors se faire sur les requêtes. On peut s’attendre alors que la durée d’exécution de <strong>[main]</strong> soit légèrement supérieure à celle de <strong>[main2]</strong>.</p>
 <p>On lance le serveur de la version 11, le SGBD et le serveur de mails <strong>[hMailServer]</strong>. Côté serveur, on met le paramètre <strong>[sleep_time]</strong> à zéro pour que les deux tests soient exécutés dans les mêmes conditions.</p>
-<p><u><strong>Exécution 1 </strong></u><u><strong>[main]</strong></u></p>
+<p><u><strong>Exécution 1</strong> </u><u><strong>[main]</strong></u></p>
 <p>L’exécution de <strong>[main]</strong> donne les logs suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">2020-07-29 <span style="background-color:#bdd6ee">14:35:50.016079</span>, MainThread : <span style="background-color:#bdd6ee">début du calcul</span> de l&#x27;impôt des contribuables</span>
@@ -2076,7 +2135,7 @@
 
 <p>La durée de l’exécution a été de <strong>[051214-016079]</strong> nanosecondes (ligne 17 – ligne 1), ç-à-d 35 millisecondes et 135 nanosecondes.</p>
 <p>On voit qu’entre la 1ère demande faite au serveur et la dernière réponse reçue par le client, il y a la même durée <strong>[051214-016079]</strong> (ligne 15 – ligne 1), 35 millisecondes et 135 nanosecondes.</p>
-<p><u><strong>Exécution 2 </strong></u><u><strong>[main2]</strong></u></p>
+<p><u><strong>Exécution 2</strong> </u><u><strong>[main2]</strong></u></p>
 <p>L’exécution de <strong>[main2]</strong> donne les logs suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">2020-07-29 14:41:03.<span style="background-color:#bdd6ee">303520</span>, MainThread : <span style="background-color:#bdd6ee">début du calcul</span> de l&#x27;impôt des contribuables</span>
@@ -2107,9 +2166,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 5 : la 1ère requête du client <strong>[main]</strong> ;</li>
-<li>ligne 14 : la dernière réponse au client <strong>[main]</strong>. Il y a 6 millisecondes et 647 nanosecondes entre les deux ;</li>
-<li>lignes 15-16 : l’unique requête du client <strong>[main2]</strong>. La réponse est instantanée ;</li>
+  <li>ligne 5 : la 1ère requête du client <b>[main]</b> ;
+  </li>
+  <li>ligne 14 : la dernière réponse au client <b>[main]</b>. Il y a 6 millisecondes et 647 nanosecondes entre les deux ;
+  </li>
+  <li>lignes 15-16 : l’unique requête du client <b>[main2]</b>. La réponse est instantanée ;
+  </li>
 </ul>
 
 

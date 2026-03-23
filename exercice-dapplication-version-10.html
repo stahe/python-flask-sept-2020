@@ -1556,9 +1556,12 @@
 <h2 id="281-introduction">28.1. Introduction</h2>
 <p>Dans les exemples de clients du serveur de calcul de l’impôt, les threads envoyaient N requêtes séquentiellement si elles devaient traiter N contribuables. L’idée ici est d’envoyer une seule requête encapsulant les N contribuables. Pour chacun d’entre-eux, il faut envoyer les informations <strong>[marié, enfants, salaire]</strong>. On peut les envoyer comme paramètres :</p>
 <ul>
-<li>de l’URL. On aura alors une longue URL peu significative ;</li>
-<li>dans le corps (body) de la requête HTTP. On sait que ce corps est caché à l’utilisateur utilisant un navigateur ;</li>
+  <li>de l’URL. On aura alors une longue URL peu significative ;
+  </li>
+  <li>dans le corps (body) de la requête HTTP. On sait que ce corps est caché à l’utilisateur utilisant un navigateur ;
+  </li>
 </ul>
+
 <p>Dans les deux cas, on peut utiliser une requête <strong>[GET]</strong> ou <strong>[POST]</strong>. Nous utiliserons une requête POST avec les paramètres encapsulés dans le corps de la requête HTTP.</p>
 <p>L’architecture client / serveur n’a pas changé :</p>
 <p><img src="images/10000000000003BE000003E50F9DB416.png" style="width:11.082cm;height:11.531cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BE000003E50F9DB416.png" /></p>
@@ -1581,8 +1584,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : désormais l’URL / s’obtient via un POST ;</li>
+  <li>ligne 2 : désormais l’URL / s’obtient via un POST ;
+  </li>
 </ul>
+
 <p><a id="lecontroleurindexcontroller"></a>
 <a id="toc48549219"></a></p>
 <h3 id="2823-le-controleur-index_controller">28.2.3. Le contrôleur [index_controller]</h3>
@@ -1687,61 +1692,105 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : le contrôleur reçoit :
-        - la requête <strong>[request]</strong> du client ;
-        - la configuration <strong>[config]</strong> du serveur ;</li>
-<li>lignes 14-18 : on récupère le corps du POST. Les paramètres encapsulés dans le corps de la requête HTTP peuvent être encodés de différentes façons. Nous en avons déjà rencontré une : <strong>[x-www-form-urlencoded]</strong>. Nous allons ici utiliser un autre encodage : jSON ;</li>
-<li>ligne 18 : <strong>[request.data]</strong> permet de récupérer le corps (body) de la requête HTTP. On récupère ici du texte et nous savons que ce texte est du jSON qui représente une liste de dictionnaire <strong>[marié, enfants, salaire]</strong> ;</li>
-<li>lignes 19-24 : on récupère cette liste de dictionnaires ;</li>
-<li>lignes 22-24 : si la récupération du jSON s’est mal passée, on note l’erreur ;</li>
-<li>lignes 26-28 : si on découvre que l’objet récupéré n’est pas une liste ou que c’est une liste vode, on note l’erreur ;</li>
-<li>lignes 29-38 : si on a bien récupéré une liste, on vérifie que c’est bien une liste de dictionnaires ;</li>
-<li>lignes 40-43 : s’il y a eu erreur, on s’arrête là et on envoie une réponse d’erreur au client ;</li>
-<li>lignes 45-69 : on vérifie maintenant chacun des dictionnaires :<ul>
-<li>ils doivent contenir les clés <strong>[marié, enfants, salaire]</strong> ;</li>
-<li>ils doivent permettre de construire un objet <strong>[TaxPayer]</strong> valide ;</li>
+  <li>ligne 9 : le contrôleur reçoit :
+    <ol>
+        <ul>
+          <li>la requête <b>[request]</b> du client ;
+          </li>
+          <li>la configuration <b>[config]</b> du serveur ;
+          </li>
+        </ul>
+    </ol>
+  </li>
+  <li>lignes 14-18 : on récupère le corps du POST. Les paramètres encapsulés dans le corps de la requête HTTP peuvent être encodés de différentes façons. Nous en avons déjà rencontré une : <b>[x-www-form-urlencoded]</b>. Nous allons ici utiliser un autre encodage : jSON ;
+  </li>
+  <li>ligne 18 : <b>[request.data]</b> permet de récupérer le corps (body) de la requête HTTP. On récupère ici du texte et nous savons que ce texte est du jSON qui représente une liste de dictionnaire <b>[marié, enfants, salaire]</b> ;
+  </li>
+  <li>lignes 19-24 : on récupère cette liste de dictionnaires ;
+  </li>
+  <li>lignes 22-24 : si la récupération du jSON s’est mal passée, on note l’erreur ;
+  </li>
+  <li>lignes 26-28 : si on découvre que l’objet récupéré n’est pas une liste ou que c’est une liste vode, on note l’erreur ;
+  </li>
+  <li>lignes 29-38 : si on a bien récupéré une liste, on vérifie que c’est bien une liste de dictionnaires ;
+  </li>
+  <li>lignes 40-43 : s’il y a eu erreur, on s’arrête là et on envoie une réponse d’erreur au client ;
+  </li>
+  <li>lignes 45-69 : on vérifie maintenant chacun des dictionnaires :
+    <ul>
+      <li>ils doivent contenir les clés <b>[marié, enfants, salaire]</b> ;
+      </li>
+      <li>ils doivent permettre de construire un objet <b>[TaxPayer]</b> valide ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 65-69 : si une erreur a été détectée dans un dictionnaire, alors elle est mise dans ce même dictionnaire associée à la clé ‘erreur’ ;
+  </li>
+  <li>lignes 72-75 : les dictionnaires erronés ont été cumulés dans la liste <b>[list_erreurs]</b>. Si cette liste n’est pas vide, alors on l’envoie dans une réponse d’erreur faite au client ;
+  </li>
+  <li>ligne 77 : arrivé là, on sait qu’on peut créer une liste d’objets de type <b>[TaxPayer]</b> à partir du corps de la requête envoyée par le client ;
+  </li>
+  <li>lignes 84-91 : on exploite la liste des dictionnaires reçus ;
+  </li>
+  <li>ligne 86 : à partir d’un dictionnaire, on crée un objet <b>[TaxPayer]</b> ;
+  </li>
+  <li>ligne 89 : on calcule l’impôt de ce <b>[TaxPayer]</b> ;
+  </li>
+  <li>ligne 91 : on sait que <b>[taxpayer]</b> a été modifié par le calcul de l’impôt. On le transforme en dictionnaire et on l’ajoute à une liste de résultats ;
+  </li>
+  <li>ligne 93 : on envoie cette liste de résultats au client ;
+  </li>
 </ul>
-</li>
-<li>lignes 65-69 : si une erreur a été détectée dans un dictionnaire, alors elle est mise dans ce même dictionnaire associée à la clé ‘erreur’ ;</li>
-<li>lignes 72-75 : les dictionnaires erronés ont été cumulés dans la liste <strong>[list_erreurs]</strong>. Si cette liste n’est pas vide, alors on l’envoie dans une réponse d’erreur faite au client ;</li>
-<li>ligne 77 : arrivé là, on sait qu’on peut créer une liste d’objets de type <strong>[TaxPayer]</strong> à partir du corps de la requête envoyée par le client ;</li>
-<li>lignes 84-91 : on exploite la liste des dictionnaires reçus ;</li>
-<li>ligne 86 : à partir d’un dictionnaire, on crée un objet <strong>[TaxPayer]</strong> ;</li>
-<li>ligne 89 : on calcule l’impôt de ce <strong>[TaxPayer]</strong> ;</li>
-<li>ligne 91 : on sait que <strong>[taxpayer]</strong> a été modifié par le calcul de l’impôt. On le transforme en dictionnaire et on l’ajoute à une liste de résultats ;</li>
-<li>ligne 93 : on envoie cette liste de résultats au client ;</li>
-</ul>
+
 <p><a id="toc48549220"></a></p>
 <h3 id="2824-tests-du-serveur">28.2.4. Tests du serveur</h3>
 <p>Nous allons tester le serveur avec un client Postman :</p>
 <ul>
-<li>nous lançons le serveur web, le SGBD, le serveur de mails <strong>[hMailServer]</strong> ;</li>
-<li>nous lançons le client Postman ainsi que sa console (Ctrl-Alt-C) ;</li>
+  <li>nous lançons le serveur web, le SGBD, le serveur de mails <b>[hMailServer]</b> ;
+  </li>
+  <li>nous lançons le client Postman ainsi que sa console (Ctrl-Alt-C) ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000005C60000023E96BB9738.png" style="width:17.07cm;height:6.621cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005C60000023E96BB9738.png" /></p>
 <ul>
-<li>en <strong>[1]</strong> : on émet une requête <strong>[POST]</strong> ;</li>
-<li>en <strong>[2]</strong> : l’URL du serveur ;</li>
-<li>en <strong>[3]</strong> : le corps de la requête HTTP ;</li>
-<li>en <strong>[5]</strong> : on indique que ce corps devra être envoyé sous la forme d’une chaîne jSON ;</li>
-<li>en <strong>[4]</strong> : on se met en mode <strong>[raw]</strong> pour pouvoir copier / coller une chaîne jSON ;</li>
-<li>en <strong>[6]</strong> : on colle la chaîne jSON prise dans un des fichiers <strong>[résultats.json]</strong> des différentes versions. Puis on ne garde pour chaque contribuable que les propriétés <strong>[marié, salaire, enfants]</strong> ;</li>
+  <li>en <b>[1]</b> : on émet une requête <b>[POST]</b> ;
+  </li>
+  <li>en <b>[2]</b> : l’URL du serveur ;
+  </li>
+  <li>en <b>[3]</b> : le corps de la requête HTTP ;
+  </li>
+  <li>en <b>[5]</b> : on indique que ce corps devra être envoyé sous la forme d’une chaîne jSON ;
+  </li>
+  <li>en <b>[4]</b> : on se met en mode <b>[raw]</b> pour pouvoir copier / coller une chaîne jSON ;
+  </li>
+  <li>en <b>[6]</b> : on colle la chaîne jSON prise dans un des fichiers <b>[résultats.json]</b> des différentes versions. Puis on ne garde pour chaque contribuable que les propriétés <b>[marié, salaire, enfants]</b> ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000004100000022208C24E7E.png" style="width:12.011cm;height:6.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004100000022208C24E7E.png" /></p>
 <ul>
-<li>en <strong>[7]</strong>, on regarde les entêtes HTTP que va envoyer le client Postman au serveur ;</li>
-<li>en <strong>[8]</strong>, on voit qu’il va lui envoyer un entête <strong>[Content-Type]</strong> lui indiquant que la requête contient un corps codé en jSON. Cela vient du choix <strong>[5]</strong> fait précédemment ;</li>
+  <li>en <b>[7]</b>, on regarde les entêtes HTTP que va envoyer le client Postman au serveur ;
+  </li>
+  <li>en <b>[8]</b>, on voit qu’il va lui envoyer un entête <b>[Content-Type]</b> lui indiquant que la requête contient un corps codé en jSON. Cela vient du choix <b>[5]</b> fait précédemment ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000004BF000001EAA4B92541.png" style="width:14.031cm;height:5.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BF000001EAA4B92541.png" /></p>
 <ul>
-<li>en <strong>[9-12]</strong> : on met dans la requête les identifiants attendus par le serveur ;</li>
+  <li>en <b>[9-12]</b> : on met dans la requête les identifiants attendus par le serveur ;
+  </li>
 </ul>
+
 <p>On envoie cette requête. La réponse du serveur est la suivante :</p>
 <p><img src="images/10000000000002DA000002E3E3040B22.png" style="width:8.422cm;height:8.52cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002DA000002E3E3040B22.png" /></p>
 <ul>
-<li>en <strong>[3]</strong>, on a reçu du jSON ;</li>
-<li>en <strong>[4]</strong>, l’impôt des contribuables ;</li>
+  <li>en <b>[3]</b>, on a reçu du jSON ;
+  </li>
+  <li>en <b>[4]</b>, l’impôt des contribuables ;
+  </li>
 </ul>
+
 <p>Examinons dans la console Postman (Ctrl-Alt-C) le dialogue client / serveur qui a eu lieu :</p>
 <p>Le client Postman a envoyé le texte suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1817,11 +1866,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : le POST vers le serveur ;</li>
-<li>ligne 2 : l’entête HTTP d’authentification ;</li>
-<li>ligne 3 : le client dit au serveur qu’il lui envoie une chaîne jSON et que cette chaîne fait 824 octets (ligne 11) ;</li>
-<li>lignes 13-69 : le corps jSON de la requête ;</li>
+  <li>ligne 1 : le POST vers le serveur ;
+  </li>
+  <li>ligne 2 : l’entête HTTP d’authentification ;
+  </li>
+  <li>ligne 3 : le client dit au serveur qu’il lui envoie une chaîne jSON et que cette chaîne fait 824 octets (ligne 11) ;
+  </li>
+  <li>lignes 13-69 : le corps jSON de la requête ;
+  </li>
 </ul>
+
 <p>Le serveur lui a répondu le texte suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">HTTP/1.0 200 OK</span>
@@ -1834,10 +1888,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : la requête a réussi ;</li>
-<li>ligne 2 : le corps de la réponse du serveur est une chaîne jSON. Celle-ci fait 1461 octets (ligne 3) ;</li>
-<li>ligne 7 : la réponse jSON du serveur ;</li>
+  <li>ligne 1 : la requête a réussi ;
+  </li>
+  <li>ligne 2 : le corps de la réponse du serveur est une chaîne jSON. Celle-ci fait 1461 octets (ligne 3) ;
+  </li>
+  <li>ligne 7 : la réponse jSON du serveur ;
+  </li>
 </ul>
+
 <p>Testons maintenant des cas d’erreur.</p>
 <p><u><strong>Cas 1</strong></u> : on envoie n’importe quoi</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -1865,10 +1923,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : on a envoyé la chaîne <strong>[abc]</strong> qui n’est pas une chaîne jSON valide (ligne 3) ;</li>
-<li>ligne 15 : le serveur répond par un code d’erreur 400 ;</li>
-<li>ligne 21 : la réponse jSON du serveur ;</li>
+  <li>ligne 13 : on a envoyé la chaîne <b>[abc]</b> qui n’est pas une chaîne jSON valide (ligne 3) ;
+  </li>
+  <li>ligne 15 : le serveur répond par un code d’erreur 400 ;
+  </li>
+  <li>ligne 21 : la réponse jSON du serveur ;
+  </li>
 </ul>
+
 <p><u><strong>Cas 2</strong></u> : envoyons une chaîne jSON valide qui ne soit pas une liste</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">POST / HTTP/1.1</span>
@@ -2075,32 +2137,50 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-26 : le code reste ce qu’il était dans la version 7 et dans d’autres versions ;</li>
-<li>lignes 27-70 : on introduit une nouvelle méthode <strong>[</strong><strong><span style="color: #000000">calculate_tax_in_bulk_mode</span></strong><strong>]</strong> dont le rôle est de calculer l’impôt d’une liste de contribuables ;</li>
-<li>ligne 28 : <strong>[taxpayers]</strong> est cette liste de contribuables ;</li>
-<li>lignes 31-39 : on passe d’une liste d’objets de type <strong>[TaxPayer]</strong> à une liste de dictionnaires grâce à une fonction <strong>[map]</strong> ;</li>
-<li>lignes 34-38 : la fonction lambda utilisée transforme un objet de type <strong>[TaxPayer]</strong> en un dictionnaire de type <strong>[dict]</strong> ayant les seules clés <strong>[marié, enfants, salaire]</strong>. On utilise pour cela le paramètre nommé <strong>[included_keys]</strong> de la méthode <strong>[BaseEntity.asdict]</strong>. On rappelle que pour connaître les noms exacts des propriétés à mettre dans les paramètres <strong>[excluded_keys, included_keys]</strong>, il faut utiliser le dictionnaire prédéfini <strong>[taxpayer.__dict__]</strong> ;</li>
-<li>lignes 41-48 : connexion au serveur puis obtention de sa réponse HTTP ;</li>
-<li>lignes 44, 48 :<ul>
-<li>on utilise la méthode statique <strong>[requests.post]</strong> pour faire un POST vers le serveur ;</li>
-<li>on utilise le paramètre nommé <strong>[json]</strong> pour indiquer que le corps du POST est une chaîne jSON. Cela va avoir deux conséquences :<ul>
-<li>l’objet affecté au paramètre nommé <strong>[json]</strong>, ici une liste de dictionnaires, va être transformé en chaîne jSON ;</li>
-<li>l’entête</li>
+  <li>lignes 1-26 : le code reste ce qu’il était dans la version 7 et dans d’autres versions ;
+  </li>
+  <li>lignes 27-70 : on introduit une nouvelle méthode <b>[</b><b><span style="color: #000000">calculate_tax_in_bulk_mode</span></b><b>]</b> dont le rôle est de calculer l’impôt d’une liste de contribuables ;
+  </li>
+  <li>ligne 28 : <b>[taxpayers]</b> est cette liste de contribuables ;
+  </li>
+  <li>lignes 31-39 : on passe d’une liste d’objets de type <b>[TaxPayer]</b> à une liste de dictionnaires grâce à une fonction <b>[map]</b> ;
+  </li>
+  <li>lignes 34-38 : la fonction lambda utilisée transforme un objet de type <b>[TaxPayer]</b> en un dictionnaire de type <b>[dict]</b> ayant les seules clés <b>[marié, enfants, salaire]</b>. On utilise pour cela le paramètre nommé <b>[included_keys]</b> de la méthode <b>[BaseEntity.asdict]</b>. On rappelle que pour connaître les noms exacts des propriétés à mettre dans les paramètres <b>[excluded_keys, included_keys]</b>, il faut utiliser le dictionnaire prédéfini <b>[taxpayer.__dict__]</b> ;
+  </li>
+  <li>lignes 41-48 : connexion au serveur puis obtention de sa réponse HTTP ;
+  </li>
+  <li>lignes 44, 48 :
+    <ul>
+      <li>on utilise la méthode statique <b>[requests.post]</b> pour faire un POST vers le serveur ;
+      </li>
+      <li>on utilise le paramètre nommé <b>[json]</b> pour indiquer que le corps du POST est une chaîne jSON. Cela va avoir deux conséquences :
+        <ul>
+          <li>l’objet affecté au paramètre nommé <b>[json]</b>, ici une liste de dictionnaires, va être transformé en chaîne jSON ;
+          </li>
+          <li>l’entête
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Content-Type: application/json
 </code></pre></div>
 <p>sera inclus dans les entêtes HTTP du POST ;</p>
 <ul>
-<li>ligne 59 : la réponse jSON du serveur est désérialisée dans le dictionnaire <strong>[résultat]</strong> ;</li>
-<li>lignes 61-63 : on gère l’éventuelle erreur envoyée par le serveur ;</li>
-<li>ligne 65 : les résultats du calcul de l’impôt sont dans une liste de dictionnaires ;</li>
-<li>lignes 67-69 : ces résultats sont exploités pour mettre à jour la liste initiale des contribuables <strong>[taxpayers]</strong> initialement reçus par la méthode, ligne 28 ;</li>
-<li>ligne 70 : ici la liste la liste initiale des contribuables a été mise à jour avec les résultats du calcul de l’impôt ;</li>
+  <li>ligne 59 : la réponse jSON du serveur est désérialisée dans le dictionnaire <b>[résultat]</b> ;
+  </li>
+  <li>lignes 61-63 : on gère l’éventuelle erreur envoyée par le serveur ;
+  </li>
+  <li>ligne 65 : les résultats du calcul de l’impôt sont dans une liste de dictionnaires ;
+  </li>
+  <li>lignes 67-69 : ces résultats sont exploités pour mettre à jour la liste initiale des contribuables <b>[taxpayers]</b> initialement reçus par la méthode, ligne 28 ;
+  </li>
+  <li>ligne 70 : ici la liste la liste initiale des contribuables a été mise à jour avec les résultats du calcul de l’impôt ;
+  </li>
 </ul>
+
 <p><a id="toc48549223"></a></p>
 <h3 id="2832-le-script-principal-main">28.3.2. Le script principal [main]</h3>
 <p>Le script principal <strong>[main]</strong> évolue de la façon suivante : seule la fonction <strong>[thread_function]</strong> exécutée par les threads créés par le client est modifiée. Le reste du code reste à l’identique.</p>
@@ -2120,15 +2200,20 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 9-10 : alors que précédemment on avait une boucle qui passait successivement chacun des contribuables à la méthode <strong>[dao.calculate_tax]</strong>, ici on ne fait qu’un unique appel à la méthode <strong>[</strong><strong><span style="color: #808080">dao</span></strong><strong><span style="color: #000000">.calculate_tax_in_bulk_mode</span></strong><strong>]</strong> à laquelle on passe tous les contribuables ;</li>
+  <li>lignes 9-10 : alors que précédemment on avait une boucle qui passait successivement chacun des contribuables à la méthode <b>[dao.calculate_tax]</b>, ici on ne fait qu’un unique appel à la méthode <b>[</b><b><span style="color: #808080">dao</span></b><b><span style="color: #000000">.calculate_tax_in_bulk_mode</span></b><b>]</b> à laquelle on passe tous les contribuables ;
+  </li>
 </ul>
+
 <p><a id="toc48549224"></a></p>
 <h3 id="2833-execution-du-client">28.3.3. Exécution du client</h3>
 <p>Nous allons comparer les temps d’exécution des versions :</p>
 <ul>
-<li>7, où chaque contribuable fait l’objet d’une requête HTTP ;</li>
-<li>10 (celle-ci) où on rassemble des contribuables dans une unique requête HTTP ;</li>
+  <li>7, où chaque contribuable fait l’objet d’une requête HTTP ;
+  </li>
+  <li>10 (celle-ci) où on rassemble des contribuables dans une unique requête HTTP ;
+  </li>
 </ul>
+
 <p>Tout d’abord la version 6. Pour comparer les deux versions, on met la propriété <strong>[sleep_time]</strong> du serveur à zéro pour qu’il n’y ait pas d’attente forcée des threads. Les logs du client sont les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">2020-07-28 14:20:45.<span style="background-color:#bdd6ee">811347</span>, Thread-1 : début du thread <span style="font-weight:bold">[Thread-1]</span> avec 4 contribuable(s)</span>
@@ -2198,8 +2283,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 14 : au lieu d’appeler la méthode <strong>[dao.calculate_tax]</strong>, on appelle la méthode <strong>[</strong><strong><span style="color: #000000">dao.calculate_tax_in_bulk_mode</span></strong><strong>]</strong> à laquelle on passe une liste (présence des crochets) d’un contribuable ;</li>
+  <li>ligne 14 : au lieu d’appeler la méthode <b>[dao.calculate_tax]</b>, on appelle la méthode <b>[</b><b><span style="color: #000000">dao.calculate_tax_in_bulk_mode</span></b><b>]</b> à laquelle on passe une liste (présence des crochets) d’un contribuable ;
+  </li>
 </ul>
+
 <p>Tous les tests passent.</p>
 
 

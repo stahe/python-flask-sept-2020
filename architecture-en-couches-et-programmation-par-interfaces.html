@@ -1785,14 +1785,14 @@
 <a id="refheading408961886864318"></a></p>
 <h2 id="141-introduction">14.1. Introduction</h2>
 <p>Nous nous proposons d&#x27;écrire une application permettant l&#x27;affichage des notes des élèves d&#x27;un collège. Cette application peut avoir une architecture multicouche :</p>
-<p><img src="images/1000000100000366000000ABD38E9B95.png" style="width:11.881cm;height:2.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000366000000ABD38E9B95.png" /></p>
+<p><img src="images/1000000100000366000000ABACEE5922.png" style="width:11.881cm;height:2.331cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000366000000ABACEE5922.png" /></p>
 <ul>
 <li>la couche <strong>[</strong><strong>ui</strong><strong>]</strong> (<strong>U</strong>ser <strong>I</strong>nterface) est la couche en contact avec l&#x27;utilisateur de l&#x27;application ;</li>
 <li>la couche <strong>[</strong><strong>métier</strong><strong>]</strong> implémente les règles de gestion de l&#x27;application, tels que le calcul d&#x27;un salaire ou d&#x27;une facture. Cette couche utilise des données provenant de l&#x27;utilisateur via la couche <strong>[présentation]</strong> et du SGBD via la couche <strong>[dao]</strong> ;</li>
 <li>la couche <strong>[</strong><strong>dao</strong><strong>]</strong> (<strong>D</strong>ata <strong>A</strong>ccess <strong>O</strong>bjects) gère l&#x27;accès aux données du SGBD (Système de Gestion de Bases de Données).</li>
 </ul>
 <p>C&#x27;est l&#x27;architecture qui avait été utilisée dans le |<a href="https://tahe.developpez.com/tutoriels-cours/python-2012/"><u><span style="color: #0563c1">cours sur Python 2</span></u></a>|. On peut également introduire une variante :</p>
-<p><img src="images/100000010000036D00000113F6F5317B.png" style="width:11.69cm;height:3.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000036D00000113F6F5317B.png" /></p>
+<p><img src="images/100000010000036D0000011362170D97.png" style="width:11.69cm;height:3.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000036D0000011362170D97.png" /></p>
 <p>Les différences vis à vis de la structure en couches précédente sont les suivantes :</p>
 <ul>
 <li>un script principal appelé <strong>[main]</strong> ci-dessus organise l&#x27;instanciation des couches ;</li>
@@ -1815,7 +1815,7 @@
 <li>la couche <strong>[ui]</strong> sera une application console qui affichera les résultats des élèves ;</li>
 </ul>
 <p>Le projet PyCharm de l&#x27;application est le suivant :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000128000002B0930A5206.png" style="display:inline-block; margin:4px;width:2.761cm;height:6.411cm;" class="odt-zoomable" data-zoom-src="images/1000000100000128000002B0930A5206.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000128000002B09A9C5A86.png" style="display:inline-block; margin:4px;width:2.761cm;height:6.411cm;" class="odt-zoomable" data-zoom-src="images/1000000100000128000002B09A9C5A86.png" /></td></tr></table>
 
 <p><strong>Note</strong> : les dossiers en bleu font partie des <strong>[Sources Root]</strong> du projet PyCharm.</p>
 <p><a id="lesentitesde"></a>
@@ -2869,7 +2869,7 @@
 </li>
 <li>ligne 31 : le critère de filtrage de la liste est implémenté à l’aide d’une fonction <strong>[f(e :Elève)-&gt;bool]</strong>. Celle-ci est appliquée à chacun des éléments de la liste à filtrer. Si l’élément satisfait le critère de filtrage, il est retenu dans la liste filtrée, sinon il en est exclu. On peut ici soit :<ul>
 <li>donner le nom de la fonction f et implémenter celle-ci ailleurs. L’appel à la fonction <strong>[filter]</strong> devient alors <strong>[filter(f,self.get_élèves()]</strong> ;</li>
-<li>donner la définition de la fonction f. L’appel à la fonction <strong>[filter]</strong> devient alors <strong>[filter(f(e :Elève){…},self.get_élèves()]</strong><strong> </strong><strong>où </strong><strong>[e]</strong><strong> représente un élément de la liste filtrée, ç-à-d un élève.</strong> C’est ce qui a été fait ici. La définition de la fonction f serait ici <strong>[f(e :Elève){return e.id==élève_id)]</strong> : un élève n’est retenu que si non n° <strong>[id]</strong> est égal à celui cherché. Une telle fonction peut être remplacée par une fonction dite lambda : <strong>[</strong><strong><span style="color: #0000ff">lambda</span></strong><strong><span style="color: #000000"> </span></strong><strong><span style="color: #808080">e</span></strong><strong><span style="color: #000000">: </span></strong><strong><span style="color: #808080">e</span></strong><strong><span style="color: #000000">.id == </span></strong><strong><span style="color: #808080">élève_id</span></strong><strong>]</strong> : <ul>
+<li>donner la définition de la fonction f. L’appel à la fonction <strong>[filter]</strong> devient alors <strong>[filter(f(e :Elève){…},self.get_élèves()]</strong> <strong>où</strong> <strong>[e]</strong> <strong>représente un élément de la liste filtrée, ç-à-d un élève.</strong> C’est ce qui a été fait ici. La définition de la fonction f serait ici <strong>[f(e :Elève){return e.id==élève_id)]</strong> : un élève n’est retenu que si non n° <strong>[id]</strong> est égal à celui cherché. Une telle fonction peut être remplacée par une fonction dite lambda : <strong>[</strong><strong><span style="color: #0000ff">lambda</span></strong><strong><span style="color: #000000"> </span></strong><strong><span style="color: #808080">e</span></strong><strong><span style="color: #000000">: </span></strong><strong><span style="color: #808080">e</span></strong><strong><span style="color: #000000">.id == </span></strong><strong><span style="color: #808080">élève_id</span></strong><strong>]</strong> : <ul>
 <li>e : représente le paramètre de la fonction f, ici un élève. On peut utiliser le nom que l’on veut ;</li>
 <li>e.id==élève_id est le critère de filtrage : un élève <strong>[e]</strong> n’est retenu que si son n° <strong>[id]</strong> correspond à celui qui est cherché ;</li>
 </ul>
@@ -2961,7 +2961,7 @@
 <p><a id="toc48549028"></a>
 <a id="refheading409021886864318"></a></p>
 <h3 id="1425-la-couche-metier">14.2.5. La couche [métier]</h3>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000250000000E5BCFA285A.png" style="display:inline-block; margin:4px;width:7.062cm;height:2.731cm;" class="odt-zoomable" data-zoom-src="images/1000000100000250000000E5BCFA285A.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019E0000029B19CC59FA.png" style="display:inline-block; margin:4px;width:4.31cm;height:6.921cm;" class="odt-zoomable" data-zoom-src="images/100000000000019E0000029B19CC59FA.png" /></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000100000250000000E58BD3428D.png" style="display:inline-block; margin:4px;width:7.062cm;height:2.731cm;" class="odt-zoomable" data-zoom-src="images/1000000100000250000000E58BD3428D.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000019E0000029B19CC59FA.png" style="display:inline-block; margin:4px;width:4.31cm;height:6.921cm;" class="odt-zoomable" data-zoom-src="images/100000000000019E0000029B19CC59FA.png" /></td></tr></table>
 
 <ul>
 <li><strong>[InterfaceMétier]</strong> est l’interface de la couche <strong>[métier]</strong> ;</li>
@@ -3775,7 +3775,7 @@
 <li>en <strong>[1-2]</strong>, on demande à voir les contextes d’exécution existants ;</li>
 <li>en <strong>[3]</strong>, on sélectionne le contexte d’exécution existant et on le duplique <strong>[4]</strong> ;</li>
 </ul>
-<p><img src="images/1000000100000427000000D6C304DEAC.png" style="width:17.971cm;height:3.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000427000000D6C304DEAC.png" /></p>
+<p><img src="images/1000000100000427000000D67B2F35A0.png" style="width:17.971cm;height:3.611cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000100000427000000D67B2F35A0.png" /></p>
 <ul>
 <li>en <strong>[5]</strong>, le nom donné à la nouvelle configuration. Ce sera celle qui exécute le script <strong>[main]</strong> <strong>[6]</strong> en lui passant le paramètre <strong>[config2]</strong> <strong>[7]</strong> ;</li>
 </ul>

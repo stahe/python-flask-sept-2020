@@ -1516,9 +1516,12 @@
 <p><img src="images/1000000000000114000001AD0792667B.png" style="width:3.192cm;height:4.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000114000001AD0792667B.png" /></p>
 <p>Cette nouvelle version amène les évolutions suivantes :</p>
 <ul>
-<li>elle va être portée sur un serveur Apache / Windows ;</li>
-<li>pour réaliser ce portage, la version 17 contient toutes les dépendances dont elle a besoin dans son dossier <strong>[impots / http-servers/ 12]</strong>. On rappelle que les versions précédentes allaient chercher leurs dépendances dans différents dossiers de l’ensemble du projet <strong>[python-flask-2020]</strong> ;</li>
+  <li>elle va être portée sur un serveur Apache / Windows ;
+  </li>
+  <li>pour réaliser ce portage, la version 17 contient toutes les dépendances dont elle a besoin dans son dossier <b>[impots / http-servers/ 12]</b>. On rappelle que les versions précédentes allaient chercher leurs dépendances dans différents dossiers de l’ensemble du projet <b>[python-flask-2020]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549343"></a></p>
 <h2 id="371-relocalisation-des-dependances-de-lapplication">37.1. Relocalisation des dépendances de l’application</h2>
 <p><img src="images/1000000000000109000000D06F1F6856.png" style="width:3.07cm;height:2.401cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000109000000D06F1F6856.png" /></p>
@@ -1624,14 +1627,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 8-27 : toutes les dépendances sont désormais relatives à la variable <strong>[script_dir]</strong> de la ligne 5 ;</li>
-<li>lignes 42-45 : la variable <strong>[root_dir]</strong> a disparu de la configuration du syspath ;</li>
-<li>ligne 10 : les entités de l’application sont dans le dossier <strong>[entities]</strong> <strong>[1]</strong> ;</li>
-<li>ligne 12 : la couche <strong>[dao]</strong> est dans le dossier <strong>[layers/dao]</strong> <strong>[2]</strong> ;</li>
-<li>ligne 14 : la couche <strong>[métier]</strong> est dans le dossier <strong>[layers/métier]</strong> <strong>[2]</strong> ;</li>
-<li>ligne 16 : les utilitaires <strong>[Logger, SendMail]</strong> sont dans le dossier <strong>[utilities]</strong> <strong>[3]</strong> ;</li>
-<li>lignes 29-40 : on calcule le Python Path de l’application sans importer le module <strong>[myutils]</strong> ;</li>
+  <li>lignes 8-27 : toutes les dépendances sont désormais relatives à la variable <b>[script_dir]</b> de la ligne 5 ;
+  </li>
+  <li>lignes 42-45 : la variable <b>[root_dir]</b> a disparu de la configuration du syspath ;
+  </li>
+  <li>ligne 10 : les entités de l’application sont dans le dossier <b>[entities]</b> <b>[1]</b> ;
+  </li>
+  <li>ligne 12 : la couche <b>[dao]</b> est dans le dossier <b>[layers/dao]</b> <b>[2]</b> ;
+  </li>
+  <li>ligne 14 : la couche <b>[métier]</b> est dans le dossier <b>[layers/métier]</b> <b>[2]</b> ;
+  </li>
+  <li>ligne 16 : les utilitaires <b>[Logger, SendMail]</b> sont dans le dossier <b>[utilities]</b> <b>[3]</b> ;
+  </li>
+  <li>lignes 29-40 : on calcule le Python Path de l’application sans importer le module <b>[myutils]</b> ;
+  </li>
 </ul>
+
 <p><img src="images/100000000000061A000001BCF1041F6F.png" style="width:18cm;height:5.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000061A000001BCF1041F6F.png" /></p>
 <p><a id="toc48549344"></a></p>
 <h2 id="372-tests">37.2. Tests</h2>
@@ -1663,16 +1674,20 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : on fixe la valeur de la variable d’environnement <strong>[</strong><strong><mark style="background-color: #fff2cc">MOD_WSGI_APACHE_ROOTDIR</mark></strong><strong>]</strong>. Cette valeur est l’emplacement du serveur Apache dans le système de fichiers. Ici cet emplacement est <strong>[&lt;laragon&gt;</strong><strong><mark style="background-color: #fff2cc">\bin\apache\httpd-2.4.35-win64-VC15</mark></strong><strong>]</strong> où &lt;laragon&gt; est le dossier d’installation de Laragon. Vous pouvez obtenir cet emplacement de diverses façons. En voici une obtenue à partir d’une des options de Laragon :</li>
+  <li>ligne 1 : on fixe la valeur de la variable d’environnement <b>[</b><b><mark style="background-color: #fff2cc">MOD_WSGI_APACHE_ROOTDIR</mark></b><b>]</b>. Cette valeur est l’emplacement du serveur Apache dans le système de fichiers. Ici cet emplacement est <b>[&lt;laragon&gt;</b><b><mark style="background-color: #fff2cc">\bin\apache\httpd-2.4.35-win64-VC15</mark></b><b>]</b> où &lt;laragon&gt; est le dossier d’installation de Laragon. Vous pouvez obtenir cet emplacement de diverses façons. En voici une obtenue à partir d’une des options de Laragon :
+  </li>
 </ul>
+
 <p><img src="images/100000000000031D000001D48D3C5E42.png" style="width:9.21cm;height:5.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000031D000001D48D3C5E42.png" /></p>
 <p>En <strong>[1-3]</strong>, le fichier <strong>[httpd.conf]</strong> est le fichier de configuration principal du serveur Apache. Le fichier en question est alors ouvert dans un éditeur de texte (Notepad ++ ci-dessous) :</p>
 <p><img src="images/1000000000000472000001006BDF5600.png" style="width:13.131cm;height:2.961cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000001006BDF5600.png" /></p>
 <p>En <strong>[2]</strong>, le dossier d’installation d’Apache est ce qui précède la chaîne <strong>[conf\httpd.conf]</strong>.</p>
 <p>Revenons à l’installation du module <strong>[mod_wsgi]</strong> :</p>
 <ul>
-<li>lignes 3-9 : installation du module <strong>[mod_wsgi]</strong> ;</li>
+  <li>lignes 3-9 : installation du module <b>[mod_wsgi]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549348"></a></p>
 <h3 id="3733-configuration-du-serveur-apache-de-laragon">37.3.3. Configuration du serveur Apache de Laragon</h3>
 <p>Nous allons configurer le serveur Apache de Laragon. Nous commençons par son fichier de configuration principal <strong>[httpd.conf]</strong> :</p>
@@ -1690,8 +1705,10 @@
 </code></pre></div>
 
 <ul>
-<li>la ligne 8 a été ajoutée à l’existant du fichier <strong>[httpd.conf]</strong> en fin de fichier. Elle indique au serveur Apache où se trouve un élément du module <strong>[mod_wsgi]</strong> que nous venons d’installer ;</li>
+  <li>la ligne 8 a été ajoutée à l’existant du fichier <b>[httpd.conf]</b> en fin de fichier. Elle indique au serveur Apache où se trouve un élément du module <b>[mod_wsgi]</b> que nous venons d’installer ;
+  </li>
 </ul>
+
 <p>Une façon simple d’avoir le chemin de la ligne 8 est d’exécuter la commande suivante dans un terminal PyCharm :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\impots\http-servers\11&gt;<span style="background-color:#fff2cc">mod_wsgi-express module-config</span></span>
@@ -1703,28 +1720,37 @@
 <p>Ensuite, nous allons activer le protocole HTTPS du serveur Apache :</p>
 <p><img src="images/100000000000055600000275CC678078.png" style="width:15.77cm;height:7.25cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055600000275CC678078.png" /></p>
 <ul>
-<li>en <strong>[1-4]</strong>, on active le protocole HTTPS du serveur Apache ;</li>
+  <li>en <b>[1-4]</b>, on active le protocole HTTPS du serveur Apache ;
+  </li>
 </ul>
+
 <p>Désormais, nous pourrons utiliser des URL <strong>[</strong><strong><span style="color: #ff0000">https</span></strong><strong>://serveur/chemin]</strong> ;</p>
 <p>Pour configurer Apache de façon à servir une application Flask, le lien référencé |<a href="#_Sources"><u><span style="color: #0563c1">plus haut</span></u></a>|utilise des serveurs virtuels. Laragon propose également de gérer des serveurs virtuels :</p>
 <p><img src="images/1000000000000619000002D28424DFC7.png" style="width:18cm;height:8.35cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000619000002D28424DFC7.png" /></p>
 <ul>
-<li>en <strong>[1-3]</strong>, on demande à Laragon de créer automatiquement des hôtes virtuels ;</li>
+  <li>en <b>[1-3]</b>, on demande à Laragon de créer automatiquement des hôtes virtuels ;
+  </li>
 </ul>
+
 <p>L’étape suivante est de créer un projet web avec Laragon :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000615000001BB97C79F61.png" style="display:inline-block; margin:4px;width:18cm;height:5.121cm;" class="odt-zoomable" data-zoom-src="images/1000000000000615000001BB97C79F61.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000396000001B233858FE2.png" style="display:inline-block; margin:4px;width:10.6cm;height:5.001cm;" class="odt-zoomable" data-zoom-src="images/1000000000000396000001B233858FE2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017B000000EF66868113.png" style="display:inline-block; margin:4px;width:4.381cm;height:2.761cm;" class="odt-zoomable" data-zoom-src="images/100000000000017B000000EF66868113.png" /></td></tr></table>
 
 <ul>
-<li>en <strong>[1-3]</strong>, on crée un projet PHP vide ;</li>
-<li>en <strong>[4-8]</strong>, Laragon a créé un site virtuel appelé <strong>[auto.projet-test.test]</strong> configuré par le fichier <strong>[auto.projet-test.test.conf]</strong> <strong>[8]</strong> du dossier <strong>[sites-enabled]</strong> <strong>[7]</strong>. Ce dossier se trouve à l’adresse <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong> où <strong>[laragon]</strong> est le dossier d’installation de Laragon ;</li>
+  <li>en <b>[1-3]</b>, on crée un projet PHP vide ;
+  </li>
+  <li>en <b>[4-8]</b>, Laragon a créé un site virtuel appelé <b>[auto.projet-test.test]</b> configuré par le fichier <b>[auto.projet-test.test.conf]</b> <b>[8]</b> du dossier <b>[sites-enabled]</b> <b>[7]</b>. Ce dossier se trouve à l’adresse <b>[&lt;laragon&gt;\etc\apache2\sites-enabled]</b> où <b>[laragon]</b> est le dossier d’installation de Laragon ;
+  </li>
 </ul>
+
 <p>Bien que ça n’entre pas dans ce qui est fait en ce moment, vous pouvez avoir la curiosité d’aller voir ce qu’est ce site web <strong>[projet-test]</strong> que nous venons de créer :</p>
 <p><img src="images/100000000000061700000298A930E748.png" style="width:18cm;height:7.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000061700000298A930E748.png" /></p>
 <ul>
-<li>en <strong>[1-5]</strong>, un projet vide a été créé. C’est un projet PHP situé dans le dossier <strong>[&lt;laragon&gt;/www]</strong> où <strong>[laragon]</strong> est le dossier d’installation de Laragon ;</li>
+  <li>en <b>[1-5]</b>, un projet vide a été créé. C’est un projet PHP situé dans le dossier <b>[&lt;laragon&gt;/www]</b> où <b>[laragon]</b> est le dossier d’installation de Laragon ;
+  </li>
 </ul>
+
 <p>Maintenant examinons le fichier <strong>[auto.projet-test.test.conf]</strong> généré par Laragon dans le dossier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#000000">define ROOT </span>&quot;C:/MyPrograms/laragon/www/projet-test/&quot;</span>
@@ -1757,25 +1783,36 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : la racine, dans le système de fichiers, du projet créé ;</li>
-<li>ligne 2 : le nom du serveur virtuel. Les URL pour ce serveur seront de la forme <strong>[http(s)://projet-test.test/chemin]</strong> ;</li>
-<li>lignes 4-12 : configuration du site virtuel pour le port 80 (ligne 4) et le protocole HTTP ;</li>
-<li>lignes 14-27 : configuration du site virtuel pour le port 443 (ligne 14) et le protocole HTTPS ;</li>
+  <li>ligne 1 : la racine, dans le système de fichiers, du projet créé ;
+  </li>
+  <li>ligne 2 : le nom du serveur virtuel. Les URL pour ce serveur seront de la forme <b>[http(s)://projet-test.test/chemin]</b> ;
+  </li>
+  <li>lignes 4-12 : configuration du site virtuel pour le port 80 (ligne 4) et le protocole HTTP ;
+  </li>
+  <li>lignes 14-27 : configuration du site virtuel pour le port 443 (ligne 14) et le protocole HTTPS ;
+  </li>
 </ul>
+
 <p>Voyons comment fonctionne un serveur virtuel. Lançons tout d’abord le serveur Apache et PHP :</p>
 <p><img src="images/1000000000000615000002C02F914C45.png" style="width:18cm;height:8.14cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000615000002C02F914C45.png" /></p>
 <p>Avec un navigateur nous demandons ensuite l’URL [<a href="http://projet-test.test/"><u><span style="color: #0563c1">http://projet-test.test/</span></u></a>] :</p>
 <p><img src="images/100000000000026C000000D3F181C390.png" style="width:7.171cm;height:2.44cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000026C000000D3F181C390.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, l’URL demandée ;</li>
-<li>en <strong>[2]</strong>, le protocole HTTP a été utilisé ;</li>
-<li>en <strong>[3]</strong>, parce que le projet <strong>[projet-test]</strong> est vide, on obtient l’index de son dossier (liste de son contenu), index vide ;</li>
+  <li>en <b>[1]</b>, l’URL demandée ;
+  </li>
+  <li>en <b>[2]</b>, le protocole HTTP a été utilisé ;
+  </li>
+  <li>en <b>[3]</b>, parce que le projet <b>[projet-test]</b> est vide, on obtient l’index de son dossier (liste de son contenu), index vide ;
+  </li>
 </ul>
+
 <p>Maintenant demandons l’URL sécurisée [<a href="https://projet-test.test/"><u><span style="color: #0563c1">https://projet-test.test/</span></u></a>] :</p>
 <p><img src="images/10000000000002980000010E1AEDFA71.png" style="width:7.661cm;height:3.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002980000010E1AEDFA71.png" /></p>
 <ul>
-<li>en <strong>[1-2]</strong>, on obtient la même réponse que précédemment mais avec le protocole HTTPS <strong>[1]</strong> ;</li>
+  <li>en <b>[1-2]</b>, on obtient la même réponse que précédemment mais avec le protocole HTTPS <b>[1]</b> ;
+  </li>
 </ul>
+
 <p>La création du serveur virtuel <strong>[projet-test.test]</strong> a créé une nouvelle entrée dans le fichier <strong>[&lt;windows&gt;/system32/drivers/etc/hosts]</strong> :</p>
 <p><img src="images/100000000000035500000233AB323C45.png" style="width:9.85cm;height:6.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035500000233AB323C45.png" /></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
@@ -1805,16 +1842,21 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 23 : l’adresse IP du nom <strong>[projet-test.test]</strong> est 127.0.0.1, ç-à-d l’adresse de <strong>[localhost]</strong> (ligne 20), la machine locale. Ainsi lorsque dans un navigateur on tape l’URL <strong>[http://projet-test.test/chemin]</strong>, la requête est envoyée à l’adresse 127.0.0.1 sur le port 80. C’est alors le serveur Apache de la machine locale (localhost) qui répond.</li>
+  <li>ligne 23 : l’adresse IP du nom <b>[projet-test.test]</b> est 127.0.0.1, ç-à-d l’adresse de <b>[localhost]</b> (ligne 20), la machine locale. Ainsi lorsque dans un navigateur on tape l’URL <b>[http://projet-test.test/chemin]</b>, la requête est envoyée à l’adresse 127.0.0.1 sur le port 80. C’est alors le serveur Apache de la machine locale (localhost) qui répond.
+  </li>
 </ul>
+
 <p>On peut se demander pourquoi lorsqu’on tape la requête [<a href="http://projet-test.test/"><u><span style="color: #0563c1">http://projet-test.test/</span></u></a>], le serveur Apache utilise la configuration du fichier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled\auto.projet-test.test.conf]</strong> :</p>
 <p><img src="images/10000000000002D500000132A4D6508A.png" style="width:8.362cm;height:3.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D500000132A4D6508A.png" /></p>
 <p>Pour le comprendre, il faut voir ce qu’envoie le navigateur au serveur Apache lorsqu’on fait cette requête. Faisons-la avec Postman :</p>
 <p><img src="images/1000000000000472000003064AF73E99.png" style="width:13.14cm;height:8.931cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000472000003064AF73E99.png" /></p>
 <ul>
-<li>en <strong>[1-3]</strong>, on envoie une requête HTTPS <strong>[1]</strong> ;</li>
-<li>en <strong>[4]</strong>, Postman indique qu’il n’a pas reconnu le certificat de sécurité. Le protocole HTTPS établit une liaison cryptée entre le client web (ici Postman) et le serveur Apache. Cette liaison cryptée se fait au moyen de certificats échangés entre le client et le serveur. C’est le serveur qui initie le dialogue d’établissement de la liaison cryptée en envoyant au client un certificat de sécurité. Pour que ce certificat soit accepté par le client il faut qu’il soit signé, en clair acheté à des entreprises habilitées à délivrer des certificats de sécurité. Lorsque nous avons activé le procole HTTPS de Laragon, Laragon a créé lui-même le certificat de sécurité. On dit alors du certificat qu’il est auto-signé. La plupart des clients web émettent un avertissement lorsqu’ils reçoivent un certificat auto-signé. C’est ce que fait Postman en <strong>[4]</strong>. La plupart des clients web proposent alors de désactiver la vérification du certificat de sécurité envoyé par le serveur. C’est ce que propose Postman en <strong>[5]</strong> ;</li>
+  <li>en <b>[1-3]</b>, on envoie une requête HTTPS <b>[1]</b> ;
+  </li>
+  <li>en <b>[4]</b>, Postman indique qu’il n’a pas reconnu le certificat de sécurité. Le protocole HTTPS établit une liaison cryptée entre le client web (ici Postman) et le serveur Apache. Cette liaison cryptée se fait au moyen de certificats échangés entre le client et le serveur. C’est le serveur qui initie le dialogue d’établissement de la liaison cryptée en envoyant au client un certificat de sécurité. Pour que ce certificat soit accepté par le client il faut qu’il soit signé, en clair acheté à des entreprises habilitées à délivrer des certificats de sécurité. Lorsque nous avons activé le procole HTTPS de Laragon, Laragon a créé lui-même le certificat de sécurité. On dit alors du certificat qu’il est auto-signé. La plupart des clients web émettent un avertissement lorsqu’ils reçoivent un certificat auto-signé. C’est ce que fait Postman en <b>[4]</b>. La plupart des clients web proposent alors de désactiver la vérification du certificat de sécurité envoyé par le serveur. C’est ce que propose Postman en <b>[5]</b> ;
+  </li>
 </ul>
+
 <p>Nous cliquons sur le lien <strong>[5]</strong> pour désactiver la vérification SSL (Secure Sockets Layer). SSL / TSL (Transport Layer Security) est un protocole de sécurité qui crée un canal de communication sécurisé entre deux machines de l’internet. C’est le protocole utilisé ici par Apache. La réponse est la suivante :</p>
 <p><img src="images/10000000000002D4000001E194E1D0AF.png" style="width:8.37cm;height:5.55cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D4000001E194E1D0AF.png" /></p>
 <p>Nous recevons la même page qu’avec un navigateur traditionnel. Maintenant voyons le dialogue client / serveur dans la console Postman (Ctrl-Alt-C) :</p>
@@ -1838,8 +1880,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : l’entête HTTP <strong>[Host]</strong> précise le nom du serveur ciblé par le client web. C’est le principe des serveurs virtuels. A une même adresse IP (ici 127.0.0.1), un serveur web peut héberger plusieurs sites web avec des noms différents. L’entête HTTP <strong>[Host]</strong> permet au client de dire à quel serveur (ici de l’adresse 127.0.0.1) il s’adresse ;</li>
+  <li>ligne 6 : l’entête HTTP <b>[Host]</b> précise le nom du serveur ciblé par le client web. C’est le principe des serveurs virtuels. A une même adresse IP (ici 127.0.0.1), un serveur web peut héberger plusieurs sites web avec des noms différents. L’entête HTTP <b>[Host]</b> permet au client de dire à quel serveur (ici de l’adresse 127.0.0.1) il s’adresse ;
+  </li>
 </ul>
+
 <p>Maintenant que fait Apache ?</p>
 <p>Lorsqu’il démarre, Apache lit tous les fichiers de configuration trouvés dans le dossier <strong>[[&lt;laragon&gt;\etc\apache2\sites-enabled]</strong> :</p>
 <p><img src="images/10000000000002D500000132A4D6508A.png" style="width:8.362cm;height:3.541cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D500000132A4D6508A.png" /></p>
@@ -1932,8 +1976,10 @@
 </code></pre></div>
 
 <ul>
-<li><strong>[date-time-server]</strong> sera le serveur virtuel qui hébergera cette application. Il sera configuré par le fichier <strong>[&lt;laragon&gt;\etc\apache2\sites-enabled\date-time-server.conf]</strong> (on rappelle que ce nom est libre – Apache lit tous les fichiers présents dans <strong>[sites-enabled]</strong> pour découvrir les sites virtuels hébergés) ;</li>
+  <li><b>[date-time-server]</b> sera le serveur virtuel qui hébergera cette application. Il sera configuré par le fichier <b>[&lt;laragon&gt;\etc\apache2\sites-enabled\date-time-server.conf]</b> (on rappelle que ce nom est libre – Apache lit tous les fichiers présents dans <b>[sites-enabled]</b> pour découvrir les sites virtuels hébergés) ;
+  </li>
 </ul>
+
 <p>Nous obtenons ce fichier tout d’abord par recopie du fichier <strong>[auto.projet-test.test.conf]</strong> puis nous le modifions.</p>
 <p><img src="images/100000000000033C0000017DAC6AA1DA.png" style="width:9.55cm;height:4.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C0000017DAC6AA1DA.png" /></p>
 <p>Le fichier <strong>[date-time-server.conf]</strong> sera le suivant :</p>
@@ -1981,12 +2027,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : on donne un nom au serveur virtuel configuré par le fichier ;</li>
-<li>ligne 2 : on donne la valeur de la variable <strong>[ROOT]</strong> utilisée aux lignes 14 et 27 ;</li>
-<li>lignes 14 et 27 : on indique le chemin du script Python qui doit être exécuté lorsque le serveur virtuel reçoit une requête. On indique ici que les requêtes pour le serveur <strong>[date-time-server]</strong> sont traitées par le script Python <strong>[date_time_server.py]</strong>. Cette différence avec le fichier <strong>[auto.projet-test.test.conf]</strong> vient du fait que ce fichier configurait un serveur PHP alors que le fichier <strong>[date-time-server.conf]</strong> configure un serveur Python ;</li>
-<li>lignes 14 et 27 : l’attribut <strong>[</strong><strong><span style="color: #000000"><mark style="background-color: #fff2cc">WSGIScriptAlias /</mark></span></strong><strong>]</strong> indique ici que la racine du serveur <strong>[date-time-server]</strong> sera <strong>[/]</strong>. Ainsi les URL de l’application auront la forme <strong>[http(s)://date-time-server/chemin]</strong> ;</li>
-<li>lignes 14 et 27, on peut donner une autre racine à l’application par exemple <strong>[</strong><strong><span style="color: #000000"><mark style="background-color: #fff2cc">WSGIScriptAlias /</mark></span></strong><strong><span style="color: #ff0000"><mark style="background-color: #fff2cc">show</mark></span></strong><strong>]</strong><mark style="background-color: #fff2cc">.</mark> Alors les URL de l’application auront la forme <strong>[http(s)://</strong><strong><span style="color: #ff0000"><mark style="background-color: #fff2cc">show</mark></span></strong><strong>/date-time-server/chemin]</strong> ;</li>
+  <li>ligne 7 : on donne un nom au serveur virtuel configuré par le fichier ;
+  </li>
+  <li>ligne 2 : on donne la valeur de la variable <b>[ROOT]</b> utilisée aux lignes 14 et 27 ;
+  </li>
+  <li>lignes 14 et 27 : on indique le chemin du script Python qui doit être exécuté lorsque le serveur virtuel reçoit une requête. On indique ici que les requêtes pour le serveur <b>[date-time-server]</b> sont traitées par le script Python <b>[date_time_server.py]</b>. Cette différence avec le fichier <b>[auto.projet-test.test.conf]</b> vient du fait que ce fichier configurait un serveur PHP alors que le fichier <b>[date-time-server.conf]</b> configure un serveur Python ;
+  </li>
+  <li>lignes 14 et 27 : l’attribut <b>[</b><b><span style="color: #000000"><mark style="background-color: #fff2cc">WSGIScriptAlias /</mark></span></b><b>]</b> indique ici que la racine du serveur <b>[date-time-server]</b> sera <b>[/]</b>. Ainsi les URL de l’application auront la forme <b>[http(s)://date-time-server/chemin]</b> ;
+  </li>
+  <li>lignes 14 et 27, on peut donner une autre racine à l’application par exemple <b>[</b><b><span style="color: #000000"><mark style="background-color: #fff2cc">WSGIScriptAlias /</mark></span></b><b><span style="color: #ff0000"><mark style="background-color: #fff2cc">show</mark></span></b><b>]</b><mark style="background-color: #fff2cc">.</mark> Alors les URL de l’application auront la forme <b>[http(s)://</b><b><span style="color: #ff0000"><mark style="background-color: #fff2cc">show</mark></span></b><b>/date-time-server/chemin]</b> ;
+  </li>
 </ul>
+
 <p>Il nous faut également ajouter une ligne au fichier <strong>[&lt;windows&gt;/system32/drivers/etc/hosts]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"># Copyright (c) 1993-2009 Microsoft Corp.</span>
@@ -2023,10 +2075,14 @@
 <p>Nous demandons ensuite l’URL <strong>[https://date-time-server]</strong> avec un navigateur :</p>
 <p><img src="images/1000000000000378000000FB0FCC6365.png" style="width:10.24cm;height:2.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000378000000FB0FCC6365.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, l’URL demandée ;</li>
-<li>en <strong>[3]</strong>, la réponse du serveur ;</li>
-<li>en <strong>[2]</strong>, le navigateur indique que la connection HTTPS n’est pas sûre car il a détecté que le certificat envoyé par le serveur Apache était auto-signé ;</li>
+  <li>en <b>[1]</b>, l’URL demandée ;
+  </li>
+  <li>en <b>[3]</b>, la réponse du serveur ;
+  </li>
+  <li>en <b>[2]</b>, le navigateur indique que la connection HTTPS n’est pas sûre car il a détecté que le certificat envoyé par le serveur Apache était auto-signé ;
+  </li>
 </ul>
+
 <p>Maintenant dans le fichier <strong>[date-time-server.conf]</strong>, mettons un alias aux lignes 14 et 27 :</p>
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">    WSGIScriptAlias <span style="background-color:#fff2cc">/show-date-time</span> <span style="color:#a31515">&quot;${ROOT}/date_time_server.py&quot;</span></span>
@@ -2041,10 +2097,14 @@
 <p>Le dossier <strong>[apache]</strong> <strong>[2]</strong> est obtenu initialement par recopie du dossier <strong>[main]</strong>. Il est important qu’ils soient au même niveau pour que les chemins du script <strong>[syspath.py]</strong> copié de <strong>[1]</strong> vers <strong>[2]</strong> restent valides. Pour ne pas polluer l’application <strong>[impots / http-servers/ 12]</strong> qui fonctionne, nous mettons dans <strong>[apache]</strong> la configuration qui sera exécutée par le serveur Apache ;</p>
 <p><img src="images/100000000000015B0000027383EFF121.png" style="width:4.01cm;height:7.231cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015B0000027383EFF121.png" /></p>
 <ul>
-<li>le fichier <strong>[config]</strong> de <strong>[2]</strong> est le même que <strong>[config]</strong> de <strong>[1]</strong> ;</li>
-<li>le fichier <strong>[syspath]</strong> de <strong>[2]</strong> est le même que <strong>[syspath]</strong> de <strong>[1]</strong> ;</li>
-<li>le fichier <strong>[main_withmysql]</strong> de <strong>[2]</strong> est le fichier <strong>[main]</strong> de <strong>[1]</strong> avec les modifications suivantes :</li>
+  <li>le fichier <b>[config]</b> de <b>[2]</b> est le même que <b>[config]</b> de <b>[1]</b> ;
+  </li>
+  <li>le fichier <b>[syspath]</b> de <b>[2]</b> est le même que <b>[syspath]</b> de <b>[1]</b> ;
+  </li>
+  <li>le fichier <b>[main_withmysql]</b> de <b>[2]</b> est le fichier <b>[main]</b> de <b>[1]</b> avec les modifications suivantes :
+  </li>
 </ul>
+
 <p>Le script principal <strong>[main]</strong> recevait un paramètre <strong>[mysql / pgres]</strong> qui lui disait quel SGBD utilisé. Le script <strong>[main_withmysql]</strong> utilise le SGBD MySQL :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre mysql ou pgres<span style="color:#000000"></span></span>
@@ -2064,8 +2124,10 @@
 
 <p>Ligne 7, on fixe le SGBD à MySQL.</p>
 <ul>
-<li>le fichier <strong>[main_withpgres]</strong> de <strong>[2]</strong> est le fichier <strong>[main]</strong> de <strong>[1]</strong> avec les modifications suivantes : il utilise le SGBD PostgreSQL :</li>
+  <li>le fichier <b>[main_withpgres]</b> de <b>[2]</b> est le fichier <b>[main]</b> de <b>[1]</b> avec les modifications suivantes : il utilise le SGBD PostgreSQL :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># on attend un paramètre mysql ou pgres<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#0000ff">import</span><span style="color:#000000"> os</span></span>
@@ -2099,17 +2161,24 @@
 
 <p>Le script <strong>[main_withmysql.wsgi]</strong> sera la cible exécutée par le serveur Apache en mode WSGI :</p>
 <ul>
-<li>la cible du serveur Apache aurait pu être le script <strong>[main_withmysql.py]</strong> comme il a été fait précédemment avec le script <strong>[date_time_server.py]</strong>. Mais il aurait fallu le modifier un peu :<ul>
-<li>contrairement au mode d’exécution avec un script console, avec Apache, le dossier contenant la cible <strong>[main_withmysql.py]</strong> ne fait pas partie du Python Path. Aussi, la ligne 6 du script <strong>[main_withmysql.py]</strong> provoque-t-elle une erreur ;</li>
-<li>la seconde modification qu’il aurait fallu faire est que dans <strong>[main_withmysql]</strong> l’application Flask est référencée par l’identifiant <strong>[app]</strong>. On sait que pour Apache / WSGI elle doit être également référencée par un identifiant <strong>[application]</strong> ;</li>
+  <li>la cible du serveur Apache aurait pu être le script <b>[main_withmysql.py]</b> comme il a été fait précédemment avec le script <b>[date_time_server.py]</b>. Mais il aurait fallu le modifier un peu :
+    <ul>
+      <li>contrairement au mode d’exécution avec un script console, avec Apache, le dossier contenant la cible <b>[main_withmysql.py]</b> ne fait pas partie du Python Path. Aussi, la ligne 6 du script <b>[main_withmysql.py]</b> provoque-t-elle une erreur ;
+      </li>
+      <li>la seconde modification qu’il aurait fallu faire est que dans <b>[main_withmysql]</b> l’application Flask est référencée par l’identifiant <b>[app]</b>. On sait que pour Apache / WSGI elle doit être également référencée par un identifiant <b>[application]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li>plutôt que de modifier <b>[main_withmysql.py]</b>, on change la cible d’Apache. Ce sera désormais le script <b>[main_withmysql.wsgi]</b> ci-dessus :
+    <ul>
+      <li>lignes 1-7 : on met le dossier du script dans le Python Path. Du coup, la ligne 6 de <b>[main_withmysql.py]</b> ne provoque plus d’erreur ;
+      </li>
+      <li>lignes 9-10 : l’importation de <b>[main_withmysql.py]</b> provoque son exécution. Par ailleurs on référence l’application Flask <b>[app]</b> trouvée dans <b>[main_withmysql.py]</b> avec l’identificateur <b>[application]</b> dont a besoin Apache en mode WSGI ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>plutôt que de modifier <strong>[main_withmysql.py]</strong>, on change la cible d’Apache. Ce sera désormais le script <strong>[main_withmysql.wsgi]</strong> ci-dessus :<ul>
-<li>lignes 1-7 : on met le dossier du script dans le Python Path. Du coup, la ligne 6 de <strong>[main_withmysql.py]</strong> ne provoque plus d’erreur ;</li>
-<li>lignes 9-10 : l’importation de <strong>[main_withmysql.py]</strong> provoque son exécution. Par ailleurs on référence l’application Flask <strong>[app]</strong> trouvée dans <strong>[main_withmysql.py]</strong> avec l’identificateur <strong>[application]</strong> dont a besoin Apache en mode WSGI ;</li>
-</ul>
-</li>
-</ul>
+
 <p>On fait de même avec le script <strong>[main_withpgres.wsgi]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># dossier de ce fichier</span>
@@ -2182,12 +2251,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : la racine de l’application, le dossier <strong>[apache]</strong> que nous avons créé ;</li>
-<li>lignes 23, 38 : la cible <strong>[main_witmysql.wsgi]</strong> que nous avons créée :</li>
-<li>ligne 7 : le serveur virtuel s’appellera <strong>[flask-impots-withmysql]</strong> ;</li>
-<li>ligne 13 : la directive <strong>[WSGIPythonPath]</strong> permet d’ajouter des dossiers au Python Path. Ici, Apache n’a pas connaissance que nous avons utilisé un environnement virtuel pour développer l’application et que tous les modules utilisés par l’application sont dans cet environnement virtuel. Aussi, ligne 13, nous ajoutons le dossier qui contient tous les modules de l’environnement virtuel utilisé. Une possibilité est de copier ce dossier à un autre endroit du système de fichiers et de référencer cet endroit. Une autre possibilité est d’ajouter ce dossier dans le Python Path directement dans la cible <strong>[main_witmysql.wsgi]</strong> (c’est probablement une meilleure solution) ;</li>
-<li>ligne 16 : on peut indiquer à Apache le dossier d’installation de Python dans le système de fichiers. Normalement, celui-ci est dans le PATH de la machine et souvent cette ligne est inutile (c’était le cas ici). Il peut cependant y avoir plusieurs installations de Python sur la machine et celle désirée n’est pas dans le PATH de la machine. Alors cette ligne résoud le problème ;</li>
+  <li>ligne 2 : la racine de l’application, le dossier <b>[apache]</b> que nous avons créé ;
+  </li>
+  <li>lignes 23, 38 : la cible <b>[main_witmysql.wsgi]</b> que nous avons créée :
+  </li>
+  <li>ligne 7 : le serveur virtuel s’appellera <b>[flask-impots-withmysql]</b> ;
+  </li>
+  <li>ligne 13 : la directive <b>[WSGIPythonPath]</b> permet d’ajouter des dossiers au Python Path. Ici, Apache n’a pas connaissance que nous avons utilisé un environnement virtuel pour développer l’application et que tous les modules utilisés par l’application sont dans cet environnement virtuel. Aussi, ligne 13, nous ajoutons le dossier qui contient tous les modules de l’environnement virtuel utilisé. Une possibilité est de copier ce dossier à un autre endroit du système de fichiers et de référencer cet endroit. Une autre possibilité est d’ajouter ce dossier dans le Python Path directement dans la cible <b>[main_witmysql.wsgi]</b> (c’est probablement une meilleure solution) ;
+  </li>
+  <li>ligne 16 : on peut indiquer à Apache le dossier d’installation de Python dans le système de fichiers. Normalement, celui-ci est dans le PATH de la machine et souvent cette ligne est inutile (c’était le cas ici). Il peut cependant y avoir plusieurs installations de Python sur la machine et celle désirée n’est pas dans le PATH de la machine. Alors cette ligne résoud le problème ;
+  </li>
 </ul>
+
 <p>On crée de la même façon un fichier <strong>[flask-impots-withpgres.conf]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line"># dossier du script .wsgi<span style="color:#000000"></span></span>
@@ -2276,8 +2351,10 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 11 et 20, l’alias WSI est désormais <strong>[/impots]</strong> ;</li>
+  <li>lignes 11 et 20, l’alias WSI est désormais <b>[/impots]</b> ;
+  </li>
 </ul>
+
 <p>Nous arrêtons / relançons le serveur Apache puis nous demandons l’URL <strong>[https://flask-impots-withmysql/impots/do]</strong>. La réponse du serveur est la suivante :</p>
 <p><img src="images/10000000000004710000011268577D28.png" style="width:13.151cm;height:3.16cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004710000011268577D28.png" /></p>
 <p>Il y a un plantage. L’URL <strong>[1]</strong> nous en donne la cause. Elle aurait du être <strong>[</strong><strong>https://flask-impots-withmysql/</strong><strong><span style="color: #ff0000">impots</span></strong><strong>/do/afficher-vue-authentification</strong><strong>]</strong>. L’alias WSGI manque. C’est une erreur de notre application. Elle sait gérer un préfixe d’URL (/do est bien présent). On pourrait penser qu’en mettant le préfixe <strong>[/impots/do]</strong> à notre application cela résoudrait le problème précédent. Mais non. On rencontre alors d’autres types de problèmes. L’alias WSGI ne se comporte pas comme un préfixe d’URL.</p>

@@ -1925,7 +1925,7 @@
 <p><strong>Notes</strong> :</p>
 <ul>
 <li>lignes 10-13 : une classe <em>MyException</em> dérivée de la classe <em>BaseException</em> (nous verrons ce point un peu plus loin). Elle n&#x27;ajoute aucune fonctionnalité à cette dernière. Elle n&#x27;est là que pour avoir une exception propriétaire ;</li>
-<li>ligne 19 : le constructeur a des valeurs par défaut pour ses paramètres. Ainsi l&#x27;opération <em>p=Personne()</em> est équivalente à <em>p=Personne(&quot;x&quot;,&quot;y&quot;,0) </em>;</li>
+<li>ligne 19 : le constructeur a des valeurs par défaut pour ses paramètres. Ainsi l&#x27;opération <em>p=Personne()</em> est équivalente à <em>p=Personne(&quot;x&quot;,&quot;y&quot;,0)</em> ;</li>
 <li>lignes 34-45 : les propriétés de la classe. Ce sont des méthodes annotées avec le mot clé <strong>[</strong><strong><span style="color: #000000">@</span></strong><strong><span style="color: #2b91af">property</span></strong><strong>]</strong>. Elles sont utilisées pour rendre la valeur des attributs ;</li>
 <li>lignes 47-77 : les setters de la classe. Ce sont des méthodes annotées avec le mot clé <strong>[</strong><strong><span style="color: #000000">@</span></strong><strong><span style="color: #2b91af">attributsetter</span></strong><strong>]</strong>. Elles sont utilisées pour fixer la valeur des attributs ;</li>
 <li>lignes 48-54 : le setter de l&#x27;attribut <strong>[prénom]</strong>. Cette méthode sera appelée chaque fois qu&#x27;on affectera une valeur à l&#x27;attribut <strong>[prénom]</strong> :</li>
@@ -2169,8 +2169,8 @@
 
 <ul>
 <li>ligne 2 : déclare la classe <em>Enseignant</em> comme étant une classe dérivée de la classe <em>Personne</em>. Une classe dérivée a toutes les propriétés (attributs et méthodes) de sa classe parent plus celles qui lui sont propres ;</li>
-<li>ligne 13 : la classe <strong>[Enseignant]</strong> définit un nouvel attribut <strong>[discipline]</strong><strong> ;</strong></li>
-<li>ligne 11 : le constructeur de la classe dérivée <em>Enseignant</em> doit appeler le constructeur de la classe parent <em>Personne</em> en lui transmettant les paramètres qu&#x27;il attend<em> </em>;</li>
+<li>ligne 13 : la classe <strong>[Enseignant]</strong> définit un nouvel attribut <strong>[discipline]</strong> <strong>;</strong></li>
+<li>ligne 11 : le constructeur de la classe dérivée <em>Enseignant</em> doit appeler le constructeur de la classe parent <em>Personne</em> en lui transmettant les paramètres qu&#x27;il attend ;</li>
 <li>ligne 17 : la fonction <strong>[super()]</strong> rend la classe parent. Ici on appelle la fonction <strong>[__str__]</strong> de la classe parent ;</li>
 <li>lignes 19-30 : on définit le getter et setter du nouvel attribut <strong>[discipline]</strong> ;</li>
 </ul>

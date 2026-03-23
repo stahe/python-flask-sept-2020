@@ -1532,9 +1532,14 @@
 <p><img src="images/10000000000004710000022510AE0224.png" style="width:13.14cm;height:6.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004710000022510AE0224.png" /></p>
 <p>Voici un autre exemple. L’utilisateur vient de calculer un impôt :</p>
 <ul>
-<li>en <strong>[1]</strong>, l’URL <strong>[/calculer-impot]</strong> qui vient d’être interrogée avec un POST ;</li>
+  <li>en <b>[1]</b>, l’URL <b>[/calculer-impot]</b> qui vient d’être interrogée avec un POST ;
+
+<img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054A000003ADADB5C962.png" />
+
+
+  </li>
 </ul>
-<p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054A000003ADADB5C962.png" /></p>
+
 <p>Si l’utilisateur rafraîchit la page (F5), il obtient un message d’avertissement :</p>
 <p><img src="images/10000000000002D40000011C5B0E676C.png" style="width:8.351cm;height:3.282cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D40000011C5B0E676C.png" /></p>
 <p>L’opération de rafraîchissement de page rejoue la dernière requête exécutée par le navigateur, ici un <strong>[POST /calculer-impot]</strong>. Lorsqu’on demande à rejouer un POST, les navigateurs émettent un avertissement analogue à celui ci-dessus. Celui-ci avertit qu’il est en train de rejouer une action déjà faite. Supposons que ce POST ait effectué un achat, il serait malheureux de refaire celui-ci.</p>
@@ -1542,21 +1547,31 @@
 <p><img src="images/100000000000054A000003ADADB5C962.png" style="width:15.65cm;height:10.872cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054A000003ADADB5C962.png" /></p>
 <p>Les liens offerts par cette page sont :</p>
 <ul>
-<li><strong>[Liste des simulations]</strong> associé à l’URL <strong>[/lister-simulations]</strong> ;</li>
-<li><strong>[Fin de session]</strong> associé à l’URL <strong>[/fin-session]</strong> ;</li>
-<li><strong>[Valider]</strong> associé à l’URL (on ne la voit pas ci-dessus) <strong>[/calculer-impot]</strong> ;</li>
+  <li><b>[Liste des simulations]</b> associé à l’URL <b>[/lister-simulations]</b> ;
+  </li>
+  <li><b>[Fin de session]</b> associé à l’URL <b>[/fin-session]</b> ;
+  </li>
+  <li><b>[Valider]</b> associé à l’URL (on ne la voit pas ci-dessus) <b>[/calculer-impot]</b> ;
+  </li>
 </ul>
+
 <p>Lorsque la vue du calcul de l’impôt sera affichée, nous n’accepterons que les actions <strong>[/lister-simulations, /fin-session, /calculer-impot]</strong>. Si l’utilisateur tape une autre action dans son navigateur, une erreur sera déclarée. On fera ce type de vérification pour les quatre vues de l’application.</p>
 <p>Nous nous proposons de résoudre le problème du rafraîchissement des pages de la façon suivante :</p>
 <ul>
-<li>nous allons distinguer deux types d’actions :<ul>
-<li>les actions ADS (Action Do Something) modifiant l’état de l’application. Les actions ADS ont en général des paramètres dans l’URL ou le corps de la requête ;</li>
-<li>les actions ASV (Action Show View) affichant une vue sans modifier l’état de l’application. Il y aura autant d’actions ASV que de vues V. Les actions ASV n’ont aucun paramètre ;</li>
+  <li>nous allons distinguer deux types d’actions :
+    <ul>
+      <li>les actions ADS (Action Do Something) modifiant l’état de l’application. Les actions ADS ont en général des paramètres dans l’URL ou le corps de la requête ;
+      </li>
+      <li>les actions ASV (Action Show View) affichant une vue sans modifier l’état de l’application. Il y aura autant d’actions ASV que de vues V. Les actions ASV n’ont aucun paramètre ;
+      </li>
+    </ul>
+  </li>
+  <li>les actions ADS jusqu’à maintenant s’exécutaient puis se terminaient par l’affichage d’une vue V après avoir préparé le modèle M de celle-ci. Désormais, elles mettront le modèle M de la vue en session et demanderont au navigateur de se rediriger vers l’action ASV chargée d’afficher la vue V ;
+  </li>
+  <li>les vues V ne seront affichées qu’à l’issue d’une action ASV. Elles prendront leur modèle dans la session ;
+  </li>
 </ul>
-</li>
-<li>les actions ADS jusqu’à maintenant s’exécutaient puis se terminaient par l’affichage d’une vue V après avoir préparé le modèle M de celle-ci. Désormais, elles mettront le modèle M de la vue en session et demanderont au navigateur de se rediriger vers l’action ASV chargée d’afficher la vue V ;</li>
-<li>les vues V ne seront affichées qu’à l’issue d’une action ASV. Elles prendront leur modèle dans la session ;</li>
-</ul>
+
 <p>L’intérêt de cette méthode est que le navigateur affichera l’URL ASV dans son champ d’adresse. Le rafraîchissement de la page rejouera alors l’action ASV. Celle-ci ne modifie pas l’état de l’application et utilise un modèle en session. Donc la même page sera réaffichée sans effets de bord. Finalement, à cause des redirections, l’utilisateur ne verra que des URL d’actions ASV dans son navigateur et aura l’impression de naviguer de page en page ;</p>
 <p><a id="toc48549326"></a></p>
 <h2 id="352-implementation">35.2. Implémentation</h2>
@@ -1595,11 +1610,16 @@
 
 <p>Lignes 1-23, nous avons créé quatre routes pour quatre actions ASV :</p>
 <ul>
-<li><strong>[/afficher-vue-authentification]</strong>, ligne 8, affiche la vue d’authentification ;</li>
-<li><strong>[/afficher-vue-calcul-impot]</strong>, ligne 2, affiche la vue du calcul de l’impôt ;</li>
-<li><strong>[/afficher-vue-liste-simulations]</strong>, ligne 14, affiche la vue des simulations ;</li>
-<li><strong>[/afficher-vue-liste-erreurs]</strong>, ligne 20, affiche la vue des erreurs inattendues ;</li>
+  <li><b>[/afficher-vue-authentification]</b>, ligne 8, affiche la vue d’authentification ;
+  </li>
+  <li><b>[/afficher-vue-calcul-impot]</b>, ligne 2, affiche la vue du calcul de l’impôt ;
+  </li>
+  <li><b>[/afficher-vue-liste-simulations]</b>, ligne 14, affiche la vue des simulations ;
+  </li>
+  <li><b>[/afficher-vue-liste-erreurs]</b>, ligne 20, affiche la vue des erreurs inattendues ;
+  </li>
 </ul>
+
 <p>On fait de même dans le fichier <strong>[routes_with_csrftoken]</strong> des routes sans jeton :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># routes ASV -------------------------<span style="color:#000000"></span></span>
@@ -1706,20 +1726,30 @@
 
 <p>Résumons les codes d’état :</p>
 <ul>
-<li>le code 1100 doit afficher la vue d’authentification ;</li>
-<li>le code 1400 doit afficher la vue du calcul de l’impôt ;</li>
-<li>le code 1200 doit afficher la vue des simulations ;</li>
-<li>le code 1300 doit afficher la vue des erreurs inattendues ;</li>
+  <li>le code 1100 doit afficher la vue d’authentification ;
+  </li>
+  <li>le code 1400 doit afficher la vue du calcul de l’impôt ;
+  </li>
+  <li>le code 1200 doit afficher la vue des simulations ;
+  </li>
+  <li>le code 1300 doit afficher la vue des erreurs inattendues ;
+  </li>
 </ul>
+
 <p><a id="toc48549329"></a></p>
 <h3 id="3523-la-nouvelle-configuration-mvc">35.2.3. La nouvelle configuration MVC</h3>
 <p>Parce qu’elle devenait trop importante, la configuration MVC a été éclatée sur quatre fichiers :</p>
 <ul>
-<li><strong>[controllers]</strong> : la liste des contrôleurs C de l’application MVC ;</li>
-<li><strong>[ads_actions]</strong> : liste les actions ADS (Action Do Something) ;</li>
-<li><strong>[asv_actions]</strong> : liste les actions ASV (Action Show View) ;</li>
-<li><strong>[responses]</strong> : liste les classes des réponses HTTP de l’application ;</li>
+  <li><b>[controllers]</b> : la liste des contrôleurs C de l’application MVC ;
+  </li>
+  <li><b>[ads_actions]</b> : liste les actions ADS (Action Do Something) ;
+  </li>
+  <li><b>[asv_actions]</b> : liste les actions ASV (Action Show View) ;
+  </li>
+  <li><b>[responses]</b> : liste les classes des réponses HTTP de l’application ;
+  </li>
 </ul>
+
 <p>Commençons par le plus simple, le fichier des réponses HTTP <strong>[responses]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1855,13 +1885,18 @@
 </code></pre></div>
 
 <ul>
-<li>le fichier <strong>[asv_actions]</strong> rassemble les quatre nouvelles actions dont on rappelle le fonctionnement :<ul>
-<li>elles n’ont aucun paramètre ;</li>
-<li>elles affichent une vue précise dont le modèle est en session ;</li>
+  <li>le fichier <b>[asv_actions]</b> rassemble les quatre nouvelles actions dont on rappelle le fonctionnement :
+    <ul>
+      <li>elles n’ont aucun paramètre ;
+      </li>
+      <li>elles affichent une vue précise dont le modèle est en session ;
+      </li>
+    </ul>
+  </li>
+  <li>la liste <b>[asv]</b> des lignes 6-35, associent une vue à chaque action ASV ;
+  </li>
 </ul>
-</li>
-<li>la liste <strong>[asv]</strong> des lignes 6-35, associent une vue à chaque action ASV ;</li>
-</ul>
+
 <p>Le fichier <strong>[ads_actions]</strong> rassemble les actions ADS :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -1934,13 +1969,18 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 11-51 : la liste des actions ADS (Action Do Something). On retrouve toutes les actions des versions précédentes. Leur fonctionnement a cependant changé :<ul>
-<li>elles n’affichent pas une vue V. Elles préparent seulement le modèle M de cette vue V ;</li>
-<li>elles demandent l’affichage de la vue V via une redirection vers l’action ASV associée à la vue V ;</li>
+  <li>lignes 11-51 : la liste des actions ADS (Action Do Something). On retrouve toutes les actions des versions précédentes. Leur fonctionnement a cependant changé :
+    <ul>
+      <li>elles n’affichent pas une vue V. Elles préparent seulement le modèle M de cette vue V ;
+      </li>
+      <li>elles demandent l’affichage de la vue V via une redirection vers l’action ASV associée à la vue V ;
+      </li>
+    </ul>
+  </li>
+  <li>les actions ADS ne mènent pas toutes à une redirection vers une action ASV : lignes 12-18, l’action ADS <b>[/fin-session]</b> mène à une redirection vers l’action ADS <b>[/init-session/html]</b>. Pour distinguer les redirections ADS -&gt; ADS et ADS -&gt; ASV, on peut s’aider du modèle <b>[model_for_view]</b>. Celui-ci n’existe pas pour les redirections ADS -&gt; ADS ;
+  </li>
 </ul>
-</li>
-<li>les actions ADS ne mènent pas toutes à une redirection vers une action ASV : lignes 12-18, l’action ADS <strong>[/fin-session]</strong> mène à une redirection vers l’action ADS <strong>[/init-session/html]</strong>. Pour distinguer les redirections ADS -&gt; ADS et ADS -&gt; ASV, on peut s’aider du modèle <strong>[model_for_view]</strong>. Celui-ci n’existe pas pour les redirections ADS -&gt; ADS ;</li>
-</ul>
+
 <p>Le fichier <strong>[main/config]</strong> qui rassemble toutes les configurations évolue comme suit :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure(config: dict) -&gt; dict:</span>
@@ -2011,12 +2051,16 @@
 </code></pre></div>
 
 <ul>
-<li>la nouveauté est ligne 17 : chaque modèle va générer une liste d’actions possibles lorsque la vue V dont il est le modèle M va s’afficher. Pour connaître ces actions, il faut revenir à la vue V. Dans le cas de la vue d’authentification :</li>
+  <li>la nouveauté est ligne 17 : chaque modèle va générer une liste d’actions possibles lorsque la vue V dont il est le modèle M va s’afficher. Pour connaître ces actions, il faut revenir à la vue V. Dans le cas de la vue d’authentification :
+  </li>
 </ul>
+
 <p><img src="images/1000000000000434000002F135E4756E.png" style="width:12.431cm;height:8.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000434000002F135E4756E.png" /></p>
 <ul>
-<li>on voit que la vue d’authentification n’offre qu’une action, celle du bouton <strong>[Valider]</strong>. Cette action est <strong>[/authentifier-utilisateur]</strong> ;</li>
+  <li>on voit que la vue d’authentification n’offre qu’une action, celle du bouton <b>[Valider]</b>. Cette action est <b>[/authentifier-utilisateur]</b> ;
+  </li>
 </ul>
+
 <p>On a écrit :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">        # actions possibles à partir de la vue</span>
@@ -2139,15 +2183,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <strong>[</strong><strong><span style="color: #000000"><mark style="background-color: #fff2cc">MainController.check_action</mark></span></strong><strong>]</strong>  rend un tuple de trois éléments :<ul>
-<li><strong>[erreur]</strong> : True si une erreur a été détectée, False sinon ;</li>
-<li><strong>[résultat]</strong> : un résultat d’erreur si (erreur==True), None sinon ;</li>
-<li><strong>[type_response1]</strong> : le type (json, xml, html, None) de la session, type trouvé en session ;</li>
+  <li>lignes 39-44 : les premières vérifications sont faites sur l’action. Nous y reviendrons. La méthode statique <b>[</b><b><span style="color: #000000"><mark style="background-color: #fff2cc">MainController.check_action</mark></span></b><b>]</b>  rend un tuple de trois éléments :
+    <ul>
+      <li><b>[erreur]</b> : True si une erreur a été détectée, False sinon ;
+      </li>
+      <li><b>[résultat]</b> : un résultat d’erreur si (erreur==True), None sinon ;
+      </li>
+      <li><b>[type_response1]</b> : le type (json, xml, html, None) de la session, type trouvé en session ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 39 : aucune vérification n’est faite si l’action est l’action ASV <b>[afficher-vue-liste-erreurs]</b> qui va afficher la liste des erreurs. En effet, si une erreur était trouvée lors de cette action, on serait dirigé de nouveau vers l’action <b>[/afficher-vue-liste-erreurs]</b> et on entrerait dans une boucle infinie de redirections ;
+  </li>
+  <li>la méthode statique <b>[check_action]</b> est la suivante :
+  </li>
 </ul>
-</li>
-<li>ligne 39 : aucune vérification n’est faite si l’action est l’action ASV <strong>[afficher-vue-liste-erreurs]</strong> qui va afficher la liste des erreurs. En effet, si une erreur était trouvée lors de cette action, on serait dirigé de nouveau vers l’action <strong>[/afficher-vue-liste-erreurs]</strong> et on entrerait dans une boucle infinie de redirections ;</li>
-<li>la méthode statique <strong>[check_action]</strong> est la suivante :</li>
-</ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">    @staticmethod</span>
 <span class="odt-code-line">    <span style="color:#0000ff">def</span> check_action(params: list, session: LocalProxy, config: dict) -&gt; (bool, dict, str):</span>
@@ -2212,10 +2263,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : la méthode <strong>[check_action]</strong> fait plusieurs vérifications sur la validité de l’action en cours ;</li>
-<li>lignes 6-26, 45-57 : les versions précédentes faisaient déjà ces vérifications ;</li>
-<li>lignes 28-42 : on ajoute une nouvelle vérification. On vérifie si l’action en cours est possible dans l’état actuel de l’application. Si l’action en cours n’est pas possible, on génère un état 151 (ligne 40) qui nous assure que l’action actuelle va être redirigée vers la vue des erreurs inattendues ;</li>
+  <li>ligne 2 : la méthode <b>[check_action]</b> fait plusieurs vérifications sur la validité de l’action en cours ;
+  </li>
+  <li>lignes 6-26, 45-57 : les versions précédentes faisaient déjà ces vérifications ;
+  </li>
+  <li>lignes 28-42 : on ajoute une nouvelle vérification. On vérifie si l’action en cours est possible dans l’état actuel de l’application. Si l’action en cours n’est pas possible, on génère un état 151 (ligne 40) qui nous assure que l’action actuelle va être redirigée vers la vue des erreurs inattendues ;
+  </li>
 </ul>
+
 <p><a id="toc48549332"></a></p>
 <h3 id="3526-la-nouvelle-reponse-html">35.2.6. La nouvelle réponse HTML</h3>
 <p><img src="images/100000000000018F000000C50A5589CA.png" style="width:4.601cm;height:2.271cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000018F000000C50A5589CA.png" /></p>
@@ -2303,24 +2358,36 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 18-35 : on cherche si l’état produit par la dernière action exécutée est celui d’une action ASV ;</li>
-<li>lignes 36-46 : si oui, la vue V associée à l’action ASV est affichée avec pour modèle le modèle <strong>trouvé en session</strong> associé à la clé <strong>[‘modèle’]</strong> ;</li>
-<li>lignes 48-60 : lorsqu’on arrive là, on sait que l’état produit par la dernière action exécutée est celui d’une action ADS. Il va alors provoquer une redirection. On cherche dans le fichier de configuration, la définition de celle-ci ;</li>
-<li>ligne 62 : lorsqu’on est là, on a la configuration de la redirection à faire. Il y a deux cas :<ul>
-<li>il s’agit d’une redirection vers une autre action ADS. Il n’y a alors pas de modèle de vue à calculer ;</li>
-<li>il s’agit d’une redirection vers une action ASV. Il y a alors un modèle de vue à calculer (lignes 67-68). Ce modèle est ensuite mis en session (ligne 70) ;</li>
+  <li>lignes 18-35 : on cherche si l’état produit par la dernière action exécutée est celui d’une action ASV ;
+  </li>
+  <li>lignes 36-46 : si oui, la vue V associée à l’action ASV est affichée avec pour modèle le modèle <b>trouvé en session</b> associé à la clé <b>[‘modèle’]</b> ;
+  </li>
+  <li>lignes 48-60 : lorsqu’on arrive là, on sait que l’état produit par la dernière action exécutée est celui d’une action ADS. Il va alors provoquer une redirection. On cherche dans le fichier de configuration, la définition de celle-ci ;
+  </li>
+  <li>ligne 62 : lorsqu’on est là, on a la configuration de la redirection à faire. Il y a deux cas :
+    <ul>
+      <li>il s’agit d’une redirection vers une autre action ADS. Il n’y a alors pas de modèle de vue à calculer ;
+      </li>
+      <li>il s’agit d’une redirection vers une action ASV. Il y a alors un modèle de vue à calculer (lignes 67-68). Ce modèle est ensuite mis en session (ligne 70) ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 72-76 : on calcule l’URL de redirection ;
+  </li>
+  <li>lignes 78-79 : on envoie la réponse de redirection au client ;
+  </li>
 </ul>
-</li>
-<li>lignes 72-76 : on calcule l’URL de redirection ;</li>
-<li>lignes 78-79 : on envoie la réponse de redirection au client ;</li>
-</ul>
+
 <p><a id="toc48549333"></a></p>
 <h2 id="353-tests">35.3. Tests</h2>
 <p>Faites les tests suivants avec un navigateur :</p>
 <ul>
-<li>utilisez normalement l’application. Vérifiez que les seules URL affichées par le navigateur sont des URL ASV <strong>[/afficher-vue-nom_de_la_vue]</strong> ;</li>
-<li>rafraîchissez les pages (F5) et constatez que la même page se réaffiche alors. Il n’y a aucun effet de bord ;</li>
+  <li>utilisez normalement l’application. Vérifiez que les seules URL affichées par le navigateur sont des URL ASV <b>[/afficher-vue-nom_de_la_vue]</b> ;
+  </li>
+  <li>rafraîchissez les pages (F5) et constatez que la même page se réaffiche alors. Il n’y a aucun effet de bord ;
+  </li>
 </ul>
+
 <p>Par ailleurs, utilisez le client <strong>[impots/http-clients/09]</strong>. Comme les modifications faites concernent uniquement les sessions HTML, les clients <strong>[main, main2, main3, Test1HttpClientDaoWithSession, Test2HttpClientDaoWithSession]</strong> doivent continuer à fonctionner.</p>
 <p>Maintenant voyons un cas d’action impossible. La vue suivante est affichée :</p>
 <p><img src="images/100000000000054800000309B0820BC0.png" style="width:15.62cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000054800000309B0820BC0.png" /></p>

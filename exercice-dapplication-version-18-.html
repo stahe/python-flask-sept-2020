@@ -1477,11 +1477,13 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : nous avons ajouté la racine de l’application au début de l’URL cible de la redirection ;</li>
+  <li>ligne 9 : nous avons ajouté la racine de l’application au début de l’URL cible de la redirection ;
+  </li>
 </ul>
+
 <p>Il nous faut également corriger tous les fragments pour que les URL qu’ils contiennent commencent par la racine de l’application (ou alias WSGI) :</p>
 <p><img src="images/10000000000001BB00000148EACBA41E.png" style="width:5.111cm;height:3.791cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BB00000148EACBA41E.png" /></p>
-<p><strong>Le fragment </strong><strong>[v-authentification]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-authentification]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- formulaire HTML - on poste ses valeurs avec l&#x27;action <span style="font-weight:bold">[authentifier-utilisateur]</span> --&gt;</span>
 <span class="odt-code-line"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.application_root}}</span><span style="color:#0000ff">{{modèle.prefix_url}}/authentifier-utilisateur{{modèle.csrf_token}}&quot;</span></span>
@@ -1496,7 +1498,7 @@
 <span class="odt-code-line"><span style="color:#800000">&lt;/form&gt;</span><span style="color:#000000"></span></span>
 </code></pre></div>
 
-<p><strong>Le fragment </strong><strong>[v-calcul-impot]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-calcul-impot]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- formulaire HTML posté --&gt;<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#800000">&lt;form</span><span style="color:#000000"> </span><span style="color:#ff0000">method</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;post&quot;</span><span style="color:#000000"> </span><span style="color:#ff0000">action</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;</span><span style="background-color:#fff2cc;color:#0000ff">{{modèle.application_root}}</span><span style="color:#0000ff">{{modèle.prefix_url}}/calculer-impot{{modèle.csrf_token}}&quot;</span><span style="color:#800000">&gt;</span></span>
@@ -1506,7 +1508,7 @@
 <span class="odt-code-line"><span style="color:#800000">&lt;/form&gt;</span><span style="color:#800000"></span></span>
 </code></pre></div>
 
-<p><strong>Le fragment </strong><strong>[v-liste-simulations]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-liste-simulations]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">…</span>
 <span class="odt-code-line"></span>
@@ -1535,7 +1537,7 @@
 <span class="odt-code-line">{% endif %}</span>
 </code></pre></div>
 
-<p><strong>Le fragment </strong><strong>[v-menu]</strong></p>
+<p><strong>Le fragment</strong> <strong>[v-menu]</strong></p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line">&lt;!-- menu Bootstrap --&gt;<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#800000">&lt;nav</span><span style="color:#000000"> </span><span style="color:#ff0000">class</span><span style="color:#000000">=</span><span style="color:#0000ff">&quot;nav flex-column&quot;</span><span style="color:#800000">&gt;</span></span>
@@ -1582,13 +1584,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 15 : la méthode <strong>[update_model]</strong> a pour rôle de mettre dans le modèle des vues :<ul>
-<li>ligne 24 : le jeton CSRF ;</li>
-<li>ligne 26 : le préfixe des URL ;</li>
-<li>ligne 28 : la racine de l’application ou alias WSGI ;</li>
+  <li>ligne 15 : la méthode <b>[update_model]</b> a pour rôle de mettre dans le modèle des vues :
+    <ul>
+      <li>ligne 24 : le jeton CSRF ;
+      </li>
+      <li>ligne 26 : le préfixe des URL ;
+      </li>
+      <li>ligne 28 : la racine de l’application ou alias WSGI ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Les quatre classes filles font appel à la classe parent avec le code suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">…</span>
@@ -1603,8 +1610,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : chaque classe fille appelle sa classe parent pour mettre à jour le modèle qu’elle a créé ;</li>
+  <li>ligne 6 : chaque classe fille appelle sa classe parent pour mettre à jour le modèle qu’elle a créé ;
+  </li>
 </ul>
+
 <p>La version 18 est prête. Nous reprenons les deux serveurs virtuels d’Apache de la version 17 et nous les modifions :</p>
 <p><img src="images/10000000000002D30000012FDB676CCF.png" style="width:8.362cm;height:3.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D30000012FDB676CCF.png" /></p>
 <p>Les deux fichiers <strong>[flask-impots-withXX.conf]</strong> ne sont modifiés qu’en un seul point :</p>
@@ -1647,13 +1656,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 12, on utilise maintenant le dossier <strong>[impots/http-servers/13/apache]</strong>.</li>
+  <li>ligne 12, on utilise maintenant le dossier <b>[impots/http-servers/13/apache]</b>.
+  </li>
 </ul>
+
 <p>Nous sommes prêts pour les tests de la version 18 portée sur Apache. La configuration est la suivante :</p>
 <ul>
-<li>l’alias WSGI est /impots dans les deux fichiers de configuration des serveurs virtuels ;</li>
-<li>dans le fichier de paramétrage <strong>[configs/parameters]</strong>, les paramètres sont les suivants :</li>
+  <li>l’alias WSGI est /impots dans les deux fichiers de configuration des serveurs virtuels ;
+  </li>
+  <li>dans le fichier de paramétrage <b>[configs/parameters]</b>, les paramètres sont les suivants :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">        </span># token csrf</span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#a31515">&quot;</span><span style="background-color:#fff2cc;color:#a31515">with_csrftoken</span><span style="color:#a31515">&quot;</span><span style="color:#000000">: </span><span style="color:#0000ff">False</span><span style="color:#000000">,</span></span>
@@ -1678,9 +1692,12 @@
 <p>On utilise de nouveau les tests console du client <strong>[http-clients/09]</strong> :</p>
 <p><img src="images/100000000000020E00000241F37F82D2.png" style="width:6.07cm;height:6.661cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000020E00000241F37F82D2.png" /></p>
 <ul>
-<li>l’URL du serveur doit être modifiée dans les configurations <strong>[1]</strong> et <strong>[3]</strong> ;</li>
-<li>il faut apporter une modification à la couche <strong>[dao]</strong> pour qu’elle supporte le protocole HTTPS du serveur Apache ;</li>
+  <li>l’URL du serveur doit être modifiée dans les configurations <b>[1]</b> et <b>[3]</b> ;
+  </li>
+  <li>il faut apporter une modification à la couche <b>[dao]</b> pour qu’elle supporte le protocole HTTPS du serveur Apache ;
+  </li>
 </ul>
+
 <p>Dans les fichiers <strong>[config]</strong>, l’URL du serveur devient la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">        </span>&quot;server&quot;<span style="color:#000000">: {</span></span>
@@ -1702,8 +1719,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : la nouvelle URL du serveur. Pour la 1ère fois dans ce document, le client utilise le protocole HTTPS ;</li>
+  <li>ligne 4 : la nouvelle URL du serveur. Pour la 1ère fois dans ce document, le client utilise le protocole HTTPS ;
+  </li>
 </ul>
+
 <p>La classe <strong>[ImpôtsDaoWihHttpSession]</strong> de la couche <strong>[dao]</strong> évolue de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#000000">…    </span><span style="color:#000000"></span></span>
@@ -1748,8 +1767,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 26, on ajoute le paramètre <strong>[verify=False]</strong> à cause du protocole HTTPS utilisé par le serveur Apache. Le module <strong>[requests]</strong> (ligne 19) sait gérer nativement le protocole HTTPS. Par défaut, il vérifie la validité du certificat de sécurité que lui envoie le serveur HTTPS et lance une exception si le certificat reçu n’est pas valide. C’est le cas ici où le serveur Apache de Laragon envoie un certificat auto-signé. Pour éviter l’exception, on utilise le paramètre <strong>[verify=False]</strong> pour dire au module <strong>[requests]</strong> de ne pas lancer d’exception. <strong>[requests]</strong> se contente alors d’afficher un avertissement (warning) sur la console.</li>
+  <li>ligne 26, on ajoute le paramètre <b>[verify=False]</b> à cause du protocole HTTPS utilisé par le serveur Apache. Le module <b>[requests]</b> (ligne 19) sait gérer nativement le protocole HTTPS. Par défaut, il vérifie la validité du certificat de sécurité que lui envoie le serveur HTTPS et lance une exception si le certificat reçu n’est pas valide. C’est le cas ici où le serveur Apache de Laragon envoie un certificat auto-signé. Pour éviter l’exception, on utilise le paramètre <b>[verify=False]</b> pour dire au module <b>[requests]</b> de ne pas lancer d’exception. <b>[requests]</b> se contente alors d’afficher un avertissement (warning) sur la console.
+  </li>
 </ul>
+
 <p>Ces modifications faites, tous les tests console doivent fonctionner.</p>
 
 

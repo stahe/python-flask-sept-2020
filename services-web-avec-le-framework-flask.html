@@ -1731,25 +1731,37 @@
 <p><img src="images/10000000000004C0000000D8D0B12F00.png" style="width:14.011cm;height:2.5cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004C0000000D8D0B12F00.png" /></p>
 <p>Dans leur version la plus simple, les échanges client / serveur sont les suivants :</p>
 <ul>
-<li>le client ouvre une connexion avec le port 80 du serveur web ;</li>
-<li>il fait une requête concernant un document ;</li>
-<li>le serveur web envoie le document demandé et ferme la connexion ;</li>
-<li>le client ferme à son tour la connexion ;</li>
+  <li>le client ouvre une connexion avec le port 80 du serveur web ;
+  </li>
+  <li>il fait une requête concernant un document ;
+  </li>
+  <li>le serveur web envoie le document demandé et ferme la connexion ;
+  </li>
+  <li>le client ferme à son tour la connexion ;
+  </li>
 </ul>
+
 <p>Le document peut être de nature diverse : un texte au format HTML, une image, une vidéo, ... Ce peut être un document existant (document statique) ou bien un document généré à la volée par un script (document dynamique). Dans ce dernier cas, on parle de programmation web. Le script de génération dynamique de documents peut être écrit dans divers langages : PHP, Python, Perl, Java, Ruby, C#, VB.net, ...</p>
 <p>Dans la suite, nous allons utiliser des scripts Python pour générer dynamiquement des documents texte.</p>
 <p><img src="images/1000000000000515000000F4B94EC5A2.png" style="width:15.011cm;height:2.821cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000515000000F4B94EC5A2.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le client ouvre une connexion avec le serveur, demande un script Python, envoie ou non des paramètres à destination de ce script ;</li>
-<li>en <strong>[3]</strong>, le serveur web fait exécuter le script Python par l&#x27;interpréteur Python. Le script génère un document qui est envoyé au client <strong>[2]</strong><strong> ;</strong></li>
-<li>le serveur clôt la connexion. Le client en fait autant ;</li>
+  <li>en <b>[1]</b>, le client ouvre une connexion avec le serveur, demande un script Python, envoie ou non des paramètres à destination de ce script ;
+  </li>
+  <li>en <b>[3]</b>, le serveur web fait exécuter le script Python par l&#x27;interpréteur Python. Le script génère un document qui est envoyé au client <b>[2]</b><b> ;</b>
+  </li>
+  <li>le serveur clôt la connexion. Le client en fait autant ;
+  </li>
 </ul>
+
 <p>Le serveur web peut traiter plusieurs clients à la fois.</p>
 <p>Dans la suite, nous utiliserons deux serveurs web :</p>
 <ul>
-<li>le serveur léger <strong>Werkzeug</strong> [<a href="https://werkzeug.palletsprojects.com/en/1.0.x/"><u><span style="color: #0563c1">https://werkzeug.palletsprojects.com/en/1.0.x/</span></u></a>]. Ce serveur est utilisé par le framework web Flask [<a href="https://flask.palletsprojects.com/en/1.1.x/"><u><span style="color: #0563c1">https://flask.palletsprojects.com/en/1.1.x/</span></u></a>]. Nous l’appellerons plus fréquemment serveur <strong>Flask</strong> ;</li>
-<li>le serveur Apache 2 [<a href="https://httpd.apache.org/"><u><span style="color: #0563c1">https://httpd.apache.org/</span></u></a>] ;</li>
+  <li>le serveur léger <b>Werkzeug</b> [<a href="https://werkzeug.palletsprojects.com/en/1.0.x/"><u><span style="color: #0563c1">https://werkzeug.palletsprojects.com/en/1.0.x/</span></u></a>]. Ce serveur est utilisé par le framework web Flask [<a href="https://flask.palletsprojects.com/en/1.1.x/"><u><span style="color: #0563c1">https://flask.palletsprojects.com/en/1.1.x/</span></u></a>]. Nous l’appellerons plus fréquemment serveur <b>Flask</b> ;
+  </li>
+  <li>le serveur Apache 2 [<a href="https://httpd.apache.org/"><u><span style="color: #0563c1">https://httpd.apache.org/</span></u></a>] ;
+  </li>
 </ul>
+
 <p>Le serveur Flask sera utilisé dans la totalité des exemples. Le serveur Apache sera utilisé pour héberger l’application web que nous allons développer.</p>
 <p>Le framework Flask est développé en Python. C’est un module qu’on installe dans un terminal PyCharm :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
@@ -1775,27 +1787,40 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 1 : la commande exécutée ;</li>
-<li>ligne 19 : les éléments qui ont été installés :<ul>
-<li><strong>[</strong><strong><mark style="background-color: #fff2cc">flask-1.1.2</mark></strong><strong>]</strong> : est un framework de développement web en Python ;</li>
-<li><strong>[</strong><strong><mark style="background-color: #fff2cc">Werkzeug-1.0.1</mark></strong><strong>]</strong> : est le serveur web qui va répondre aux demandes des clients ;</li>
-<li><strong>[</strong><strong><mark style="background-color: #fff2cc">Jinja2-2.11.2</mark></strong><strong>]</strong> : est un outil permetant d’insérer des éléments dynamiques dans des pages qui seraient autrement des pages statiques ;</li>
+  <li>ligne 1 : la commande exécutée ;
+  </li>
+  <li>ligne 19 : les éléments qui ont été installés :
+    <ul>
+      <li><b>[</b><b><mark style="background-color: #fff2cc">flask-1.1.2</mark></b><b>]</b> : est un framework de développement web en Python ;
+      </li>
+      <li><b>[</b><b><mark style="background-color: #fff2cc">Werkzeug-1.0.1</mark></b><b>]</b> : est le serveur web qui va répondre aux demandes des clients ;
+      </li>
+      <li><b>[</b><b><mark style="background-color: #fff2cc">Jinja2-2.11.2</mark></b><b>]</b> : est un outil permetant d’insérer des éléments dynamiques dans des pages qui seraient autrement des pages statiques ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="toc48549143"></a></p>
 <h2 id="222-scripts-flask01-premiers-elements-de-programmation-web">22.2. scripts [flask/01] : premiers éléments de programmation web</h2>
 <p><img src="images/10000000000001BA0000029951F70989.png" style="width:4.601cm;height:6.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BA0000029951F70989.png" /></p>
 <p>Nos exemples seront exécutés dans l’architecture suivante :</p>
 <p><img src="images/10000000000003CE00000164CCB42750.png" style="width:11.261cm;height:4.111cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CE00000164CCB42750.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, un script Python sera exécuté comme l’est un script console classique ;</li>
-<li>en <strong>[2]</strong>, de façon transparente, un serveur web est instancié et attend des requêtes. En fait il n’acceptera qu’une unique URL ;</li>
-<li>en <strong>[3]</strong>, le navigateur demandera au serveur son unique URL ;</li>
-<li>en <strong>[4]</strong>, le serveur fera exécuter le script Python désigné par la console <strong>[1]</strong> ;</li>
-<li>en <strong>[5]</strong>, le script rendra ses résultats au serveur web, un document texte ;</li>
-<li>en <strong>[6]</strong>, le serveur web enverra au navigateur ce document texte ;</li>
+  <li>en <b>[1]</b>, un script Python sera exécuté comme l’est un script console classique ;
+  </li>
+  <li>en <b>[2]</b>, de façon transparente, un serveur web est instancié et attend des requêtes. En fait il n’acceptera qu’une unique URL ;
+  </li>
+  <li>en <b>[3]</b>, le navigateur demandera au serveur son unique URL ;
+  </li>
+  <li>en <b>[4]</b>, le serveur fera exécuter le script Python désigné par la console <b>[1]</b> ;
+  </li>
+  <li>en <b>[5]</b>, le script rendra ses résultats au serveur web, un document texte ;
+  </li>
+  <li>en <b>[6]</b>, le serveur web enverra au navigateur ce document texte ;
+  </li>
 </ul>
+
 <p><a id="toc48549144"></a></p>
 <h3 id="2221-script-exemple_01-rudiments-du-langage-html">22.2.1. script [exemple_01] : rudiments du langage HTML</h3>
 <p>Un navigateur web peut afficher divers documents, le plus courant étant le document HTML (HyperText Markup Language). Celui-ci est un texte formaté avec des balises de la forme <em>&lt;balise&gt;texte&lt;/balise&gt;</em>. Ainsi le texte <em>&lt;b&gt;important&lt;/b&gt;</em> affichera le texte <strong>important</strong> en gras. Il existe des balises seules, telles que la balise <em>&lt;hr/&gt;</em> qui affiche une ligne horizontale. Nous ne passerons pas en revue les balises que l&#x27;on peut trouver dans un texte HTML. Il existe de nombreux logiciels WYSIWYG permettant de construire une page WEB sans écrire une ligne de code HTML. Ces outils génèrent automatiquement le code HTML d&#x27;une mise en page faite à l&#x27;aide de la souris et de contrôles prédéfinis. On peut ainsi insérer (avec la souris) dans la page un tableau puis consulter le code HTML généré par le logiciel pour découvrir les balises à utiliser pour définir un tableau dans une page WEB. Ce n&#x27;est pas plus compliqué que cela. Par ailleurs, la connaissance du langage HTML est indispensable puisque les applications web dynamiques doivent générer elles-mêmes le code HTML à envoyer aux clients web. Ce code est généré par programme et il faut bien sûr savoir ce qu&#x27;il faut générer pour que le client ait la page web qu&#x27;il désire.</p>
@@ -1803,16 +1828,23 @@
 <p><a id="refheading57990676630786"></a></p>
 <p>Considérons l&#x27;exemple suivant qui présente quelques éléments qu&#x27;on peut trouver dans un document web tels que :</p>
 <ul>
-<li>un tableau ;</li>
-<li>une image ;</li>
-<li>un lien ;</li>
+  <li>un tableau ;
+  </li>
+  <li>une image ;
+  </li>
+  <li>un lien ;
+  </li>
 </ul>
+
 <p><img src="images/100000000000033D00000324D3468915.png" style="width:9.561cm;height:9.27cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033D00000324D3468915.png" /></p>
 <p>Un document HTML est encadré par les balises <strong>&lt;html&gt;…&lt;/html&gt;</strong>. Il est formé de deux parties :</p>
 <ul>
-<li><strong>&lt;head&gt;…&lt;/head&gt;</strong> : c&#x27;est la partie non affichable du document. Elle donne des renseignements au navigateur qui va afficher le document. On y trouve souvent la balise <strong>&lt;title&gt;…&lt;/title&gt;</strong> qui fixe le texte qui sera affiché dans la barre de titre du navigateur. On peut y trouver d&#x27;autres balises notamment des balises définissant les mots clés du document, mot clés utilisés ensuite par les moteurs de recherche. On peut trouver également dans cette partie des scripts, écrits le plus souvent en javascript ou vbscript et qui seront exécutés par le navigateur ;</li>
-<li><strong>&lt;body attributs&gt;…&lt;/body&gt;</strong> : c&#x27;est la partie qui sera affichée par le navigateur. Les balises HTML contenues dans cette partie indiquent au navigateur la forme visuelle &quot;souhaitée&quot; pour le document. Chaque navigateur va interpréter ces balises à sa façon. Deux navigateurs peuvent alors visualiser différemment un même document web. C&#x27;est généralement l&#x27;un des casse-têtes des concepteurs web ;</li>
+  <li><b>&lt;head&gt;…&lt;/head&gt;</b> : c&#x27;est la partie non affichable du document. Elle donne des renseignements au navigateur qui va afficher le document. On y trouve souvent la balise <b>&lt;title&gt;…&lt;/title&gt;</b> qui fixe le texte qui sera affiché dans la barre de titre du navigateur. On peut y trouver d&#x27;autres balises notamment des balises définissant les mots clés du document, mot clés utilisés ensuite par les moteurs de recherche. On peut trouver également dans cette partie des scripts, écrits le plus souvent en javascript ou vbscript et qui seront exécutés par le navigateur ;
+  </li>
+  <li><b>&lt;body attributs&gt;…&lt;/body&gt;</b> : c&#x27;est la partie qui sera affichée par le navigateur. Les balises HTML contenues dans cette partie indiquent au navigateur la forme visuelle &quot;souhaitée&quot; pour le document. Chaque navigateur va interpréter ces balises à sa façon. Deux navigateurs peuvent alors visualiser différemment un même document web. C&#x27;est généralement l&#x27;un des casse-têtes des concepteurs web ;
+  </li>
 </ul>
+
 <p>Le code HTML de notre document exemple est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!DOCTYPE<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -1864,39 +1896,47 @@
 <span class="odt-code-line"><span style="color:#0000ff">&lt;/</span>html<span style="color:#0000ff">&gt;</span></span>
 </code></pre></div>
 
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><u><b>Elément</b></u></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><u><b>balises et exemples HTML</b></u></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><u><b>Elément</b></u></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><u><b>balises et exemples HTML</b></u></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>titre du document
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><span style="color: #000000">&lt;</span><span style="color: #800080">title</span><span style="color: #000000">&gt;Quelques balises HTML&lt;</span><span style="color: #800080">/title</span><span style="color: #000000">&gt;</span> (ligne 5)</p><p style="margin:0;">le texte <b>[Quelques balises HTML]</b> apparaîtra dans la barre de titre du navigateur qui affichera le document</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><span style="color: #000000">&lt;</span><span style="color: #800080">title</span><span style="color: #000000">&gt;Quelques balises HTML&lt;</span><span style="color: #800080">/title</span><span style="color: #000000">&gt;</span> (ligne 5)</div><div style="margin:0 0 0.5em 0">le texte <b>[Quelques balises HTML]</b> apparaîtra dans la barre de titre du navigateur qui affichera le document</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>barre horizontale
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">hr</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">/&gt;</span></i> : affiche un trait horizontal (ligne 10)</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">hr</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">/&gt;</span></i> : affiche un trait horizontal (ligne 10)</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>tableau
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><i>&lt;table attributs&gt;….&lt;/table&gt;</i> : pour définir le tableau (lignes 12, 32)</p><p style="margin:0;"><i>&lt;thead&gt;…&lt;/thead&gt;</i> : pour définir les entêtes des colonnes (lignes 13, 19)</p><p style="margin:0;"><i>&lt;tbody&gt;…&lt;/tbody&gt;</i> : pour définir le contenu du tableau (ligne 20, 31)</p><p style="margin:0;"><i>&lt;tr attributs&gt;…&lt;/tr&gt;</i> : pour définir une ligne (lignes 21, 25)</p><p style="margin:0;"><i>&lt;td attributs&gt;…&lt;/td&gt;</i> : pour définir une cellule (ligne 22)</p><p style="margin:0;"><b>exemples</b> :</p><p style="margin:0;"><i>&lt;table border=&quot;1&quot;&gt;…&lt;/table&gt;</i> : l&#x27;attribut border définit l&#x27;épaisseur de la bordure du tableau</p><p style="margin:0;"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">td</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">style=</span></i><i><span style="color: #000080">&quot;text-align: center;&quot;</span></i><i><span style="color: #000000">&gt;cellule(1,2)&lt;</span></i><i><span style="color: #800080">/td</span></i><i><span style="color: #000000">&gt;</span></i> (ligne 23) : définit une cellule dont le contenu sera <b>cellule(1,2)</b>. Ce contenu sera centré horizontalement (text-align: center).</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>&lt;table attributs&gt;….&lt;/table&gt;</i> : pour définir le tableau (lignes 12, 32)</div><div style="margin:0 0 0.5em 0"><i>&lt;thead&gt;…&lt;/thead&gt;</i> : pour définir les entêtes des colonnes (lignes 13, 19)</div><div style="margin:0 0 0.5em 0"><i>&lt;tbody&gt;…&lt;/tbody&gt;</i> : pour définir le contenu du tableau (ligne 20, 31)</div><div style="margin:0 0 0.5em 0"><i>&lt;tr attributs&gt;…&lt;/tr&gt;</i> : pour définir une ligne (lignes 21, 25)</div><div style="margin:0 0 0.5em 0"><i>&lt;td attributs&gt;…&lt;/td&gt;</i> : pour définir une cellule (ligne 22)</div><div style="margin:0 0 0.5em 0"><b>exemples</b> :</div><div style="margin:0 0 0.5em 0"><i>&lt;table border=&quot;1&quot;&gt;…&lt;/table&gt;</i> : l&#x27;attribut border définit l&#x27;épaisseur de la bordure du tableau</div><div style="margin:0 0 0.5em 0"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">td</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">style=</span></i><i><span style="color: #000080">&quot;text-align: center;&quot;</span></i><i><span style="color: #000000">&gt;cellule(1,2)&lt;</span></i><i><span style="color: #800080">/td</span></i><i><span style="color: #000000">&gt;</span></i> (ligne 23) : définit une cellule dont le contenu sera <b>cellule(1,2)</b>. Ce contenu sera centré horizontalement (text-align: center).</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>image
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">img</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">border=</span></i><i><span style="color: #000080">&quot;0&quot;</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">src=</span></i><i><span style="color: #000080">&quot;/static/images/cerisier.jpg&quot;</span></i><i><span style="color: #000000">/&gt;</span></i> (ligne 38) : définit une image sans bordure (border=0&quot;) dont le fichier source est <i><b>[/static/images/cerisier.jpg]</b></i> sur le serveur web (src=&quot;/static/images/cerisier.jpg&quot;). Si ce lien se trouve sur un document web obtenu avec l&#x27;URL <b>[</b><i><b>http://server/chemin/balises.html</b></i><b>]</b>, alors le navigateur demandera l&#x27;URL <b>[</b><i><b>http://server/ static/images/cerisier.jpg</b></i><b>]</b> pour avoir l&#x27;image référencée ici.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">img</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">border=</span></i><i><span style="color: #000080">&quot;0&quot;</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">src=</span></i><i><span style="color: #000080">&quot;/static/images/cerisier.jpg&quot;</span></i><i><span style="color: #000000">/&gt;</span></i> (ligne 38) : définit une image sans bordure (border=0&quot;) dont le fichier source est <i><b>[/static/images/cerisier.jpg]</b></i> sur le serveur web (src=&quot;/static/images/cerisier.jpg&quot;). Si ce lien se trouve sur un document web obtenu avec l&#x27;URL <b>[</b><i><b>http://server/chemin/balises.html</b></i><b>]</b>, alors le navigateur demandera l&#x27;URL <b>[</b><i><b>http://server/ static/images/cerisier.jpg</b></i><b>]</b> pour avoir l&#x27;image référencée ici.</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>lien
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><i>&lt;a href=&quot;</i><i><span style="color: #000080">http://www.polytech-angers.fr/fr/index.html</span></i><i>&quot;&gt;ici&lt;/a&gt;</i> (ligne 43) : fait que le texte <i>ici</i> sert de lien vers l&#x27;URL <i><span style="color: #000080">http://www.polytech-angers.fr/fr/index.html</span></i>.</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i>&lt;a href=&quot;</i><i><span style="color: #000080">http://www.polytech-angers.fr/fr/index.html</span></i><i>&quot;&gt;ici&lt;/a&gt;</i> (ligne 43) : fait que le texte <i>ici</i> sert de lien vers l&#x27;URL <i><span style="color: #000080">http://www.polytech-angers.fr/fr/index.html</span></i>.</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div markdown="block">
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>fond de page
 </code></pre></div>
-</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">body</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">style=</span></i><i><span style="color: #000080">&quot;background-image: url(/static/images/standard.jpg)&quot;</span></i><i><span style="color: #000000">&gt;</span></i><i> (ligne 8)</i> : indique que l&#x27;image qui doit servir de fond de page se trouve à l&#x27;URL <b>[/static/images/standard.jpg]</b> du serveur web. Dans le contexte de notre exemple, le navigateur demandera l&#x27;URL <b>[http://server/static/images/standard.jpg]</b> pour obtenir cette image de fond.</p></td></tr></table>
+</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><i><span style="color: #000000">&lt;</span></i><i><span style="color: #800080">body</span></i><i><span style="color: #008080"> </span></i><i><span style="color: #000000">style=</span></i><i><span style="color: #000080">&quot;background-image: url(/static/images/standard.jpg)&quot;</span></i><i><span style="color: #000000">&gt;</span></i><i> (ligne 8)</i> : indique que l&#x27;image qui doit servir de fond de page se trouve à l&#x27;URL <b>[/static/images/standard.jpg]</b> du serveur web. Dans le contexte de notre exemple, le navigateur demandera l&#x27;URL <b>[http://server/static/images/standard.jpg]</b> pour obtenir cette image de fond.</div></td></tr></table>
 
 <p>On voit dans ce simple exemple que pour construire l&#x27;intégralité du document, le navigateur doit faire trois requêtes au serveur :</p>
 <ul>
-<li><strong><em>[http://server/chemin/balises.html]</em></strong> pour avoir le source HTML du document ;</li>
-<li><strong><em>[http://server/static/images/cerisier.jpg]</em></strong> pour avoir l&#x27;image <em>cerisier.jpg ;</em></li>
-<li><strong><em>[http://server/static/images/standard.jpg]</em></strong> pour obtenir l&#x27;image de fond <em>standard.jpg ;</em></li>
+  <li><i><b>[http://server/chemin/balises.html]</b></i> pour avoir le source HTML du document ;
+  </li>
+  <li><i><b>[http://server/static/images/cerisier.jpg]</b></i> pour avoir l&#x27;image <i>cerisier.jpg ;</i>
+  </li>
+  <li><i><b>[http://server/static/images/standard.jpg]</b></i> pour obtenir l&#x27;image de fond <i>standard.jpg ;</i>
+  </li>
 </ul>
+
 <p>Le script <strong>[exemple_01]</strong> va nous permettre d’afficher la page statique <strong>[balises.html]</strong> précédente :</p>
 <p><img src="images/10000000000001750000026E22E6123F.png" style="width:4.301cm;height:7.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001750000026E22E6123F.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le script <strong>[exemple_01]</strong> qui va être exécuté ;</li>
-<li>en <strong>[3]</strong>, le document HTML qui va être affiché par le script ;</li>
-<li>en <strong>[2]</strong>, les images du document HTML ;</li>
+  <li>en <b>[1]</b>, le script <b>[exemple_01]</b> qui va être exécuté ;
+  </li>
+  <li>en <b>[3]</b>, le document HTML qui va être affiché par le script ;
+  </li>
+  <li>en <b>[2]</b>, les images du document HTML ;
+  </li>
 </ul>
+
 <p>Le script <strong>[exemple_01]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">import<span style="color:#000000"> </span><span style="color:#6f008a">os</span></span>
@@ -1922,38 +1962,60 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 7 : on instancie une application Flask. Une application Flask est une application web ;<ul>
-<li>le 1er paramètre est le nom donné à l’application. On peut donner le nom que l’on veut. Ici on a utilisé l’attribut prédéfini <strong>[__name__]</strong> qui vaut <strong>[__main__]</strong> (ligne 18) ;</li>
-<li>le second paramètre est un paramètre nommé, ç-à-d que sa position dans l’ordre des paramètres n’a pas d’importance. Le paramètre nommé <strong>[template_folder]</strong> désigne le dossier où trouver les pages statiques de l’application web. Les pages statiques sont délivrées telles quelles au navigateur. Ici, les pages statiques seront trouvées dans le dossier <strong>[templates]</strong> de l’arborescence du projet. Ligne 7, nous avons mis un chemin relatif au dossier <strong>[script_dir]</strong> contenant le script <strong>[exemple_01]</strong> exécuté ;</li>
-<li>le troisième paramètre est également un paramètre nommé. <strong>[static_folder]</strong> désigne le dossier où on va trouver les ressources du document HTML (images, vidéos, …). La également, nous avons mis un chemin relatif au dossier <strong>[script_dir]</strong> contenant le script <strong>[exemple_01]</strong> exécuté ;</li>
+  <li>ligne 7 : on instancie une application Flask. Une application Flask est une application web ;
+    <ul>
+      <li>le 1er paramètre est le nom donné à l’application. On peut donner le nom que l’on veut. Ici on a utilisé l’attribut prédéfini <b>[__name__]</b> qui vaut <b>[__main__]</b> (ligne 18) ;
+      </li>
+      <li>le second paramètre est un paramètre nommé, ç-à-d que sa position dans l’ordre des paramètres n’a pas d’importance. Le paramètre nommé <b>[template_folder]</b> désigne le dossier où trouver les pages statiques de l’application web. Les pages statiques sont délivrées telles quelles au navigateur. Ici, les pages statiques seront trouvées dans le dossier <b>[templates]</b> de l’arborescence du projet. Ligne 7, nous avons mis un chemin relatif au dossier <b>[script_dir]</b> contenant le script <b>[exemple_01]</b> exécuté ;
+      </li>
+      <li>le troisième paramètre est également un paramètre nommé. <b>[static_folder]</b> désigne le dossier où on va trouver les ressources du document HTML (images, vidéos, …). La également, nous avons mis un chemin relatif au dossier <b>[script_dir]</b> contenant le script <b>[exemple_01]</b> exécuté ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 10-14 : on définit les URL acceptées par l’application web. Chaque URL est associée à une fonction qui s’exécute lorsque l’URL est demandée par un navigateur web ;
+  </li>
+  <li>ligne 11 : l’unique URL de l’application est l’URL <b>[/]</b>. Notez que dans <b>[</b><b><span style="color: #000000">@app.route(</span></b><b><span style="color: #a31515">&#x27;/&#x27;</span></b><b><span style="color: #000000">)</span></b><b>]</b>, <b>[app]</b> est la variable initialisée ligne 7. La définition des routes (les différentes URL gérées par l’application) vient donc forcément après la définition de l’application <b>[app]</b>. Ce dernier nom est libre ;
+  </li>
+  <li>lignes 12-14 : la fonction qui s’exécute lorsqu’on demande l’URL <b>[/]</b> à l’application web <b>[exemple_01]</b> ;
+  </li>
+  <li>ligne 12 : la fonction associée à une URL peut porter un nom quelconque. Elle peut parfois avoir des paramètres pour récupérer des éléments de l’URL qui lui est associée. Ici elle n’en a pas ;
+  </li>
+  <li>ligne 14 :
+    <ul>
+      <li>la fonction <b>[render_template]</b> rend une chaîne de caractères qui est le document texte produit par son paramètre. Celui-ci est ici <b>[balises.html]</b>. A cause du <b>[template_folder]</b> de la ligne 7, ce document sera cherché dans le dossier <b>[</b><b><span style="color: #a31515">f&quot;{script_dir}/../templates&quot;</span></b><b>]</b>. C’est effectivement là qu’il se trouve ;
+      </li>
+      <li>la fonction <b>[make_response]</b> génère une réponse HTTP pour le navigateur qui lui a demandé l’URL <b>[/]</b>. On a vu dans le paragraphe |<a href="#_Le_protocole_HTTP"><u><span style="color: #0563c1">le protocole HTTP</span></u></a>| qu’une réponse HTTP a deux éléments :
+        <ul>
+          <li>des entêtes HTTP ;
+          </li>
+          <li>le document demandé par le navigateur, ici un document HTML ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>lignes 10-14 : on définit les URL acceptées par l’application web. Chaque URL est associée à une fonction qui s’exécute lorsque l’URL est demandée par un navigateur web ;</li>
-<li>ligne 11 : l’unique URL de l’application est l’URL <strong>[/]</strong>. Notez que dans <strong>[</strong><strong><span style="color: #000000">@app.route(</span></strong><strong><span style="color: #a31515">&#x27;/&#x27;</span></strong><strong><span style="color: #000000">)</span></strong><strong>]</strong>, <strong>[app]</strong> est la variable initialisée ligne 7. La définition des routes (les différentes URL gérées par l’application) vient donc forcément après la définition de l’application <strong>[app]</strong>. Ce dernier nom est libre ;</li>
-<li>lignes 12-14 : la fonction qui s’exécute lorsqu’on demande l’URL <strong>[/]</strong> à l’application web <strong>[exemple_01]</strong> ;</li>
-<li>ligne 12 : la fonction associée à une URL peut porter un nom quelconque. Elle peut parfois avoir des paramètres pour récupérer des éléments de l’URL qui lui est associée. Ici elle n’en a pas ;</li>
-<li>ligne 14 :<ul>
-<li>la fonction <strong>[render_template]</strong> rend une chaîne de caractères qui est le document texte produit par son paramètre. Celui-ci est ici <strong>[balises.html]</strong>. A cause du <strong>[template_folder]</strong> de la ligne 7, ce document sera cherché dans le dossier <strong>[</strong><strong><span style="color: #a31515">f&quot;{script_dir}/../templates&quot;</span></strong><strong>]</strong>. C’est effectivement là qu’il se trouve ;</li>
-<li>la fonction <strong>[make_response]</strong> génère une réponse HTTP pour le navigateur qui lui a demandé l’URL <strong>[/]</strong>. On a vu dans le paragraphe |<a href="#_Le_protocole_HTTP"><u><span style="color: #0563c1">le protocole HTTP</span></u></a>| qu’une réponse HTTP a deux éléments :<ul>
-<li>des entêtes HTTP ;</li>
-<li>le document demandé par le navigateur, ici un document HTML ;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <p>Ligne 14, on a donné aucun paramètre à la fonction <strong>[make_response]</strong> pour générer des entêtes HTTP. Elle va alors en générer par défaut. On verra ultérieurement comment fixer ces entêtes HTTP.</p>
 <ul>
-<li>finalement, lorsque le navigateur demande l’URL / à l’application Flask, il obtient la page <strong>[balises.html]</strong> ;</li>
-<li>lignes 17-20 : ces lignes servent à lancer le serveur web qui va exécuter l’application web <strong>[exemple_01]</strong> ;<ul>
-<li>ligne 18 : cette condition n’est vraie que lorsque le script <strong>[exemple_01]</strong> est lancé au sein d’une console ;</li>
-<li>ligne 19 : l’application <strong>[app]</strong> de la ligne 7 est configurée :</li>
-<li>le paramètre nommé <strong>[</strong><strong><span style="color: #000000">ENV=</span></strong><strong><span style="color: #a31515">&quot;development&quot;</span></strong><strong>]</strong> met le serveur web en mode développement : dès que le développeur modifie un élément de l’application celle-ci est régénérée et délivrée au serveur web. Le développeur n’a pas besoin de demander une nouvelle exécution ;</li>
-<li>le paramètre nommé <strong>[</strong><strong><span style="color: #000000">DEBUG=</span></strong><strong>True]</strong> va permettre au développeur de mettre des points d’arrêt dans le code de l’application ;</li>
-<li>ligne 20 : l’application web est lancée : un serveur web est instancié et l’application web est déployée dessus afin de répondre aux requêtes de clients web ;</li>
+  <li>finalement, lorsque le navigateur demande l’URL / à l’application Flask, il obtient la page <b>[balises.html]</b> ;
+  </li>
+  <li>lignes 17-20 : ces lignes servent à lancer le serveur web qui va exécuter l’application web <b>[exemple_01]</b> ;
+    <ul>
+      <li>ligne 18 : cette condition n’est vraie que lorsque le script <b>[exemple_01]</b> est lancé au sein d’une console ;
+      </li>
+      <li>ligne 19 : l’application <b>[app]</b> de la ligne 7 est configurée :
+      </li>
+      <li>le paramètre nommé <b>[</b><b><span style="color: #000000">ENV=</span></b><b><span style="color: #a31515">&quot;development&quot;</span></b><b>]</b> met le serveur web en mode développement : dès que le développeur modifie un élément de l’application celle-ci est régénérée et délivrée au serveur web. Le développeur n’a pas besoin de demander une nouvelle exécution ;
+      </li>
+      <li>le paramètre nommé <b>[</b><b><span style="color: #000000">DEBUG=</span></b><b>True]</b> va permettre au développeur de mettre des points d’arrêt dans le code de l’application ;
+      </li>
+      <li>ligne 20 : l’application web est lancée : un serveur web est instancié et l’application web est déployée dessus afin de répondre aux requêtes de clients web ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Voici un exemple d’exécution :</p>
 <p><img src="images/10000000000002DA00000256CACE3193.png" style="width:8.422cm;height:6.91cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002DA00000256CACE3193.png" /></p>
 <p>Les logs suivants apparaissent alors dans la console d’exécution :</p>
@@ -1969,11 +2031,16 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 2 : le serveur affiche le script exécuté ;</li>
-<li>ligne 3 : on est en mode développement ;</li>
-<li>lignes 4-5 : le serveur voit qu’on l’a lancé en mode <strong>[debug]</strong>. Il redémarre alors (ligne 5). Le mode <strong>[debug]</strong> ralentit donc un peu le démarrage ;</li>
-<li>ligne 8 : l’URL où l’application web déployée <strong>[exemple_01]</strong> est disponible ;</li>
+  <li>ligne 2 : le serveur affiche le script exécuté ;
+  </li>
+  <li>ligne 3 : on est en mode développement ;
+  </li>
+  <li>lignes 4-5 : le serveur voit qu’on l’a lancé en mode <b>[debug]</b>. Il redémarre alors (ligne 5). Le mode <b>[debug]</b> ralentit donc un peu le démarrage ;
+  </li>
+  <li>ligne 8 : l’URL où l’application web déployée <b>[exemple_01]</b> est disponible ;
+  </li>
 </ul>
+
 <p>Avec un navigateur web demandons l’URL <strong>[</strong><strong><mark style="background-color: #bdd6ee">http://127.0.0.1:5000/</mark></strong><strong>]</strong> :</p>
 <p><img src="images/100000000000033C000003A564DC961D.png" style="width:9.542cm;height:10.76cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033C000003A564DC961D.png" /></p>
 <p>On obtient bien le document <strong>[balises.html]</strong> attendu.</p>
@@ -1996,13 +2063,18 @@
 
 <p>Ce document est dynamique parce que son contenu n’est totalement connu qu’au moment où le serveur web le sert. On y trouve en effet aux lignes 5 et 8 deux éléments non connus au moment de l’écriture de la page. Ils ne sont connus qu’au moment où la page est envoyée à un client. Ils sont alors remplacés par leurs valeurs, celles-ci étant des chaînes de caractères.</p>
 <ul>
-<li>lignes 5, 8 : la syntaxe <strong>{{expression}}</strong> est une syntaxe du langage de templates Jinja2 [<a href="https://jinja.palletsprojects.com/en/2.11.x/"><u><span style="color: #0563c1">https://jinja.palletsprojects.com/en/2.11.x/</span></u></a>]. Avant que la page ne soit envoyée à un client, les éléments dynamiques de la page (lignes 5 et 8) sont évalués et remplacés par leurs valeurs ;</li>
-<li>ligne 5 : on a utilisé la syntaxe <strong>[page.title]</strong>. On a donc supposé qu’à la génération de la page avant son envoi, une variable <strong>[page]</strong> est connue, on verra comment. Dans la syntaxe <strong>{{expression}}</strong> on peut utiliser les noms de variables que l’on veut. Aux lignes 5 et 8, on pourrait ainsi avoir <strong>{{title}}</strong> et <strong>{{contents}}</strong>. On pourrait dire alors que <strong>[title]</strong> et <strong>[contents]</strong> sont des paramètres de la page. Dans la suite, nous utiliserons toujours la même technique :<ul>
-<li>l’unique paramètre de la page sera un dictionnaire <strong>[page]</strong> ;</li>
-<li>les attributs de ce dictionnaire seront utilisés dans la page. Ici <strong>[page.title]</strong> ligne 5 et <strong>[page.contents]</strong> ligne 8 ;</li>
+  <li>lignes 5, 8 : la syntaxe <b>{{expression}}</b> est une syntaxe du langage de templates Jinja2 [<a href="https://jinja.palletsprojects.com/en/2.11.x/"><u><span style="color: #0563c1">https://jinja.palletsprojects.com/en/2.11.x/</span></u></a>]. Avant que la page ne soit envoyée à un client, les éléments dynamiques de la page (lignes 5 et 8) sont évalués et remplacés par leurs valeurs ;
+  </li>
+  <li>ligne 5 : on a utilisé la syntaxe <b>[page.title]</b>. On a donc supposé qu’à la génération de la page avant son envoi, une variable <b>[page]</b> est connue, on verra comment. Dans la syntaxe <b>{{expression}}</b> on peut utiliser les noms de variables que l’on veut. Aux lignes 5 et 8, on pourrait ainsi avoir <b>{{title}}</b> et <b>{{contents}}</b>. On pourrait dire alors que <b>[title]</b> et <b>[contents]</b> sont des paramètres de la page. Dans la suite, nous utiliserons toujours la même technique :
+    <ul>
+      <li>l’unique paramètre de la page sera un dictionnaire <b>[page]</b> ;
+      </li>
+      <li>les attributs de ce dictionnaire seront utilisés dans la page. Ici <b>[page.title]</b> ligne 5 et <b>[page.contents]</b> ligne 8 ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>L’application web <strong>[exemple_02.py]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">from</span> <span style="color:#6f008a">flask</span> <span style="color:#0000ff">import</span> Flask, make_response, render_template</span>
@@ -2028,17 +2100,26 @@
 </code></pre></div>
 
 <ul>
-<li>nous avons déjà expliqué dans l’exemple précédent, les lignes 4-5 et 18-20. Nous utiliserons toujours ce schéma dans nos exemples ;</li>
-<li>ligne 9 : la seule URL servie par l’application web est l’URL / ;</li>
-<li>ligne 14 : le document servi à l’URL / est le document <strong>[exemple_02.html]</strong> que nous venons de commenter. Nous savons qu’il a un paramètre, un dictionnaire appelé <strong>[page]</strong> ;</li>
-<li>ligne 12 : nous définissons le dictionnaire qui va être passé en paramètre à la page <strong>[exemple_02.html]</strong>. Il peut porter n’importe quel nom. Il doit cependant avoir les attributs <strong>[title, contents]</strong> utilisés dans le document HTML ;</li>
-<li>ligne 14 : la fonction <strong>[render_template]</strong> a pour rôle de rendre la chaîne de caractères du document <strong>[exemple_02.html]</strong>. Comme celui-ci est un document paramétré, on transmet à la fonction <strong>[render_template]</strong> le ou les paramètres attendus. Nous le faisons ici en donnant une valeur au paramètre nommé <strong>[page]</strong>. Dans l’opération <strong>[page=page]</strong> :<ul>
-<li>à gauche du signe =, on a le paramètre <strong>[page]</strong> utilisé dans le document <strong>[exemple_02.html]</strong> ;</li>
-<li>à droite du signe =, on a la valeur <strong>[page]</strong> définie ligne 12 ;</li>
-<li>de façon générale, si un document HTML a les paramètres <strong>[param1, param2, …, paramn]</strong>, on passera leurs valeurs à la fonction <strong>[render_template]</strong> sous la forme <strong>[render_template(document, param1=valeur1, param2=valeur2, …]</strong> ;</li>
+  <li>nous avons déjà expliqué dans l’exemple précédent, les lignes 4-5 et 18-20. Nous utiliserons toujours ce schéma dans nos exemples ;
+  </li>
+  <li>ligne 9 : la seule URL servie par l’application web est l’URL / ;
+  </li>
+  <li>ligne 14 : le document servi à l’URL / est le document <b>[exemple_02.html]</b> que nous venons de commenter. Nous savons qu’il a un paramètre, un dictionnaire appelé <b>[page]</b> ;
+  </li>
+  <li>ligne 12 : nous définissons le dictionnaire qui va être passé en paramètre à la page <b>[exemple_02.html]</b>. Il peut porter n’importe quel nom. Il doit cependant avoir les attributs <b>[title, contents]</b> utilisés dans le document HTML ;
+  </li>
+  <li>ligne 14 : la fonction <b>[render_template]</b> a pour rôle de rendre la chaîne de caractères du document <b>[exemple_02.html]</b>. Comme celui-ci est un document paramétré, on transmet à la fonction <b>[render_template]</b> le ou les paramètres attendus. Nous le faisons ici en donnant une valeur au paramètre nommé <b>[page]</b>. Dans l’opération <b>[page=page]</b> :
+    <ul>
+      <li>à gauche du signe =, on a le paramètre <b>[page]</b> utilisé dans le document <b>[exemple_02.html]</b> ;
+      </li>
+      <li>à droite du signe =, on a la valeur <b>[page]</b> définie ligne 12 ;
+      </li>
+      <li>de façon générale, si un document HTML a les paramètres <b>[param1, param2, …, paramn]</b>, on passera leurs valeurs à la fonction <b>[render_template]</b> sous la forme <b>[render_template(document, param1=valeur1, param2=valeur2, …]</b> ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Avant d’exécuter <strong>[exemple_02]</strong>, nous devons arrêter l’exécution de <strong>[exemple_01]</strong> :</p>
 <p><img src="images/100000000000035500000120DF568597.png" style="width:9.85cm;height:3.32cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035500000120DF568597.png" /></p>
 <p>Si lors de l’exécution d’un script 1, vous avez l’impression que c’est un script 2 qui s’exécute c’est probablement parce que celui-ci est toujours en exécution. Pour revenir à un état connu, vous pouvez arrêter tous les processus en cours d’exécution dans PyCharm (en haut et à droite dans fenêtre PyCharm) :</p>
@@ -2061,15 +2142,20 @@
 <p>Avec un navigateur, nous demandons l’URL <strong>[</strong><strong><mark style="background-color: #bdd6ee">http://localhost:5000/</mark></strong><strong>]</strong> :</p>
 <p><img src="images/100000000000025F000001379F673CC6.png" style="width:7.01cm;height:3.581cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000025F000001379F673CC6.png" /></p>
 <ul>
-<li>l’expression {{page.title}} a produit <strong>[1]</strong> ;</li>
-<li>l’expression {{page.contents}} a produit <strong>[2]</strong> ;</li>
+  <li>l’expression {{page.title}} a produit <b>[1]</b> ;
+  </li>
+  <li>l’expression {{page.contents}} a produit <b>[2]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549146"></a></p>
 <h3 id="2223-script-exemple_03-utiliser-des-fragments-de-page">22.2.3. script [exemple_03] : utiliser des fragments de page</h3>
 <p><img src="images/100000000000015B000001AA291F543F.png" style="width:4.01cm;height:4.92cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000015B000001AA291F543F.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, le script <strong>[exemple_03.py]</strong> va générer le document dynamique <strong>[exemple_03.html]</strong> <strong>[2]</strong>. Celui-ci sera construit à partir des fragments de page <strong>[fragment_01.html, fragment_02.html]</strong> <strong>[3]</strong> ;</li>
+  <li>en <b>[1]</b>, le script <b>[exemple_03.py]</b> va générer le document dynamique <b>[exemple_03.html]</b> <b>[2]</b>. Celui-ci sera construit à partir des fragments de page <b>[fragment_01.html, fragment_02.html]</b> <b>[3]</b> ;
+  </li>
 </ul>
+
 <p>Le document <strong>[exemple_03.html]</strong> sera le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-html">
 <span class="odt-code-line"><span style="color:#0000ff">&lt;</span>!DOCTYPE<span style="color:#000000"> </span><span style="color:#ff0000">html</span><span style="color:#0000ff">&gt;</span></span>
@@ -2082,9 +2168,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 3 et 5, on utilise la directive <strong>[include]</strong> de Jinja2 pour inclure dans le document des éléments externes à celui-ci ;</li>
-<li>la syntaxe est {% include … %}. Le paramètre de la directive <strong>[include]</strong> est le chemin du document à incorporer. Ce chemin est relatif au paramètre <strong>[template_folder]</strong> de l’application Flask :</li>
+  <li>lignes 3 et 5, on utilise la directive <b>[include]</b> de Jinja2 pour inclure dans le document des éléments externes à celui-ci ;
+  </li>
+  <li>la syntaxe est {% include … %}. Le paramètre de la directive <b>[include]</b> est le chemin du document à incorporer. Ce chemin est relatif au paramètre <b>[template_folder]</b> de l’application Flask :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line">app = Flask(__name__, template_folder=<span style="color:#a31515">&quot;../templates&quot;</span>, static_folder=<span style="color:#a31515">&quot;../static&quot;</span>)</span>
 </code></pre></div>
@@ -2162,8 +2251,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 8 : la page admet le paramètre <strong>[</strong><strong><span style="color: #800080">page.date_heure</span></strong><strong>]</strong> ;</li>
+  <li>ligne 8 : la page admet le paramètre <b>[</b><b><span style="color: #800080">page.date_heure</span></b><b>]</b> ;
+  </li>
 </ul>
+
 <p>Le service web <strong>[date_time_server.py]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># imports<span style="color:#000000"></span></span>
@@ -2210,15 +2301,24 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : l’application web ne sert que l’URL / ;</li>
-<li>lignes 15-24 : expliquent comment obtenir date et heure et comment les afficher ;</li>
-<li>ligne 27 : chaîne de caractères représentant la date et l’heure du moment ;</li>
-<li>lignes 28-30 : on génère le document dynamique <strong>[date_time_server.html]</strong> en lui passant le dictionnaire <strong>[page]</strong> de la ligne 29 ;</li>
-<li>ligne 31 : on affiche le type de <strong>[document]</strong> et le document lui-même. On veut montrer que c’est une chaîne de caractères ;</li>
-<li>ligne 33 : on génère la réponse HTTP qui va être envoyée au client (elle n’est pas encore envoyée) ;</li>
-<li>ligne 34 : on affiche son type et sa valeur ;</li>
-<li>ligne 35 : la réponse HTTP est envoyée au client ;</li>
+  <li>ligne 13 : l’application web ne sert que l’URL / ;
+  </li>
+  <li>lignes 15-24 : expliquent comment obtenir date et heure et comment les afficher ;
+  </li>
+  <li>ligne 27 : chaîne de caractères représentant la date et l’heure du moment ;
+  </li>
+  <li>lignes 28-30 : on génère le document dynamique <b>[date_time_server.html]</b> en lui passant le dictionnaire <b>[page]</b> de la ligne 29 ;
+  </li>
+  <li>ligne 31 : on affiche le type de <b>[document]</b> et le document lui-même. On veut montrer que c’est une chaîne de caractères ;
+  </li>
+  <li>ligne 33 : on génère la réponse HTTP qui va être envoyée au client (elle n’est pas encore envoyée) ;
+  </li>
+  <li>ligne 34 : on affiche son type et sa valeur ;
+  </li>
+  <li>ligne 35 : la réponse HTTP est envoyée au client ;
+  </li>
 </ul>
+
 <p>L’exécution du script donne le résultat suivant dans un navigateur :</p>
 <p><img src="images/100000000000028900000130DB158B5F.png" style="width:7.511cm;height:3.511cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000028900000130DB158B5F.png" /></p>
 <p>Les logs dans la console sont les suivants :</p>
@@ -2246,13 +2346,18 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : on voit que le type de la valeur rendue par <strong>[render_template]</strong> est de type <strong>[str]</strong>. Cette chaîne de caractères n’est autre que le document <strong>[date_time_server.html]</strong> une fois interprété (lignes 10-19) ;</li>
-<li>ligne 20 : on voit que le type de la valeur rendue par <strong>[make_response]</strong> est de type <strong>[</strong><strong><mark style="background-color: #bdd6ee">flask.wrappers.Response</mark></strong><strong>]</strong>. La fonction <strong>[Response.__str__]</strong> a été implicitement appelée pour afficher l’objet <strong>[Response]</strong>. La chaîne rendue par cette fonction donne deux informations sur la réponse HTTP qui va être faite :<ul>
-<li>le document envoyé fait 195 octets ;</li>
-<li>le statut de la réponse HTTP est <strong>[200 OK]</strong>. On verra ultérieurement qu’on a accès à ce code de statut ;</li>
+  <li>ligne 10 : on voit que le type de la valeur rendue par <b>[render_template]</b> est de type <b>[str]</b>. Cette chaîne de caractères n’est autre que le document <b>[date_time_server.html]</b> une fois interprété (lignes 10-19) ;
+  </li>
+  <li>ligne 20 : on voit que le type de la valeur rendue par <b>[make_response]</b> est de type <b>[</b><b><mark style="background-color: #bdd6ee">flask.wrappers.Response</mark></b><b>]</b>. La fonction <b>[Response.__str__]</b> a été implicitement appelée pour afficher l’objet <b>[Response]</b>. La chaîne rendue par cette fonction donne deux informations sur la réponse HTTP qui va être faite :
+    <ul>
+      <li>le document envoyé fait 195 octets ;
+      </li>
+      <li>le statut de la réponse HTTP est <b>[200 OK]</b>. On verra ultérieurement qu’on a accès à ce code de statut ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p><a id="toc48549148"></a></p>
 <h2 id="224-scripts-flask03-services-web-generant-du-texte-brut">22.4. scripts [flask/03] : services web générant du texte brut</h2>
 <p>Nous avons vu dans un précédent exemple que le service web délivrait le document suivant :</p>
@@ -2274,10 +2379,14 @@
 <h3 id="2241-script-main_01">22.4.1. script [main_01]</h3>
 <p><img src="images/10000000000004DB000001DACF851B95.png" style="width:14.331cm;height:5.471cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004DB000001DACF851B95.png" /></p>
 <ul>
-<li><strong>[main_01]</strong> est le service web ;</li>
-<li><strong>[config]</strong> est le script de configuration de l’application web ;</li>
-<li>le service web utilise certaines des entités définies en <strong>[2]</strong> ;</li>
+  <li><b>[main_01]</b> est le service web ;
+  </li>
+  <li><b>[config]</b> est le script de configuration de l’application web ;
+  </li>
+  <li>le service web utilise certaines des entités définies en <b>[2]</b> ;
+  </li>
 </ul>
+
 <p>Le script <strong>[config]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -2337,18 +2446,28 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-3 : le Python Path de l’application est fixé ;</li>
-<li>lignes 5-10 : on importe les éléments dont a besoin le script ;</li>
-<li>ligne 17 : le service web ne sert que l’URL / ;</li>
-<li>ligne 20 : on crée un objet <strong>[Personne]</strong> ;</li>
-<li>ligne 22 : on crée une réponse HTTP avec la chaîne de caractères représentant la personne. La fonction <strong>[Personne.__str__]</strong> va être appelée. Celle-ci rend la chaîne jSON du dictionnaire <strong>[asdict]</strong> de la personne (cf. |<a href="#_La_classe_[BaseEntity]"><u><span style="color: #0563c1">classe BaseEntity</span></u></a>|). Le paramètre de la fonction <strong>[make_response]</strong> est le document texte envoyé au client, donc ici la chaîne jSON d’une personne ;</li>
-<li>ligne 24 : on met dans les entêtes HTTP de la réponse, un entête <strong>[</strong><strong><span style="color: #a31515">Content-type</span></strong><strong>]</strong> qui indique au client quel type de document il va recevoir, ici un document jSON codé en UTF-8 ;</li>
-<li>ligne  26 : on rend un tuple de deux éléments :<ul>
-<li>la réponse au client, entêtes HTTP et document ;</li>
-<li>le code de statut de la réponse. Ici on veut rendre le code de statut <strong>[200 OK]</strong>. Les différents codes de statut sont définis par des constantes dans le module <strong>[flask_api]</strong> importé ligne 7 ;</li>
+  <li>lignes 1-3 : le Python Path de l’application est fixé ;
+  </li>
+  <li>lignes 5-10 : on importe les éléments dont a besoin le script ;
+  </li>
+  <li>ligne 17 : le service web ne sert que l’URL / ;
+  </li>
+  <li>ligne 20 : on crée un objet <b>[Personne]</b> ;
+  </li>
+  <li>ligne 22 : on crée une réponse HTTP avec la chaîne de caractères représentant la personne. La fonction <b>[Personne.__str__]</b> va être appelée. Celle-ci rend la chaîne jSON du dictionnaire <b>[asdict]</b> de la personne (cf. |<a href="#_La_classe_[BaseEntity]"><u><span style="color: #0563c1">classe BaseEntity</span></u></a>|). Le paramètre de la fonction <b>[make_response]</b> est le document texte envoyé au client, donc ici la chaîne jSON d’une personne ;
+  </li>
+  <li>ligne 24 : on met dans les entêtes HTTP de la réponse, un entête <b>[</b><b><span style="color: #a31515">Content-type</span></b><b>]</b> qui indique au client quel type de document il va recevoir, ici un document jSON codé en UTF-8 ;
+  </li>
+  <li>ligne  26 : on rend un tuple de deux éléments :
+    <ul>
+      <li>la réponse au client, entêtes HTTP et document ;
+      </li>
+      <li>le code de statut de la réponse. Ici on veut rendre le code de statut <b>[200 OK]</b>. Les différents codes de statut sont définis par des constantes dans le module <b>[flask_api]</b> importé ligne 7 ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Le module <strong>[flask_api]</strong> n’est pas disponible nativement. Il faut l’installer. On fait cela dans un terminal PyCharm :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-java">
 <span class="odt-code-line">(venv) C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\inet\utilitaires&gt;<span style="background-color:#fff2cc">pip install flask_api</span></span>
@@ -2369,88 +2488,140 @@
 <p>Lorsqu’on exécute le script web <strong>[main_01]</strong>, on obtient les résultats suivants dans un navigateur :</p>
 <p><img src="images/10000000000005A4000001099A9AA9EF.png" style="width:16.701cm;height:3.061cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A4000001099A9AA9EF.png" /></p>
 <ul>
-<li>en <strong>[2]</strong>, la chaîne jSON reçue ;</li>
-<li>en <strong>[3-4]</strong>, on fait afficher le contenu du document reçu. On voit qu’il n’y a aucun habillage HTML, seulement la chaîne jSON ;</li>
+  <li>en <b>[2]</b>, la chaîne jSON reçue ;
+  </li>
+  <li>en <b>[3-4]</b>, on fait afficher le contenu du document reçu. On voit qu’il n’y a aucun habillage HTML, seulement la chaîne jSON ;
+  </li>
 </ul>
+
 <p>Voyons maintenant le rôle de l’entête <strong>[Content-Type]</strong> envoyé au client par le service web. On met le navigateur en mode développeur (F12 en général) et on redemande la même URL. Ci-dessous une copie d’écran d’un navigateur Chrome :</p>
 <p><img src="images/1000000000000562000002AD6FAA7357.png" style="width:15.9cm;height:7.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000562000002AD6FAA7357.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, sélectionner l’onglet <strong>[Network]</strong> ;</li>
-<li>en <strong>[2, 4]</strong> : l’URL demandée par le navigateur ;</li>
-<li>en <strong>[3]</strong>, sélectionner l’onglet <strong>[Headers]</strong> (entêtes HTTP) ;</li>
-<li>en <strong>[5]</strong>, le code de statut de la réponse HTTP reçue ;</li>
-<li>en <strong>[6]</strong>, l’entête indiquant au client qu’il va recevoir un texte jSON. Cela permet au client de s’adapter à la réponse. Ainsi la police de caractères utilisée par Chrome pour afficher une réponse jSON ou une réponse texte basique n’est pas la même ;</li>
+  <li>en <b>[1]</b>, sélectionner l’onglet <b>[Network]</b> ;
+  </li>
+  <li>en <b>[2, 4]</b> : l’URL demandée par le navigateur ;
+  </li>
+  <li>en <b>[3]</b>, sélectionner l’onglet <b>[Headers]</b> (entêtes HTTP) ;
+  </li>
+  <li>en <b>[5]</b>, le code de statut de la réponse HTTP reçue ;
+  </li>
+  <li>en <b>[6]</b>, l’entête indiquant au client qu’il va recevoir un texte jSON. Cela permet au client de s’adapter à la réponse. Ainsi la police de caractères utilisée par Chrome pour afficher une réponse jSON ou une réponse texte basique n’est pas la même ;
+  </li>
 </ul>
+
 <p><img src="images/1000000000000356000000E0A8767336.png" style="width:9.871cm;height:2.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000356000000E0A8767336.png" /></p>
 <ul>
-<li>en <strong>[8]</strong>, on sélectionne l’onglet <strong>[Response]</strong> pour avoir accès au document envoyé par le serveice web, ici une simple chaîne jSON ;</li>
+  <li>en <b>[8]</b>, on sélectionne l’onglet <b>[Response]</b> pour avoir accès au document envoyé par le serveice web, ici une simple chaîne jSON ;
+  </li>
 </ul>
+
 <p><a id="postman"></a>
 <a id="toc48549150"></a></p>
 <h3 id="2242-postman">22.4.2. Postman</h3>
 <p><strong>[Postman]</strong> est l’outil qui va nous permettre d’interroger les différentes URL d’une application web. Il nous permet :</p>
 <ul>
-<li>d’utiliser n’importe quelle URL : celles-ci sont fabriquées à la main ;</li>
-<li>de requêter le serveur web par un GET, POST, PUT, OPTIONS… ;</li>
-<li>de préciser les paramètres du GET ou du POST ;</li>
-<li>de fixer les entêtes HTTP de la requête ;</li>
-<li>de recevoir une réponse au format jSON, XML, HTML,</li>
-<li>d’avoir accès aux entêtes HTTP de la réponse. On a donc ainsi accès à la réponse HTTP complète du serveur ;</li>
+  <li>d’utiliser n’importe quelle URL : celles-ci sont fabriquées à la main ;
+  </li>
+  <li>de requêter le serveur web par un GET, POST, PUT, OPTIONS… ;
+  </li>
+  <li>de préciser les paramètres du GET ou du POST ;
+  </li>
+  <li>de fixer les entêtes HTTP de la requête ;
+  </li>
+  <li>de recevoir une réponse au format jSON, XML, HTML,
+  </li>
+  <li>d’avoir accès aux entêtes HTTP de la réponse. On a donc ainsi accès à la réponse HTTP complète du serveur ;
+  </li>
 </ul>
-<p><strong>[Postman]</strong><strong> est un excellent outil pédagogique pour comprendre la communication client / serveur du protocole HTTP.</strong></p>
+
+<p><strong>[Postman]</strong> <strong>est un excellent outil pédagogique pour comprendre la communication client / serveur du protocole HTTP.</strong></p>
 <p><strong>[Postman]</strong> est disponible à l’URL <strong>[https://www.getpostman.com/downloads/]</strong>. Procédez à l’installation de votre version de <strong>[Postman]</strong>. Au cours de l’installation, on vous demandera de créer un compte : celui-ci sera inutile ici. Le compte <strong>[Postman]</strong> sert à synchroniser différents appareils afin que la configuration de l’un soit répliqué sur un autre. Rien de tout ceci n’est utile ici.</p>
 <p>Une fois installé, <strong>[Postman]</strong> présente l’interface suivante :</p>
-<p><img src="images/10000001000003C6000001933234FC0D.png" style="width:16.391cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003C6000001933234FC0D.png" /></p>
+<p><img src="images/10000001000003C6000001938FD7EEED.png" style="width:16.391cm;height:6.831cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003C6000001938FD7EEED.png" /></p>
 <ul>
-<li>en <strong>[2-3]</strong>, on a accès au paramétrage du produit ;</li>
+  <li>en <b>[2-3]</b>, on a accès au paramétrage du produit ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000003D1000001C6516A9EF0.png" style="width:11.27cm;height:5.241cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D1000001C6516A9EF0.png" /></p>
 <ul>
-<li>en <strong>[6]</strong>, la version utilisée dans ce document ;</li>
+  <li>en <b>[6]</b>, la version utilisée dans ce document ;
+  </li>
 </ul>
+
 <p>Nous allons ici utiliser <strong>[Postman]</strong> pour tester le service web jSON précédent :</p>
 <ul>
-<li>noux exécutons le script <strong>[flask/03/main_01]</strong> ;</li>
-<li>puis nous demandons l’URL <strong>[</strong><strong><span style="color: #505050">http://localhost:5000/</span></strong><strong>]</strong> avec Postman ;</li>
+  <li>noux exécutons le script <b>[flask/03/main_01]</b> ;
+  </li>
+  <li>puis nous demandons l’URL <b>[</b><b><span style="color: #505050">http://localhost:5000/</span></b><b>]</b> avec Postman ;
+
+<img src="images/10000000000005900000019CB152F71C.png" style="width:16.421cm;height:4.762cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005900000019CB152F71C.png" />
+
+
+  </li>
+  <li>en <b>[1]</b>, on crée une requête ;
+  </li>
+  <li>en <b>[2]</b>, ce sera une requête HTTP GET ;
+  </li>
+  <li>en <b>[3]</b>, l’URL du service web interrogé ;
+  </li>
+  <li>en <b>[4]</b>, on envoie la requête au service web ;
+
+<img src="images/100000000000055600000297F2FCFFBB.png" style="width:15.77cm;height:7.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055600000297F2FCFFBB.png" />
+
+
+  </li>
+  <li>en <b>[5]</b>, on sélectionne l’onglet <b>[Body]</b> qui affiche le document reçu ;
+  </li>
+  <li>en <b>[6]</b>, on sélectionne l’onglet <b>[Pretty]</b> qui affiche le document reçu avec une mise en forme appropriée, ici une forme appropriée à une chaîne jSON ;
+  </li>
+  <li>en <b>[7]</b>, le document jSON reçu ;
+  </li>
+  <li>en <b>[8-9]</b>, le document reçu sans mise en forme ;
+
+<img src="images/100000000000047100000134D111797C.png" style="width:13.131cm;height:3.551cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047100000134D111797C.png" />
+
+
+  </li>
 </ul>
-<p><img src="images/10000000000005900000019CB152F71C.png" style="width:16.421cm;height:4.762cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005900000019CB152F71C.png" /></p>
+
 <ul>
-<li>en <strong>[1]</strong>, on crée une requête ;</li>
-<li>en <strong>[2]</strong>, ce sera une requête HTTP GET ;</li>
-<li>en <strong>[3]</strong>, l’URL du service web interrogé ;</li>
-<li>en <strong>[4]</strong>, on envoie la requête au service web ;</li>
+  <li>en <b>[10]</b>, on affiche les entêtes HTTP reçus par Postman ;
+  </li>
+  <li>en <b>[11]</b>, le statut HTTP de la réponse reçue ;
+  </li>
+  <li>en <b>[12]</b>, les entêtes HTTP reçus ;
+  </li>
+  <li>en <b>[13]</b>, l’entête <b>[Content-type]</b> qui a permis à Postman de savoir qu’il allait recevoir une chaîne jSON. Postman a utilisé cette information pour mettre en forme, d’une certaine façon, le document reçu ;
+  </li>
 </ul>
-<p><img src="images/100000000000055600000297F2FCFFBB.png" style="width:15.77cm;height:7.651cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055600000297F2FCFFBB.png" /></p>
-<ul>
-<li>en <strong>[5]</strong>, on sélectionne l’onglet <strong>[Body]</strong> qui affiche le document reçu ;</li>
-<li>en <strong>[6]</strong>, on sélectionne l’onglet <strong>[Pretty]</strong> qui affiche le document reçu avec une mise en forme appropriée, ici une forme appropriée à une chaîne jSON ;</li>
-<li>en <strong>[7]</strong>, le document jSON reçu ;</li>
-<li>en <strong>[8-9]</strong>, le document reçu sans mise en forme ;</li>
-</ul>
-<p><img src="images/100000000000047100000134D111797C.png" style="width:13.131cm;height:3.551cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047100000134D111797C.png" /></p>
-<ul>
-<li>en <strong>[10]</strong>, on affiche les entêtes HTTP reçus par Postman ;</li>
-<li>en <strong>[11]</strong>, le statut HTTP de la réponse reçue ;</li>
-<li>en <strong>[12]</strong>, les entêtes HTTP reçus ;</li>
-<li>en <strong>[13]</strong>, l’entête <strong>[Content-type]</strong> qui a permis à Postman de savoir qu’il allait recevoir une chaîne jSON. Postman a utilisé cette information pour mettre en forme, d’une certaine façon, le document reçu ;</li>
-</ul>
+
 <p>Il y a une autre façon d’utiliser Postman. Elle consiste à utiliser la console Postman (Ctrl-Alt-C). Celle-ci permet de voir le dialogue client / serveur. Outre la séquence Ctrl-Alt-C, la console Postman est disponible via une icône en bas à gauche de la fenêtre principale de Postman :</p>
 <p><img src="images/10000000000001C7000001166D0BCD60.png" style="width:5.255cm;height:3.209cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001C7000001166D0BCD60.png" /></p>
 <p>La console Postman mémorise les dialogues client / serveur qui ont lieu lorsqu’une requête Postman est exécutée :</p>
 <p><img src="images/1000000000000471000002F877167F67.png" style="width:13.14cm;height:8.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000471000002F877167F67.png" /></p>
 <ul>
-<li>en <strong>[3]</strong>, la liste des requêtes faites par Postman depuis qu’il a été lancé. Les plus récentes sont en bas de la liste ;</li>
-<li>en <strong>[4]</strong>, la requête HTTP faite par Postman ;</li>
-<li>en <strong>[5-6]</strong>, la réponse HTTP faite par le serveur web ;</li>
-<li>en <strong>[7]</strong>, on peut voir les logs en mode <strong>[raw]</strong>, ç-à-d sans artifice de présentation ;</li>
+  <li>en <b>[3]</b>, la liste des requêtes faites par Postman depuis qu’il a été lancé. Les plus récentes sont en bas de la liste ;
+  </li>
+  <li>en <b>[4]</b>, la requête HTTP faite par Postman ;
+  </li>
+  <li>en <b>[5-6]</b>, la réponse HTTP faite par le serveur web ;
+  </li>
+  <li>en <b>[7]</b>, on peut voir les logs en mode <b>[raw]</b>, ç-à-d sans artifice de présentation ;
+  </li>
 </ul>
+
 <p>En mode <strong>[raw]</strong> la fenêtre de la console devient la suivante :</p>
 <p><img src="images/1000000000000475000001F5CC193074.png" style="width:13.151cm;height:5.792cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000475000001F5CC193074.png" /></p>
 <ul>
-<li>en <strong>[8]</strong>, la requête HTTP faite par Postman au serveur web ;</li>
-<li>en <strong>[9]</strong>, la réponse HTTP faite par le serveur web ;</li>
-<li>en <strong>[10]</strong>, on peut revenir au mode <strong>[pretty logs]</strong> ;</li>
+  <li>en <b>[8]</b>, la requête HTTP faite par Postman au serveur web ;
+  </li>
+  <li>en <b>[9]</b>, la réponse HTTP faite par le serveur web ;
+  </li>
+  <li>en <b>[10]</b>, on peut revenir au mode <b>[pretty logs]</b> ;
+  </li>
 </ul>
+
 <p>Afin de faciliter les explications, nous numéroterons les lignes obtenues à partir de la console Postman.</p>
 <p>Pour le client :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1">1</a></span>
@@ -2484,9 +2655,12 @@
 </code></pre></div></td></tr></table></div>
 <p>A partir de maintenant, nous utiliserons principalement :</p>
 <ul>
-<li><strong>[Postman]</strong> comme client web ;</li>
-<li>la console <strong>[Postman]</strong> en <strong>[raw mode]</strong> pour expliquer le dialogue client / serveur ;</li>
+  <li><b>[Postman]</b> comme client web ;
+  </li>
+  <li>la console <b>[Postman]</b> en <b>[raw mode]</b> pour expliquer le dialogue client / serveur ;
+  </li>
 </ul>
+
 <p><a id="toc48549151"></a></p>
 <h3 id="2243-script-main_02">22.4.3. script [main_02]</h3>
 <p><img src="images/10000000000001100000012C5A3D3274.png" style="width:3.151cm;height:3.47cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001100000012C5A3D3274.png" /></p>
@@ -2528,21 +2702,31 @@
 </code></pre></div>
 
 <ul>
-<li>le script <strong>[main_02]</strong>est analogue au script <strong>[main_01]</strong>. Il en diffère sur deux points :<ul>
-<li>ligne 22 : le document envoyé au client est une chaîne de caractères brute, pas une chaîne jSON ;</li>
-<li>ligne 24 : ceci est reflété dans l’entête HTTP <strong>[Content-Type]</strong> qui indique le type <strong>[text/plain]</strong> pour le document ;</li>
+  <li>le script <b>[main_02]</b>est analogue au script <b>[main_01]</b>. Il en diffère sur deux points :
+    <ul>
+      <li>ligne 22 : le document envoyé au client est une chaîne de caractères brute, pas une chaîne jSON ;
+      </li>
+      <li>ligne 24 : ceci est reflété dans l’entête HTTP <b>[Content-Type]</b> qui indique le type <b>[text/plain]</b> pour le document ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Nous exécutons le script web <strong>[main_02]</strong> puis utilisons <strong>[Postman]</strong> pour l’interroger :</p>
 <p><img src="images/1000000000000591000002258E75C96F.png" style="width:16.431cm;height:6.34cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000591000002258E75C96F.png" /></p>
 <ul>
-<li>en <strong>[1-3]</strong>, on fait la requête au service web ;</li>
-<li>en <strong>[5]</strong>, le statut OK de la réponse ;</li>
-<li>en <strong>[4, 6]</strong>, les entêtes HTTP de la réponse ;</li>
-<li>en <strong>[7]</strong>, l’entête <strong>[Content-Type]</strong> ;</li>
-<li>en <strong>[8-10]</strong>, le document envoyé par le service web, une chaîne de caractères ;</li>
+  <li>en <b>[1-3]</b>, on fait la requête au service web ;
+  </li>
+  <li>en <b>[5]</b>, le statut OK de la réponse ;
+  </li>
+  <li>en <b>[4, 6]</b>, les entêtes HTTP de la réponse ;
+  </li>
+  <li>en <b>[7]</b>, l’entête <b>[Content-Type]</b> ;
+  </li>
+  <li>en <b>[8-10]</b>, le document envoyé par le service web, une chaîne de caractères ;
+  </li>
 </ul>
+
 <p>La console Postman donne les logs suivants :</p>
 <p>Requête du client :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -2618,26 +2802,39 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 23 : on provoque une erreur en instanciant une personne incorrecte ;</li>
-<li>lignes 27-29 : à cause de l’erreur :<ul>
-<li>ligne 28 : on prépare une réponse HTTP ayant comme contenu le message d’erreur ;</li>
-<li>ligne 29 : on donne au code de statut HTTP une valeur d’erreur <strong>[500 Internal Server Error]</strong> ;</li>
+  <li>ligne 23 : on provoque une erreur en instanciant une personne incorrecte ;
+  </li>
+  <li>lignes 27-29 : à cause de l’erreur :
+    <ul>
+      <li>ligne 28 : on prépare une réponse HTTP ayant comme contenu le message d’erreur ;
+      </li>
+      <li>ligne 29 : on donne au code de statut HTTP une valeur d’erreur <b>[500 Internal Server Error]</b> ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 34 : on indique au client qu’on lui envoie un texte brut ;
+  </li>
+  <li>ligne 36 : on envoie la réponse HTTP au client ;
+  </li>
 </ul>
-</li>
-<li>ligne 34 : on indique au client qu’on lui envoie un texte brut ;</li>
-<li>ligne 36 : on envoie la réponse HTTP au client ;</li>
-</ul>
+
 <p>Nous lançons le service web <strong>[main_03]</strong> et nous utilisons Postman pour l’interroger :</p>
 <p><img src="images/100000000000047000000196AB227CD6.png" style="width:13.131cm;height:4.68cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000047000000196AB227CD6.png" /></p>
 <ul>
-<li>en <strong>[1-3]</strong>, nous envoyons la requête ;</li>
-<li>en <strong>[4]</strong>, on obtient une réponse avec un code de statut <strong>[500 INTERNAL SERVER ERROR]</strong> ;</li>
-<li>en <strong>[5-7]</strong> : la réponse est un texte décrivant l’erreur qui s’est produite ;</li>
+  <li>en <b>[1-3]</b>, nous envoyons la requête ;
+  </li>
+  <li>en <b>[4]</b>, on obtient une réponse avec un code de statut <b>[500 INTERNAL SERVER ERROR]</b> ;
+  </li>
+  <li>en <b>[5-7]</b> : la réponse est un texte décrivant l’erreur qui s’est produite ;
+  </li>
 </ul>
+
 <p><img src="images/10000000000004730000010EBBAEA7D2.png" style="width:13.131cm;height:3.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004730000010EBBAEA7D2.png" /></p>
 <ul>
-<li>en <strong>[8-10]</strong>, les entêtes HTTP de la réponse du service web ;</li>
+  <li>en <b>[8-10]</b>, les entêtes HTTP de la réponse du service web ;
+  </li>
 </ul>
+
 <p>Dans la console Postman, les résultats en mode <strong>[raw]</strong> sont les suivants :</p>
 <p>Requête du client :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
@@ -2728,64 +2925,96 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : nous introduisons un changement. Nous précisons quelles sont les verbes autorisés dans la requête du client. Postman en donne la liste :</li>
+  <li>ligne 9 : nous introduisons un changement. Nous précisons quelles sont les verbes autorisés dans la requête du client. Postman en donne la liste :
+  </li>
 </ul>
+
 <p><img src="images/100000000000011B0000030AF9D48BCD.png" style="width:3.26cm;height:8.97cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000011B0000030AF9D48BCD.png" /></p>
 <p>Les deux premiers <strong>[GET, POST]</strong> sont les plus utilisés et seront également les seuls à être utilisés dans ce document. Pour en revenir à la ligne 9 du code, le paramètre <strong>[methods]</strong> contient la liste des méthodes de la liste ci-dessus autorisées par l’URL. En l’absence de ce paramètre, seule la méthode <strong>[GET]</strong> est autorisée. C’est ce qui s’est passé jusqu’à maintenant ;</p>
 <ul>
-<li>ligne 12 : nous allons construire le dictionnaire <strong>[request_data]</strong> ;</li>
-<li>ligne 13 : la requête du client est disponible dans un objet prédéfini <strong>[request]</strong>, importé ligne 2, de type <strong>[werkzeug.local.LocalProxy]</strong>.  Les lignes qui suivent récupèrent divers attributs de cet objet ;</li>
-<li>plutôt que de détailler chaque attribut de l’objet <strong>[request]</strong>, nous allons exécuter ce code et regarder les résultats. On comprendra alors mieux la signification des différents attributs affichés ;</li>
-<li>ligne 42 : le dictionnaire <strong>[request_data]</strong> sera le contenu de la réponse HTTP. On se rappelle que celui-ci doit être du texte. Flask transforme automatiquement les dictionnaires en chaînes jSON ;</li>
-<li>ligne 44 : on dit au client qu’il va recevoir du jSON ;</li>
-<li>ligne 46 : on envoie la réponse au client ;</li>
+  <li>ligne 12 : nous allons construire le dictionnaire <b>[request_data]</b> ;
+  </li>
+  <li>ligne 13 : la requête du client est disponible dans un objet prédéfini <b>[request]</b>, importé ligne 2, de type <b>[werkzeug.local.LocalProxy]</b>.  Les lignes qui suivent récupèrent divers attributs de cet objet ;
+  </li>
+  <li>plutôt que de détailler chaque attribut de l’objet <b>[request]</b>, nous allons exécuter ce code et regarder les résultats. On comprendra alors mieux la signification des différents attributs affichés ;
+  </li>
+  <li>ligne 42 : le dictionnaire <b>[request_data]</b> sera le contenu de la réponse HTTP. On se rappelle que celui-ci doit être du texte. Flask transforme automatiquement les dictionnaires en chaînes jSON ;
+  </li>
+  <li>ligne 44 : on dit au client qu’il va recevoir du jSON ;
+  </li>
+  <li>ligne 46 : on envoie la réponse au client ;
+  </li>
 </ul>
+
 <p>Avec le client Postman, nous envoyons la requête suivante au service web précédent :</p>
 <p><img src="images/1000000000000355000001279C3C2397.png" style="width:9.861cm;height:3.402cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000355000001279C3C2397.png" /></p>
 <ul>
-<li>en <strong>[1-2]</strong>, la requête envoyée ;</li>
-<li>en <strong>[2]</strong>, la requête est paramétrée. Les paramètres sont accolés à l’URL sous la forme <strong>[ ?param1=valeur1&amp;param2=valeur2]</strong>. Il y a deux façons de saisir ces paramètres dans Postman :<ul>
-<li>les écrire directement dans l’URL ;</li>
-<li>les écrire en <strong>[3-4]</strong> ;</li>
+  <li>en <b>[1-2]</b>, la requête envoyée ;
+  </li>
+  <li>en <b>[2]</b>, la requête est paramétrée. Les paramètres sont accolés à l’URL sous la forme <b>[ ?param1=valeur1&amp;param2=valeur2]</b>. Il y a deux façons de saisir ces paramètres dans Postman :
+    <ul>
+      <li>les écrire directement dans l’URL ;
+      </li>
+      <li>les écrire en <b>[3-4]</b> ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Les deux méthodes sont équivalentes ;</p>
 <p>Nous ajoutons d’autres paramètres à la requête :</p>
 <p><img src="images/10000000000003550000016362893FC7.png" style="width:9.842cm;height:4.089cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003550000016362893FC7.png" /></p>
 <ul>
-<li>en <strong>[5-7]</strong>, nous ajoutons des paramètres dans le corps (=body) de le requête. Alors que les paramètres de l’URL sont visibles par l’utilisateur d’un navigateur web, ceux qui font partie du corps de la requête ne sont pas visibles. Le navigateur (ou Postman ici) les envoie au serveur après les entêtes HTTP. La requête du client web a alors la même structure que la réponse du serveur web : des entêtes HTTP suivis par un document. Cela va faire apparaître deux nouveaux entêtes HTTP dans la requête du client :<ul>
-<li><strong>[Content-Type]</strong> : le client dit au serveur quel type de document il envoie ;</li>
-<li><strong>[Content-Length]</strong> : la taille du document en octets ;</li>
+  <li>en <b>[5-7]</b>, nous ajoutons des paramètres dans le corps (=body) de le requête. Alors que les paramètres de l’URL sont visibles par l’utilisateur d’un navigateur web, ceux qui font partie du corps de la requête ne sont pas visibles. Le navigateur (ou Postman ici) les envoie au serveur après les entêtes HTTP. La requête du client web a alors la même structure que la réponse du serveur web : des entêtes HTTP suivis par un document. Cela va faire apparaître deux nouveaux entêtes HTTP dans la requête du client :
+    <ul>
+      <li><b>[Content-Type]</b> : le client dit au serveur quel type de document il envoie ;
+      </li>
+      <li><b>[Content-Length]</b> : la taille du document en octets ;
+      </li>
+    </ul>
+  </li>
+  <li>en <b>[6]</b>, le codage à employer pour les paramètres déclarés en <b>[7]</b>. Ceux-ci peuvent être codés de diverses façons. <b>[x-www-form-urlencoded]</b> est une méthode utilisée fréquemment par les navigateurs ;
+  </li>
 </ul>
-</li>
-<li>en <strong>[6]</strong>, le codage à employer pour les paramètres déclarés en <strong>[7]</strong>. Ceux-ci peuvent être codés de diverses façons. <strong>[x-www-form-urlencoded]</strong> est une méthode utilisée fréquemment par les navigateurs ;</li>
-</ul>
+
 <p>On peut voir la requête qui va être générée :</p>
 <p><img src="images/10000000000005C5000001E4CE668DE2.png" style="width:17.061cm;height:5.591cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005C5000001E4CE668DE2.png" /></p>
 <p>La réponse à cette requête est la suivante :</p>
 <p><img src="images/100000000000029400000327DAF520BB.png" style="width:7.61cm;height:9.311cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000029400000327DAF520BB.png" /></p>
 <ul>
-<li>en <strong>[1-5]</strong>, on a reçu une chaîne jSON <strong>[3]</strong> ;</li>
-<li>ce qui généralement intéresse le service web, ce sont les paramètres de l’URL <strong>[ ?param1=valeur1&amp;param2=valeur2]</strong> et ceux qui ont été transmis dans le corps de la requête (document). C’est comme ça, en général, que le client lui transmet des informations. On voit en <strong>[5]</strong> que les paramètres de l’URL sont disponibles dans <strong>[request.args]</strong> ;</li>
+  <li>en <b>[1-5]</b>, on a reçu une chaîne jSON <b>[3]</b> ;
+  </li>
+  <li>ce qui généralement intéresse le service web, ce sont les paramètres de l’URL <b>[ ?param1=valeur1&amp;param2=valeur2]</b> et ceux qui ont été transmis dans le corps de la requête (document). C’est comme ça, en général, que le client lui transmet des informations. On voit en <b>[5]</b> que les paramètres de l’URL sont disponibles dans <b>[request.args]</b> ;
+  </li>
 </ul>
+
 <p>Le reste de la réponse est le suivant :</p>
 <p><img src="images/10000000000005A900000371BAFD4484.png" style="width:16.731cm;height:10.171cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005A900000371BAFD4484.png" /></p>
 <ul>
-<li>en <strong>[9]</strong>, les attributs des paramètres mis dans le corps de la requête :<ul>
-<li><strong>[content_type]</strong> est le type du document accompagnant la requête. On a vu que ce document contenait des informations de type <strong>[param=valeur]</strong> encodées sous la forme <strong>[x-www-form-urlencoded]</strong>. Postman a donc généré un entête HTTP <strong>[Content-Type]</strong> indiquant la nature du document ;</li>
-<li><strong>[content_length]</strong> est la taille en octets de ce document ;</li>
+  <li>en <b>[9]</b>, les attributs des paramètres mis dans le corps de la requête :
+    <ul>
+      <li><b>[content_type]</b> est le type du document accompagnant la requête. On a vu que ce document contenait des informations de type <b>[param=valeur]</b> encodées sous la forme <b>[x-www-form-urlencoded]</b>. Postman a donc généré un entête HTTP <b>[Content-Type]</b> indiquant la nature du document ;
+      </li>
+      <li><b>[content_length]</b> est la taille en octets de ce document ;
+      </li>
+    </ul>
+  </li>
+  <li>en <b>[10]</b>, l’attribut <b>[request.environ]</b> contient de nombreuses informations sur l’environnement dans lequel la requête du client est traitée. La plupart de ces informations se retrouvent dans les autres attributs de l’objet <b>[request]</b> ;
+  </li>
+  <li>en <b>[11]</b>, les paramètres présents dans le corps de la requête sont disponibles dans l’attribut <b>[request.form]</b> ;
+  </li>
+  <li>en <b>[12]</b>, la méthode utilisée pour envoyer la requête, ici la méthode <b>[GET]</b> ;
+  </li>
+  <li>en <b>[13]</b>, l’attribut <b>[request.values]</b> est le dictionnaire de tous les paramètres, ceux de l’URL et ceux du corps du document. Pour obtenir les paramètres de la requête, on utilisera l’attribut :
+    <ul>
+      <li><b>[request.args]</b> pour avoir ceux présents dans l’URL ;
+      </li>
+      <li><b>[request.form]</b> pour avoir ceux présents dans le corps du document ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>en <strong>[10]</strong>, l’attribut <strong>[request.environ]</strong> contient de nombreuses informations sur l’environnement dans lequel la requête du client est traitée. La plupart de ces informations se retrouvent dans les autres attributs de l’objet <strong>[request]</strong> ;</li>
-<li>en <strong>[11]</strong>, les paramètres présents dans le corps de la requête sont disponibles dans l’attribut <strong>[request.form]</strong> ;</li>
-<li>en <strong>[12]</strong>, la méthode utilisée pour envoyer la requête, ici la méthode <strong>[GET]</strong> ;</li>
-<li>en <strong>[13]</strong>, l’attribut <strong>[request.values]</strong> est le dictionnaire de tous les paramètres, ceux de l’URL et ceux du corps du document. Pour obtenir les paramètres de la requête, on utilisera l’attribut :<ul>
-<li><strong>[request.args]</strong> pour avoir ceux présents dans l’URL ;</li>
-<li><strong>[request.form]</strong> pour avoir ceux présents dans le corps du document ;</li>
-</ul>
-</li>
-</ul>
+
 <p>Dans la console Postman, les logs sont les suivants :</p>
 <p>Requête du client :</p>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
@@ -2813,10 +3042,14 @@
 <a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="n">nom</span><span class="o">=</span><span class="n">s</span><span class="o">%</span><span class="n">C3</span><span class="o">%</span><span class="n">A9l</span><span class="o">%</span><span class="n">C3</span><span class="o">%</span><span class="n">A9n</span><span class="o">%</span><span class="n">C3</span><span class="o">%</span><span class="n">A9</span><span class="o">&amp;</span><span class="n">pr</span><span class="o">%</span><span class="n">C3</span><span class="o">%</span><span class="n">A9nom</span><span class="o">=</span><span class="n">agla</span><span class="o">%</span><span class="n">C3</span><span class="o">%</span><span class="n">AB</span><span class="o">&amp;%</span><span class="n">C3</span><span class="o">%</span><span class="n">A2ge</span><span class="o">=</span><span class="mi">77</span>
 </code></pre></div></td></tr></table></div>
 <ul>
-<li>ligne 9 : le type du document envoyé ligne 12 au serveur ;</li>
-<li>ligne 11 : les entêtes HTTP de la requête sont séparés du document envoyé par une ligne vide. C’est comme cela que le serveur repère la fin des entêtes HTTP du client ;</li>
-<li>ligne 12 : le document ‘url-encodé’. Tous les caractères accentués ont subi un encodage ;</li>
+  <li>ligne 9 : le type du document envoyé ligne 12 au serveur ;
+  </li>
+  <li>ligne 11 : les entêtes HTTP de la requête sont séparés du document envoyé par une ligne vide. C’est comme cela que le serveur repère la fin des entêtes HTTP du client ;
+  </li>
+  <li>ligne 12 : le document ‘url-encodé’. Tous les caractères accentués ont subi un encodage ;
+  </li>
 </ul>
+
 <p>La réponse du client est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">HTTP/1.0 200 OK</span>
@@ -2888,26 +3121,38 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-5 : les entêtes HTTP de la réponse terminés par une ligne vide ;</li>
-<li>lignes 41-45 : les éléments accentués ont subi un encodage UTF-8 ;</li>
+  <li>lignes 1-5 : les entêtes HTTP de la réponse terminés par une ligne vide ;
+  </li>
+  <li>lignes 41-45 : les éléments accentués ont subi un encodage UTF-8 ;
+  </li>
 </ul>
+
 <p>Si maintenant on utilise la méthode <strong>[POST]</strong> pour envoyer la même requête avec les mêmes paramètres, on obtiendra la même réponse si ce n’est qu’en <strong>[12]</strong>, on aura <strong>[‘method’ : ‘POST’]</strong>.</p>
 <p>Aussi quelle est la différence entre les méthodes GET et POST ? La différence est mince et a été instituée par l’usage qu’en ont fait historiquement les navigateurs :</p>
 <ul>
-<li>les paramètres dans l’URL sont pratiques parce qu’une URL ainsi paramétrée peut servir de lien dans un document HTML. L’utilisateur peut également changer les paramètres lui-même pour obtenir des réponses différentes du serveur. Dans ce cas, les navigateurs utilisent couramment la méthode <strong>[GET]</strong> et il n’y a pas de corps (content_length=0) dans la requête envoyée au serveur web (pas de paramètres cachés) ;</li>
-<li>parfois on ne veut pas que les paramètres soient affichés dans l’URL. C’est le cas des mots de passe envoyés au serveur. Par ailleurs, la taille occupée par les paramètres de l’URL est limitée (une URL ne peut dépasser une certaine taille). Les paramètres du corps de la requête n’ont pas cette limitation. Egalement, beaucoup de paramètres dans l’URL la rendent illisible. Prenons le cas courant d’un formulaire d’inscription à un site web. Historiquement, lorsque les pages HTML n’embarquaient pas encore du Javascript, les navigateurs envoyaient les renseignements saisis par un POST. On parlait alors de valeurs postées ;</li>
+  <li>les paramètres dans l’URL sont pratiques parce qu’une URL ainsi paramétrée peut servir de lien dans un document HTML. L’utilisateur peut également changer les paramètres lui-même pour obtenir des réponses différentes du serveur. Dans ce cas, les navigateurs utilisent couramment la méthode <b>[GET]</b> et il n’y a pas de corps (content_length=0) dans la requête envoyée au serveur web (pas de paramètres cachés) ;
+  </li>
+  <li>parfois on ne veut pas que les paramètres soient affichés dans l’URL. C’est le cas des mots de passe envoyés au serveur. Par ailleurs, la taille occupée par les paramètres de l’URL est limitée (une URL ne peut dépasser une certaine taille). Les paramètres du corps de la requête n’ont pas cette limitation. Egalement, beaucoup de paramètres dans l’URL la rendent illisible. Prenons le cas courant d’un formulaire d’inscription à un site web. Historiquement, lorsque les pages HTML n’embarquaient pas encore du Javascript, les navigateurs envoyaient les renseignements saisis par un POST. On parlait alors de valeurs postées ;
+  </li>
 </ul>
+
 <p>Donc au début de la programmation web :</p>
 <ul>
-<li>les méthodes GET étaient plutôt associées à la demande d’informations délivrées par un serveur web ;</li>
-<li>les méthodes POST étaient plutôt associées à l’envoi d’informations du navigateur vers le serveur. Le serveur était alors ‘enrichi’ par celles-ci ;</li>
+  <li>les méthodes GET étaient plutôt associées à la demande d’informations délivrées par un serveur web ;
+  </li>
+  <li>les méthodes POST étaient plutôt associées à l’envoi d’informations du navigateur vers le serveur. Le serveur était alors ‘enrichi’ par celles-ci ;
+  </li>
 </ul>
+
 <p>Depuis Javascript est passé par là. Alors que dans les exemples précédents, le développeur n’avait pas la main (cliquer sur un lien déclenchait forcément un GET, valider un formulaire passait forcément par un POST), le Javascript leur a redonné la main. Dans ce modèle, la page HTML est associée à du code Javascript qui peut court-circuiter le navigateur. Ainsi le clic sur un lien peut-il être intercepté par le code Javascript qui peut ensuite exécuter un code faisant une requête au serveur. Cette requête sera transparente pour l’utilisateur. Il ne la verra pas. Ce code est un client web et comme nous l’avons fait avec Postman le développeur peut créer la requête qu’il veut. Pour revenir sur le clic sur un lien, il peut réaliser un POST alors que par défaut le navigateur aurait réalisé un GET. Ces évolutions ont rendu les différences entre GET et POST moins pertinentes.</p>
 <p>Cependant, les développeurs adoptent souvent les règles suivantes :</p>
 <ul>
-<li>un GET ne doit pas modifier l’état du serveur. Des GET successifs réalisés avec les mêmes paramètres dans l’URL doivent ramener le même document. De plus le GET n’a le plus souvent pas de corps (pas de document associé), seulement des paramètres dans l’URL ;</li>
-<li>le POST peut modifier l’état du serveur. Les paramètres sont le plus souvent envoyés dans le corps de la requête. On parle alors de valeurs postées. L’exemple du formulaire est le plus éloquent : les valeurs saisies par l’utilisateur vont être mises dans le corps du POST et le serveur va les enregistrer quelque part, souvent une base de données ; </li>
+  <li>un GET ne doit pas modifier l’état du serveur. Des GET successifs réalisés avec les mêmes paramètres dans l’URL doivent ramener le même document. De plus le GET n’a le plus souvent pas de corps (pas de document associé), seulement des paramètres dans l’URL ;
+  </li>
+  <li>le POST peut modifier l’état du serveur. Les paramètres sont le plus souvent envoyés dans le corps de la requête. On parle alors de valeurs postées. L’exemple du formulaire est le plus éloquent : les valeurs saisies par l’utilisateur vont être mises dans le corps du POST et le serveur va les enregistrer quelque part, souvent une base de données ; 
+  </li>
 </ul>
+
 <p>Dans la suite du document, nous ne nous astreignons à respecter aucune règle particulière.</p>
 <p><a id="toc48549154"></a></p>
 <h2 id="226-scripts-flask-05-gestion-de-la-memoire-de-lutilisateur">22.6. scripts [flask-05] : gestion de la mémoire de l’utilisateur</h2>
@@ -2915,37 +3160,56 @@
 <h3 id="2261-introduction">22.6.1. Introduction</h3>
 <p>Dans les exemples client / serveur précédents on avait le fonctionnement suivant :</p>
 <ul>
-<li>le client ouvre une connexion vers le port 80 de la machine du service web ;</li>
-<li>il envoie la séquence de texte : en-têtes HTTP, ligne vide, <strong>[document]</strong><strong> ;</strong></li>
-<li>en réponse, le serveur envoie une séquence du même type ;</li>
-<li>le serveur clôt la connexion vers le client ;</li>
-<li>le client clôt la connexion vers le serveur ;</li>
+  <li>le client ouvre une connexion vers le port 80 de la machine du service web ;
+  </li>
+  <li>il envoie la séquence de texte : en-têtes HTTP, ligne vide, <b>[document]</b><b> ;</b>
+  </li>
+  <li>en réponse, le serveur envoie une séquence du même type ;
+  </li>
+  <li>le serveur clôt la connexion vers le client ;
+  </li>
+  <li>le client clôt la connexion vers le serveur ;
+  </li>
 </ul>
+
 <p>Si le même client fait peu après une nouvelle demande au serveur web, une nouvelle connexion est créée entre le client et le serveur. Celui-ci ne peut pas savoir si le client qui se connecte est déjà venu ou si c&#x27;est une première demande. Entre deux connexions, le serveur &quot;oublie&quot; son client. Pour cette raison, on dit que le protocole HTTP est un <strong>protocole sans état</strong>. Il est pourtant utile que le serveur se souvienne de ses clients. Ainsi si une application est sécurisée, le client va envoyer au serveur un login et un mot de passe pour s&#x27;identifier. Si le serveur &quot;oublie&quot; son client entre deux connexions, celui-ci devra s&#x27;identifier à chaque nouvelle connexion, ce qui n&#x27;est pas envisageable.</p>
 <p>Pour faire le suivi d&#x27;un client, le serveur peut procéder de diverses façons :</p>
 <ol>
-<li>lors d&#x27;une première demande d&#x27;un client, il inclut dans sa réponse un identifiant que le client doit ensuite lui renvoyer à chaque nouvelle demande. Grâce à cet identifiant, différent pour chaque client, le serveur peut reconnaître un client. Il peut alors gérer une mémoire pour ce client sous la forme d&#x27;une mémoire associée de façon unique à l&#x27;identifiant du client. C’est ainsi que fonctionnent, par exemple, les services PHP ;</li>
-<li>lors d&#x27;une première demande d&#x27;un client, il inclut dans sa réponse non pas un identifiant mais la mémoire de l’utilisateur elle-même. Il ne garde rien côté serveur. Pour maintenir sa mémoire, le client web doit renvoyer cette mémoire à chaque nouvelle requête. Celle-ci est modifiée (ou non) à chaque nouvelle requête et renvoyée (ou non) au client. C’est la méthode utilisée par le framework Flask ;</li>
+  <li>lors d&#x27;une première demande d&#x27;un client, il inclut dans sa réponse un identifiant que le client doit ensuite lui renvoyer à chaque nouvelle demande. Grâce à cet identifiant, différent pour chaque client, le serveur peut reconnaître un client. Il peut alors gérer une mémoire pour ce client sous la forme d&#x27;une mémoire associée de façon unique à l&#x27;identifiant du client. C’est ainsi que fonctionnent, par exemple, les services PHP ;
+  </li>
+  <li>lors d&#x27;une première demande d&#x27;un client, il inclut dans sa réponse non pas un identifiant mais la mémoire de l’utilisateur elle-même. Il ne garde rien côté serveur. Pour maintenir sa mémoire, le client web doit renvoyer cette mémoire à chaque nouvelle requête. Celle-ci est modifiée (ou non) à chaque nouvelle requête et renvoyée (ou non) au client. C’est la méthode utilisée par le framework Flask ;
+  </li>
 </ol>
+
 <p>Les différences entre les deux méthodes sont les suivantes :</p>
 <ul>
-<li>la méthode 1 est moins gourmande en bande passante. Seul est échangé entre le client et le serveur un identifiant. Lorsque la mémoire de l’utilisateur grandit, cela n’a aucune conséquence sur l’identifiant qui reste le même. Ce n’est pas le cas de la méthode 2 où la mémoire de l’utilisateur est échangée à chaque requête et peut grossir au fil des requêtes ;</li>
-<li>la méthode 1 est plus gourmande en espace mémoire. En effet, le serveur stocke la mémoire de l’utilisateur sur ses systèmes de fichiers. S’il y a un million d’utilisateurs, cela peut peut-être poser un problème. La méthode 2 ne stocke rien sur le serveur ;</li>
+  <li>la méthode 1 est moins gourmande en bande passante. Seul est échangé entre le client et le serveur un identifiant. Lorsque la mémoire de l’utilisateur grandit, cela n’a aucune conséquence sur l’identifiant qui reste le même. Ce n’est pas le cas de la méthode 2 où la mémoire de l’utilisateur est échangée à chaque requête et peut grossir au fil des requêtes ;
+  </li>
+  <li>la méthode 1 est plus gourmande en espace mémoire. En effet, le serveur stocke la mémoire de l’utilisateur sur ses systèmes de fichiers. S’il y a un million d’utilisateurs, cela peut peut-être poser un problème. La méthode 2 ne stocke rien sur le serveur ;
+  </li>
 </ul>
+
 <p>Techniquement cela se passe ainsi dans les deux méthodes :</p>
 <ul>
-<li>dans la réponse à un nouveau client, le serveur inclut l&#x27;en-tête HTTP <strong>[Set-Cookie : MotClé=Identifiant]</strong> ou <strong>[Set-Cookie : mémoire]</strong>. Avec la méthode 1, il ne fait cela qu&#x27;à la première demande. Avec la méthode 2, il le fait à chaque fois que la mémoire de l’utilisateur change ;</li>
-<li>dans ses demandes, le client renvoie systématiquement ce qu’il a reçu, un identifiant ou une mémoire. Il le fait via l&#x27;en-tête HTTP <strong>[Cookie : MotClé=Valeur]</strong> ;</li>
+  <li>dans la réponse à un nouveau client, le serveur inclut l&#x27;en-tête HTTP <b>[Set-Cookie : MotClé=Identifiant]</b> ou <b>[Set-Cookie : mémoire]</b>. Avec la méthode 1, il ne fait cela qu&#x27;à la première demande. Avec la méthode 2, il le fait à chaque fois que la mémoire de l’utilisateur change ;
+  </li>
+  <li>dans ses demandes, le client renvoie systématiquement ce qu’il a reçu, un identifiant ou une mémoire. Il le fait via l&#x27;en-tête HTTP <b>[Cookie : MotClé=Valeur]</b> ;
+  </li>
 </ul>
+
 <p>On peut se demander comment le serveur fait pour savoir qu&#x27;il a affaire à un nouveau client plutôt qu&#x27;à un client déjà venu. C&#x27;est la présence de l&#x27;en-tête HTTP <em>Cookie</em> dans les en-têtes HTTP du client qui le lui indique. Pour un nouveau client, cet en-tête est absent.</p>
 <p>L&#x27;ensemble des connexions d&#x27;un client donné est appelé une <strong>session</strong>.</p>
 <p>Le serveur peut maintenir d’autres types de mémoire :</p>
 <p><img src="images/10000000000003CF000001C54567FD75.png" style="width:11.261cm;height:5.22cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003CF000001C54567FD75.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, la mémoire de la requête est particulière. Elle est utilisée lorsque la demande du client web est traitée non pas par un service (ou application) mais par plusieurs. Pour passer des informations au service i+1, le service i peut enrichir la requête traitée (request) avec ces informations. C’est ce qu’on appelle la mémoire de niveau requête. Nous n’utiliserons pas ce type de mémoire dans ce document ;</li>
-<li>en <strong>[2, 4]</strong>, la mémoire de l’utilisateur que nous venons de décrire. Elle peut être implémentée localement <strong>[2]</strong> ou maintenue à l’aide du client <strong>[4]</strong> ;</li>
-<li>en <strong>[3]</strong>, la mémoire de niveau ‘application’ est très généralement une mémoire en lecture seule. Elle est partagée par tous les utilisateurs. On y retrouve souvent des éléments de la configuration de l’application web, configuration partagée par tous les utilisateurs de l’application. On doit être prudents avec ce type de mémoire : l’écriture dedans doit se faire à un moment où les utilisateurs n’ont pas encore envoyé de requêtes, au démarrage de l’application le plus souvent. Ensuite, lorsque les requêtes arrivent, il est difficile d’écrire dans cette mémoire. Lorsque le serveur web sert simultanément plusieurs utilisateurs et que deux d’entre-eux veulent écrire dans la mémoire de niveau ‘application’, il y a un risque que cette mémoire soit corrompue. En effet, alors que l’utilisateur 1 a commencé à écrire dans la mémoire de niveau ‘application’, il peut être interrompu avant même d’avoir fini. On a alors une mémoire d’application incomplète. Comme elle est partagée, un utilisateur 2 peut la lire et obtenir un état incorrect ;</li>
+  <li>en <b>[1]</b>, la mémoire de la requête est particulière. Elle est utilisée lorsque la demande du client web est traitée non pas par un service (ou application) mais par plusieurs. Pour passer des informations au service i+1, le service i peut enrichir la requête traitée (request) avec ces informations. C’est ce qu’on appelle la mémoire de niveau requête. Nous n’utiliserons pas ce type de mémoire dans ce document ;
+  </li>
+  <li>en <b>[2, 4]</b>, la mémoire de l’utilisateur que nous venons de décrire. Elle peut être implémentée localement <b>[2]</b> ou maintenue à l’aide du client <b>[4]</b> ;
+  </li>
+  <li>en <b>[3]</b>, la mémoire de niveau ‘application’ est très généralement une mémoire en lecture seule. Elle est partagée par tous les utilisateurs. On y retrouve souvent des éléments de la configuration de l’application web, configuration partagée par tous les utilisateurs de l’application. On doit être prudents avec ce type de mémoire : l’écriture dedans doit se faire à un moment où les utilisateurs n’ont pas encore envoyé de requêtes, au démarrage de l’application le plus souvent. Ensuite, lorsque les requêtes arrivent, il est difficile d’écrire dans cette mémoire. Lorsque le serveur web sert simultanément plusieurs utilisateurs et que deux d’entre-eux veulent écrire dans la mémoire de niveau ‘application’, il y a un risque que cette mémoire soit corrompue. En effet, alors que l’utilisateur 1 a commencé à écrire dans la mémoire de niveau ‘application’, il peut être interrompu avant même d’avoir fini. On a alors une mémoire d’application incomplète. Comme elle est partagée, un utilisateur 2 peut la lire et obtenir un état incorrect ;
+  </li>
 </ul>
+
 <p><a id="toc48549156"></a></p>
 <h3 id="2262-script-session_scope_01">22.6.2. script [session_scope_01]</h3>
 <p><img src="images/1000000000000197000000E16061FCB8.png" style="width:4.702cm;height:2.59cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000197000000E16061FCB8.png" /></p>
@@ -2993,9 +3257,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 11 : une application Flask est instanciée ;</li>
-<li>ligne 14 : l’attribut <strong>[secret_key]</strong> de cette application reçoit une valeur prise dans le fichier de configuration exploité aux lignes 1-3. Une session Flask n’est possible que si cet attribut est initialisé. On peut mettre n’importe quoi dedans. Il sert à crypter une partie de la ‘mémoire utilisateur’ qui sera envoyée au client. On met en général quelque chose difficile à deviner. Dans le fichier <strong>[config]</strong>, la clé secrète est définie de la façon suivante :</li>
+  <li>ligne 11 : une application Flask est instanciée ;
+  </li>
+  <li>ligne 14 : l’attribut <b>[secret_key]</b> de cette application reçoit une valeur prise dans le fichier de configuration exploité aux lignes 1-3. Une session Flask n’est possible que si cet attribut est initialisé. On peut mettre n’importe quoi dedans. Il sert à crypter une partie de la ‘mémoire utilisateur’ qui sera envoyée au client. On met en général quelque chose difficile à deviner. Dans le fichier <b>[config]</b>, la clé secrète est définie de la façon suivante :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-markdown">
 <span class="odt-code-line"><span style="color:#000000">    </span># on rend la config</span>
 <span class="odt-code-line"><span style="color:#000000">    config = {</span><span style="color:#000000"></span></span>
@@ -3005,25 +3272,40 @@
 </code></pre></div>
 
 <ul>
-<li>pour la première fois, nous définissons une application web qui sert autre chose que l’URL /<ul>
-<li>ligne 17 : l’URL <strong>[/set-session]</strong> sert à initialiser la session de l’utilisateur ;</li>
-<li>ligne 27 : l’URL <strong>[/get-session]</strong> sert à retrouver la mémoire de l’utilisateur (ou session de l’utilisateur) ;</li>
+  <li>pour la première fois, nous définissons une application web qui sert autre chose que l’URL /
+    <ul>
+      <li>ligne 17 : l’URL <b>[/set-session]</b> sert à initialiser la session de l’utilisateur ;
+      </li>
+      <li>ligne 27 : l’URL <b>[/get-session]</b> sert à retrouver la mémoire de l’utilisateur (ou session de l’utilisateur) ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 20 : on met quelque chose dans la mémoire (= la session) de l’utilisateur, ici un nom. La session se gère un peu comme un dictionnaire. On ne peut pas mettre n’importe quoi dans la session. Il faut que les valeurs qu’on y met puissent être transformées en jSON. Pour les types prédéfinis de Python, cela se fait sans intervention du développeur. Pour des objets propriétaires que Python ne connaît pas, il faut faire soi-même la conversion jSON ;
+  </li>
+  <li>ligne 22 : on crée une réponse HTTP sans contenu (absence de paramètre à make_response) ;
+  </li>
+  <li>ligne 23 : on dit au client qu’il va recevoir un document vide (taille de 0 octet) ;
+  </li>
+  <li>ligne 24 : on envoie la réponse HTTP au client. L’URL <b>[/set-session]</b> ne fait donc rien d’autres que d’initialiser une session utilisateur ;
+  </li>
+  <li>ligne 27 : l’URL <b>[/get-session]</b> permet à l’utilisateur de savoir ce qu’il y a dans sa session ;
+  </li>
+  <li>ligne 30 : on crée une réponse HTTP contenant la chaîne jSON de la session de l’utilisateur. Ici on a créé la chaîne jSON nous-mêmes au lieu de laisser Flask la générer. En effet, on ne veut pas que les caractères accentués soient échappés (<span style="color: #000000">ensure_ascii=</span><span style="color: #0000ff">False</span>) ;
+  </li>
+  <li>ligne 31 : on dit au client qu’on lui envoie du jSON ;
+  </li>
+  <li>ligne 32 : on envoie la réponse HTTP au client ;
+  </li>
 </ul>
-</li>
-<li>ligne 20 : on met quelque chose dans la mémoire (= la session) de l’utilisateur, ici un nom. La session se gère un peu comme un dictionnaire. On ne peut pas mettre n’importe quoi dans la session. Il faut que les valeurs qu’on y met puissent être transformées en jSON. Pour les types prédéfinis de Python, cela se fait sans intervention du développeur. Pour des objets propriétaires que Python ne connaît pas, il faut faire soi-même la conversion jSON ;</li>
-<li>ligne 22 : on crée une réponse HTTP sans contenu (absence de paramètre à make_response) ;</li>
-<li>ligne 23 : on dit au client qu’il va recevoir un document vide (taille de 0 octet) ;</li>
-<li>ligne 24 : on envoie la réponse HTTP au client. L’URL <strong>[/set-session]</strong> ne fait donc rien d’autres que d’initialiser une session utilisateur ;</li>
-<li>ligne 27 : l’URL <strong>[/get-session]</strong> permet à l’utilisateur de savoir ce qu’il y a dans sa session ;</li>
-<li>ligne 30 : on crée une réponse HTTP contenant la chaîne jSON de la session de l’utilisateur. Ici on a créé la chaîne jSON nous-mêmes au lieu de laisser Flask la générer. En effet, on ne veut pas que les caractères accentués soient échappés (<span style="color: #000000">ensure_ascii=</span><span style="color: #0000ff">False</span>) ;</li>
-<li>ligne 31 : on dit au client qu’on lui envoie du jSON ;</li>
-<li>ligne 32 : on envoie la réponse HTTP au client ;</li>
-</ul>
+
 <p>Le but de ce script est de montrer que la session utilisateur permet de faire le lien entre les requêtes successives de celui-ci :</p>
 <ul>
-<li>la requête 1 demandera l’URL <strong>[/set-session]</strong> ;</li>
-<li>la requête 2 demandera l’URL <strong>[/get-session]</strong> et va récupérer le nom que la requête 1 aura initialisé ;</li>
+  <li>la requête 1 demandera l’URL <b>[/set-session]</b> ;
+  </li>
+  <li>la requête 2 demandera l’URL <b>[/get-session]</b> et va récupérer le nom que la requête 1 aura initialisé ;
+  </li>
 </ul>
+
 <p>Le script <strong>[config]</strong> qui configure les scripts du dossier <strong>[flask/05]</strong> est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -3051,38 +3333,58 @@
 <p>Nous lançons le script <strong>[session_scope_01]</strong> puis avec Postman nous allons demander l’URL <strong>[/set-session]</strong>. Auparavant nous allons vérifier quelques éléments de la requête qui va être faite :</p>
 <p><img src="images/1000000000000536000000710D6491F8.png" style="width:15.391cm;height:1.301cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000536000000710D6491F8.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, accéder aux cookies de Postman ;</li>
+  <li>en <b>[1]</b>, accéder aux cookies de Postman ;
+
+<img src="images/1000000000000489000001BCCF1162E9.png" style="width:13.39cm;height:5.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000489000001BCCF1162E9.png" />
+
+
+  </li>
 </ul>
-<p><img src="images/1000000000000489000001BCCF1162E9.png" style="width:13.39cm;height:5.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000489000001BCCF1162E9.png" /></p>
+
 <ul>
-<li>en <strong>[2-4]</strong>, on vérifie les cookies connus de Postman et on les supprime tous <strong>[4-5]</strong> ;</li>
+  <li>en <b>[2-4]</b>, on vérifie les cookies connus de Postman et on les supprime tous <b>[4-5]</b> ;
+  </li>
 </ul>
+
 <p>Maintenant vérifions la requête HTTP qui va être générée :</p>
 <p><img src="images/1000000000000428000001A309EFEFCA.png" style="width:12.27cm;height:4.841cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000428000001A309EFEFCA.png" /></p>
 <ul>
-<li>en <strong>[9]</strong> : une partie des entêtes HTTP que Postman va mettre dans la requête à partir de la configuration que nous avons pu faire pour celle-ci. Cette vérification vous permet de vérifier que vous n’avez pas omis des paramètres ou au contraire laissé des paramètres inutiles ;</li>
+  <li>en <b>[9]</b> : une partie des entêtes HTTP que Postman va mettre dans la requête à partir de la configuration que nous avons pu faire pour celle-ci. Cette vérification vous permet de vérifier que vous n’avez pas omis des paramètres ou au contraire laissé des paramètres inutiles ;
+  </li>
 </ul>
+
 <p>Ceci fait, on peut exécuter la requête :</p>
 <p><img src="images/10000000000005E80000004D50276CC2.png" style="width:17.47cm;height:0.892cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005E80000004D50276CC2.png" /></p>
 <p>Il y a différentes façons de vérifier le résultat. On peut déjà regarder la fenêtre principale :</p>
 <p><img src="images/100000000000055500000233D2CC752C.png" style="width:15.77cm;height:6.501cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000055500000233D2CC752C.png" /></p>
 <ul>
-<li>en <strong>[1-2]</strong>, la requête faite au service web ;</li>
-<li>en <strong>[3-6]</strong>, les entêtes HTTP de la réponse ;</li>
-<li>en <strong>[4]</strong>, comme dans le code on n’a pas précisé le type de la réponse, Flask a utilisé par défaut le type <strong>[text/html]</strong> ;</li>
-<li>en <strong>[5]</strong>, le client sait qu’il n’y a pas de document dans la réponse ;</li>
-<li>ligne 6 : l’entête <strong>[Set-Cookie]</strong> a été envoyé par le serveur Flask. Sa valeur est appelée un <strong>cookie de session</strong>. Elle est constituée de trois éléments :<ul>
-<li><strong>[session=valeur]</strong> : valeur représente la mémoire de l’utilisateur sous une forme codée. Cette mémoire est décodable (cf. |<a href="https://blog.miguelgrinberg.com/post/how-secure-is-the-flask-user-session"><u><span style="color: #0563c1">https://blog.miguelgrinberg.com/post/how-secure-is-the-flask-user-session</span></u></a>|). Néanmoins à cause de la clé secrète utilisée par le serveur, l’utilisateur ne peut pas modifier la mémoire reçue pour la renvoyer ensuite au serveur. Lorsque le serveur reçoit une session, il est ainsi assuré de recevoir une session non corrompue ;</li>
-<li><strong>[HttpOnly]</strong> : la présence de cet élément indique au navigateur qui le reçoit que le cookie ne doit pas être accessible au Javascript que peut contenir la page qu’il affiche ;</li>
-<li><strong>[Path=/]</strong> est le chemin pour lequel il faut renvoyer le cookie de session donc ici tout chemin de l’application web. A chaque fois que l’utilisateur au clavier demandera explicitement (il tape une URL) ou implicitement (il clique sur un lien) une URL de ce domaine, le navigateur renverra <strong>automatiquement</strong> le cookie de session qu’il a reçu ;</li>
+  <li>en <b>[1-2]</b>, la requête faite au service web ;
+  </li>
+  <li>en <b>[3-6]</b>, les entêtes HTTP de la réponse ;
+  </li>
+  <li>en <b>[4]</b>, comme dans le code on n’a pas précisé le type de la réponse, Flask a utilisé par défaut le type <b>[text/html]</b> ;
+  </li>
+  <li>en <b>[5]</b>, le client sait qu’il n’y a pas de document dans la réponse ;
+  </li>
+  <li>ligne 6 : l’entête <b>[Set-Cookie]</b> a été envoyé par le serveur Flask. Sa valeur est appelée un <b>cookie de session</b>. Elle est constituée de trois éléments :
+    <ul>
+      <li><b>[session=valeur]</b> : valeur représente la mémoire de l’utilisateur sous une forme codée. Cette mémoire est décodable (cf. |<a href="https://blog.miguelgrinberg.com/post/how-secure-is-the-flask-user-session"><u><span style="color: #0563c1">https://blog.miguelgrinberg.com/post/how-secure-is-the-flask-user-session</span></u></a>|). Néanmoins à cause de la clé secrète utilisée par le serveur, l’utilisateur ne peut pas modifier la mémoire reçue pour la renvoyer ensuite au serveur. Lorsque le serveur reçoit une session, il est ainsi assuré de recevoir une session non corrompue ;
+      </li>
+      <li><b>[HttpOnly]</b> : la présence de cet élément indique au navigateur qui le reçoit que le cookie ne doit pas être accessible au Javascript que peut contenir la page qu’il affiche ;
+      </li>
+      <li><b>[Path=/]</b> est le chemin pour lequel il faut renvoyer le cookie de session donc ici tout chemin de l’application web. A chaque fois que l’utilisateur au clavier demandera explicitement (il tape une URL) ou implicitement (il clique sur un lien) une URL de ce domaine, le navigateur renverra <b>automatiquement</b> le cookie de session qu’il a reçu ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>L’inconvénient de la fenêtre principale est qu’on n’a pas accès à la requête complète qui a amené à cette réponse. Ce qui est présenté dans cette fenêtre prête à confusion :</p>
 <p><img src="images/100000000000045600000222B4C97413.png" style="width:12.81cm;height:6.31cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000045600000222B4C97413.png" /></p>
 <ul>
-<li>dans les entêtes HTTP <strong>[3-4]</strong> est présenté en <strong>[5]</strong> un cookie de session. On pourrait croire alors que Postman a mis dans la requête un cookie de session alors que ce n’est pas le cas. Les entêtes <strong>[3]</strong> représentent en fait les entêtes HTTP qui seront envoyés lors de la prochaine requête telle que celle-ci est actuellement configurée. Postman vient de recevoir un cookie de session qu’il renverra lors de la prochaine requête. C’est pourquoi on a <strong>[5]</strong> ;</li>
+  <li>dans les entêtes HTTP <b>[3-4]</b> est présenté en <b>[5]</b> un cookie de session. On pourrait croire alors que Postman a mis dans la requête un cookie de session alors que ce n’est pas le cas. Les entêtes <b>[3]</b> représentent en fait les entêtes HTTP qui seront envoyés lors de la prochaine requête telle que celle-ci est actuellement configurée. Postman vient de recevoir un cookie de session qu’il renverra lors de la prochaine requête. C’est pourquoi on a <b>[5]</b> ;
+  </li>
 </ul>
+
 <p>On peut avoir accès au dialogue client / serveur dans la console Postman qu’on obtient avec Ctrl-Alt-C :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">GET /set-session HTTP/1.1</span>
@@ -3104,8 +3406,10 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 14 : le cookie de session envoyé par le serveur ;</li>
+  <li>ligne 14 : le cookie de session envoyé par le serveur ;
+  </li>
 </ul>
+
 <p>Maintenant demandons l’URL <strong>[/get-session]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">GET /get-session HTTP/1.1</span>
@@ -3129,15 +3433,22 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : le client Postman a renvoyé au serveur le cookie de session qu’il avait reçu ;</li>
-<li>ligne 18 : la chaîne jSON envoyée par le serveur ;</li>
+  <li>ligne 9 : le client Postman a renvoyé au serveur le cookie de session qu’il avait reçu ;
+  </li>
+  <li>ligne 18 : la chaîne jSON envoyée par le serveur ;
+  </li>
 </ul>
+
 <p>Cet exemple nous montre divers points :</p>
 <ul>
-<li>le client Postman renvoie le cookie de session qu’il reçoit du serveur Flask. Les navigateurs web procèdent toujours ainsi ;</li>
-<li>nous voyons que la requête 2 <strong>[/get-session]</strong> a permis de récupérer une information créée lors de la requête 1 <strong>[/set-session]</strong>. On a donc là une mémoire de l’utilisateur ;</li>
-<li>lignes 11-16 : le serveur Flask n’a pas renvoyé de cookie de session. Ce n’est pas systématique. Le serveur Flask ne renvoie le cookie de session que si la dernière requête a modifié la mémoire de l’utilisateur ;</li>
+  <li>le client Postman renvoie le cookie de session qu’il reçoit du serveur Flask. Les navigateurs web procèdent toujours ainsi ;
+  </li>
+  <li>nous voyons que la requête 2 <b>[/get-session]</b> a permis de récupérer une information créée lors de la requête 1 <b>[/set-session]</b>. On a donc là une mémoire de l’utilisateur ;
+  </li>
+  <li>lignes 11-16 : le serveur Flask n’a pas renvoyé de cookie de session. Ce n’est pas systématique. Le serveur Flask ne renvoie le cookie de session que si la dernière requête a modifié la mémoire de l’utilisateur ;
+  </li>
 </ul>
+
 <p><a id="toc48549157"></a></p>
 <h3 id="2263-script-session_scope_02">22.6.3. script [session_scope_02]</h3>
 <p><img src="images/100000000000019E000000E3A7F2CAD5.png" style="width:4.77cm;height:2.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000019E000000E3A7F2CAD5.png" /></p>
@@ -3187,15 +3498,24 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 11 : ici la clé secrète est générée à l’aide d’une fonction. L’intérêt de celle-ci est qu’elle génère une chaîne de caractères complexe de façon aléatoire. On rappelle que la variable <strong>[app]</strong> est l’instance de classe Flask créée ligne 8 ;</li>
-<li>ligne 15 : cette fois-ci, il n’y aura qu’une route, la route / ;</li>
-<li>lignes 17-29 : on gère une session contenant trois compteurs <strong>[n1, n2, n3]</strong>. Lors du 1er appel de l’utilisateur <strong>[n1, n2, n3]</strong>=<strong>[0, 10, 100]</strong> puis à chaque appel ces compteurs sont incrémentés de 1 ;</li>
-<li>ligne 18 : lors de la 1ère requête, la session de l’application est vide. L’expression <strong>[session.get(‘clé’)]</strong> rend la valeur <strong>[None]</strong>. Pour les requêtes suivantes, cette expression rendra la valeur associée à la clé ;</li>
-<li>ligne 31 : ces compteurs sont mis dans un dictionnaire ;</li>
-<li>ligne 33 : ce dictionnaire est le document de la réponse HTTP. On rappelle, que Flask transforme automatiquement les dictionnaires en chaîne jSON ;</li>
-<li>ligne 34 : on dit au client web qu’il va recevoir du jSON ;</li>
-<li>ligne 35 : on envoie la réponse HTTP au client ;</li>
+  <li>ligne 11 : ici la clé secrète est générée à l’aide d’une fonction. L’intérêt de celle-ci est qu’elle génère une chaîne de caractères complexe de façon aléatoire. On rappelle que la variable <b>[app]</b> est l’instance de classe Flask créée ligne 8 ;
+  </li>
+  <li>ligne 15 : cette fois-ci, il n’y aura qu’une route, la route / ;
+  </li>
+  <li>lignes 17-29 : on gère une session contenant trois compteurs <b>[n1, n2, n3]</b>. Lors du 1er appel de l’utilisateur <b>[n1, n2, n3]</b>=<b>[0, 10, 100]</b> puis à chaque appel ces compteurs sont incrémentés de 1 ;
+  </li>
+  <li>ligne 18 : lors de la 1ère requête, la session de l’application est vide. L’expression <b>[session.get(‘clé’)]</b> rend la valeur <b>[None]</b>. Pour les requêtes suivantes, cette expression rendra la valeur associée à la clé ;
+  </li>
+  <li>ligne 31 : ces compteurs sont mis dans un dictionnaire ;
+  </li>
+  <li>ligne 33 : ce dictionnaire est le document de la réponse HTTP. On rappelle, que Flask transforme automatiquement les dictionnaires en chaîne jSON ;
+  </li>
+  <li>ligne 34 : on dit au client web qu’il va recevoir du jSON ;
+  </li>
+  <li>ligne 35 : on envoie la réponse HTTP au client ;
+  </li>
 </ul>
+
 <p>Exécutons ce script et interrogeons l’application web ainsi créée avec Postman après avoir supprimé tous les cookies du client Postman <strong>[1-3]</strong> :</p>
 <p><img src="images/1000000000000554000001C99B65D309.png" style="width:15.751cm;height:5.28cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000554000001C99B65D309.png" /></p>
 <p>Dans la console Postman, les échanges client / serveur sont les suivants :</p>
@@ -3225,9 +3545,12 @@
 </code></pre></div>
 
 <ul>
-<li>en <strong>[14]</strong>, le cookie de session envoyé par le serveur ;</li>
-<li>en <strong>[18-22]</strong>, la réponse du serveur sous la forme d’une chaîne jSON ;</li>
+  <li>en <b>[14]</b>, le cookie de session envoyé par le serveur ;
+  </li>
+  <li>en <b>[18-22]</b>, la réponse du serveur sous la forme d’une chaîne jSON ;
+  </li>
 </ul>
+
 <p>Refaisons une deuxième fois la même requête. Les logs évoluent de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">GET / HTTP/1.1</span>
@@ -3256,10 +3579,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : le client Postman renvoie le cookie de session qu’il a reçu ;</li>
-<li>ligne 15 : dans sa réponse, le serveur envoie un nouveau cookie de session, ceci parce que la requête du client a modifié la mémoire de l’utilisateur (= la session) ;</li>
-<li>lignes 19-23 : les nouvelles valeurs des compteurs ;</li>
+  <li>ligne 9 : le client Postman renvoie le cookie de session qu’il a reçu ;
+  </li>
+  <li>ligne 15 : dans sa réponse, le serveur envoie un nouveau cookie de session, ceci parce que la requête du client a modifié la mémoire de l’utilisateur (= la session) ;
+  </li>
+  <li>lignes 19-23 : les nouvelles valeurs des compteurs ;
+  </li>
 </ul>
+
 <p><a id="toc48549158"></a></p>
 <h3 id="2264-script-session_scope_03">22.6.4. script [session_scope_03]</h3>
 <p>Ce nouveau script vise à montrer qu’on peut mettre différents types Python dans une session : liste, dictionnaire, objet. La seule contrainte est que les objets mis en session soient sérialisables en jSON. S’ils ne le sont pas par défaut (listes, dictionnaires), il faut alors faire soi-même la conversion en jSON.</p>
@@ -3339,21 +3666,36 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-3 : l’application web est configurée ;</li>
-<li>lignes 5-11 : les dépendances sont importées ;</li>
-<li>ligne 14 : l’application Flask est instanciée ;</li>
-<li>ligne 17 : l’attribut <strong>[secret_key]</strong> est initialisé. C’est ce qui permet l’utilisation de sessions ;</li>
-<li>ligne 21 : l’unique route de l’application ;</li>
-<li>lignes 23-33 : gestion d’une liste dans la session. On a mis dans celle-ci des éléments sérialisables par défaut en jSON ;</li>
-<li>lignes 35-46 : gestion d’un dictionnaire dans la session. On a mis dans celui-ci des éléments sérialisables par défaut en jSON ;</li>
-<li>lignes 48-58 : gestion d’une personne. Un objet <strong>[Personne]</strong> n’est pas sérialisable par défaut en jSON. Il faut donc prendre des précautions ;</li>
-<li>ligne 58 : on utilise la méthode <strong>[BaseEntity.asjson]</strong> pour stocker dans la session la chaîne jSON de la personne. Noter qu’on aurait pu utiliser <strong>[personne.asdict]</strong> car <strong>[personne.asdict]</strong> est un dictionnaire contenant des valeurs sérialisables par défaut en jSON ;</li>
-<li>ligne 55 : parce qu’on a stocké une chaîne jSON dans la session, on récupère la personne dans celle-ci en utilisant la méthode <strong>[BaseEntity.fromjson]</strong> ;</li>
-<li>ligne 61 : on crée le dictionnaire <strong>[résultats]</strong> qui sera envoyé comme réponse au client. On sait que dans ce cas là, Flask envoie la chaîne jSON du dictionnaire. Il faut donc que celui-ci ne contienne que des valeurs sérialisables par défaut en jSON ;</li>
-<li>ligne 64 : on met explicitement la chaîne jSON du dictionnaire <strong>[résultats]</strong> dans a réponse HTTP. Flask l’aurait fait par défaut. Seulement, toujours par défaut, il utilise le paramètre <strong>[</strong><strong><span style="color: #000000">ensure_ascii=</span></strong><strong><span style="color: #0000ff">True</span></strong><strong>]</strong>, ce qui ne nous convenait pas ;</li>
-<li>ligne 65 : on dit au client qu’il va recevoir du jSON ;</li>
-<li>ligne 66 : on lui envoie la réponse ;</li>
+  <li>lignes 1-3 : l’application web est configurée ;
+  </li>
+  <li>lignes 5-11 : les dépendances sont importées ;
+  </li>
+  <li>ligne 14 : l’application Flask est instanciée ;
+  </li>
+  <li>ligne 17 : l’attribut <b>[secret_key]</b> est initialisé. C’est ce qui permet l’utilisation de sessions ;
+  </li>
+  <li>ligne 21 : l’unique route de l’application ;
+  </li>
+  <li>lignes 23-33 : gestion d’une liste dans la session. On a mis dans celle-ci des éléments sérialisables par défaut en jSON ;
+  </li>
+  <li>lignes 35-46 : gestion d’un dictionnaire dans la session. On a mis dans celui-ci des éléments sérialisables par défaut en jSON ;
+  </li>
+  <li>lignes 48-58 : gestion d’une personne. Un objet <b>[Personne]</b> n’est pas sérialisable par défaut en jSON. Il faut donc prendre des précautions ;
+  </li>
+  <li>ligne 58 : on utilise la méthode <b>[BaseEntity.asjson]</b> pour stocker dans la session la chaîne jSON de la personne. Noter qu’on aurait pu utiliser <b>[personne.asdict]</b> car <b>[personne.asdict]</b> est un dictionnaire contenant des valeurs sérialisables par défaut en jSON ;
+  </li>
+  <li>ligne 55 : parce qu’on a stocké une chaîne jSON dans la session, on récupère la personne dans celle-ci en utilisant la méthode <b>[BaseEntity.fromjson]</b> ;
+  </li>
+  <li>ligne 61 : on crée le dictionnaire <b>[résultats]</b> qui sera envoyé comme réponse au client. On sait que dans ce cas là, Flask envoie la chaîne jSON du dictionnaire. Il faut donc que celui-ci ne contienne que des valeurs sérialisables par défaut en jSON ;
+  </li>
+  <li>ligne 64 : on met explicitement la chaîne jSON du dictionnaire <b>[résultats]</b> dans a réponse HTTP. Flask l’aurait fait par défaut. Seulement, toujours par défaut, il utilise le paramètre <b>[</b><b><span style="color: #000000">ensure_ascii=</span></b><b><span style="color: #0000ff">True</span></b><b>]</b>, ce qui ne nous convenait pas ;
+  </li>
+  <li>ligne 65 : on dit au client qu’il va recevoir du jSON ;
+  </li>
+  <li>ligne 66 : on lui envoie la réponse ;
+  </li>
 </ul>
+
 <p>On lance l’application web. On supprime tous les cookies du client Postman. Puis celui-ci demande l’URL <strong>[</strong><strong><span style="color: #505050">http://localhost:5000</span></strong><strong>]</strong>. Le dialogue client / serveur dans la console Postman est le suivant :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">GET / HTTP/1.1</span>
@@ -3400,9 +3742,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 9 : le client renvoie le cookie de session qu’il a reçu ;</li>
-<li>ligne 15 : le serveur lui en renvoie un autre car le contenu de la session a changé (ligne 19). On rappelle que ce contenu est présent dans le cookie de session sous forme codée ;</li>
+  <li>ligne 9 : le client renvoie le cookie de session qu’il a reçu ;
+  </li>
+  <li>ligne 15 : le serveur lui en renvoie un autre car le contenu de la session a changé (ligne 19). On rappelle que ce contenu est présent dans le cookie de session sous forme codée ;
+  </li>
 </ul>
+
 <p><a id="toc48549159"></a></p>
 <h2 id="227-scripts-flask06-informations-partagees-par-tous-les-utilisateurs">22.7. scripts [flask/06] : informations partagées par tous les utilisateurs</h2>
 <p><a id="toc48549160"></a></p>
@@ -3455,9 +3800,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-3 : on récupère le dictionnaire de la configuration. On va montrer que le code situé en-dehors des fonctions de routage n’est exécuté qu’une fois. L’application Flask reste en mémoire. Toutes les informations initialisées en-dehors des routes sont globales à celles-ci et donc connues de celles-ci. Ainsi le dictionnaire <strong>[config]</strong> de la ligne 3 va-t-il être rendu par la route / (ligne 24). On va montrer que tous les clients web vont recevoir le même dictionnaire et que celui-ci est donc partagé par tous les clients. C’est donc une information de portée ‘application’ ;</li>
-<li>ligne 35 : on met un log pour voir si le code des lignes en-dehors de la fonction de routage (lignes 1-10, 32-38) est exécuté plusieurs fois ;</li>
+  <li>lignes 1-3 : on récupère le dictionnaire de la configuration. On va montrer que le code situé en-dehors des fonctions de routage n’est exécuté qu’une fois. L’application Flask reste en mémoire. Toutes les informations initialisées en-dehors des routes sont globales à celles-ci et donc connues de celles-ci. Ainsi le dictionnaire <b>[config]</b> de la ligne 3 va-t-il être rendu par la route / (ligne 24). On va montrer que tous les clients web vont recevoir le même dictionnaire et que celui-ci est donc partagé par tous les clients. C’est donc une information de portée ‘application’ ;
+  </li>
+  <li>ligne 35 : on met un log pour voir si le code des lignes en-dehors de la fonction de routage (lignes 1-10, 32-38) est exécuté plusieurs fois ;
+  </li>
 </ul>
+
 <p>La configuration <strong>[config]</strong> est la suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#0000ff">def</span> configure():</span>
@@ -3473,9 +3821,12 @@
 <p>Nous lançons cette application. Les logs dans la console PyCharm sont les suivants :</p>
 <p><img src="images/100000000000035400000178F614043D.png" style="width:9.85cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000035400000178F614043D.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, lancement initial de l’application ;</li>
-<li>en <strong>[2]</strong> parce qu’on a demandé le mode <strong>[Debug]</strong>, l’application est relancée en mode <strong>[Debug]</strong> ;</li>
+  <li>en <b>[1]</b>, lancement initial de l’application ;
+  </li>
+  <li>en <b>[2]</b> parce qu’on a demandé le mode <b>[Debug]</b>, l’application est relancée en mode <b>[Debug]</b> ;
+  </li>
 </ul>
+
 <p>Maintenant avec un navigateur (Chrome ci-dessous), on demande l’URL [<a href="http://127.0.0.1:5000/"><u><span style="color: #0563c1">http://127.0.0.1:5000/</span></u></a>] :</p>
 <p><img src="images/10000000000002190000015107212566.png" style="width:6.19cm;height:3.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002190000015107212566.png" /></p>
 <p>Maintenant avec un navigateur Firefox :</p>
@@ -3520,8 +3871,10 @@
 <p>Maintenant, on revient dans la console <strong>[Run]</strong> de Pycharm :</p>
 <p><img src="images/10000000000003D0000001EC8893BB2B.png" style="width:11.261cm;height:5.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003D0000001EC8893BB2B.png" /></p>
 <ul>
-<li>les deux logs <strong>[1, 2]</strong> sont toujours là mais il n’y en a pas d’autres alors que l’on voit les trois requêtes reçues par le serveur web ;</li>
+  <li>les deux logs <b>[1, 2]</b> sont toujours là mais il n’y en a pas d’autres alors que l’on voit les trois requêtes reçues par le serveur web ;
+  </li>
 </ul>
+
 <p>Pour être totalement sûrs que l’application n’est pas rechargée à chaque nouvelle requête, on peut mettre un compteur dans la configuration et l’incrémenter à chaque nouvelle requête. On verra alors que chaque client voit le compteur dans l’état où l’a laissé le précédent client. On rappelle cependant que les clients ne devraient pas modifier des données de portée application parce qu’elles sont partagées entre tous les clients et que dans un contexte où le serveur sert simultanément plusieurs clients sans garantie que la requête d’un client soit exécutée entièrement sans être interrompue, un client 1 qui a émis une requête 1 interrompue avant sa fin peut laisser les données partagées dans un état corrompu pour les clients suivants.</p>
 <p><a id="toc48549162"></a></p>
 <h3 id="2273-script-application_scope_02">22.7.3. script [application_scope_02]</h3>
@@ -3564,10 +3917,14 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 10-12 : le dictionnaire <strong>[config]</strong> partagé par les utilisateurs. Il contient un compteur ;</li>
-<li>ligne 22 : à chaque fois qu’un utilisateur demandera l’URL /, le compteur de la configuration sera incrémenté ;</li>
-<li>lignes 23-26 : la chaîne jSON du dictionnaire est envoyée à chaque client ;</li>
+  <li>lignes 10-12 : le dictionnaire <b>[config]</b> partagé par les utilisateurs. Il contient un compteur ;
+  </li>
+  <li>ligne 22 : à chaque fois qu’un utilisateur demandera l’URL /, le compteur de la configuration sera incrémenté ;
+  </li>
+  <li>lignes 23-26 : la chaîne jSON du dictionnaire est envoyée à chaque client ;
+  </li>
 </ul>
+
 <p>On lance ce script. Puis on demande l’URL [<a href="http://127.0.0.1:5000/"><u><span style="color: #0563c1">http://127.0.0.1:5000/</span></u></a>] avec un premier navigateur :</p>
 <p><img src="images/1000000000000191000000B420109116.png" style="width:4.642cm;height:2.08cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000191000000B420109116.png" /></p>
 <p>On fait ensuite la même chose avec un second navigateur :</p>
@@ -3627,22 +3984,34 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 43 : on a changé le mode d’exécution de l’application web. On a écrit <strong>[</strong><strong><span style="color: #000000">threaded=</span></strong><strong><span style="color: #0000ff">True</span></strong><strong>]</strong> pour indiquer que l’application devait servir les utilisateurs simultanément. Cela se fait au moyen de threads d’exécution :<ul>
-<li>il peut y avoir plusieurs threads d’exécution simultanés, chacun servant un utilisateur ;</li>
-<li>le processeur de la machine est partagé par ces threads ;</li>
-<li>un thread peut être interrompu avant qu’il n’ait terminé son travail. Il sera repris ultérieurement ;</li>
+  <li>ligne 43 : on a changé le mode d’exécution de l’application web. On a écrit <b>[</b><b><span style="color: #000000">threaded=</span></b><b><span style="color: #0000ff">True</span></b><b>]</b> pour indiquer que l’application devait servir les utilisateurs simultanément. Cela se fait au moyen de threads d’exécution :
+    <ul>
+      <li>il peut y avoir plusieurs threads d’exécution simultanés, chacun servant un utilisateur ;
+      </li>
+      <li>le processeur de la machine est partagé par ces threads ;
+      </li>
+      <li>un thread peut être interrompu avant qu’il n’ait terminé son travail. Il sera repris ultérieurement ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 19 : la fonction <b>[index]</b> peut être exécutée simultanément par plusieurs threads ;
+  </li>
+  <li>ligne 24 : on récupère le nom du thread qui exécute la fonction <b>[index]</b> ;
+  </li>
+  <li>ligne 26 : on lit la valeur du compteur. Pour les besoins de notre démonstration on décompose l’incrémentation du compteur de la façon suivante :
+    <ul>
+      <li>étape 1 : lecture du compteur (1 par exemple) par le thread 1 ;
+      </li>
+      <li>étape 2 : pause du thread 1 pendant 5 secondes (ligne 29). Parce que le thread 1 a demandé une pause, le processeur est donné à un autre thread, le thread 2. Le but est que ce nouveau thread lise la même valeur du compteur (=1). Puis lui aussi fait une pause de 5 secondes et perd le processeur ;
+      </li>
+      <li>étape 3 : incrémentation du compteur, ligne 31 à partir de la valeur lue à l’étape 1 (=1). Le thread 1 est le 1er à le faire : il passe le compteur à 2 puis termine l’exécution de la fonction <b>[index]</b>. Puis c’est au tour du thread 2 de se réveiller et de passer lui aussi le compteur à 2 à partir de la valeur lue à l’étape 1 (=1). Au final, après le passage des deux threads, le compteur est à 2 alors qu’il devrait être à 3 ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 33 : on affiche la valeur du compteur pour vérification ;
+  </li>
 </ul>
-</li>
-<li>ligne 19 : la fonction <strong>[index]</strong> peut être exécutée simultanément par plusieurs threads ;</li>
-<li>ligne 24 : on récupère le nom du thread qui exécute la fonction <strong>[index]</strong> ;</li>
-<li>ligne 26 : on lit la valeur du compteur. Pour les besoins de notre démonstration on décompose l’incrémentation du compteur de la façon suivante :<ul>
-<li>étape 1 : lecture du compteur (1 par exemple) par le thread 1 ;</li>
-<li>étape 2 : pause du thread 1 pendant 5 secondes (ligne 29). Parce que le thread 1 a demandé une pause, le processeur est donné à un autre thread, le thread 2. Le but est que ce nouveau thread lise la même valeur du compteur (=1). Puis lui aussi fait une pause de 5 secondes et perd le processeur ;</li>
-<li>étape 3 : incrémentation du compteur, ligne 31 à partir de la valeur lue à l’étape 1 (=1). Le thread 1 est le 1er à le faire : il passe le compteur à 2 puis termine l’exécution de la fonction <strong>[index]</strong>. Puis c’est au tour du thread 2 de se réveiller et de passer lui aussi le compteur à 2 à partir de la valeur lue à l’étape 1 (=1). Au final, après le passage des deux threads, le compteur est à 2 alors qu’il devrait être à 3 ;</li>
-</ul>
-</li>
-<li>ligne 33 : on affiche la valeur du compteur pour vérification ;</li>
-</ul>
+
 <p>Nous lançons le script puis demandons l’url <strong>[http://loaclhost :5000/]</strong> avec deux navigateurs puis avec Postman. Les logs dans la console PyCharm sont alors les suivants :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">C:\Data\st-2020\dev\python\cours-2020\python3-flask-2020\venv\Scripts\python.exe C:/Data/st-2020/dev/python/cours-2020/python3-flask-2020/flask/06/application_scope_03.py</span>
@@ -3665,11 +4034,16 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 9-10 : les deux premiers threads 2 et 4 lisent la même valeur 0 du compteur ;</li>
-<li>ligne 11 : le thread 2 passe le compteur à 1 ;</li>
-<li>ligne 13 : le thread 4 passe le compteur à 1. A partir de maintenant la valeur du compteur est incorrecte ;</li>
-<li>lignes 15-16 : le thread 5 n’est pas interrompu et gère correctement la valeur du compteur ;</li>
+  <li>lignes 9-10 : les deux premiers threads 2 et 4 lisent la même valeur 0 du compteur ;
+  </li>
+  <li>ligne 11 : le thread 2 passe le compteur à 1 ;
+  </li>
+  <li>ligne 13 : le thread 4 passe le compteur à 1. A partir de maintenant la valeur du compteur est incorrecte ;
+  </li>
+  <li>lignes 15-16 : le thread 5 n’est pas interrompu et gère correctement la valeur du compteur ;
+  </li>
 </ul>
+
 <p>On retiendra de cet exemple que le code d’une application web ne doit pas modifier la valeur d’informations partagées par les utilisateurs.</p>
 <p><a id="toc48549164"></a></p>
 <h2 id="228-scripts-flask07-gestion-des-routes">22.8. scripts [flask/07] : gestion des routes</h2>
@@ -3750,15 +4124,24 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 17 : on précise le type des paramètres de l’URL. Cela permet à Flask de faire des vérifications. Si le paramètre n’est pas du type attendu, la requête du client sera refusée (erreur 400 Bad Request). Donc Flask fait une partie du travail que nous aurions du faire ;</li>
-<li>ligne 18 : pour les paramètres, on doit reprendre les noms exacts des paramètres de la ligne 17 mais pas forcément leur ordre ;</li>
-<li>ligne 20 : on utilise la fonction <strong>[send_plain_response]</strong> pour envoyer la réponse au client web ;</li>
-<li>ligne 9 : la fonction <strong>[send_plain_response]</strong> reçoit la chaîne de caractères à envoyer au client ;</li>
-<li>ligne 11 : le corps de la réponse HTTP est construit ;</li>
-<li>ligne 12 : on dit au client qu’on lui envoie du texte brut ;</li>
-<li>ligne 13 : on envoie la réponse HTTP ;</li>
-<li>lignes 23-62 : d’autres routes paramétrées qui seront utilisées ultérieurement dans un exercice d’application ;</li>
+  <li>ligne 17 : on précise le type des paramètres de l’URL. Cela permet à Flask de faire des vérifications. Si le paramètre n’est pas du type attendu, la requête du client sera refusée (erreur 400 Bad Request). Donc Flask fait une partie du travail que nous aurions du faire ;
+  </li>
+  <li>ligne 18 : pour les paramètres, on doit reprendre les noms exacts des paramètres de la ligne 17 mais pas forcément leur ordre ;
+  </li>
+  <li>ligne 20 : on utilise la fonction <b>[send_plain_response]</b> pour envoyer la réponse au client web ;
+  </li>
+  <li>ligne 9 : la fonction <b>[send_plain_response]</b> reçoit la chaîne de caractères à envoyer au client ;
+  </li>
+  <li>ligne 11 : le corps de la réponse HTTP est construit ;
+  </li>
+  <li>ligne 12 : on dit au client qu’on lui envoie du texte brut ;
+  </li>
+  <li>ligne 13 : on envoie la réponse HTTP ;
+  </li>
+  <li>lignes 23-62 : d’autres routes paramétrées qui seront utilisées ultérieurement dans un exercice d’application ;
+  </li>
 </ul>
+
 <p>On lance le script et on l’interroge avec le client Postman :</p>
 <p><img src="images/10000000000005AA000001F49B5D09CB.png" style="width:16.721cm;height:5.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005AA000001F49B5D09CB.png" /></p>
 <p><a id="toc48549166"></a></p>
@@ -3846,9 +4229,12 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 4 : on importe le script des fonctions associées aux routes ;</li>
-<li>lignes 9-16 : association routes / fonctions ;</li>
+  <li>ligne 4 : on importe le script des fonctions associées aux routes ;
+  </li>
+  <li>lignes 9-16 : association routes / fonctions ;
+  </li>
 </ul>
+
 <p>Avec cette méthode, chaque fonction associée à une route peut faire l’objet d’un script séparé si nécessaire.</p>
 <p>Les résultats sont les mêmes que ceux obtenus avec le script <strong>[main_01]</strong> précédent.</p>
 

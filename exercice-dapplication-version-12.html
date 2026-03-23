@@ -1631,34 +1631,53 @@
 <a id="refheadingtoc1446193519745392"></a></p>
 <h2 id="301-architecture-mvc">30.1. Architecture MVC</h2>
 <p>Nous allons implémenter le modèle d&#x27;architecture dit MVC (Modèle – Vue – Contrôleur) de la façon suivante :</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
+<p><img src="images/100000010000033200000102272A12E0.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
 <p>Le traitement d&#x27;une demande d&#x27;un client se déroulera de la façon suivante :</p>
 <ul>
-<li>1 - demande</li>
+  <li>1 - demande
+  </li>
 </ul>
-<p>Les URL demandées seront de la forme <em>http://machine:port/action/param1/param2/… </em>Le <strong>[Contrôleur principal]</strong> utilisera un fichier de configuration pour &quot; router &quot; la demande vers le bon contrôleur. Pour cela, il utilisera le champ <strong>[action]</strong> de l&#x27;URL. Le reste de l&#x27;URL <strong>[param1/param2/…]</strong> est formé de paramètres facultatifs qui seront transmis à l&#x27;action. Le <strong>C</strong> de MVC est ici la chaîne <strong>[Contrôleur principal, Contrôleur / Action]</strong>. Si aucun contrôleur ne peut traiter l&#x27;action demandée, le serveur web répondra que l&#x27;URL demandée n&#x27;a pas été trouvée.</p>
+
+<p>Les URL demandées seront de la forme <em>http://machine:port/action/param1/param2/…</em> Le <strong>[Contrôleur principal]</strong> utilisera un fichier de configuration pour &quot; router &quot; la demande vers le bon contrôleur. Pour cela, il utilisera le champ <strong>[action]</strong> de l&#x27;URL. Le reste de l&#x27;URL <strong>[param1/param2/…]</strong> est formé de paramètres facultatifs qui seront transmis à l&#x27;action. Le <strong>C</strong> de MVC est ici la chaîne <strong>[Contrôleur principal, Contrôleur / Action]</strong>. Si aucun contrôleur ne peut traiter l&#x27;action demandée, le serveur web répondra que l&#x27;URL demandée n&#x27;a pas été trouvée.</p>
 <ul>
-<li>2 - traitement</li>
-<li>l&#x27;action choisie <strong>[2a]</strong> peut exploiter les paramètres <em>parami</em> que le <strong>[Contrôleur principal]</strong> lui a transmis. Ceux-ci pourront provenir de deux sources :
-        - du chemin <strong>[/param1/param2/…]</strong> de l&#x27;URL,
-        - de paramètres postés dans le corps de la requête du client ;<ul>
-<li>dans le traitement de la demande de l&#x27;utilisateur, l&#x27;action peut avoir besoin de la couche <strong>[métier]</strong> <strong>[2b]</strong>. Une fois la demande du client traitée, celle-ci peut appeler diverses réponses. Un exemple classique est :<ul>
-<li>une réponse d&#x27;erreur si la demande n&#x27;a pu être traitée correctement ;</li>
-<li>une réponse de confirmation sinon ;</li>
+  <li>2 - traitement
+  </li>
+  <li>l&#x27;action choisie <b>[2a]</b> peut exploiter les paramètres <i>parami</i> que le <b>[Contrôleur principal]</b> lui a transmis. Ceux-ci pourront provenir de deux sources :
+    <ol>
+        <ul>
+          <li>du chemin <b>[/param1/param2/…]</b> de l&#x27;URL,
+          </li>
+          <li>de paramètres postés dans le corps de la requête du client ;
+          </li>
+        </ul>
+    </ol>
+    <ul>
+      <li>dans le traitement de la demande de l&#x27;utilisateur, l&#x27;action peut avoir besoin de la couche <b>[métier]</b> <b>[2b]</b>. Une fois la demande du client traitée, celle-ci peut appeler diverses réponses. Un exemple classique est :
+        <ul>
+          <li>une réponse d&#x27;erreur si la demande n&#x27;a pu être traitée correctement ;
+          </li>
+          <li>une réponse de confirmation sinon ;
+          </li>
+        </ul>
+      </li>
+      <li>le <b>[Contrôleur / Action]</b> rendra sa réponse <b>[2c]</b> au contrôleur principal ainsi qu’un code d’état. Ces codes d’état représenteront de façon unique l’état dans lequel se trouve l’application. Ce sera soit un code de réussite, soit un code d’erreur ;
+      </li>
+    </ul>
+  </li>
+  <li>3 - réponse
+    <ul>
+      <li>selon que le client a demandé une réponse jSON, XML ou HTML, le <b>[Contrôleur principal]</b> instanciera <b>[3a]</b> le type de réponse appropriée et demandera à celle-ci d’envoyer la réponse au client. Le <b>[Contrôleur principal]</b> lui transmettra et la réponse et le code d’état fournis par le <b>[Contrôleur / Action]</b> qui a été exécuté ;
+      </li>
+      <li>si la réponse souhaitée est de type jSON ou XML, la réponse sélectionnée mettra en forme la réponse du <b>[Contrôleur / Action]</b> qu’on lui a donnée et l’enverra <b>[3c]</b>. Le client capable d’exploiter cette réponse peut être un script console Python ou un script Javascript logé dans une page HTML ;
+      </li>
+      <li>si la réponse souhaitée est de type HTML, la réponse sélectionnée sélectionnera <b>[3b]</b> une des <b>vues</b> HTML <b>[Vuei]</b> à l’aide du code d’état qu’on lui a donné. C’est le <b>V</b> de MVC. A un code d’état correspond une unique vue. Cette vue <b>V</b> va afficher la réponse du  <b>[Contrôleur / Action]</b> qui a été exécuté. Elle habille avec du HTML, CSS, Javascript les données de cette réponse. On appelle ces données le <b>modèle de la vue</b>. C&#x27;est le <b>M</b> de MVC. Le client est alors le plus souvent un navigateur ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>le <strong>[Contrôleur / Action]</strong> rendra sa réponse <strong>[2c]</strong> au contrôleur principal ainsi qu’un code d’état. Ces codes d’état représenteront de façon unique l’état dans lequel se trouve l’application. Ce sera soit un code de réussite, soit un code d’erreur ;</li>
-</ul>
-</li>
-<li>3 - réponse<ul>
-<li>selon que le client a demandé une réponse jSON, XML ou HTML, le <strong>[Contrôleur principal]</strong> instanciera <strong>[3a]</strong> le type de réponse appropriée et demandera à celle-ci d’envoyer la réponse au client. Le <strong>[Contrôleur principal]</strong> lui transmettra et la réponse et le code d’état fournis par le <strong>[Contrôleur / Action]</strong> qui a été exécuté ;</li>
-<li>si la réponse souhaitée est de type jSON ou XML, la réponse sélectionnée mettra en forme la réponse du <strong>[Contrôleur / Action]</strong> qu’on lui a donnée et l’enverra <strong>[3c]</strong>. Le client capable d’exploiter cette réponse peut être un script console Python ou un script Javascript logé dans une page HTML ;</li>
-<li>si la réponse souhaitée est de type HTML, la réponse sélectionnée sélectionnera <strong>[3b]</strong> une des <strong>vues</strong> HTML <strong>[Vuei]</strong> à l’aide du code d’état qu’on lui a donné. C’est le <strong>V</strong> de MVC. A un code d’état correspond une unique vue. Cette vue <strong>V</strong> va afficher la réponse du  <strong>[Contrôleur / Action]</strong> qui a été exécuté. Elle habille avec du HTML, CSS, Javascript les données de cette réponse. On appelle ces données le <strong>modèle de la vue</strong>. C&#x27;est le <strong>M</strong> de MVC. Le client est alors le plus souvent un navigateur ;</li>
-</ul>
-</li>
-</ul>
+
 <p>Maintenant, précisons le lien entre architecture web MVC et architecture en couches. Selon la définition qu&#x27;on donne au <strong>modèle</strong>, ces deux concepts sont liés ou non. Prenons une application web MVC à une couche :</p>
-<p><img src="images/10000001000002C0000000F3C259C5FB.png" style="width:11.941cm;height:4.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002C0000000F3C259C5FB.png" /></p>
+<p><img src="images/10000001000002C0000000F3EFA261F9.png" style="width:11.941cm;height:4.121cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000002C0000000F3EFA261F9.png" /></p>
 <p>Ci-dessus, les <strong>[Contrôleur / Action]</strong> intègrent chacun une partie des couches <strong>[métier]</strong> et <strong>[dao]</strong>. Dans la couche <strong>[web]</strong> on a bien une architecture MVC mais l’ensemble de l’application n’a pas une architecture en couches. Ici il n’y a qu’une couche, la couche web, qui fait tout.</p>
 <p>Maintenant, considérons une architecture web multicouche :</p>
 <p><img src="images/10000000000004AF000000CE2A4AE434.png" style="width:13.821cm;height:2.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004AF000000CE2A4AE434.png" /></p>
@@ -1668,115 +1687,176 @@
 <p><img src="images/10000000000004AD000000BE31C43437.png" style="width:13.821cm;height:2.192cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004AD000000BE31C43437.png" /></p>
 <p>Beaucoup d&#x27;auteurs considèrent que ce qui est à droite de la couche <strong>[web]</strong> forme le modèle M du MVC. Pour éviter les ambigüités on peut parler :</p>
 <ul>
-<li>du <strong>modèle du domaine</strong> lorsqu&#x27;on désigne tout ce qui est à droite de la couche <strong>[web]</strong> ;</li>
-<li>du <strong>modèle de la vue</strong> lorsqu&#x27;on désigne les données affichées par une vue V ;</li>
+  <li>du <b>modèle du domaine</b> lorsqu&#x27;on désigne tout ce qui est à droite de la couche <b>[web]</b> ;
+  </li>
+  <li>du <b>modèle de la vue</b> lorsqu&#x27;on désigne les données affichées par une vue V ;
+  </li>
 </ul>
+
 <p>Dans ce qui suit, lorsque nous parlerons de modèle, il s’agita toujours du <strong>modèle de la vue</strong>.</p>
 <p><a id="toc48549240"></a></p>
 <h2 id="302-architecture-de-lapplication-client-serveur">30.2. Architecture de l’application client / serveur</h2>
 <p>L’application web aura l’architecture suivante :</p>
 <p><img src="images/10000000000003BC0000053607429669.png" style="width:11.052cm;height:15.371cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003BC0000053607429669.png" /></p>
 <ul>
-<li>en <strong>[1]</strong> le serveur web aura deux types de clients :<ul>
-<li>en <strong>[2]</strong>, un client console qui échangera du jSON et du XML avec le serveur ;</li>
-<li>en <strong>[3]</strong>, un navigateur qui recevra du HTML du serveur et l’affichera ; </li>
+  <li>en <b>[1]</b> le serveur web aura deux types de clients :
+    <ul>
+      <li>en <b>[2]</b>, un client console qui échangera du jSON et du XML avec le serveur ;
+      </li>
+      <li>en <b>[3]</b>, un navigateur qui recevra du HTML du serveur et l’affichera ; 
+      </li>
+    </ul>
+  </li>
+  <li>le serveur web <b>[1]</b> conserve les couches <b>[métier]</b> et <b>[dao]</b> des versions précédentes ;
+  </li>
+  <li>le client web <b>[2]</b> évoluera pour tenir compte des nouvelles URL de service de l’application web ;
+  </li>
+  <li>l’application HTML afichée par le navigateur est à écrire complètement ;
+  </li>
 </ul>
-</li>
-<li>le serveur web <strong>[1]</strong> conserve les couches <strong>[métier]</strong> et <strong>[dao]</strong> des versions précédentes ;</li>
-<li>le client web <strong>[2]</strong> évoluera pour tenir compte des nouvelles URL de service de l’application web ;</li>
-<li>l’application HTML afichée par le navigateur est à écrire complètement ;</li>
-</ul>
+
 <p>Nous allons développer l’application en plusieurs temps :</p>
 <ul>
-<li>nous allons développer la version jSON du serveur. Nous testerons les URL de service du serveur les unes après les autres avec un client Postman. Cette méthode nous permet de construire l’ossature du seveur web sans nous préoccuper des vues (=HTML) de l’application ;</li>
-<li>après avoir testé le serveur jSON avec Postman, nous le testerons avec un client console ;</li>
-<li>puis nous passerons à la version XML du serveur. Nous avons vu que le passage du jSON au XML était trivial ;</li>
-<li>enfin nous passerons à la version HTML du serveur. Nous construirons une architecture MVC et définirons les vues à afficher. L’application HTML sera testée à la fois avec le client Postman et un navigateur classique ;</li>
+  <li>nous allons développer la version jSON du serveur. Nous testerons les URL de service du serveur les unes après les autres avec un client Postman. Cette méthode nous permet de construire l’ossature du seveur web sans nous préoccuper des vues (=HTML) de l’application ;
+  </li>
+  <li>après avoir testé le serveur jSON avec Postman, nous le testerons avec un client console ;
+  </li>
+  <li>puis nous passerons à la version XML du serveur. Nous avons vu que le passage du jSON au XML était trivial ;
+  </li>
+  <li>enfin nous passerons à la version HTML du serveur. Nous construirons une architecture MVC et définirons les vues à afficher. L’application HTML sera testée à la fois avec le client Postman et un navigateur classique ;
+  </li>
 </ul>
+
 <p><a id="toc48549241"></a></p>
 <h2 id="303-larborescence-du-code-du-serveur">30.3. L’arborescence du code du serveur</h2>
 <p><img src="images/100000000000052E00000191E4FCA526.png" style="width:15.301cm;height:4.631cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052E00000191E4FCA526.png" /></p>
 <ul>
-<li>en <strong>[1 : le serveur web dans sa globalité ;</strong></li>
-<li><strong>en [2]</strong> : nous ignorerons pour l’instant les dossiers <strong>[static, templates, tests_views]</strong> qui concernent la version HTML du serveur. En-dehors de ce dossier nous trouverons le script principal <strong>[main]</strong> et sa configuration ;</li>
-<li>en <strong>[3]</strong>, les contrôleurs du serveur web. Ce seront des instances de classes ;</li>
+  <li>en <b>[1 : le serveur web dans sa globalité ;</b>
+  </li>
+  <li><b>en [2]</b> : nous ignorerons pour l’instant les dossiers <b>[static, templates, tests_views]</b> qui concernent la version HTML du serveur. En-dehors de ce dossier nous trouverons le script principal <b>[main]</b> et sa configuration ;
+  </li>
+  <li>en <b>[3]</b>, les contrôleurs du serveur web. Ce seront des instances de classes ;
+  </li>
 </ul>
+
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/100000000000017C00000179A4B96CF2.png" style="display:inline-block; margin:4px;width:4.381cm;height:4.351cm;" class="odt-zoomable" data-zoom-src="images/100000000000017C00000179A4B96CF2.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001B2000001291DBA70C4.png" style="display:inline-block; margin:4px;width:5.01cm;height:3.432cm;" class="odt-zoomable" data-zoom-src="images/10000000000001B2000001291DBA70C4.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>en <strong>[4]</strong>, la réponse HTTP du serveur sera gérée par des classes ;</li>
-<li>en <strong>[5]</strong>, nous conservons le fichier de logs des serveurs précédents ;</li>
+  <li>en <b>[4]</b>, la réponse HTTP du serveur sera gérée par des classes ;
+  </li>
+  <li>en <b>[5]</b>, nous conservons le fichier de logs des serveurs précédents ;
+  </li>
 </ul>
+
 <p>Lorsque nous construirons la version HTML du serveur, d’autres dossiers interviendront :</p>
 <table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001DB00000246F98D7DD7.png" style="display:inline-block; margin:4px;width:5.49cm;height:6.73cm;" class="odt-zoomable" data-zoom-src="images/10000000000001DB00000246F98D7DD7.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000001FA000001893C83F7F1.png" style="display:inline-block; margin:4px;width:5.841cm;height:4.541cm;" class="odt-zoomable" data-zoom-src="images/10000000000001FA000001893C83F7F1.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;">&nbsp;</td></tr></table>
 
 <ul>
-<li>en <strong>[6]</strong>, les éléments statiques de l’application HTML ;</li>
-<li>en <strong>[7]</strong>, les templates de l’application HTML décomposés en vues <strong>[9]</strong> et en fragments de vue <strong>[8]</strong> ;</li>
-<li>en <strong>[9]</strong>, les classes implémentant les modèles des vues ;</li>
+  <li>en <b>[6]</b>, les éléments statiques de l’application HTML ;
+  </li>
+  <li>en <b>[7]</b>, les templates de l’application HTML décomposés en vues <b>[9]</b> et en fragments de vue <b>[8]</b> ;
+  </li>
+  <li>en <b>[9]</b>, les classes implémentant les modèles des vues ;
+  </li>
 </ul>
+
 <p><a id="toc48549242"></a></p>
 <h2 id="304-les-url-de-service-de-lapplication">30.4. Les URL de service de l’application</h2>
 <p>Pour construire le serveur web, nous allons procéder de la façon suivante :</p>
 <ul>
-<li>à partir des vues de l’application HTML, nous allons définir les actions que doit implémenter l’application web. Nous allons ici utiliser les vues réelles mais ce pourrait être simplement des vues sur papier ;</li>
-<li>à partir de ces actions, nous allons définir les URL de service de l’application HTML ;</li>
-<li>nous allons implémenter ces URL de service avec un serveur délivrant du jSON. Cela permet de définir l’ossature du serveur web sans se préoccuper des pages HTML à délivrer. Nous testerons ces URL de service avec Postman ;</li>
-<li>nous testerons ensuite notre serveur jSON avec un client console ;</li>
-<li>une fois que le serveur jSON aura été validé, nous passerons à l’ériture de l’application HTML ;</li>
+  <li>à partir des vues de l’application HTML, nous allons définir les actions que doit implémenter l’application web. Nous allons ici utiliser les vues réelles mais ce pourrait être simplement des vues sur papier ;
+  </li>
+  <li>à partir de ces actions, nous allons définir les URL de service de l’application HTML ;
+  </li>
+  <li>nous allons implémenter ces URL de service avec un serveur délivrant du jSON. Cela permet de définir l’ossature du serveur web sans se préoccuper des pages HTML à délivrer. Nous testerons ces URL de service avec Postman ;
+  </li>
+  <li>nous testerons ensuite notre serveur jSON avec un client console ;
+  </li>
+  <li>une fois que le serveur jSON aura été validé, nous passerons à l’ériture de l’application HTML ;
+  </li>
 </ul>
+
 <p>La 1ère vue sera la vue d’authentification :</p>
 <p><img src="images/100000000000052F0000035AF3022D8F.png" style="width:15.331cm;height:9.921cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052F0000035AF3022D8F.png" /></p>
 <ul>
-<li>l’action qui mène à cette 1ère vue s’appellera <strong>[init-session]</strong> <strong>[1]</strong> ;</li>
-<li>le clic sur le bouton <strong>[Valider]</strong> va déclencher l’action <strong>[authentifier-utilisateur]</strong> avec deux paramètres postés <strong>[2-3]</strong> ;</li>
+  <li>l’action qui mène à cette 1ère vue s’appellera <b>[init-session]</b> <b>[1]</b> ;
+  </li>
+  <li>le clic sur le bouton <b>[Valider]</b> va déclencher l’action <b>[authentifier-utilisateur]</b> avec deux paramètres postés <b>[2-3]</b> ;
+  </li>
 </ul>
+
 <p>La vue du calcul de l’impôt :</p>
 <p><img src="images/100000000000050B00000373E5FBF2A5.png" style="width:14.922cm;height:10.201cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000050B00000373E5FBF2A5.png" /></p>
 <ul>
-<li>en <strong>[1]</strong>, l’action <strong>[authentifier-utilisateur]</strong> qui a amené à cette vue ;</li>
-<li>en <strong>[2]</strong>, le clic sur le bouton <strong>[Valider]</strong> déclenche l’exécution de l’action <strong>[calculer-impot]</strong> avec trois paramètres postés <strong>[2-5]</strong> ;</li>
-<li>le clic sur le lien <strong>[6]</strong> déclenche l’action <strong>[lister-simulations]</strong> sans paramètres ;</li>
-<li>le clic sur le lien <strong>[7]</strong> déclenche l’action <strong>[fin-session]</strong> sans paramètres ;</li>
+  <li>en <b>[1]</b>, l’action <b>[authentifier-utilisateur]</b> qui a amené à cette vue ;
+  </li>
+  <li>en <b>[2]</b>, le clic sur le bouton <b>[Valider]</b> déclenche l’exécution de l’action <b>[calculer-impot]</b> avec trois paramètres postés <b>[2-5]</b> ;
+  </li>
+  <li>le clic sur le lien <b>[6]</b> déclenche l’action <b>[lister-simulations]</b> sans paramètres ;
+  </li>
+  <li>le clic sur le lien <b>[7]</b> déclenche l’action <b>[fin-session]</b> sans paramètres ;
+  </li>
 </ul>
+
 <p>La 3ième vue est celle des simulations faites par l’utilisateur authentifié :</p>
 <p><img src="images/100000000000052700000248AB35CBDA.png" style="width:15.221cm;height:6.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000052700000248AB35CBDA.png" /></p>
 <ul>
-<li>en <strong>[3]</strong>, l’action <strong>[lister-simulations]</strong> qui a amené à cette vue ;</li>
-<li>en <strong>[2]</strong>, un clic sur le lien <strong>[Supprimer]</strong> déclenche l’action <strong>[supprimer-simulation]</strong> avec un paramètre, le n° de la simulation à supprimer dans la liste ;</li>
-<li>un clic sur le lien <strong>[3]</strong> déclenche l’action <strong>[afficher-calcul-impot]</strong> sans paramètres qui réaffiche la vue du calcul de l’impôt ;</li>
-<li>un clic sur le lien <strong>[4]</strong> déclenche l’action <strong>[fin-session]</strong> sans paramètres ;</li>
+  <li>en <b>[3]</b>, l’action <b>[lister-simulations]</b> qui a amené à cette vue ;
+  </li>
+  <li>en <b>[2]</b>, un clic sur le lien <b>[Supprimer]</b> déclenche l’action <b>[supprimer-simulation]</b> avec un paramètre, le n° de la simulation à supprimer dans la liste ;
+  </li>
+  <li>un clic sur le lien <b>[3]</b> déclenche l’action <b>[afficher-calcul-impot]</b> sans paramètres qui réaffiche la vue du calcul de l’impôt ;
+  </li>
+  <li>un clic sur le lien <b>[4]</b> déclenche l’action <b>[fin-session]</b> sans paramètres ;
+  </li>
 </ul>
+
 <p>Avec ces premières informations, nous pouvons définir les différentes URL de service du serveur :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Action</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Rôle</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Contexte d’exécution</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/init-session</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Sert à fixer le type (json, xml, html) des réponses souhaitées</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête <b>GET</b></p><p style="margin:0;">Peut être émise à tout moment</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/authentifier-utilisateur</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Autorise ou non un utilisateur à se connecter</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête <b>POST.</b></p><p style="margin:0;">La requête doit avoir deux paramètres postés <b>[user, password]</b></p><p style="margin:0;">Ne peut être émise que si le type de la session (json, xml, html) est connu</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/calculer-impot</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Fait une simulation de calcul d’impôt</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête <b>POST.</b></p><p style="margin:0;">La requête doit avoir trois paramètres postés <b>[marié, enfants, salaire]</b></p><p style="margin:0;">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/lister-simulations</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Demande à voir la liste des simulations opérées depuis le début de la session</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête <b>GET.</b></p><p style="margin:0;">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/supprimer-simulation/numéro</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Supprime une simulation de la liste des simulations</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête <b>GET.</b></p><p style="margin:0;">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/afficher-calcul-impot</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Affiche la page HTML du calul de l’impôt</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête <b>GET</b>.</p><p style="margin:0;">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/fin-session</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Termine la session de simulations.</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Techniquement l’ancienne session web est supprimée et une nouvelle session est créée</p><p style="margin:0;">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</p></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Action</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Rôle</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Contexte d’exécution</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/init-session</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Sert à fixer le type (json, xml, html) des réponses souhaitées</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête <b>GET</b></div><div style="margin:0 0 0.5em 0">Peut être émise à tout moment</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/authentifier-utilisateur</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Autorise ou non un utilisateur à se connecter</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête <b>POST.</b></div><div style="margin:0 0 0.5em 0">La requête doit avoir deux paramètres postés <b>[user, password]</b></div><div style="margin:0 0 0.5em 0">Ne peut être émise que si le type de la session (json, xml, html) est connu</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/calculer-impot</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Fait une simulation de calcul d’impôt</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête <b>POST.</b></div><div style="margin:0 0 0.5em 0">La requête doit avoir trois paramètres postés <b>[marié, enfants, salaire]</b></div><div style="margin:0 0 0.5em 0">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/lister-simulations</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Demande à voir la liste des simulations opérées depuis le début de la session</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête <b>GET.</b></div><div style="margin:0 0 0.5em 0">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/supprimer-simulation/numéro</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Supprime une simulation de la liste des simulations</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête <b>GET.</b></div><div style="margin:0 0 0.5em 0">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/afficher-calcul-impot</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Affiche la page HTML du calul de l’impôt</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête <b>GET</b>.</div><div style="margin:0 0 0.5em 0">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/fin-session</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Termine la session de simulations.</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Techniquement l’ancienne session web est supprimée et une nouvelle session est créée</div><div style="margin:0 0 0.5em 0">Ne peut être émise que si le type de la session (json, xml, html) est connu et l’utilisateur authentifié</div></td></tr></table>
 
 <p>Ces différentes URL de service seront utilisées aussi bien pour le serveur HTML que pour les serveurs jSON ou XML. Deux URL ne seront utilisées que pour ces deux derniers serveurs : ce sont les URL de la version précédente du client / serveur web que nous reprenons ici :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Action</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Rôle</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Contexte d’exécution</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/get-admindata</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Rend les données fiscales permettant le calcul de l’impôt</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête GET.</p><p style="margin:0;">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/calculer-impots</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Fait le calcul de l’impôt d’une liste de contribuables postés en jSON</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête GET.</p><p style="margin:0;">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</p></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Action</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Rôle</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Contexte d’exécution</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/get-admindata</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Rend les données fiscales permettant le calcul de l’impôt</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête GET.</div><div style="margin:0 0 0.5em 0">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/calculer-impots</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Fait le calcul de l’impôt d’une liste de contribuables postés en jSON</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête GET.</div><div style="margin:0 0 0.5em 0">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</div></td></tr></table>
 
 <p>Tous les contrôleurs associés à ces actions procèderont de la même façon :</p>
 <ul>
-<li>ils vérifieront leurs paramètres. Ceux-ci sont trouvés dans l’objet :<ul>
-<li><strong>[request.path]</strong> pour les paramètres présents dans l’URL sous la forme <strong>[/action/param1/param2/…]</strong> ;</li>
-<li>dans l’objet <strong>[request.form]</strong> pour ceux qui sont transmis en <strong>[x-www-form-urlencoded]</strong> dans le corps de la requête ;</li>
-<li>dans l’objet <strong>[request.data]</strong> pour ceux qui sont transmis en jSON dans le corps de la requête ;</li>
+  <li>ils vérifieront leurs paramètres. Ceux-ci sont trouvés dans l’objet :
+    <ul>
+      <li><b>[request.path]</b> pour les paramètres présents dans l’URL sous la forme <b>[/action/param1/param2/…]</b> ;
+      </li>
+      <li>dans l’objet <b>[request.form]</b> pour ceux qui sont transmis en <b>[x-www-form-urlencoded]</b> dans le corps de la requête ;
+      </li>
+      <li>dans l’objet <b>[request.data]</b> pour ceux qui sont transmis en jSON dans le corps de la requête ;
+      </li>
+    </ul>
+  </li>
+  <li>un contrôleur s’apparente à une fonction ou méthode qui vérifie la validité de ses paramètres. Pour le contrôleur c’est cependant un peu plus compliqué :
+    <ul>
+      <li>les paramètres attendus peuvent être absents ;
+      </li>
+      <li>les paramètres récupérés par le contrôleur sont des chaînes de caractères. Si le paramètre attendu est un nombre, alors le contrôleur doit vérifier que la chaîne de caractères du paramètre est bien celle d’un nombre ;
+      </li>
+      <li>une fois vérifié, que les paramètres attendus sont présents et syntaxiquement corrects, il faut vérifier qu’ils sont valides dans le contexte d’exécution du moment. Ce contexte est présent dans la session. L’exemple de l’authentification est un exemple de contexte d’exécution. Certaines actions ne doivent être traitées qu’une fois le client authentifié. Généralement, une clé dans la session indique si cette authentification a eu lieu ou pas ;
+      </li>
+      <li>une fois, les vérifications précédentes faites, le contrôleur secondaire peut travailler. Ce travail de vérification des paramètres est très important. On ne peut pas accepter qu’un client nous envoie n’importe quoi à n’importe quel moment de la vie de l’application. On doit contrôler totalement la vie de celle-ci ;
+      </li>
+      <li>une fois son travail fait, le contrôleur secondaire rend un dictionnaire avec les clés <b>[action, état, réponse]</b> au contrôleur principal qui l’a appelé :
+        <ul>
+          <li><b>[action]</b> est l’action qui vient d’être exécutée ;
+          </li>
+          <li><b>[état]</b> est un nombre à trois chiffres qui indique le résultat du traitement de l’action :
+          </li>
+        </ul>
+      </li>
+      <li><b>[x00]</b> signalera une réussite du traitement ;
+      </li>
+      <li><b>[x01]</b> signalera un échec du traitement ;
+      </li>
+    </ul>
+  </li>
+  <li><b>[réponse]</b> est le dictionnaire des résultats sous la forme <b>{‘réponse’:objet}</b>. L’objet aura des structures différentes selon l’action traitée ;  
+  </li>
 </ul>
-</li>
-<li>un contrôleur s’apparente à une fonction ou méthode qui vérifie la validité de ses paramètres. Pour le contrôleur c’est cependant un peu plus compliqué :<ul>
-<li>les paramètres attendus peuvent être absents ;</li>
-<li>les paramètres récupérés par le contrôleur sont des chaînes de caractères. Si le paramètre attendu est un nombre, alors le contrôleur doit vérifier que la chaîne de caractères du paramètre est bien celle d’un nombre ;</li>
-<li>une fois vérifié, que les paramètres attendus sont présents et syntaxiquement corrects, il faut vérifier qu’ils sont valides dans le contexte d’exécution du moment. Ce contexte est présent dans la session. L’exemple de l’authentification est un exemple de contexte d’exécution. Certaines actions ne doivent être traitées qu’une fois le client authentifié. Généralement, une clé dans la session indique si cette authentification a eu lieu ou pas ;</li>
-<li>une fois, les vérifications précédentes faites, le contrôleur secondaire peut travailler. Ce travail de vérification des paramètres est très important. On ne peut pas accepter qu’un client nous envoie n’importe quoi à n’importe quel moment de la vie de l’application. On doit contrôler totalement la vie de celle-ci ;</li>
-<li>une fois son travail fait, le contrôleur secondaire rend un dictionnaire avec les clés <strong>[action, état, réponse]</strong> au contrôleur principal qui l’a appelé :<ul>
-<li><strong>[action]</strong> est l’action qui vient d’être exécutée ;</li>
-<li><strong>[état]</strong> est un nombre à trois chiffres qui indique le résultat du traitement de l’action :</li>
-</ul>
-</li>
-<li><strong>[x00]</strong> signalera une réussite du traitement ;</li>
-<li><strong>[x01]</strong> signalera un échec du traitement ;</li>
-</ul>
-</li>
-<li><strong>[réponse]</strong> est le dictionnaire des résultats sous la forme <strong>{‘réponse’:objet}</strong>. L’objet aura des structures différentes selon l’action traitée ;  </li>
-</ul>
+
 <p>Nous allons maintenant passer en revue les différents contrôleurs ou ce qui revient au même les différentes actions que ces contrôleurs traitent et qui rythment la vie de l’application web.</p>
 <p><a id="toc48549243"></a></p>
 <h2 id="305-configuration-du-serveur">30.5. Configuration du serveur</h2>
@@ -1988,33 +2068,49 @@
 </code></pre></div>
 
 <ul>
-<li>jusqu’à la ligne 41, on retrouve des choses classiques ;</li>
-<li>lignes 43-66 : arrivé à la ligne 43, le Python Path du serveur est défini. On peut alors importer les dépendances du projet :<ul>
-<li>lignes 45-55 : la liste des contrôleurs ;</li>
-<li>lignes 57-60 : la liste des réponses HTTP ;</li>
-<li>lignes 62-66 : la liste des modèles de vues ;</li>
+  <li>jusqu’à la ligne 41, on retrouve des choses classiques ;
+  </li>
+  <li>lignes 43-66 : arrivé à la ligne 43, le Python Path du serveur est défini. On peut alors importer les dépendances du projet :
+    <ul>
+      <li>lignes 45-55 : la liste des contrôleurs ;
+      </li>
+      <li>lignes 57-60 : la liste des réponses HTTP ;
+      </li>
+      <li>lignes 62-66 : la liste des modèles de vues ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 68-189 : la configuration de l’application avec une série de constantes ;
+    <ul>
+      <li>lignes 71-98 : nous connaissons déà ces lignes rencontrées dans les versions précédentes ;
+      </li>
+      <li>lignes 101-122 : le dictionnaire des contrôleurs :
+        <ul>
+          <li>les clés sont les noms des actions ;
+          </li>
+          <li>les valeurs sont une instance du contrôleur qui doit gérer cette action. Chaque contrôleur n’est instancié qu’en un unique exemplaire (singleton). La même instance sera exécutée par différents threads du serveur. Il faudra donc veiller aux données partagées que chaque contrôleur pourrait vouloir modifier ;
+          </li>
+        </ul>
+      </li>
+      <li>lignes 125-129 : le dictionnaire des trois réponses HTTP possibles :
+        <ul>
+          <li>les clés sont le type de réponse souhaité par le client (jSON, xml, html) ;
+          </li>
+          <li>les valeurs sont une instance de la réponse HTTP. Chaque générateur de réponse n’est instancié qu’en un unique exemplaire (singleton). Le même générateur sera exécuté par différents threads du serveur. Il faudra donc veiller aux données partagées que chaque générateur pourrait vouloir modifier ;
+          </li>
+        </ul>
+      </li>
+      <li>lignes 132-186 : configuration des vues HTML. Pour l’instant, on ignore ces lignes ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 191-202 : nous avons déjà rencontré ces lignes dans les versions précédentes ;
+  </li>
 </ul>
-</li>
-<li>lignes 68-189 : la configuration de l’application avec une série de constantes ;<ul>
-<li>lignes 71-98 : nous connaissons déà ces lignes rencontrées dans les versions précédentes ;</li>
-<li>lignes 101-122 : le dictionnaire des contrôleurs :<ul>
-<li>les clés sont les noms des actions ;</li>
-<li>les valeurs sont une instance du contrôleur qui doit gérer cette action. Chaque contrôleur n’est instancié qu’en un unique exemplaire (singleton). La même instance sera exécutée par différents threads du serveur. Il faudra donc veiller aux données partagées que chaque contrôleur pourrait vouloir modifier ;</li>
-</ul>
-</li>
-<li>lignes 125-129 : le dictionnaire des trois réponses HTTP possibles :<ul>
-<li>les clés sont le type de réponse souhaité par le client (jSON, xml, html) ;</li>
-<li>les valeurs sont une instance de la réponse HTTP. Chaque générateur de réponse n’est instancié qu’en un unique exemplaire (singleton). Le même générateur sera exécuté par différents threads du serveur. Il faudra donc veiller aux données partagées que chaque générateur pourrait vouloir modifier ;</li>
-</ul>
-</li>
-<li>lignes 132-186 : configuration des vues HTML. Pour l’instant, on ignore ces lignes ;</li>
-</ul>
-</li>
-<li>lignes 191-202 : nous avons déjà rencontré ces lignes dans les versions précédentes ;</li>
-</ul>
+
 <p><a id="toc48549244"></a></p>
 <h2 id="306-cheminement-dune-requete-client-au-sein-du-serveur">30.6. Cheminement d’une requête client au sein du serveur</h2>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
+<p><img src="images/100000010000033200000102272A12E0.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
 <p>Nous allons suivre le cheminement d’une requête client arrivant sur le serveur jusqu’à la réponse HTTP envoyée en retour. Elle suit le cheminement du serveur MVC.</p>
 <p><a id="toc48549245"></a></p>
 <h3 id="3061-le-script-main">30.6.1. Le script [main]</h3>
@@ -2180,26 +2276,44 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-92 : toutes ces lignes ont été déjà rencontrées et expliquées ;</li>
-<li>ligne 92 : le serveur va gérer une session. Il nous faut donc une clé secrète. Nous mettrons pour chaque utilisateur deux informations dans la session :<ul>
-<li>si l’utilisateur s’est correctement authentifié ;</li>
-<li>à chaque fois qu’il fera un calcul d’impôt, les résultats de ce calcul seront placés dans une liste qu’on appellera la liste des simulations de l’utilisateur. Cette liste sera placée en session ;</li>
+  <li>lignes 1-92 : toutes ces lignes ont été déjà rencontrées et expliquées ;
+  </li>
+  <li>ligne 92 : le serveur va gérer une session. Il nous faut donc une clé secrète. Nous mettrons pour chaque utilisateur deux informations dans la session :
+    <ul>
+      <li>si l’utilisateur s’est correctement authentifié ;
+      </li>
+      <li>à chaque fois qu’il fera un calcul d’impôt, les résultats de ce calcul seront placés dans une liste qu’on appellera la liste des simulations de l’utilisateur. Cette liste sera placée en session ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 100-151 : la liste des URL de service du serveur. Les fonctions associées servent de filtre : toutes les URL non présentes dans cette liste seront rejetées par le serveur Flask avec l’erreur <b>[404 NOT FOUND]</b>. Une fois passée ce filtrage, la requête est systématiquement transmise à un ‘Front Controller’ implémenté par la fonction <b>[front_controller]</b> des lignes 94-98 que nous allons bientôt présenter ;
+  </li>
+  <li>lignes 100-103 : gestion de la route <b>[/]</b>. Le point d’entrée de l’application web sera l’URL de la ligne 107. Aussi ligne 103, nous redirigeons le client vers cette URL :
+  </li>
+  <li>la fonction <b>[url_for]</b> est importée ligne 18. Elle a ici deux paramètres :
+    <ol>
+        <ul>
+          <li>le 1er paramètre est le nom d’une des fonctions de routage, ici celle de la ligne 107. On voit que cette fonction attend un paramètre <b>[type_response]</b> qui est le type (json, xml, html) de réponse souhaité par le client ;
+          </li>
+          <li>le 2ième paramètre reprend le nom du paramètre de la ligne 107, <b>[type_response]</b> et lui donne une valeur. S’il y avait d’autres paramètres, on répéterait l’opération pour chacun d’eux ;
+          </li>
+          <li>elle rend l’URL associée à la fonction désignée par les deux paramètres qui lui ont été donnés. Ici cela donnera l’URL de la ligne 106 où le paramètre est remplacé par sa valeur <b>[/init-session/html]</b> ;
+          </li>
+        </ul>
+    </ol>
+    <ul>
+      <li>la fonction <b>[redirect]</b> a été importée ligne 18. Elle a pour rôle d’envoyer un entête HTTP de redirection au client :
+        <ul>
+          <li>le 1er paramètre est l’URL vers laquelle le client doit être redirigé ;
+          </li>
+          <li>le 2ième paramètre est le code de statut de la réponse HTTP faite au client. Le code <b>[</b><b><span style="color: #000000">status.HTTP_302_FOUND</span></b><b>]</b> correspond à une redirection HTTP ;
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>lignes 100-151 : la liste des URL de service du serveur. Les fonctions associées servent de filtre : toutes les URL non présentes dans cette liste seront rejetées par le serveur Flask avec l’erreur <strong>[404 NOT FOUND]</strong>. Une fois passée ce filtrage, la requête est systématiquement transmise à un ‘Front Controller’ implémenté par la fonction <strong>[front_controller]</strong> des lignes 94-98 que nous allons bientôt présenter ;</li>
-<li>lignes 100-103 : gestion de la route <strong>[/]</strong>. Le point d’entrée de l’application web sera l’URL de la ligne 107. Aussi ligne 103, nous redirigeons le client vers cette URL :</li>
-<li>la fonction <strong>[url_for]</strong> est importée ligne 18. Elle a ici deux paramètres :
-        - le 1er paramètre est le nom d’une des fonctions de routage, ici celle de la ligne 107. On voit que cette fonction attend un paramètre <strong>[type_response]</strong> qui est le type (json, xml, html) de réponse souhaité par le client ;
-        - le 2ième paramètre reprend le nom du paramètre de la ligne 107, <strong>[type_response]</strong> et lui donne une valeur. S’il y avait d’autres paramètres, on répéterait l’opération pour chacun d’eux ;
-        - elle rend l’URL associée à la fonction désignée par les deux paramètres qui lui ont été donnés. Ici cela donnera l’URL de la ligne 106 où le paramètre est remplacé par sa valeur <strong>[/init-session/html]</strong> ;<ul>
-<li>la fonction <strong>[redirect]</strong> a été importée ligne 18. Elle a pour rôle d’envoyer un entête HTTP de redirection au client :<ul>
-<li>le 1er paramètre est l’URL vers laquelle le client doit être redirigé ;</li>
-<li>le 2ième paramètre est le code de statut de la réponse HTTP faite au client. Le code <strong>[</strong><strong><span style="color: #000000">status.HTTP_302_FOUND</span></strong><strong>]</strong> correspond à une redirection HTTP ;</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
 <p>La fonction <strong>[</strong><a id="version12frontcontroller"></a><strong>front_controller</strong><strong>]</strong> des lignes 94-98 fait les premiers traitements de la requête du client :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># le front controller<span style="color:#000000"></span></span>
@@ -2262,9 +2376,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 1-57 : nous connaissons ce code. C’était par exemple le code de la fonction appelée <strong>[main]</strong> dans le script <strong>[main]</strong> de la version précédente. Une seule chose est à noter, le contrôleur utilisé aux lignes 25-26 :</li>
-<li>ligne 25 : on récupère dans la configuration l’instance de contrôleur associée au nom <strong>[main-controller]</strong>. Il s’agit des lignes suivantes :</li>
+  <li>lignes 1-57 : nous connaissons ce code. C’était par exemple le code de la fonction appelée <b>[main]</b> dans le script <b>[main]</b> de la version précédente. Une seule chose est à noter, le contrôleur utilisé aux lignes 25-26 :
+  </li>
+  <li>ligne 25 : on récupère dans la configuration l’instance de contrôleur associée au nom <b>[main-controller]</b>. Il s’agit des lignes suivantes :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"><span style="color:#000000">    </span># dépendances du serveur web</span>
 <span class="odt-code-line"><span style="color:#000000">    </span># les contôleurs</span>
@@ -2280,16 +2397,21 @@
 </code></pre></div>
 
 <ul>
-<li>(suite)<ul>
-<li>ligne 10 ci-dessus, on remarquera qu’on récupère une instance de classe ;</li>
+  <li>(suite)
+    <ul>
+      <li>ligne 10 ci-dessus, on remarquera qu’on récupère une instance de classe ;
+      </li>
+    </ul>
+  </li>
+  <li>ligne 26 : on demande on contrôleur <b>[MainController]</b> de traiter la requête ;
+  </li>
+  <li>lignes 30-45 : la réponse rendue par le contrôleur <b>[MainController]</b> est envoyée au client. Nous reviendrons sur ces lignes un peu plus tard ;
+  </li>
 </ul>
-</li>
-<li>ligne 26 : on demande on contrôleur <strong>[MainController]</strong> de traiter la requête ;</li>
-<li>lignes 30-45 : la réponse rendue par le contrôleur <strong>[MainController]</strong> est envoyée au client. Nous reviendrons sur ces lignes un peu plus tard ;</li>
-</ul>
+
 <p>Le travail de la fonction <strong>[front_controller]</strong> puis de la classe <strong>[MainController]</strong> est de faire le travail commun à toutes les requêtes :</p>
 <p>Dans le schéma ci-dessus, on en est toujours à la phase 1 du traitement de la requête. Le contrôleur principal <strong>[MainController]</strong> va poursuivre l’étape 1.</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
+<p><img src="images/100000010000033200000102272A12E0.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
 <p><a id="toc48549246"></a></p>
 <h3 id="3062-le-controleur-principal-maincontroller">30.6.2. Le contrôleur principal [MainController]</h3>
 <p>Le contrôleur principal <strong>[MainController]</strong> continue le travail commencé par la fonction <strong>[front_controller]</strong> :</p>
@@ -2308,18 +2430,26 @@
 </code></pre></div>
 
 <ul>
-<li>l’interface <strong>[</strong><strong>InterfaceController</strong><strong>]</strong> ne définit que l’unique méthode <strong>[execute]</strong> de la ligne 8. Cette méthode reçoit trois paramètres :<ul>
-<li><strong>[request]</strong> : la requête du client ;</li>
-<li><strong>[session]</strong> : la session du client ;</li>
-<li><strong>[config]</strong> : la configuration de l’application ;</li>
+  <li>l’interface <b>[</b><b>InterfaceController</b><b>]</b> ne définit que l’unique méthode <b>[execute]</b> de la ligne 8. Cette méthode reçoit trois paramètres :
+    <ul>
+      <li><b>[request]</b> : la requête du client ;
+      </li>
+      <li><b>[session]</b> : la session du client ;
+      </li>
+      <li><b>[config]</b> : la configuration de l’application ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>La méthode <strong>[execute]</strong> rend un tuple de deux éléments :</p>
 <ul>
-<li>le 1er est le dictionnaire des résultats sous la forme {‘action’: action, ‘état’:état, ‘réponse’:résultats} ;</li>
-<li>le 2ième est le code de statut HTTP à rendre au client ;</li>
+  <li>le 1er est le dictionnaire des résultats sous la forme {‘action’: action, ‘état’:état, ‘réponse’:résultats} ;
+  </li>
+  <li>le 2ième est le code de statut HTTP à rendre au client ;
+  </li>
 </ul>
+
 <p>Le contrôleur principal <strong>[MainController]</strong> <strong>[1]</strong> implémente l’interface <strong>[</strong><strong>InterfaceController</strong><strong>]</strong> de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># import des dépendances<span style="color:#000000"></span></span>
@@ -2365,31 +2495,52 @@
 
 <p>Le contrôleur <strong>[MainController]</strong> fait les premières vérifications de la validité de la requête.</p>
 <ul>
-<li>lignes 11-13 : le contrôleur commence par récupérer l’action demandée par le client. On rappelle que les URL de service sont de la forme <strong>[/action/param1/param2/…]</strong> et que cette URL est dans <strong>[request.path]</strong> ;</li>
-<li>lignes 17-23 : l’action <strong>[init-session]</strong> sert à initialiser le type de réponse (json, xml, html) désiré par le client. Cette information est mise en session associée à la clé <strong>[typeRéponse]</strong>. Si donc l’action n’est pas <strong>[init-session]</strong> alors la session doit contenir la clé <strong>[typeRéponse]</strong>, sinon la requête est erronée ;</li>
-<li>lignes 21-22 : la structure du résultat rendu par chaque contrôleur, ici un résultat d’erreur :<ul>
-<li><strong>[action]</strong> : est le nom de l’action en cours. Cela va permettre d’avoir son nom lorsqu’on va loguer le résultat de la requête ;</li>
-<li><strong>[état]</strong> : est un code d’état à trois chiffres :
-        - <strong>[x00]</strong> pour une réussite ;
-        - <strong>[x01]</strong> pour un échec ;</li>
+  <li>lignes 11-13 : le contrôleur commence par récupérer l’action demandée par le client. On rappelle que les URL de service sont de la forme <b>[/action/param1/param2/…]</b> et que cette URL est dans <b>[request.path]</b> ;
+  </li>
+  <li>lignes 17-23 : l’action <b>[init-session]</b> sert à initialiser le type de réponse (json, xml, html) désiré par le client. Cette information est mise en session associée à la clé <b>[typeRéponse]</b>. Si donc l’action n’est pas <b>[init-session]</b> alors la session doit contenir la clé <b>[typeRéponse]</b>, sinon la requête est erronée ;
+  </li>
+  <li>lignes 21-22 : la structure du résultat rendu par chaque contrôleur, ici un résultat d’erreur :
+    <ul>
+      <li><b>[action]</b> : est le nom de l’action en cours. Cela va permettre d’avoir son nom lorsqu’on va loguer le résultat de la requête ;
+      </li>
+      <li><b>[état]</b> : est un code d’état à trois chiffres :
+        <ol>
+            <ul>
+              <li><b>[x00]</b> pour une réussite ;
+              </li>
+              <li><b>[x01]</b> pour un échec ;
+              </li>
+            </ul>
+        </ol>
+      </li>
+    </ul>
+  </li>
+  <li><b>[réponse]</b> : est la réponse à la requête. Sa nature est propre à chaque requête ;
+  </li>
+  <li>lignes 24-30 : l’action <b>[authentifier-utilisateur]</b> sert à authentifier l’utilisateur. Si elle réussit, une clé <b>[user=True]</b> est mise dans la session de l’utilisateur. Certaines URL de service ne sont accessibles que par un utilisateur authentifié. C’est ce qu’on vérifie ici ;
+  </li>
+  <li>ligne 26 : seules les actions <b>[init-session]</b> et <b>[authentifier-utilisateur]</b> peuvent être faites par un utilisateur non encore authentifié ;
+  </li>
+  <li>lignes 28-29 : le résultat à envoyer en cas d’erreur ;
+  </li>
+  <li>lignes 32-34 : si l’une des deux erreurs précédentes s’est produite, alors on envoie la réponse d’erreur au client avec le statut HTTP 400 BAD REQUEST ;
+  </li>
+  <li>lignes 35-39 : s’il n’y a pas eu d’erreur alors on passe la main au contrôleur chargé de traiter l’action en cours. Son instance est trouvée dans la configuration de l’application ;
+  </li>
 </ul>
-</li>
-<li><strong>[réponse]</strong> : est la réponse à la requête. Sa nature est propre à chaque requête ;</li>
-<li>lignes 24-30 : l’action <strong>[authentifier-utilisateur]</strong> sert à authentifier l’utilisateur. Si elle réussit, une clé <strong>[user=True]</strong> est mise dans la session de l’utilisateur. Certaines URL de service ne sont accessibles que par un utilisateur authentifié. C’est ce qu’on vérifie ici ;</li>
-<li>ligne 26 : seules les actions <strong>[init-session]</strong> et <strong>[authentifier-utilisateur]</strong> peuvent être faites par un utilisateur non encore authentifié ;</li>
-<li>lignes 28-29 : le résultat à envoyer en cas d’erreur ;</li>
-<li>lignes 32-34 : si l’une des deux erreurs précédentes s’est produite, alors on envoie la réponse d’erreur au client avec le statut HTTP 400 BAD REQUEST ;</li>
-<li>lignes 35-39 : s’il n’y a pas eu d’erreur alors on passe la main au contrôleur chargé de traiter l’action en cours. Son instance est trouvée dans la configuration de l’application ;</li>
-</ul>
+
 <p>La classe <strong>[MainController]</strong> continue le travail de la fonction <strong>[front_controller]</strong> : à elles deux, elles rassemblent tout ce qui peut être factorisé dans le traitement des requêtes, attendant le dernier moment pour passer la requête à un contrôleur spécifique. La répartition du code entre la fonction <strong>[front_controller]</strong> et la classe <strong>[MainController]</strong> est tout à fait subjective. Ici j’ai voulu conserver l’acquis de la version précédente : la fonction <strong>[front_controller]</strong> existait déjà sous le nom <strong>[main]</strong>. Dans la pratique, on pourrait :</p>
 <ul>
-<li>tout mettre dans la fonction <strong>[front_controller]</strong> et éliminer la classe <strong>[MainController]</strong> ;</li>
-<li>tout mettre dans la classe <strong>[MainController]</strong> et éliminer la fonction <strong>[front_controller]</strong>. C’est plutôt cette solution que je choisirais car elle a le mérite d’alléger le code du script principal <strong>[main]</strong> ;</li>
+  <li>tout mettre dans la fonction <b>[front_controller]</b> et éliminer la classe <b>[MainController]</b> ;
+  </li>
+  <li>tout mettre dans la classe <b>[MainController]</b> et éliminer la fonction <b>[front_controller]</b>. C’est plutôt cette solution que je choisirais car elle a le mérite d’alléger le code du script principal <b>[main]</b> ;
+  </li>
 </ul>
+
 <p><a id="toc48549247"></a></p>
 <h2 id="307-traitement-specifique-a-une-action">30.7. Traitement spécifique à une action</h2>
 <p>Revenons à l’architecture MVC de l’application :</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
+<p><img src="images/100000010000033200000102272A12E0.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
 <p>Nous en sommes toujours à l’étape 1 ci-dessus. S’il n’y a pas eu d’erreur, l’étape 2 va commencer. La requête a été transmise au contrôleur spécifique à l’action demandée par la requête. Supposons que cette action soit <strong>[/init-session]</strong> définie par la route :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># init-session<span style="color:#000000"></span></span>
@@ -2441,10 +2592,14 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 6 : comme les autres contrôleurs, le contrôleur <strong>[</strong><strong>InitSessionController</strong><strong>]</strong> implémente l’interface <strong>[</strong><strong>InterfaceController</strong><strong>]</strong> ;</li>
-<li>ligne 10 : l’URL est de type <strong>[/init-session/type_response]</strong>. On récupère l’action <strong>[init-session]</strong> et le type de réponse souhaité ;</li>
-<li>ligne 15 : le type de réponse souhaité ne peut être que l’un de ceux présents dans la configuration des réponses :</li>
+  <li>ligne 6 : comme les autres contrôleurs, le contrôleur <b>[</b><b>InitSessionController</b><b>]</b> implémente l’interface <b>[</b><b>InterfaceController</b><b>]</b> ;
+  </li>
+  <li>ligne 10 : l’URL est de type <b>[/init-session/type_response]</b>. On récupère l’action <b>[init-session]</b> et le type de réponse souhaité ;
+  </li>
+  <li>ligne 15 : le type de réponse souhaité ne peut être que l’un de ceux présents dans la configuration des réponses :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">        </span># les différents types de réponse (json, xml, html)</span>
 <span class="odt-code-line"><span style="color:#000000">        </span><span style="color:#a31515">&quot;responses&quot;</span><span style="color:#000000">: {</span></span>
@@ -2455,23 +2610,34 @@
 </code></pre></div>
 
 <ul>
-<li>si ce n’est pas le cas on prépare une réponse d’erreur 701 (ligne 17) ;</li>
-<li>lignes 20-25 : cas où le type de réponse souhaité est valide ;</li>
-<li>ligne 22 : le type de réponse souhaité est mis en session. En effet, il va falloir s’en souvenir pour les requêtes qui vont suivre ;</li>
-<li>lignes 23-24 : on prépare une réponse de réussite 700 ;</li>
-<li>ligne 25 : la réponse de réussite est rendue au code appelant ;</li>
-<li>ligne 27 : s’il y a eu erreur, la réponse d’erreur est rendue au code appelant ;</li>
+  <li>si ce n’est pas le cas on prépare une réponse d’erreur 701 (ligne 17) ;
+  </li>
+  <li>lignes 20-25 : cas où le type de réponse souhaité est valide ;
+  </li>
+  <li>ligne 22 : le type de réponse souhaité est mis en session. En effet, il va falloir s’en souvenir pour les requêtes qui vont suivre ;
+  </li>
+  <li>lignes 23-24 : on prépare une réponse de réussite 700 ;
+  </li>
+  <li>ligne 25 : la réponse de réussite est rendue au code appelant ;
+  </li>
+  <li>ligne 27 : s’il y a eu erreur, la réponse d’erreur est rendue au code appelant ;
+  </li>
 </ul>
+
 <p><a id="toc48549248"></a></p>
 <h2 id="308-elaboration-de-la-reponse-http-du-serveur">30.8. Elaboration de la réponse HTTP du serveur</h2>
 <p>Revenons à l’architecture MVC de l’application :</p>
-<p><img src="images/10000001000003320000010243F9EAD1.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000001000003320000010243F9EAD1.png" /></p>
+<p><img src="images/100000010000033200000102272A12E0.png" style="width:13.831cm;height:4.351cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000010000033200000102272A12E0.png" /></p>
 <p>Nous venons de voir les étapes 1 et 2. Nous avons rencontré trois codes d’état :</p>
 <ul>
-<li>700 : /init-session a réussi ;</li>
-<li>701 : /init-session a échoué ;</li>
-<li>101 : requête invalide soit parce que la session n’a pas été initialisée soit parce que l’utilisateur n’est pas authentifié ;</li>
+  <li>700 : /init-session a réussi ;
+  </li>
+  <li>701 : /init-session a échoué ;
+  </li>
+  <li>101 : requête invalide soit parce que la session n’a pas été initialisée soit parce que l’utilisateur n’est pas authentifié ;
+  </li>
 </ul>
+
 <p>Examinons comment la réponse du serveur va être envoyée au client lors de l’étape 3 ci-dessus. Cela se passe dans la fonction <strong>[front_controller]</strong> du script <strong>[main]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># le front controller<span style="color:#000000"></span></span>
@@ -2534,12 +2700,18 @@
 </code></pre></div>
 
 <ul>
-<li>nous en sommes à la ligne 26 : le contrôleur principal a rendu sa réponse d’erreur ;</li>
-<li>lignes 27-29 : quelque soit la réponse du contrôleur principal (réussite ou échec) cette réponse est loguée dans le fichier de logs ;</li>
-<li>lignes 30-33 : comme dans les versions précédentes, si le statut HTTP est <strong>[500 INTERNAL SERVER ERROR]</strong>, on envoie un mail à l’administrateur de l’application avec le log de l’erreur ;</li>
-<li>lignes 34-39 : on va envoyer la réponse HTTP et le résultat rendu par le contrôleur va être mis dans le corps de cette réponse. Il nous faut savoir sous quelle forme (json, xml, html) le client veut cette réponse. On cherche le type de réponse souhaitée dans la session. S’il n’y est pas, alors on fixe arbitrairement ce type à du jSON ;</li>
-<li>lignes 40-43 : la réponse HTTP est construite ;</li>
+  <li>nous en sommes à la ligne 26 : le contrôleur principal a rendu sa réponse d’erreur ;
+  </li>
+  <li>lignes 27-29 : quelque soit la réponse du contrôleur principal (réussite ou échec) cette réponse est loguée dans le fichier de logs ;
+  </li>
+  <li>lignes 30-33 : comme dans les versions précédentes, si le statut HTTP est <b>[500 INTERNAL SERVER ERROR]</b>, on envoie un mail à l’administrateur de l’application avec le log de l’erreur ;
+  </li>
+  <li>lignes 34-39 : on va envoyer la réponse HTTP et le résultat rendu par le contrôleur va être mis dans le corps de cette réponse. Il nous faut savoir sous quelle forme (json, xml, html) le client veut cette réponse. On cherche le type de réponse souhaitée dans la session. S’il n’y est pas, alors on fixe arbitrairement ce type à du jSON ;
+  </li>
+  <li>lignes 40-43 : la réponse HTTP est construite ;
+  </li>
 </ul>
+
 <p>Dans le fichier de configuration, chaque type de réponse (json, xml, html) a été associé à une instance de classe :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">        </span># les différents types de réponse (json, xml, html)</span>
@@ -2568,12 +2740,16 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 8-11 : l’interface <strong>[</strong><strong>InterfaceResponse</strong><strong>]</strong> définit une unique méthode <strong>[</strong><strong>build_http_response</strong><strong>]</strong> ayant les paramètres suivants :<ul>
-<li><strong>[request, session, config]</strong> : ce sont les paramètres reçus par le contrôleur de l’action ;</li>
-<li><strong>[résultat, status_code]</strong> : ce sont les résultats produits par le contrôleur de l’action ;</li>
+  <li>lignes 8-11 : l’interface <b>[</b><b>InterfaceResponse</b><b>]</b> définit une unique méthode <b>[</b><b>build_http_response</b><b>]</b> ayant les paramètres suivants :
+    <ul>
+      <li><b>[request, session, config]</b> : ce sont les paramètres reçus par le contrôleur de l’action ;
+      </li>
+      <li><b>[résultat, status_code]</b> : ce sont les résultats produits par le contrôleur de l’action ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Nous allons présenter la réponse jSON. Elle est produite par la classe <strong>[JsonResponse]</strong> suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">import<span style="color:#000000"> json</span></span>
@@ -2602,21 +2778,30 @@
 <h2 id="309-premiers-tests">30.9. Premiers tests</h2>
 <p>Dans le code étudié, nous avons rencontré trois codes d’état :</p>
 <ul>
-<li>700 : /init-session a réussi ;</li>
-<li>701 : /init-session a échoué ;</li>
-<li>101 : requête invalide soit parce que la session n’a pas été initialisée soit parce que l’utilisateur n’est pas authentifié ;</li>
+  <li>700 : /init-session a réussi ;
+  </li>
+  <li>701 : /init-session a échoué ;
+  </li>
+  <li>101 : requête invalide soit parce que la session n’a pas été initialisée soit parce que l’utilisateur n’est pas authentifié ;
+  </li>
 </ul>
+
 <p>Nous allons essayer de les obtenir avec une session jSON.</p>
 <ul>
-<li>nous lançons le seveur web, le SGBD, le serveur de mails ;</li>
-<li>nous lançons un client Postman ;</li>
+  <li>nous lançons le seveur web, le SGBD, le serveur de mails ;
+  </li>
+  <li>nous lançons un client Postman ;
+  </li>
 </ul>
+
 <p><u><strong>Test 1</strong></u></p>
 <p>Nous montrons tout d’abord une requête invalide parce que la session n’a pas été initialisé :</p>
 <p><img src="images/10000000000002BE00000127F5FEAD9A.png" style="width:8.09cm;height:3.41cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BE00000127F5FEAD9A.png" /></p>
 <ul>
-<li><strong>[1-2]</strong> : la requête <strong>[POST </strong><a href="http://localhost:5000/authentifier-utilisateur"><u><span style="color: #0563c1"><strong>http://localhost:5000/authentifier-utilisateur</strong></span></u></a><strong>]</strong><span style="color: #505050"> est une route valide :</span></li>
+  <li><b>[1-2]</b> : la requête <b>[POST </b><a href="http://localhost:5000/authentifier-utilisateur"><u><span style="color: #0563c1"><b>http://localhost:5000/authentifier-utilisateur</b></span></u></a><b>]</b><span style="color: #505050"> est une route valide :</span>
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># authentifier-utilisateur<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#000000">@app.route(</span><span style="color:#a31515">&#x27;/authentifier-utilisateur&#x27;</span><span style="color:#000000">, methods=</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;POST&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">)</span></span>
@@ -2629,19 +2814,27 @@
 <p>Exécutons la requête et voyons le résultat envoyé par le serveur :</p>
 <p><img src="images/10000000000003F50000019B063287AC.png" style="width:11.69cm;height:4.74cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003F50000019B063287AC.png" /></p>
 <ul>
-<li><strong>[1-2]</strong> : on a obtenu une réponse jSON. Lorsque le type de réponse n’a pas encore été fixé par le client, le serveur utilise le jSON pour répondre ;</li>
-<li><strong>[3-5]</strong> : le dictionnaire jSON de la réponse ;<ul>
-<li><strong>[action]</strong> : l’action qui a été exécutée ;</li>
-<li><strong>[état]</strong> : le code d’état de la réponse. Un code <strong>[x01]</strong> indique une erreur ;</li>
-<li><strong>[réponse]</strong> : est adaptée à chaque action. Ici elle contient un message d’erreur ;</li>
+  <li><b>[1-2]</b> : on a obtenu une réponse jSON. Lorsque le type de réponse n’a pas encore été fixé par le client, le serveur utilise le jSON pour répondre ;
+  </li>
+  <li><b>[3-5]</b> : le dictionnaire jSON de la réponse ;
+    <ul>
+      <li><b>[action]</b> : l’action qui a été exécutée ;
+      </li>
+      <li><b>[état]</b> : le code d’état de la réponse. Un code <b>[x01]</b> indique une erreur ;
+      </li>
+      <li><b>[réponse]</b> : est adaptée à chaque action. Ici elle contient un message d’erreur ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Maintenant initialisons une session avec un type de réponse incorrect :</p>
 <p><img src="images/100000000000033E0000019C4EE2189F.png" style="width:9.561cm;height:4.751cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000033E0000019C4EE2189F.png" /></p>
 <ul>
-<li><strong>[1-2]</strong> est une route correcte :</li>
+  <li><b>[1-2]</b> est une route correcte :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line"># init-session<span style="color:#000000"></span></span>
 <span class="odt-code-line"><span style="color:#000000">@app.route(</span><span style="color:#a31515">&#x27;/init-session/&lt;string:type_response&gt;&#x27;</span><span style="color:#000000">, methods=</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&#x27;GET&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">)</span></span>
@@ -2654,9 +2847,12 @@
 <p>La réponse est la suivante :</p>
 <p><img src="images/10000000000002F70000017D6FABDC42.png" style="width:8.771cm;height:4.4cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002F70000017D6FABDC42.png" /></p>
 <ul>
-<li>en <strong>[4]</strong>, un code d’erreur <strong>[x01]</strong> ;</li>
-<li>en <strong>[5]</strong>, l’explication de l’erreur ;</li>
+  <li>en <b>[4]</b>, un code d’erreur <b>[x01]</b> ;
+  </li>
+  <li>en <b>[5]</b>, l’explication de l’erreur ;
+  </li>
 </ul>
+
 <p>Maintenant, initialisons une session jSON :</p>
 <p><img src="images/10000000000002BB0000013B913DCD7D.png" style="width:8.081cm;height:3.641cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002BB0000013B913DCD7D.png" /></p>
 <p>La réponse est la suivante :</p>
@@ -2705,9 +2901,12 @@
 
 <p>Le serveur attend deux paramètres postés :</p>
 <ul>
-<li><strong>[user]</strong> : l’identifiant de l’utilisateur ;</li>
-<li><strong>[password]</strong> : son mot de passe ;</li>
+  <li><b>[user]</b> : l’identifiant de l’utilisateur ;
+  </li>
+  <li><b>[password]</b> : son mot de passe ;
+  </li>
 </ul>
+
 <p>La liste des utilisateurs autorisés est définie dans la configuration <strong>[config]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">        </span># utilisateurs autorisés à utiliser l&#x27;application</span>
@@ -2792,62 +2991,93 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 14 : on récupère les paramètres du POST ;</li>
-<li>ligne 19 : la liste des erreurs trouvées dans la requête ;</li>
-<li>lignes 20-24 : on vérifie qu’il y a bien deux paramètres postés ;</li>
-<li>lignes 27-31 : on vérifie la présence d’un paramètre <strong>[users]</strong> ;</li>
-<li>lignes 32-36 : on vérifie la présence d’un paramètre <strong>[password]</strong> ;</li>
-<li>lignes 38-39 : si les paramètres postés sont erronés, on prépare une réponse HTTP 400 BAD REQUEST ;</li>
-<li>lignes 40-58 : on vérifie que les identifiants <strong>[user, password]</strong> sont ceux d’un utilisateur autorisé à utiliser l’application ;</li>
-<li>lignes 51-55 : si l’utilisateur (user, password) n’est pas autorisé à utiliser l’application, on prépare une réponse HTTP 401 UNAUTHORIZED ;</li>
-<li>lignes 56-58 : s’il est autorisé, alors on note avec la clé <strong>[user]</strong> dans la session qu’il s’est authentifié ;</li>
+  <li>ligne 14 : on récupère les paramètres du POST ;
+  </li>
+  <li>ligne 19 : la liste des erreurs trouvées dans la requête ;
+  </li>
+  <li>lignes 20-24 : on vérifie qu’il y a bien deux paramètres postés ;
+  </li>
+  <li>lignes 27-31 : on vérifie la présence d’un paramètre <b>[users]</b> ;
+  </li>
+  <li>lignes 32-36 : on vérifie la présence d’un paramètre <b>[password]</b> ;
+  </li>
+  <li>lignes 38-39 : si les paramètres postés sont erronés, on prépare une réponse HTTP 400 BAD REQUEST ;
+  </li>
+  <li>lignes 40-58 : on vérifie que les identifiants <b>[user, password]</b> sont ceux d’un utilisateur autorisé à utiliser l’application ;
+  </li>
+  <li>lignes 51-55 : si l’utilisateur (user, password) n’est pas autorisé à utiliser l’application, on prépare une réponse HTTP 401 UNAUTHORIZED ;
+  </li>
+  <li>lignes 56-58 : s’il est autorisé, alors on note avec la clé <b>[user]</b> dans la session qu’il s’est authentifié ;
+  </li>
 </ul>
+
 <p>On notera que si l’utilisateur était authentifié avec les identifiants <strong>[identifiants1]</strong> et qu’il échoue à s’authentifier avec les identifiants <strong>[identifiants2]</strong>, il reste néanmoins authentifié avec les identifiants <strong>[identifiants1]</strong>.</p>
 <p>Faisons des tests Postman :</p>
 <ul>
-<li>on lance le serveur web, le SGBD et le serveur de mails ;</li>
-<li>avec le client Postman :<ul>
-<li>on démarre une session jSON ;</li>
-<li>puis on s’authentifie ;</li>
+  <li>on lance le serveur web, le SGBD et le serveur de mails ;
+  </li>
+  <li>avec le client Postman :
+    <ul>
+      <li>on démarre une session jSON ;
+      </li>
+      <li>puis on s’authentifie ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-</ul>
+
 <p>Voilà différents cas.</p>
 <p><u><strong>Cas 1 : POST sans paramètres postés</strong></u></p>
 <p><img src="images/100000000000038E0000015C77DFB95F.png" style="width:10.51cm;height:4.021cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E0000015C77DFB95F.png" /></p>
 <ul>
-<li>en <strong>[3-5]</strong>, le POST n’a pas de corps ;</li>
+  <li>en <b>[3-5]</b>, le POST n’a pas de corps ;
+  </li>
 </ul>
+
 <p>Le résultat de la requête est le suivant :</p>
 <p><img src="images/10000000000004BB0000012542DE0AB8.png" style="width:13.99cm;height:3.38cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BB0000012542DE0AB8.png" /></p>
 <ul>
-<li>en <strong>[2]</strong>, on a eu une réponse HTTP 400 BAD REQUEST ;</li>
-<li>en <strong>[5]</strong>, on a eu un code d’erreur <strong>[201]</strong> ;</li>
+  <li>en <b>[2]</b>, on a eu une réponse HTTP 400 BAD REQUEST ;
+  </li>
+  <li>en <b>[5]</b>, on a eu un code d’erreur <b>[201]</b> ;
+  </li>
 </ul>
+
 <p><u><strong>Cas 2 : POST avec identifiants erronés</strong></u></p>
 <p><img src="images/100000000000038E00000172CBD23596.png" style="width:10.51cm;height:4.261cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E00000172CBD23596.png" /></p>
 <ul>
-<li>en <strong>[6]</strong>, les identifiants sont erronés ;</li>
+  <li>en <b>[6]</b>, les identifiants sont erronés ;
+  </li>
 </ul>
+
 <p>Le serveur envoie la réponse suivante :</p>
 <p><img src="images/10000000000004BE00000124AB53F412.png" style="width:14.031cm;height:3.372cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BE00000124AB53F412.png" /></p>
 <ul>
-<li>en <strong>[2]</strong>, la réponse HTTP 401 UNAUTHORIZED ;</li>
-<li>en <strong>[5]</strong>, la réponse d’erreur ;</li>
+  <li>en <b>[2]</b>, la réponse HTTP 401 UNAUTHORIZED ;
+  </li>
+  <li>en <b>[5]</b>, la réponse d’erreur ;
+  </li>
 </ul>
+
 <p><u><strong>Cas 2 : POST avec identifiants corrects</strong></u></p>
 <p><img src="images/100000000000038D00000172C28B877D.png" style="width:10.51cm;height:4.261cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D00000172C28B877D.png" /></p>
 <ul>
-<li>en <strong>[6]</strong>, les identifiants sont corrects ;</li>
+  <li>en <b>[6]</b>, les identifiants sont corrects ;
+  </li>
 </ul>
+
 <p>La réponse du serveur est la suivante :</p>
 <ul>
-<li>en <strong>[2]</strong>, un réponse HTTP 200 OK ;</li>
+  <li>en <b>[2]</b>, un réponse HTTP 200 OK ;
+
+<img src="images/10000000000004BF0000010257D437DE.png" style="width:14.011cm;height:2.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BF0000010257D437DE.png" />
+
+
+  </li>
+  <li>en <b>[5]</b>, la réponse de réussite ;
+  </li>
 </ul>
-<p><img src="images/10000000000004BF0000010257D437DE.png" style="width:14.011cm;height:2.98cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000004BF0000010257D437DE.png" /></p>
-<ul>
-<li>en <strong>[5]</strong>, la réponse de réussite ;</li>
-</ul>
+
 <p><a id="toc48549251"></a></p>
 <h2 id="3011-laction-calculer_impot">30.11. L’action [calculer_impot]</h2>
 <p>L’action <strong>[calculer_impot]</strong> permet de calculer l’impôt d’un contribuable. Sa route est définie de la façon suivante dans le script <strong>[main]</strong> :</p>
@@ -2861,10 +3091,14 @@
 
 <p>Le serveur attend trois paramètres postés :</p>
 <ul>
-<li><strong>[marié]</strong> : oui / non ;</li>
-<li><strong>[enfants]</strong> : nombre d’enfants du contribuable ;</li>
-<li><strong>[salaire]</strong> : salaire annuel du contribuable ;</li>
+  <li><b>[marié]</b> : oui / non ;
+  </li>
+  <li><b>[enfants]</b> : nombre d’enfants du contribuable ;
+  </li>
+  <li><b>[salaire]</b> : salaire annuel du contribuable ;
+  </li>
 </ul>
+
 <p>Le contrôleur <strong>[CalculerImpotController]</strong> traite l’action <strong>[calculer_impot]</strong> :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
 <span class="odt-code-line">import<span style="color:#000000"> re</span></span>
@@ -2960,32 +3194,54 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : on récupère le nom de l’action en cours ;</li>
-<li>ligne 17: on va cumuler les erreurs dans une liste ;</li>
-<li>ligne 19 : on récupère les paramètres postés. Ceux-ci sont postés sous la forme <strong>[x-www-form-urlencoded]</strong> et c’est pourquoi on les récupère dans <strong>[request.form]</strong>. S’ils avaient été postés en jSON on les aurait récupérés dans <strong>[request.data]</strong> ;</li>
-<li>lignes 21-24 : on vérifie qu’il y a bien trois paramètres postés ;</li>
-<li>lignes 27-36 : vérification de la présence et de la validité du paramètre posté <strong>[marié]</strong> ;</li>
-<li>lignes 37-48 : vérification de la présence et de la validité du paramètre posté <strong>[enfants]</strong> ;</li>
-<li>lignes 49-60 : vérification de la présence et de la validité du paramètre posté <strong>[salaire]</strong> ;</li>
-<li>lignes 62-66 : s’il y a eu erreur, on envoie une réponse d’erreur 400 BAD REQUEST avec un code d’état <strong>[301]</strong> ;</li>
-<li>lignes 69-71 : s’il n’y a pas eu erreur, on se prépare à calculer l’impôt. Pour cela,<ul>
-<li>ligne 70 : on récupère une référence sur la couche <strong>[métier]</strong> ;</li>
-<li>ligne 71 : on récupère les données de l’administration fiscale dans la configuration du serveur ;</li>
+  <li>ligne 13 : on récupère le nom de l’action en cours ;
+  </li>
+  <li>ligne 17: on va cumuler les erreurs dans une liste ;
+  </li>
+  <li>ligne 19 : on récupère les paramètres postés. Ceux-ci sont postés sous la forme <b>[x-www-form-urlencoded]</b> et c’est pourquoi on les récupère dans <b>[request.form]</b>. S’ils avaient été postés en jSON on les aurait récupérés dans <b>[request.data]</b> ;
+  </li>
+  <li>lignes 21-24 : on vérifie qu’il y a bien trois paramètres postés ;
+  </li>
+  <li>lignes 27-36 : vérification de la présence et de la validité du paramètre posté <b>[marié]</b> ;
+  </li>
+  <li>lignes 37-48 : vérification de la présence et de la validité du paramètre posté <b>[enfants]</b> ;
+  </li>
+  <li>lignes 49-60 : vérification de la présence et de la validité du paramètre posté <b>[salaire]</b> ;
+  </li>
+  <li>lignes 62-66 : s’il y a eu erreur, on envoie une réponse d’erreur 400 BAD REQUEST avec un code d’état <b>[301]</b> ;
+  </li>
+  <li>lignes 69-71 : s’il n’y a pas eu erreur, on se prépare à calculer l’impôt. Pour cela,
+    <ul>
+      <li>ligne 70 : on récupère une référence sur la couche <b>[métier]</b> ;
+      </li>
+      <li>ligne 71 : on récupère les données de l’administration fiscale dans la configuration du serveur ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 72-74 : l’impôt du contribuable est calculé ;
+  </li>
+  <li>lignes 75-77 : on va compter le nombre de calculs d’impôt faits par l’utilisateur ;
+    <ul>
+      <li>ligne 76 : on récupère en session, le n° du dernier calcul fait. On appelle ici <b>[simulation]</b> le résultat d’un calcul ;
+      </li>
+      <li>ligne 77 : on incrémente le n° de la dernière simulation ;
+      </li>
+      <li>ligne 78 : on remet ce n° en session ;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 79-84 : pour suivre les calculs faits par l’utilisateur, on va mettre dans sa session, la liste des simulations qu’il a faites ;
+  </li>
+  <li>ligne 80 : une simulation sera le dictionnaire d’un objet TaxPayer dont la propriété <b>[id]</b> aura pour valeur le n° de la simulation ;
+  </li>
+  <li>lignes 82-84 : la simulation courante est ajoutée à la liste des simulations présente en session ;
+  </li>
+  <li>lignes 86-87 : on prépare une réponse HTTP de réussite ;
+  </li>
+  <li>ligne 90 : on rend le résultat ;
+  </li>
 </ul>
-</li>
-<li>lignes 72-74 : l’impôt du contribuable est calculé ;</li>
-<li>lignes 75-77 : on va compter le nombre de calculs d’impôt faits par l’utilisateur ;<ul>
-<li>ligne 76 : on récupère en session, le n° du dernier calcul fait. On appelle ici <strong>[simulation]</strong> le résultat d’un calcul ;</li>
-<li>ligne 77 : on incrémente le n° de la dernière simulation ;</li>
-<li>ligne 78 : on remet ce n° en session ;</li>
-</ul>
-</li>
-<li>lignes 79-84 : pour suivre les calculs faits par l’utilisateur, on va mettre dans sa session, la liste des simulations qu’il a faites ;</li>
-<li>ligne 80 : une simulation sera le dictionnaire d’un objet TaxPayer dont la propriété <strong>[id]</strong> aura pour valeur le n° de la simulation ;</li>
-<li>lignes 82-84 : la simulation courante est ajoutée à la liste des simulations présente en session ;</li>
-<li>lignes 86-87 : on prépare une réponse HTTP de réussite ;</li>
-<li>ligne 90 : on rend le résultat ;</li>
-</ul>
+
 <p>Faisons quelques tests : le serveur web, le SGBD, le serveur de mails, un client Postman sont lancés. </p>
 <p><u><strong>Cas 1 : faire un calcul d’impôt alors que la session n’est pas initialisée</strong></u></p>
 <p><img src="images/100000000000038E000001A92D814240.png" style="width:10.501cm;height:4.901cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038E000001A92D814240.png" /></p>
@@ -2998,8 +3254,10 @@
 <p>On initialise une session jSON, on s’authentifie puis on fait la requête suivante :</p>
 <p><img src="images/100000000000038D0000019EBD0BAABF.png" style="width:10.501cm;height:4.781cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D0000019EBD0BAABF.png" /></p>
 <ul>
-<li>en <strong>[5]</strong>, il manque le paramètre <strong>[marié]</strong> ;</li>
+  <li>en <b>[5]</b>, il manque le paramètre <b>[marié]</b> ;
+  </li>
 </ul>
+
 <p>La réponse est la suivante :</p>
 <p><u><strong>Cas 4 : faire un calcul d’impôt avec des paramètres erronés</strong></u> </p>
 <p><img src="images/100000000000038D000001366AEFA3B8.png" style="width:10.501cm;height:3.581cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000038D000001366AEFA3B8.png" /></p>
@@ -3042,26 +3300,41 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : la liste des simulations est prise dans la session ;</li>
-<li>lignes 15-16 : on retourne une réponse de réussite ;</li>
+  <li>ligne 13 : la liste des simulations est prise dans la session ;
+  </li>
+  <li>lignes 15-16 : on retourne une réponse de réussite ;
+  </li>
 </ul>
+
 <p>Faisons le test Postman suivant :</p>
 <ul>
-<li>on lance une session jSON ;</li>
-<li>on s’authentifie ;</li>
-<li>on fait deux calculs d’impôt ;</li>
-<li>on demande la liste des simulations ;</li>
+  <li>on lance une session jSON ;
+  </li>
+  <li>on s’authentifie ;
+  </li>
+  <li>on fait deux calculs d’impôt ;
+  </li>
+  <li>on demande la liste des simulations ;
+  </li>
 </ul>
+
 <p>La requête est la suivante :</p>
 <ul>
-<li>en <strong>[3]</strong>, il n’y a aucun paramètre ;</li>
+  <li>en <b>[3]</b>, il n’y a aucun paramètre ;
+
+<img src="images/1000000000000239000001260619ED31.png" style="width:6.571cm;height:3.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000239000001260619ED31.png" />
+
+
+  </li>
 </ul>
-<p><img src="images/1000000000000239000001260619ED31.png" style="width:6.571cm;height:3.391cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000239000001260619ED31.png" /></p>
+
 <p>La réponse du serveur est la suivante :</p>
 <p><img src="images/10000000000002CB000003893204E1AE.png" style="width:8.261cm;height:10.461cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002CB000003893204E1AE.png" /></p>
 <ul>
-<li>en <strong>[4]</strong>, la liste des simulations de l’utilisateur ;</li>
+  <li>en <b>[4]</b>, la liste des simulations de l’utilisateur ;
+  </li>
 </ul>
+
 <p><a id="toc48549253"></a></p>
 <h2 id="3013-laction-supprimer-simulation">30.13. L’action [supprimer-simulation]</h2>
 <p>L’action <strong>[supprimer-simulation]</strong> permet à un utilisateur de supprimer une des simulations de sa liste de simulations. Sa route est définie de la façon suivante dans le script <strong>[main]</strong> :</p>
@@ -3105,27 +3378,39 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 10 : on récupère les deux éléments du chemin de la requête. On les récupère en temps que chaîne de caractères ;</li>
-<li>ligne 13 : le paramètre <strong>[numéro]</strong> est transformé en entier. On sait que c’est possible à cause de la signature de sa route, </li>
+  <li>ligne 10 : on récupère les deux éléments du chemin de la requête. On les récupère en temps que chaîne de caractères ;
+  </li>
+  <li>ligne 13 : le paramètre <b>[numéro]</b> est transformé en entier. On sait que c’est possible à cause de la signature de sa route, 
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">@app.route(</span>&#x27;/supprimer-simulation/&lt;<span style="background-color:#fff2cc">int</span>:numero&gt;&#x27;<span style="color:#000000">, methods=</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold">&#x27;GET&#x27;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">)</span></span>
 </code></pre></div>
 
 <p>On sait de plus que c’est un entier &gt;=0. On ne peut pas en effet avoir une URL <strong>[/supprimer-simulation/-4]</strong>. Celle-ci est refusée par le serveur Flask ;</p>
 <ul>
-<li>ligne 15 : on récupère la liste des simulations dans la session ;</li>
-<li>ligne 16 : avec la fonction <strong>[filter]</strong>, on cherche la simulation ayant id==numéro. On obtient un objet <strong>[filter]</strong> qu’on convertit en type <strong>[list]</strong> ;</li>
-<li>lignes 17-20 : si le filtre n’a rien ramené, alors c’est que la simulation à supprimer n’existe pas. On rend une réponse d’erreur qui l’indique ;</li>
-<li>lignes 21-23 : on supprime la simulation ramenée par le filtre ;</li>
-<li>ligne 25 : on remet la nouvelle liste de simulations en session ;</li>
-<li>ligne 27 : on rend dans la réponse, la nouvelle liste de simulations ;</li>
+  <li>ligne 15 : on récupère la liste des simulations dans la session ;
+  </li>
+  <li>ligne 16 : avec la fonction <b>[filter]</b>, on cherche la simulation ayant id==numéro. On obtient un objet <b>[filter]</b> qu’on convertit en type <b>[list]</b> ;
+  </li>
+  <li>lignes 17-20 : si le filtre n’a rien ramené, alors c’est que la simulation à supprimer n’existe pas. On rend une réponse d’erreur qui l’indique ;
+  </li>
+  <li>lignes 21-23 : on supprime la simulation ramenée par le filtre ;
+  </li>
+  <li>ligne 25 : on remet la nouvelle liste de simulations en session ;
+  </li>
+  <li>ligne 27 : on rend dans la réponse, la nouvelle liste de simulations ;
+  </li>
 </ul>
+
 <p>Nous faisons un test de réussite et un test d’échec. On fait des simulations puis on demande la liste des simulations :</p>
 <p><img src="images/1000000000000275000003300966AC33.png" style="width:7.261cm;height:9.42cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000275000003300966AC33.png" /></p>
 <ul>
-<li>les simulations ont ici les n°s 2 et 3 ;</li>
+  <li>les simulations ont ici les n°s 2 et 3 ;
+  </li>
 </ul>
+
 <p>On demande à supprimer la simulation ayant le n° 3.</p>
 <p><img src="images/10000000000002D50000010FED9F04E5.png" style="width:8.362cm;height:3.13cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002D50000010FED9F04E5.png" /></p>
 <p>La réponse est la suivante :</p>
@@ -3163,15 +3448,22 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 13 : on supprime toutes les clés de la session. Cela supprime :<ul>
-<li><strong>[typeResponse]</strong> : le type des réponses HTTP (json, xml, html) ;</li>
-<li><strong>[id_simulation]</strong> : n° de la dernière simulation faite ;</li>
-<li><strong>[simulations]</strong> : la liste des simulations de l’utilisateur ;</li>
-<li><strong>[user]</strong> : l’indicateur que l’utilisateur a été authentifié ;</li>
+  <li>ligne 13 : on supprime toutes les clés de la session. Cela supprime :
+    <ul>
+      <li><b>[typeResponse]</b> : le type des réponses HTTP (json, xml, html) ;
+      </li>
+      <li><b>[id_simulation]</b> : n° de la dernière simulation faite ;
+      </li>
+      <li><b>[simulations]</b> : la liste des simulations de l’utilisateur ;
+      </li>
+      <li><b>[user]</b> : l’indicateur que l’utilisateur a été authentifié ;
+      </li>
+    </ul>
+  </li>
+  <li>on rend la réponse ;
+  </li>
 </ul>
-</li>
-<li>on rend la réponse ;</li>
-</ul>
+
 <p>On peut se demander comment va être rendue la réponse HTTP de la ligne 15, maintenant que le type de réponse n’est plus dans la session. Pour le savoir, il faut revenir à la fonction |<a href="#version12frontcontroller">front_controller</a>| du script principal <strong>[main]</strong> et la modifier de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line">…        </span>
@@ -3206,23 +3498,32 @@
 </code></pre></div>
 
 <ul>
-<li>ligne 3 : le type de la réponse actuellement en session est mémorisé ;</li>
-<li>ligne 6 : l’action est exécutée. S’il s’agit de :<ul>
-<li><strong>[fin-session]</strong>, la clé <strong>[typeResponse]</strong> n’est alors plus dans la session ;</li>
-<li><strong>[init-session]</strong>, la clé <strong>[typeResponse]</strong> de la session a pu changer de valeur ;;</li>
+  <li>ligne 3 : le type de la réponse actuellement en session est mémorisé ;
+  </li>
+  <li>ligne 6 : l’action est exécutée. S’il s’agit de :
+    <ul>
+      <li><b>[fin-session]</b>, la clé <b>[typeResponse]</b> n’est alors plus dans la session ;
+      </li>
+      <li><b>[init-session]</b>, la clé <b>[typeResponse]</b> de la session a pu changer de valeur ;;
+      </li>
+    </ul>
+  </li>
+  <li>lignes 14-20 : on doit émettre la réponse HTTP. Il nous faut savoir sous quelle forme :
+    <ul>
+      <li>lignes 16-18 : si le type de la réponse n’est définie ni par <b>[type_response1]</b> de la ligne 3, ni par <b>[type_response2]</b> de la ligne 15, alors le type de réponse n’était défini ni avant ni après l’action. On utilise alors du jSON (ligne 18) ;
+      </li>
+      <li>lignes 19-21 : si <b>[type_response2]</b> existe, le type dans la session après l’action, alors c’est ce type qu’il faut utiliser ;
+      </li>
+      <li>lignes 22-23 : sinon c’est <b>[type_response1]</b>, le type de réponse avant l’action (celle-ci est forcément <b>[fin-session]</b>) qu’il faut utiliser ;
+      </li>
+    </ul>
+  </li>
 </ul>
-</li>
-<li>lignes 14-20 : on doit émettre la réponse HTTP. Il nous faut savoir sous quelle forme :<ul>
-<li>lignes 16-18 : si le type de la réponse n’est définie ni par <strong>[type_response1]</strong> de la ligne 3, ni par <strong>[type_response2]</strong> de la ligne 15, alors le type de réponse n’était défini ni avant ni après l’action. On utilise alors du jSON (ligne 18) ;</li>
-<li>lignes 19-21 : si <strong>[type_response2]</strong> existe, le type dans la session après l’action, alors c’est ce type qu’il faut utiliser ;</li>
-<li>lignes 22-23 : sinon c’est <strong>[type_response1]</strong>, le type de réponse avant l’action (celle-ci est forcément <strong>[fin-session]</strong>) qu’il faut utiliser ;</li>
-</ul>
-</li>
-</ul>
+
 <p><a id="toc48549255"></a></p>
 <h2 id="3015-laction-get-admindata">30.15. L’action [get-admindata]</h2>
 <p>Nous abordons maintenant les deux URL réservées aux services jSON et XML :</p>
-<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Action</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Rôle</b></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><b>Contexte d’exécution</b></p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/get-admindata</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Rend les données fiscales permettant le calcul de l’impôt</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête GET.</p><p style="margin:0;">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</p></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;"><mark style="background-color: #fff5ce">/calculer-impots</mark></p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Fait le calcul de l’impôt d’une liste de contribuables postés en jSON</p></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><p style="margin:0;">Requête GET.</p><p style="margin:0;">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</p></td></tr></table>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Action</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Rôle</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><b>Contexte d’exécution</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/get-admindata</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Rend les données fiscales permettant le calcul de l’impôt</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête GET.</div><div style="margin:0 0 0.5em 0">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0"><mark style="background-color: #fff5ce">/calculer-impots</mark></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Fait le calcul de l’impôt d’une liste de contribuables postés en jSON</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><div style="margin:0 0 0.5em 0">Requête GET.</div><div style="margin:0 0 0.5em 0">N’est utilisée que si le type de la session est json ou xml. L’utilisateur doit être authentifié</div></td></tr></table>
 
 <p>L’URL <strong>[/get-admindata]</strong> est définie dans les routes du script principal <strong>[main]</strong> de la façon suivante :</p>
 <div class="odt-code-rich" data-linenums="true" style="counter-reset: odtline 0;"><pre><code class="language-python">
@@ -3262,9 +3563,12 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 13-21 : on vérifie qu’on est dans une session json ou xml ;</li>
-<li>ligne 24 : on rend le dictionnaire des données de l’administration fiscale qui dès le démarrage du serveur avaient été placées dans la configuration :</li>
+  <li>lignes 13-21 : on vérifie qu’on est dans une session json ou xml ;
+  </li>
+  <li>ligne 24 : on rend le dictionnaire des données de l’administration fiscale qui dès le démarrage du serveur avaient été placées dans la configuration :
+  </li>
 </ul>
+
 <div class="odt-code-rich" data-linenums="false" style="counter-reset: odtline 0;"><pre><code class="language-text">
 <span class="odt-code-line"><span style="color:#000000">    </span># admindata sera une donnée de portée application en lecture seule</span>
 <span class="odt-code-line"><span style="color:#000000">    config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;admindata&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000"> = config</span><span style="font-weight:bold;color:#000000">[</span><span style="font-weight:bold;color:#a31515">&quot;layers&quot;</span><span style="font-weight:bold;color:#000000">][</span><span style="font-weight:bold;color:#a31515">&quot;dao&quot;</span><span style="font-weight:bold;color:#000000">]</span><span style="color:#000000">.get_admindata()</span></span>
@@ -3411,14 +3715,22 @@
 </code></pre></div>
 
 <ul>
-<li>lignes 16-24 : on vérifie qu’on est bien dans une session json ou xml</li>
-<li>lignes 26-120 : ce code nous est globalement connu. C’est celui de la fonction |<a href="#_Le_contrôleur_[index_controller]"><u><span style="color: #0563c1">index_controller</span></u></a>| de la version 10 de l’application qui a été aménagé pour répondre aux spécifications de l’interface <strong>[</strong><strong><span style="color: #000000">InterfaceController</span></strong><strong>]</strong> implémentée ;</li>
-<li>lignes 104-115 : le code ajouté pour tenir compte du nouvel environnement de ce contrôleur. On vient de faire des calculs d’impôt. Il nous faut mémoriser les résultats dans la liste des simulations maintenues en session ;</li>
-<li>ligne 105 : on récupère la liste des simulations en session ;</li>
-<li>ligne 106 : on récupère le n° de la dernière simulation faite ;</li>
-<li>lignes 107-112 : on parcourt la liste des dictionnaires des résultats du calcul de l’impôt, à chacun d’eux on attribue un n° <strong>[id]</strong> de simulation et chaque dictionnaire est ajouté à la liste des simulations ;</li>
-<li>lignes 113-115 : la nouvelle liste des simulations ainsi que le n° de la dernière simulation faite sont remis en session ;</li>
+  <li>lignes 16-24 : on vérifie qu’on est bien dans une session json ou xml
+  </li>
+  <li>lignes 26-120 : ce code nous est globalement connu. C’est celui de la fonction |<a href="#_Le_contrôleur_[index_controller]"><u><span style="color: #0563c1">index_controller</span></u></a>| de la version 10 de l’application qui a été aménagé pour répondre aux spécifications de l’interface <b>[</b><b><span style="color: #000000">InterfaceController</span></b><b>]</b> implémentée ;
+  </li>
+  <li>lignes 104-115 : le code ajouté pour tenir compte du nouvel environnement de ce contrôleur. On vient de faire des calculs d’impôt. Il nous faut mémoriser les résultats dans la liste des simulations maintenues en session ;
+  </li>
+  <li>ligne 105 : on récupère la liste des simulations en session ;
+  </li>
+  <li>ligne 106 : on récupère le n° de la dernière simulation faite ;
+  </li>
+  <li>lignes 107-112 : on parcourt la liste des dictionnaires des résultats du calcul de l’impôt, à chacun d’eux on attribue un n° <b>[id]</b> de simulation et chaque dictionnaire est ajouté à la liste des simulations ;
+  </li>
+  <li>lignes 113-115 : la nouvelle liste des simulations ainsi que le n° de la dernière simulation faite sont remis en session ;
+  </li>
 </ul>
+
 <p>Nous faisons le test Postman suivant, après avoir initialisé une session jSON et s’être authentifié :</p>
 <p><img src="images/10000000000005FE000001960B59FC7D.png" style="width:17.691cm;height:4.691cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000005FE000001960B59FC7D.png" /></p>
 <p><img src="images/10000000000003E70000020DD3E6731F.png" style="width:11.51cm;height:6.07cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003E70000020DD3E6731F.png" /></p>
